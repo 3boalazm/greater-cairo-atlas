@@ -5,7 +5,10 @@ import {
   type NeonQueryFunction,
 } from "@neondatabase/serverless";
 import ws from "ws";
-import { requireDatabaseEnv } from "@/lib/env";
+import {
+  requireDatabaseEnv,
+  requireMigrationDatabaseEnv,
+} from "@/lib/env";
 
 function assertServerRuntime(): void {
   if (typeof window !== "undefined") {
@@ -37,19 +40,21 @@ export function getSql(): NeonQueryFunction<false, false> {
 }
 
 /**
- * Creates a session-capable Neon PostgreSQL WebSocket client configured
- * exclusively from process.env.DATABASE_URL. Used by CLI batch tooling
- * such as transactional SQL migrations.
+ * Creates a session-capable Neon PostgreSQL WebSocket client for CLI / build
+ * workloads requiring advisory locks and interactive transactions (e.g. migrations
+ * and seed imports). Prefers DATABASE_URL_UNPOOLED over pooled DATABASE_URL.
  */
-export function createNeonSessionClient(): Client {
+export function createNeonSessionClient(
+  rawEnv: NodeJS.ProcessEnv = process.env,
+): Client {
   assertServerRuntime();
-  const { DATABASE_URL } = requireDatabaseEnv();
+  const { connectionString } = requireMigrationDatabaseEnv(rawEnv);
 
   if (typeof WebSocket === "undefined") {
     neonConfig.webSocketConstructor = ws;
   }
 
   return new Client({
-    connectionString: DATABASE_URL,
+    connectionString,
   });
 }

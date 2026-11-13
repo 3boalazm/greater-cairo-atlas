@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import type { z } from "zod";
 import {
+  canVerifyFactWithSources,
   entitySeedSchema,
   evidenceSeedSchema,
   factSeedSchema,
@@ -374,9 +375,9 @@ export function validateSeedSources(
     issues,
   );
 
-  // Cross-file referential checks against known entity & evidence codes
+  // Cross-file referential & epistemic checks against known entity & evidence codes
   const knownEntityCodes = new Set(entities.map((e) => e.code));
-  const knownEvidenceCodes = new Set(evidence.map((ev) => ev.code));
+  const evidenceByCode = new Map(evidence.map((ev) => [ev.code, ev]));
 
   for (let idx = 0; idx < facts.length; idx++) {
     const fact = facts[idx];
@@ -391,14 +392,35 @@ export function validateSeedSources(
       });
     }
 
+    const resolvedSources: EvidenceSeed[] = [];
+    let hasUnknownEvidence = false;
+
     for (let evIdx = 0; evIdx < fact.evidence_codes.length; evIdx++) {
       const evCode = fact.evidence_codes[evIdx];
-      if (evCode && !knownEvidenceCodes.has(evCode)) {
+      if (!evCode) {
+        continue;
+      }
+      const evItem = evidenceByCode.get(evCode);
+      if (!evItem) {
+        hasUnknownEvidence = true;
         issues.push({
           path: `facts.json[${idx}].evidence_codes.${evIdx}`,
           message: `Unknown evidence_code "${evCode}" referenced by fact "${fact.code}" (not found in evidence.json).`,
         });
+      } else {
+        resolvedSources.push(evItem);
       }
+    }
+
+    if (
+      fact.verification_state === "verified" &&
+      !hasUnknownEvidence &&
+      !canVerifyFactWithSources(resolvedSources.map((s) => s.source_type))
+    ) {
+      issues.push({
+        path: `facts.json[${idx}].verification_state`,
+        message: `Fact "${fact.code}" cannot have verification_state "verified" when backed solely by secondary evidence (${fact.evidence_codes.join(", ")}). At least one non-secondary source is required.`,
+      });
     }
   }
 

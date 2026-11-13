@@ -11,7 +11,7 @@ import {
 } from "@/lib/db/migrate";
 import { DatabaseNotConfiguredError, MigrationError } from "@/lib/errors";
 
-describe("SQL migrations runner and migrations 000 + 001", () => {
+describe("SQL migrations runner and migrations 000 + 001 + 002", () => {
   const tempDirs: string[] = [];
   const originalDatabaseUrl = process.env.DATABASE_URL;
 
@@ -36,44 +36,64 @@ describe("SQL migrations runner and migrations 000 + 001", () => {
     return dir;
   }
 
-  it("discovers 000_enable_postgis.sql and 001_core_schema.sql in order and verifies invariants", async () => {
+  it("discovers 000, 001 (immutable checksum), and 002 in order and verifies invariants", async () => {
     const migrations = await discoverMigrations();
     expect(migrations.map((m) => m.filename)).toEqual([
       "000_enable_postgis.sql",
       "001_core_schema.sql",
+      "002_entity_taxonomy.sql",
     ]);
 
     const m000 = migrations[0];
+    expect(m000?.checksum.slice(0, 12)).toBe("b573d40e4c3a");
     expect(m000?.sql).toMatch(
       /CREATE\s+EXTENSION\s+IF\s+NOT\s+EXISTS\s+postgis\s*;/i,
     );
 
+    // 001_core_schema.sql checksum must never change
     const m001 = migrations[1];
-    expect(m001).toBeDefined();
+    expect(m001?.checksum.slice(0, 12)).toBe("664d66c189da");
     const sql001 = m001?.sql ?? "";
-
-    // Core 4 tables + associative fact_evidence table
     expect(sql001).toMatch(/CREATE\s+TABLE\s+entities\b/i);
     expect(sql001).toMatch(/CREATE\s+TABLE\s+evidence\b/i);
     expect(sql001).toMatch(/CREATE\s+TABLE\s+facts\b/i);
     expect(sql001).toMatch(/CREATE\s+TABLE\s+features\b/i);
     expect(sql001).toMatch(/CREATE\s+TABLE\s+fact_evidence\b/i);
-
-    // SRID 4326 geometry + GiST index + ON DELETE RESTRICT + updated_at triggers
-    expect(sql001).toMatch(/geometry\s*\(\s*Geometry\s*,\s*4326\s*\)/i);
-    expect(sql001).toMatch(/USING\s+GIST\s*\(\s*geometry\s*\)/i);
-    expect(sql001).toMatch(/ON\s+DELETE\s+RESTRICT/i);
-    expect(sql001).not.toMatch(/ON\s+DELETE\s+CASCADE/i);
-    expect(sql001).toMatch(/trg_entities_set_updated_at/i);
-    expect(sql001).toMatch(/trg_evidence_set_updated_at/i);
-    expect(sql001).toMatch(/trg_facts_set_updated_at/i);
-    expect(sql001).toMatch(/trg_features_set_updated_at/i);
-
-    // Must NOT put a UNIQUE constraint or index on (entity_id, attribute)
     expect(sql001).not.toMatch(/UNIQUE\s*\(\s*entity_id\s*,\s*attribute\s*\)/i);
-    expect(sql001).not.toMatch(
-      /CREATE\s+UNIQUE\s+INDEX[^;]*\(\s*entity_id\s*,\s*attribute\s*\)/i,
-    );
+
+    // 002_entity_taxonomy.sql extends entity_type + source_type and adds verified-fact trigger
+    const m002 = migrations[2];
+    expect(m002).toBeDefined();
+    const sql002 = m002?.sql ?? "";
+
+    const requiredResearcherTypes = [
+      "city",
+      "district",
+      "neighborhood",
+      "road",
+      "bridge",
+      "interchange",
+      "tunnel",
+      "transit_line",
+      "transit_stop",
+      "project",
+      "authority",
+      "landmark",
+      "facility",
+      "waterway",
+      "utility",
+    ];
+    for (const entityType of requiredResearcherTypes) {
+      expect(sql002).toContain(`'${entityType}'`);
+    }
+    // Backwards-compatible 001 types remain valid
+    expect(sql002).toContain("'transit_station'");
+    expect(sql002).toContain("'bridge_interchange'");
+
+    // Secondary evidence & deferred primary-source enforcement trigger
+    expect(sql002).toContain("'secondary'");
+    expect(sql002).toMatch(/DEFERRABLE\s+INITIALLY\s+DEFERRED/i);
+    expect(sql002).toMatch(/assert_fact_verified_has_primary_source/i);
   });
 
   it("runs dry-run without requiring DATABASE_URL", async () => {
@@ -83,6 +103,7 @@ describe("SQL migrations runner and migrations 000 + 001", () => {
     expect(summary.discovered.map((m) => m.filename)).toEqual([
       "000_enable_postgis.sql",
       "001_core_schema.sql",
+      "002_entity_taxonomy.sql",
     ]);
   });
 

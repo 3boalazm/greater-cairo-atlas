@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { getRuntimeEnv, requireDatabaseEnv } from "@/lib/env";
+import {
+  getRuntimeEnv,
+  requireDatabaseEnv,
+  requireMigrationDatabaseEnv,
+} from "@/lib/env";
 import { DatabaseNotConfiguredError, EnvValidationError } from "@/lib/errors";
 
 describe("environment validation", () => {
@@ -51,6 +55,40 @@ describe("environment validation", () => {
     });
 
     expect(result.DATABASE_URL).toBe(neonUrl);
+  });
+
+  it("prefers DATABASE_URL_UNPOOLED for migrations when present and falls back to DATABASE_URL", () => {
+    const pooledUrl =
+      "postgresql://role:pw@ep-cairo-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require";
+    const unpooledUrl =
+      "postgresql://role:pw@ep-cairo.eu-central-1.aws.neon.tech/neondb?sslmode=require";
+
+    const preferred = requireMigrationDatabaseEnv({
+      NODE_ENV: "test",
+      DATABASE_URL: pooledUrl,
+      DATABASE_URL_UNPOOLED: unpooledUrl,
+    });
+    expect(preferred).toEqual({
+      connectionString: unpooledUrl,
+      source: "DATABASE_URL_UNPOOLED",
+    });
+
+    const fallback = requireMigrationDatabaseEnv({
+      NODE_ENV: "test",
+      DATABASE_URL: pooledUrl,
+    });
+    expect(fallback).toEqual({
+      connectionString: pooledUrl,
+      source: "DATABASE_URL",
+    });
+
+    expect(() =>
+      requireMigrationDatabaseEnv({
+        NODE_ENV: "test",
+        DATABASE_URL: pooledUrl,
+        DATABASE_URL_UNPOOLED: "not-a-postgres-url",
+      }),
+    ).toThrowError(EnvValidationError);
   });
 
   it("validates runtime environment defaults and rejects invalid LOG_LEVEL", () => {

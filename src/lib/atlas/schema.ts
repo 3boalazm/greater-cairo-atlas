@@ -5,18 +5,27 @@ export const FACT_ATTRIBUTE_PATTERN = /^[a-z][a-z0-9_]*$/;
 export const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
 export const ENTITY_TYPES = [
+  // Researcher taxonomy (15 canonical types)
   "city",
   "district",
   "neighborhood",
   "road",
+  "bridge",
+  "interchange",
+  "tunnel",
   "transit_line",
+  "transit_stop",
+  "project",
+  "authority",
+  "landmark",
+  "facility",
+  "waterway",
+  "utility",
+  // Retained Phase 02 compatibility types
   "transit_station",
   "bridge_interchange",
-  "utility",
   "public_facility",
   "development_zone",
-  "landmark",
-  "waterway",
 ] as const;
 
 export const ENTITY_SECTORS = [
@@ -52,6 +61,7 @@ export const EVIDENCE_SOURCE_TYPES = [
   "dataset",
   "map",
   "pdf",
+  "secondary",
 ] as const;
 
 export const OSM_ELEMENT_TYPES = ["node", "way", "relation"] as const;
@@ -79,6 +89,16 @@ export type FeatureLicense = (typeof FEATURE_LICENSES)[number];
  */
 export function isOperationalStatus(status: EntityStatus): boolean {
   return status === "operational";
+}
+
+/**
+ * Weak 'secondary' sources (Wikipedia, real-estate blogs, aggregators) must never
+ * by themselves qualify a fact as 'verified'. At least one non-secondary source is required.
+ */
+export function canVerifyFactWithSources(
+  sourceTypes: readonly EvidenceSourceType[],
+): boolean {
+  return sourceTypes.some((sourceType) => sourceType !== "secondary");
 }
 
 function isRealCalendarDate(value: string): boolean {

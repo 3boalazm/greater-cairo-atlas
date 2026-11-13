@@ -36,6 +36,7 @@ export interface MigrationDbSession {
 export interface RunMigrationsOptions {
   migrationsDir?: string;
   dryRun?: boolean;
+  env?: NodeJS.ProcessEnv;
   sessionFactory?: () => MigrationDbSession;
 }
 
@@ -126,26 +127,28 @@ export async function discoverMigrations(
   return migrations;
 }
 
-const defaultSessionFactory = (): MigrationDbSession => {
-  const client = createNeonSessionClient();
-  return {
-    async connect() {
-      await client.connect();
-    },
-    async query<Row = Record<string, unknown>>(
-      text: string,
-      values?: unknown[],
-    ) {
-      const result = values
-        ? await client.query(text, values)
-        : await client.query(text);
-      return { rows: result.rows as Row[] };
-    },
-    async end() {
-      await client.end();
-    },
+const createDefaultSessionFactory =
+  (rawEnv: NodeJS.ProcessEnv = process.env) =>
+  (): MigrationDbSession => {
+    const client = createNeonSessionClient(rawEnv);
+    return {
+      async connect() {
+        await client.connect();
+      },
+      async query<Row = Record<string, unknown>>(
+        text: string,
+        values?: unknown[],
+      ) {
+        const result = values
+          ? await client.query(text, values)
+          : await client.query(text);
+        return { rows: result.rows as Row[] };
+      },
+      async end() {
+        await client.end();
+      },
+    };
   };
-};
 
 export async function runMigrations(
   options: RunMigrationsOptions = {},
@@ -171,7 +174,8 @@ export async function runMigrations(
     };
   }
 
-  const createSession = options.sessionFactory ?? defaultSessionFactory;
+  const createSession =
+    options.sessionFactory ?? createDefaultSessionFactory(options.env);
   const session = createSession();
   let lockAcquired = false;
 

@@ -259,7 +259,7 @@ export async function runDatabaseHealthCheck(
           error: {
             code: "POSTGIS_NOT_ENABLED",
             message:
-              "Connected to Neon PostgreSQL, but PostGIS is not enabled yet. Run the 'Migrate Database' GitHub Actions workflow or 'npm run db:migrate' to apply 000_enable_postgis.sql and 001_core_schema.sql.",
+              "Connected to Neon PostgreSQL, but PostGIS is not enabled yet. Redeploy on Vercel (vercel-build) or run 'npm run db:migrate' to apply SQL migrations.",
           },
         },
       };

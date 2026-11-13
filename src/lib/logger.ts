@@ -11,7 +11,7 @@ const LEVEL_PRIORITY: Record<LogLevel, number> = {
 };
 
 const SENSITIVE_KEY_PATTERN =
-  /^(database_url|databaseurl|connectionstring|connection_string|password|secret|token|authorization|api_key|apikey)$/i;
+  /^(database_url|database_url_unpooled|databaseurl|databaseurlunpooled|postgres_url|postgres_url_non_pooling|connectionstring|connection_string|password|secret|token|authorization|api_key|apikey)$/i;
 
 function resolveConfiguredLevel(): LogLevel {
   const raw = process.env.LOG_LEVEL?.trim().toLowerCase();

@@ -1,5 +1,6 @@
 code,name_ar,name_en,entity_type,sector,status,description
 TEST-ROAD-ALPHA,محور اختباري ألفا,Synthetic Test Corridor Alpha,road,EAST,operational,"Synthetic fixture corridor used exclusively for automated schema and seed-import tests."
 TEST-TRANSIT-BETA,خط نقل اختباري بيتا,Synthetic Test Transit Line Beta,transit_line,EAST,planned,"Synthetic planned transit line verifying that planned entities remain non-operational."
-TEST-DISTRICT-GAMMA,حي اختباري جاما,Synthetic Test District Gamma,district,NORTH,partial,"Synthetic partially built district fixture."
-TEST-STATION-DELTA,محطة اختبارية دلتا,Synthetic Test Station Delta,transit_station,CENTRAL,under_construction,
+TEST-BRIDGE-GAMMA,كوبري اختباري جاما,Synthetic Test Bridge Gamma,bridge,NORTH,partial,"Synthetic partially built bridge fixture exercising researcher bridge taxonomy."
+TEST-STOP-DELTA,توقف نقل اختباري دلتا,Synthetic Test Transit Stop Delta,transit_stop,CENTRAL,under_construction,"Synthetic transit_stop fixture."
+TEST-AUTHORITY-EPSILON,هيئة اختبارية إبسلون,Synthetic Test Authority Epsilon,authority,EAST,operational,"Synthetic governing authority fixture."
