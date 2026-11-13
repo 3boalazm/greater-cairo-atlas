@@ -61,6 +61,43 @@ export class DatabaseNotConfiguredError extends AppError {
   }
 }
 
+export class AdminImportNotConfiguredError extends AppError {
+  constructor(
+    message = "Admin seed import is not configured: ADMIN_IMPORT_TOKEN is missing. Configure ADMIN_IMPORT_TOKEN in Vercel Environment Variables.",
+    issues?: ValidationIssueDetail[],
+  ) {
+    super(message, {
+      code: "ADMIN_IMPORT_NOT_CONFIGURED",
+      statusCode: 503,
+      expose: true,
+      issues,
+    });
+  }
+}
+
+export class AdminUnauthorizedError extends AppError {
+  constructor(
+    message = "Unauthorized: missing or invalid ADMIN_IMPORT_TOKEN.",
+  ) {
+    super(message, {
+      code: "ADMIN_UNAUTHORIZED",
+      statusCode: 401,
+      expose: true,
+    });
+  }
+}
+
+export class RequestValidationError extends AppError {
+  constructor(message: string, issues?: ValidationIssueDetail[]) {
+    super(message, {
+      code: "REQUEST_VALIDATION_ERROR",
+      statusCode: 400,
+      expose: true,
+      issues,
+    });
+  }
+}
+
 export class EnvValidationError extends AppError {
   constructor(message: string, issues: ValidationIssueDetail[]) {
     super(message, {
@@ -153,6 +190,12 @@ export function normalizeUnknownError(error: unknown): {
 
 export function toApiErrorResponse(error: unknown): NextResponse<ApiErrorBody> {
   const normalized = normalizeUnknownError(error);
+  const headers: Record<string, string> = {
+    "Cache-Control": "no-store, max-age=0",
+  };
+  if (normalized.statusCode === 401) {
+    headers["WWW-Authenticate"] = 'Bearer realm="greater-cairo-atlas-admin"';
+  }
   return NextResponse.json(
     {
       ok: false,
@@ -165,9 +208,7 @@ export function toApiErrorResponse(error: unknown): NextResponse<ApiErrorBody> {
     },
     {
       status: normalized.statusCode,
-      headers: {
-        "Cache-Control": "no-store, max-age=0",
-      },
+      headers,
     },
   );
 }

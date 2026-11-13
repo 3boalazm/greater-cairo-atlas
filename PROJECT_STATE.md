@@ -9,11 +9,11 @@ Last updated: `2026-11-13`
 - **Non-Negotiable Epistemic Rules**:
   1. Every recorded fact and geometry retains explicit source provenance (`evidence`).
   2. Conflicting claims across sources are stored side by side, never silently overwritten.
-  3. Planned or under-construction projects are never displayed as operational without an explicit `status` change.
-  4. Weak `'secondary'` sources (Wikipedia, real-estate blogs, aggregators) must never by themselves mark a fact `'verified'`.
-  5. Never fabricate sources, coordinates, measurements, statuses, or boundaries.
-- **Pilot Coverage Scope (Phase 03+ Ingestion)**:
-  - New Cairo, Nasr City, Shorouk, Badr, New Administrative Capital, Mostakbal City, Obour, New Obour.
+  3. Planned or under-construction projects are never displayed as operational without an explicit `status` change (`status` defaults to `'unknown'`).
+  4. Weak `'secondary'` sources (Wikipedia, real-estate blogs, aggregators, internal guides) must never by themselves mark a fact `'verified'`.
+  5. Never fabricate sources, URLs, coordinates, measurements, dates, statuses, or boundaries.
+- **Pilot Coverage Scope**:
+  - New Cairo, Nasr City, Shorouk, Badr, New Administrative Capital, Mostakbal City, Obour, New Obour (plus connected regional corridors).
 
 ---
 
@@ -23,25 +23,26 @@ Last updated: `2026-11-13`
 | :--- | :--- | :--- | :--- |
 | **Phase 01** | **Foundation** | **Completed (Merged — PR #1)** | App scaffold (Next.js App Router + TS strict + Tailwind + `shadcn/ui`), Neon connection layer, Zod env validation, plain-SQL migration runner + `000_enable_postgis.sql`, structured logging/error handling, minimal landing page, and `/api/health` PostGIS probe. |
 | **Phase 02** | **Core Schema & Seed Importer** | **Completed (Merged — PR #2)** | `001_core_schema.sql` (`entities`, `facts`, `evidence`, `features` + `fact_evidence` M2M link), mirroring Zod schemas, holistic seed validator & idempotent `import-seed.ts` CLI, `appliedMigrationsCount` in `/api/health`, and `GET /api/atlas/stats`. |
-| **Phase 02.1** | **Vercel Build Migrations & Taxonomy Extension** | **In Review (PR #3 Open)** | Vercel build-time migration runner (`scripts/vercel-build.ts` + `vercel.json`, preferring `DATABASE_URL_UNPOOLED`), `workflow_dispatch`-only GitHub workflows, `002_entity_taxonomy.sql` (15 researcher `entity_type`s + `'secondary'` `source_type` + deferred verified-fact trigger), and updated schemas/tests/fixtures. |
-| **Phase 03** | **Batch Python Ingestion Pipeline** | Planned | Local/batch Python ingestion tooling (never run in Vercel serverless) for documented OSM & authoritative sources across the 8 pilot areas. |
-| **Phase 04** | **Read API & Provenance Query Layer** | Planned | Typed Next.js API routes & server queries surfacing entities, side-by-side conflicting facts, lifecycle states, and source citations. |
+| **Phase 02.1** | **Vercel Build Migrations & Taxonomy Extension** | **Completed (Merged — PR #3)** | Vercel build-time migration runner (`scripts/vercel-build.ts` + `vercel.json`, preferring `DATABASE_URL_UNPOOLED`), `workflow_dispatch`-only GitHub workflows, `002_entity_taxonomy.sql` (15 researcher `entity_type`s + `'secondary'` `source_type` + deferred verified-fact trigger), verified live on Production (`/api/health` -> `appliedMigrationsCount: 3`). |
+| **Phase 03** | **Research-Seed Adapter, Migration `003` & Protected Import** | **In Review (PR #4 Open)** | `003_research_seed_extensions.sql` (`'REGIONAL'` sector, `'airport'` & `'rail_station'` types, `entities.aliases text[]`, `facts.valid_as_of_precision`, nullable `evidence.url` with `title` guard + `published_date_precision`), deterministic `scripts/adapt-research-seed.ts`, validated `rev2` seed committed in `data/seed/` (213 entities, 52 evidence, 278 facts, 282 links), and `POST /api/admin/import-seed` guarded by `ADMIN_IMPORT_TOKEN` (dry-run by default). |
+| **Phase 04** | **Batch Python Spatial Ingestion & Read API** | Planned | Local/batch Python spatial ingestion (OSM & official geometries, never in Vercel serverless) + typed Next.js read APIs surfacing entities, conflicting facts, and provenance. |
 | **Phase 05** | **Interactive MapLibre GL JS Atlas UI** | Planned | Cartographic MapLibre GL JS interface distinguishing operational vs. planned features, conflict indicators, and source inspection panels. |
 | **Phase 06** | **Open Exports & Release Hardening** | Planned | Reproducible open-data export pipelines (`CSV`, `JSON`, `GeoJSON`, `GeoPackage`) with full provenance metadata and end-to-end verification. |
 
 ---
 
-## Phase 02.1 Architectural Decisions & Limitations
+## Phase 03 Architectural Decisions & Open Data Notes
 
-### Key Decisions
-1. **Vercel Build-Time SQL Migrations (`scripts/vercel-build.ts` + `vercel.json`)**:
-   - Because GitHub Actions minutes are exhausted and `DATABASE_URL` is managed exclusively via the Neon Vercel Integration (with isolated Neon preview branches per PR), Vercel builds execute `npm run vercel-build` (`tsx scripts/vercel-build.ts`) while plain `npm run build` remains DB-free (`next build`) for local/offline verification.
-   - `executeVercelBuild` runs migrations **only** when `VERCEL=1` and a database URL is present. If `DATABASE_URL` is absent on Vercel, it logs a clear warning and still runs `next build`. If any migration or checksum verification fails, the build exits non-zero **before** `next build` so half-migrated schemas are never deployed.
-   - **Unpooled Neon connection preference**: Neon's PgBouncer pooler (`DATABASE_URL`) operates in transaction pooling mode, which can interfere with session-scoped `pg_advisory_lock`. Therefore `requireMigrationDatabaseEnv()` prefers `DATABASE_URL_UNPOOLED` (automatically injected by the Neon Vercel Integration) and falls back to `DATABASE_URL` when omitted.
-2. **Manual-Only GitHub Workflows (`.github/workflows/ci.yml`, `.github/workflows/migrate.yml`)**:
-   - Both workflows are retained with `on: workflow_dispatch` only so pushes and pull requests do not consume GitHub Actions minutes or produce billing-related red checks.
-3. **Direct Constraint Extension for Researcher Taxonomy (`db/migrations/002_entity_taxonomy.sql`)**:
-   - We chose to **extend `entities_entity_type_chk` in SQL and Zod** rather than aliasing researcher types in the importer. Collapsing `bridge`, `interchange`, and `tunnel` into `bridge_interchange`, or collapsing `project` and `authority`, would lose real urban/cartographic distinctions needed in Phase 03 Python scripts, Phase 05 MapLibre layers, and Phase 06 exports. All 15 researcher types (`city`, `district`, `neighborhood`, `road`, `bridge`, `interchange`, `tunnel`, `transit_line`, `transit_stop`, `project`, `authority`, `landmark`, `facility`, `waterway`, `utility`) are accepted alongside the 4 Phase 02 compatibility types (`transit_station`, `bridge_interchange`, `public_facility`, `development_zone`). `001_core_schema.sql` remains untouched so its SHA-256 checksum stays immutable.
-4. **Dual-Layer Enforcement for Weak `'secondary'` Evidence**:
-   - `'secondary'` is added to `evidence.source_type` for Wikipedia, real-estate blogs, and aggregators.
-   - Both the TypeScript seed validator (`canVerifyFactWithSources` in `src/lib/atlas/seed.ts`) **and** PostgreSQL (`DEFERRABLE INITIALLY DEFERRED` constraint triggers in `002_entity_taxonomy.sql`) forbid `verification_state = 'verified'` unless the fact is linked to at least one non-`'secondary'` source.
+1. **Migration `003_research_seed_extensions.sql` (Immutable Prior Migrations)**:
+   - `000_enable_postgis.sql`, `001_core_schema.sql`, and `002_entity_taxonomy.sql` remain byte-for-byte untouched.
+   - Adds sector `'REGIONAL'`, entity types `'airport'` and `'rail_station'`, `entities.aliases TEXT[]`, and `facts.valid_as_of_precision` (`'day' | 'month' | 'year'`, default `'day'`).
+   - Relaxes `evidence.url` to nullable while enforcing `url IS NOT NULL OR title IS NOT NULL` (`evidence_locator_or_title_chk`) and adds `evidence.published_date_precision` so internal documents (`EV-000`, `EV-051`), official communiqués awaiting exact URLs (`EV-039`–`EV-050`), and month-precision publication dates (`EV-046`: `2026-08`) are preserved honestly without fabricating URLs or days.
+2. **Deterministic, Order-Independent Research Adapter (`scripts/adapt-research-seed.ts`)**:
+   - Auto-selects the highest complete `*_rev<N>` bundle (e.g. `rev2`) while supporting `--rev1` / `--rev2`.
+   - Rejects `rev1` cleanly with the full 52-item `missingSourceTypeEvidenceRefs` list (`rev2` required before import) without writing anything to `data/seed/`.
+   - Converts `rev2` cleanly into `data/seed/` (213 entities, 52 evidence records, 278 facts, 282 `fact_evidence` links) with run-stable `F-<ENTITY>-<ATTR>-<N>` codes independent of JSON array ordering or `verification_state` changes.
+   - Non-blocking open provenance items tracked as warnings: `EV-039`–`EV-050` (`official`, 12 records) and `EV-000`/`EV-051` (`secondary`, 2 internal records) currently have `url: null`.
+3. **Zero-`DATABASE_URL`-Exposure Import (`POST /api/admin/import-seed`)**:
+   - Guarded by `ADMIN_IMPORT_TOKEN` (>= 16 chars, verified via constant-time SHA-256 `timingSafeEqual` in `Authorization: Bearer <token>` or `x-admin-import-token`, redacted in logs, rejected in URL query strings).
+   - Defaults to `dryRun: true` when invoked with an empty body or `{}`; performs transactional idempotent upsert inside Vercel only when `{"dryRun": false}` is explicitly sent.
+   - `next.config.ts` includes `outputFileTracingIncludes` for `./data/seed/**/*` on `/api/admin/import-seed` so serverless deployments always bundle the validated seed files.

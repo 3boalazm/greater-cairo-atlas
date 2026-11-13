@@ -6,7 +6,7 @@
  * for Phase 03+.
  */
 
-export const ATLAS_PHASE = "02-core-schema" as const;
+export const ATLAS_PHASE = "03-research-seed" as const;
 
 export const HEALTH_PROBE_POINT_WGS84 = {
   longitude: 31.2357,

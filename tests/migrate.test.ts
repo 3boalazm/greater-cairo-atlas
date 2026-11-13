@@ -11,7 +11,7 @@ import {
 } from "@/lib/db/migrate";
 import { DatabaseNotConfiguredError, MigrationError } from "@/lib/errors";
 
-describe("SQL migrations runner and migrations 000 + 001 + 002", () => {
+describe("SQL migrations runner and migrations 000 + 001 + 002 + 003", () => {
   const tempDirs: string[] = [];
   const originalDatabaseUrl = process.env.DATABASE_URL;
 
@@ -36,12 +36,13 @@ describe("SQL migrations runner and migrations 000 + 001 + 002", () => {
     return dir;
   }
 
-  it("discovers 000, 001 (immutable checksum), and 002 in order and verifies invariants", async () => {
+  it("discovers 000, 001, 002 (all immutable checksums), and 003 in order and verifies invariants", async () => {
     const migrations = await discoverMigrations();
     expect(migrations.map((m) => m.filename)).toEqual([
       "000_enable_postgis.sql",
       "001_core_schema.sql",
       "002_entity_taxonomy.sql",
+      "003_research_seed_extensions.sql",
     ]);
 
     const m000 = migrations[0];
@@ -61,39 +62,32 @@ describe("SQL migrations runner and migrations 000 + 001 + 002", () => {
     expect(sql001).toMatch(/CREATE\s+TABLE\s+fact_evidence\b/i);
     expect(sql001).not.toMatch(/UNIQUE\s*\(\s*entity_id\s*,\s*attribute\s*\)/i);
 
-    // 002_entity_taxonomy.sql extends entity_type + source_type and adds verified-fact trigger
+    // 002_entity_taxonomy.sql checksum must also never change
     const m002 = migrations[2];
-    expect(m002).toBeDefined();
+    expect(m002?.checksum.slice(0, 12)).toBe("c82d6e710bed");
     const sql002 = m002?.sql ?? "";
-
-    const requiredResearcherTypes = [
-      "city",
-      "district",
-      "neighborhood",
-      "road",
-      "bridge",
-      "interchange",
-      "tunnel",
-      "transit_line",
-      "transit_stop",
-      "project",
-      "authority",
-      "landmark",
-      "facility",
-      "waterway",
-      "utility",
-    ];
-    for (const entityType of requiredResearcherTypes) {
-      expect(sql002).toContain(`'${entityType}'`);
-    }
-    // Backwards-compatible 001 types remain valid
-    expect(sql002).toContain("'transit_station'");
-    expect(sql002).toContain("'bridge_interchange'");
-
-    // Secondary evidence & deferred primary-source enforcement trigger
     expect(sql002).toContain("'secondary'");
     expect(sql002).toMatch(/DEFERRABLE\s+INITIALLY\s+DEFERRED/i);
     expect(sql002).toMatch(/assert_fact_verified_has_primary_source/i);
+
+    // 003_research_seed_extensions.sql extends sector, entity_type, aliases, and date precision
+    const m003 = migrations[3];
+    expect(m003).toBeDefined();
+    const sql003 = m003?.sql ?? "";
+    expect(sql003).toContain("'REGIONAL'");
+    expect(sql003).toContain("'airport'");
+    expect(sql003).toContain("'rail_station'");
+    expect(sql003).toMatch(/ADD\s+COLUMN\s+IF\s+NOT\s+EXISTS\s+aliases\s+TEXT\[\]/i);
+    expect(sql003).toMatch(
+      /ADD\s+COLUMN\s+IF\s+NOT\s+EXISTS\s+valid_as_of_precision\s+TEXT\s+NOT\s+NULL\s+DEFAULT\s+'day'/i,
+    );
+    expect(sql003).toMatch(
+      /valid_as_of_precision\s+IN\s*\(\s*'day'\s*,\s*'month'\s*,\s*'year'\s*\)/i,
+    );
+    expect(sql003).toMatch(
+      /ADD\s+COLUMN\s+IF\s+NOT\s+EXISTS\s+published_date_precision\s+TEXT\s+NOT\s+NULL\s+DEFAULT\s+'day'/i,
+    );
+    expect(sql003).toMatch(/evidence_locator_or_title_chk/i);
   });
 
   it("runs dry-run without requiring DATABASE_URL", async () => {
@@ -104,6 +98,7 @@ describe("SQL migrations runner and migrations 000 + 001 + 002", () => {
       "000_enable_postgis.sql",
       "001_core_schema.sql",
       "002_entity_taxonomy.sql",
+      "003_research_seed_extensions.sql",
     ]);
   });
 

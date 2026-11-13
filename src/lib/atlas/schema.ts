@@ -3,9 +3,11 @@ import { z } from "zod";
 export const ATLAS_CODE_PATTERN = /^[A-Z0-9]+(-[A-Z0-9]+)*$/;
 export const FACT_ATTRIBUTE_PATTERN = /^[a-z][a-z0-9_]*$/;
 export const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+export const ISO_YEAR_MONTH_PATTERN = /^\d{4}-\d{2}$/;
+export const ISO_YEAR_PATTERN = /^\d{4}$/;
 
 export const ENTITY_TYPES = [
-  // Researcher taxonomy (15 canonical types)
+  // Researcher taxonomy (17 canonical types)
   "city",
   "district",
   "neighborhood",
@@ -15,6 +17,8 @@ export const ENTITY_TYPES = [
   "tunnel",
   "transit_line",
   "transit_stop",
+  "rail_station",
+  "airport",
   "project",
   "authority",
   "landmark",
@@ -34,6 +38,7 @@ export const ENTITY_SECTORS = [
   "SOUTH",
   "WEST",
   "CENTRAL",
+  "REGIONAL",
 ] as const;
 
 export const ENTITY_STATUSES = [
@@ -64,6 +69,8 @@ export const EVIDENCE_SOURCE_TYPES = [
   "secondary",
 ] as const;
 
+export const DATE_PRECISIONS = ["day", "month", "year"] as const;
+
 export const OSM_ELEMENT_TYPES = ["node", "way", "relation"] as const;
 
 export const FEATURE_LICENSES = [
@@ -80,6 +87,7 @@ export type EntitySector = (typeof ENTITY_SECTORS)[number];
 export type EntityStatus = (typeof ENTITY_STATUSES)[number];
 export type FactVerificationState = (typeof FACT_VERIFICATION_STATES)[number];
 export type EvidenceSourceType = (typeof EVIDENCE_SOURCE_TYPES)[number];
+export type DatePrecision = (typeof DATE_PRECISIONS)[number];
 export type OsmElementType = (typeof OSM_ELEMENT_TYPES)[number];
 export type FeatureLicense = (typeof FEATURE_LICENSES)[number];
 
@@ -110,12 +118,61 @@ function isRealCalendarDate(value: string): boolean {
   const month = Number(parts[1]);
   const day = Number(parts[2]);
 
+  if (year < 1000) {
+    return false;
+  }
+
   const utc = new Date(Date.UTC(year, month - 1, day));
   return (
     utc.getUTCFullYear() === year &&
     utc.getUTCMonth() === month - 1 &&
     utc.getUTCDate() === day
   );
+}
+
+export interface ParsedPartialIsoDate {
+  date: string;
+  precision: DatePrecision;
+}
+
+/**
+ * Parses a full or partial ISO calendar date without inventing day/month precision:
+ *   - "YYYY-MM-DD" -> { date: "YYYY-MM-DD", precision: "day" }
+ *   - "YYYY-MM"    -> { date: "YYYY-MM-01", precision: "month" }
+ *   - "YYYY"       -> { date: "YYYY-01-01", precision: "year" }
+ * Returns null if the input is malformed or not a valid calendar year/month/day.
+ */
+export function parsePartialIsoDate(raw: string): ParsedPartialIsoDate | null {
+  const trimmed = raw.trim();
+  if (isRealCalendarDate(trimmed)) {
+    return { date: trimmed, precision: "day" };
+  }
+
+  if (ISO_YEAR_MONTH_PATTERN.test(trimmed)) {
+    const [yearPart, monthPart] = trimmed.split("-");
+    const year = Number(yearPart);
+    const month = Number(monthPart);
+    if (year >= 1000 && month >= 1 && month <= 12) {
+      return {
+        date: `${yearPart}-${monthPart}-01`,
+        precision: "month",
+      };
+    }
+    return null;
+  }
+
+  if (ISO_YEAR_PATTERN.test(trimmed)) {
+    const year = Number(trimmed);
+    if (year >= 1000) {
+      return {
+        date: `${trimmed}-01-01`,
+        precision: "year",
+      };
+    }
+    return null;
+  }
+
+  return null;
 }
 
 function isHttpUrlWithoutWhitespace(value: string): boolean {
@@ -175,11 +232,17 @@ export const httpUrlSchema = z
     error: "URL must be a valid http:// or https:// URL without whitespace.",
   });
 
+export const nullableOptionalHttpUrlSchema = httpUrlSchema
+  .nullable()
+  .optional()
+  .transform((val) => val ?? null);
+
 export const entityTypeSchema = z.enum(ENTITY_TYPES);
 export const entitySectorSchema = z.enum(ENTITY_SECTORS);
 export const entityStatusSchema = z.enum(ENTITY_STATUSES);
 export const factVerificationStateSchema = z.enum(FACT_VERIFICATION_STATES);
 export const evidenceSourceTypeSchema = z.enum(EVIDENCE_SOURCE_TYPES);
+export const datePrecisionSchema = z.enum(DATE_PRECISIONS);
 export const osmElementTypeSchema = z.enum(OSM_ELEMENT_TYPES);
 export const featureLicenseSchema = z.enum(FEATURE_LICENSES);
 
@@ -260,19 +323,43 @@ export const entitySeedSchema = z.strictObject({
   entity_type: entityTypeSchema,
   sector: entitySectorSchema,
   status: entityStatusSchema,
+  aliases: z.array(nonEmptyTrimmedTextSchema).default([]),
   description: nullableOptionalTextSchema,
 });
 
-export const evidenceSeedSchema = z.strictObject({
-  code: atlasCodeSchema,
-  title: nullableOptionalTextSchema,
-  url: httpUrlSchema,
-  publisher: nonEmptyTrimmedTextSchema,
-  source_type: evidenceSourceTypeSchema,
-  published_date: nullableOptionalIsoDateSchema,
-  accessed_date: isoDateStringSchema,
-  notes: nullableOptionalTextSchema,
-});
+export const evidenceSeedSchema = z
+  .strictObject({
+    code: atlasCodeSchema,
+    title: nullableOptionalTextSchema,
+    url: nullableOptionalHttpUrlSchema,
+    publisher: nonEmptyTrimmedTextSchema,
+    source_type: evidenceSourceTypeSchema,
+    published_date: nullableOptionalIsoDateSchema,
+    published_date_precision: datePrecisionSchema.default("day"),
+    accessed_date: isoDateStringSchema,
+    notes: nullableOptionalTextSchema,
+  })
+  .superRefine((evidence, ctx) => {
+    if (evidence.url === null && evidence.title === null) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["url"],
+        message:
+          "Evidence record must provide either an http(s) url or a non-empty title.",
+      });
+    }
+    if (
+      evidence.published_date === null &&
+      evidence.published_date_precision !== "day"
+    ) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["published_date_precision"],
+        message:
+          "published_date_precision must be 'day' when published_date is null.",
+      });
+    }
+  });
 
 export const factSeedSchema = z
   .strictObject({
@@ -282,6 +369,7 @@ export const factSeedSchema = z
     value: nonEmptyTrimmedTextSchema,
     unit: nullableOptionalTextSchema,
     valid_as_of: nullableOptionalIsoDateSchema,
+    valid_as_of_precision: datePrecisionSchema.default("day"),
     verification_state: factVerificationStateSchema,
     evidence_codes: z
       .array(atlasCodeSchema)
@@ -289,6 +377,15 @@ export const factSeedSchema = z
     notes: nullableOptionalTextSchema,
   })
   .superRefine((fact, ctx) => {
+    if (fact.valid_as_of === null && fact.valid_as_of_precision !== "day") {
+      ctx.addIssue({
+        code: "custom",
+        path: ["valid_as_of_precision"],
+        message:
+          "valid_as_of_precision must be 'day' when valid_as_of is null.",
+      });
+    }
+
     const seen = new Set<string>();
     for (let idx = 0; idx < fact.evidence_codes.length; idx++) {
       const evCode = fact.evidence_codes[idx];
@@ -390,6 +487,7 @@ export const entityRowSchema = z.strictObject({
   entity_type: entityTypeSchema,
   sector: entitySectorSchema,
   status: entityStatusSchema,
+  aliases: z.array(nonEmptyTrimmedTextSchema),
   description: z.string().nullable(),
   created_at: timestampSchema,
   updated_at: timestampSchema,
@@ -399,10 +497,11 @@ export const evidenceRowSchema = z.strictObject({
   id: uuidSchema,
   code: atlasCodeSchema,
   title: z.string().nullable(),
-  url: httpUrlSchema,
+  url: httpUrlSchema.nullable(),
   publisher: nonEmptyTrimmedTextSchema,
   source_type: evidenceSourceTypeSchema,
   published_date: isoDateStringSchema.nullable(),
+  published_date_precision: datePrecisionSchema,
   accessed_date: isoDateStringSchema,
   notes: z.string().nullable(),
   created_at: timestampSchema,
@@ -417,6 +516,7 @@ export const factRowSchema = z.strictObject({
   value: nonEmptyTrimmedTextSchema,
   unit: z.string().nullable(),
   valid_as_of: isoDateStringSchema.nullable(),
+  valid_as_of_precision: datePrecisionSchema,
   verification_state: factVerificationStateSchema,
   notes: z.string().nullable(),
   created_at: timestampSchema,
