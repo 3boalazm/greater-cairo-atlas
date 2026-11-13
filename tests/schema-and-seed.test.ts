@@ -1,6 +1,7 @@
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
+  canVerifyFactWithSources,
   ENTITY_STATUSES,
   entitySeedSchema,
   evidenceSeedSchema,
@@ -16,7 +17,7 @@ import {
 } from "@/lib/atlas/seed";
 import { SeedValidationError } from "@/lib/errors";
 
-describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed upsert", () => {
+describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and seed upsert", () => {
   it("enforces planned-never-operational status invariant", () => {
     expect(isOperationalStatus("operational")).toBe(true);
     for (const status of ENTITY_STATUSES) {
@@ -26,6 +27,88 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
     }
   });
 
+  it("accepts all 15 researcher entity_type values plus retained Phase 02 compatibility types", () => {
+    const allExpectedEntityTypes = [
+      "city",
+      "district",
+      "neighborhood",
+      "road",
+      "bridge",
+      "interchange",
+      "tunnel",
+      "transit_line",
+      "transit_stop",
+      "project",
+      "authority",
+      "landmark",
+      "facility",
+      "waterway",
+      "utility",
+      // Compatibility values from 001
+      "transit_station",
+      "bridge_interchange",
+      "public_facility",
+      "development_zone",
+    ];
+
+    for (const entityType of allExpectedEntityTypes) {
+      const parsed = entitySeedSchema.safeParse({
+        code: "TEST-ENTITY-01",
+        name_ar: "عنصر اختباري",
+        name_en: "Synthetic Test Entity",
+        entity_type: entityType,
+        sector: "EAST",
+        status: "unknown",
+      });
+      expect(parsed.success, `Expected entity_type "${entityType}" to be valid`).toBe(
+        true,
+      );
+    }
+  });
+
+  it("enforces secondary source_type epistemic rules", () => {
+    expect(canVerifyFactWithSources([])).toBe(false);
+    expect(canVerifyFactWithSources(["secondary"])).toBe(false);
+    expect(canVerifyFactWithSources(["secondary", "secondary"])).toBe(false);
+    expect(canVerifyFactWithSources(["secondary", "official"])).toBe(true);
+    expect(canVerifyFactWithSources(["dataset"])).toBe(true);
+
+    // Seed bundle where a 'verified' fact cites ONLY 'secondary' evidence must fail
+    const entitiesCsv = [
+      "code,name_ar,name_en,entity_type,sector,status,description",
+      "TEST-PROJECT-01,مشروع اختباري,Synthetic Project,project,EAST,planned,",
+    ].join("\n");
+
+    const evidenceJson = JSON.stringify([
+      {
+        code: "TEST-EVID-WIKI",
+        url: "https://example.org/wiki/synthetic",
+        publisher: "Synthetic Wiki",
+        source_type: "secondary",
+        accessed_date: "2026-05-01",
+      },
+    ]);
+
+    const illegalVerifiedFactsJson = JSON.stringify([
+      {
+        code: "TEST-FACT-ILLEGAL-VERIFIED",
+        entity_code: "TEST-PROJECT-01",
+        attribute: "area_feddan",
+        value: "500",
+        verification_state: "verified",
+        evidence_codes: ["TEST-EVID-WIKI"],
+      },
+    ]);
+
+    expect(() =>
+      validateSeedSources({
+        entitiesCsv,
+        evidenceJsonText: evidenceJson,
+        factsJsonText: illegalVerifiedFactsJson,
+      }),
+    ).toThrow(/solely by secondary evidence/);
+  });
+
   it("validates table Zod schemas and rejects unknown enums, invalid dates, and partial OSM lineage", () => {
     expect(
       entitySeedSchema.safeParse({
@@ -33,7 +116,7 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
         name_ar: "طريق اختباري",
         name_en: "Test Road",
         entity_type: "road",
-        sector: "NORTHEAST", // invalid sector
+        sector: "NORTHEAST",
         status: "operational",
       }).success,
     ).toBe(false);
@@ -43,8 +126,8 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
         code: "TEST-EVID-01",
         url: "https://example.org/source",
         publisher: "Test Publisher",
-        source_type: "blog", // invalid source_type
-        published_date: "2026-02-30", // impossible calendar date
+        source_type: "rumor",
+        published_date: "2026-02-30",
         accessed_date: "2026-03-01",
       }).success,
     ).toBe(false);
@@ -55,12 +138,11 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
         entity_code: "TEST-ROAD-01",
         attribute: "length_km",
         value: "12.5",
-        verification_state: "rumored", // invalid verification_state
-        evidence_codes: [], // must cite >= 1 source
+        verification_state: "rumored",
+        evidence_codes: [],
       }).success,
     ).toBe(false);
 
-    // Partial OSM lineage (missing osm_version) must fail
     expect(
       featureSeedSchema.safeParse({
         code: "TEST-FEAT-01",
@@ -75,7 +157,6 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
       }).success,
     ).toBe(false);
 
-    // Complete OSM lineage with non-ODbL license must fail
     expect(
       featureSeedSchema.safeParse({
         code: "TEST-FEAT-01",
@@ -91,7 +172,6 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
       }).success,
     ).toBe(false);
 
-    // Valid complete OSM feature passes
     const validFeature = featureSeedSchema.safeParse({
       code: "TEST-FEAT-01",
       entity_code: "TEST-ROAD-01",
@@ -117,14 +197,13 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
     );
     const bundle = await loadAndValidateSeedDir(fixtureDir);
 
-    expect(bundle.entities.length).toBeGreaterThan(0);
+    expect(bundle.entities.length).toBe(5);
     expect(bundle.entities.length).toBeLessThanOrEqual(5);
 
     for (const entity of bundle.entities) {
       expect(entity.code.startsWith("TEST-")).toBe(true);
     }
 
-    // Conflicting facts on TEST-ROAD-ALPHA.length_km coexist side by side
     const alphaLengthFacts = bundle.facts.filter(
       (f) => f.entity_code === "TEST-ROAD-ALPHA" && f.attribute === "length_km",
     );
@@ -186,7 +265,6 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
     expect(caught).toBeDefined();
     const paths = (caught?.issues ?? []).map((i) => i.path);
 
-    // Errors from ALL THREE files + cross-file reference checks must be present together
     expect(paths.some((p) => p.startsWith("entities.csv:line 2"))).toBe(true);
     expect(paths.some((p) => p.startsWith("entities.csv:line 3"))).toBe(true);
     expect(paths.some((p) => p.startsWith("evidence.json[0]"))).toBe(true);
@@ -202,7 +280,6 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
     );
     const bundle = await loadAndValidateSeedDir(fixtureDir);
 
-    // Stateful in-memory relational simulator keyed by `code` and `(fact_id, evidence_id)`
     let uuidSeq = 1;
     const nextUuid = () =>
       `00000000-0000-4000-8000-${String(uuidSeq++).padStart(12, "0")}`;
@@ -286,17 +363,16 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
       createStatefulSession,
     );
     expect(firstRun).toEqual({
-      entitiesCount: 4,
-      evidenceCount: 3,
-      factsCount: 4,
-      factEvidenceLinksCount: 6,
+      entitiesCount: 5,
+      evidenceCount: 4,
+      factsCount: 5,
+      factEvidenceLinksCount: 7,
     });
-    expect(entitiesStore.size).toBe(4);
-    expect(evidenceStore.size).toBe(3);
-    expect(factsStore.size).toBe(4);
-    expect(factEvidenceStore.size).toBe(6);
+    expect(entitiesStore.size).toBe(5);
+    expect(evidenceStore.size).toBe(4);
+    expect(factsStore.size).toBe(5);
+    expect(factEvidenceStore.size).toBe(7);
 
-    // Modify one entity description and narrow one fact's evidence_codes, then re-run
     const secondBundle = structuredClone(bundle);
     if (secondBundle.entities[0]) {
       secondBundle.entities[0].description = "Updated description on second run.";
@@ -309,15 +385,14 @@ describe("Atlas Zod schemas, synthetic fixture validation, and idempotent seed u
       secondBundle,
       createStatefulSession,
     );
-    expect(secondRun.entitiesCount).toBe(4);
-    expect(secondRun.factsCount).toBe(4);
-    expect(secondRun.factEvidenceLinksCount).toBe(5);
+    expect(secondRun.entitiesCount).toBe(5);
+    expect(secondRun.factsCount).toBe(5);
+    expect(secondRun.factEvidenceLinksCount).toBe(6);
 
-    // Row counts stay identical (idempotent by code) while stale M2M link is pruned
-    expect(entitiesStore.size).toBe(4);
-    expect(evidenceStore.size).toBe(3);
-    expect(factsStore.size).toBe(4);
-    expect(factEvidenceStore.size).toBe(5);
+    expect(entitiesStore.size).toBe(5);
+    expect(evidenceStore.size).toBe(4);
+    expect(factsStore.size).toBe(5);
+    expect(factEvidenceStore.size).toBe(6);
     expect(entitiesStore.get("TEST-ROAD-ALPHA")?.description).toBe(
       "Updated description on second run.",
     );

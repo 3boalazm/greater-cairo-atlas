@@ -32,13 +32,25 @@
     "evidence_codes": ["TEST-EVID-OFFICIAL-01"]
   },
   {
-    "code": "TEST-FACT-GAMMA-LANES",
-    "entity_code": "TEST-DISTRICT-GAMMA",
-    "attribute": "sector_blocks_count",
-    "value": "12",
-    "unit": "blocks",
-    "valid_as_of": "2026-04-05",
-    "verification_state": "corroborated",
-    "evidence_codes": ["TEST-EVID-OFFICIAL-01", "TEST-EVID-MAP-03"]
+    "code": "TEST-FACT-DELTA-PLATFORMS",
+    "entity_code": "TEST-STOP-DELTA",
+    "attribute": "platform_count",
+    "value": "2",
+    "unit": "platforms",
+    "valid_as_of": "2026-04-10",
+    "verification_state": "candidate",
+    "evidence_codes": ["TEST-EVID-SECONDARY-04"],
+    "notes": "Secondary source permitted for candidate/unverified claims."
+  },
+  {
+    "code": "TEST-FACT-EPSILON-ESTABLISHED",
+    "entity_code": "TEST-AUTHORITY-EPSILON",
+    "attribute": "established_year",
+    "value": "1979",
+    "unit": "year",
+    "valid_as_of": "2026-02-01",
+    "verification_state": "verified",
+    "evidence_codes": ["TEST-EVID-OFFICIAL-01", "TEST-EVID-SECONDARY-04"],
+    "notes": "Verified state permitted because an official source corroborates the secondary source."
   }
 ]

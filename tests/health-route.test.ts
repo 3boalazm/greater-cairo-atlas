@@ -97,7 +97,7 @@ describe("/api/health route, PostGIS probe, and applied migration count", () => 
     if (!outcome.body.ok) {
       expect(outcome.body.database.appliedMigrationsCount).toBe(0);
       expect(outcome.body.error.code).toBe("POSTGIS_NOT_ENABLED");
-      expect(outcome.body.error.message).toContain("Migrate Database");
+      expect(outcome.body.error.message).toContain("vercel-build");
     }
   });
 });

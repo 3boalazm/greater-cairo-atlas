@@ -207,7 +207,7 @@ export async function getAtlasTableStats(
           error: {
             code: "SCHEMA_NOT_MIGRATED",
             message:
-              "Core Atlas tables are not migrated yet. Run the 'Migrate Database' GitHub Actions workflow or 'npm run db:migrate' to apply 001_core_schema.sql.",
+              "Core Atlas tables are not migrated yet. Redeploy on Vercel (vercel-build) or run 'npm run db:migrate' to apply SQL migrations.",
           },
         },
       };

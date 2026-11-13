@@ -47,8 +47,24 @@ export const databaseEnvSchema = z.object({
     }),
 });
 
+const unpooledDatabaseEnvSchema = z.object({
+  DATABASE_URL_UNPOOLED: z
+    .string()
+    .trim()
+    .min(1)
+    .refine(isValidPostgresConnectionUrl, {
+      error:
+        "DATABASE_URL_UNPOOLED must be a valid PostgreSQL connection string starting with postgres:// or postgresql:// and containing a host.",
+    }),
+});
+
 export type RuntimeEnv = z.infer<typeof runtimeEnvSchema>;
 export type DatabaseEnv = z.infer<typeof databaseEnvSchema>;
+
+export interface MigrationDatabaseEnv {
+  connectionString: string;
+  source: "DATABASE_URL_UNPOOLED" | "DATABASE_URL";
+}
 
 function formatZodIssues(issues: z.core.$ZodIssue[]): ValidationIssueDetail[] {
   return issues.map((issue) => ({
@@ -114,4 +130,40 @@ export function requireDatabaseEnv(
   }
 
   return parsed.data;
+}
+
+/**
+ * Resolves the PostgreSQL connection string for session-stateful workloads
+ * (migrations with pg_advisory_lock and multi-statement transactions).
+ *
+ * Neon's PgBouncer pooled URL can interfere with session-scoped advisory locks;
+ * therefore DATABASE_URL_UNPOOLED (injected automatically by the Neon Vercel
+ * integration) is preferred whenever present, falling back to DATABASE_URL.
+ */
+export function requireMigrationDatabaseEnv(
+  rawEnv: NodeJS.ProcessEnv = process.env,
+): MigrationDatabaseEnv {
+  const rawUnpooled = rawEnv.DATABASE_URL_UNPOOLED;
+  if (rawUnpooled !== undefined && rawUnpooled.trim().length > 0) {
+    const parsedUnpooled = unpooledDatabaseEnvSchema.safeParse({
+      DATABASE_URL_UNPOOLED: rawUnpooled,
+    });
+    if (!parsedUnpooled.success) {
+      const issues = formatZodIssues(parsedUnpooled.error.issues);
+      throw new EnvValidationError(
+        `Invalid unpooled database environment configuration: ${issues.map((i) => i.message).join("; ")}`,
+        issues,
+      );
+    }
+    return {
+      connectionString: parsedUnpooled.data.DATABASE_URL_UNPOOLED,
+      source: "DATABASE_URL_UNPOOLED",
+    };
+  }
+
+  const { DATABASE_URL } = requireDatabaseEnv(rawEnv);
+  return {
+    connectionString: DATABASE_URL,
+    source: "DATABASE_URL",
+  };
 }

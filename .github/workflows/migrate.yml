@@ -2,11 +2,6 @@ name: Migrate Database
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - "db/migrations/**"
 
 permissions:
   contents: read
@@ -17,20 +12,21 @@ concurrency:
 
 jobs:
   migrate:
-    name: Apply SQL Migrations to Neon
+    name: Apply SQL Migrations to Neon (Manual Override)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Verify DATABASE_URL secret is configured
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL_UNPOOLED: ${{ secrets.DATABASE_URL_UNPOOLED }}
         run: |
           set +x
-          if [ -z "${DATABASE_URL:-}" ]; then
-            echo "::error::Missing required GitHub Actions repository secret 'DATABASE_URL'. Configure it under Settings -> Secrets and variables -> Actions -> Repository secrets before running migrations."
+          if [ -z "${DATABASE_URL_UNPOOLED:-}" ] && [ -z "${DATABASE_URL:-}" ]; then
+            echo "::error::Missing required GitHub Actions secret 'DATABASE_URL' (or 'DATABASE_URL_UNPOOLED'). Note: normal deployments run migrations automatically on Vercel via vercel-build."
             exit 1
           fi
-          echo "Verified DATABASE_URL secret is present (value hidden)."
+          echo "Verified migration database secret is present (value hidden)."
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -47,6 +43,7 @@ jobs:
       - name: Apply pending SQL migrations
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL_UNPOOLED: ${{ secrets.DATABASE_URL_UNPOOLED }}
         run: |
           set +x
           npm run db:migrate

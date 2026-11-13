@@ -26,5 +26,15 @@
     "source_type": "map",
     "published_date": null,
     "accessed_date": "2026-04-05"
+  },
+  {
+    "code": "TEST-EVID-SECONDARY-04",
+    "title": "Synthetic Encyclopedia Aggregator Entry 04",
+    "url": "https://example.org/synthetic-fixture/wiki-entry-04",
+    "publisher": "Synthetic Open Wiki",
+    "source_type": "secondary",
+    "published_date": "2026-04-10",
+    "accessed_date": "2026-04-11",
+    "notes": "Weak secondary source; cannot by itself make a fact verified."
   }
 ]
