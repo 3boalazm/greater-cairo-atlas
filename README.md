@@ -13,7 +13,7 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 
 ## Current Phase
 
-**Phase 03 — Research-Seed Adapter, Schema Extensions (`003`) & Protected Seed Import** (see [`PROJECT_STATE.md`](./PROJECT_STATE.md) for the full phase roadmap and architectural decisions).
+**Phase 03.1 — Seed Revision 3** (see [`PROJECT_STATE.md`](./PROJECT_STATE.md) for the full phase roadmap and architectural decisions).
 
 ## Core Database Schema (`000` + `001` + `002` + `003`)
 
@@ -43,7 +43,7 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 
 ### 1. Adapt Research Seed (`scripts/adapt-research-seed.ts`)
 
-Deterministically converts research files (`entities_rev2.csv`, `evidence_rev2.json`, `facts_rev2.json`) into canonical `data/seed/` files (`entities.csv`, `evidence.json`, `facts.json`) while enforcing strict epistemic validation:
+Deterministically converts mixed-revision research inputs into canonical `data/seed/` files (`entities.csv`, `evidence.json`, `facts.json`) while enforcing strict epistemic validation. Revision 3 uses unchanged `entities_rev2.csv` with `evidence_rev3.json` and `facts_rev3.json`; auto-resolution selects the highest available revision independently for each input file.
 
 - Missing/blank `status` -> `'unknown'` (never guessed as `'operational'`).
 - Missing `source_type` -> fails with an explicit list of offending `evidence_ref`s (`rev2` required before import).
@@ -52,12 +52,19 @@ Deterministically converts research files (`entities_rev2.csv`, `evidence_rev2.j
 - Generates run-stable, order-independent fact codes (`F-<ENTITY_CODE>-<ATTRIBUTE>-<N>`).
 
 ```bash
-# Convert research seed directory (auto-detects highest *_rev<N> bundle)
+# Convert a mixed-revision seed directory (auto-selects highest available revision per file)
 npm run seed:adapt -- --in /path/to/greater-cairo-atlas-seed --report /tmp/seed-report.json
+
+# Or target rev3 explicitly (entities falls back to rev2)
+npm run seed:adapt -- --in /path/to/greater-cairo-atlas-seed --rev3 --report /tmp/seed-report.json
 
 # Validate canonical data/seed/ offline
 npm run seed:check
 ```
+
+### Revision 3 dry-run expectations
+
+The canonical bundle has **213 entities, 59 evidence records, 278 facts, and 304 fact-evidence links**. Five evidence records have no URL: internal secondary records `EV-000` and `EV-051`, and unresolved official records `EV-042`, `EV-045`, and `EV-046`. A dry run should pass with **0 errors and 5 non-blocking URL warnings**, explicitly listing the three unresolved official codes.
 
 ### 2. Protected Server-Side Seed Import (`POST /api/admin/import-seed`)
 

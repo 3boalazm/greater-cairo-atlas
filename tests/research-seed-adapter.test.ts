@@ -409,7 +409,7 @@ describe("Research seed adapter (scripts/adapt-research-seed.ts & src/lib/atlas/
     ]);
   });
 
-  it("auto-selects *_rev2 files over rev1 when both exist in input directory", async () => {
+  it("resolves mixed revision files and chooses the highest available revision per file", async () => {
     const dir = await makeTempDir();
     await writeFile(path.join(dir, "entities.csv"), "rev1");
     await writeFile(path.join(dir, "evidence.json"), "[]");
@@ -417,10 +417,21 @@ describe("Research seed adapter (scripts/adapt-research-seed.ts & src/lib/atlas/
     await writeFile(path.join(dir, "entities_rev2.csv"), "rev2");
     await writeFile(path.join(dir, "evidence_rev2.json"), "[]");
     await writeFile(path.join(dir, "facts_rev2.json"), "[]");
+    await writeFile(path.join(dir, "evidence_rev3.json"), "[]");
+    await writeFile(path.join(dir, "facts_rev3.json"), "[]");
 
     const autoResolved = await resolveResearchSeedFiles({ inputDir: dir });
-    expect(autoResolved.selectedRevision).toBe("rev2");
+    expect(autoResolved.selectedRevision).toBe("rev3");
     expect(path.basename(autoResolved.entitiesPath)).toBe("entities_rev2.csv");
+    expect(path.basename(autoResolved.evidencePath)).toBe("evidence_rev3.json");
+    expect(path.basename(autoResolved.factsPath)).toBe("facts_rev3.json");
+
+    const explicitRev3 = await resolveResearchSeedFiles({
+      inputDir: dir,
+      revision: 3,
+    });
+    expect(explicitRev3.selectedRevision).toBe("rev3");
+    expect(path.basename(explicitRev3.entitiesPath)).toBe("entities_rev2.csv");
 
     const explicitRev1 = await resolveResearchSeedFiles({
       inputDir: dir,

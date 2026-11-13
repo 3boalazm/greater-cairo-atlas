@@ -72,6 +72,8 @@ export interface SeedBundleReport {
   entitiesWithAliasesCount: number;
   evidenceCount: number;
   evidenceMissingUrlCount: number;
+  unresolvedOfficialEvidenceCount: number;
+  unresolvedOfficialEvidenceCodes: string[];
   factsCount: number;
   factEvidenceLinksCount: number;
   breakdowns: {
@@ -511,6 +513,7 @@ export function summarizeValidatedSeedBundle(
 
   const evidenceBySourceType: Partial<Record<EvidenceSourceType, number>> = {};
   const warnings: SeedBundleWarning[] = [];
+  const unresolvedOfficialEvidenceCodes: string[] = [];
   let evidenceMissingUrlCount = 0;
 
   for (let idx = 0; idx < bundle.evidence.length; idx++) {
@@ -522,14 +525,20 @@ export function summarizeValidatedSeedBundle(
       (evidenceBySourceType[ev.source_type] ?? 0) + 1;
     if (ev.url === null) {
       evidenceMissingUrlCount++;
-      warnings.push({
-        code:
-          ev.source_type === "official"
-            ? "OFFICIAL_SOURCE_MISSING_URL"
-            : "EVIDENCE_MISSING_URL",
-        path: `evidence[${idx}] (${ev.code})`,
-        message: `Evidence "${ev.code}" (${ev.source_type}, publisher: "${ev.publisher}") has url = null and relies on title "${ev.title ?? ""}".`,
-      });
+      if (ev.source_type === "official") {
+        unresolvedOfficialEvidenceCodes.push(ev.code);
+        warnings.push({
+          code: "OFFICIAL_SOURCE_MISSING_URL",
+          path: `evidence[${idx}] (${ev.code})`,
+          message: `Unresolved official source "${ev.code}" (publisher: "${ev.publisher}", title: "${ev.title ?? ""}") has url = null.`,
+        });
+      } else {
+        warnings.push({
+          code: "EVIDENCE_MISSING_URL",
+          path: `evidence[${idx}] (${ev.code})`,
+          message: `Evidence "${ev.code}" (${ev.source_type}, publisher: "${ev.publisher}") has url = null and relies on title "${ev.title ?? ""}".`,
+        });
+      }
     }
   }
 
@@ -559,6 +568,8 @@ export function summarizeValidatedSeedBundle(
     entitiesWithAliasesCount,
     evidenceCount: bundle.evidence.length,
     evidenceMissingUrlCount,
+    unresolvedOfficialEvidenceCount: unresolvedOfficialEvidenceCodes.length,
+    unresolvedOfficialEvidenceCodes,
     factsCount: bundle.facts.length,
     factEvidenceLinksCount,
     breakdowns: {

@@ -14,6 +14,7 @@ import {
 import {
   loadAndValidateSeedDir,
   serializeEntitiesCsv,
+  summarizeValidatedSeedBundle,
   upsertValidatedSeedBundle,
   validateSeedSources,
   type SeedDbSession,
@@ -296,8 +297,31 @@ describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and
     // Verify canonical data/seed/ bundle passes full holistic validation
     const canonicalBundle = await loadAndValidateSeedDir();
     expect(canonicalBundle.entities.length).toBe(213);
-    expect(canonicalBundle.evidence.length).toBe(52);
+    expect(canonicalBundle.evidence.length).toBe(59);
     expect(canonicalBundle.facts.length).toBe(278);
+    const canonicalReport = summarizeValidatedSeedBundle(canonicalBundle);
+    expect(canonicalReport.factEvidenceLinksCount).toBe(304);
+    expect(canonicalReport.evidenceMissingUrlCount).toBe(5);
+    expect(canonicalReport.unresolvedOfficialEvidenceCodes).toEqual([
+      "EV-042",
+      "EV-045",
+      "EV-046",
+    ]);
+    expect(canonicalReport.warnings).toHaveLength(5);
+    const evidenceByCode = new Map(
+      canonicalBundle.evidence.map((evidence) => [evidence.code, evidence]),
+    );
+    for (const fact of canonicalBundle.facts.filter(
+      (candidate) => candidate.verification_state === "verified",
+    )) {
+      expect(
+        fact.evidence_codes.some((code) => {
+          const evidence = evidenceByCode.get(code);
+          return evidence?.source_type === "official" && evidence.url !== null;
+        }),
+        `verified fact ${fact.code} must cite an official source with a URL`,
+      ).toBe(true);
+    }
   });
 
   it("reports ALL validation errors across entities.csv, evidence.json, and facts.json at once", () => {
