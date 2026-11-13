@@ -1,12 +1,12 @@
 /**
- * Phase 01 metadata and scope definitions for Greater Cairo Atlas.
+ * Phase 02 metadata and scope definitions for Greater Cairo Atlas.
  *
  * IMPORTANT: No entity records, boundaries, measurements, or operational statuses
  * are fabricated here. Pilot areas below represent the planned ingestion scope
- * for later phases only.
+ * for Phase 03+.
  */
 
-export const ATLAS_PHASE = "01-foundation" as const;
+export const ATLAS_PHASE = "02-core-schema" as const;
 
 export const HEALTH_PROBE_POINT_WGS84 = {
   longitude: 31.2357,
@@ -54,21 +54,25 @@ export const EPISTEMIC_PRINCIPLES: readonly EpistemicPrinciple[] = [
   },
 ] as const;
 
-export const DEFERRED_CORE_TABLES = [
+export const CORE_SCHEMA_TABLES = [
   {
     name: "entities",
-    purpose: "Canonical urban/geospatial subjects with lifecycle and type constraints.",
+    purpose:
+      "Canonical urban/geospatial subjects with stable code, Arabic/English names, sector, and strict status enum.",
   },
   {
     name: "facts",
-    purpose: "Time-aware, multi-valued assertions allowing conflicting claims side by side.",
+    purpose:
+      "Multi-valued assertions with verification_state allowing conflicting claims for the same attribute side by side.",
   },
   {
     name: "evidence",
-    purpose: "Bibliographic, archival, official, or OSM provenance backing every fact and geometry.",
+    purpose:
+      "Official, news, dataset, map, or PDF sources linked many-to-many to facts via fact_evidence.",
   },
   {
     name: "features",
-    purpose: "PostGIS geometries (SRID 4326, GiST indexed) preserving OSM type/id/version lineage.",
+    purpose:
+      "PostGIS geometries (SRID 4326, GiST indexed) preserving OSM type/id/version and ODbL license lineage.",
   },
 ] as const;
