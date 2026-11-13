@@ -94,6 +94,17 @@ export class MigrationError extends AppError {
   }
 }
 
+export class SeedValidationError extends AppError {
+  constructor(message: string, issues: ValidationIssueDetail[]) {
+    super(message, {
+      code: "SEED_VALIDATION_ERROR",
+      statusCode: 400,
+      expose: true,
+      issues,
+    });
+  }
+}
+
 export interface ApiErrorBody {
   ok: false;
   error: {

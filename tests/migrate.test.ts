@@ -11,7 +11,7 @@ import {
 } from "@/lib/db/migrate";
 import { DatabaseNotConfiguredError, MigrationError } from "@/lib/errors";
 
-describe("SQL migrations runner and migration 000", () => {
+describe("SQL migrations runner and migrations 000 + 001", () => {
   const tempDirs: string[] = [];
   const originalDatabaseUrl = process.env.DATABASE_URL;
 
@@ -36,15 +36,44 @@ describe("SQL migrations runner and migration 000", () => {
     return dir;
   }
 
-  it("discovers real 000_enable_postgis.sql and verifies Phase 01 scope", async () => {
+  it("discovers 000_enable_postgis.sql and 001_core_schema.sql in order and verifies invariants", async () => {
     const migrations = await discoverMigrations();
-    expect(migrations).toHaveLength(1);
+    expect(migrations.map((m) => m.filename)).toEqual([
+      "000_enable_postgis.sql",
+      "001_core_schema.sql",
+    ]);
 
-    const first = migrations[0];
-    expect(first?.filename).toBe("000_enable_postgis.sql");
-    expect(first?.version).toBe("000");
-    expect(first?.sql).toMatch(/CREATE\s+EXTENSION\s+IF\s+NOT\s+EXISTS\s+postgis\s*;/i);
-    expect(first?.sql).not.toMatch(/CREATE\s+TABLE/i);
+    const m000 = migrations[0];
+    expect(m000?.sql).toMatch(
+      /CREATE\s+EXTENSION\s+IF\s+NOT\s+EXISTS\s+postgis\s*;/i,
+    );
+
+    const m001 = migrations[1];
+    expect(m001).toBeDefined();
+    const sql001 = m001?.sql ?? "";
+
+    // Core 4 tables + associative fact_evidence table
+    expect(sql001).toMatch(/CREATE\s+TABLE\s+entities\b/i);
+    expect(sql001).toMatch(/CREATE\s+TABLE\s+evidence\b/i);
+    expect(sql001).toMatch(/CREATE\s+TABLE\s+facts\b/i);
+    expect(sql001).toMatch(/CREATE\s+TABLE\s+features\b/i);
+    expect(sql001).toMatch(/CREATE\s+TABLE\s+fact_evidence\b/i);
+
+    // SRID 4326 geometry + GiST index + ON DELETE RESTRICT + updated_at triggers
+    expect(sql001).toMatch(/geometry\s*\(\s*Geometry\s*,\s*4326\s*\)/i);
+    expect(sql001).toMatch(/USING\s+GIST\s*\(\s*geometry\s*\)/i);
+    expect(sql001).toMatch(/ON\s+DELETE\s+RESTRICT/i);
+    expect(sql001).not.toMatch(/ON\s+DELETE\s+CASCADE/i);
+    expect(sql001).toMatch(/trg_entities_set_updated_at/i);
+    expect(sql001).toMatch(/trg_evidence_set_updated_at/i);
+    expect(sql001).toMatch(/trg_facts_set_updated_at/i);
+    expect(sql001).toMatch(/trg_features_set_updated_at/i);
+
+    // Must NOT put a UNIQUE constraint or index on (entity_id, attribute)
+    expect(sql001).not.toMatch(/UNIQUE\s*\(\s*entity_id\s*,\s*attribute\s*\)/i);
+    expect(sql001).not.toMatch(
+      /CREATE\s+UNIQUE\s+INDEX[^;]*\(\s*entity_id\s*,\s*attribute\s*\)/i,
+    );
   });
 
   it("runs dry-run without requiring DATABASE_URL", async () => {
@@ -53,6 +82,7 @@ describe("SQL migrations runner and migration 000", () => {
     expect(summary.dryRun).toBe(true);
     expect(summary.discovered.map((m) => m.filename)).toEqual([
       "000_enable_postgis.sql",
+      "001_core_schema.sql",
     ]);
   });
 
@@ -76,7 +106,9 @@ describe("SQL migrations runner and migration 000", () => {
     const dupDir = await makeTempMigrationsDir();
     await writeFile(path.join(dupDir, "000_first.sql"), "SELECT 1;");
     await writeFile(path.join(dupDir, "000_second.sql"), "SELECT 2;");
-    await expect(discoverMigrations(dupDir)).rejects.toThrow(/Duplicate migration version/);
+    await expect(discoverMigrations(dupDir)).rejects.toThrow(
+      /Duplicate migration version/,
+    );
   });
 
   it("applies pending migrations transactionally, skips applied ones, and detects checksum drift", async () => {
@@ -99,7 +131,10 @@ describe("SQL migrations runner and migration 000", () => {
 
     const mockSession: MigrationDbSession = {
       async connect() {},
-      async query<Row = Record<string, unknown>>(text: string, values?: unknown[]) {
+      async query<Row = Record<string, unknown>>(
+        text: string,
+        values?: unknown[],
+      ) {
         executedSql.push(text.trim());
         if (text.includes("FROM schema_migrations")) {
           return { rows: recordedRows as unknown as Row[] };
@@ -128,7 +163,6 @@ describe("SQL migrations runner and migration 000", () => {
     expect(executedSql).toContain("SELECT 1;");
     expect(executedSql).toContain("COMMIT");
 
-    // Mutate already-applied 000 migration to verify immutability checksum guard
     await writeFile(
       path.join(dir, "000_enable_postgis.sql"),
       "CREATE EXTENSION postgis CASCADE;\n",

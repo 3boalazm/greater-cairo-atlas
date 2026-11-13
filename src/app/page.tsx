@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  DEFERRED_CORE_TABLES,
+  CORE_SCHEMA_TABLES,
   EPISTEMIC_PRINCIPLES,
   PILOT_COVERAGE_AREAS,
 } from "@/lib/atlas/constants";
@@ -30,7 +30,7 @@ export default function AtlasLandingPage() {
               SRID 4326 · WGS 84
             </Badge>
             <Badge variant="secondary" className="font-mono">
-              Phase 01 · Foundation
+              Phase 02 · Core Schema
             </Badge>
           </div>
         </div>
@@ -95,12 +95,12 @@ export default function AtlasLandingPage() {
                   className="h-4 w-4 text-muted-foreground"
                   aria-hidden="true"
                 />
-                <CardTitle>Pilot Coverage Scope (Planned Ingestion)</CardTitle>
+                <CardTitle>Pilot Coverage Scope (Phase 03 Ingestion)</CardTitle>
               </div>
               <CardDescription>
-                Target urban districts and new cities for initial Python batch
+                Target urban districts and new cities for batch Python
                 ingestion. No unverified boundaries, coordinates, or operational
-                statuses are loaded in Phase 01.
+                statuses are pre-populated in Phase 02.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -123,21 +123,29 @@ export default function AtlasLandingPage() {
                   className="h-4 w-4 text-muted-foreground"
                   aria-hidden="true"
                 />
-                <CardTitle>Deferred Core Schema (Phase 02)</CardTitle>
+                <CardTitle>Core Relational &amp; Spatial Schema</CardTitle>
               </div>
               <CardDescription>
-                Phase 01 enables the{" "}
+                Defined in{" "}
                 <code className="font-mono text-xs text-foreground">
-                  postgis
+                  001_core_schema.sql
                 </code>{" "}
-                extension via migration{" "}
-                <code className="font-mono text-xs text-foreground">000</code>.
-                The four core tables below are scheduled for Phase 02.
+                with strict enum{" "}
+                <code className="font-mono text-xs text-foreground">CHECK</code>{" "}
+                constraints,{" "}
+                <code className="font-mono text-xs text-foreground">
+                  ON DELETE RESTRICT
+                </code>{" "}
+                foreign keys, and{" "}
+                <code className="font-mono text-xs text-foreground">
+                  updated_at
+                </code>{" "}
+                triggers.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <dl className="space-y-2.5 text-xs">
-                {DEFERRED_CORE_TABLES.map((table) => (
+                {CORE_SCHEMA_TABLES.map((table) => (
                   <div
                     key={table.name}
                     className="flex flex-col gap-0.5 border-b border-border/70 pb-2 last:border-0 last:pb-0"
@@ -156,7 +164,7 @@ export default function AtlasLandingPage() {
 
       <footer className="border-t border-border bg-card/60">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-2 px-6 py-4 text-xs text-muted-foreground">
-          <span>Greater Cairo Atlas · Phase 01 Foundation</span>
+          <span>Greater Cairo Atlas · Phase 02 Core Schema</span>
           <span className="font-mono">
             Next.js · TypeScript Strict · Neon PostgreSQL + PostGIS
           </span>

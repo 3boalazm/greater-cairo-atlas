@@ -1,0 +1,44 @@
+[
+  {
+    "code": "TEST-FACT-ALPHA-LEN-A",
+    "entity_code": "TEST-ROAD-ALPHA",
+    "attribute": "length_km",
+    "value": "18.0",
+    "unit": "km",
+    "valid_as_of": "2026-01-15",
+    "verification_state": "disputed",
+    "evidence_codes": ["TEST-EVID-OFFICIAL-01"],
+    "notes": "Synthetic claim A stored side by side with conflicting claim B."
+  },
+  {
+    "code": "TEST-FACT-ALPHA-LEN-B",
+    "entity_code": "TEST-ROAD-ALPHA",
+    "attribute": "length_km",
+    "value": "19.4",
+    "unit": "km",
+    "valid_as_of": "2026-03-10",
+    "verification_state": "disputed",
+    "evidence_codes": ["TEST-EVID-DATASET-02", "TEST-EVID-MAP-03"],
+    "notes": "Synthetic claim B citing two sources via fact_evidence many-to-many link."
+  },
+  {
+    "code": "TEST-FACT-BETA-TARGET-YEAR",
+    "entity_code": "TEST-TRANSIT-BETA",
+    "attribute": "target_opening_year",
+    "value": "2030",
+    "unit": "year",
+    "valid_as_of": "2026-01-15",
+    "verification_state": "single_source",
+    "evidence_codes": ["TEST-EVID-OFFICIAL-01"]
+  },
+  {
+    "code": "TEST-FACT-GAMMA-LANES",
+    "entity_code": "TEST-DISTRICT-GAMMA",
+    "attribute": "sector_blocks_count",
+    "value": "12",
+    "unit": "blocks",
+    "valid_as_of": "2026-04-05",
+    "verification_state": "corroborated",
+    "evidence_codes": ["TEST-EVID-OFFICIAL-01", "TEST-EVID-MAP-03"]
+  }
+]

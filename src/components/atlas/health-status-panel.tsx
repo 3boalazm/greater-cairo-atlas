@@ -121,21 +121,21 @@ export function HealthStatusPanel() {
         <div className="space-y-1">
           <div className="flex flex-wrap items-center gap-2">
             <Activity className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-            <CardTitle>Spatial Database Health Probe</CardTitle>
+            <CardTitle>Spatial Database &amp; Migration Probe</CardTitle>
             {renderBadge()}
           </div>
           <CardDescription>
             Live status from{" "}
             <code className="font-mono text-xs text-foreground">/api/health</code>{" "}
-            running{" "}
+            checking{" "}
             <code className="font-mono text-xs text-foreground">
               PostGIS_Version()
-            </code>{" "}
-            and{" "}
-            <code className="font-mono text-xs text-foreground">
-              ST_AsGeoJSON(ST_SetSRID(ST_MakePoint(31.2357,30.0444),4326))
             </code>
-            .
+            , SRID 4326 spatial serialization, and applied{" "}
+            <code className="font-mono text-xs text-foreground">
+              schema_migrations
+            </code>{" "}
+            count.
           </CardDescription>
         </div>
 
@@ -155,7 +155,13 @@ export function HealthStatusPanel() {
           </Button>
           <Button variant="ghost" size="sm" asChild>
             <a href="/api/health" target="_blank" rel="noreferrer">
-              JSON
+              Health
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          </Button>
+          <Button variant="ghost" size="sm" asChild>
+            <a href="/api/atlas/stats" target="_blank" rel="noreferrer">
+              Stats
               <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
           </Button>
@@ -177,13 +183,21 @@ export function HealthStatusPanel() {
         )}
 
         {state.kind === "resolved" && state.payload.ok && (
-          <dl className="grid gap-3 rounded-sm border border-border bg-muted/40 p-3.5 text-xs sm:grid-cols-3">
+          <dl className="grid gap-3 rounded-sm border border-border bg-muted/40 p-3.5 text-xs sm:grid-cols-4">
             <div>
               <dt className="font-medium text-muted-foreground">
                 PostGIS Version
               </dt>
               <dd className="mt-1 font-mono text-foreground">
                 {state.payload.database.postgisVersion}
+              </dd>
+            </div>
+            <div>
+              <dt className="font-medium text-muted-foreground">
+                Applied Migrations
+              </dt>
+              <dd className="mt-1 font-mono text-foreground">
+                {state.payload.database.appliedMigrationsCount}
               </dd>
             </div>
             <div>
@@ -213,6 +227,9 @@ export function HealthStatusPanel() {
               </span>
               <span className="font-mono text-xs text-muted-foreground">
                 HTTP {state.httpStatus}
+                {state.payload.database.appliedMigrationsCount !== null
+                  ? ` · Applied Migrations: ${state.payload.database.appliedMigrationsCount}`
+                  : ""}
               </span>
             </div>
             <p className="text-xs leading-relaxed text-foreground">

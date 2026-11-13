@@ -16,6 +16,8 @@
     "test:watch": "vitest",
     "db:migrate": "tsx scripts/migrate.ts",
     "db:migrate:dry-run": "tsx scripts/migrate.ts --dry-run",
+    "seed:import": "tsx scripts/import-seed.ts",
+    "seed:check": "tsx scripts/import-seed.ts --dry-run",
     "env:check": "tsx scripts/check-env.ts"
   },
   "dependencies": {

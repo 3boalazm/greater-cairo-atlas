@@ -9,7 +9,10 @@ import {
 import { logger } from "@/lib/logger";
 
 export const HEALTH_CHECK_SQL =
-  "SELECT PostGIS_Version() AS postgis_version, ST_AsGeoJSON(ST_SetSRID(ST_MakePoint(31.2357,30.0444),4326)) AS point_geojson" as const;
+  "SELECT PostGIS_Version() AS postgis_version, ST_AsGeoJSON(ST_SetSRID(ST_MakePoint(31.2357,30.0444),4326)) AS point_geojson, (SELECT COUNT(*)::int FROM schema_migrations) AS applied_migrations" as const;
+
+export const HEALTH_CHECK_FALLBACK_SQL =
+  "SELECT PostGIS_Version() AS postgis_version, ST_AsGeoJSON(ST_SetSRID(ST_MakePoint(31.2357,30.0444),4326)) AS point_geojson, 0::int AS applied_migrations" as const;
 
 export interface HealthSpatialPointGeoJson {
   type: "Point";
@@ -19,6 +22,7 @@ export interface HealthSpatialPointGeoJson {
 export interface HealthProbeRow {
   postgis_version: string;
   point_geojson: string;
+  applied_migrations: number | string;
 }
 
 export type HealthQueryExecutor = () => Promise<readonly HealthProbeRow[]>;
@@ -34,6 +38,7 @@ export type HealthCheckResponseBody =
       database: {
         configured: true;
         connected: true;
+        appliedMigrationsCount: number;
         postgisVersion: string;
         spatialProbe: {
           srid: 4326;
@@ -51,6 +56,7 @@ export type HealthCheckResponseBody =
       database: {
         configured: boolean;
         connected: false;
+        appliedMigrationsCount: number | null;
       };
       error: {
         code: string;
@@ -64,11 +70,17 @@ export interface HealthCheckOutcome {
   body: HealthCheckResponseBody;
 }
 
-const defaultExecutor: HealthQueryExecutor = async () => {
-  const sql = getSql();
-  const rows = await sql.query(HEALTH_CHECK_SQL);
-  return rows as HealthProbeRow[];
-};
+function isMissingSchemaMigrationsTableError(error: unknown): boolean {
+  if (!(error instanceof Error)) {
+    return false;
+  }
+  const pgCode =
+    "code" in error && typeof error.code === "string" ? error.code : undefined;
+  return (
+    pgCode === "42P01" &&
+    error.message.toLowerCase().includes("schema_migrations")
+  );
+}
 
 function isMissingPostgisError(error: unknown): boolean {
   if (!(error instanceof Error)) {
@@ -82,6 +94,20 @@ function isMissingPostgisError(error: unknown): boolean {
   );
 }
 
+const defaultExecutor: HealthQueryExecutor = async () => {
+  const sql = getSql();
+  try {
+    const rows = await sql.query(HEALTH_CHECK_SQL);
+    return rows as HealthProbeRow[];
+  } catch (error) {
+    if (isMissingSchemaMigrationsTableError(error)) {
+      const fallbackRows = await sql.query(HEALTH_CHECK_FALLBACK_SQL);
+      return fallbackRows as HealthProbeRow[];
+    }
+    throw error;
+  }
+};
+
 export async function runDatabaseHealthCheck(
   executeProbe: HealthQueryExecutor = defaultExecutor,
 ): Promise<HealthCheckOutcome> {
@@ -91,11 +117,15 @@ export async function runDatabaseHealthCheck(
   try {
     const rows = await executeProbe();
     const firstRow = rows[0];
+    const parsedMigrationCount =
+      firstRow !== undefined ? Number(firstRow.applied_migrations) : NaN;
 
     if (
       !firstRow ||
       typeof firstRow.postgis_version !== "string" ||
-      typeof firstRow.point_geojson !== "string"
+      typeof firstRow.point_geojson !== "string" ||
+      !Number.isInteger(parsedMigrationCount) ||
+      parsedMigrationCount < 0
     ) {
       logger.error("Health check returned unexpected row shape", {
         rowCount: rows.length,
@@ -111,6 +141,7 @@ export async function runDatabaseHealthCheck(
           database: {
             configured: true,
             connected: false,
+            appliedMigrationsCount: null,
           },
           error: {
             code: "INVALID_HEALTH_PROBE_RESULT",
@@ -144,6 +175,7 @@ export async function runDatabaseHealthCheck(
         database: {
           configured: true,
           connected: true,
+          appliedMigrationsCount: parsedMigrationCount,
           postgisVersion: firstRow.postgis_version,
           spatialProbe: {
             srid: 4326,
@@ -169,6 +201,7 @@ export async function runDatabaseHealthCheck(
           database: {
             configured: false,
             connected: false,
+            appliedMigrationsCount: null,
           },
           error: {
             code: error.code,
@@ -195,6 +228,7 @@ export async function runDatabaseHealthCheck(
           database: {
             configured: false,
             connected: false,
+            appliedMigrationsCount: null,
           },
           error: {
             code: error.code,
@@ -220,11 +254,12 @@ export async function runDatabaseHealthCheck(
           database: {
             configured: true,
             connected: false,
+            appliedMigrationsCount: 0,
           },
           error: {
             code: "POSTGIS_NOT_ENABLED",
             message:
-              "Connected to Neon PostgreSQL, but PostGIS is not enabled. Run 'npm run db:migrate' to apply 000_enable_postgis.sql.",
+              "Connected to Neon PostgreSQL, but PostGIS is not enabled yet. Run the 'Migrate Database' GitHub Actions workflow or 'npm run db:migrate' to apply 000_enable_postgis.sql and 001_core_schema.sql.",
           },
         },
       };
@@ -245,6 +280,7 @@ export async function runDatabaseHealthCheck(
         database: {
           configured: true,
           connected: false,
+          appliedMigrationsCount: null,
         },
         error: {
           code: "DATABASE_UNAVAILABLE",

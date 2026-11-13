@@ -1,0 +1,30 @@
+[
+  {
+    "code": "TEST-EVID-OFFICIAL-01",
+    "title": "Synthetic Official Infrastructure Bulletin 01",
+    "url": "https://example.org/synthetic-fixture/official-bulletin-01.pdf",
+    "publisher": "Synthetic Test Gazette",
+    "source_type": "official",
+    "published_date": "2026-01-15",
+    "accessed_date": "2026-02-01",
+    "notes": "Synthetic test fixture source; not real-world data."
+  },
+  {
+    "code": "TEST-EVID-DATASET-02",
+    "title": "Synthetic Survey Dataset 02",
+    "url": "https://example.org/synthetic-fixture/survey-dataset-02.json",
+    "publisher": "Synthetic Geomatics Lab",
+    "source_type": "dataset",
+    "published_date": "2026-03-10",
+    "accessed_date": "2026-03-12"
+  },
+  {
+    "code": "TEST-EVID-MAP-03",
+    "title": "Synthetic Cartographic Sheet 03",
+    "url": "https://example.org/synthetic-fixture/map-sheet-03",
+    "publisher": "Synthetic Open Mapping Collective",
+    "source_type": "map",
+    "published_date": null,
+    "accessed_date": "2026-04-05"
+  }
+]
