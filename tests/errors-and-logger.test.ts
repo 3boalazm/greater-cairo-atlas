@@ -22,6 +22,7 @@ describe("secret redaction, error normalization, and log sanitization", () => {
   it("redacts sensitive keys and nested Error credentials in log metadata", () => {
     const sanitized = sanitizeLogValue({
       DATABASE_URL: "postgresql://user:topsecret@ep-host.neon.tech/db",
+      ADMIN_IMPORT_TOKEN: "super-secret-admin-import-token-123456",
       password: "plain-password",
       nested: {
         error: new Error(
@@ -32,6 +33,7 @@ describe("secret redaction, error normalization, and log sanitization", () => {
     }) as Record<string, unknown>;
 
     expect(sanitized.DATABASE_URL).toBe("[REDACTED]");
+    expect(sanitized.ADMIN_IMPORT_TOKEN).toBe("[REDACTED]");
     expect(sanitized.password).toBe("[REDACTED]");
     expect(sanitized.safeField).toBe("greater-cairo-atlas");
 

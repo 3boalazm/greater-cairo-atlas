@@ -1,10 +1,15 @@
 import { describe, expect, it } from "vitest";
 import {
   getRuntimeEnv,
+  requireAdminImportEnv,
   requireDatabaseEnv,
   requireMigrationDatabaseEnv,
 } from "@/lib/env";
-import { DatabaseNotConfiguredError, EnvValidationError } from "@/lib/errors";
+import {
+  AdminImportNotConfiguredError,
+  DatabaseNotConfiguredError,
+  EnvValidationError,
+} from "@/lib/errors";
 
 describe("environment validation", () => {
   it("throws DatabaseNotConfiguredError with clear message when DATABASE_URL is missing", () => {
@@ -102,5 +107,24 @@ describe("environment validation", () => {
         LOG_LEVEL: "verbose",
       }),
     ).toThrowError(EnvValidationError);
+  });
+
+  it("validates ADMIN_IMPORT_TOKEN fail-closed when missing or too short", () => {
+    expect(() => requireAdminImportEnv({ NODE_ENV: "test" })).toThrowError(
+      AdminImportNotConfiguredError,
+    );
+
+    expect(() =>
+      requireAdminImportEnv({
+        NODE_ENV: "test",
+        ADMIN_IMPORT_TOKEN: "too-short",
+      }),
+    ).toThrowError(EnvValidationError);
+
+    const valid = requireAdminImportEnv({
+      NODE_ENV: "test",
+      ADMIN_IMPORT_TOKEN: "  0123456789abcdef0123456789abcdef  ",
+    });
+    expect(valid.ADMIN_IMPORT_TOKEN).toBe("0123456789abcdef0123456789abcdef");
   });
 });

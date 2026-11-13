@@ -1,1 +1,3898 @@
-[]
+[
+  {
+    "code": "F-ROAD-RING-ROAD-ENCIRCLES-1",
+    "entity_code": "ROAD-RING-ROAD",
+    "attribute": "encircles",
+    "value": "الكتلة القديمة: القاهرة والجيزة وشبرا الخيمة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-RING-ROAD-FUNCTION-1",
+    "entity_code": "ROAD-RING-ROAD",
+    "attribute": "function",
+    "value": "توزيع الحركة جوه المدينة، وعليه الـ BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-RING-ROAD-LENGTH-APPROX-1",
+    "entity_code": "ROAD-RING-ROAD",
+    "attribute": "length_approx",
+    "value": "110",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-ENCIRCLES-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "encircles",
+    "value": "العبور، الشروق، المستقبل، العاصمة، 15 مايو، أكتوبر، زايد",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-FROM-TO-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "from_to",
+    "value": "بلبيس → محور الضبعة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-FUNCTION-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "function",
+    "value": "يربط المدن الجديدة ببعض من غير ما تدخل الدائري",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-LENGTH-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "length",
+    "value": "147",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "rejected",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-LENGTH-2",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "length",
+    "value": "155",
+    "unit": "km",
+    "valid_as_of": "2020-12-18",
+    "valid_as_of_precision": "day",
+    "verification_state": "superseded",
+    "evidence_codes": [
+      "EV-045"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-LENGTH-3",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "length",
+    "value": "156",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-LENGTH-4",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "length",
+    "value": "156",
+    "unit": "km",
+    "valid_as_of": "2021-04-30",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-044"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-ENCIRCLES-1",
+    "entity_code": "ROAD-REGIONAL-RING",
+    "attribute": "encircles",
+    "value": "بنها، بلبيس، العين السخنة، الصعيد، إسكندرية الصحراوي",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-FUNCTION-1",
+    "entity_code": "ROAD-REGIONAL-RING",
+    "attribute": "function",
+    "value": "الحركة العابرة والنقل الثقيل بين المحافظات بعيد عن القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-LENGTH-RELATIVE-1",
+    "entity_code": "ROAD-REGIONAL-RING",
+    "attribute": "length_relative",
+    "value": "الأطول بين الحلقات التلاتة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SHUBRA-BENHA-FREE-ACCESS-TYPE-1",
+    "entity_code": "ROAD-SHUBRA-BENHA-FREE",
+    "attribute": "access_type",
+    "value": "أول طريق حر في الدلتا، من غير تقاطعات",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SHUBRA-BENHA-FREE-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-SHUBRA-BENHA-FREE",
+    "attribute": "entry_corridor_from",
+    "value": "وسط الدلتا؛ وشرق الدلتا عبر بنها–المنصورة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SHUBRA-BENHA-FREE-FROM-TO-1",
+    "entity_code": "ROAD-SHUBRA-BENHA-FREE",
+    "attribute": "from_to",
+    "value": "الدائري عند أم بيومي → الإقليمي في بنها",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SHUBRA-BENHA-FREE-LENGTH-1",
+    "entity_code": "ROAD-SHUBRA-BENHA-FREE",
+    "attribute": "length",
+    "value": "40",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SHUBRA-BENHA-FREE-TRAVEL-TIME-BENHA-TO-CAIRO-ENTRANCE-APPROX-1",
+    "entity_code": "ROAD-SHUBRA-BENHA-FREE",
+    "attribute": "travel_time_benha_to_cairo_entrance_approx",
+    "value": "25",
+    "unit": "min",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-037"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ALEX-AGRI-DAILY-TRAFFIC-APPROX-1",
+    "entity_code": "ROAD-CAIRO-ALEX-AGRI",
+    "attribute": "daily_traffic_approx",
+    "value": "140000",
+    "unit": "vehicles/day",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ALEX-AGRI-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-CAIRO-ALEX-AGRI",
+    "attribute": "entry_corridor_from",
+    "value": "وسط الدلتا (القليوبية، المنوفية، الغربية) → شبرا الخيمة والدائري عند أم بيومي وقليوب",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ALEX-AGRI-FROM-TO-1",
+    "entity_code": "ROAD-CAIRO-ALEX-AGRI",
+    "attribute": "from_to",
+    "value": "شبرا وقليوب → بنها وطنطا",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-BENHA-MANSOURA-FROM-TO-1",
+    "entity_code": "ROAD-BENHA-MANSOURA",
+    "attribute": "from_to",
+    "value": "بنها → المنصورة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-BENHA-FLYOVER-CROSSES-1",
+    "entity_code": "BRIDGE-BENHA-FLYOVER",
+    "attribute": "crosses",
+    "value": "فرع دمياط",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-BENHA-FLYOVER-LENGTH-1",
+    "entity_code": "BRIDGE-BENHA-FLYOVER",
+    "attribute": "length",
+    "value": "6.5",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-NW-ARC-FROM-TO-1",
+    "entity_code": "ROAD-REGIONAL-NW-ARC",
+    "attribute": "from_to",
+    "value": "بنها → إسكندرية الصحراوي",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-NW-ARC-LENGTH-1",
+    "entity_code": "ROAD-REGIONAL-NW-ARC",
+    "attribute": "length",
+    "value": "57",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ASSAR-AXIS-FROM-TO-1",
+    "entity_code": "ROAD-ASSAR-AXIS",
+    "attribute": "from_to",
+    "value": "مصر الجديدة → شبرا الخيمة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-FROM-TO-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "from_to",
+    "value": "شمال القاهرة → الساحل الشمالي",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "2",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-DABAA-AXIS-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-DABAA-AXIS",
+    "attribute": "entry_corridor_from",
+    "value": "إسكندرية والساحل الشمالي → زايد وأكتوبر",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MARG-AXIS-FROM-TO-1",
+    "entity_code": "ROAD-MARG-AXIS",
+    "attribute": "from_to",
+    "value": "الدائري → الإسماعيلية الزراعي عند أبو زعبل",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-009"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MARG-AXIS-LENGTH-1",
+    "entity_code": "ROAD-MARG-AXIS",
+    "attribute": "length",
+    "value": "13",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-009"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EAST-RAYAH-TAWFIKI-COMPLETED-SEGMENT-1",
+    "entity_code": "ROAD-EAST-RAYAH-TAWFIKI",
+    "attribute": "completed_segment",
+    "value": "18 كم من بنها لميت العز",
+    "unit": "km",
+    "valid_as_of": "2026-02-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EAST-RAYAH-TAWFIKI-FROM-TO-1",
+    "entity_code": "ROAD-EAST-RAYAH-TAWFIKI",
+    "attribute": "from_to",
+    "value": "بنها → المنصورة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EAST-RAYAH-TAWFIKI-IN-PROGRESS-SEGMENT-1",
+    "entity_code": "ROAD-EAST-RAYAH-TAWFIKI",
+    "attribute": "in_progress_segment",
+    "value": "15 كم لحد دقادوس",
+    "unit": "km",
+    "valid_as_of": "2026-02-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EAST-RAYAH-TAWFIKI-LENGTH-1",
+    "entity_code": "ROAD-EAST-RAYAH-TAWFIKI",
+    "attribute": "length",
+    "value": "73",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EAST-RAYAH-TAWFIKI-MAIN-LANES-1",
+    "entity_code": "ROAD-EAST-RAYAH-TAWFIKI",
+    "attribute": "main_lanes",
+    "value": "4",
+    "unit": "lanes",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EAST-RAYAH-TAWFIKI-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-EAST-RAYAH-TAWFIKI",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EAST-RAYAH-TAWFIKI-REMAINING-PLANNED-LENGTH-APPROX-1",
+    "entity_code": "ROAD-EAST-RAYAH-TAWFIKI",
+    "attribute": "remaining_planned_length_approx",
+    "value": "51",
+    "unit": "km",
+    "valid_as_of": "2026-02-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-SUEZ-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-CAIRO-SUEZ",
+    "attribute": "entry_corridor_from",
+    "value": "القناة وسيناء → العبور والشروق ومدينة نصر",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ISMAILIA-DESERT-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-CAIRO-ISMAILIA-DESERT",
+    "attribute": "entry_corridor_from",
+    "value": "القناة وسيناء → العبور والشروق ومدينة نصر",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-BILBEIS-DESERT-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-BILBEIS-DESERT",
+    "attribute": "entry_corridor_from",
+    "value": "شرق الدلتا (الدقهلية، الشرقية) → العبور ومصر الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AIN-SOKHNA-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-AIN-SOKHNA",
+    "attribute": "entry_corridor_from",
+    "value": "البحر الأحمر (السخنة والغردقة) → التجمع والقطامية والعاصمة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EASTERN-DESERT-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-EASTERN-DESERT",
+    "attribute": "entry_corridor_from",
+    "value": "الصعيد شرق النيل، ثم الأوتوستراد → حلوان والمعادي والقطامية",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-WESTERN-DESERT-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-WESTERN-DESERT",
+    "attribute": "entry_corridor_from",
+    "value": "الصعيد غرب النيل والفيوم → الهرم والجيزة، أو أكتوبر من الواحات",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-FAYOUM-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-CAIRO-FAYOUM",
+    "attribute": "entry_corridor_from",
+    "value": "الصعيد غرب النيل والفيوم → الهرم والجيزة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "entry_corridor_from",
+    "value": "الصعيد غرب النيل والفيوم → الهرم والجيزة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ALEX-DESERT-ENTRY-CORRIDOR-FROM-1",
+    "entity_code": "ROAD-CAIRO-ALEX-DESERT",
+    "attribute": "entry_corridor_from",
+    "value": "إسكندرية والساحل الشمالي → زايد وأكتوبر، ثم المهندسين من 26 يوليو",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-BRIDGE-LENGTH-1",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "bridge_length",
+    "value": "900",
+    "unit": "m",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-FROM-TO-1",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "from_to",
+    "value": "الدائري عند المريوطية → الدائري عند منشأة البكاري",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-LANES-PER-DIRECTION-1",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "lanes_per_direction",
+    "value": "3",
+    "unit": "lanes",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-LENGTH-APPROX-1",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "length_approx",
+    "value": "4",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "operational_status",
+    "value": "unknown",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-KAMAL-AMER-CROSSES-1",
+    "entity_code": "ROAD-KAMAL-AMER",
+    "attribute": "crosses",
+    "value": "الهرم، فيصل، صفط اللبن، جامعة الدول، 26 يوليو",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-KAMAL-AMER-FROM-TO-1",
+    "entity_code": "ROAD-KAMAL-AMER",
+    "attribute": "from_to",
+    "value": "دائري المنيب → الوراق → محور تحيا مصر",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-KAMAL-AMER-LENGTH-1",
+    "entity_code": "ROAD-KAMAL-AMER",
+    "attribute": "length",
+    "value": "15",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-KAMAL-AMER-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-KAMAL-AMER",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AHMED-ORABI-CONNECTED-TO-1",
+    "entity_code": "ROAD-AHMED-ORABI",
+    "attribute": "connected_to",
+    "value": "الدائري ومحور كمال عامر؛ بديل لـ 26 يوليو من الدائري لميدان لبنان وسفنكس",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AHMED-ORABI-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-AHMED-ORABI",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-CONNECTS-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "connects",
+    "value": "شبرا الخيمة ↔ الوراق وإمبابة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "1",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-IMBABA-CARRIES-1",
+    "entity_code": "BRIDGE-IMBABA",
+    "attribute": "carries",
+    "value": "سكة حديد وعربيات",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-IMBABA-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-IMBABA",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "3",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-15-MAY-CONNECTS-1",
+    "entity_code": "BRIDGE-15-MAY",
+    "attribute": "connects",
+    "value": "بولاق ← الزمالك ← العجوزة والمهندسين",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-15-MAY-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-15-MAY",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "4",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-6-OCTOBER-CONNECTS-1",
+    "entity_code": "BRIDGE-6-OCTOBER",
+    "attribute": "connects",
+    "value": "مدينة نصر ↔ المهندسين والدقي؛ أكتر نقطة اختناق في وسط البلد",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-6-OCTOBER-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-6-OCTOBER",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "5",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-QASR-EL-NIL-CONNECTS-1",
+    "entity_code": "BRIDGE-QASR-EL-NIL",
+    "attribute": "connects",
+    "value": "التحرير ← الجزيرة ← الدقي (مع كوبري الجلاء)",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-QASR-EL-NIL-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-QASR-EL-NIL",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "6",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-GALAA-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-GALAA",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "6",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-GIZA-CONNECTS-1",
+    "entity_code": "BRIDGE-GIZA",
+    "attribute": "connects",
+    "value": "المنيل ← الجيزة (مع كوبري عباس وكوبري الجامعة)",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-GIZA-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-GIZA",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "7",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-ABBAS-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-ABBAS",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "7",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-UNIVERSITY-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-UNIVERSITY",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "7",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MONIB-CONNECTS-1",
+    "entity_code": "BRIDGE-MONIB",
+    "attribute": "connects",
+    "value": "المعادي ← الجيزة والهرم، وعليه الـ BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MONIB-NILE-CROSSING-ORDER-N-TO-S-1",
+    "entity_code": "BRIDGE-MONIB",
+    "attribute": "nile_crossing_order_n_to_s",
+    "value": "8",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L1-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-METRO-L1",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L1-ROUTE-1",
+    "entity_code": "TRANSIT-METRO-L1",
+    "attribute": "route",
+    "value": "حلوان–المرج",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-ROUTE-1",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "route",
+    "value": "شبرا–الجيزة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-BRANCH-CAIRO-UNIVERSITY-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "branch_cairo_university_length",
+    "value": "7.1",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-BRANCH-CAIRO-UNIVERSITY-PASSENGER-SERVICE-START-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "branch_cairo_university_passenger_service_start",
+    "value": "2024-05-15",
+    "unit": null,
+    "valid_as_of": "2024-05-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-BRANCH-CAIRO-UNIVERSITY-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "branch_cairo_university_stations",
+    "value": "5",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-BRANCH-ROD-ELFARAG-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "branch_rod_elfarag_length",
+    "value": "6.6",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-BRANCH-ROD-ELFARAG-PASSENGER-SERVICE-START-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "branch_rod_elfarag_passenger_service_start",
+    "value": "2024-01-01",
+    "unit": null,
+    "valid_as_of": "2024-01-01",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-BRANCH-ROD-ELFARAG-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "branch_rod_elfarag_stations",
+    "value": "6",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3-FORMAL-INAUGURATION-DATE-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3_formal_inauguration_date",
+    "value": "2024-10-12",
+    "unit": null,
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-ROUTE-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "route",
+    "value": "عدلي منصور–الكيت كات، ومن الكيت كات بيتفرع لمحور روض الفرج وجامعة القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE1-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase1_length",
+    "value": "19",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE1-ROUTE-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase1_route",
+    "value": "حدائق الأشجار (حدود أكتوبر) → المتحف الكبير → الهرم → الجيزة → الفسطاط",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE1-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase1_stations",
+    "value": "17",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PUBLIC-OPENING-TARGET-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "public_opening_target",
+    "value": "2027-mid",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "rejected",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PUBLIC-OPENING-TARGET-2",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "public_opening_target",
+    "value": "2028-01",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PUBLIC-OPENING-TARGET-3",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "public_opening_target",
+    "value": "2028-H1",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PUBLIC-OPENING-TARGET-OFFICIAL-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "public_opening_target_official",
+    "value": "2028-H1",
+    "unit": null,
+    "valid_as_of": "2026-04-28",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-047"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-TRIAL-OPERATION-TARGET-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "trial_operation_target",
+    "value": "2027",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-COST-ESTIMATE-APPROX-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "cost_estimate_approx",
+    "value": "3000000000",
+    "unit": "USD",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-FEASIBILITY-STUDY-TARGET-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "feasibility_study_target",
+    "value": "آخر 2026",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-HSR-INTERCHANGE-STATION-NAME-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "hsr_interchange_station_name",
+    "value": "محطة أحمد عمر هاشم على محور محمد نجيب",
+    "unit": null,
+    "valid_as_of": "2026-11-10",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-031"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-HSR-INTERCHANGE-STATION-NAME-2",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "hsr_interchange_station_name",
+    "value": "محطة محمد نجيب",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-INTERCHANGES-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "interchanges",
+    "value": "الخط الأول في الدمرداش، الخط التالت في العباسية، الخط الرابع في السيدة عائشة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-030"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-LENGTH-APPROX-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "length_approx",
+    "value": "38",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "operational_status",
+    "value": "planned",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-PASSES-THROUGH-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "passes_through",
+    "value": "بهتيم، الزاوية الحمرا",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-PROPOSED-EXTENSION-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "proposed_extension",
+    "value": "17 كم على طريق السخنة للربط مع القطار السريع",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-030"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-PROPOSED-EXTENSION-2",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "proposed_extension",
+    "value": "6 كم للنرجس في القاهرة الجديدة للربط مع المونوريل الشرقي",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-030"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-ROUTE-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "route",
+    "value": "الخصوص (مخرج 18 من الدائري) → المعادي الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-STATION-TYPES-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "station_types",
+    "value": "2 سطحية + 14 علوية + 10 تحت الأرض",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "stations",
+    "value": "26",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-DIRECTION-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "direction",
+    "value": "شمال–جنوب",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-DIRECTION-2",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "direction",
+    "value": "غرب → شرق (مدينة نصر ← العاصمة)",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-FULL-OPERATION-DATE-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "full_operation_date",
+    "value": "2026-06-27",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-019",
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-LENGTH-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "length",
+    "value": "56.5",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-OFFICIAL-INAUGURATION-DATE-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "official_inauguration_date",
+    "value": "2026-03-20",
+    "unit": null,
+    "valid_as_of": "2026-03-20",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-049"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-OPERATING-HOURS-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "operating_hours",
+    "value": "06:00–21:00",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-019",
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-PHASE1-OPENING-DATE-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "phase1_opening_date",
+    "value": "2026-05-06",
+    "unit": null,
+    "valid_as_of": "2026-05-06",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-035"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-PHASE1-OPENING-DATE-2",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "phase1_opening_date",
+    "value": "2026-05-06",
+    "unit": null,
+    "valid_as_of": "2026-05-06",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-PHASE1-OPENING-DATE-3",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "phase1_opening_date",
+    "value": "2026-05-10",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "rejected",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-PHASE1-SEGMENT-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "phase1_segment",
+    "value": "المشير طنطاوي → مدينة العدالة",
+    "unit": null,
+    "valid_as_of": "2026-05-06",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-PHASE1-STATIONS-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "phase1_stations",
+    "value": "16",
+    "unit": "stations",
+    "valid_as_of": "2026-05-06",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-ROUTE-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "route",
+    "value": "استاد القاهرة → مدينة العدالة بالعاصمة",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-019",
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-STATIONS-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "stations",
+    "value": "22",
+    "unit": "stations",
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-019",
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-LENGTH-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "length",
+    "value": "43.8",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "operational_status",
+    "value": "planned",
+    "unit": null,
+    "valid_as_of": "2026-08-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-046"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-ROUTE-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "route",
+    "value": "جامعة الدول (المهندسين) → أكتوبر وزايد",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-STATIONS-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "stations",
+    "value": "13",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-TARGET-OPENING-NEWS-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "target_opening_news",
+    "value": "2027-04/2027-05",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-TARGET-OPENING-OFFICIAL-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "target_opening_official",
+    "value": "from 2027",
+    "unit": null,
+    "valid_as_of": "2026-08-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-046"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-TRIAL-OPERATION-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "trial_operation",
+    "value": "لسه في التشغيل التجريبي",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-BRANCH-10TH-OF-RAMADAN-STATUS-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "branch_10th_of_ramadan_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "superseded",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-BRANCHING-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "branching",
+    "value": "بعد بدر بيتفرع شمال للعاشر وجنوب للعاصمة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-NORTHERN-BRANCH-STATIONS-NAMED-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "northern_branch_stations_named",
+    "value": "مدينة المعرفة (Knowledge City)، المنطقة الصناعية (Industrial Zone)، العاشر من رمضان 1",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-OPENING-DATE-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "opening_date",
+    "value": "2022-07-03",
+    "unit": null,
+    "valid_as_of": "2022-07-03",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE4-EXTENSION-LENGTH-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase4_extension_length",
+    "value": "16",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE4-EXTENSION-STATIONS-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase4_extension_stations",
+    "value": "5",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE4-EXTENSION-STATUS-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase4_extension_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PLANNED-LENGTH-ALL-BRANCHES-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "planned_length_all_branches",
+    "value": "105",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PLANNED-STATIONS-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "planned_stations",
+    "value": "19",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-ROUTE-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "route",
+    "value": "طالع من بدر والشروق ومدينتي لحد السلام",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-ROUTE-2",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "route",
+    "value": "عدلي منصور → العبور → المستقبل → الشروق → هليوبوليس الجديدة → بدر → الروبيكي → العاصمة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-CONNECTS-6-OCTOBER-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "connects_6_october",
+    "value": "false",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-FARE-RANGE-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "fare_range",
+    "value": "5–35",
+    "unit": "EGP",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-LENGTH-APPROX-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "length_approx",
+    "value": "75",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-ACTUAL-START-POINT-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_actual_start_point",
+    "value": "طريق العين السخنة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-PASSENGER-SEGMENT-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_passenger_segment",
+    "value": "طريق العين السخنة → صن كابيتال",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-PLANNED-START-POINT-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_planned_start_point",
+    "value": "المشير طنطاوي",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-START-DATE-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_start_date",
+    "value": "2026-09-26",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-ROUTE-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "route",
+    "value": "الدائري: الإسكندرية الزراعي → أكاديمية الشرطة → العين السخنة → المعادي → المريوطية → صن كابيتال",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-STATIONS-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "stations",
+    "value": "30",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-036"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-STATIONS-2",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "stations",
+    "value": "30",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-043"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-STATIONS-3",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "stations",
+    "value": "31",
+    "unit": "stations",
+    "valid_as_of": "2026-09-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-STATIONS-OPENING-NOTE-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "stations_opening_note",
+    "value": "بعض المحطات بتفتح تباعاً",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-LENGTH-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "length",
+    "value": "660",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-PASSENGER-SERVICE-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "passenger_service",
+    "value": "لسه ماشتغلتش للركاب",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-PASSENGER-SERVICE-TARGET-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "passenger_service_target",
+    "value": "2027-07",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-ROUTE-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "route",
+    "value": "العين السخنة ← العاصمة ← حدائق أكتوبر ← إسكندرية ← العلمين ← مطروح",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-STATIONS-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "stations",
+    "value": "21",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L2-LENGTH-1",
+    "entity_code": "TRANSIT-HSR-L2",
+    "attribute": "length",
+    "value": "1100",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L2-PASSENGER-SERVICE-1",
+    "entity_code": "TRANSIT-HSR-L2",
+    "attribute": "passenger_service",
+    "value": "لسه ماشتغلتش للركاب",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L2-ROUTE-1",
+    "entity_code": "TRANSIT-HSR-L2",
+    "attribute": "route",
+    "value": "حدائق أكتوبر ← الصعيد ← أبو سمبل",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L2-STATIONS-1",
+    "entity_code": "TRANSIT-HSR-L2",
+    "attribute": "stations",
+    "value": "36 (10 سريعة + 26 إقليمية)",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L3-LENGTH-APPROX-1",
+    "entity_code": "TRANSIT-HSR-L3",
+    "attribute": "length_approx",
+    "value": "175",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L3-LENGTH-APPROX-2",
+    "entity_code": "TRANSIT-HSR-L3",
+    "attribute": "length_approx",
+    "value": "225",
+    "unit": "km",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L3-PASSENGER-SERVICE-1",
+    "entity_code": "TRANSIT-HSR-L3",
+    "attribute": "passenger_service",
+    "value": "لسه ماشتغلتش للركاب",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L3-ROUTE-1",
+    "entity_code": "TRANSIT-HSR-L3",
+    "attribute": "route",
+    "value": "قنا ← سفاجا ← الغردقة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L3-STATIONS-1",
+    "entity_code": "TRANSIT-HSR-L3",
+    "attribute": "stations",
+    "value": "3",
+    "unit": "stations",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ADLY-MANSOUR-MODES-1",
+    "entity_code": "STOP-ADLY-MANSOUR",
+    "attribute": "modes",
+    "value": "LRT، الخط التالت، قطار السويس، سوبر جيت، وأتوبيسين تردديين",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ADLY-MANSOUR-MODES-COUNT-1",
+    "entity_code": "STOP-ADLY-MANSOUR",
+    "attribute": "modes_count",
+    "value": "6",
+    "unit": "modes",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ADLY-MANSOUR-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-ADLY-MANSOUR",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-CAIRO-STADIUM-MODES-1",
+    "entity_code": "STOP-CAIRO-STADIUM",
+    "attribute": "modes",
+    "value": "المونوريل الشرقي + الخط التالت",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-CAIRO-STADIUM-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-CAIRO-STADIUM",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ARTS-CULTURE-CITY-MODES-1",
+    "entity_code": "STOP-ARTS-CULTURE-CITY",
+    "attribute": "modes",
+    "value": "المونوريل الشرقي + LRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ARTS-CULTURE-CITY-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-ARTS-CULTURE-CITY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ADALA-CITY-ROLE-1",
+    "entity_code": "STOP-ADALA-CITY",
+    "attribute": "role",
+    "value": "نهاية مونوريل شرق النيل",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MONORAIL-MOSHIR-TANTAWY-ROLE-1",
+    "entity_code": "STOP-MONORAIL-MOSHIR-TANTAWY",
+    "attribute": "role",
+    "value": "بداية المرحلة الأولى للركاب من مونوريل شرق النيل (6 مايو 2026)",
+    "unit": null,
+    "valid_as_of": "2026-05-06",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MONORAIL-MOSHIR-TANTAWY-SERVED-BY-1",
+    "entity_code": "STOP-MONORAIL-MOSHIR-TANTAWY",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-SUN-CAPITAL-AREA-1",
+    "entity_code": "STOP-SUN-CAPITAL",
+    "attribute": "area",
+    "value": "80000",
+    "unit": "m2",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-SUN-CAPITAL-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-SUN-CAPITAL",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-SUN-CAPITAL-ROLE-1",
+    "entity_code": "STOP-SUN-CAPITAL",
+    "attribute": "role",
+    "value": "مجمع نقل ونهاية الـ BRT الحالية عند تقاطع الدائري وطريق الفيوم؛ بيخدم اللي رايح الفيوم والصعيد",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-SADAT-INTERCHANGE-LINES-1",
+    "entity_code": "STOP-SADAT",
+    "attribute": "interchange_lines",
+    "value": "الخط الأول + الخط التاني",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-OBOUR-SERVED-BY-1",
+    "entity_code": "STOP-LRT-OBOUR",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-MOSTAKBAL-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-MOSTAKBAL",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-SHOROUK-SERVED-BY-1",
+    "entity_code": "STOP-LRT-SHOROUK",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-NEW-HELIOPOLIS-SERVED-BY-1",
+    "entity_code": "STOP-LRT-NEW-HELIOPOLIS",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-BADR-SERVED-BY-1",
+    "entity_code": "STOP-LRT-BADR",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-ROBEIKI-SERVED-BY-1",
+    "entity_code": "STOP-LRT-ROBEIKI",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-CAPITAL-GARDENS-SERVED-BY-1",
+    "entity_code": "STOP-LRT-CAPITAL-GARDENS",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-10TH-RAMADAN-1-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-10TH-RAMADAN-1",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-10TH-RAMADAN-1-SERVED-BY-1",
+    "entity_code": "STOP-LRT-10TH-RAMADAN-1",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-KNOWLEDGE-CITY-SERVED-BY-1",
+    "entity_code": "STOP-LRT-KNOWLEDGE-CITY",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (الفرع الشمالي)",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-KNOWLEDGE-CITY-SERVES-CITY-1",
+    "entity_code": "STOP-LRT-KNOWLEDGE-CITY",
+    "attribute": "serves_city",
+    "value": "CITY-NEW-OBOUR",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-INDUSTRIAL-ZONE-SERVED-BY-1",
+    "entity_code": "STOP-LRT-INDUSTRIAL-ZONE",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (الفرع الشمالي)",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-INDUSTRIAL-ZONE-SERVES-CITY-1",
+    "entity_code": "STOP-LRT-INDUSTRIAL-ZONE",
+    "attribute": "serves_city",
+    "value": "CITY-NEW-OBOUR",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-MAADI-SERVED-BY-1",
+    "entity_code": "STOP-BRT-MAADI",
+    "attribute": "served_by",
+    "value": "TRANSIT-BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-ZAHRAA-MAADI-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-BRT-ZAHRAA-MAADI",
+    "attribute": "operational_status",
+    "value": "planned",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-MOKATTAM-SERVED-BY-1",
+    "entity_code": "STOP-BRT-MOKATTAM",
+    "attribute": "served_by",
+    "value": "TRANSIT-BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AIN-SOKHNA-RD-SERVED-BY-1",
+    "entity_code": "STOP-BRT-AIN-SOKHNA-RD",
+    "attribute": "served_by",
+    "value": "TRANSIT-BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AUTOSTRAD-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-BRT-AUTOSTRAD",
+    "attribute": "operational_status",
+    "value": "planned",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-MANSOURIYA-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-BRT-MANSOURIYA",
+    "attribute": "operational_status",
+    "value": "planned",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-MARYUTEYA-SERVED-BY-1",
+    "entity_code": "STOP-BRT-MARYUTEYA",
+    "attribute": "served_by",
+    "value": "TRANSIT-BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-TALBIYA-SERVED-BY-1",
+    "entity_code": "STOP-BRT-TALBIYA",
+    "attribute": "served_by",
+    "value": "TRANSIT-BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-OMRANIYA-SERVED-BY-1",
+    "entity_code": "STOP-BRT-OMRANIYA",
+    "attribute": "served_by",
+    "value": "TRANSIT-BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-HADAEK-OCTOBER-MODES-1",
+    "entity_code": "STOP-HADAEK-OCTOBER",
+    "attribute": "modes",
+    "value": "الخط الأول والتاني من القطار السريع",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-HADAEK-OCTOBER-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-HADAEK-OCTOBER",
+    "attribute": "operational_status",
+    "value": "planned",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-6-OCTOBER-INTERCHANGE-MODES-1",
+    "entity_code": "STOP-6-OCTOBER-INTERCHANGE",
+    "attribute": "modes",
+    "value": "القطار السريع + مونوريل غرب النيل",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-6-OCTOBER-INTERCHANGE-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-6-OCTOBER-INTERCHANGE",
+    "attribute": "operational_status",
+    "value": "planned",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ABBASSIA-SECTOR-NOTE-1",
+    "entity_code": "STOP-ABBASSIA",
+    "attribute": "sector_note",
+    "value": "sector unified to CENTRAL in rev1 (district + stop)؛ الدليل كان حاططها تحت «الشمال الشرقي»",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-RAMSES-MODES-1",
+    "entity_code": "RAIL-RAMSES",
+    "attribute": "modes",
+    "value": "قطارات الوجه البحري + الخط الأول والتاني (الشهداء)",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-RAMSES-OPERATIONAL-STATUS-1",
+    "entity_code": "RAIL-RAMSES",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-BASHTIL-INAUGURATION-DATE-1",
+    "entity_code": "RAIL-BASHTIL",
+    "attribute": "inauguration_date",
+    "value": "2024-10-12",
+    "unit": null,
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-040"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-BASHTIL-OPENING-DATE-1",
+    "entity_code": "RAIL-BASHTIL",
+    "attribute": "opening_date",
+    "value": "2024-10",
+    "unit": null,
+    "valid_as_of": "2024-10-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-BASHTIL-OPERATIONAL-STATUS-1",
+    "entity_code": "RAIL-BASHTIL",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-BASHTIL-PLANNED-CONNECTIONS-1",
+    "entity_code": "RAIL-BASHTIL",
+    "attribute": "planned_connections",
+    "value": "كمال عامر، روض الفرج، 26 يوليو، الدائري؛ والربط مع المونوريل الغربي لسه مستقبلي",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-BASHTIL-PLATFORMS-1",
+    "entity_code": "RAIL-BASHTIL",
+    "attribute": "platforms",
+    "value": "11",
+    "unit": "platforms",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-040"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-BASHTIL-SITE-AREA-1",
+    "entity_code": "RAIL-BASHTIL",
+    "attribute": "site_area",
+    "value": "60",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-041"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-BASHTIL-SITE-AREA-BREAKDOWN-1",
+    "entity_code": "RAIL-BASHTIL",
+    "attribute": "site_area_breakdown",
+    "value": "57 فدان للمحطة + 3 فدان للجراج والمسجد",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-041"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AIRPORT-CAIRO-OPERATIONAL-STATUS-1",
+    "entity_code": "AIRPORT-CAIRO",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AIRPORT-SPHINX-LOCATION-1",
+    "entity_code": "AIRPORT-SPHINX",
+    "attribute": "location",
+    "value": "الغرب على إسكندرية الصحراوي",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AIRPORT-SPHINX-OPERATIONAL-STATUS-1",
+    "entity_code": "AIRPORT-SPHINX",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AIRPORT-CAPITAL-OPERATIONAL-STATUS-1",
+    "entity_code": "AIRPORT-CAPITAL",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-048"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AIRPORT-CAPITAL-SCHEDULED-ROUTE-1",
+    "entity_code": "AIRPORT-CAPITAL",
+    "attribute": "scheduled_route",
+    "value": "Air Cairo: مطار العاصمة → جدة، من 1 فبراير 2026",
+    "unit": null,
+    "valid_as_of": "2026-02-01",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-048"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AIRPORT-CAPITAL-SCHEDULED-ROUTE-FREQUENCY-1",
+    "entity_code": "AIRPORT-CAPITAL",
+    "attribute": "scheduled_route_frequency",
+    "value": "6",
+    "unit": "flights/week",
+    "valid_as_of": "2026-02-01",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-048"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AIRPORT-CAPITAL-SERVICE-LEVEL-1",
+    "entity_code": "AIRPORT-CAPITAL",
+    "attribute": "service_level",
+    "value": "برحلات أقل",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-BENHA-ROLE-1",
+    "entity_code": "CITY-BENHA",
+    "attribute": "role",
+    "value": "عاصمة القليوبية",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAIRO-CHARACTER-1",
+    "entity_code": "CITY-NEW-CAIRO",
+    "attribute": "character",
+    "value": "سكن + جامعات + شركات، ومش كله بنفس المستوى",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-REHAB-RAIL-STATION-1",
+    "entity_code": "CITY-REHAB",
+    "attribute": "rail_station",
+    "value": "مفيش محطة قطار مباشرة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MADINATY-DEVELOPMENT-STATUS-1",
+    "entity_code": "CITY-MADINATY",
+    "attribute": "development_status",
+    "value": "أغلبها ناضج، بس لسه فيها مراحل بتتباع",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MADINATY-DEVELOPMENT-STATUS-2",
+    "entity_code": "CITY-MADINATY",
+    "attribute": "development_status",
+    "value": "خلصت بالكامل",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MADINATY-RAIL-STATION-1",
+    "entity_code": "CITY-MADINATY",
+    "attribute": "rail_station",
+    "value": "مفيش محطة قطار مباشرة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-CHARACTER-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "character",
+    "value": "حكومة + حي مالي + سفارات + أحياء سكنية R",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MOSTAKBAL-CHARACTER-1",
+    "entity_code": "CITY-MOSTAKBAL",
+    "attribute": "character",
+    "value": "امتداد شرقي للقاهرة الجديدة، كمبوندات، ولسه بتتبنى",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-BADR-CHARACTER-1",
+    "entity_code": "CITY-BADR",
+    "attribute": "character",
+    "value": "سكن متوسط، وفيها منطقة صناعية",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-OBOUR-ADMIN-GOVERNORATE-1",
+    "entity_code": "CITY-OBOUR",
+    "attribute": "admin_governorate",
+    "value": "القليوبية",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-OBOUR-CHARACTER-1",
+    "entity_code": "CITY-OBOUR",
+    "attribute": "character",
+    "value": "سكن + مناطق صناعية كبيرة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-OBOUR-DEVELOPMENT-AUTHORITY-1",
+    "entity_code": "CITY-OBOUR",
+    "attribute": "development_authority",
+    "value": "جهاز العبور",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-DEVELOPMENT-AUTHORITY-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "development_authority",
+    "value": "جهاز القاهرة الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-DEVELOPMENT-AUTHORITY-2",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "development_authority",
+    "value": "جهاز تنمية العبور الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-DEVELOPMENT-STATUS-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "development_status",
+    "value": "لسه بتتبنى",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-RAIL-STATION-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "rail_station",
+    "value": "LRT الفرع الشمالي: مدينة المعرفة + المنطقة الصناعية",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-RAIL-STATION-2",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "rail_station",
+    "value": "unknown",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "superseded",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-10TH-RAMADAN-CHARACTER-1",
+    "entity_code": "CITY-10TH-RAMADAN",
+    "attribute": "character",
+    "value": "من أكبر المراكز الصناعية في شرق القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-15-MAY-CHARACTER-1",
+    "entity_code": "CITY-15-MAY",
+    "attribute": "character",
+    "value": "مدينة جديدة قديمة، أسعارها هادية",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-15-MAY-RAIL-STATION-1",
+    "entity_code": "CITY-15-MAY",
+    "attribute": "rail_station",
+    "value": "مفيش قطار مباشر",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-6-OCTOBER-ADMIN-GOVERNORATE-1",
+    "entity_code": "CITY-6-OCTOBER",
+    "attribute": "admin_governorate",
+    "value": "الجيزة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-6-OCTOBER-TRANSIT-1",
+    "entity_code": "CITY-6-OCTOBER",
+    "attribute": "transit",
+    "value": "ميكروباص وأتوبيسات لحد ما المونوريل يشتغل",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-SHEIKH-ZAYED-ADMIN-GOVERNORATE-1",
+    "entity_code": "CITY-SHEIKH-ZAYED",
+    "attribute": "admin_governorate",
+    "value": "الجيزة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-ZAYED-RAIL-STATION-1",
+    "entity_code": "CITY-NEW-ZAYED",
+    "attribute": "rail_station",
+    "value": "مفيش قطار لسه",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-SPHINX-REGULARIZATION-AREA-APPROX-1",
+    "entity_code": "CITY-NEW-SPHINX",
+    "attribute": "regularization_area_approx",
+    "value": "58000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-SPHINX-REGULARIZATION-REQUESTS-1",
+    "entity_code": "CITY-NEW-SPHINX",
+    "attribute": "regularization_requests",
+    "value": "6863",
+    "unit": "requests",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-ABBASSIA-SECTOR-NOTE-1",
+    "entity_code": "DIST-ABBASSIA",
+    "attribute": "sector_note",
+    "value": "sector unified to CENTRAL in rev1 (district + stop)؛ الدليل كان حاططها تحت «الشمال الشرقي»",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-MAADI-TRANSIT-1",
+    "entity_code": "DIST-MAADI",
+    "attribute": "transit",
+    "value": "الخط الأول + BRT (محطة المعادي)",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-KATAMEYA-CHARACTER-1",
+    "entity_code": "DIST-KATAMEYA",
+    "attribute": "character",
+    "value": "نقطة وصل بين المعادي والتجمع، وفيها كمبوندات",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HELWAN-CHARACTER-1",
+    "entity_code": "DIST-HELWAN",
+    "attribute": "character",
+    "value": "سكن شعبي + صناعات ثقيلة + جامعة حلوان",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HELWAN-TRANSIT-1",
+    "entity_code": "DIST-HELWAN",
+    "attribute": "transit",
+    "value": "الخط الأول (نهايته في حلوان)",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HARAM-LAND-USE-SHIFT-1",
+    "entity_code": "DIST-HARAM",
+    "attribute": "land_use_shift",
+    "value": "منطقة الهرم والرماية بقت منطقة سياحة وفنادق ومطاعم، مش سكن بس",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-014"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HADAYEK-AHRAM-TRANSIT-1",
+    "entity_code": "DIST-HADAYEK-AHRAM",
+    "attribute": "transit",
+    "value": "BRT (صن كابيتال)، والخط الرابع جاي",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HADAEK-OCTOBER-FUTURE-ROLE-1",
+    "entity_code": "DIST-HADAEK-OCTOBER",
+    "attribute": "future_role",
+    "value": "أهم عقدة نقل إقليمية في الغرب لما القطار السريع يشتغل (تقاطع خط الساحل مع خط الصعيد)",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HADAEK-OCTOBER-RAIL-STATION-1",
+    "entity_code": "DIST-HADAEK-OCTOBER",
+    "attribute": "rail_station",
+    "value": "مفيش قطار لسه",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SMART-VILLAGE-TRANSIT-1",
+    "entity_code": "DIST-SMART-VILLAGE",
+    "attribute": "transit",
+    "value": "أتوبيسات شركات",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-JURIAN-LOCATION-1",
+    "entity_code": "DIST-JURIAN",
+    "attribute": "location",
+    "value": "على الأوسطي",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-GREEN-SARAYA-SECTOR-BASIS-1",
+    "entity_code": "DIST-GREEN-SARAYA",
+    "attribute": "sector_basis",
+    "value": "EAST مؤقتاً: الاسم جه في جزء الشرق من الفيديو؛ الموقع الفعلي محتاج تأكيد على الخريطة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GEM-OPENING-DATE-1",
+    "entity_code": "LANDMARK-GEM",
+    "attribute": "opening_date",
+    "value": "2025-11",
+    "unit": null,
+    "valid_as_of": "2025-11-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-014"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GEM-VISITORS-SINCE-OPENING-APPROX-1",
+    "entity_code": "LANDMARK-GEM",
+    "attribute": "visitors_since_opening_approx",
+    "value": "4000000",
+    "unit": "visitors",
+    "valid_as_of": "2026-08-31",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-014"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BUE-MAIN-CAMPUS-CITY-1",
+    "entity_code": "LANDMARK-BUE",
+    "attribute": "main_campus_city",
+    "value": "الشروق",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BUE-MAIN-CAMPUS-CITY-2",
+    "entity_code": "LANDMARK-BUE",
+    "attribute": "main_campus_city",
+    "value": "العاصمة الإدارية",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NEW-OBOUR-AGENCY-HQ-LOCATION-1",
+    "entity_code": "AUTH-NEW-OBOUR-AGENCY",
+    "attribute": "hq_location",
+    "value": "محور 30 يونيو",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RING-WIDENING-2798-DECREE-1",
+    "entity_code": "PROJ-RING-WIDENING-2798",
+    "attribute": "decree",
+    "value": "2798 لسنة 2026",
+    "unit": null,
+    "valid_as_of": "2026-10-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RING-WIDENING-2798-IMPLEMENTATION-STATUS-1",
+    "entity_code": "PROJ-RING-WIDENING-2798",
+    "attribute": "implementation_status",
+    "value": "unknown",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RING-WIDENING-2798-LEGAL-DESIGNATION-1",
+    "entity_code": "PROJ-RING-WIDENING-2798",
+    "attribute": "legal_designation",
+    "value": "منفعة عامة مع نزع ملكية العقارات اللي في المسار",
+    "unit": null,
+    "valid_as_of": "2026-10-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RING-WIDENING-2798-OPERATIONAL-STATUS-1",
+    "entity_code": "PROJ-RING-WIDENING-2798",
+    "attribute": "operational_status",
+    "value": "approved_planned",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RING-WIDENING-2798-SCOPE-1",
+    "entity_code": "PROJ-RING-WIDENING-2798",
+    "attribute": "scope",
+    "value": "توسعة القطاع من المنصورية لوصلة الواحات في الجيزة",
+    "unit": null,
+    "valid_as_of": "2026-10-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ADDED-LANDS-REGULARIZATION-CITIES-1",
+    "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+    "attribute": "cities",
+    "value": "زايد، سفنكس الجديدة، العبور الجديدة، الشروق، أكتوبر الجديدة، 6 أكتوبر",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ADDED-LANDS-REGULARIZATION-CITIES-COUNT-1",
+    "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+    "attribute": "cities_count",
+    "value": "6",
+    "unit": "cities",
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-033"
+    ],
+    "notes": null
+  }
+]

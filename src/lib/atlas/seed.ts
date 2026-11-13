@@ -6,9 +6,15 @@ import {
   entitySeedSchema,
   evidenceSeedSchema,
   factSeedSchema,
+  type DatePrecision,
+  type EntitySector,
   type EntitySeed,
+  type EntityStatus,
+  type EntityType,
   type EvidenceSeed,
+  type EvidenceSourceType,
   type FactSeed,
+  type FactVerificationState,
 } from "@/lib/atlas/schema";
 import { createNeonSessionClient } from "@/lib/db/client";
 import {
@@ -28,8 +34,20 @@ const REQUIRED_ENTITY_CSV_HEADERS = [
 
 const ALLOWED_ENTITY_CSV_HEADERS = new Set<string>([
   ...REQUIRED_ENTITY_CSV_HEADERS,
+  "aliases",
   "description",
 ]);
+
+export const CANONICAL_ENTITY_CSV_HEADERS = [
+  "code",
+  "name_ar",
+  "name_en",
+  "entity_type",
+  "sector",
+  "status",
+  "aliases",
+  "description",
+] as const;
 
 export interface ValidatedSeedBundle {
   entities: EntitySeed[];
@@ -41,6 +59,30 @@ export interface RawSeedSources {
   entitiesCsv: string;
   evidenceJsonText: string;
   factsJsonText: string;
+}
+
+export interface SeedBundleWarning {
+  code: string;
+  path: string;
+  message: string;
+}
+
+export interface SeedBundleReport {
+  entitiesCount: number;
+  entitiesWithAliasesCount: number;
+  evidenceCount: number;
+  evidenceMissingUrlCount: number;
+  factsCount: number;
+  factEvidenceLinksCount: number;
+  breakdowns: {
+    entitiesByStatus: Partial<Record<EntityStatus, number>>;
+    entitiesBySector: Partial<Record<EntitySector, number>>;
+    entitiesByType: Partial<Record<EntityType, number>>;
+    evidenceBySourceType: Partial<Record<EvidenceSourceType, number>>;
+    factsByVerificationState: Partial<Record<FactVerificationState, number>>;
+    factsByDatePrecision: Record<DatePrecision | "null", number>;
+  };
+  warnings: SeedBundleWarning[];
 }
 
 export interface SeedDbSession {
@@ -65,11 +107,58 @@ export interface SeedImportSummary {
   evidenceCount: number;
   factsCount: number;
   factEvidenceLinksCount: number;
+  report: SeedBundleReport;
 }
 
-interface ParsedCsvRow {
+export interface ParsedCsvRow {
   lineNumber: number;
   cells: string[];
+}
+
+/**
+ * Escapes a single RFC 4180 CSV cell when it contains commas, quotes, CR/LF,
+ * or leading/trailing whitespace.
+ */
+export function escapeCsvCell(value: string): string {
+  if (
+    value.includes(",") ||
+    value.includes('"') ||
+    value.includes("\n") ||
+    value.includes("\r") ||
+    value !== value.trim()
+  ) {
+    return `"${value.replaceAll('"', '""')}"`;
+  }
+  return value;
+}
+
+/**
+ * Deterministically serializes canonical EntitySeed rows into UTF-8 RFC 4180 CSV
+ * with pipe-separated `aliases`.
+ */
+export function serializeEntitiesCsv(entities: readonly EntitySeed[]): string {
+  const lines: string[] = [CANONICAL_ENTITY_CSV_HEADERS.join(",")];
+  for (const entity of entities) {
+    for (const alias of entity.aliases) {
+      if (alias.includes("|")) {
+        throw new Error(
+          `Entity "${entity.code}" alias "${alias}" contains reserved pipe delimiter "|".`,
+        );
+      }
+    }
+    const row = [
+      entity.code,
+      entity.name_ar,
+      entity.name_en,
+      entity.entity_type,
+      entity.sector,
+      entity.status,
+      entity.aliases.join("|"),
+      entity.description ?? "",
+    ].map(escapeCsvCell);
+    lines.push(row.join(","));
+  }
+  return `${lines.join("\n")}\n`;
 }
 
 /**
@@ -182,6 +271,38 @@ function appendZodIssues(
   }
 }
 
+function parseCanonicalAliasesCell(
+  rawAliases: string,
+  rowLineNumber: number,
+  issues: ValidationIssueDetail[],
+): string[] | null {
+  const trimmed = rawAliases.trim();
+  if (trimmed.length === 0) {
+    return [];
+  }
+
+  const rawParts = trimmed.split("|");
+  const deduped: string[] = [];
+  const seen = new Set<string>();
+
+  for (let idx = 0; idx < rawParts.length; idx++) {
+    const part = rawParts[idx]?.trim() ?? "";
+    if (part.length === 0) {
+      issues.push({
+        path: `entities.csv:line ${rowLineNumber}.aliases.${idx}`,
+        message: "Blank alias segment inside pipe-delimited aliases field.",
+      });
+      return null;
+    }
+    if (!seen.has(part)) {
+      seen.add(part);
+      deduped.push(part);
+    }
+  }
+
+  return deduped;
+}
+
 function parseEntitiesCsv(
   entitiesCsv: string,
   issues: ValidationIssueDetail[],
@@ -191,7 +312,7 @@ function parseEntitiesCsv(
     issues.push({
       path: "entities.csv",
       message:
-        "entities.csv is empty; expected header row: code,name_ar,name_en,entity_type,sector,status[,description].",
+        "entities.csv is empty; expected header row: code,name_ar,name_en,entity_type,sector,status[,aliases][,description].",
     });
     return [];
   }
@@ -255,18 +376,35 @@ function parseEntitiesCsv(
       continue;
     }
 
-    const record: Record<string, string | undefined> = {};
+    const record: Record<string, unknown> = {};
+    let aliasParseFailed = false;
+
     for (let colIdx = 0; colIdx < headers.length; colIdx++) {
       const colName = headers[colIdx];
       const cellValue = row.cells[colIdx]?.trim() ?? "";
       if (!colName) {
         continue;
       }
-      if (colName === "description" && cellValue.length === 0) {
-        record[colName] = undefined;
+      if (colName === "description") {
+        record[colName] = cellValue.length === 0 ? undefined : cellValue;
+      } else if (colName === "aliases") {
+        const parsedAliases = parseCanonicalAliasesCell(
+          cellValue,
+          row.lineNumber,
+          issues,
+        );
+        if (parsedAliases === null) {
+          aliasParseFailed = true;
+        } else {
+          record[colName] = parsedAliases;
+        }
       } else {
         record[colName] = cellValue;
       }
+    }
+
+    if (aliasParseFailed) {
+      continue;
     }
 
     const parsed = entitySeedSchema.safeParse(record);
@@ -348,6 +486,91 @@ function parseJsonArrayFile<T>(
   }
 
   return validItems;
+}
+
+/**
+ * Produces a structured breakdown & non-blocking warning report for a validated seed bundle.
+ */
+export function summarizeValidatedSeedBundle(
+  bundle: ValidatedSeedBundle,
+): SeedBundleReport {
+  const entitiesByStatus: Partial<Record<EntityStatus, number>> = {};
+  const entitiesBySector: Partial<Record<EntitySector, number>> = {};
+  const entitiesByType: Partial<Record<EntityType, number>> = {};
+  let entitiesWithAliasesCount = 0;
+
+  for (const entity of bundle.entities) {
+    entitiesByStatus[entity.status] = (entitiesByStatus[entity.status] ?? 0) + 1;
+    entitiesBySector[entity.sector] = (entitiesBySector[entity.sector] ?? 0) + 1;
+    entitiesByType[entity.entity_type] =
+      (entitiesByType[entity.entity_type] ?? 0) + 1;
+    if (entity.aliases.length > 0) {
+      entitiesWithAliasesCount++;
+    }
+  }
+
+  const evidenceBySourceType: Partial<Record<EvidenceSourceType, number>> = {};
+  const warnings: SeedBundleWarning[] = [];
+  let evidenceMissingUrlCount = 0;
+
+  for (let idx = 0; idx < bundle.evidence.length; idx++) {
+    const ev = bundle.evidence[idx];
+    if (!ev) {
+      continue;
+    }
+    evidenceBySourceType[ev.source_type] =
+      (evidenceBySourceType[ev.source_type] ?? 0) + 1;
+    if (ev.url === null) {
+      evidenceMissingUrlCount++;
+      warnings.push({
+        code:
+          ev.source_type === "official"
+            ? "OFFICIAL_SOURCE_MISSING_URL"
+            : "EVIDENCE_MISSING_URL",
+        path: `evidence[${idx}] (${ev.code})`,
+        message: `Evidence "${ev.code}" (${ev.source_type}, publisher: "${ev.publisher}") has url = null and relies on title "${ev.title ?? ""}".`,
+      });
+    }
+  }
+
+  const factsByVerificationState: Partial<Record<FactVerificationState, number>> =
+    {};
+  const factsByDatePrecision: Record<DatePrecision | "null", number> = {
+    day: 0,
+    month: 0,
+    year: 0,
+    null: 0,
+  };
+  let factEvidenceLinksCount = 0;
+
+  for (const fact of bundle.facts) {
+    factsByVerificationState[fact.verification_state] =
+      (factsByVerificationState[fact.verification_state] ?? 0) + 1;
+    factEvidenceLinksCount += fact.evidence_codes.length;
+    if (fact.valid_as_of === null) {
+      factsByDatePrecision.null++;
+    } else {
+      factsByDatePrecision[fact.valid_as_of_precision]++;
+    }
+  }
+
+  return {
+    entitiesCount: bundle.entities.length,
+    entitiesWithAliasesCount,
+    evidenceCount: bundle.evidence.length,
+    evidenceMissingUrlCount,
+    factsCount: bundle.facts.length,
+    factEvidenceLinksCount,
+    breakdowns: {
+      entitiesByStatus,
+      entitiesBySector,
+      entitiesByType,
+      evidenceBySourceType,
+      factsByVerificationState,
+      factsByDatePrecision,
+    },
+    warnings,
+  };
 }
 
 /**
@@ -534,15 +757,16 @@ export async function upsertValidatedSeedBundle(
     for (const entity of bundle.entities) {
       const res = await session.query<{ id: string; code: string }>(
         `
-        INSERT INTO entities (code, name_ar, name_en, entity_type, sector, status, description)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        INSERT INTO entities (code, name_ar, name_en, entity_type, sector, status, description, aliases)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
         ON CONFLICT (code) DO UPDATE SET
           name_ar = EXCLUDED.name_ar,
           name_en = EXCLUDED.name_en,
           entity_type = EXCLUDED.entity_type,
           sector = EXCLUDED.sector,
           status = EXCLUDED.status,
-          description = EXCLUDED.description
+          description = EXCLUDED.description,
+          aliases = EXCLUDED.aliases
         RETURNING id, code
         `,
         [
@@ -553,6 +777,7 @@ export async function upsertValidatedSeedBundle(
           entity.sector,
           entity.status,
           entity.description,
+          entity.aliases,
         ],
       );
       const row = res.rows[0];
@@ -566,8 +791,8 @@ export async function upsertValidatedSeedBundle(
     for (const ev of bundle.evidence) {
       const res = await session.query<{ id: string; code: string }>(
         `
-        INSERT INTO evidence (code, title, url, publisher, source_type, published_date, accessed_date, notes)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        INSERT INTO evidence (code, title, url, publisher, source_type, published_date, accessed_date, notes, published_date_precision)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         ON CONFLICT (code) DO UPDATE SET
           title = EXCLUDED.title,
           url = EXCLUDED.url,
@@ -575,7 +800,8 @@ export async function upsertValidatedSeedBundle(
           source_type = EXCLUDED.source_type,
           published_date = EXCLUDED.published_date,
           accessed_date = EXCLUDED.accessed_date,
-          notes = EXCLUDED.notes
+          notes = EXCLUDED.notes,
+          published_date_precision = EXCLUDED.published_date_precision
         RETURNING id, code
         `,
         [
@@ -587,6 +813,7 @@ export async function upsertValidatedSeedBundle(
           ev.published_date,
           ev.accessed_date,
           ev.notes,
+          ev.published_date_precision,
         ],
       );
       const row = res.rows[0];
@@ -608,8 +835,8 @@ export async function upsertValidatedSeedBundle(
 
       const factRes = await session.query<{ id: string; code: string }>(
         `
-        INSERT INTO facts (code, entity_id, attribute, value, unit, valid_as_of, verification_state, notes)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        INSERT INTO facts (code, entity_id, attribute, value, unit, valid_as_of, verification_state, notes, valid_as_of_precision)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         ON CONFLICT (code) DO UPDATE SET
           entity_id = EXCLUDED.entity_id,
           attribute = EXCLUDED.attribute,
@@ -617,7 +844,8 @@ export async function upsertValidatedSeedBundle(
           unit = EXCLUDED.unit,
           valid_as_of = EXCLUDED.valid_as_of,
           verification_state = EXCLUDED.verification_state,
-          notes = EXCLUDED.notes
+          notes = EXCLUDED.notes,
+          valid_as_of_precision = EXCLUDED.valid_as_of_precision
         RETURNING id, code
         `,
         [
@@ -629,6 +857,7 @@ export async function upsertValidatedSeedBundle(
           fact.valid_as_of,
           fact.verification_state,
           fact.notes,
+          fact.valid_as_of_precision,
         ],
       );
 
@@ -690,26 +919,25 @@ export async function runSeedImport(
   const dryRun = options.dryRun ?? false;
 
   const bundle = await loadAndValidateSeedDir(seedDir);
-  const linkCount = bundle.facts.reduce(
-    (sum, fact) => sum + fact.evidence_codes.length,
-    0,
-  );
+  const report = summarizeValidatedSeedBundle(bundle);
 
   if (dryRun) {
     logger.info("Validated seed bundle in dry-run mode", {
       seedDir,
-      entitiesCount: bundle.entities.length,
-      evidenceCount: bundle.evidence.length,
-      factsCount: bundle.facts.length,
-      factEvidenceLinksCount: linkCount,
+      entitiesCount: report.entitiesCount,
+      evidenceCount: report.evidenceCount,
+      factsCount: report.factsCount,
+      factEvidenceLinksCount: report.factEvidenceLinksCount,
+      warningsCount: report.warnings.length,
     });
     return {
       dryRun: true,
       seedDir,
-      entitiesCount: bundle.entities.length,
-      evidenceCount: bundle.evidence.length,
-      factsCount: bundle.facts.length,
-      factEvidenceLinksCount: linkCount,
+      entitiesCount: report.entitiesCount,
+      evidenceCount: report.evidenceCount,
+      factsCount: report.factsCount,
+      factEvidenceLinksCount: report.factEvidenceLinksCount,
+      report,
     };
   }
 
@@ -721,11 +949,13 @@ export async function runSeedImport(
   logger.info("Seed bundle imported idempotently", {
     seedDir,
     ...counts,
+    warningsCount: report.warnings.length,
   });
 
   return {
     dryRun: false,
     seedDir,
     ...counts,
+    report,
   };
 }

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import {
+  AdminImportNotConfiguredError,
   DatabaseNotConfiguredError,
   EnvValidationError,
   type ValidationIssueDetail,
@@ -7,6 +8,9 @@ import {
 
 const MISSING_DATABASE_URL_MESSAGE =
   "DATABASE_URL is missing. Set a Neon PostgreSQL connection string (postgresql://...) in .env.local or Vercel Environment Variables.";
+
+const MISSING_ADMIN_IMPORT_TOKEN_MESSAGE =
+  "ADMIN_IMPORT_TOKEN is missing. Configure a high-entropy secret (>= 16 characters) in Vercel Environment Variables.";
 
 function isValidPostgresConnectionUrl(value: string): boolean {
   try {
@@ -58,8 +62,21 @@ const unpooledDatabaseEnvSchema = z.object({
     }),
 });
 
+export const adminImportEnvSchema = z.object({
+  ADMIN_IMPORT_TOKEN: z
+    .string({
+      error: MISSING_ADMIN_IMPORT_TOKEN_MESSAGE,
+    })
+    .trim()
+    .min(16, {
+      error:
+        "ADMIN_IMPORT_TOKEN must be at least 16 characters (e.g. generated with `openssl rand -hex 32`).",
+    }),
+});
+
 export type RuntimeEnv = z.infer<typeof runtimeEnvSchema>;
 export type DatabaseEnv = z.infer<typeof databaseEnvSchema>;
+export type AdminImportEnv = z.infer<typeof adminImportEnvSchema>;
 
 export interface MigrationDatabaseEnv {
   connectionString: string;
@@ -166,4 +183,43 @@ export function requireMigrationDatabaseEnv(
     connectionString: DATABASE_URL,
     source: "DATABASE_URL",
   };
+}
+
+/**
+ * Validates and returns ADMIN_IMPORT_TOKEN strictly from server environment variables.
+ * Throws AdminImportNotConfiguredError (HTTP 503) when missing/blank so unconfigured
+ * deployments fail closed, or EnvValidationError (HTTP 500) when too short (< 16 chars).
+ */
+export function requireAdminImportEnv(
+  rawEnv: NodeJS.ProcessEnv = process.env,
+): AdminImportEnv {
+  const rawToken = rawEnv.ADMIN_IMPORT_TOKEN;
+  const isMissingOrBlank =
+    rawToken === undefined || rawToken.trim().length === 0;
+
+  if (isMissingOrBlank) {
+    throw new AdminImportNotConfiguredError(
+      "Admin seed import is not configured: ADMIN_IMPORT_TOKEN is missing. Add ADMIN_IMPORT_TOKEN (>= 16 characters) in Vercel Environment Variables.",
+      [
+        {
+          path: "ADMIN_IMPORT_TOKEN",
+          message: MISSING_ADMIN_IMPORT_TOKEN_MESSAGE,
+        },
+      ],
+    );
+  }
+
+  const parsed = adminImportEnvSchema.safeParse({
+    ADMIN_IMPORT_TOKEN: rawToken,
+  });
+
+  if (!parsed.success) {
+    const issues = formatZodIssues(parsed.error.issues);
+    throw new EnvValidationError(
+      `Invalid ADMIN_IMPORT_TOKEN configuration: ${issues.map((i) => i.message).join("; ")}`,
+      issues,
+    );
+  }
+
+  return parsed.data;
 }

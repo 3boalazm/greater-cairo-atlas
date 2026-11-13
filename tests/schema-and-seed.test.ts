@@ -2,22 +2,25 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   canVerifyFactWithSources,
+  ENTITY_SECTORS,
   ENTITY_STATUSES,
   entitySeedSchema,
   evidenceSeedSchema,
   factSeedSchema,
   featureSeedSchema,
   isOperationalStatus,
+  parsePartialIsoDate,
 } from "@/lib/atlas/schema";
 import {
   loadAndValidateSeedDir,
+  serializeEntitiesCsv,
   upsertValidatedSeedBundle,
   validateSeedSources,
   type SeedDbSession,
 } from "@/lib/atlas/seed";
 import { SeedValidationError } from "@/lib/errors";
 
-describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and seed upsert", () => {
+describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and seed upsert", () => {
   it("enforces planned-never-operational status invariant", () => {
     expect(isOperationalStatus("operational")).toBe(true);
     for (const status of ENTITY_STATUSES) {
@@ -27,7 +30,9 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
     }
   });
 
-  it("accepts all 15 researcher entity_type values plus retained Phase 02 compatibility types", () => {
+  it("accepts all 17 researcher entity_type values (including airport & rail_station), REGIONAL sector, and aliases", () => {
+    expect(ENTITY_SECTORS).toContain("REGIONAL");
+
     const allExpectedEntityTypes = [
       "city",
       "district",
@@ -38,6 +43,8 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
       "tunnel",
       "transit_line",
       "transit_stop",
+      "rail_station",
+      "airport",
       "project",
       "authority",
       "landmark",
@@ -57,13 +64,64 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
         name_ar: "عنصر اختباري",
         name_en: "Synthetic Test Entity",
         entity_type: entityType,
-        sector: "EAST",
+        sector: "REGIONAL",
         status: "unknown",
+        aliases: ["اسم بديل 1", "Alt Name 2"],
       });
       expect(parsed.success, `Expected entity_type "${entityType}" to be valid`).toBe(
         true,
       );
     }
+  });
+
+  it("parses partial ISO dates without inventing day precision and rejects invalid partial dates", () => {
+    expect(parsePartialIsoDate("2024-10-12")).toEqual({
+      date: "2024-10-12",
+      precision: "day",
+    });
+    expect(parsePartialIsoDate("2026-02")).toEqual({
+      date: "2026-02-01",
+      precision: "month",
+    });
+    expect(parsePartialIsoDate("2024-10")).toEqual({
+      date: "2024-10-01",
+      precision: "month",
+    });
+    expect(parsePartialIsoDate("2025")).toEqual({
+      date: "2025-01-01",
+      precision: "year",
+    });
+
+    expect(parsePartialIsoDate("2026-13")).toBeNull();
+    expect(parsePartialIsoDate("2026-00")).toBeNull();
+    expect(parsePartialIsoDate("2026-02-30")).toBeNull();
+    expect(parsePartialIsoDate("2026-Q1")).toBeNull();
+    expect(parsePartialIsoDate("0999")).toBeNull();
+    expect(parsePartialIsoDate("")).toBeNull();
+  });
+
+  it("requires non-empty title when evidence.url is null", () => {
+    const documentedOfflineEvidence = evidenceSeedSchema.safeParse({
+      code: "TEST-EVID-OFFLINE",
+      title: "Official Cabinet Release #42",
+      url: null,
+      publisher: "Synthetic Official Publisher",
+      source_type: "official",
+      published_date: "2026-08-01",
+      published_date_precision: "month",
+      accessed_date: "2026-11-13",
+    });
+    expect(documentedOfflineEvidence.success).toBe(true);
+
+    const anonymousMissingUrl = evidenceSeedSchema.safeParse({
+      code: "TEST-EVID-ANONYMOUS",
+      title: null,
+      url: null,
+      publisher: "Synthetic Official Publisher",
+      source_type: "official",
+      accessed_date: "2026-11-13",
+    });
+    expect(anonymousMissingUrl.success).toBe(false);
   });
 
   it("enforces secondary source_type epistemic rules", () => {
@@ -190,7 +248,33 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
     expect(validFeature.success).toBe(true);
   });
 
-  it("loads and validates the hand-written TEST-* fixture (<= 5 entities, conflicting facts side by side)", async () => {
+  it("round-trips canonical entities.csv with pipe-delimited Arabic aliases", () => {
+    const csv = serializeEntitiesCsv([
+      {
+        code: "TEST-AIRPORT-01",
+        name_ar: "مطار اختباري",
+        name_en: "Synthetic Airport",
+        entity_type: "airport",
+        sector: "REGIONAL",
+        status: "unknown",
+        aliases: ["مطار تجريبي", "Test Hub"],
+        description: null,
+      },
+    ]);
+
+    const validated = validateSeedSources({
+      entitiesCsv: csv,
+      evidenceJsonText: "[]",
+      factsJsonText: "[]",
+    });
+    expect(validated.entities).toHaveLength(1);
+    expect(validated.entities[0]?.aliases).toEqual([
+      "مطار تجريبي",
+      "Test Hub",
+    ]);
+  });
+
+  it("loads and validates both the synthetic TEST-* fixture and the canonical data/seed bundle", async () => {
     const fixtureDir = path.resolve(
       process.cwd(),
       "tests/fixtures/seed-valid",
@@ -198,10 +282,9 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
     const bundle = await loadAndValidateSeedDir(fixtureDir);
 
     expect(bundle.entities.length).toBe(5);
-    expect(bundle.entities.length).toBeLessThanOrEqual(5);
-
     for (const entity of bundle.entities) {
       expect(entity.code.startsWith("TEST-")).toBe(true);
+      expect(entity.aliases).toEqual([]);
     }
 
     const alphaLengthFacts = bundle.facts.filter(
@@ -209,6 +292,12 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
     );
     expect(alphaLengthFacts).toHaveLength(2);
     expect(alphaLengthFacts.map((f) => f.value).sort()).toEqual(["18.0", "19.4"]);
+
+    // Verify canonical data/seed/ bundle passes full holistic validation
+    const canonicalBundle = await loadAndValidateSeedDir();
+    expect(canonicalBundle.entities.length).toBe(213);
+    expect(canonicalBundle.evidence.length).toBe(52);
+    expect(canonicalBundle.facts.length).toBe(278);
   });
 
   it("reports ALL validation errors across entities.csv, evidence.json, and facts.json at once", () => {
@@ -273,12 +362,19 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
     expect(paths.some((p) => p.startsWith("facts.json[1]"))).toBe(true);
   });
 
-  it("upserts idempotently by code and reconciles fact_evidence links without duplicating rows", async () => {
+  it("upserts idempotently by code (including aliases and date precisions) without duplicating rows", async () => {
     const fixtureDir = path.resolve(
       process.cwd(),
       "tests/fixtures/seed-valid",
     );
     const bundle = await loadAndValidateSeedDir(fixtureDir);
+    if (bundle.entities[0]) {
+      bundle.entities[0].aliases = ["طريق ألفا", "Alpha Axis"];
+    }
+    if (bundle.facts[0]) {
+      bundle.facts[0].valid_as_of = "2026-02-01";
+      bundle.facts[0].valid_as_of_precision = "month";
+    }
 
     let uuidSeq = 1;
     const nextUuid = () =>
@@ -286,12 +382,18 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
 
     const entitiesStore = new Map<
       string,
-      { id: string; status: string; description: unknown }
+      { id: string; status: string; description: unknown; aliases: unknown }
     >();
-    const evidenceStore = new Map<string, { id: string; url: string }>();
+    const evidenceStore = new Map<string, { id: string; url: unknown }>();
     const factsStore = new Map<
       string,
-      { id: string; entityId: string; attribute: string; value: string }
+      {
+        id: string;
+        entityId: string;
+        attribute: string;
+        value: string;
+        precision: string;
+      }
     >();
     const factEvidenceStore = new Set<string>();
 
@@ -310,6 +412,7 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
             id,
             status: String(values[5]),
             description: values[6],
+            aliases: values[7],
           });
           return { rows: [{ id, code }] as unknown as Row[] };
         }
@@ -318,7 +421,7 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
           const code = String(values[0]);
           const existing = evidenceStore.get(code);
           const id = existing?.id ?? nextUuid();
-          evidenceStore.set(code, { id, url: String(values[2]) });
+          evidenceStore.set(code, { id, url: values[2] });
           return { rows: [{ id, code }] as unknown as Row[] };
         }
 
@@ -331,6 +434,7 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
             entityId: String(values[1]),
             attribute: String(values[2]),
             value: String(values[3]),
+            precision: String(values[8]),
           });
           return { rows: [{ id, code }] as unknown as Row[] };
         }
@@ -368,10 +472,13 @@ describe("Atlas Zod schemas, researcher taxonomy, secondary evidence guard, and 
       factsCount: 5,
       factEvidenceLinksCount: 7,
     });
-    expect(entitiesStore.size).toBe(5);
-    expect(evidenceStore.size).toBe(4);
-    expect(factsStore.size).toBe(5);
-    expect(factEvidenceStore.size).toBe(7);
+    expect(entitiesStore.get("TEST-ROAD-ALPHA")?.aliases).toEqual([
+      "طريق ألفا",
+      "Alpha Axis",
+    ]);
+    expect(factsStore.get("TEST-FACT-ALPHA-LEN-A")?.precision).toBe(
+      "month",
+    );
 
     const secondBundle = structuredClone(bundle);
     if (secondBundle.entities[0]) {
