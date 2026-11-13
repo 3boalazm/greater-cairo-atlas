@@ -28,6 +28,10 @@ function parseArgs(argv: string[]): RunAdaptResearchSeedOptions {
       options.dryRun = true;
       continue;
     }
+    if (arg === "--rev3") {
+      options.revision = 3;
+      continue;
+    }
     if (arg === "--rev2") {
       options.revision = 2;
       continue;
@@ -133,7 +137,7 @@ function parseArgs(argv: string[]): RunAdaptResearchSeedOptions {
     }
 
     throw new Error(
-      `Unknown CLI argument "${arg}". Supported flags: --in <dir> [--rev <n> | --rev1 | --rev2] [--entities <path> --evidence <path> --facts <path>] [--out <dir>] [--report <path>] [--dry-run].`,
+      `Unknown CLI argument "${arg}". Supported flags: --in <dir> [--rev <n> | --rev1 | --rev2 | --rev3] [--entities <path> --evidence <path> --facts <path>] [--out <dir>] [--report <path>] [--dry-run].`,
     );
   }
 
@@ -182,11 +186,14 @@ async function main(): Promise<void> {
     [
       `${modeLabel} [revision=${report.selectedRevision}, aliasSeparator=${report.detectedAliasSeparator}]:`,
       `  entities: ${report.counts.entities} (${report.counts.entitiesWithAliases} with aliases; ${report.counts.missingStatusDefaultedToUnknown} missing status -> 'unknown')`,
-      `  evidence: ${report.counts.evidence} (${report.counts.evidenceMissingUrl} with url=null)`,
+      `  evidence: ${report.counts.evidence} (${report.counts.evidenceMissingUrl} with url=null; ${report.bundleReport?.unresolvedOfficialEvidenceCount ?? 0} unresolved official: [${(report.bundleReport?.unresolvedOfficialEvidenceCodes ?? []).join(", ")}])`,
       `  facts:    ${report.counts.facts} (${report.counts.factEvidenceLinks} fact_evidence links; precisions: day=${report.counts.factDatePrecisions.day}, month=${report.counts.factDatePrecisions.month}, year=${report.counts.factDatePrecisions.year}, null=${report.counts.factDatePrecisions.null})`,
       `  warnings: ${report.bundleReport?.warnings.length ?? 0}`,
     ].join("\n"),
   );
+  for (const warning of report.bundleReport?.warnings ?? []) {
+    console.warn(`  [WARN ${warning.code}] ${warning.path}: ${warning.message}`);
+  }
 }
 
 main().catch((error: unknown) => {

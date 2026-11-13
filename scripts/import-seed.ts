@@ -52,8 +52,11 @@ async function main(): Promise<void> {
 
   if (summary.dryRun) {
     console.info(
-      `Seed validation passed (${summary.seedDir}): ${summary.entitiesCount} entities, ${summary.evidenceCount} evidence items, ${summary.factsCount} facts (${summary.factEvidenceLinksCount} fact-evidence links).`,
+      `Seed validation passed (${summary.seedDir}): ${summary.entitiesCount} entities, ${summary.evidenceCount} evidence items, ${summary.factsCount} facts (${summary.factEvidenceLinksCount} fact-evidence links), ${summary.report.warnings.length} warning(s).`,
     );
+    for (const warning of summary.report.warnings) {
+      console.warn(`  [WARN ${warning.code}] ${warning.path}: ${warning.message}`);
+    }
     return;
   }
 

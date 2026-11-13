@@ -1458,9 +1458,26 @@ async function fileExists(targetPath: string): Promise<boolean> {
   }
 }
 
+async function resolveHighestRevisionFile(
+  baseDir: string,
+  stem: "entities" | "evidence" | "facts",
+  ext: "csv" | "json",
+  maxRev: number,
+): Promise<string> {
+  for (let rev = maxRev; rev >= 2; rev--) {
+    const candidate = path.join(baseDir, `${stem}_rev${rev}.${ext}`);
+    if (await fileExists(candidate)) {
+      return candidate;
+    }
+  }
+  return path.join(baseDir, `${stem}.${ext}`);
+}
+
 /**
- * Resolves input research files in `inputDir` (preferring the highest complete `*_rev<N>` set
- * unless an explicit `revision` or per-file path override is provided).
+ * Resolves input research files in `inputDir` (preferring the highest revision across
+ * `entities_rev*.csv`, `evidence_rev*.json`, and `facts_rev*.json`, falling back per-file
+ * to the highest available revision <= target revision — e.g. `entities_rev2.csv` +
+ * `evidence_rev3.json` + `facts_rev3.json` when entities had no rev3 change).
  */
 export async function resolveResearchSeedFiles(options: {
   inputDir?: string;
@@ -1491,21 +1508,39 @@ export async function resolveResearchSeedFiles(options: {
     if (options.revision === 1) {
       return {
         selectedRevision: "rev1",
-        entitiesPath: path.join(baseDir, "entities.csv"),
-        evidencePath: path.join(baseDir, "evidence.json"),
-        factsPath: path.join(baseDir, "facts.json"),
+        entitiesPath: options.entitiesPath
+          ? path.resolve(options.entitiesPath)
+          : path.join(baseDir, "entities.csv"),
+        evidencePath: options.evidencePath
+          ? path.resolve(options.evidencePath)
+          : path.join(baseDir, "evidence.json"),
+        factsPath: options.factsPath
+          ? path.resolve(options.factsPath)
+          : path.join(baseDir, "facts.json"),
       };
     }
-    const suffix = `_rev${options.revision}`;
+
+    const [entitiesPath, evidencePath, factsPath] = await Promise.all([
+      options.entitiesPath
+        ? Promise.resolve(path.resolve(options.entitiesPath))
+        : resolveHighestRevisionFile(baseDir, "entities", "csv", options.revision),
+      options.evidencePath
+        ? Promise.resolve(path.resolve(options.evidencePath))
+        : resolveHighestRevisionFile(baseDir, "evidence", "json", options.revision),
+      options.factsPath
+        ? Promise.resolve(path.resolve(options.factsPath))
+        : resolveHighestRevisionFile(baseDir, "facts", "json", options.revision),
+    ]);
+
     return {
       selectedRevision: `rev${options.revision}`,
-      entitiesPath: path.join(baseDir, `entities${suffix}.csv`),
-      evidencePath: path.join(baseDir, `evidence${suffix}.json`),
-      factsPath: path.join(baseDir, `facts${suffix}.json`),
+      entitiesPath,
+      evidencePath,
+      factsPath,
     };
   }
 
-  // Auto-detect highest complete `*_rev<N>` bundle in baseDir
+  // Auto-detect highest revision number across entities_rev*, evidence_rev*, facts_rev*
   let entries: string[] = [];
   try {
     entries = await readdir(baseDir);
@@ -1521,32 +1556,38 @@ export async function resolveResearchSeedFiles(options: {
     );
   }
 
-  const revNumbers = new Set<number>();
+  let highestRev = 1;
   for (const name of entries) {
-    const match = /^entities_rev(\d+)\.csv$/.exec(name);
+    const match = /^(?:entities|evidence|facts)_rev(\d+)\.(?:csv|json)$/.exec(
+      name,
+    );
     if (match?.[1]) {
-      revNumbers.add(Number(match[1]));
+      const num = Number(match[1]);
+      if (num > highestRev) {
+        highestRev = num;
+      }
     }
   }
 
-  const sortedRevsDesc = Array.from(revNumbers).sort((a, b) => b - a);
-  for (const rev of sortedRevsDesc) {
-    const suffix = `_rev${rev}`;
-    const entPath = path.join(baseDir, `entities${suffix}.csv`);
-    const evPath = path.join(baseDir, `evidence${suffix}.json`);
-    const fPath = path.join(baseDir, `facts${suffix}.json`);
-    if (
-      (await fileExists(entPath)) &&
-      (await fileExists(evPath)) &&
-      (await fileExists(fPath))
-    ) {
-      return {
-        selectedRevision: `rev${rev}`,
-        entitiesPath: entPath,
-        evidencePath: evPath,
-        factsPath: fPath,
-      };
-    }
+  if (highestRev >= 2) {
+    const [entitiesPath, evidencePath, factsPath] = await Promise.all([
+      options.entitiesPath
+        ? Promise.resolve(path.resolve(options.entitiesPath))
+        : resolveHighestRevisionFile(baseDir, "entities", "csv", highestRev),
+      options.evidencePath
+        ? Promise.resolve(path.resolve(options.evidencePath))
+        : resolveHighestRevisionFile(baseDir, "evidence", "json", highestRev),
+      options.factsPath
+        ? Promise.resolve(path.resolve(options.factsPath))
+        : resolveHighestRevisionFile(baseDir, "facts", "json", highestRev),
+    ]);
+
+    return {
+      selectedRevision: `rev${highestRev}`,
+      entitiesPath,
+      evidencePath,
+      factsPath,
+    };
   }
 
   return {
