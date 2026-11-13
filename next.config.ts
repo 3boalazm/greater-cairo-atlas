@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   allowedDevOrigins: ["*.e2b.app", "*.vercel.app"],
   outputFileTracingIncludes: {
-    "/api/admin/import-seed": ["./data/seed/**/*"],
+    "/api/admin/import-seed": ["./data/seed/**/*", "./data/features/**/*"],
   },
 };
 

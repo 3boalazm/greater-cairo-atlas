@@ -30,7 +30,7 @@ export default function AtlasLandingPage() {
               SRID 4326 · WGS 84
             </Badge>
             <Badge variant="secondary" className="font-mono">
-              Phase 03 · Research Seed
+              Phase 04 · Geometry Ingestion
             </Badge>
           </div>
         </div>
@@ -164,7 +164,8 @@ export default function AtlasLandingPage() {
 
       <footer className="border-t border-border bg-card/60">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-2 px-6 py-4 text-xs text-muted-foreground">
-          <span>Greater Cairo Atlas · Phase 03 Research Seed</span>
+          <span>Greater Cairo Atlas · Phase 04 Geometry</span>
+          <span>When present: © OpenStreetMap contributors (ODbL 1.0) · TfC GTFS (CC BY 4.0)</span>
           <span className="font-mono">
             Next.js · TypeScript Strict · Neon PostgreSQL + PostGIS
           </span>

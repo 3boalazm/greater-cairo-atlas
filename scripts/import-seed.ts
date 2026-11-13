@@ -6,17 +6,35 @@ import { logger } from "../src/lib/logger";
 
 interface ParsedCliArgs {
   seedDir: string;
+  featuresPath: string | null | undefined;
   dryRun: boolean;
 }
 
 function parseArgs(argv: string[]): ParsedCliArgs {
   let seedDir = path.resolve(process.cwd(), "data/seed");
+  let featuresPath: string | null | undefined;
+  let featuresExplicit = false;
   let dryRun = false;
 
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === "--dry-run" || arg === "--check") {
       dryRun = true;
+      continue;
+    }
+    if (arg === "--features") {
+      const next = argv[i + 1];
+      if (!next || next.startsWith("--")) {
+        throw new Error("Missing GeoJSON path after --features flag.");
+      }
+      featuresPath = path.resolve(process.cwd(), next);
+      featuresExplicit = true;
+      i++;
+      continue;
+    }
+    if (arg === "--no-features") {
+      featuresPath = null;
+      featuresExplicit = true;
       continue;
     }
     if (arg === "--dir") {
@@ -41,18 +59,26 @@ function parseArgs(argv: string[]): ParsedCliArgs {
     );
   }
 
-  return { seedDir, dryRun };
+  return {
+    seedDir,
+    featuresPath: featuresExplicit
+      ? featuresPath ?? null
+      : seedDir === path.join(process.cwd(), "data", "seed")
+        ? path.join(process.cwd(), "data", "features", "features.geojson")
+        : null,
+    dryRun,
+  };
 }
 
 async function main(): Promise<void> {
   loadEnvConfig(process.cwd());
 
-  const { seedDir, dryRun } = parseArgs(process.argv.slice(2));
-  const summary = await runSeedImport({ seedDir, dryRun });
+  const { seedDir, featuresPath, dryRun } = parseArgs(process.argv.slice(2));
+  const summary = await runSeedImport({ seedDir, featuresPath, dryRun });
 
   if (summary.dryRun) {
     console.info(
-      `Seed validation passed (${summary.seedDir}): ${summary.entitiesCount} entities, ${summary.evidenceCount} evidence items, ${summary.factsCount} facts (${summary.factEvidenceLinksCount} fact-evidence links), ${summary.report.warnings.length} warning(s).`,
+      `Seed validation passed (${summary.seedDir}): ${summary.entitiesCount} entities, ${summary.evidenceCount} evidence items, ${summary.factsCount} facts (${summary.factEvidenceLinksCount} fact-evidence links), ${summary.featuresCount} features, ${summary.report.warnings.length} warning(s).`,
     );
     for (const warning of summary.report.warnings) {
       console.warn(`  [WARN ${warning.code}] ${warning.path}: ${warning.message}`);
@@ -61,7 +87,7 @@ async function main(): Promise<void> {
   }
 
   console.info(
-    `Seed import complete (${summary.seedDir}): upserted ${summary.entitiesCount} entities, ${summary.evidenceCount} evidence items, ${summary.factsCount} facts (${summary.factEvidenceLinksCount} fact-evidence links).`,
+    `Seed import complete (${summary.seedDir}): upserted ${summary.entitiesCount} entities, ${summary.evidenceCount} evidence items, ${summary.factsCount} facts (${summary.factEvidenceLinksCount} fact-evidence links), ${summary.featuresCount} features.`,
   );
 }
 

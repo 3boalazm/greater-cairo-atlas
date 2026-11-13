@@ -11,7 +11,7 @@ import {
 } from "@/lib/db/migrate";
 import { DatabaseNotConfiguredError, MigrationError } from "@/lib/errors";
 
-describe("SQL migrations runner and migrations 000 + 001 + 002 + 003", () => {
+describe("SQL migrations runner and migrations 000 through 004", () => {
   const tempDirs: string[] = [];
   const originalDatabaseUrl = process.env.DATABASE_URL;
 
@@ -36,13 +36,14 @@ describe("SQL migrations runner and migrations 000 + 001 + 002 + 003", () => {
     return dir;
   }
 
-  it("discovers 000, 001, 002 (all immutable checksums), and 003 in order and verifies invariants", async () => {
+  it("discovers migrations 000-004 in order, preserving immutable prior checksums and feature invariants", async () => {
     const migrations = await discoverMigrations();
     expect(migrations.map((m) => m.filename)).toEqual([
       "000_enable_postgis.sql",
       "001_core_schema.sql",
       "002_entity_taxonomy.sql",
       "003_research_seed_extensions.sql",
+      "004_feature_bbox_attribution.sql",
     ]);
 
     const m000 = migrations[0];
@@ -88,6 +89,13 @@ describe("SQL migrations runner and migrations 000 + 001 + 002 + 003", () => {
       /ADD\s+COLUMN\s+IF\s+NOT\s+EXISTS\s+published_date_precision\s+TEXT\s+NOT\s+NULL\s+DEFAULT\s+'day'/i,
     );
     expect(sql003).toMatch(/evidence_locator_or_title_chk/i);
+
+    const m004 = migrations[4];
+    expect(m004?.filename).toBe("004_feature_bbox_attribution.sql");
+    expect(m004?.sql).toMatch(/features_greater_cairo_bbox_chk/i);
+    expect(m004?.sql).toMatch(/features_provenance_metadata_chk/i);
+    expect(m004?.sql).toContain("30.5");
+    expect(m004?.sql).toContain("32.1");
   });
 
   it("runs dry-run without requiring DATABASE_URL", async () => {
@@ -99,6 +107,7 @@ describe("SQL migrations runner and migrations 000 + 001 + 002 + 003", () => {
       "001_core_schema.sql",
       "002_entity_taxonomy.sql",
       "003_research_seed_extensions.sql",
+      "004_feature_bbox_attribution.sql",
     ]);
   });
 

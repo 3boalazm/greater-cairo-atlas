@@ -1,0 +1,58 @@
+{
+  "by_type": {
+    "road": {
+      "matched": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    "transit_line": {
+      "matched": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    "transit_stop": {
+      "matched": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    },
+    "rail_station": {
+      "matched": 0,
+      "unmatched": 0,
+      "ambiguous": 0
+    }
+  },
+  "unmatched": [],
+  "ambiguous": [],
+  "candidate_entities": {
+    "road": 42,
+    "transit_line": 14,
+    "transit_stop": 33,
+    "rail_station": 2
+  },
+  "source_results": [],
+  "source_failures": [
+    {
+      "source": "Transport Data Commons — [Cairo] GTFS for Public Road-Transport (Transport for Cairo)",
+      "url": "https://portal.transport-data.org/@tfc",
+      "error": "Direct portal request failed in this sandbox: TLS/SSL connection closed (EOF); no GTFS archive was retrieved."
+    },
+    {
+      "source": "OpenStreetMap Overpass API",
+      "url": "https://overpass-api.de/api/interpreter",
+      "error": "Direct Overpass request failed in this sandbox: TLS/SSL connection closed (EOF); no OSM objects were retrieved."
+    },
+    {
+      "source": "Geofabrik Egypt extract",
+      "url": "https://download.geofabrik.de/africa/egypt-latest.osm.pbf",
+      "error": "Direct Geofabrik request failed in this sandbox: TLS/SSL connection closed (EOF); no extract was retrieved."
+    }
+  ],
+  "bbox_wgs84": [
+    30.5,
+    29.2,
+    32.1,
+    30.8
+  ],
+  "features_written": 0,
+  "retrieval_date": "2026-11-13"
+}
