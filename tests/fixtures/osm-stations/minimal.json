@@ -1,0 +1,29 @@
+{
+  "elements": [
+    {
+      "type": "node", "id": 1001, "version": 3, "lat": 30.04, "lon": 31.23,
+      "tags": {"name": "السادات", "name:ar": "السادات", "name:en": "Sadat", "public_transport": "station", "railway": "station", "station": "subway", "subway": "yes"}
+    },
+    {
+      "type": "node", "id": 1002, "version": 4, "lat": 30.10, "lon": 31.40,
+      "tags": {"name": "El Sadat West Monorail", "name:ar": "السادات مونوريل غرب", "name:en": "El Sadat West Monorail", "public_transport": "station", "railway": "station", "station": "monorail", "monorail": "yes", "construction": "yes"}
+    },
+    {
+      "type": "node", "id": 1003, "version": 2, "lat": 30.05, "lon": 31.00,
+      "tags": {"name": "بشتيل", "name:ar": "بشتيل", "public_transport": "station", "railway": "station", "station": "train"}
+    },
+    {
+      "type": "node", "id": 1004, "version": 6, "lat": 30.08, "lon": 31.02,
+      "tags": {"name": "محطة بشتيل", "name:ar": "محطة بشتيل", "public_transport": "station", "railway": "halt"}
+    },
+    {
+      "type": "node", "id": 1005, "version": 1, "lat": 30.06, "lon": 31.41,
+      "tags": {"name": "Station Wadi El Nil", "public_transport": "station", "railway": "station"}
+    },
+    {
+      "type": "relation", "id": 5001, "version": 1,
+      "tags": {"type": "route", "route": "monorail", "name": "West Nile Monorail"},
+      "members": [{"type": "node", "ref": 1005, "role": "stop"}]
+    }
+  ]
+}
