@@ -33,7 +33,8 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
-/data/raw/
+/data/raw/*
+!/data/raw/osm-overpass-2026-11-14.json.gz
 /data/processed/
 /data/exports/
 *.gpkg

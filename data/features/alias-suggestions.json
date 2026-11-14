@@ -1,0 +1,17 @@
+{
+  "status": "research_only_not_applied",
+  "source": "OpenStreetMap extract retrieved 2026-11-14",
+  "suggestions": [
+    {"osm_names": ["الطريق الدائري", "The Ring Road"], "candidate_entity_codes": ["ROAD-RING-ROAD"], "observed_unmatched_objects": 474, "review_note": "Includes 473 named ways plus one Ring Road way; disambiguate against Middle/Regional Ring aliases before applying."},
+    {"osm_names": ["Line 3"], "candidate_entity_codes": ["TRANSIT-METRO-L3"], "observed_unmatched_objects": 4, "review_note": "Potential operational metro route relation/segment labels."},
+    {"osm_names": ["Line 3 Extension"], "candidate_entity_codes": ["TRANSIT-METRO-L3"], "observed_unmatched_objects": 9, "review_note": "User-proposed association; verify lifecycle/operational extent before applying."},
+    {"osm_names": ["El-Mounib - Shubra El-Kheima"], "candidate_entity_codes": ["TRANSIT-METRO-L2"], "observed_unmatched_objects": 2, "review_note": "Observed full source labels include Railway; review as line 2 route naming."},
+    {"osm_names": ["خط حلوان المرج", "Helwan-ElMarg Railway"], "candidate_entity_codes": ["TRANSIT-METRO-L1"], "observed_unmatched_objects": 9, "review_note": "Observed across both direction labels; user-proposed association."},
+    {"osm_names": ["طريق شبرا, بنها الحر"], "candidate_entity_codes": ["ROAD-SHUBRA-BENHA-FREE"], "observed_unmatched_objects": 125, "review_note": "Observed spelling variants and English labels; review before alias application."},
+    {"osm_names": ["محور الشيخ محمد بن زايد الشمالى"], "candidate_entity_codes": ["ROAD-MBZ-NORTH"], "observed_unmatched_objects": 26, "review_note": "OSM spelling variant of North Axis; research suggestion only."},
+    {"osm_names": ["محور الشيخ محمد بن زايد الجنوبي"], "candidate_entity_codes": ["ROAD-MBZ-SOUTH"], "observed_unmatched_objects": 25, "review_note": "OSM spelling variant of South Axis; research suggestion only."},
+    {"osm_names": ["محور العبور"], "candidate_entity_codes": [], "observed_unmatched_objects": 25, "review_note": "No existing road entity is a clear match; do not map to the Obour city or LRT station without review."}
+  ],
+  "excluded_general_names": ["مونوريل", "Monorail Cairo", "مونوريل وديان", "مونوريل غرب القاهرة", "مونوريل غرب النيل"],
+  "policy": "Suggestions do not modify seed aliases or cause automatic matching. Generic monorail labels remain unassigned. Planned West Nile Monorail geometry remains excluded under lifecycle policy."
+}

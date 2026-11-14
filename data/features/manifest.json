@@ -1,31 +1,27 @@
 {
   "title": "Greater Cairo Atlas geometry ingestion manifest",
-  "retrieval_date": "2026-11-13",
+  "retrieval_date": "2026-11-14",
   "bbox_wgs84": [
     30.5,
     29.2,
     32.1,
     30.8
   ],
-  "feature_count": 0,
-  "sources": [],
-  "source_failures": [
+  "feature_count": 723,
+  "sources": [
     {
-      "source": "Transport Data Commons — [Cairo] GTFS for Public Road-Transport (Transport for Cairo)",
-      "url": "https://portal.transport-data.org/@tfc",
-      "error": "Direct portal request failed in this sandbox: TLS/SSL connection closed (EOF); no GTFS archive was retrieved."
-    },
-    {
-      "source": "OpenStreetMap Overpass API",
+      "source": "OpenStreetMap",
       "url": "https://overpass-api.de/api/interpreter",
-      "error": "Direct Overpass request failed in this sandbox: TLS/SSL connection closed (EOF); no OSM objects were retrieved."
-    },
-    {
-      "source": "Geofabrik Egypt extract",
-      "url": "https://download.geofabrik.de/africa/egypt-latest.osm.pbf",
-      "error": "Direct Geofabrik request failed in this sandbox: TLS/SSL connection closed (EOF); no extract was retrieved."
+      "retrieval_date": "2026-11-14",
+      "retrieved_at": null,
+      "input_file": "cairo-osm-overpass-2026-11-14.json",
+      "input_sha256": "be0c995c27e1adeca1b6a73712dd54d88fd0c9c3657d0d8e3cff41e304b9c02c",
+      "license": "ODbL-1.0",
+      "elements_received": 4201,
+      "timestamp_osm_base": "2026-11-13T23:44:50Z"
     }
   ],
+  "source_failures": [],
   "attribution": {
     "osm": "© OpenStreetMap contributors, ODbL 1.0",
     "tfc": "Transport for Cairo (TfC), GTFS for Public Road-Transport, CC BY 4.0"
@@ -34,26 +30,8 @@
   "matching": "exact Unicode-normalized Arabic/English name or alias, gated by entity_type; no entity creation; unmatched/ambiguous items remain in match-report.json",
   "lifecycle_policy": "Only operational/partial entities are matched from OSM/GTFS. Planned/under-construction geometry requires official_alignment provenance and is not inferred from OSM/GTFS.",
   "geometry_policy": "WGS84 / SRID 4326; geometries must lie wholly within the declared Greater Cairo bbox.",
-  "sources_checked": [
-    {
-      "name": "Transport for Cairo GTFS via Transport Data Commons",
-      "dataset": "[Cairo] GTFS for Public Road-Transport; requested scope shapes.txt + stops.txt",
-      "license_expected": "CC-BY-4.0",
-      "status": "not used; archive unavailable"
-    },
-    {
-      "name": "OpenStreetMap via Overpass / Geofabrik",
-      "license_expected": "ODbL-1.0",
-      "status": "not used; endpoints unavailable"
-    },
-    {
-      "name": "Transport for Cairo Metro-GTFS (2016)",
-      "license": "CC-BY-NC-4.0",
-      "status": "excluded by policy"
-    },
-    {
-      "name": "Transitous Cairo Metro feed",
-      "status": "not used; no permissive CC-BY-4.0 grant verified for the upstream TfC data"
-    }
-  ]
+  "osm_query_coverage": "Supplied Overpass extract: route relations subway/light_rail/monorail/train; selected railway ways; named motorway/trunk highways only; station/platform/stop nodes. It does not cover primary/secondary highways or bus routes. Extract bbox is [29.2,30.5,30.8,32.1] as south,west,north,east in the submitted query; geometry acceptance bbox is WGS84 [30.5,29.2,32.1,30.8].",
+  "match_rules_file": "match-rules.json",
+  "raw_extract": "data/raw/osm-overpass-2026-11-14.json.gz",
+  "raw_extract_sha256": "397ad10cc68aa394d7811ee4aca2dd0051a92b709f56a911286601e1de774655"
 }

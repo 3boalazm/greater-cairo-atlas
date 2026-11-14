@@ -97,13 +97,22 @@ Source policy:
   ```
 - If a GTFS archive is supplied without network fetching, use `--osm-json /path/to/overpass.json` instead of `--fetch-osm`.
 
-The protected import validates `data/features/features.geojson` and idempotently upserts features by code in the existing transaction. The current committed collection has 0 features because the TfC portal, Overpass, and Geofabrik endpoints were unreachable from this sandbox; see `data/features/manifest.json` and `match-report.json`. No geometry or match was fabricated. After ingestion, run `npm run db:migrate:dry-run` and `npm run seed:check` (includes features), then the protected admin endpoint's default dry-run before any separately approved import. The real import command is the same endpoint with `-d '{"dryRun": false}'`; do not run it without explicit owner approval.
+The 2026-11-14 owner-supplied Overpass extract is recorded in `data/raw/osm-overpass-2026-11-14.json.gz`; its SHA-256 and the uncompressed input hash are recorded in `data/features/manifest.json`. The generated collection contains 723 features across 18 entities. `ROAD-NASR` is excluded via `data/features/match-rules.json` and its 73 OSM candidates are reported as ambiguous. `data/features/alias-suggestions.json` is research-only: none of its proposed aliases are applied. Extract coverage is limited to route relations (subway/light_rail/monorail/train), selected railway ways, station/platform/stop nodes, and named motorway/trunk roads; it does not include primary/secondary highways or bus routes. No TfC GTFS or NC data is included. Do not run a real import as part of this phase.
+
+The protected import validates `data/features/features.geojson` and idempotently upserts features by code in the existing transaction. To validate locally without writing to the database, run `npm run db:migrate:dry-run` and `npm run seed:check`; no real import was run for this phase.
 
 ## API Endpoints
 
 - **`GET /api/health`**: PostGIS smoke probe + `schema_migrations` count (`appliedMigrationsCount: 5` once `000`–`004` are applied).
 - **`GET /api/atlas/stats`**: Returns row counts across `{ entities, facts, evidence, features, fact_evidence }`.
-- **`GET /api/atlas/features?type=&sector=&status=&zoom=`**: Cached GeoJSON FeatureCollection with entity names/status, license, attribution, and source IDs; low zoom uses topology-preserving simplification and results are capped at 1,000 features.
+- **`GET /api/atlas/features?type=&sector=&status=&zoom=`**: Cached GeoJSON FeatureCollection with entity names/status, license, attribution, and source IDs; at zoom ≤7 the query groups geometries into one simplified feature per entity; results are capped at 1,000 features. OSM responses carry explicit `© OpenStreetMap contributors, ODbL 1.0` attribution.
+
+Example read-only requests (replace `localhost:3000` with your deployed origin as needed):
+```bash
+curl -sS 'http://localhost:3000/api/atlas/features?zoom=6' -o /tmp/features-z6.geojson
+curl -sS 'http://localhost:3000/api/atlas/features?type=road&sector=REGIONAL&zoom=9' -o /tmp/features-roads-z9.geojson
+curl -sS 'http://localhost:3000/api/atlas/features?type=transit_line&zoom=12' -o /tmp/features-transit-z12.geojson
+```
 - **`POST /api/admin/import-seed`**: Protected by `ADMIN_IMPORT_TOKEN` (constant-time SHA-256 `timingSafeEqual`), `dryRun: true` by default, idempotent upsert when `dryRun: false`.
 
 ## Quality Checks

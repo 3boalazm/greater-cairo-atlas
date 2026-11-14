@@ -98,7 +98,7 @@ describe("feature ingestion validation and GeoJSON API", () => {
     expect(collection.type).toBe("FeatureCollection");
     expect(collection.features[0]).toMatchObject({
       type: "Feature", id: "OSM-WAY-100",
-      properties: { entity_code: roadEntity.code, type: "road", status: "operational", license: "ODbL-1.0" },
+      properties: { entity_code: roadEntity.code, type: "road", status: "operational", license: "ODbL-1.0", attribution: "© OpenStreetMap contributors, ODbL 1.0" },
       geometry: { type: "LineString" },
     });
   });

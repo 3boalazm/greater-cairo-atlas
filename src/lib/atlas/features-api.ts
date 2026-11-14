@@ -75,28 +75,37 @@ const defaultFeatureRowsExecutor: FeatureRowsExecutor = async (filters) => {
   const tolerance = filters.zoom <= 7 ? 0.004 : filters.zoom <= 9 ? 0.001 : filters.zoom <= 11 ? 0.0002 : 0;
   const rows = await sql.query(
     `
-    SELECT f.code, e.code AS entity_code, e.name_ar, e.name_en,
-           e.entity_type, e.status,
+    WITH selected AS (
+      SELECT f.*, e.code AS entity_code, e.name_ar, e.name_en, e.entity_type, e.status,
+             e.sector, CASE WHEN $5::integer <= 7 THEN e.code ELSE f.code END AS output_code
+        FROM features f JOIN entities e ON e.id = f.entity_id
+       WHERE ($1::text IS NULL OR e.entity_type = $1)
+         AND ($2::text IS NULL OR e.sector = $2)
+         AND ($3::text IS NULL OR e.status = $3)
+    )
+    SELECT min(f.code) AS code, f.entity_code, f.name_ar, f.name_en,
+           f.entity_type, f.status,
            ST_AsGeoJSON(
-             CASE WHEN $4::double precision > 0
+             CASE WHEN $5::integer <= 7
+               THEN ST_Collect(ST_SimplifyPreserveTopology(f.geometry, $4::double precision))
+               WHEN $4::double precision > 0
                THEN ST_SimplifyPreserveTopology(f.geometry, $4::double precision)
-               ELSE f.geometry END,
-             6
+               ELSE f.geometry END, 6
            )::jsonb AS geometry,
-           f.license,
-           f.properties ->> 'attribution' AS attribution,
-           f.properties ->> 'source' AS source,
-           f.properties ->> 'retrieval_date' AS retrieval_date,
-           f.properties -> 'source_ids' AS source_ids
-      FROM features f
-      JOIN entities e ON e.id = f.entity_id
-     WHERE ($1::text IS NULL OR e.entity_type = $1)
-       AND ($2::text IS NULL OR e.sector = $2)
-       AND ($3::text IS NULL OR e.status = $3)
-     ORDER BY e.entity_type, e.code, f.code
+           string_agg(DISTINCT f.license, ',') AS license,
+           CASE WHEN bool_or(f.license = 'ODbL-1.0') THEN '© OpenStreetMap contributors, ODbL 1.0'
+                ELSE string_agg(DISTINCT f.properties ->> 'attribution', '; ') END AS attribution,
+           string_agg(DISTINCT f.properties ->> 'source', '; ') AS source,
+           min(f.properties ->> 'retrieval_date') AS retrieval_date,
+           jsonb_agg(f.properties -> 'source_ids') AS source_ids
+      FROM selected f
+     GROUP BY f.output_code, f.entity_code, f.name_ar, f.name_en, f.entity_type, f.status,
+              CASE WHEN $5::integer <= 7 THEN NULL ELSE f.geometry END,
+              CASE WHEN $5::integer <= 7 THEN NULL ELSE f.code END
+     ORDER BY f.entity_type, f.entity_code, min(f.code)
      LIMIT 1000
     `,
-    [filters.type ?? null, filters.sector ?? null, filters.status ?? null, tolerance],
+    [filters.type ?? null, filters.sector ?? null, filters.status ?? null, tolerance, filters.zoom],
   );
   return rows as FeatureCollectionRow[];
 };
@@ -120,7 +129,9 @@ export async function getAtlasFeatures(
         type: row.entity_type,
         status: row.status,
         license: row.license,
-        attribution: row.attribution,
+        attribution: row.license.split(",").includes("ODbL-1.0")
+          ? "© OpenStreetMap contributors, ODbL 1.0"
+          : row.attribution,
         source: row.source,
         retrieval_date: row.retrieval_date,
         source_ids: row.source_ids,
