@@ -284,7 +284,16 @@
         32.35,
         30.9
       ],
-      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+      "reason": "Regional Ring west patch supplied in 2026-11-14 extract; west edge accepted only to lon 30.25 for this entity.",
+      "road_bbox_wgs84": [
+        30.25,
+        29.2,
+        32.35,
+        30.9
+      ],
+      "road_refs": [
+        "515"
+      ]
     },
     "BRIDGE-15-MAY": {
       "bbox_wgs84": [
@@ -387,5 +396,23 @@
     29.2,
     32.35,
     30.9
-  ]
+  ],
+  "line_entity_rules": {
+    "TRANSIT-MONORAIL-EAST": {
+      "match_aliases": [
+        "خط مونوريل شرق النيل",
+        "East Nile line: Stadium → New Capital",
+        "East Nile line: New Capital → Stadium"
+      ],
+      "reason": "The stored OSM route relations identify both directions by line-specific Arabic/English names."
+    }
+  },
+  "station_entity_rules": {
+    "STOP-BRT-MOSHIR-TANTAWY": {
+      "match_aliases": [
+        "El-Mosher Tantawy BRT"
+      ],
+      "reason": "Exact source spelling on the OSM bus station; transliteration variant of seeded El Moshir Tantawy."
+    }
+  }
 }

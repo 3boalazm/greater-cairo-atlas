@@ -53,6 +53,14 @@ describe("feature ingestion validation and GeoJSON API", () => {
     const nonRoad = entitySeedSchema.parse({ ...roadEntity, code: "LANDMARK-TEST", entity_type: "landmark" });
     outside.properties = { ...(outside.properties as Record<string, unknown>), entity_code: nonRoad.code };
     await expect(loadAndValidateFeatureCollection(await featureFile([outside]), [nonRoad])).rejects.toThrow(/Greater Cairo WGS84 bbox/);
+    const regionalRing = entitySeedSchema.parse({ ...roadEntity, code: "ROAD-REGIONAL-RING" });
+    const regionalPatch = JSON.parse(JSON.stringify(geojsonFeature())) as Record<string, unknown>;
+    regionalPatch.properties = { ...(regionalPatch.properties as Record<string, unknown>), entity_code: regionalRing.code };
+    regionalPatch.geometry = { type: "LineString", coordinates: [[30.4986, 29.8], [30.51, 29.8]] };
+    await expect(loadAndValidateFeatureCollection(await featureFile([regionalPatch]), [regionalRing])).resolves.toHaveLength(1);
+    const unrelatedRoad = JSON.parse(JSON.stringify(geojsonFeature())) as Record<string, unknown>;
+    unrelatedRoad.geometry = { type: "LineString", coordinates: [[30.4986, 29.8], [30.51, 29.8]] };
+    await expect(loadAndValidateFeatureCollection(await featureFile([unrelatedRoad]), [roadEntity])).rejects.toThrow(/road-only WGS84 bbox/);
     const unknown = geojsonFeature({ entity_code: "ROAD-NOT-IN-SEED" });
     await expect(loadAndValidateFeatureCollection(await featureFile([unknown]), [roadEntity])).rejects.toThrow(/never create entities/);
   });

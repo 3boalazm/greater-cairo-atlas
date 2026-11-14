@@ -43,6 +43,8 @@ describe("separate OSM road context and entity map geometries", () => {
       road_route_relations: Array<{ entity_code: string; member_way_ids: number[] }>;
       road_route_entities: string[];
       road_gap_fill_totals: { gaps_after: number; gaps_closed: number; source_clipped_edges: number };
+      regional_ring_west_patch: { status: string; old_endpoint_wgs84: number[]; accepted_patch_ways: Array<{ osm_id: number }> };
+      source_clipped_road_edges: unknown[];
       road_gaps: Array<{ gap_type: string; coordinate_wgs84?: number[]; endpoint_a?: { coordinates: number[] }; endpoint_b?: { coordinates: number[] } }>;
     };
     expect(report.road_route_relations.length).toBeGreaterThan(0);
@@ -52,7 +54,11 @@ describe("separate OSM road context and entity map geometries", () => {
     expect(report.road_gaps.filter((gap) => gap.gap_type !== "source_clipped_edge")
       .every((gap) => gap.endpoint_a?.coordinates.length === 2 && gap.endpoint_b?.coordinates.length === 2)).toBe(true);
     expect(report.road_gaps.filter((gap) => gap.gap_type === "source_clipped_edge")).toHaveLength(report.road_gap_fill_totals.source_clipped_edges);
-    expect(report.road_gaps.find((gap) => gap.gap_type === "source_clipped_edge")?.coordinate_wgs84).toEqual([30.5148, 29.7646]);
+    expect(report.road_gap_fill_totals.source_clipped_edges).toBe(0);
+    expect(report.source_clipped_road_edges).toHaveLength(0);
+    expect(report.regional_ring_west_patch.status).toBe("closed_by_new_osm_extract");
+    expect(report.regional_ring_west_patch.old_endpoint_wgs84).toEqual([30.5148, 29.7646]);
+    expect(report.regional_ring_west_patch.accepted_patch_ways.map((way) => way.osm_id)).toEqual(expect.arrayContaining([502507459, 640834678]));
     expect(report.road_gap_fill_totals.gaps_closed).toBeGreaterThan(0);
   });
 });

@@ -11,10 +11,10 @@ from shapely import transform as shapely_transform
 from shapely.geometry import Point, shape
 
 
-SUPPORTED_MODES = {"subway", "light_rail", "monorail", "train"}
+SUPPORTED_MODES = {"subway", "light_rail", "monorail", "train", "bus"}
 DESCRIPTOR_TOKENS = {
     "محطه", "مترو", "مونوريل", "station", "stations", "metro", "lrt", "monorail",
-    "light", "rail", "line", "interchange", "stop",
+    "light", "rail", "line", "interchange", "stop", "brt", "ترددي", "السريع",
 }
 ARABIC_TRANSLATION = str.maketrans({"أ": "ا", "إ": "ا", "آ": "ا", "ة": "ه", "ى": "ي"})
 
@@ -77,6 +77,8 @@ def station_modes(tags: dict[str, Any], relation_modes: set[str]) -> set[str]:
         modes.add("monorail")
     if station == "train":
         modes.add("train")
+    if station in {"bus", "bus_station"} or tags.get("bus") == "yes":
+        modes.add("bus")
     if modes:
         return modes
     if relation_modes & SUPPORTED_MODES:
@@ -91,7 +93,7 @@ def _has_explicit_station_mode(tags: dict[str, Any], relation_modes: set[str]) -
     railway = str(tags.get("railway", "")).casefold()
     return (bool(relation_modes & SUPPORTED_MODES) or station in SUPPORTED_MODES or
             railway in {"subway", "light_rail", "monorail"} or
-            any(tags.get(key) == "yes" for key in ("subway", "light_rail", "monorail")))
+            any(tags.get(key) == "yes" for key in ("subway", "light_rail", "monorail", "bus")))
 
 
 def entity_line_scope(entity: dict[str, str]) -> tuple[set[str], set[str] | None]:
@@ -122,11 +124,11 @@ def entity_line_scope(entity: dict[str, str]) -> tuple[set[str], set[str] | None
     if code in {"STOP-ABBASSIA", "STOP-CAIRO-STADIUM"}:
         return {"subway"}, {"TRANSIT-METRO-L3"}
     if code == "STOP-ADLY-MANSOUR":
-        return SUPPORTED_MODES, {"TRANSIT-METRO-L3", "TRANSIT-LRT", "TRANSIT-MONORAIL-EAST"}
+        return {"subway", "light_rail", "monorail"}, {"TRANSIT-METRO-L3", "TRANSIT-LRT", "TRANSIT-MONORAIL-EAST"}
     if code == "STOP-ARTS-CULTURE-CITY":
         return {"light_rail", "monorail"}, {"TRANSIT-LRT", "TRANSIT-MONORAIL-EAST"}
     if code.startswith("STOP-BRT-"):
-        return set(), set()
+        return {"bus"}, {"TRANSIT-BRT"}
     if code.startswith("RAIL-"):
         return {"train"}, None
     return SUPPORTED_MODES, None
@@ -139,6 +141,8 @@ def line_mode(line_code: str) -> str | None:
         return "light_rail"
     if line_code.startswith("TRANSIT-MONORAIL-"):
         return "monorail"
+    if line_code == "TRANSIT-BRT":
+        return "bus"
     if line_code.startswith(("TRANSIT-HSR-", "TRANSIT-SUEZ-TRAIN")):
         return "train"
     return None
@@ -152,6 +156,14 @@ def _point_line_distance_m(lon: float, lat: float, geometry) -> float:
     return Point(0.0, 0.0).distance(projected)
 
 
+def _station_source_quality(tags: dict[str, Any]) -> int:
+    if tags.get("public_transport") == "station" or tags.get("railway") == "station":
+        return 3
+    if tags.get("railway") == "halt" or tags.get("public_transport") == "stop_position":
+        return 2
+    return 1
+
+
 def _is_construction(tags: dict[str, Any]) -> bool:
     return str(tags.get("construction", "")).casefold() in {"yes", "station", "railway"} or \
         str(tags.get("railway", "")).casefold() == "construction"
@@ -161,8 +173,8 @@ def _is_station_node(element: dict[str, Any]) -> bool:
     if element.get("type") != "node":
         return False
     tags = element.get("tags")
-    return isinstance(tags, dict) and (tags.get("public_transport") == "station" or
-        tags.get("railway") in {"station", "halt", "construction"})
+    return isinstance(tags, dict) and (tags.get("public_transport") in {"station", "stop_position", "platform"} or
+        tags.get("railway") in {"station", "halt", "stop", "construction"} or tags.get("bus") == "yes")
 
 
 def match_osm_station_nodes(
@@ -170,14 +182,21 @@ def match_osm_station_nodes(
     entities: list[dict[str, str]],
     line_features: list[dict[str, Any]],
     retrieval_date: str,
+    match_rules: dict[str, Any] | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     """Match versioned OSM station nodes to seeded entities without inferring ambiguous links."""
     station_entities = [e for e in entities if e.get("entity_type") in {"transit_stop", "rail_station"}
                         and e.get("code", "").startswith(("STOP-", "RAIL-"))]
     name_index: dict[str, set[str]] = defaultdict(set)
     by_code = {e["code"]: e for e in station_entities}
+    station_entity_rules = (match_rules or {}).get("station_entity_rules", {})
     for entity in station_entities:
-        for name in _labels_for_entity(entity):
+        names = _labels_for_entity(entity)
+        for alias in station_entity_rules.get(entity["code"], {}).get("match_aliases", []):
+            normalized = normalize_station_name(alias)
+            if normalized:
+                names.add(normalized)
+        for name in names:
             name_index[name].add(entity["code"])
 
     lines: dict[str, list[Any]] = defaultdict(list)
@@ -194,6 +213,9 @@ def match_osm_station_nodes(
             continue
         if properties.get("osm_type") == "relation" and isinstance(properties.get("osm_id"), int):
             relation_line_codes[properties["osm_id"]] = line_code
+    line_entities = {entity["code"]: entity for entity in entities if entity.get("entity_type") == "transit_line"}
+    planned_line_codes = {code for code, entity in line_entities.items()
+                          if entity.get("status") in {"planned", "approved_planned"}}
     line_unions = {}
     for code, geometries in lines.items():
         try:
@@ -281,6 +303,7 @@ def match_osm_station_nodes(
                 candidate_lines = [line for line in line_unions if line_mode(line) in allowed_modes]
             if explicit_mode and modes:
                 candidate_lines = [line for line in candidate_lines if line_mode(line) in modes]
+            candidate_lines = [line for line in candidate_lines if line not in planned_line_codes]
             check_lines = [line for line in candidate_lines if line in line_unions]
             distances = {line: _point_line_distance_m(float(coords[0]), float(coords[1]), line_unions[line])
                          for line in check_lines}
@@ -320,10 +343,15 @@ def match_osm_station_nodes(
             matched_lines = qualified_line_codes.get(code, [])
             matched_modes = qualified_modes.get(code, set())
             code_feature = f"OSM-NODE-{node_id}"
+            configured_aliases = station_entity_rules.get(code, {}).get("match_aliases", [])
+            aliases_used = sorted(alias for alias in configured_aliases
+                                  if normalize_station_name(alias) in normalized_labels)
             extra = {
                 "entity_type": entity["entity_type"], "osm_tags": tags,
-                "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+                "match_method": "exact normalized seed/configured station name + compatible OSM mode/route membership + matched-line proximity",
+                "configured_name_aliases_used": aliases_used,
                 "matched_line_codes": matched_lines,
+                "station_node_source_quality": _station_source_quality(tags),
                 "route_relation_ids": sorted(set(relation_lineage.get(node_id, []))),
                 "source_station_modes": sorted(modes), "matched_line_modes": sorted(matched_modes),
             }
@@ -343,7 +371,8 @@ def match_osm_station_nodes(
             })
             candidates_by_entity[code].append({"osm_id": node_id, "version": version, "labels": sorted(normalized_labels),
                                                 "line_codes": matched_lines, "coordinates": [float(coords[0]), float(coords[1])],
-                                                "name_match_score": _name_match_score(tags, entity), "construction": construction})
+                                                "name_match_score": _name_match_score(tags, entity),
+                                                "source_quality": _station_source_quality(tags), "construction": construction})
             matching_node_ids.add(node_id)
             node_audit.append({"osm_id": node_id, "outcome": "matched", "candidate_entity_codes": [code],
                                "source_labels": sorted(normalized_labels), "station_modes": sorted(modes),
@@ -380,6 +409,28 @@ def match_osm_station_nodes(
             record = audit_by_node.get(node_id)
             if record:
                 record.update({"outcome": "unmatched", "reason": "lower-confidence alias candidate; a stronger canonical-name match exists"})
+        higher_quality_values = [value for value in top_values if value["source_quality"] == 3]
+        lower_quality_values = [value for value in top_values if value["source_quality"] < 3]
+        duplicate_values = []
+        for value in lower_quality_values:
+            lon1, lat1 = value["coordinates"]
+            for primary in higher_quality_values:
+                lon2, lat2 = primary["coordinates"]
+                dlat, dlon = math.radians(lat2-lat1), math.radians(lon2-lon1)
+                h = math.sin(dlat/2)**2 + math.cos(math.radians(lat1))*math.cos(math.radians(lat2))*math.sin(dlon/2)**2
+                if 2 * 6371008.8 * math.asin(math.sqrt(h)) <= 150:
+                    duplicate_values.append(value)
+                    break
+        for value in duplicate_values:
+            node_id = value["osm_id"]
+            rejected_node_ids.add(node_id)
+            rejections_by_entity[code].append({"osm_id": node_id,
+                "reason": "lower-quality stop-position/platform is within 150 m of the primary station node; treated as duplicate geometry"})
+            record = audit_by_node.get(node_id)
+            if record:
+                record.update({"outcome": "unmatched", "reason": "nearby lower-quality stop-position/platform duplicate"})
+        duplicate_ids = {value["osm_id"] for value in duplicate_values}
+        top_values = [value for value in top_values if value["osm_id"] not in duplicate_ids]
         distant_pairs = []
         for index, left in enumerate(top_values):
             for right in top_values[index + 1:]:
@@ -443,6 +494,18 @@ def match_osm_station_nodes(
             else:
                 summary["unmatched_entities"].append(code)
 
+    brt_seed_codes = sorted(code for code in by_code if code.startswith("STOP-BRT-"))
+    brt_source_nodes = []
+    for element in osm_data.get("elements", []):
+        tags = element.get("tags", {})
+        if element.get("type") != "node" or tags.get("bus") != "yes":
+            continue
+        raw_names = " ".join(str(tags.get(key, "")) for key in ("name", "name:ar", "name:en", "alt_name"))
+        if "brt" in raw_names.casefold() or "ترددي" in raw_names:
+            brt_source_nodes.append({"osm_id": int(element.get("id", 0) or 0), "name": tags.get("name"),
+                                    "name_ar": tags.get("name:ar"), "name_en": tags.get("name:en"),
+                                    "public_transport": tags.get("public_transport")})
+    brt_matched = [code for code in brt_seed_codes if per_entity.get(code, {}).get("matched_count", 0)]
     audit = {
         "source_station_nodes_examined": examined,
         "source_nodes_with_seed_name_candidates": len(node_audit),
@@ -451,6 +514,10 @@ def match_osm_station_nodes(
         "rejected_source_nodes": len(rejected_node_ids),
         "entity_level_ambiguous_entities": len(entity_conflicts),
         "entity_level_conflicts": entity_conflicts,
+        "brt_round_two": {"seed_brt_station_entities": len(brt_seed_codes), "matched_brt_station_entities": len(brt_matched),
+                          "matched_entity_codes": brt_matched,
+                          "unmatched_entity_codes": sorted(set(brt_seed_codes) - set(brt_matched)),
+                          "source_named_bus_yes_brt_nodes": brt_source_nodes},
         "station_entities": per_entity,
         "by_line": per_line,
         "source_node_audit": node_audit,
