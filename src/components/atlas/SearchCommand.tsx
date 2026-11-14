@@ -1,11 +1,11 @@
 "use client";
 /* eslint-disable react-hooks/set-state-in-effect -- clear stale async results when the query becomes empty. */
 
-import { ArrowDown, Command, Search, X } from "lucide-react";
+import { ArrowDown, Command, MapPinned, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { AtlasEntitySummary, AtlasLanguage } from "./atlas-client";
 
-export function SearchCommand({ language, onSelect }: { language: AtlasLanguage; onSelect: (code: string) => void }) {
+export function SearchCommand({ language, onSelect, onShowBoundary }: { language: AtlasLanguage; onSelect: (code: string) => void; onShowBoundary: (code: string) => void }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<AtlasEntitySummary[]>([]);
   const [open, setOpen] = useState(false);
@@ -62,11 +62,18 @@ export function SearchCommand({ language, onSelect }: { language: AtlasLanguage;
     {open && query.trim() && <>
       <button className="search-dismiss" tabIndex={-1} aria-label={ar ? "إغلاق البحث" : "Close search"} onClick={() => setOpen(false)} />
       <div className="search-results" id="atlas-search-results" role="listbox" aria-label={ar ? "نتائج البحث" : "Search results"}>
-        {results.map((entity, index) => <button key={entity.code} role="option" aria-selected={index === active} className={index === active ? "active-result" : ""} onMouseEnter={() => setActive(index)} onClick={() => choose(entity)}>
-          <span className="result-main"><strong>{ar ? entity.name_ar : entity.name_en}</strong><small>{ar ? entity.name_en : entity.name_ar} · {entity.code}</small></span>
-          {!entity.has_geometry && <span className="no-geometry-result">{ar ? "لا توجد هندسة" : "No geometry"}</span>}
-          <ArrowDown className="result-enter" aria-hidden="true" />
-        </button>)}
+        {results.map((entity, index) => <div key={entity.code} role="option" aria-selected={index === active} className={`search-result-row ${index === active ? "active-result" : ""}`} onMouseEnter={() => setActive(index)}>
+          <button className="search-result-select" type="button" onClick={() => choose(entity)}>
+            <span className="result-main"><strong>{ar ? entity.name_ar : entity.name_en}</strong><small>{ar ? entity.name_en : entity.name_ar} · {entity.code}</small></span>
+            {!entity.has_geometry && <span className="no-geometry-result">{ar ? "لا توجد هندسة" : "No geometry"}</span>}
+            <ArrowDown className="result-enter" aria-hidden="true" />
+          </button>
+          {entity.has_boundary && <button type="button" className="search-boundary-action" onClick={() => {
+            onShowBoundary(entity.code); setOpen(false); setQuery(""); inputRef.current?.blur();
+          }} aria-label={ar ? `إظهار حدود ${entity.name_ar} على الخريطة` : `Show ${entity.name_en} boundary on map`}>
+            <MapPinned aria-hidden="true" />{ar ? "إظهار الحدود" : "Show boundary"}
+          </button>}
+        </div>)}
         {!loading && results.length === 0 && <p role="status">{ar ? "لا توجد نتائج مطابقة." : "No matching entities."}</p>}
         <footer><span>{ar ? "للتنقل" : "Navigate"} <kbd>↑</kbd><kbd>↓</kbd></span><span>{ar ? "للفتح" : "Open"} <kbd>↵</kbd></span></footer>
       </div>

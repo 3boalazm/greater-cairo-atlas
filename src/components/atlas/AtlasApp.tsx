@@ -9,6 +9,7 @@ import { AtlasFilters, LayerChips, Legend, MapFilters } from "./AtlasControls";
 import { EntityPanel } from "./EntityPanel";
 import dynamic from "next/dynamic";
 import type { MapStyleStatus } from "./MapView";
+import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 
 const MapView = dynamic(
   () => import("./MapView").then((module) => module.MapView),
@@ -53,6 +54,9 @@ export default function AtlasApp() {
   const [detail, setDetail] = useState<AtlasEntityDetail | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
   const [detailError, setDetailError] = useState<string | null>(null);
+  const [highlightBoundary, setHighlightBoundary] = useState<AreaBoundaryFeature | null>(null);
+  const [boundaryLoadingCode, setBoundaryLoadingCode] = useState<string | null>(null);
+  const [boundaryError, setBoundaryError] = useState<string | null>(null);
 
   useEffect(() => {
     const fromUrl = new URLSearchParams(window.location.search).get("entity");
@@ -134,12 +138,39 @@ export default function AtlasApp() {
 
   const selectEntity = useCallback((code: string) => {
     setSelectedCode(code);
+    setHighlightBoundary(null);
+    setBoundaryError(null);
     const url = new URL(window.location.href);
     url.searchParams.set("entity", code);
     window.history.pushState({}, "", url);
   }, []);
+  const toggleAreaBoundary = useCallback(async (code: string) => {
+    if (highlightBoundary?.properties.entity_code === code) {
+      setHighlightBoundary(null);
+      setBoundaryError(null);
+      return;
+    }
+    selectEntity(code);
+    setHighlightBoundary(null);
+    setBoundaryError(null);
+    setBoundaryLoadingCode(code);
+    try {
+      const response = await fetch(`/api/atlas/entities/${encodeURIComponent(code)}/boundary`);
+      const payload = await response.json() as { features?: AreaBoundaryFeature[]; error?: { message?: string } };
+      if (!response.ok) throw new Error(payload.error?.message ?? `HTTP ${response.status}`);
+      const boundary = payload.features?.find((feature) => feature.properties.entity_code === code);
+      if (!boundary) throw new Error(language === "ar" ? "الحدود غير متاحة في المصدر." : "No source boundary is available.");
+      setHighlightBoundary(boundary);
+    } catch (error) {
+      setBoundaryError(messageFrom(error, language));
+    } finally {
+      setBoundaryLoadingCode(null);
+    }
+  }, [highlightBoundary, language, selectEntity]);
   const closeEntity = useCallback(() => {
     setSelectedCode(null);
+    setHighlightBoundary(null);
+    setBoundaryError(null);
     const url = new URL(window.location.href);
     url.searchParams.delete("entity");
     window.history.pushState({}, "", url);
@@ -168,7 +199,7 @@ export default function AtlasApp() {
     <section className="atlas-workspace">
       <header className="atlas-topbar">
         <div className="topbar-heading"><span className="eyebrow">{ar ? "مصر · دلتا النيل" : "EGYPT · NILE DELTA"}</span><strong>{ar ? "الخريطة التفاعلية" : "Interactive map"}</strong></div>
-        <SearchCommand language={language} onSelect={selectEntity} />
+        <SearchCommand language={language} onSelect={selectEntity} onShowBoundary={toggleAreaBoundary} />
         <nav className="atlas-info-nav" aria-label={ar ? "روابط الأطلس" : "Atlas information links"}><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link></nav>
         <div className="topbar-actions"><ThemeToggle theme={theme} onChange={setTheme} language={language} /><LanguageToggle language={language} onChange={setLanguage} /></div>
       </header>
@@ -183,23 +214,25 @@ export default function AtlasApp() {
         {statsError && <span className="stats-retry"><AlertTriangle aria-hidden="true" />{statsError}</span>}
       </section>
       <section className="map-stage" aria-label={ar ? "مساحة الخريطة" : "Map workspace"}>
-        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} showRoadNetwork={showRoadNetwork} />
+        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} showRoadNetwork={showRoadNetwork} highlightBoundary={highlightBoundary} />
         <div className="map-header-card"><div className="map-title-icon"><MapPinned aria-hidden="true" /></div><div><span>{ar ? "القاهرة الكبرى" : "Greater Cairo"}</span><h1>{ar ? "المكان كما توثّقه المصادر" : "Place, as documented"}</h1><p>{ar ? "الحقائق المتعارضة تبقى ظاهرة؛ لا تخمين للهندسة أو الحالة." : "Conflicting claims remain visible. No inferred geometry or status."}</p></div></div>
         <div className="map-toolbar"><LayerChips type={filters.type} onTypeChange={(type) => setFilters((current) => ({ ...current, type }))} language={language} />
           <MapFilters filters={filters} onChange={setFilters} language={language} />
           <label className="road-network-toggle"><input type="checkbox" checked={showRoadNetwork} onChange={(event) => setShowRoadNetwork(event.target.checked)} /><span>{ar ? "شبكة الطرق (OpenStreetMap)" : "Road network (OSM)"}</span></label>
           <span className="map-feature-count" aria-live="polite">{featuresLoading ? "…" : totalFeatures} {ar ? "ميزة هندسية" : "features"}</span>
         </div>
-        <Legend language={language} />
+        <Legend language={language} boundaryActive={Boolean(highlightBoundary)} />
         {(featuresLoading || entitiesLoading) && <div className="map-loading" role="status"><RefreshCw aria-hidden="true" />{ar ? "جارٍ تحميل بيانات الأطلس…" : "Loading atlas data…"}</div>}
-        {(featuresError || entitiesError) && <div className="map-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{featuresError ?? entitiesError}</span></div>}
+        {(featuresError || entitiesError || boundaryError) && <div className="map-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{boundaryError ?? featuresError ?? entitiesError}</span></div>}
         {mapStyleStatus === "error" && <div className="map-error map-style-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{ar ? "تعذّر تحميل خريطة OpenFreeMap." : "Could not load the OpenFreeMap basemap."}</span><button type="button" onClick={() => { setMapStyleStatus("loading"); setMapGeneration((value) => value + 1); }}>{ar ? "إعادة المحاولة" : "Retry"}</button></div>}
         {!featuresLoading && !featuresError && totalFeatures === 0 && <div className="map-empty">{ar ? "لا توجد هندسة تطابق هذه الفلاتر. الكيانات تظل متاحة في القائمة والبحث." : "No geometries match these filters. Entities remain available in the list and search."}</div>}
         <div className="map-attribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors, ODbL 1.0</a><span>·</span><a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a></div>
         <nav className="atlas-site-footer" aria-label={ar ? "روابط الأطلس وإسناد البيانات" : "Atlas links and data attribution"}><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link><span>© Mustafa Aboalazm · CC BY 4.0</span></nav>
       </section>
     </section>
-    {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} language={language} />}
+    {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} language={language}
+      onToggleBoundary={toggleAreaBoundary} boundaryActive={highlightBoundary?.properties.entity_code === detail?.code}
+      boundaryLoading={boundaryLoadingCode === detail?.code} />}
   </main>;
 }
 

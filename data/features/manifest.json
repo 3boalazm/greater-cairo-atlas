@@ -13,15 +13,15 @@
     32.35,
     30.9
   ],
-  "feature_count": 3030,
+  "feature_count": 2809,
   "sources": [
     {
       "source": "OpenStreetMap",
       "url": "https://overpass-api.de/api/interpreter",
       "retrieval_date": "2026-11-14",
       "retrieved_at": null,
-      "input_file": "osm-overpass-2026-11-14.json",
-      "input_sha256": "be0c995c27e1adeca1b6a73712dd54d88fd0c9c3657d0d8e3cff41e304b9c02c",
+      "input_file": "osm-overpass-2026-11-14.json.gz",
+      "input_sha256": "397ad10cc68aa394d7811ee4aca2dd0051a92b709f56a911286601e1de774655",
       "license": "ODbL-1.0",
       "elements_received": 4201,
       "timestamp_osm_base": "2026-11-13T23:44:50Z"
@@ -31,8 +31,8 @@
       "url": "https://overpass-api.de/api/interpreter",
       "retrieval_date": "2026-11-14",
       "retrieved_at": null,
-      "input_file": "cairo-osm-overpass-2026-11-14-extract2.json",
-      "input_sha256": "da39b664330ade56a51449eff96b9513ad670d8e7a2ade4a2e88c9018ee46d0b",
+      "input_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+      "input_sha256": "e99b9001ffae0d7256e69aa30b47b25192e44649b83e68e658e49adac21ff850",
       "license": "ODbL-1.0",
       "elements_received": 8517,
       "timestamp_osm_base": "2026-11-14T04:08:33Z"
@@ -42,8 +42,8 @@
       "url": "https://overpass-api.de/api/interpreter",
       "retrieval_date": "2026-11-14",
       "retrieved_at": null,
-      "input_file": "cairo-osm-overpass-2026-11-14-roads-full.json",
-      "input_sha256": "d02595a0a92ca252b2e1a8f8e8727403921f102852d4e2ad2b8ce838dcadc12c",
+      "input_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+      "input_sha256": "2d2c3eb6caabaed467a2ae0fffb6edeea08f33660b46d13b7a5d3b0b6cc83ea4",
       "license": "ODbL-1.0",
       "elements_received": 7322,
       "timestamp_osm_base": "2026-11-14T04:16:34Z"
@@ -59,11 +59,11 @@
   "road_gap_fill": {
     "max_path_km_default": 3.0,
     "summary": {
-      "gaps_before": 181,
-      "gaps_after": 137,
+      "gaps_before": 152,
+      "gaps_after": 108,
       "gaps_closed": 44,
-      "topology_gaps": 73,
-      "network_gaps": 64,
+      "topology_gaps": 65,
+      "network_gaps": 43,
       "km_closed": 19.881
     },
     "by_entity": [
@@ -591,10 +591,10 @@
       },
       {
         "entity_code": "ROAD-AHMED-ORABI",
-        "components_before": 9,
-        "gaps_before": 8,
-        "components_after": 9,
-        "gaps_after": 8,
+        "components_before": 4,
+        "gaps_before": 3,
+        "components_after": 4,
+        "gaps_after": 3,
         "gaps_closed": 0,
         "km_closed": 0,
         "filled_way_ids": [],
@@ -627,7 +627,7 @@
             "entity_code": "ROAD-AHMED-ORABI",
             "gap_type": "network_gap",
             "component_a": 1,
-            "component_b": 8,
+            "component_b": 3,
             "endpoint_a": {
               "node_id": 2457703149,
               "coordinates": [
@@ -649,8 +649,8 @@
           {
             "entity_code": "ROAD-AHMED-ORABI",
             "gap_type": "osm_topology_gap",
-            "component_a": 7,
-            "component_b": 8,
+            "component_a": 2,
+            "component_b": 3,
             "endpoint_a": {
               "node_id": 2591288217,
               "coordinates": [
@@ -668,121 +668,6 @@
             "straight_line_km": 0.015,
             "max_graph_path_km": 3.0,
             "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-AHMED-ORABI",
-            "gap_type": "network_gap",
-            "component_a": 0,
-            "component_b": 4,
-            "endpoint_a": {
-              "node_id": 11149664923,
-              "coordinates": [
-                31.1425453,
-                30.0233523
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 12258363203,
-              "coordinates": [
-                30.9527735,
-                29.9777135
-              ]
-            },
-            "straight_line_km": 18.966,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-AHMED-ORABI",
-            "gap_type": "network_gap",
-            "component_a": 2,
-            "component_b": 4,
-            "endpoint_a": {
-              "node_id": 12258363206,
-              "coordinates": [
-                30.9498367,
-                29.9797438
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 12258359095,
-              "coordinates": [
-                30.9503427,
-                29.9799207
-              ]
-            },
-            "straight_line_km": 0.053,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-AHMED-ORABI",
-            "gap_type": "network_gap",
-            "component_a": 2,
-            "component_b": 5,
-            "endpoint_a": {
-              "node_id": 12258363206,
-              "coordinates": [
-                30.9498367,
-                29.9797438
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 10901283528,
-              "coordinates": [
-                30.9482866,
-                29.9820152
-              ]
-            },
-            "straight_line_km": 0.293,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-AHMED-ORABI",
-            "gap_type": "network_gap",
-            "component_a": 5,
-            "component_b": 6,
-            "endpoint_a": {
-              "node_id": 10901283528,
-              "coordinates": [
-                30.9482866,
-                29.9820152
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 10901283522,
-              "coordinates": [
-                30.948021,
-                29.9819548
-              ]
-            },
-            "straight_line_km": 0.026,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-AHMED-ORABI",
-            "gap_type": "network_gap",
-            "component_a": 3,
-            "component_b": 7,
-            "endpoint_a": {
-              "node_id": 4322402295,
-              "coordinates": [
-                31.5491696,
-                30.6179139
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 6487765001,
-              "coordinates": [
-                31.1910856,
-                30.0834665
-              ]
-            },
-            "straight_line_km": 68.646,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
           }
         ],
         "max_path_km": 3.0,
@@ -880,10 +765,10 @@
       },
       {
         "entity_code": "ROAD-AMR-IBN-ALAS",
-        "components_before": 3,
-        "gaps_before": 2,
-        "components_after": 3,
-        "gaps_after": 2,
+        "components_before": 2,
+        "gaps_before": 1,
+        "components_after": 2,
+        "gaps_after": 1,
         "gaps_closed": 0,
         "km_closed": 0,
         "filled_way_ids": [],
@@ -891,32 +776,9 @@
         "unresolved_gaps": [
           {
             "entity_code": "ROAD-AMR-IBN-ALAS",
-            "gap_type": "network_gap",
+            "gap_type": "osm_topology_gap",
             "component_a": 0,
             "component_b": 1,
-            "endpoint_a": {
-              "node_id": 1086261719,
-              "coordinates": [
-                31.4468842,
-                30.4450725
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 14116725103,
-              "coordinates": [
-                31.1657348,
-                30.0168007
-              ]
-            },
-            "straight_line_km": 54.749,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-AMR-IBN-ALAS",
-            "gap_type": "osm_topology_gap",
-            "component_a": 1,
-            "component_b": 2,
             "endpoint_a": {
               "node_id": 11649286185,
               "coordinates": [
@@ -942,10 +804,10 @@
       },
       {
         "entity_code": "ROAD-ASSAR-AXIS",
-        "components_before": 20,
-        "gaps_before": 19,
-        "components_after": 20,
-        "gaps_after": 19,
+        "components_before": 2,
+        "gaps_before": 1,
+        "components_after": 2,
+        "gaps_after": 1,
         "gaps_closed": 0,
         "km_closed": 0,
         "filled_way_ids": [],
@@ -955,99 +817,7 @@
             "entity_code": "ROAD-ASSAR-AXIS",
             "gap_type": "osm_topology_gap",
             "component_a": 0,
-            "component_b": 13,
-            "endpoint_a": {
-              "node_id": 14005965870,
-              "coordinates": [
-                31.3439485,
-                30.0941834
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 14005965802,
-              "coordinates": [
-                31.3439888,
-                30.0943041
-              ]
-            },
-            "straight_line_km": 0.014,
-            "max_graph_path_km": 3.0,
-            "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "osm_topology_gap",
-            "component_a": 13,
-            "component_b": 17,
-            "endpoint_a": {
-              "node_id": 7148445422,
-              "coordinates": [
-                31.3291659,
-                30.1038774
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 7201339715,
-              "coordinates": [
-                31.3290595,
-                30.10404
-              ]
-            },
-            "straight_line_km": 0.021,
-            "max_graph_path_km": 3.0,
-            "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "osm_topology_gap",
-            "component_a": 15,
-            "component_b": 17,
-            "endpoint_a": {
-              "node_id": 8234729322,
-              "coordinates": [
-                31.3256442,
-                30.105294
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 8234729321,
-              "coordinates": [
-                31.325681,
-                30.1054109
-              ]
-            },
-            "straight_line_km": 0.013,
-            "max_graph_path_km": 3.0,
-            "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 1,
-            "component_b": 17,
-            "endpoint_a": {
-              "node_id": 7699793111,
-              "coordinates": [
-                31.2888106,
-                30.1303533
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 7201339640,
-              "coordinates": [
-                31.3238875,
-                30.1065952
-              ]
-            },
-            "straight_line_km": 4.285,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "osm_topology_gap",
-            "component_a": 1,
-            "component_b": 10,
+            "component_b": 1,
             "endpoint_a": {
               "node_id": 2853383305,
               "coordinates": [
@@ -1065,328 +835,6 @@
             "straight_line_km": 0.009,
             "max_graph_path_km": 3.0,
             "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 11,
-            "component_b": 13,
-            "endpoint_a": {
-              "node_id": 6367305596,
-              "coordinates": [
-                31.4604588,
-                30.01421
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 7184879894,
-              "coordinates": [
-                31.3491757,
-                30.0896314
-              ]
-            },
-            "straight_line_km": 13.603,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 11,
-            "component_b": 12,
-            "endpoint_a": {
-              "node_id": 6373572894,
-              "coordinates": [
-                31.4696076,
-                30.0066591
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 11434873279,
-              "coordinates": [
-                31.4708236,
-                30.0076879
-              ]
-            },
-            "straight_line_km": 0.164,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 12,
-            "component_b": 16,
-            "endpoint_a": {
-              "node_id": 11434873279,
-              "coordinates": [
-                31.4708236,
-                30.0076879
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 10716563739,
-              "coordinates": [
-                31.7072724,
-                30.1145002
-              ]
-            },
-            "straight_line_km": 25.669,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "osm_topology_gap",
-            "component_a": 14,
-            "component_b": 16,
-            "endpoint_a": {
-              "node_id": 1607790642,
-              "coordinates": [
-                31.7454357,
-                30.1092439
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 1607790622,
-              "coordinates": [
-                31.7454713,
-                30.1090667
-              ]
-            },
-            "straight_line_km": 0.02,
-            "max_graph_path_km": 3.0,
-            "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 2,
-            "component_b": 14,
-            "endpoint_a": {
-              "node_id": 1613409613,
-              "coordinates": [
-                31.7535473,
-                30.2646215
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 11449540575,
-              "coordinates": [
-                31.7482777,
-                30.1110439
-              ]
-            },
-            "straight_line_km": 17.085,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "osm_topology_gap",
-            "component_a": 2,
-            "component_b": 3,
-            "endpoint_a": {
-              "node_id": 1613409842,
-              "coordinates": [
-                31.7504878,
-                30.2754808
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 1613409771,
-              "coordinates": [
-                31.7507222,
-                30.2755447
-              ]
-            },
-            "straight_line_km": 0.024,
-            "max_graph_path_km": 3.0,
-            "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 2,
-            "component_b": 4,
-            "endpoint_a": {
-              "node_id": 1613409842,
-              "coordinates": [
-                31.7504878,
-                30.2754808
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 1613409804,
-              "coordinates": [
-                31.7502881,
-                30.2759292
-              ]
-            },
-            "straight_line_km": 0.053,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 4,
-            "component_b": 6,
-            "endpoint_a": {
-              "node_id": 1613409804,
-              "coordinates": [
-                31.7502881,
-                30.2759292
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 1613409827,
-              "coordinates": [
-                31.7505371,
-                30.2760171
-              ]
-            },
-            "straight_line_km": 0.026,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 4,
-            "component_b": 5,
-            "endpoint_a": {
-              "node_id": 1613409778,
-              "coordinates": [
-                31.7485727,
-                30.2804263
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 6561586489,
-              "coordinates": [
-                31.7484638,
-                30.2807905
-              ]
-            },
-            "straight_line_km": 0.042,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 5,
-            "component_b": 9,
-            "endpoint_a": {
-              "node_id": 570066455,
-              "coordinates": [
-                31.7400286,
-                30.3028955
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 1613410018,
-              "coordinates": [
-                31.7401125,
-                30.3031294
-              ]
-            },
-            "straight_line_km": 0.027,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 8,
-            "component_b": 9,
-            "endpoint_a": {
-              "node_id": 1613412978,
-              "coordinates": [
-                31.7343712,
-                30.3186862
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 1613413008,
-              "coordinates": [
-                31.7341211,
-                30.3186089
-              ]
-            },
-            "straight_line_km": 0.025,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "osm_topology_gap",
-            "component_a": 7,
-            "component_b": 8,
-            "endpoint_a": {
-              "node_id": 1613410055,
-              "coordinates": [
-                31.7415148,
-                30.3032724
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 1613410016,
-              "coordinates": [
-                31.7413285,
-                30.3034283
-              ]
-            },
-            "straight_line_km": 0.025,
-            "max_graph_path_km": 3.0,
-            "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 9,
-            "component_b": 18,
-            "endpoint_a": {
-              "node_id": 1613413008,
-              "coordinates": [
-                31.7341211,
-                30.3186089
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 1613412998,
-              "coordinates": [
-                31.7339446,
-                30.3188151
-              ]
-            },
-            "straight_line_km": 0.029,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-ASSAR-AXIS",
-            "gap_type": "network_gap",
-            "component_a": 18,
-            "component_b": 19,
-            "endpoint_a": {
-              "node_id": 1613412998,
-              "coordinates": [
-                31.7339446,
-                30.3188151
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 1613412979,
-              "coordinates": [
-                31.734211,
-                30.3189042
-              ]
-            },
-            "straight_line_km": 0.027,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
           }
         ],
         "max_path_km": 3.0,
@@ -2381,10 +1829,10 @@
       },
       {
         "entity_code": "ROAD-CORNICHE",
-        "components_before": 12,
-        "gaps_before": 11,
-        "components_after": 10,
-        "gaps_after": 9,
+        "components_before": 13,
+        "gaps_before": 12,
+        "components_after": 11,
+        "gaps_after": 10,
         "gaps_closed": 2,
         "km_closed": 0.403,
         "filled_way_ids": [
@@ -2471,6 +1919,29 @@
             "straight_line_km": 0.012,
             "max_graph_path_km": 3.0,
             "reason": "osm_topology_gap"
+          },
+          {
+            "entity_code": "ROAD-CORNICHE",
+            "gap_type": "network_gap",
+            "component_a": 5,
+            "component_b": 10,
+            "endpoint_a": {
+              "node_id": 928011780,
+              "coordinates": [
+                31.2956161,
+                29.8468613
+              ]
+            },
+            "endpoint_b": {
+              "node_id": 679332724,
+              "coordinates": [
+                31.2955636,
+                29.8465908
+              ]
+            },
+            "straight_line_km": 0.031,
+            "max_graph_path_km": 3.0,
+            "reason": "no eligible real-way graph path within configured maximum distance"
           },
           {
             "entity_code": "ROAD-CORNICHE",
@@ -3837,10 +3308,10 @@
       },
       {
         "entity_code": "ROAD-MOHAMED-NAGUIB",
-        "components_before": 10,
-        "gaps_before": 9,
-        "components_after": 10,
-        "gaps_after": 9,
+        "components_before": 4,
+        "gaps_before": 3,
+        "components_after": 4,
+        "gaps_after": 3,
         "gaps_closed": 0,
         "km_closed": 0,
         "filled_way_ids": [],
@@ -3850,7 +3321,7 @@
             "entity_code": "ROAD-MOHAMED-NAGUIB",
             "gap_type": "osm_topology_gap",
             "component_a": 0,
-            "component_b": 5,
+            "component_b": 3,
             "endpoint_a": {
               "node_id": 6400696859,
               "coordinates": [
@@ -3873,7 +3344,7 @@
             "entity_code": "ROAD-MOHAMED-NAGUIB",
             "gap_type": "network_gap",
             "component_a": 0,
-            "component_b": 3,
+            "component_b": 2,
             "endpoint_a": {
               "node_id": 10702122152,
               "coordinates": [
@@ -3895,8 +3366,8 @@
           {
             "entity_code": "ROAD-MOHAMED-NAGUIB",
             "gap_type": "osm_topology_gap",
-            "component_a": 2,
-            "component_b": 3,
+            "component_a": 1,
+            "component_b": 2,
             "endpoint_a": {
               "node_id": 1682362292,
               "coordinates": [
@@ -3912,144 +3383,6 @@
               ]
             },
             "straight_line_km": 0.01,
-            "max_graph_path_km": 3.0,
-            "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-MOHAMED-NAGUIB",
-            "gap_type": "network_gap",
-            "component_a": 2,
-            "component_b": 4,
-            "endpoint_a": {
-              "node_id": 6375429050,
-              "coordinates": [
-                31.4748818,
-                30.0704499
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 3944763560,
-              "coordinates": [
-                31.4743916,
-                30.0714774
-              ]
-            },
-            "straight_line_km": 0.124,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-MOHAMED-NAGUIB",
-            "gap_type": "network_gap",
-            "component_a": 1,
-            "component_b": 4,
-            "endpoint_a": {
-              "node_id": 1683332353,
-              "coordinates": [
-                31.4737007,
-                30.0712201
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 3944763560,
-              "coordinates": [
-                31.4743916,
-                30.0714774
-              ]
-            },
-            "straight_line_km": 0.072,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-MOHAMED-NAGUIB",
-            "gap_type": "network_gap",
-            "component_a": 1,
-            "component_b": 7,
-            "endpoint_a": {
-              "node_id": 1675113603,
-              "coordinates": [
-                31.4689242,
-                30.0827487
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 320942475,
-              "coordinates": [
-                31.2139532,
-                30.0766594
-              ]
-            },
-            "straight_line_km": 24.543,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-MOHAMED-NAGUIB",
-            "gap_type": "osm_topology_gap",
-            "component_a": 6,
-            "component_b": 7,
-            "endpoint_a": {
-              "node_id": 320942431,
-              "coordinates": [
-                31.2071531,
-                30.0691194
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 331145779,
-              "coordinates": [
-                31.2070696,
-                30.0691518
-              ]
-            },
-            "straight_line_km": 0.009,
-            "max_graph_path_km": 3.0,
-            "reason": "osm_topology_gap"
-          },
-          {
-            "entity_code": "ROAD-MOHAMED-NAGUIB",
-            "gap_type": "network_gap",
-            "component_a": 7,
-            "component_b": 8,
-            "endpoint_a": {
-              "node_id": 6472358588,
-              "coordinates": [
-                31.2131735,
-                30.0768315
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 6881609337,
-              "coordinates": [
-                31.1841042,
-                30.4533566
-              ]
-            },
-            "straight_line_km": 41.961,
-            "max_graph_path_km": 3.0,
-            "reason": "no eligible real-way graph path within configured maximum distance"
-          },
-          {
-            "entity_code": "ROAD-MOHAMED-NAGUIB",
-            "gap_type": "osm_topology_gap",
-            "component_a": 8,
-            "component_b": 9,
-            "endpoint_a": {
-              "node_id": 6875083732,
-              "coordinates": [
-                31.1884284,
-                30.46008
-              ]
-            },
-            "endpoint_b": {
-              "node_id": 6875083733,
-              "coordinates": [
-                31.1885037,
-                30.4600627
-              ]
-            },
-            "straight_line_km": 0.007,
             "max_graph_path_km": 3.0,
             "reason": "osm_topology_gap"
           }
@@ -6253,6 +5586,12 @@
     ],
     "dropped_fragments_under_300m": 0
   },
+  "area_boundaries": {
+    "available": false,
+    "source_file": null,
+    "feature_count": 0,
+    "preserved_previous_output": true
+  },
   "entity_page_map_geometries": {
     "path": "data/derived/entity-map-geometries.json",
     "entities_with_geometry": 108,
@@ -6269,7 +5608,7 @@
   "lifecycle_policy": "Only operational/partial entities are matched from OSM/GTFS. Planned/under-construction geometry requires official_alignment provenance and is not inferred from OSM/GTFS.",
   "geometry_policy": "WGS84 / SRID 4326; non-empty, GEOS-valid geometries must lie wholly within the declared bbox: non-road features use bbox_wgs84, while road features use road_bbox_wgs84 and are clipped at that envelope. Every output geometry is checked with Shapely is_valid/explain_validity; invalid polygonal features are passed through make_valid and only polygonal components are retained. Degenerate lines and unrepaired/otherwise invalid geometries are dropped.",
   "geometry_validation": {
-    "validator": "Shapely 2.1.2",
+    "validator": "Shapely 2.2.0",
     "db_constraint": "ST_SRID(geometry)=4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)",
     "features_repaired_count": 1,
     "features_dropped_count": 9,
@@ -6384,20 +5723,26 @@
     {
       "source_file": "osm-overpass-2026-11-14.json",
       "file": "data/raw/osm-overpass-2026-11-14.json.gz",
-      "sha256_original": "be0c995c27e1adeca1b6a73712dd54d88fd0c9c3657d0d8e3cff41e304b9c02c",
+      "sha256_original": null,
       "sha256_gzip": "397ad10cc68aa394d7811ee4aca2dd0051a92b709f56a911286601e1de774655"
     },
     {
       "source_file": "cairo-osm-overpass-2026-11-14-extract2.json",
       "file": "data/raw/cairo-osm-overpass-2026-11-14-extract2.json.gz",
-      "sha256_original": "da39b664330ade56a51449eff96b9513ad670d8e7a2ade4a2e88c9018ee46d0b",
+      "sha256_original": null,
       "sha256_gzip": "e99b9001ffae0d7256e69aa30b47b25192e44649b83e68e658e49adac21ff850"
     },
     {
       "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json",
       "file": "data/raw/cairo-osm-overpass-2026-11-14-roads-full.json.gz",
-      "sha256_original": "d02595a0a92ca252b2e1a8f8e8727403921f102852d4e2ad2b8ce838dcadc12c",
+      "sha256_original": null,
       "sha256_gzip": "2d2c3eb6caabaed467a2ae0fffb6edeea08f33660b46d13b7a5d3b0b6cc83ea4"
+    },
+    {
+      "source_file": "cairo-osm-boundaries-2026-11-14.json",
+      "file": "data/raw/cairo-osm-boundaries-2026-11-14.json.gz",
+      "sha256_original": null,
+      "sha256_gzip": null
     }
   ]
 }

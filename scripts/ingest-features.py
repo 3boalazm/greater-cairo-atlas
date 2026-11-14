@@ -11,6 +11,7 @@ import argparse
 import csv
 import datetime as dt
 import hashlib
+import gzip
 import json
 import math
 import re
@@ -27,9 +28,10 @@ from typing import Any
 from shapely import make_valid
 from shapely.geometry import GeometryCollection, MultiPolygon, Polygon, box, mapping, shape
 from shapely.validation import explain_validity
-from shapely.ops import unary_union
+from shapely.ops import nearest_points, unary_union
 from shapely.geometry.base import BaseGeometry
 
+from area_boundaries import process_osm_boundaries
 from road_gap_fill import ROAD_HIGHWAYS, build_road_graph, connect_seed_components, filter_graph_for_entity, haversine_km, normalize as normalize_road_label
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -346,10 +348,6 @@ def process_osm(data: dict[str, Any], entities: list[dict[str, str]], date: str,
         if item["type"] == "node" and (tags.get("public_transport") or tags.get("railway") in {"station", "halt"}):
             etype, match_type = ("rail_station" if tags.get("railway") in {"station", "halt"} and tags.get("railway") else "transit_stop"), ("rail_station" if tags.get("railway") in {"station", "halt"} and tags.get("railway") else "transit_stop")
             geom = {"type": "Point", "coordinates": [item.get("lon"), item.get("lat")]}
-        elif item["type"] == "way" and tags.get("highway") in {"motorway", "trunk", "primary", "secondary"}:
-            etype, match_type = "road", "road"
-            coords = [[p["lon"], p["lat"]] for p in item.get("geometry", []) if "lon" in p and "lat" in p]
-            geom = {"type": "LineString", "coordinates": coords}
         elif item["type"] == "way" and tags.get("railway") in {"subway", "light_rail", "monorail"}:
             etype, match_type = "transit_line", "transit_line"
             coords = [[p["lon"], p["lat"]] for p in item.get("geometry", []) if "lon" in p and "lat" in p]
@@ -693,6 +691,98 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
                 feature_item.get("properties", {}).get("entity_code") == entity_code
                 and feature_item.get("properties", {}).get("osm_id") in component
                 and feature_item.get("properties", {}).get("osm_type") == "way")]
+    urban_component_filter_results: list[dict[str, Any]] = []
+    def entity_feature_extent(entity_code: str) -> list[float] | None:
+        geometries = []
+        for feature_item in out:
+            if feature_item.get("properties", {}).get("entity_code") != entity_code:
+                continue
+            try:
+                geometries.append(shape(feature_item["geometry"]))
+            except Exception:
+                continue
+        if not geometries:
+            return None
+        return list(unary_union(geometries).bounds)
+
+    for entity_code, attributed_ids in road_seed_ways.items():
+        component_rule = entity_rules.get(entity_code, {}).get("urban_component_filter")
+        if not isinstance(component_rule, dict):
+            continue
+        extent_before = entity_feature_extent(entity_code)
+        max_distance_km = float(component_rule.get("max_component_distance_km", 3.0))
+        eligible_ids = set(attributed_ids) & set(graph_ways)
+        node_to_way_ids: dict[int, set[int]] = defaultdict(set)
+        for way_id in eligible_ids:
+            for node_id in graph_ways[way_id]["nodes"]:
+                node_to_way_ids[node_id].add(way_id)
+        pending = set(eligible_ids)
+        components: list[set[int]] = []
+        while pending:
+            start = pending.pop()
+            component = {start}
+            stack = [start]
+            while stack:
+                current = stack.pop()
+                for node_id in graph_ways[current]["nodes"]:
+                    for neighbor in node_to_way_ids[node_id] & pending:
+                        pending.remove(neighbor)
+                        component.add(neighbor)
+                        stack.append(neighbor)
+            components.append(component)
+        guard = box(*(entity_rules.get(entity_code, {}).get("bbox_wgs84", ROAD_BBOX)))
+        geometries_by_component: list[tuple[set[int], BaseGeometry, float]] = []
+        for component in components:
+            parts: list[BaseGeometry] = []
+            component_length = 0.0
+            for way_id in component:
+                way = graph_ways[way_id]
+                line = shape({"type": "LineString", "coordinates": [list(point) for point in way["_coordinates"]]}).intersection(guard)
+                parts.extend(part for part in lineal_parts(line) if not part.is_empty and part.length > 0)
+                component_length += sum(haversine_km(a, b) for part in lineal_parts(line)
+                                        for a, b in zip(list(part.coords), list(part.coords)[1:]))
+            if parts:
+                geometries_by_component.append((component, unary_union(parts), component_length))
+        geometries_by_component.sort(key=lambda item: (item[2], len(item[0])), reverse=True)
+        kept_ids: set[int] = set()
+        dropped_components: list[dict[str, Any]] = []
+        if geometries_by_component:
+            largest_ids, largest_geometry, _ = geometries_by_component[0]
+            kept_ids.update(largest_ids)
+            for component, component_geometry, component_length in geometries_by_component[1:]:
+                point_a, point_b = nearest_points(largest_geometry, component_geometry)
+                distance_km = haversine_km((point_a.x, point_a.y), (point_b.x, point_b.y))
+                if distance_km <= max_distance_km:
+                    kept_ids.update(component)
+                    continue
+                dropped_ids = sorted(component)
+                dropped_components.append({
+                    "way_ids": dropped_ids,
+                    "component_extent_wgs84": list(component_geometry.bounds),
+                    "length_km": round(component_length, 3),
+                    "distance_to_largest_km": round(distance_km, 3),
+                    "reason": "urban_axis_component_outside_3km_of_largest",
+                })
+                road_seed_ways[entity_code].difference_update(component)
+                dropped_way_ids = set(dropped_ids)
+                out[:] = [feature_item for feature_item in out if not (
+                    feature_item.get("properties", {}).get("entity_code") == entity_code
+                    and feature_item.get("properties", {}).get("osm_type") == "way"
+                    and feature_item.get("properties", {}).get("osm_id") in dropped_way_ids)]
+                for outcome in report.get("_outcomes", []):
+                    if outcome.get("source_id") in {f"way:{way_id}" for way_id in dropped_ids} and outcome.get("outcome") == "matched":
+                        outcome["outcome"] = "unmatched"
+                        outcome["reason"] = "outside configured urban axis bbox/component connectivity scope"
+        urban_component_filter_results.append({
+            "entity_code": entity_code,
+            "max_component_distance_km": max_distance_km,
+            "extent_before_wgs84": extent_before,
+            "extent_after_wgs84": entity_feature_extent(entity_code),
+            "components_before": len(geometries_by_component),
+            "components_kept": sum(1 for component, _, _ in geometries_by_component if component & kept_ids),
+            "components_dropped": dropped_components,
+        })
+
     road_study_area = box(*ROAD_BBOX)
     graph_ways = {way_id: way for way_id, way in graph_ways.items()
                   if shape({"type": "LineString", "coordinates": [list(point) for point in way["_coordinates"]]}).intersects(road_study_area)}
@@ -766,6 +856,7 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
     report["road_route_relations"] = matched_road_relations
     report["road_route_entities"] = sorted(route_primary_entities)
     report["dropped_road_fragments_under_300m"] = dropped_short_road_fragments
+    report["urban_axis_component_filter"] = urban_component_filter_results
     report["relation_member_geometries_used"] = relation_member_geometry_results
     report.setdefault("rejected_road_segments", []).extend(unmatched_road_segments)
 
@@ -908,7 +999,10 @@ def new_report():
 
 def load_osm(args) -> dict[str, Any]:
     if args.osm_json:
-        return json.loads(Path(args.osm_json).read_text(encoding="utf-8"))
+        input_path = Path(args.osm_json)
+        opener = gzip.open if input_path.suffix == ".gz" else open
+        with opener(input_path, "rt", encoding="utf-8") as stream:
+            return json.load(stream)
     if not args.fetch_osm:
         return {"elements": []}
     req = urllib.request.Request(OVERPASS_URL, data=urllib.parse.urlencode({"data": overpass_query()}).encode(), headers={"User-Agent": "GreaterCairoAtlas/0.1 (offline feature ingestion)"})
@@ -1027,6 +1121,8 @@ def main():
     parser.add_argument("--osm-json", action="append", help="Previously downloaded Overpass JSON extract (repeatable)")
     parser.add_argument("--osm-source-url", help="Original OSM extract URL when using --osm-json")
     parser.add_argument("--osm-retrieval-date", help="ISO date the supplied OSM extract was retrieved")
+    parser.add_argument("--osm-boundaries", default=str(ROOT / "data/raw/cairo-osm-boundaries-2026-11-14.json.gz"), help="Optional OSM boundary JSON(.gz); when absent existing boundary output is preserved")
+    parser.add_argument("--boundaries-out", default=str(OUT / "boundaries.geojson"), help="Separate lazy-served OSM area boundary FeatureCollection")
     parser.add_argument("--fetch-osm", action="store_true", help="Fetch matching objects from Overpass now")
     parser.add_argument("--gtfs-zip", help="TfC GTFS zip from the Transport Data Commons release")
     parser.add_argument("--gtfs-retrieval-date", help="ISO date the supplied GTFS archive was retrieved")
@@ -1072,6 +1168,9 @@ def main():
     failures: list[dict[str, str]] = []
     road_network_manifest: dict[str, Any] = {}
     entity_map_manifest: dict[str, Any] = {}
+    boundary_manifest: dict[str, Any] = {"available": False, "source_file": None, "feature_count": 0}
+    boundaries_path = Path(args.boundaries_out)
+    boundary_source_path = Path(args.osm_boundaries)
     combined_osm: dict[str, Any] | None = None
     if args.fetch_osm or args.osm_json:
         input_files = args.osm_json or [None]
@@ -1093,6 +1192,37 @@ def main():
             features.extend(process_osm(combined_osm, entities, osm_date, report, rules))
             features.extend(process_advanced_osm(combined_osm, entities, osm_date, report, rules))
             road_network_manifest = build_road_network(combined_osm, Path(args.road_network_out), Path(args.road_network_detail_out))
+    if boundary_source_path.exists():
+        try:
+            opener = gzip.open if boundary_source_path.suffix == ".gz" else open
+            with opener(boundary_source_path, "rt", encoding="utf-8") as boundary_stream:
+                boundary_osm = json.load(boundary_stream)
+            boundary_features, boundary_audit = process_osm_boundaries(boundary_osm, entities, osm_date, rules)
+            boundaries_path.parent.mkdir(parents=True, exist_ok=True)
+            boundaries_path.write_text(json.dumps({"type": "FeatureCollection", "features": boundary_features},
+                                                   ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            boundary_manifest = {"available": True, "source_file": str(boundary_source_path),
+                                "sha256": hashlib.sha256(boundary_source_path.read_bytes()).hexdigest(),
+                                "feature_count": len(boundary_features), **boundary_audit}
+            source_results.append({"source": "OpenStreetMap area boundaries", "url": args.osm_source_url or OVERPASS_URL,
+                                   "retrieval_date": osm_date, "input_file": boundary_source_path.name,
+                                   "input_sha256": boundary_manifest["sha256"], "license": "ODbL-1.0",
+                                   "elements_received": len(boundary_osm.get("elements", []))})
+        except Exception as exc:
+            boundary_manifest = {"available": False, "source_file": str(boundary_source_path),
+                                "error": str(exc), "preserved_previous_output": boundaries_path.exists()}
+            failures.append({"source": "OpenStreetMap area boundaries", "error": str(exc)})
+    elif not boundaries_path.exists():
+        boundaries_path.parent.mkdir(parents=True, exist_ok=True)
+        boundaries_path.write_text(json.dumps({"type": "FeatureCollection", "features": []},
+                                               ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if boundaries_path.exists() and not boundary_manifest.get("available"):
+        try:
+            old_boundary_data = json.loads(boundaries_path.read_text(encoding="utf-8"))
+            boundary_manifest["feature_count"] = len(old_boundary_data.get("features", []))
+            boundary_manifest["preserved_previous_output"] = True
+        except (OSError, json.JSONDecodeError, AttributeError):
+            boundary_manifest["preserved_previous_output"] = False
     if args.gtfs_zip:
         try:
             features.extend(process_gtfs(Path(args.gtfs_zip), entities, gtfs_date, args.gtfs_license, args.gtfs_license_evidence_url, report))
@@ -1136,6 +1266,8 @@ def main():
     outdir.mkdir(parents=True, exist_ok=True)
     feature_file = outdir / "features.geojson"
     feature_count = len(features)
+    previous_feature_collection = json.loads(feature_file.read_text(encoding="utf-8")) if feature_file.exists() else {"features": []}
+    previous_features = previous_feature_collection.get("features", [])
     if not (failures and not source_results):
         feature_file.write_text(json.dumps({"type": "FeatureCollection", "features": features}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         entity_map_manifest = build_entity_map_geometries(features, Path(args.entity_map_out))
@@ -1151,21 +1283,33 @@ def main():
     target_types.update({key:key for key in ("city","district","airport","bridge","landmark")})
     report["candidate_entities"] = {key: sum(1 for e in entities if e["entity_type"] == value) for key, value in target_types.items()}
     report["road_name_search_audit"] = road_name_search_audit(combined_osm or {"elements": []}, entities, rules, features)
-    previous_features = json.loads((outdir / "features.geojson").read_text(encoding="utf-8")) if (outdir / "features.geojson").exists() else {"features": []}
     before_counts = defaultdict(int)
-    prior_report_path = outdir / "match-report.json"
-    prior_report = json.loads(prior_report_path.read_text(encoding="utf-8")) if prior_report_path.exists() else {}
-    prior_delta = prior_report.get("feature_counts_before_after_by_entity", {})
-    if prior_delta:
-        for code, counts in prior_delta.items(): before_counts[code] = counts.get("before", 0)
-    else:
-        for item in previous_features.get("features", []): before_counts[item.get("properties",{}).get("entity_code","")] += 1
+    for item in previous_features:
+        before_counts[item.get("properties", {}).get("entity_code", "")] += 1
     after_counts = defaultdict(int)
     for item in features: after_counts[item["properties"]["entity_code"]] += 1
     report["feature_counts_before_after_by_entity"] = {e["code"]:{"before":before_counts[e["code"]],"after":after_counts[e["code"]]} for e in entities}
     report["entities_with_geometry"] = {"count":sum(v>0 for v in after_counts.values()),"total_entities":len(entities),"entity_codes":sorted(after_counts)}
+    def entity_extent(items: list[dict[str, Any]], entity_code: str) -> list[float] | None:
+        geometries = []
+        for feature_item in items:
+            if feature_item.get("properties", {}).get("entity_code") != entity_code:
+                continue
+            try:
+                geometries.append(shape(feature_item["geometry"]))
+            except Exception:
+                continue
+        return list(unary_union(geometries).bounds) if geometries else None
+    scope_codes = ["ROAD-AHMED-ORABI", "ROAD-AMR-IBN-ALAS", "ROAD-MOHAMED-NAGUIB",
+                   "ROAD-ASSAR-AXIS", "ROAD-AIN-SOKHNA", "ROAD-CORNICHE"]
+    report["road_scope_extent_review"] = {code: {
+        "before_wgs84": entity_extent(previous_features, code),
+        "after_wgs84": entity_extent(features, code),
+        "before_feature_count": before_counts[code], "after_feature_count": after_counts[code],
+    } for code in scope_codes}
     report["source_results"] = source_results
     report["source_failures"] = failures
+    report["area_boundaries"] = boundary_manifest
     report["bbox_wgs84"] = list(BBOX)
     report["road_bbox_wgs84"] = list(ROAD_BBOX)
     # Quantify the road-only envelope experiment against the previous common envelope.
@@ -1259,6 +1403,14 @@ def main():
         arabic_lines.append(
             f"| {item.get('entity_name_ar') or item['entity_code']} (`{item['entity_code']}`) | {item.get('gaps_before', 0)} | {item.get('gaps_after', 0)} | {item.get('gaps_closed', 0)} | {item.get('km_closed', 0.0):.3f} | {sum(gap.get('gap_type') == 'osm_topology_gap' for gap in item.get('unresolved_gaps', []))} | {sum(gap.get('gap_type') != 'osm_topology_gap' for gap in item.get('unresolved_gaps', []))} |"
         )
+    arabic_lines.extend(["", "## مراجعة نطاق المحاور ومكونات الطرق", ""])
+    for code, review in report.get("road_scope_extent_review", {}).items():
+        arabic_lines.append(f"- `{code}`: النطاق قبل `{review.get('before_wgs84')}` وبعد `{review.get('after_wgs84')}`؛ الميزات {review.get('before_feature_count')} ← {review.get('after_feature_count')}.")
+    for item in report.get("urban_axis_component_filter", []):
+        dropped_ids = sorted({way_id for component in item.get("components_dropped", []) for way_id in component.get("way_ids", [])})
+        arabic_lines.append(f"- تصفية `{item['entity_code']}`: أُبقي أكبر مكوّن والمكونات ضمن {item['max_component_distance_km']:.1f} كم؛ أُسقطت {len(item.get('components_dropped', []))} مكونات غير متصلة، way IDs: `{dropped_ids}`.")
+    if not report.get("urban_axis_component_filter"):
+        arabic_lines.append("- لا توجد محاور حضرية عليها قاعدة تصفية المكونات في هذه الدورة.")
     arabic_lines.extend(["", "## الكيانات التي استخدمت علاقات OSM من النوع route=road", ""])
     if report["road_route_relations"]:
         for relation in report["road_route_relations"]:
@@ -1283,7 +1435,7 @@ def main():
     (outdir / "match-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     raw_archives = []
     original_hashes = {item.get("input_file"):item.get("input_sha256") for item in source_results}
-    for basename in ("osm-overpass-2026-11-14.json", "cairo-osm-overpass-2026-11-14-extract2.json", "cairo-osm-overpass-2026-11-14-roads-full.json"):
+    for basename in ("osm-overpass-2026-11-14.json", "cairo-osm-overpass-2026-11-14-extract2.json", "cairo-osm-overpass-2026-11-14-roads-full.json", "cairo-osm-boundaries-2026-11-14.json"):
         archive = ROOT / "data/raw" / (basename + ".gz")
         raw_archives.append({"source_file":basename,"file":str(archive.relative_to(ROOT)),"sha256_original":original_hashes.get(basename),"sha256_gzip":hashlib.sha256(archive.read_bytes()).hexdigest() if archive.exists() else None})
     manifest = {
@@ -1297,6 +1449,7 @@ def main():
                           "summary": report["road_gap_fill_totals"], "by_entity": report["road_gap_fill_by_entity"],
                           "route_relation_entities": report["road_route_entities"], "route_relations": report["road_route_relations"]},
         "road_network_context_layer": road_network_manifest,
+        "area_boundaries": boundary_manifest,
         "entity_page_map_geometries": entity_map_manifest,
         "arabic_road_gap_report": str(arabic_report_path.relative_to(ROOT)),
         "lifecycle_policy": "Only operational/partial entities are matched from OSM/GTFS. Planned/under-construction geometry requires official_alignment provenance and is not inferred from OSM/GTFS.",

@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "road_gap_fill": {
     "max_path_km": 3.0,
     "topology_gap_threshold_m": 25
@@ -79,12 +79,12 @@
     },
     "ROAD-CORNICHE": {
       "bbox_wgs84": [
-        31.05,
-        29.86,
-        31.42,
-        30.22
+        31.01,
+        29.82,
+        31.32,
+        30.21
       ],
-      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+      "reason": "Retain the Nile Corniche corridor across central Cairo and Maadi; separated riverbank sections are valid, so do not apply the urban-axis component filter."
     },
     "ROAD-GAMET-EL-DOWAL": {
       "bbox_wgs84": [
@@ -323,6 +323,63 @@
         "Cairo Suez Road"
       ],
       "reason": "Tight guard and exclusions distinguish the Cairo–Suez trunk corridor from generic Jisr Suez street and unrelated Suez-labelled local roads."
+    },
+    "ROAD-AHMED-ORABI": {
+      "bbox_wgs84": [
+        31.1,
+        29.99,
+        31.23,
+        30.11
+      ],
+      "reason": "documented Giza axis from the Ring Road/Kamal Amer corridor to Lebanon Square and Sphinx; excludes distant same-named roads. Keep the largest connected OSM component and components within 3 km.",
+      "urban_component_filter": {
+        "max_component_distance_km": 3.0
+      }
+    },
+    "ROAD-AMR-IBN-ALAS": {
+      "bbox_wgs84": [
+        31.13,
+        29.95,
+        31.21,
+        30.04
+      ],
+      "reason": "Evidence documents the 4–4.5 km Giza connection between the Ring Road at Maryouteya and the Ring Road at Mansheyet al-Bakari; excludes distant same-named streets. Keep the largest connected OSM component and components within 3 km.",
+      "urban_component_filter": {
+        "max_component_distance_km": 3.0
+      }
+    },
+    "ROAD-MOHAMED-NAGUIB": {
+      "bbox_wgs84": [
+        31.4,
+        29.88,
+        31.53,
+        30.11
+      ],
+      "reason": "Evidence places this axis in New Cairo; excludes distant same-named roads. Keep the largest connected OSM component and components within 3 km.",
+      "urban_component_filter": {
+        "max_component_distance_km": 3.0
+      }
+    },
+    "ROAD-ASSAR-AXIS": {
+      "bbox_wgs84": [
+        31.22,
+        30.07,
+        31.38,
+        30.17
+      ],
+      "reason": "Presidential project evidence identifies the Abu Bakr al-Siddiq / Al-Assar axis in Greater Cairo (Heliopolis toward Shubra); excludes unrelated 10th of Ramadan names. Keep the largest connected OSM component and components within 3 km.",
+      "urban_component_filter": {
+        "max_component_distance_km": 3.0
+      }
+    },
+    "ROAD-AIN-SOKHNA": {
+      "bbox_wgs84": [
+        31.68,
+        29.7,
+        32.25,
+        30.14
+      ],
+      "reason": "Retain the genuine regional Cairo–Ain Sokhna corridor (including separated source segments); do not apply the urban-axis component filter."
     }
   },
   "road_bbox_wgs84": [

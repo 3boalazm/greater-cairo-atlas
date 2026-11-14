@@ -4,6 +4,7 @@ import path from "node:path";
 import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
 import { loadAndValidateSeedDir } from "@/lib/atlas/seed";
 import type { EntitySeed, EvidenceSeed, FactSeed, FeatureSeed } from "@/lib/atlas/schema";
+import { getAreaBoundaryCodes } from "@/lib/atlas/area-boundaries";
 
 export interface StaticAtlasDataset {
   entities: EntitySeed[];
@@ -70,6 +71,7 @@ interface EntityMapGeometryRecord {
 }
 
 export interface StaticEntityPageData extends EntitySeed {
+  has_boundary: boolean;
   facts: Array<FactSeed & { evidence: EvidenceSeed[] }>;
   mapGeometry: FeatureSeed["geometry"] | null;
   mapLicense: string;
@@ -95,8 +97,10 @@ export async function getStaticEntityPageData(code: string, root = process.cwd()
   if (!entity) return null;
   const evidenceByCode = new Map(dataset.evidence.map((item) => [item.code, item]));
   const mapGeometries = await loadEntityMapGeometries(root);
+  const boundaryCodes = await getAreaBoundaryCodes(root);
   return {
     ...entity,
+    has_boundary: boundaryCodes.has(code),
     facts: dataset.facts.filter((fact) => fact.entity_code === code).map((fact) => ({
       ...fact,
       evidence: fact.evidence_codes.flatMap((evidenceCode) => {

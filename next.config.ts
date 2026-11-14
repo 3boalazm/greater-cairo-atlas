@@ -18,7 +18,10 @@ const nextConfig: NextConfig = {
   },
   outputFileTracingIncludes: {
     "/api/admin/import-seed": ["./data/seed/**/*", "./data/features/**/*"],
-    "/entity/[code]": ["./data/seed/**/*", "./data/features/features.geojson", "./data/derived/entity-map-geometries.json"],
+    "/entity/[code]": ["./data/seed/**/*", "./data/features/features.geojson", "./data/features/boundaries.geojson", "./data/derived/entity-map-geometries.json"],
+    "/api/atlas/entities/[code]/boundary": ["./data/features/boundaries.geojson"],
+    "/api/atlas/entities": ["./data/features/boundaries.geojson"],
+    "/api/atlas/entities/[code]": ["./data/features/boundaries.geojson"],
   },
 };
 
