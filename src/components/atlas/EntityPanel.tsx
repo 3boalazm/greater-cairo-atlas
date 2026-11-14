@@ -1,6 +1,6 @@
 "use client";
 
-import { X } from "lucide-react";
+import { MapPinOff, X } from "lucide-react";
 import { useEffect, useMemo, useRef } from "react";
 import type { AtlasEntityDetail, AtlasEntityFact, AtlasLanguage } from "./atlas-client";
 
@@ -83,13 +83,14 @@ export function EntityPanel({ entity, loading, error, onClose, language }: {
         <button ref={closeRef} className="close-panel" type="button" onClick={onClose} aria-label={ar ? "إغلاق" : "Close"}><X aria-hidden="true" /></button>
         {entity ? <><h2 id="entity-panel-title">{ar ? entity.name_ar : entity.name_en}</h2><p className="entity-subtitle">{ar ? entity.name_en : entity.name_ar} <span>·</span> {entity.code}</p>
           <div className="entity-badges"><span className={`status-pill status-${entity.status}`}>{statusLabel[entity.status]?.[language] ?? entity.status}</span>
-            {!entity.has_geometry && <span className="no-geometry-pill">{ar ? "لا توجد هندسة بعد" : "No geometry yet"}</span>}
+
           </div></> : <h2 id="entity-panel-title">{loading ? (ar ? "جارٍ تحميل الكيان…" : "Loading entity…") : (ar ? "تعذر تحميل الكيان" : "Unable to load entity")}</h2>}
       </header>
       <div className="entity-panel-content">
         {loading && <p className="panel-state" role="status">{ar ? "جارٍ جلب الحقائق والمصادر…" : "Loading facts and evidence…"}</p>}
         {!loading && error && <div className="panel-error" role="alert">{error}</div>}
         {!loading && entity && <>
+          {!entity.has_geometry && <p className="entity-unmapped-note"><MapPinOff aria-hidden="true" />{ar ? "غير مرسوم على الخريطة" : "Not mapped"}</p>}
           {entity.description && <p className="entity-description">{entity.description}</p>}
           <section aria-labelledby="facts-heading">
             <div className="panel-section-heading"><span className="section-index">01</span><div><h3 id="facts-heading">{ar ? "الحقائق والمصادر" : "Facts & evidence"}</h3><small>{ar ? "التعارضات معروضة جنبًا إلى جنب دون ترجيح آلي" : "Conflicting claims stay side by side; no automatic winner."}</small></div></div>

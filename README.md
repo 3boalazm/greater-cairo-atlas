@@ -13,9 +13,9 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 
 ## Current Phase
 
-**Phase 04 — Real Geometry (`features`)** (see [`PROJECT_STATE.md`](./PROJECT_STATE.md) for the full phase roadmap and architectural decisions).
+**Phase 05.3 — Revision 5 Data, Automatic Production Import & Map Polish** (see [`PROJECT_STATE.md`](./PROJECT_STATE.md) for the full phase roadmap and architectural decisions).
 
-## Core Database Schema (`000` + `001` + `002` + `003`)
+## Core Database Schema (`000` + `001` + `002` + `003` + `004` + `005`)
 
 | Table | Purpose | Key Constraints |
 | :--- | :--- | :--- |
@@ -23,6 +23,7 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 | `facts` | Multi-valued claims per entity (`attribute`, `value`, `unit`, `valid_as_of`, `valid_as_of_precision`, `verification_state`) | Unique `code`, `entity_id` FK (`ON DELETE RESTRICT`), `valid_as_of_precision` (`day`/`month`/`year`, default `'day'`), `verification_state` (`candidate`/`single_source`/`corroborated`/`verified`/`disputed`/`rejected`/`superseded`), **no unique constraint on `(entity_id, attribute)`**, deferred constraint trigger requiring `>= 1` non-`'secondary'` source when `'verified'` |
 | `evidence` | Verifiable provenance records (`url`, `title`, `publisher`, `source_type`, `published_date`, `published_date_precision`, `accessed_date`) | Unique `code`, nullable `url` (`http(s)://` when present; requires non-empty `title` when `url IS NULL`), `published_date_precision` (`day`/`month`/`year`), `source_type` (`official`/`news`/`dataset`/`map`/`pdf`/`secondary`) |
 | `fact_evidence` | Many-to-many link between `facts` and `evidence` | Composite PK `(fact_id, evidence_id)`, both FKs `ON DELETE RESTRICT` |
+| `import_runs` | Last committed automatic data import checksum | Dataset key PK, 64-character SHA-256, timestamp; written atomically with seed/features upserts |
 | `features` | Spatial features (`geometry(Geometry, 4326)`) | Unique `code`, `ST_SRID = 4326` + `ST_IsValid`, GiST index, all-or-nothing `(osm_type, osm_id, osm_version)`, `license` (`ODbL`) |
 
 ## How SQL Migrations Run (Vercel & Local)
@@ -34,6 +35,8 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 1. **Environment Gate**: Migrations execute **only** when `VERCEL=1` and a database URL (`DATABASE_URL` or `DATABASE_URL_UNPOOLED`) is present.
 2. **Unpooled Connection Preference (`DATABASE_URL_UNPOOLED`)**: Prefers `DATABASE_URL_UNPOOLED` (injected by the Neon Vercel Integration) for session-scoped `pg_advisory_lock` and DDL transactions, falling back to `DATABASE_URL`.
 3. **Fail-Closed Guarantee**: Checksum immutability (`schema_migrations`), `pg_advisory_lock`, and per-file `BEGIN`/`COMMIT`/`ROLLBACK` remain enforced. If any migration fails, `vercel-build` exits non-zero **before** `next build`.
+4. **Automatic Production Data Import**: Only when `VERCEL=1` and `VERCEL_ENV=production`, after migrations and before `next build`, the build validates `data/seed/` and `data/features/features.geojson`, then performs the same idempotent entity/evidence/fact/link/feature upsert as the protected manual endpoint. Preview deployments do not import data. A production build without database configuration fails closed.
+5. **All-or-Nothing Checksum Gate**: A SHA-256 over every file under `data/seed/` and `data/features/` is compared with `import_runs`. The upserts and checksum row are written in one PostgreSQL transaction under an advisory transaction lock; an unchanged checksum skips all writes. Any validation or SQL failure rolls back and fails the production build, preventing deployment of half-imported data. Logs contain counts and status only, never connection URLs or tokens.
 
 ### Manual GitHub Workflows (`workflow_dispatch` only)
 
@@ -43,7 +46,7 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 
 ### 1. Adapt Research Seed (`scripts/adapt-research-seed.ts`)
 
-Deterministically converts mixed-revision research inputs into canonical `data/seed/` files (`entities.csv`, `evidence.json`, `facts.json`) while enforcing strict epistemic validation. Revision 3 uses unchanged `entities_rev2.csv` with `evidence_rev3.json` and `facts_rev3.json`; auto-resolution selects the highest available revision independently for each input file.
+Deterministically converts mixed-revision research inputs into canonical `data/seed/` files (`entities.csv`, `evidence.json`, `facts.json`) while enforcing strict epistemic validation. Revision 5 inputs and the approved changelog are preserved in `data/research/rev5/`; canonical `data/seed/` is generated from that source bundle. OSM-matcher aliases supplement the researched metro names without changing operational status.
 
 - Missing/blank `status` -> `'unknown'` (never guessed as `'operational'`).
 - Missing `source_type` -> fails with an explicit list of offending `evidence_ref`s (`rev2` required before import).
@@ -66,9 +69,25 @@ npm run seed:check
 
 The canonical bundle has **213 entities, 59 evidence records, 278 facts, and 304 fact-evidence links**. Five evidence records have no URL: internal secondary records `EV-000` and `EV-051`, and unresolved official records `EV-042`, `EV-045`, and `EV-046`. A dry run should pass with **0 errors and 5 non-blocking URL warnings**, explicitly listing the three unresolved official codes.
 
+### Historical revision 3 expectations (before rev5)
+
+`npm run seed:check` validates 342 entities (232 with aliases), 198 evidence records, 1,108 facts, and 1,218 fact-evidence links. Six evidence records intentionally have no URL: secondary EV-000/051/129 and unresolved official EV-042/045/046. All 294 verified facts cite official evidence with a URL. No rev4 entity code was removed, renamed, or retyped; all rev4 facts are retained.
+
+To reproduce the revision 5 outputs after placing the Drive bundle in `data/research/rev5/`:
+
+```bash
+npm run seed:adapt -- --rev 5 --in data/research/rev5 --report /tmp/rev5-report.json
+python3 scripts/apply-osm-aliases.py
+gzip -dc data/raw/osm-overpass-2026-11-14.json.gz > /tmp/cairo-osm-overpass-2026-11-14.json
+python3 scripts/ingest-features.py --osm-json /tmp/cairo-osm-overpass-2026-11-14.json \
+  --osm-source-url https://overpass-api.de/api/interpreter --osm-retrieval-date 2026-11-14
+```
+
+The revision 5 OSM re-match produces 1,970 ODbL features across 25 entities. This includes ROAD-RING-ROAD 473, ROAD-MIDDLE-RING 125, ROAD-REGIONAL-RING 589, Metro L1 13, L2 2, and L3 17. The full per-entity table and unmatched candidates are in `data/features/match-report.json`.
+
 ### 2. Protected Server-Side Seed Import (`POST /api/admin/import-seed`)
 
-Allows the project owner to validate and idempotently import `data/seed/` into Neon directly inside Vercel **without ever copying or exposing `DATABASE_URL`**:
+Remains available as a **manual fallback** for owner-directed imports and dry-run validation. It imports `data/seed/` and `data/features/features.geojson` into Neon directly inside Vercel **without ever copying or exposing `DATABASE_URL`**. Automatic production deploy imports are documented above and do not require an admin token:
 
 1. Configure **`ADMIN_IMPORT_TOKEN`** (at least 16 characters, e.g. `openssl rand -hex 32`) in Vercel Environment Variables (`Production` / `Preview`).
 2. **Dry-run validation (default)**:
@@ -97,15 +116,15 @@ Source policy:
   ```
 - If a GTFS archive is supplied without network fetching, use `--osm-json /path/to/overpass.json` instead of `--fetch-osm`.
 
-The 2026-11-14 owner-supplied Overpass extract is recorded in `data/raw/osm-overpass-2026-11-14.json.gz`; its SHA-256 and the uncompressed input hash are recorded in `data/features/manifest.json`. The generated collection contains 723 features across 18 entities. `ROAD-NASR` is excluded via `data/features/match-rules.json` and its 73 OSM candidates are reported as ambiguous. `data/features/alias-suggestions.json` is research-only: none of its proposed aliases are applied. Extract coverage is limited to route relations (subway/light_rail/monorail/train), selected railway ways, station/platform/stop nodes, and named motorway/trunk roads; it does not include primary/secondary highways or bus routes. No TfC GTFS or NC data is included. Do not run a real import as part of this phase.
+The 2026-11-14 owner-supplied Overpass extract is recorded in `data/raw/osm-overpass-2026-11-14.json.gz`; its SHA-256 and the uncompressed input hash are recorded in `data/features/manifest.json`. The current rev5-generated collection contains 1,970 features across 25 entities. `ROAD-NASR` is excluded via `data/features/match-rules.json` and its 73 OSM candidates are reported as ambiguous. `data/features/alias-suggestions.json` is research-only: none of its proposed aliases are applied; only the separately documented Metro source-label aliases are used. Extract coverage is limited to route relations (subway/light_rail/monorail/train), selected railway ways, station/platform/stop nodes, and named motorway/trunk roads; it does not include primary/secondary highways or bus routes. No TfC GTFS or NC data is included. Do not run a real import as part of this phase.
 
-The protected import validates `data/features/features.geojson` and idempotently upserts features by code in the existing transaction. To validate locally without writing to the database, run `npm run db:migrate:dry-run` and `npm run seed:check`; no real import was run for this phase.
+The protected import validates `data/features/features.geojson` and idempotently upserts features by code in the existing transaction. To validate locally without writing to the database, run `npm run db:migrate:dry-run` and `npm run seed:check`. Production deployments automatically import changed, validated seed/features; previews and local builds do not.
 
 ## API Endpoints
 
-- **`GET /api/health`**: PostGIS smoke probe + `schema_migrations` count (`appliedMigrationsCount: 5` once `000`–`004` are applied).
+- **`GET /api/health`**: PostGIS smoke probe + `schema_migrations` count (`appliedMigrationsCount: 6` once `000`–`005` are applied).
 - **`GET /api/atlas/stats`**: Returns row counts across `{ entities, facts, evidence, features, fact_evidence }`.
-- **`GET /api/atlas/features?type=&sector=&status=&zoom=`**: Cached GeoJSON FeatureCollection with entity names/status, license, attribution, and source IDs; at zoom ≤7 the query groups geometries into one simplified feature per entity; results are capped at 1,000 features. OSM responses carry explicit `© OpenStreetMap contributors, ODbL 1.0` attribution.
+- **`GET /api/atlas/features?type=&sector=&status=&zoom=`**: Cached GeoJSON FeatureCollection with entity names/status, license, attribution, and source IDs; the SQL applies zoom-dependent geometry simplification; results are capped at 5,000 features. OSM responses carry explicit `© OpenStreetMap contributors, ODbL 1.0` attribution.
 
 Example read-only requests (replace `localhost:3000` with your deployed origin as needed):
 ```bash
@@ -121,7 +140,7 @@ curl -sS 'http://localhost:3000/api/atlas/features?type=transit_line&zoom=12' -o
 npm run lint                # ESLint flat config
 npm run typecheck           # tsc --noEmit (strict)
 npm test                    # Vitest unit, schema, seed, adapter, admin-import & route tests
-npm run db:migrate:dry-run  # Offline SQL migration verification (000–004)
+npm run db:migrate:dry-run  # Offline SQL migration verification (000–005)
 npm run seed:check          # Offline canonical seed bundle validation
 npm run build               # DB-free production Next.js build
 ```

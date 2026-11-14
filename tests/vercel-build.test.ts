@@ -51,7 +51,7 @@ describe("executeVercelBuild (build-time migration orchestration)", () => {
     expect(runNextBuildFn).toHaveBeenCalledTimes(1);
   });
 
-  it("logs a clear warning and still runs next build when VERCEL=1 but DATABASE_URL is missing", async () => {
+  it("logs a clear warning and still runs next build when VERCEL=1 but without a database URL", async () => {
     const { log, entries } = createTestLogger();
     const runMigrationsFn = vi.fn();
     const runNextBuildFn = vi.fn();
@@ -72,7 +72,7 @@ describe("executeVercelBuild (build-time migration orchestration)", () => {
     expect(
       entries.some(
         (e) =>
-          e.level === "warn" && e.message.includes("DATABASE_URL is missing"),
+          e.level === "warn" && e.message.includes("without a database URL"),
       ),
     ).toBe(true);
   });
@@ -108,19 +108,61 @@ describe("executeVercelBuild (build-time migration orchestration)", () => {
           alreadyApplied: [],
         };
       },
+      runProductionImportFn: async () => {
+        callOrder.push("auto-import");
+        return { entitiesCount: 342, evidenceCount: 198, factsCount: 1108, factEvidenceLinksCount: 1218, featuresCount: 1970 };
+      },
       runNextBuildFn: () => {
         callOrder.push("next-build");
       },
     });
 
-    expect(callOrder).toEqual(["migrate", "next-build"]);
+    expect(callOrder).toEqual(["migrate", "auto-import", "next-build"]);
     expect(result.migrated).toBe(true);
     expect(result.connectionSource).toBe("DATABASE_URL_UNPOOLED");
+    expect(result.autoImported).toBe(true);
 
     const serializedLogs = JSON.stringify(entries);
     expect(serializedLogs).not.toContain("topSecret111");
     expect(serializedLogs).not.toContain("topSecret222");
     expect(serializedLogs).not.toContain("ep-cairo.neon.tech");
+  });
+
+  it("fails closed in production when database credentials are absent", async () => {
+    const { log } = createTestLogger();
+    const runNextBuildFn = vi.fn();
+    await expect(executeVercelBuild({
+      env: { NODE_ENV: "production", VERCEL: "1", VERCEL_ENV: "production" },
+      log,
+      runNextBuildFn,
+    })).rejects.toThrow(/requires database configuration/);
+    expect(runNextBuildFn).not.toHaveBeenCalled();
+  });
+
+  it("does not run the automatic dataset import on preview deployments", async () => {
+    const { log } = createTestLogger();
+    const runProductionImportFn = vi.fn();
+    await executeVercelBuild({
+      env: { NODE_ENV: "production", VERCEL: "1", VERCEL_ENV: "preview", DATABASE_URL: "postgresql://user:secret@db.example/test" },
+      log,
+      runMigrationsFn: async () => ({ dryRun: false, discovered: [], appliedNow: [], alreadyApplied: [] }),
+      runProductionImportFn,
+      runNextBuildFn: vi.fn(),
+    });
+    expect(runProductionImportFn).not.toHaveBeenCalled();
+  });
+
+  it("aborts before Next.js build when the production data import fails", async () => {
+    const { log } = createTestLogger();
+    const runNextBuildFn = vi.fn();
+    await expect(executeVercelBuild({
+      env: { NODE_ENV: "production", VERCEL: "1", VERCEL_ENV: "production", DATABASE_URL: "postgresql://user:secret@db.example/test" },
+      log,
+      runMigrationsFn: async () => ({ dryRun: false, discovered: [], appliedNow: [], alreadyApplied: [] }),
+      runProductionImportFn: async () => { throw new Error("invalid source bundle"); },
+      runNextBuildFn,
+    })).rejects.toThrow("invalid source bundle");
+    expect(runNextBuildFn).not.toHaveBeenCalled();
   });
 
   it("aborts before next build and redacts credentials if a migration fails", async () => {

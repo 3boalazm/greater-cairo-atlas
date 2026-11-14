@@ -37,7 +37,7 @@ export function AppSidebar({ entities, loading, selectedCode, onSelect, language
         <span className={`entity-type-mark mark-${entity.entity_type}`} aria-hidden="true" />
         <span className="entity-list-name"><strong>{ar ? entity.name_ar : entity.name_en}</strong><small>{ar ? entity.name_en : entity.name_ar}</small>
           <span className="entity-list-meta"><i className={`status-dot status-${entity.status}`} />{statusText[entity.status]?.[language] ?? entity.status}
-            {!entity.has_geometry && <em><MapPinOff aria-hidden="true" />{ar ? "لا توجد هندسة بعد" : "No geometry yet"}</em>}
+            {!entity.has_geometry && <span className="entity-unmapped-icon" title={ar ? "غير مرسوم على الخريطة" : "Not mapped"} aria-label={ar ? "غير مرسوم على الخريطة" : "Not mapped"}><MapPinOff aria-hidden="true" /></span>}
           </span>
         </span>
         {ar ? <ChevronLeft className="item-chevron" aria-hidden="true" /> : <ChevronRight className="item-chevron" aria-hidden="true" />}

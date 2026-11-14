@@ -1,0 +1,23 @@
+{
+  "TRANSIT-METRO-L1": [
+    "Metro Line 1",
+    "Line 1: Helwan → New El-Marg",
+    "Line 1: New El-Marg → Helwan"
+  ],
+  "TRANSIT-METRO-L2": [
+    "Metro Line 2",
+    "الخط الثاني",
+    "خط المترو الثاني",
+    "Line 2: El Mounib → Shubra El-Kheima",
+    "Line 2: Shubra El-Kheima → El Mounib"
+  ],
+  "TRANSIT-METRO-L3": [
+    "Metro Line 3",
+    "الخط الثالث",
+    "خط المترو الثالث",
+    "Line 3: Adly Mansour → Kit-kat",
+    "Line 3: Kit-kat → Adly Mansour",
+    "Line 3: Cairo University → Adly Mansour",
+    "Line 3: Adly Mansour → Cairo University"
+  ]
+}

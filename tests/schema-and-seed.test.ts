@@ -296,11 +296,11 @@ describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and
 
     // Verify canonical data/seed/ bundle passes full holistic validation
     const canonicalBundle = await loadAndValidateSeedDir();
-    expect(canonicalBundle.entities.length).toBe(275);
-    expect(canonicalBundle.evidence.length).toBe(137);
-    expect(canonicalBundle.facts.length).toBe(602);
+    expect(canonicalBundle.entities.length).toBe(342);
+    expect(canonicalBundle.evidence.length).toBe(198);
+    expect(canonicalBundle.facts.length).toBe(1108);
     const canonicalReport = summarizeValidatedSeedBundle(canonicalBundle);
-    expect(canonicalReport.factEvidenceLinksCount).toBe(683);
+    expect(canonicalReport.factEvidenceLinksCount).toBe(1218);
     expect(canonicalReport.evidenceMissingUrlCount).toBe(6);
     expect(canonicalReport.unresolvedOfficialEvidenceCodes).toEqual([
       "EV-042",
@@ -311,9 +311,11 @@ describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and
     const evidenceByCode = new Map(
       canonicalBundle.evidence.map((evidence) => [evidence.code, evidence]),
     );
-    for (const fact of canonicalBundle.facts.filter(
+    const verifiedFacts = canonicalBundle.facts.filter(
       (candidate) => candidate.verification_state === "verified",
-    )) {
+    );
+    expect(verifiedFacts).toHaveLength(294);
+    for (const fact of verifiedFacts) {
       expect(
         fact.evidence_codes.some((code) => {
           const evidence = evidenceByCode.get(code);

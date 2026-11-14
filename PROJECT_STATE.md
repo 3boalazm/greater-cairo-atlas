@@ -1,6 +1,6 @@
 # Greater Cairo Atlas — Project State
 
-Last updated: `2026-11-13`
+Last updated: `2026-11-14`
 
 ## Project Charter Summary
 
@@ -27,7 +27,7 @@ Last updated: `2026-11-13`
 | **Phase 03** | **Research-Seed Adapter, Migration `003` & Protected Import** | **Completed (Merged — PR #4)** | `003_research_seed_extensions.sql`, deterministic research-seed adapter, and protected `POST /api/admin/import-seed` (dry-run by default). |
 | **Phase 03.1** | **Seed Revision 3** | **In Review (PR #5)** | Mixed-revision seed: 213 entities, 59 evidence records, 278 facts, 304 fact-evidence links; three unresolved official URLs are explicit non-blocking warnings. |
 | **Phase 04** | **Real Geometry (`features`) & GeoJSON API** | **Completed (Merged — PR #6)** | Schema/API and local-only geometry ingestion groundwork. |
-| **Phase 04.1** | **Owner-supplied OSM extract** | **In Review (PR #7)** | 723 OSM features / 18 entities; match-rule exclusion for ambiguous `ROAD-NASR`; alias research suggestions remain unapplied; ODbL provenance, coverage limitations, and low-zoom per-entity grouping documented. No DB import performed. |
+| **Phase 04.1** | **Owner-supplied OSM extract** | **In Review (PR #7)** | 723 OSM features / 18 entities; match-rule exclusion for ambiguous `ROAD-NASR`; alias research suggestions remain unapplied; ODbL provenance, coverage limitations, and low-zoom simplification documented. No DB import performed. |
 | **Phase 05** | **Interactive MapLibre GL JS Atlas UI** | Planned | Cartographic MapLibre GL JS interface distinguishing operational vs. planned features, conflict indicators, and source inspection panels. |
 | **Phase 06** | **Open Exports & Release Hardening** | Planned | Reproducible open-data export pipelines (`CSV`, `JSON`, `GeoJSON`, `GeoPackage`) with full provenance metadata and end-to-end verification. |
 
@@ -39,7 +39,7 @@ Last updated: `2026-11-13`
 - **Current derived output:** `data/features/features.geojson` has 723 features from 18 entities (road 537, transit_line 182, transit_stop 1, rail_station 3). The 73 `ROAD-NASR` candidates are ambiguous and excluded using `data/features/match-rules.json`; `data/features/alias-suggestions.json` contains review-only suggestions and applies no aliases. West Nile Monorail remains planned with no OSM geometry. No new entities, TfC GTFS, or NC-licensed geometry were added.
 - **Query coverage limits:** supplied query included subway/light_rail/monorail/train route relations, selected railway ways, station/platform/stop nodes, and named motorway/trunk highways. It omitted primary/secondary highways and bus routes. Thus absence from this extract is not evidence of absent coverage/infrastructure.
 - **Storage/API:** `004_feature_bbox_attribution.sql` adds WGS84 bbox and per-feature provenance checks. The protected import validates known entity refs, SRID, geometry validity, bbox, attribution and license, then upserts transactionally by feature code. `GET /api/atlas/features?type=&sector=&status=&zoom=` returns a cached, capped GeoJSON collection; at zoom ≤7 it groups and simplifies geometries per entity and emits explicit OSM attribution.
-- **Safety:** No database migration/import or real import was run during Phase 04.1. Curl examples are in README.md. Any subsequent real import requires separate explicit approval.
+- **Safety:** No database migration/import was run during Phase 04.1. The owner has since approved automatic imports for production deployments: PR #11 adds migration 005 and validates the complete dataset before performing one transactional, checksum-gated seed/features import after migrations. Preview deployments and local builds do not import data. The protected manual endpoint remains as fallback.
 
 ## Phase 03 Architectural Decisions & Open Data Notes
 
@@ -56,3 +56,11 @@ Last updated: `2026-11-13`
    - Guarded by `ADMIN_IMPORT_TOKEN` (>= 16 chars, verified via constant-time SHA-256 `timingSafeEqual` in `Authorization: Bearer <token>` or `x-admin-import-token`, redacted in logs, rejected in URL query strings).
    - Defaults to `dryRun: true` when invoked with an empty body or `{}`; performs transactional idempotent upsert inside Vercel only when `{"dryRun": false}` is explicitly sent.
    - `next.config.ts` includes `outputFileTracingIncludes` for `./data/seed/**/*` on `/api/admin/import-seed` so serverless deployments always bundle the validated seed files.
+
+## Phase 05.3 — Revision 5, Import Gate & Map Polish
+
+- Owner-supplied rev5 sources and changelog are preserved in `data/research/rev5/`; the OSM matcher aliases are documented there and retain source geometry only when exact normalized name matches are found. The derived seed has 342 entities (232 with aliases), 198 evidence records, 1,108 facts, 1,218 fact-evidence links. All 275 rev4 entity identities and all 602 rev4 fact codes are retained; no entity code was removed/renamed/retyped. 294 verified facts cite URL-backed official evidence.
+- Re-running the stored OSM extract creates 1,970 features across 25 mapped entities; all 723 prior feature codes remain. Full counts per entity live in `data/features/match-report.json`.
+- Vercel production only (`VERCEL=1`, `VERCEL_ENV=production`): after migrations and before Next build, validate seed/features and atomically upsert plus record the SHA-256 checksum in `import_runs` under an advisory transaction lock. An unchanged checksum skips writes. A validation/transaction failure fails the build. Production without DB configuration fails closed. Preview/local builds do not import.
+- UI polish: remove alarming geometry badge, use neutral map-pin-off tooltip/note, emphasize road geometry with a casing and warm line color, and provide a mapped-only entity filter. API cap is raised to 5,000 for the rev5 set.
+- Expected database contents after the first automatic import: **342 entities, 198 evidence records, 1,108 facts, 1,218 fact-evidence links, and 1,970 features**. This workspace regenerated/validated these data files only; it did not connect to or import into the live database.
