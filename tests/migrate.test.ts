@@ -36,7 +36,7 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
     return dir;
   }
 
-  it("discovers migrations 000-006 in order, preserving immutable prior checksums and feature invariants", async () => {
+  it("discovers migrations 000-007 in order, preserving immutable prior checksums and feature invariants", async () => {
     const migrations = await discoverMigrations();
     expect(migrations.map((m) => m.filename)).toEqual([
       "000_enable_postgis.sql",
@@ -46,6 +46,7 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
       "004_feature_bbox_attribution.sql",
       "005_import_runs.sql",
       "006_road_only_bbox_extension.sql",
+      "007_regional_ring_west_bbox.sql",
     ]);
 
     const m000 = migrations[0];
@@ -110,6 +111,14 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
     expect(m006?.sql).toContain("east := 32.35");
     expect(m006?.sql).toContain("north := 30.9");
     expect(m006?.sql).toMatch(/feature_entity_type = 'road'/i);
+
+    const m007 = migrations[7];
+    expect(m007?.filename).toBe("007_regional_ring_west_bbox.sql");
+    expect(m007?.sql).toContain("feature_entity_code = 'ROAD-REGIONAL-RING'");
+    expect(m007?.sql).toContain("west := 30.25");
+    expect(m007?.sql).toContain("south DOUBLE PRECISION := 29.2");
+    expect(m007?.sql).toContain("east := 32.35");
+    expect(m007?.sql).toContain("north := 30.9");
   });
 
   it("runs dry-run without requiring DATABASE_URL", async () => {
@@ -124,6 +133,7 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
       "004_feature_bbox_attribution.sql",
       "005_import_runs.sql",
       "006_road_only_bbox_extension.sql",
+      "007_regional_ring_west_bbox.sql",
     ]);
   });
 

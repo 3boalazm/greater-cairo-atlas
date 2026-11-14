@@ -1,15 +1,20 @@
 import path from "node:path";
+import { readFile } from "node:fs/promises";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { PGlite } from "@electric-sql/pglite";
 import { postgis } from "@electric-sql/pglite-postgis";
-import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
-import { loadAndValidateSeedDir } from "@/lib/atlas/seed";
+import {
+  GREATER_CAIRO_BBOX,
+  ROAD_GEOMETRY_BBOX,
+  REGIONAL_RING_ROAD_GEOMETRY_BBOX,
+} from "@/lib/atlas/features";
+import { runSeedImport } from "@/lib/atlas/seed";
 import { ATLAS_FEATURES_SQL, featureSimplificationTolerance } from "@/lib/atlas/features-api";
-import type { FeatureSeed } from "@/lib/atlas/schema";
 
 const featurePath = path.resolve(process.cwd(), "data/features/features.geojson");
 let db: PGlite;
 let featureCount = 0;
+let boundaryCount = 0;
 
 async function insertRows<T>(rows: readonly T[], valuesFor: (row: T) => unknown[], insertSql: (start: number) => string, batchSize = 75) {
   for (let start = 0; start < rows.length; start += batchSize) {
@@ -25,59 +30,104 @@ describe("real PostGIS features SQL regression", () => {
     await db.exec(`
       CREATE EXTENSION postgis;
       CREATE TABLE entities (
-        id integer PRIMARY KEY,
+        id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
         code text NOT NULL UNIQUE,
         name_ar text NOT NULL,
         name_en text NOT NULL,
         entity_type text NOT NULL,
         sector text NOT NULL,
-        status text NOT NULL
+        status text NOT NULL,
+        description text,
+        aliases text[] NOT NULL DEFAULT '{}'
+      );
+      CREATE TABLE evidence (
+        id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+        code text NOT NULL UNIQUE,
+        title text,
+        url text,
+        publisher text NOT NULL,
+        source_type text NOT NULL,
+        published_date date,
+        accessed_date date NOT NULL,
+        notes text,
+        published_date_precision text NOT NULL DEFAULT 'day'
+      );
+      CREATE TABLE facts (
+        id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+        code text NOT NULL UNIQUE,
+        entity_id uuid NOT NULL REFERENCES entities(id),
+        attribute text NOT NULL,
+        value text NOT NULL,
+        unit text,
+        valid_as_of date,
+        verification_state text NOT NULL,
+        notes text,
+        valid_as_of_precision text NOT NULL DEFAULT 'day'
+      );
+      CREATE TABLE fact_evidence (
+        fact_id uuid NOT NULL REFERENCES facts(id),
+        evidence_id uuid NOT NULL REFERENCES evidence(id),
+        PRIMARY KEY (fact_id, evidence_id)
       );
       CREATE TABLE features (
         code text PRIMARY KEY,
-        entity_id integer NOT NULL REFERENCES entities(id),
+        entity_id uuid NOT NULL REFERENCES entities(id),
+        evidence_id uuid REFERENCES evidence(id),
         geometry geometry(Geometry, 4326) NOT NULL,
+        osm_type text,
+        osm_id bigint,
+        osm_version integer,
         license text NOT NULL,
         properties jsonb NOT NULL,
         CONSTRAINT features_geometry_valid_wgs84_chk CHECK (
           ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)
-        )
+        ),
+        CONSTRAINT features_greater_cairo_bbox_chk CHECK (TRUE)
+      );
+      CREATE TABLE boundaries (
+        code text PRIMARY KEY,
+        entity_code text NOT NULL,
+        geometry geometry(Geometry, 4326) NOT NULL
       );
     `);
+    // Install the original trigger and its actual hotfix replacement as production does.
+    await db.exec(await readFile(path.resolve(process.cwd(), "db/migrations/006_road_only_bbox_extension.sql"), "utf8"));
+    await db.exec(await readFile(path.resolve(process.cwd(), "db/migrations/007_regional_ring_west_bbox.sql"), "utf8"));
 
-    const bundle = await loadAndValidateSeedDir();
-    const entityIds = new Map(bundle.entities.map((entity, index) => [entity.code, index + 1]));
+    const importSummary = await runSeedImport({
+      seedDir: path.resolve(process.cwd(), "data/seed"),
+      featuresPath: featurePath,
+      sessionFactory: () => ({
+        async connect() {},
+        async query<Row = Record<string, unknown>>(text: string, values?: unknown[]) {
+          const result = await db.query<Row>(text, values);
+          return { rows: result.rows };
+        },
+        async end() {},
+      }),
+    });
+    expect(importSummary.dryRun).toBe(false);
+    expect(importSummary.entitiesCount).toBe(342);
+    expect(importSummary.evidenceCount).toBe(350);
+    expect(importSummary.factsCount).toBe(1391);
+    expect(importSummary.factEvidenceLinksCount).toBe(1505);
+    featureCount = importSummary.featuresCount;
+    const boundaryCollection = JSON.parse(await readFile(path.resolve(process.cwd(), "data/features/boundaries.geojson"), "utf8")) as {
+      features: Array<{ geometry: unknown; properties: { code: string; entity_code: string } }>;
+    };
+    boundaryCount = boundaryCollection.features.length;
     await insertRows(
-      bundle.entities,
-      (entity) => [entityIds.get(entity.code), entity.code, entity.name_ar, entity.name_en, entity.entity_type, entity.sector, entity.status],
+      boundaryCollection.features,
+      (boundary) => [boundary.properties.code, boundary.properties.entity_code, JSON.stringify(boundary.geometry)],
       (count) => {
         const values = Array.from({ length: count }, (_, index) => {
-          const offset = index * 7;
-          return `($${offset + 1}, $${offset + 2}, $${offset + 3}, $${offset + 4}, $${offset + 5}, $${offset + 6}, $${offset + 7})`;
+          const offset = index * 3;
+          return `($${offset + 1}, $${offset + 2}, ST_SetSRID(ST_GeomFromGeoJSON($${offset + 3}), 4326))`;
         });
-        return `INSERT INTO entities (id, code, name_ar, name_en, entity_type, sector, status) VALUES ${values.join(",")}`;
+        return `INSERT INTO boundaries (code, entity_code, geometry) VALUES ${values.join(",")}`;
       },
     );
 
-    const features = await loadAndValidateFeatureCollection(featurePath, bundle.entities, bundle.evidence);
-    featureCount = features.length;
-    await insertRows(
-      features,
-      (feature: FeatureSeed) => [
-        feature.code,
-        entityIds.get(feature.entity_code),
-        JSON.stringify(feature.geometry),
-        feature.license,
-        JSON.stringify(feature.properties),
-      ],
-      (count) => {
-        const values = Array.from({ length: count }, (_, index) => {
-          const offset = index * 5;
-          return `($${offset + 1}, $${offset + 2}, ST_SetSRID(ST_GeomFromGeoJSON($${offset + 3}), 4326), $${offset + 4}, $${offset + 5}::jsonb)`;
-        });
-        return `INSERT INTO features (code, entity_id, geometry, license, properties) VALUES ${values.join(",")}`;
-      },
-    );
   }, 120_000);
 
   afterAll(async () => {
@@ -91,12 +141,55 @@ describe("real PostGIS features SQL regression", () => {
       WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)
     `);
     expect(Number(result.rows[0]?.valid_count)).toBe(featureCount);
+    expect(featureCount).toBe(2863);
     const constraint = await db.query<{ constraint_name: string }>(`
       SELECT conname AS constraint_name
       FROM pg_constraint
       WHERE conrelid = 'features'::regclass AND conname = 'features_geometry_valid_wgs84_chk'
     `);
     expect(constraint.rows).toHaveLength(1);
+  }, 120_000);
+
+  it("imports the full rev7 seed and every current boundary geometry into PostGIS", async () => {
+    const counts = await db.query<{ entities: string; evidence: string; facts: string; links: string; features: string; boundaries: string }>(`
+      SELECT
+        (SELECT COUNT(*) FROM entities)::text AS entities,
+        (SELECT COUNT(*) FROM evidence)::text AS evidence,
+        (SELECT COUNT(*) FROM facts)::text AS facts,
+        (SELECT COUNT(*) FROM fact_evidence)::text AS links,
+        (SELECT COUNT(*) FROM features)::text AS features,
+        (SELECT COUNT(*) FROM boundaries)::text AS boundaries
+    `);
+    expect(counts.rows[0]).toEqual({ entities: "342", evidence: "350", facts: "1391", links: "1505", features: "2863", boundaries: "19" });
+    const validBoundaries = await db.query<{ count: string }>("SELECT COUNT(*)::text AS count FROM boundaries WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)");
+    expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
+  }, 120_000);
+
+  it("keeps database envelopes identical to shared TypeScript geometry constants", async () => {
+    const migration = await readFile(path.resolve(process.cwd(), "db/migrations/007_regional_ring_west_bbox.sql"), "utf8");
+    const bounds = (bbox: { west: number; south: number; east: number; north: number }) => [bbox.west, bbox.south, bbox.east, bbox.north];
+    expect(bounds(GREATER_CAIRO_BBOX)).toEqual([30.5, 29.2, 32.1, 30.8]);
+    expect(bounds(ROAD_GEOMETRY_BBOX)).toEqual([30.5, 29.2, 32.35, 30.9]);
+    expect(bounds(REGIONAL_RING_ROAD_GEOMETRY_BBOX)).toEqual([30.25, 29.2, 32.35, 30.9]);
+    expect(migration).toMatch(/west := 30\.25/);
+    expect(migration).toContain("south DOUBLE PRECISION := 29.2");
+    expect(migration).toMatch(/east := 32\.35/);
+    expect(migration).toMatch(/north := 30\.9/);
+    expect(migration).toContain("west DOUBLE PRECISION := 30.5");
+    expect(migration).toContain("east DOUBLE PRECISION := 32.1");
+    expect(migration).toContain("north DOUBLE PRECISION := 30.8");
+  });
+
+  it("accepts Regional Ring geometry at longitude 30.3 and rejects 30.1 in the production PostGIS trigger", async () => {
+    const regionalId = (await db.query<{ id: number }>("SELECT id FROM entities WHERE code = 'ROAD-REGIONAL-RING'")).rows[0]?.id;
+    expect(regionalId).toBeDefined();
+    const insert = (code: string, west: number) => db.query(
+      "INSERT INTO features (code, entity_id, geometry, license, properties) VALUES ($1, $2, ST_SetSRID(ST_GeomFromGeoJSON($3), 4326), 'ODbL-1.0', '{}'::jsonb)",
+      [code, regionalId, JSON.stringify({ type: "LineString", coordinates: [[west, 29.8], [west + 0.01, 29.8]] })],
+    );
+    await expect(insert("TEST-RING-30-3", 30.3)).resolves.toBeDefined();
+    await db.query("DELETE FROM features WHERE code = 'TEST-RING-30-3'");
+    await expect(insert("TEST-RING-30-1", 30.1)).rejects.toMatchObject({ code: "23514" });
   }, 120_000);
 
   it("reproduces PostgreSQL 42803 from the former CASE-dependent GROUP BY on the real fixture", async () => {
