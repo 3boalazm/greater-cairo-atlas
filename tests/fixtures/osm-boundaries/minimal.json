@@ -1,0 +1,23 @@
+{
+  "version": 0.6,
+  "elements": [
+    {
+      "type": "way",
+      "id": 987654321,
+      "version": 7,
+      "tags": {
+        "boundary": "administrative",
+        "admin_level": "8",
+        "name": "Test District",
+        "name:ar": "حي الاختبار"
+      },
+      "geometry": [
+        { "lat": 30.04, "lon": 31.20 },
+        { "lat": 30.04, "lon": 31.22 },
+        { "lat": 30.06, "lon": 31.22 },
+        { "lat": 30.06, "lon": 31.20 },
+        { "lat": 30.04, "lon": 31.20 }
+      ]
+    }
+  ]
+}

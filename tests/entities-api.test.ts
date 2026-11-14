@@ -30,7 +30,7 @@ describe("GET /api/atlas/entities", () => {
     const response = await listEntities(new Request("http://atlas.test/api/atlas/entities?q=Ring&limit=20"));
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toContain("s-maxage=60");
-    expect(await response.json()).toEqual({ entities: [entityRow], total: 1, limit: 20, offset: 0 });
+    expect(await response.json()).toEqual({ entities: [{ ...entityRow, has_boundary: false }], total: 1, limit: 20, offset: 0 });
     expect(queryMock).toHaveBeenCalledTimes(2);
     expect(queryMock.mock.calls[0]?.[1]).toEqual(["Ring", null, null, null, null]);
   });

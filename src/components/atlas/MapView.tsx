@@ -6,6 +6,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import type { GeoJSONSource, Map as MapLibreMap, MapLayerMouseEvent } from "maplibre-gl";
 import type { FeatureCollection } from "geojson";
 import type { AtlasFeatureCollection, AtlasTheme } from "./atlas-client";
+import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 import { getAtlasMapStyleUrl } from "./map-styles";
 
 maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
@@ -17,6 +18,9 @@ const roadNetworkSourceId = "atlas-road-network";
 const roadNetworkDetailSourceId = "atlas-road-network-detail";
 const roadNetworkLayerId = "atlas-road-network-lines";
 const roadNetworkDetailLayerId = "atlas-road-network-detail-lines";
+const boundarySourceId = "atlas-area-boundary";
+const boundaryFillLayerId = "atlas-area-boundary-fill";
+const boundaryOutlineLayerId = "atlas-area-boundary-outline";
 const lineLayers = ["atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points"];
 
 type EntityLineColorExpression = ["match", ["get", "type"], "road", string, "transit_line", string, string];
@@ -48,7 +52,11 @@ function visitPositions(geometry: unknown, visit: (point: [number, number]) => v
   walk(record.coordinates);
 }
 
-export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false }: {
+function boundaryCollection(boundary: AreaBoundaryFeature | null): FeatureCollection {
+  return { type: "FeatureCollection", features: boundary ? [boundary as unknown as FeatureCollection["features"][number]] : [] };
+}
+
+export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, highlightBoundary = null }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
   onSelect: (entityCode: string) => void;
@@ -58,20 +66,23 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
   fitToFeatures?: boolean;
   compact?: boolean;
   showRoadNetwork?: boolean;
+  highlightBoundary?: AreaBoundaryFeature | null;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const dataRef = useRef<AtlasFeatureCollection>(features);
   const showRoadNetworkRef = useRef(showRoadNetwork);
+  const boundaryRef = useRef<AreaBoundaryFeature | null>(highlightBoundary);
   const onSelectRef = useRef(onSelect);
   const onZoomRef = useRef(onZoomChange);
   const onStyleStatusRef = useRef(onStyleStatus);
   useEffect(() => {
     dataRef.current = features;
+    boundaryRef.current = highlightBoundary;
     onSelectRef.current = onSelect;
     onZoomRef.current = onZoomChange;
     onStyleStatusRef.current = onStyleStatus;
-  }, [features, onSelect, onZoomChange, onStyleStatus]);
+  }, [features, highlightBoundary, onSelect, onZoomChange, onStyleStatus]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -94,6 +105,7 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
     map.on("style.load", () => onStyleStatusRef.current("ready"));
     map.on("load", () => {
       map.addSource(sourceId, { type: "geojson", data: dataRef.current as unknown as FeatureCollection });
+      map.addSource(boundarySourceId, { type: "geojson", data: boundaryCollection(boundaryRef.current) });
       if (!compact) {
         map.addSource(roadNetworkSourceId, { type: "geojson", data: "/road-network.geojson" });
         map.addSource(roadNetworkDetailSourceId, { type: "geojson", data: "/road-network-detail.geojson" });
@@ -122,6 +134,10 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
           },
         });
       }
+      map.addLayer({
+        id: boundaryFillLayerId, type: "fill", source: boundarySourceId,
+        paint: { "fill-color": getComputedStyle(document.documentElement).getPropertyValue("--boundary-color").trim() || (theme === "day" ? "#116c62" : "#57d6c6"), "fill-opacity": 0.15 },
+      });
       map.addLayer({
         id: "atlas-roads-casing", type: "line", source: sourceId,
         filter: ["==", ["get", "type"], "road"],
@@ -163,6 +179,11 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
         filter: ["==", ["geometry-type"], "Point"],
         paint: { "circle-color": theme === "day" ? "#815c00" : "#f7d46a", "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, 2.5, 12, 5], "circle-stroke-color": theme === "day" ? "#fff" : "#111715", "circle-stroke-width": 1.5 },
       });
+      map.addLayer({
+        id: boundaryOutlineLayerId, type: "line", source: boundarySourceId,
+        paint: { "line-color": getComputedStyle(document.documentElement).getPropertyValue("--boundary-color").trim() || (theme === "day" ? "#116c62" : "#57d6c6"), "line-width": 2, "line-opacity": 0.98 },
+        layout: { "line-cap": "round", "line-join": "round" },
+      });
       map.on("click", (event: MapLayerMouseEvent) => {
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers });
         const code = found[0]?.properties?.entity_code;
@@ -172,9 +193,10 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers });
         map.getCanvas().style.cursor = found.length ? "pointer" : "";
       });
-      if (fitToFeatures && dataRef.current.features.length > 0) {
+      if (boundaryRef.current || (fitToFeatures && dataRef.current.features.length > 0)) {
         const bounds = new maplibregl.LngLatBounds();
-        for (const feature of dataRef.current.features) {
+        if (boundaryRef.current) visitPositions(boundaryRef.current.geometry, (point) => bounds.extend(point));
+        else for (const feature of dataRef.current.features) {
           visitPositions(feature.geometry, (point) => bounds.extend(point));
         }
         if (!bounds.isEmpty()) {
@@ -199,6 +221,17 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
     const source = mapRef.current?.getSource(sourceId) as GeoJSONSource | undefined;
     source?.setData(features as unknown as FeatureCollection);
   }, [features]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    const source = map?.getSource(boundarySourceId) as GeoJSONSource | undefined;
+    source?.setData(boundaryCollection(highlightBoundary));
+    if (map && highlightBoundary) {
+      const bounds = new maplibregl.LngLatBounds();
+      visitPositions(highlightBoundary.geometry, (point) => bounds.extend(point));
+      if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: compact ? 28 : 70, maxZoom: compact ? 14 : 14, duration: 650 });
+    }
+  }, [highlightBoundary, compact]);
 
   useEffect(() => {
     showRoadNetworkRef.current = showRoadNetwork;

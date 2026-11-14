@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EntityMap } from "@/components/atlas/EntityMap";
+import { AreaBoundaryToggle } from "@/components/atlas/AreaBoundaryToggle";
 import { SiteFooter, SiteHeader, getSiteUrl, resolveLanguage } from "@/components/site/SiteChrome";
 import { getStaticEntityPageData } from "@/lib/atlas/static-dataset";
 import type { AtlasFeatureCollection } from "@/components/atlas/atlas-client";
@@ -118,6 +119,8 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
       {entity.description && <p className="entity-long-description">{entity.description}</p>}
       <section className="entity-section" aria-labelledby="entity-map-heading">
         <div className="section-title"><span>01</span><div><h2 id="entity-map-heading">{text.map}</h2><p>{ar?"عرض تقريبي للهندسة المسجلة؛ لا تُنشأ وصلات غير موجودة في المصدر.":"A view of recorded source geometry; no connectors are invented."}</p></div></div>
+        {entity.has_boundary && <AreaBoundaryToggle code={entity.code} name={ar ? entity.name_ar : entity.name_en} language={language} />}
+        {!entity.has_boundary && ["city", "district", "neighborhood", "authority"].includes(entity.entity_type) && <p className="boundary-unavailable-note">{ar ? "الحدود غير متاحة في المصدر" : "Boundary unavailable in source"}</p>}
         {entity.mapGeometry ? <><EntityMap features={mapFeatures} language={language} attribution={entity.mapAttribution}/><p className="map-data-attribution">{entity.mapAttribution} · OpenFreeMap</p></> : <p className="not-mapped-note">{text.notMapped}</p>}
       </section>
       <section className="entity-section" aria-labelledby="entity-facts-heading">

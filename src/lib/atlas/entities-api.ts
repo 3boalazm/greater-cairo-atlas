@@ -32,6 +32,7 @@ export interface AtlasEntitySummary {
   sector: string;
   status: string;
   has_geometry: boolean;
+  has_boundary?: boolean;
 }
 
 export interface AtlasEntityListResult {

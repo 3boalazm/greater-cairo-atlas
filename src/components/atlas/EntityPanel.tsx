@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MapPinOff, X } from "lucide-react";
+import { MapPinOff, MapPinned, X } from "lucide-react";
 import { useEffect, useMemo, useRef } from "react";
 import type { AtlasEntityDetail, AtlasEntityFact, AtlasLanguage } from "./atlas-client";
 
@@ -10,6 +10,7 @@ const stateLabel: Record<string, { ar: string; en: string }> = {
   corroborated: { ar: "مؤيد بمصادر", en: "Corroborated" }, verified: { ar: "موثّق", en: "Verified" },
   disputed: { ar: "متنازع عليه", en: "Disputed" }, rejected: { ar: "مرفوض", en: "Rejected" }, superseded: { ar: "مستبدل", en: "Superseded" },
 };
+const areaEntityTypes = new Set(["city", "district", "neighborhood", "authority"]);
 const statusLabel: Record<string, { ar: string; en: string }> = {
   operational: { ar: "يعمل", en: "Operational" }, partial: { ar: "يعمل جزئيًا", en: "Partial" },
   under_construction: { ar: "قيد الإنشاء", en: "Under construction" }, planned: { ar: "مخطط", en: "Planned" },
@@ -44,12 +45,15 @@ function FactCard({ fact, language }: { fact: AtlasEntityFact; language: AtlasLa
   </article>;
 }
 
-export function EntityPanel({ entity, loading, error, onClose, language }: {
+export function EntityPanel({ entity, loading, error, onClose, language, onToggleBoundary, boundaryActive, boundaryLoading }: {
   entity: AtlasEntityDetail | null;
   loading: boolean;
   error: string | null;
   onClose: () => void;
   language: AtlasLanguage;
+  onToggleBoundary: (code: string) => void;
+  boundaryActive: boolean;
+  boundaryLoading: boolean;
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
@@ -92,6 +96,10 @@ export function EntityPanel({ entity, loading, error, onClose, language }: {
         {!loading && error && <div className="panel-error" role="alert">{error}</div>}
         {!loading && entity && <>
           <Link className="entity-profile-link" href={`/entity/${encodeURIComponent(entity.code)}`}>{ar ? "فتح صفحة الكيان الكاملة ←" : "Open full entity page →"}</Link>
+          {entity.has_boundary && <button className="boundary-toggle" type="button" aria-pressed={boundaryActive} onClick={() => onToggleBoundary(entity.code)} disabled={boundaryLoading}>
+            <MapPinned aria-hidden="true" />{boundaryLoading ? (ar ? "جارٍ تحميل الحدود…" : "Loading boundary…") : boundaryActive ? (ar ? "إخفاء الحدود" : "Hide boundary") : (ar ? "إظهار الحدود على الخريطة" : "Show boundary on map")}
+          </button>}
+          {!entity.has_boundary && areaEntityTypes.has(entity.entity_type) && <p className="boundary-unavailable-note">{ar ? "الحدود غير متاحة في المصدر" : "Boundary unavailable in source"}</p>}
           {!entity.has_geometry && <p className="entity-unmapped-note"><MapPinOff aria-hidden="true" />{ar ? "غير مرسوم على الخريطة" : "Not mapped"}</p>}
           {entity.description && <p className="entity-description">{entity.description}</p>}
           <section aria-labelledby="facts-heading">
