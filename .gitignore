@@ -40,6 +40,8 @@ __pycache__/
 .mypy_cache/
 /data/raw/*
 !/data/raw/osm-overpass-2026-11-14.json.gz
+!/data/raw/cairo-osm-overpass-2026-11-14-extract2.json.gz
+!/data/raw/cairo-osm-overpass-2026-11-14-roads-full.json.gz
 /data/processed/
 /data/exports/
 *.gpkg

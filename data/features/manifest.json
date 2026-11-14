@@ -7,18 +7,29 @@
     32.1,
     30.8
   ],
-  "feature_count": 1970,
+  "feature_count": 3688,
   "sources": [
     {
       "source": "OpenStreetMap",
       "url": "https://overpass-api.de/api/interpreter",
       "retrieval_date": "2026-11-14",
       "retrieved_at": null,
-      "input_file": "cairo-osm-overpass-2026-11-14.json",
-      "input_sha256": "be0c995c27e1adeca1b6a73712dd54d88fd0c9c3657d0d8e3cff41e304b9c02c",
+      "input_file": "cairo-osm-overpass-2026-11-14-extract2.json",
+      "input_sha256": "da39b664330ade56a51449eff96b9513ad670d8e7a2ade4a2e88c9018ee46d0b",
       "license": "ODbL-1.0",
-      "elements_received": 4201,
-      "timestamp_osm_base": "2026-11-13T23:44:50Z"
+      "elements_received": 8517,
+      "timestamp_osm_base": "2026-11-14T04:08:33Z"
+    },
+    {
+      "source": "OpenStreetMap",
+      "url": "https://overpass-api.de/api/interpreter",
+      "retrieval_date": "2026-11-14",
+      "retrieved_at": null,
+      "input_file": "cairo-osm-overpass-2026-11-14-roads-full.json",
+      "input_sha256": "d02595a0a92ca252b2e1a8f8e8727403921f102852d4e2ad2b8ce838dcadc12c",
+      "license": "ODbL-1.0",
+      "elements_received": 7322,
+      "timestamp_osm_base": "2026-11-14T04:16:34Z"
     }
   ],
   "source_failures": [],
@@ -27,11 +38,23 @@
     "tfc": "Transport for Cairo (TfC), GTFS for Public Road-Transport, CC BY 4.0"
   },
   "license_policy": "OSM=ODbL-1.0; TfC GTFS accepted only when independently verified CC-BY-4.0. CC-BY-NC data is prohibited.",
-  "matching": "exact Unicode-normalized Arabic/English name or alias, gated by entity_type; no entity creation; unmatched/ambiguous items remain in match-report.json",
+  "matching": "Exact Unicode-normalized rev5 entity names and aliases only; roads additionally use exact name/name:ar/name:en/ref/old_name/alt_name and named road relations; generic names are not inferred. No entity creation.",
   "lifecycle_policy": "Only operational/partial entities are matched from OSM/GTFS. Planned/under-construction geometry requires official_alignment provenance and is not inferred from OSM/GTFS.",
   "geometry_policy": "WGS84 / SRID 4326; geometries must lie wholly within the declared Greater Cairo bbox.",
-  "osm_query_coverage": "Supplied Overpass extract: route relations subway/light_rail/monorail/train; selected railway ways; named motorway/trunk highways only; station/platform/stop nodes. It does not cover primary/secondary highways or bus routes. Extract bbox is [29.2,30.5,30.8,32.1] as south,west,north,east in the submitted query; geometry acceptance bbox is WGS84 [30.5,29.2,32.1,30.8].",
+  "osm_query_coverage": "Two user-supplied Overpass extracts from https://overpass-api.de/api/interpreter (2026-11-14), both bbox query envelope [29.2,30.5,30.8,32.1] as south,west,north,east. The roads-full extract supplies full road-way geometry and route road relations; extract2 supplies administrative/place/aerodrome/bridge/landmark objects and other OSM candidates. Matching remains limited to explicit rev5 names/aliases. New extracts do not replace preserved previously accepted transit geometries where no replacement transit source was submitted. Geometry acceptance bbox is WGS84 [30.5,29.2,32.1,30.8].",
   "match_rules_file": "match-rules.json",
-  "raw_extract": "data/raw/osm-overpass-2026-11-14.json.gz",
-  "raw_extract_sha256": "397ad10cc68aa394d7811ee4aca2dd0051a92b709f56a911286601e1de774655"
+  "raw_extracts": [
+    {
+      "source_file": "cairo-osm-overpass-2026-11-14-extract2.json",
+      "file": "data/raw/cairo-osm-overpass-2026-11-14-extract2.json.gz",
+      "sha256_original": "da39b664330ade56a51449eff96b9513ad670d8e7a2ade4a2e88c9018ee46d0b",
+      "sha256_gzip": "e99b9001ffae0d7256e69aa30b47b25192e44649b83e68e658e49adac21ff850"
+    },
+    {
+      "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json",
+      "file": "data/raw/cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+      "sha256_original": "d02595a0a92ca252b2e1a8f8e8727403921f102852d4e2ad2b8ce838dcadc12c",
+      "sha256_gzip": "2d2c3eb6caabaed467a2ae0fffb6edeea08f33660b46d13b7a5d3b0b6cc83ea4"
+    }
+  ]
 }
