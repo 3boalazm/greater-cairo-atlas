@@ -497,6 +497,14 @@ describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and
       factsCount: 5,
       factEvidenceLinksCount: 7,
       featuresCount: 0,
+      importSync: {
+        featuresDeletedCount: 0,
+        factEvidenceLinksDeletedCount: 0,
+        entitiesNotInSeedCount: 0,
+        factsNotInSeedCount: 0,
+        evidenceNotInSeedCount: 0,
+        databasePreviewAvailable: true,
+      },
     });
     expect(entitiesStore.get("TEST-ROAD-ALPHA")?.aliases).toEqual([
       "طريق ألفا",

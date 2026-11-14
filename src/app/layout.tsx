@@ -11,6 +11,7 @@ const ibmPlexArabic = localFont({
   ],
   variable: "--font-ibm-plex-arabic",
   display: "swap",
+  preload: false,
   fallback: ["Noto Sans Arabic", "Arial", "sans-serif"],
 });
 
@@ -23,6 +24,7 @@ const ibmPlexLatin = localFont({
   ],
   variable: "--font-ibm-plex-latin",
   display: "swap",
+  preload: false,
   fallback: ["Arial", "sans-serif"],
 });
 
@@ -33,6 +35,7 @@ const ibmPlexMono = localFont({
   ],
   variable: "--font-ibm-plex-mono",
   display: "swap",
+  preload: false,
   fallback: ["ui-monospace", "monospace"],
 });
 

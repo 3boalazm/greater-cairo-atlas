@@ -1,66 +1,55 @@
 # Greater Cairo Atlas — Project State
 
-Last updated: `2026-11-14`
+Last updated: `2026-11-13`
 
-## Project Charter Summary
+## Delivery status
 
-- **Objective**: Documented, source-backed interactive geospatial atlas of Greater Cairo, Egypt.
-- **Positioning**: Data-first urban research & geospatial documentation project — **not** a real-estate platform.
-- **Non-Negotiable Epistemic Rules**:
-  1. Every recorded fact and geometry retains explicit source provenance (`evidence`).
-  2. Conflicting claims across sources are stored side by side, never silently overwritten.
-  3. Planned or under-construction projects are never displayed as operational without an explicit `status` change (`status` defaults to `'unknown'`).
-  4. Weak `'secondary'` sources (Wikipedia, real-estate blogs, aggregators, internal guides) must never by themselves mark a fact `'verified'`.
-  5. Never fabricate sources, URLs, coordinates, measurements, dates, statuses, or boundaries.
-- **Pilot Coverage Scope**:
-  - New Cairo, Nasr City, Shorouk, Badr, New Administrative Capital, Mostakbal City, Obour, New Obour (plus connected regional corridors).
+All planned project phases 01–07 are implemented on the current delivery branch. Phase 07 is the final polish, licensing, and QA pass; its pull request is intentionally to remain open for review (not merged by this task).
 
----
+| Phase | Scope | Status |
+|---|---|---|
+| 01–03 | Application foundation, schema, source-backed seed adapter, protected importer | Complete |
+| 04 | OSM geometry ingestion and GeoJSON API | Complete |
+| 05 | Interactive, filterable Greater Cairo map | Complete |
+| 06 | Data exports, metadata, deployment/import hardening | Complete |
+| 07 | Full synchronization, attribution/license, documentation and QA | Complete pending review/deployment |
 
-## Phase Tracker
+## Data and import pipeline
 
-| Phase | Name | Status | Summary |
-| :--- | :--- | :--- | :--- |
-| **Phase 01** | **Foundation** | **Completed (Merged — PR #1)** | App scaffold (Next.js App Router + TS strict + Tailwind + `shadcn/ui`), Neon connection layer, Zod env validation, plain-SQL migration runner + `000_enable_postgis.sql`, structured logging/error handling, minimal landing page, and `/api/health` PostGIS probe. |
-| **Phase 02** | **Core Schema & Seed Importer** | **Completed (Merged — PR #2)** | `001_core_schema.sql` (`entities`, `facts`, `evidence`, `features` + `fact_evidence` M2M link), mirroring Zod schemas, holistic seed validator & idempotent `import-seed.ts` CLI, `appliedMigrationsCount` in `/api/health`, and `GET /api/atlas/stats`. |
-| **Phase 02.1** | **Vercel Build Migrations & Taxonomy Extension** | **Completed (Merged — PR #3)** | Vercel build-time migration runner (`scripts/vercel-build.ts` + `vercel.json`, preferring `DATABASE_URL_UNPOOLED`), `workflow_dispatch`-only GitHub workflows, `002_entity_taxonomy.sql` (15 researcher `entity_type`s + `'secondary'` `source_type` + deferred verified-fact trigger), verified live on Production (`/api/health` -> `appliedMigrationsCount: 3`). |
-| **Phase 03** | **Research-Seed Adapter, Migration `003` & Protected Import** | **Completed (Merged — PR #4)** | `003_research_seed_extensions.sql`, deterministic research-seed adapter, and protected `POST /api/admin/import-seed` (dry-run by default). |
-| **Phase 03.1** | **Seed Revision 3** | **In Review (PR #5)** | Mixed-revision seed: 213 entities, 59 evidence records, 278 facts, 304 fact-evidence links; three unresolved official URLs are explicit non-blocking warnings. |
-| **Phase 04** | **Real Geometry (`features`) & GeoJSON API** | **Completed (Merged — PR #6)** | Schema/API and local-only geometry ingestion groundwork. |
-| **Phase 04.1** | **Owner-supplied OSM extract** | **In Review (PR #7)** | 723 OSM features / 18 entities; match-rule exclusion for ambiguous `ROAD-NASR`; alias research suggestions remain unapplied; ODbL provenance, coverage limitations, and low-zoom simplification documented. No DB import performed. |
-| **Phase 05** | **Interactive MapLibre GL JS Atlas UI** | Planned | Cartographic MapLibre GL JS interface distinguishing operational vs. planned features, conflict indicators, and source inspection panels. |
-| **Phase 06** | **Open Exports & Release Hardening** | Planned | Reproducible open-data export pipelines (`CSV`, `JSON`, `GeoJSON`, `GeoPackage`) with full provenance metadata and end-to-end verification. |
+Canonical research inputs are in `data/research/`; deterministic adaptation produces `data/seed/{entities.csv,evidence.json,facts.json}`. OSM matcher outputs are in `data/features/features.geojson`, with source extracts, matching rules, and reports retained alongside. Run `npm run seed:adapt` with the desired revision/source paths, then `npm run seed:check` to validate offline. The Vercel production build runs migrations and performs a checksummed, transactional import; preview deployments validate without writes. The protected manual endpoint also defaults to dry-run.
 
----
+Imports synchronize the seeded features and the complete `fact_evidence` relation in the same transaction. Stale features and links are removed; entities, facts, and evidence absent from the seed are counted and reported, never automatically deleted. The full-sync import key forces a one-time reconciliation of pre-existing installations. Dry-run count previews require a configured database or injected test session; without one, the report explicitly marks database counts unavailable.
 
-## Phase 04 Geometry Delivery Notes
+Current source feature collection: **2,305 features**. Following the next successful production import, the live feature total is expected to be **2,305** (previous live database count: 3,760, including stale rows). This is a deployment expectation, not a claim that the live database has already been reconciled.
 
-- **Sources and current extract:** The owner-supplied Overpass response retrieved 2026-11-14 has `timestamp_osm_base=2026-11-13T23:44:50Z`, 4,201 source elements, and ODbL-1.0 provenance. The compressed archival input is `data/raw/osm-overpass-2026-11-14.json.gz`; hashes and retrieval metadata are recorded in `data/features/manifest.json`.
-- **Current derived output:** `data/features/features.geojson` has 723 features from 18 entities (road 537, transit_line 182, transit_stop 1, rail_station 3). The 73 `ROAD-NASR` candidates are ambiguous and excluded using `data/features/match-rules.json`; `data/features/alias-suggestions.json` contains review-only suggestions and applies no aliases. West Nile Monorail remains planned with no OSM geometry. No new entities, TfC GTFS, or NC-licensed geometry were added.
-- **Query coverage limits:** supplied query included subway/light_rail/monorail/train route relations, selected railway ways, station/platform/stop nodes, and named motorway/trunk highways. It omitted primary/secondary highways and bus routes. Thus absence from this extract is not evidence of absent coverage/infrastructure.
-- **Storage/API:** `004_feature_bbox_attribution.sql` adds WGS84 bbox and per-feature provenance checks. The protected import validates known entity refs, SRID, geometry validity, bbox, attribution and license, then upserts transactionally by feature code. `GET /api/atlas/features?type=&sector=&status=&zoom=` returns a cached, capped GeoJSON collection; at zoom ≤7 it groups and simplifies geometries per entity and emits explicit OSM attribution.
-- **Safety:** No database migration/import was run during Phase 04.1. The owner has since approved automatic imports for production deployments: PR #11 adds migration 005 and validates the complete dataset before performing one transactional, checksum-gated seed/features import after migrations. Preview deployments and local builds do not import data. The protected manual endpoint remains as fallback.
+## Licenses
 
-## Phase 03 Architectural Decisions & Open Data Notes
+Facts, evidence, and all non-OSM-derived data: `© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0`; contact `01092500454 · 3boalazm@gmail.com`. OSM-derived geometry: `© OpenStreetMap contributors, ODbL 1.0`. No code license has been designated by the owner; code reuse is not granted by the data license. See [`DATA_LICENSE.md`](./DATA_LICENSE.md).
 
-1. **Migration `003_research_seed_extensions.sql` (Immutable Prior Migrations)**:
-   - `000_enable_postgis.sql`, `001_core_schema.sql`, and `002_entity_taxonomy.sql` remain byte-for-byte untouched.
-   - Adds sector `'REGIONAL'`, entity types `'airport'` and `'rail_station'`, `entities.aliases TEXT[]`, and `facts.valid_as_of_precision` (`'day' | 'month' | 'year'`, default `'day'`).
-   - Relaxes `evidence.url` to nullable while enforcing `url IS NOT NULL OR title IS NOT NULL` (`evidence_locator_or_title_chk`) and adds `evidence.published_date_precision` so internal documents (`EV-000`, `EV-051`), unresolved official records (`EV-042`, `EV-045`, `EV-046`), and month-precision publication dates (`EV-046`: `2026-08`; `EV-058`: `2026-05`) are preserved honestly without fabricating URLs or days.
-2. **Deterministic, Order-Independent Research Adapter (`scripts/adapt-research-seed.ts`)**:
-   - Auto-selects the highest available revision independently for each file and supports mixed bundles (e.g. `entities_rev2.csv` + `evidence_rev3.json` + `facts_rev3.json`); `--rev3` uses the same per-file fallback.
-   - Rejects `rev1` cleanly with the full 52-item `missingSourceTypeEvidenceRefs` list (`rev2` required before import) without writing anything to `data/seed/`.
-   - Converts rev3 cleanly into `data/seed/` (213 entities, 59 evidence records, 278 facts, 304 `fact_evidence` links) with run-stable `F-<ENTITY>-<ATTR>-<N>` codes independent of JSON array ordering or `verification_state` changes.
-   - All five URL-less records remain non-blocking warnings: internal secondary `EV-000` and `EV-051`, plus unresolved official `EV-042`, `EV-045`, and `EV-046`. Dry-run output identifies the three official codes explicitly; no URLs are fabricated.
-3. **Zero-`DATABASE_URL`-Exposure Import (`POST /api/admin/import-seed`)**:
-   - Guarded by `ADMIN_IMPORT_TOKEN` (>= 16 chars, verified via constant-time SHA-256 `timingSafeEqual` in `Authorization: Bearer <token>` or `x-admin-import-token`, redacted in logs, rejected in URL query strings).
-   - Defaults to `dryRun: true` when invoked with an empty body or `{}`; performs transactional idempotent upsert inside Vercel only when `{"dryRun": false}` is explicitly sent.
-   - `next.config.ts` includes `outputFileTracingIncludes` for `./data/seed/**/*` on `/api/admin/import-seed` so serverless deployments always bundle the validated seed files.
+## Known research and coverage limits
 
-## Phase 05.3 — Revision 5, Import Gate & Map Polish
+- **47 entities have unknown status**; status is not inferred from geometry or weak evidence.
+- **21 road-network gaps remain**; the supplied extract is not exhaustive and missing map geometry is not evidence that a road or project does not exist.
+- **EV-045 and EV-046 remain unresolved** (official records lack resolved source URLs); no URLs are fabricated.
+- OSM-derived geometry is limited to the extracted/matched source coverage; ambiguous candidates remain excluded rather than guessed.
 
-- Owner-supplied rev5 sources and changelog are preserved in `data/research/rev5/`; the OSM matcher aliases are documented there and retain source geometry only when exact normalized name matches are found. The derived seed has 342 entities (232 with aliases), 198 evidence records, 1,108 facts, 1,218 fact-evidence links. All 275 rev4 entity identities and all 602 rev4 fact codes are retained; no entity code was removed/renamed/retyped. 294 verified facts cite URL-backed official evidence.
-- Re-running the stored OSM extract creates 1,970 features across 25 mapped entities; all 723 prior feature codes remain. Full counts per entity live in `data/features/match-report.json`.
-- Vercel production only (`VERCEL=1`, `VERCEL_ENV=production`): after migrations and before Next build, validate seed/features and atomically upsert plus record the SHA-256 checksum in `import_runs` under an advisory transaction lock. An unchanged checksum skips writes. A validation/transaction failure fails the build. Production without DB configuration fails closed. Preview/local builds do not import.
-- UI polish: remove alarming geometry badge, use neutral map-pin-off tooltip/note, emphasize road geometry with a casing and warm line color, and provide a mapped-only entity filter. API cap is raised to 5,000 for the rev5 set.
-- Expected database contents after the first automatic import: **342 entities, 198 evidence records, 1,108 facts, 1,218 fact-evidence links, and 1,970 features**. This workspace regenerated/validated these data files only; it did not connect to or import into the live database.
+## Quality and release notes
+
+Available checks: `npm run lint`, `npm run typecheck`, `npm test`, `npm run db:migrate:dry-run`, `npm run seed:check`, and `npm run build`. Preview import validation is read-only. Do not claim live-database reconciliation until the production import has completed.
+
+### Lighthouse before/after
+
+Audited the base-commit production build and Phase 07 production build with Lighthouse mobile emulation and desktop preset. Each tuple is **Performance / Accessibility / Best Practices / SEO** (0–100); `before` is the branch base, `after` is this Phase 07 build.
+
+| Route | Device | Before | After |
+|---|---|---:|---:|
+| `/` | Mobile | 45 / 100 / 96 / 100 | 85 / 100 / 96 / 100 |
+| `/` | Desktop | 96 / 100 / 96 / 100 | 99 / 100 / 96 / 100 |
+| `/entity/ROAD-RING-ROAD` | Mobile | 92 / 100 / 96 / 100 | 95 / 100 / 96 / 100 |
+| `/entity/ROAD-RING-ROAD` | Desktop | 100 / 100 / 96 / 100 | 100 / 100 / 96 / 100 |
+| `/data` | Mobile | 96 / 100 / 100 / 100 | 99 / 100 / 100 / 100 |
+| `/data` | Desktop | 100 / 100 / 100 / 100 | 100 / 100 / 100 / 100 |
+| `/methodology` | Mobile | 98 / 96 / 100 / 100 | 100 / 96 / 100 / 100 |
+| `/methodology` | Desktop | 100 / 96 / 100 / 100 | 100 / 96 / 100 / 100 |
+
+The production build was audited locally without `DATABASE_URL`; requests to the live atlas API therefore returned expected configuration errors, and the external OpenFreeMap style was not reliably reachable from the restricted audit browser. The homepage mobile score (85) is the remaining sub-90 case; its measured LCP varied with these unavailable API/map requests (roughly 3.5 seconds on the recorded run). MapLibre is dynamically split, fonts are self-hosted and non-blocking, the mobile viewport uses stable sizing, and the other seven route/device performance scores are at least 95. Accessibility is at least 96 and best-practices/SEO at least 96 across this run. Re-audit against the deployed preview with its database and map service available before release sign-off.

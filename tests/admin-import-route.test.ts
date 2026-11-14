@@ -109,6 +109,14 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
       factsCount: 1301,
       factEvidenceLinksCount: 1411,
       featuresCount: 2305,
+      importSync: {
+        featuresDeletedCount: null,
+        factEvidenceLinksDeletedCount: null,
+        entitiesNotInSeedCount: null,
+        factsNotInSeedCount: null,
+        evidenceNotInSeedCount: null,
+        databasePreviewAvailable: false,
+      },
     });
     expect(payload.report.evidenceMissingUrlCount).toBe(74);
     expect(payload.report.unresolvedOfficialEvidenceCount).toBe(2);
@@ -125,6 +133,46 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
     expect(payload.report.breakdowns.entitiesBySector.REGIONAL).toBe(28);
     expect(payload.report.breakdowns.factsByVerificationState.verified).toBe(310);
     expect(JSON.stringify(payload)).not.toContain(validToken);
+  });
+
+  it("includes non-destructive stale-record counts in the dry-run report", async () => {
+    const statements: string[] = [];
+    const sessionFactory = (): SeedDbSession => ({
+      async connect() {},
+      async query<Row = Record<string, unknown>>(text: string) {
+        const sql = text.trim();
+        statements.push(sql);
+        const count = sql.includes("FROM entities") ? 2
+          : sql.includes("FROM facts") ? 3
+          : sql.includes("FROM evidence") ? 1
+          : sql.includes("FROM features") ? 7
+          : 4;
+        return { rows: [{ count }] as unknown as Row[] };
+      },
+      async end() {},
+    });
+    const response = await executeAdminSeedImport({
+      request: new Request("https://example.vercel.app/api/admin/import-seed", {
+        method: "POST",
+        headers: { "x-admin-import-token": validToken, "Content-Type": "application/json" },
+        body: JSON.stringify({ dryRun: true }),
+      }),
+      rawEnv: { NODE_ENV: "test", ADMIN_IMPORT_TOKEN: validToken },
+      seedDir: fixtureDir,
+      featuresPath: null,
+      sessionFactory,
+    });
+    expect(response.report.importSync).toEqual({
+      featuresDeletedCount: null,
+      factEvidenceLinksDeletedCount: 4,
+      entitiesNotInSeedCount: 2,
+      factsNotInSeedCount: 3,
+      evidenceNotInSeedCount: 1,
+      databasePreviewAvailable: true,
+    });
+    expect(statements[0]).toBe("BEGIN READ ONLY");
+    expect(statements.at(-1)).toBe("COMMIT");
+    expect(statements.some((sql) => sql.startsWith("DELETE"))).toBe(false);
   });
 
   it("executes idempotent upsert when dryRun=false is explicitly requested", async () => {
@@ -202,6 +250,14 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
       factsCount: 5,
       factEvidenceLinksCount: 7,
       featuresCount: 0,
+      importSync: {
+        featuresDeletedCount: null,
+        factEvidenceLinksDeletedCount: 0,
+        entitiesNotInSeedCount: 0,
+        factsNotInSeedCount: 0,
+        evidenceNotInSeedCount: 0,
+        databasePreviewAvailable: true,
+      },
     });
     expect(entityIds.size).toBe(5);
     expect(evidenceIds.size).toBe(4);

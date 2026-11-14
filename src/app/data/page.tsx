@@ -19,7 +19,7 @@ export default async function DataPage({ searchParams }: { searchParams: Promise
   ];
   return <div className="site-layout" lang={language} dir={ar?"rtl":"ltr"}>
     <SiteHeader language={language}/>
-    <main className="site-content">
+    <main className="site-content" id="main-content">
       <p className="site-eyebrow">{ar?"واجهة البيانات المفتوحة":"OPEN DATA"}</p>
       <h1>{ar?"تنزيل بيانات الأطلس":"Download atlas data"}</h1>
       <p className="site-lede">{ar?"نسخ قابلة للتنزيل من السجل المعتمد. تحفظ صيغ JSON وGeoJSON رموز الكيانات والمصادر؛ وتبقى الأدلة المتعارضة منفصلة.":"Downloadable snapshots of the canonical atlas. JSON and GeoJSON preserve entity identifiers and source lineage; conflicting evidence remains separate."}</p>
@@ -38,7 +38,10 @@ export default async function DataPage({ searchParams }: { searchParams: Promise
         <h2 id="license-title">{ar?"الإسناد والترخيص":"Attribution & licensing"}</h2>
         <p><strong>{ar?"الهندسة":"Geometry"}:</strong> {metadata.licenses.geometry}</p>
         <p><strong>{ar?"الخرائط الأساسية":"Basemap"}:</strong> {metadata.licenses.basemap}</p>
-        <p><strong>{ar?"الحقائق والأدلة":"Facts and evidence"}:</strong> {metadata.licenses.research_data}</p>
+        <p><strong>{ar?"الحقائق والأدلة والبيانات غير المشتقة من OSM":"Facts, evidence & non-OSM data"}:</strong> {metadata.licenses.research_data}</p>
+        <p><strong>{ar?"التواصل":"Contact"}:</strong> <bdi dir="ltr">{metadata.licenses.contact}</bdi></p>
+        <p><strong>{ar?"رخصة الشيفرة":"Code license"}:</strong> {metadata.licenses.code}</p>
+        <p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">{ar?"تفاصيل رخصة المشاع الإبداعي CC BY 4.0":"CC BY 4.0 license terms"}</a></p>
       </section>
       <aside className="future-format-note"><strong>{ar?"GeoPackage لاحقًا":"GeoPackage later"}</strong><p>{ar?"يمكن إنشاء حزمة GeoPackage محليًا في إصدار لاحق باستخدام Python وGeoPandas من ملف GeoJSON المنزّل؛ لن يعتمد التصدير على قاعدة بيانات إنتاجية.":"A future release can create an offline GeoPackage with Python and GeoPandas from the downloaded GeoJSON; no production database access is needed."}</p></aside>
       <p className="site-backlink"><Link href={`/methodology?lang=${language}`}>{ar?"اقرأ المنهجية وملاحظات الترخيص ←":"Read methodology and licensing notes →"}</Link></p>

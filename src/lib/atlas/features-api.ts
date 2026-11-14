@@ -34,6 +34,11 @@ export interface FeatureCollectionRow {
 
 export interface AtlasFeatureCollection {
   type: "FeatureCollection";
+  metadata: {
+    data_license: string;
+    geometry_license: string;
+    contact: string;
+  };
   features: Array<{
     type: "Feature";
     id: string;
@@ -115,6 +120,11 @@ export async function getAtlasFeatures(
   const rows = await executeRows(filters);
   return {
     type: "FeatureCollection",
+    metadata: {
+      data_license: "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0",
+      geometry_license: "© OpenStreetMap contributors, ODbL 1.0",
+      contact: "01092500454 · 3boalazm@gmail.com",
+    },
     features: rows.map((row) => ({
       type: "Feature",
       id: row.code,

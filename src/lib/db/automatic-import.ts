@@ -41,7 +41,9 @@ export async function runAutomaticAtlasImport(
   return runSeedImport({
     seedDir: path.join(root, "data/seed"),
     featuresPath: path.join(root, "data/features/features.geojson"),
-    importRun: options.dryRun ? undefined : { datasetKey: "atlas-seed-features", checksum },
+    // New key forces one full reconciliation on the first deployment of sync-v2,
+    // even when the source checksum already matches a prior upsert-only import.
+    importRun: options.dryRun ? undefined : { datasetKey: "atlas-seed-features-full-sync-v2", checksum },
     dryRun: options.dryRun ?? false,
   });
 }

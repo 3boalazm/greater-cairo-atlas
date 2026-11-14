@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 import type { GeoJSONSource, Map as MapLibreMap, MapLayerMouseEvent } from "maplibre-gl";
 import type { FeatureCollection } from "geojson";
 import type { AtlasFeatureCollection, AtlasTheme } from "./atlas-client";
@@ -17,6 +18,18 @@ const roadNetworkDetailSourceId = "atlas-road-network-detail";
 const roadNetworkLayerId = "atlas-road-network-lines";
 const roadNetworkDetailLayerId = "atlas-road-network-detail-lines";
 const lineLayers = ["atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points"];
+
+type EntityLineColorExpression = ["match", ["get", "type"], "road", string, "transit_line", string, string];
+
+type PlannedLineColorExpression = ["match", ["get", "type"], "road", string, string];
+
+function entityLineColor(theme: AtlasTheme): EntityLineColorExpression {
+  return ["match", ["get", "type"], "road", theme === "day" ? "#854a0a" : "#f0ad58", "transit_line", theme === "day" ? "#145e63" : "#53d8d2", theme === "day" ? "#58635b" : "#99a8b5"];
+}
+
+function plannedLineColor(theme: AtlasTheme): PlannedLineColorExpression {
+  return ["match", ["get", "type"], "road", theme === "day" ? "#854a0a" : "#d39a55", theme === "day" ? "#51458a" : "#a89af1"];
+}
 
 function visitPositions(geometry: unknown, visit: (point: [number, number]) => void) {
   if (!geometry || typeof geometry !== "object") return;
@@ -118,37 +131,37 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       map.addLayer({
         id: "atlas-lines-operational", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "operational"],
-        paint: { "line-color": ["match", ["get", "type"], "road", "#f0ad58", "transit_line", "#53d8d2", "#99a8b5"], "line-width": ["interpolate", ["linear"], ["zoom"], 6, ["match", ["get", "type"], "road", 2.1, 1.6], 12, ["match", ["get", "type"], "road", 5.2, 3.7], 16, ["match", ["get", "type"], "road", 8, 5.5]], "line-opacity": 0.96 },
+        paint: { "line-color": entityLineColor(theme), "line-width": ["interpolate", ["linear"], ["zoom"], 6, ["match", ["get", "type"], "road", 2.1, 1.6], 12, ["match", ["get", "type"], "road", 5.2, 3.7], 16, ["match", ["get", "type"], "road", 8, 5.5]], "line-opacity": 0.96 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-partial", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "partial"],
-        paint: { "line-color": ["match", ["get", "type"], "road", "#f0ad58", "transit_line", "#53d8d2", "#99a8b5"], "line-width": 3.2, "line-dasharray": [2, 1], "line-opacity": 0.95 },
+        paint: { "line-color": entityLineColor(theme), "line-width": 3.2, "line-dasharray": [2, 1], "line-opacity": 0.95 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-construction", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "under_construction"],
-        paint: { "line-color": ["match", ["get", "type"], "road", "#f0ad58", "transit_line", "#53d8d2", "#99a8b5"], "line-width": 3, "line-dasharray": [1.5, 1.5], "line-opacity": 0.9 },
+        paint: { "line-color": entityLineColor(theme), "line-width": 3, "line-dasharray": [1.5, 1.5], "line-opacity": 0.9 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-planned", type: "line", source: sourceId,
         filter: ["in", ["get", "status"], ["literal", ["planned", "approved_planned"]]],
-        paint: { "line-color": ["match", ["get", "type"], "road", "#d39a55", "#a89af1"], "line-width": 2.8, "line-dasharray": [0.6, 2.3], "line-opacity": 0.88 },
+        paint: { "line-color": plannedLineColor(theme), "line-width": 2.8, "line-dasharray": [0.6, 2.3], "line-opacity": 0.88 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-unknown", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "unknown"],
-        paint: { "line-color": ["match", ["get", "type"], "road", "#d39a55", "#87938e"], "line-width": ["match", ["get", "type"], "road", 3.2, 1.8], "line-opacity": 0.82 },
+        paint: { "line-color": ["match", ["get", "type"], "road", theme === "day" ? "#854a0a" : "#d39a55", theme === "day" ? "#58635b" : "#87938e"], "line-width": ["match", ["get", "type"], "road", 3.2, 1.8], "line-opacity": 0.82 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-points", type: "circle", source: sourceId,
         filter: ["==", ["geometry-type"], "Point"],
-        paint: { "circle-color": "#f7d46a", "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, 2.5, 12, 5], "circle-stroke-color": theme === "day" ? "#fff" : "#111715", "circle-stroke-width": 1.5 },
+        paint: { "circle-color": theme === "day" ? "#815c00" : "#f7d46a", "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, 2.5, 12, 5], "circle-stroke-color": theme === "day" ? "#fff" : "#111715", "circle-stroke-width": 1.5 },
       });
       map.on("click", (event: MapLayerMouseEvent) => {
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers });

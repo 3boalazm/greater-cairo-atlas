@@ -80,6 +80,10 @@ async function main(): Promise<void> {
     console.info(
       `Seed validation passed (${summary.seedDir}): ${summary.entitiesCount} entities, ${summary.evidenceCount} evidence items, ${summary.factsCount} facts (${summary.factEvidenceLinksCount} fact-evidence links), ${summary.featuresCount} features, ${summary.report.warnings.length} warning(s).`,
     );
+    const sync = summary.importSync;
+    console.info(sync.databasePreviewAvailable
+      ? `Reconciliation preview: would delete ${sync.featuresDeletedCount ?? 0} stale features and ${sync.factEvidenceLinksDeletedCount ?? 0} stale fact-evidence links; retaining ${sync.entitiesNotInSeedCount ?? 0} entities, ${sync.factsNotInSeedCount ?? 0} facts, ${sync.evidenceNotInSeedCount ?? 0} evidence records absent from the seed.`
+      : "Reconciliation deletion counts were not queried (no database preview connection configured). No data was changed.");
     for (const warning of summary.report.warnings) {
       console.warn(`  [WARN ${warning.code}] ${warning.path}: ${warning.message}`);
     }
@@ -87,7 +91,7 @@ async function main(): Promise<void> {
   }
 
   console.info(
-    `Seed import complete (${summary.seedDir}): upserted ${summary.entitiesCount} entities, ${summary.evidenceCount} evidence items, ${summary.factsCount} facts (${summary.factEvidenceLinksCount} fact-evidence links), ${summary.featuresCount} features.`,
+    `Seed import complete (${summary.seedDir}): upserted ${summary.entitiesCount} entities, ${summary.evidenceCount} evidence items, ${summary.factsCount} facts (${summary.factEvidenceLinksCount} fact-evidence links), ${summary.featuresCount} features; deleted ${summary.importSync.featuresDeletedCount ?? 0} stale features and ${summary.importSync.factEvidenceLinksDeletedCount ?? 0} stale fact-evidence links; retained ${summary.importSync.entitiesNotInSeedCount ?? 0} out-of-seed entities, ${summary.importSync.factsNotInSeedCount ?? 0} facts, ${summary.importSync.evidenceNotInSeedCount ?? 0} evidence records.`,
   );
 }
 
