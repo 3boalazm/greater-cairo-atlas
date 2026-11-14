@@ -5,7 +5,7 @@ import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
 import { adaptResearchSeedSources } from "@/lib/atlas/research-seed";
 import { loadAndValidateSeedDir, summarizeValidatedSeedBundle } from "@/lib/atlas/seed";
 
-describe("revision 7 seed + OSM geometry delivery", () => {
+describe("revision 8 seed + OSM geometry delivery", () => {
   it("preserves the rev4 entity identity and fact-code baseline", async () => {
     const root = process.cwd();
     const [baseline, bundle] = await Promise.all([
@@ -44,13 +44,13 @@ describe("revision 7 seed + OSM geometry delivery", () => {
     const currentEntities = new Map(current.entities.map((item) => [item.code, item]));
     for (const entity of prior.bundle.entities) {
       const next = currentEntities.get(entity.code);
-      expect(next, `rev7 deleted entity ${entity.code}`).toBeDefined();
-      expect(next?.entity_type, `rev7 retyped entity ${entity.code}`).toBe(entity.entity_type);
+      expect(next, `rev8 deleted entity ${entity.code}`).toBeDefined();
+      expect(next?.entity_type, `rev8 retyped entity ${entity.code}`).toBe(entity.entity_type);
     }
     const currentFacts = new Set(current.facts.map((item) => item.code));
-    for (const fact of prior.bundle.facts) expect(currentFacts.has(fact.code), `rev7 deleted fact ${fact.code}`).toBe(true);
+    for (const fact of prior.bundle.facts) expect(currentFacts.has(fact.code), `rev8 deleted fact ${fact.code}`).toBe(true);
     const currentEvidence = new Set(current.evidence.map((item) => item.code));
-    for (const evidence of prior.bundle.evidence) expect(currentEvidence.has(evidence.code), `rev7 deleted evidence ${evidence.code}`).toBe(true);
+    for (const evidence of prior.bundle.evidence) expect(currentEvidence.has(evidence.code), `rev8 deleted evidence ${evidence.code}`).toBe(true);
 
     const changes = prior.bundle.entities.flatMap((old) => {
       const next = currentEntities.get(old.code)!;
@@ -62,16 +62,16 @@ describe("revision 7 seed + OSM geometry delivery", () => {
     expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(17);
   });
 
-  it("validates rev7 counts and requires official URL-backed evidence for every verified fact", async () => {
+  it("validates rev8 counts and requires official URL-backed evidence for every verified fact", async () => {
     const bundle = await loadAndValidateSeedDir(path.join(process.cwd(), "data/seed"));
     const report = summarizeValidatedSeedBundle(bundle);
     expect(report).toMatchObject({
-      entitiesCount: 342,
-      entitiesWithAliasesCount: 250,
-      evidenceCount: 350,
+      entitiesCount: 415,
+      entitiesWithAliasesCount: 251,
+      evidenceCount: 368,
       evidenceMissingUrlCount: 71,
-      factsCount: 1391,
-      factEvidenceLinksCount: 1505,
+      factsCount: 2075,
+      factEvidenceLinksCount: 2427,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");
