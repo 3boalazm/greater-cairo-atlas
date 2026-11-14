@@ -3,6 +3,59 @@
   "features": [
     {
       "type": "Feature",
+      "id": "OSM-NODE-10099279487",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2129901,
+          30.0667936
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-10099279487",
+        "entity_code": "STOP-KIT-KAT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 10099279487,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 10099279487,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "الکيت کات",
+            "name:ar": "الکيت کات",
+            "name:de": "Kit-kat",
+            "name:en": "Kit-kat",
+            "name:fa": "کيت-کات",
+            "name:fr": "Kit-kat",
+            "name:ml": "കിറ്റ്-കാറ്റ്",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes"
+          },
+          "match_method": "exact osm_node_id fact; no name-based substitution",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L3"
+          ],
+          "station_node_source_quality": 3,
+          "source_station_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-NODE-10154769796",
       "geometry": {
         "type": "Point",
@@ -2492,6 +2545,63 @@
     },
     {
       "type": "Feature",
+      "id": "OSM-NODE-271864421",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2460533,
+          30.0629785
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-271864421",
+        "entity_code": "RAIL-RAMSES",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 271864421,
+        "osm_version": 19,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 271864421,
+            "osm_version": 19
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "rail_station",
+          "osm_tags": {
+            "alt_name": "محطة مصر",
+            "alt_name:en": "Misr Station",
+            "name": "محطة رمسيس",
+            "name:ar": "محطة رمسيس",
+            "name:de": "Ramses-Bahnhof",
+            "name:en": "Ramses Station",
+            "name:fa": "ایستگاه رامسس",
+            "name:fr": "Station Ramsès",
+            "name:ml": "റാംസെസ് സ്റ്റേഷൻ",
+            "operator": "سكك حديد مصر",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "train",
+            "train": "yes",
+            "wikidata": "Q633754",
+            "wikimedia_commons": "Category:Ramses Station",
+            "wikipedia": "ar:محطة مصر (القاهرة)"
+          },
+          "match_method": "exact osm_node_id fact; no name-based substitution",
+          "matched_line_codes": [],
+          "station_node_source_quality": 3,
+          "source_station_modes": [
+            "train"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-NODE-2742102194",
       "geometry": {
         "type": "Point",
@@ -4711,6 +4821,59 @@
     },
     {
       "type": "Feature",
+      "id": "OSM-NODE-329978615",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.244276,
+          30.0453923
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-329978615",
+        "entity_code": "STOP-M2-MOHAMED-NAGUIB",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 329978615,
+        "osm_version": 9,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 329978615,
+            "osm_version": 9
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "نجيب",
+            "name:ar": "محمد نجيب",
+            "name:en": "Mohamed Naguib",
+            "name:fa": "محمد نجيب",
+            "name:fr": "Mohammed Naguib",
+            "name:ml": "മുഹമ്മദ് നഗീബ്",
+            "name:zh": "内吉布",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes"
+          },
+          "match_method": "exact osm_node_id fact; no name-based substitution",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L2"
+          ],
+          "station_node_source_quality": 3,
+          "source_station_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-NODE-330190833",
       "geometry": {
         "type": "Point",
@@ -5692,57 +5855,61 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-NODE-5194295698",
+      "id": "OSM-NODE-5194295702",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          31.2465521,
-          30.0617735
+          31.2460174,
+          30.061851
         ]
       },
       "properties": {
-        "code": "OSM-NODE-5194295698",
-        "entity_code": "RAIL-RAMSES",
+        "code": "OSM-NODE-5194295702",
+        "entity_code": "STOP-SHUHADA",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "node",
-        "osm_id": 5194295698,
-        "osm_version": 7,
+        "osm_id": 5194295702,
+        "osm_version": 8,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "node",
-            "osm_id": 5194295698,
-            "osm_version": 7
+            "osm_id": 5194295702,
+            "osm_version": 8
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "rail_station",
+          "entity_type": "transit_stop",
           "osm_tags": {
             "alt_name": "رمسيس",
             "alt_name:ar": "رمسيس",
             "alt_name:en": "Ramses",
-            "gtfs:stop_id": "82",
+            "int_name": "Shuhada (previously: Mubarak)",
             "name": "الشهداء",
             "name:ar": "الشهداء",
             "name:de": "Shuhada",
             "name:en": "Shuhada",
+            "name:fa": "شهدا",
             "name:fr": "Shuhada",
+            "name:ml": "ഷൂഹദ",
             "name:zh": "烈士",
             "old_name": "مبارك",
             "old_name:ar": "مبارك",
             "old_name:en": "Mubarak",
-            "public_transport": "stop_position",
-            "railway": "stop",
-            "subway": "yes"
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes",
+            "wheelchair": "yes"
           },
           "match_method": "exact osm_node_id fact; no name-based substitution",
           "matched_line_codes": [
             "TRANSIT-METRO-L1",
             "TRANSIT-METRO-L2"
           ],
-          "station_node_source_quality": 2,
+          "station_node_source_quality": 3,
           "source_station_modes": [
             "subway"
           ]
@@ -5896,9 +6063,7 @@
             "train": "yes"
           },
           "match_method": "exact osm_node_id fact; no name-based substitution",
-          "matched_line_codes": [
-            "Alexandria-Aswan line"
-          ],
+          "matched_line_codes": [],
           "station_node_source_quality": 3,
           "source_station_modes": [
             "train"
@@ -6011,36 +6176,36 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-NODE-5349031071",
+      "id": "OSM-NODE-5349031072",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          31.3138798,
-          30.1143443
+          31.3139117,
+          30.1143456
         ]
       },
       "properties": {
-        "code": "OSM-NODE-5349031071",
+        "code": "OSM-NODE-5349031072",
         "entity_code": "STOP-M1-HELMEYET-AL-ZAITOUN",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "node",
-        "osm_id": 5349031071,
-        "osm_version": 7,
+        "osm_id": 5349031072,
+        "osm_version": 8,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "node",
-            "osm_id": 5349031071,
-            "osm_version": 7
+            "osm_id": 5349031072,
+            "osm_version": 8
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
           "entity_type": "transit_stop",
           "osm_tags": {
-            "direction": "Marg",
-            "gtfs:stop_id": "90",
+            "direction": "Helwan",
+            "gtfs:stop_id": "29",
             "int_name": "Helmeyet El-Zaitoun",
             "name": "حلمية الزيتون",
             "name:ar": "حلمية الزيتون",
@@ -6064,36 +6229,36 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-NODE-5349031084",
+      "id": "OSM-NODE-5349031085",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          31.2381056,
-          30.0365602
+          31.2380539,
+          30.0365735
         ]
       },
       "properties": {
-        "code": "OSM-NODE-5349031084",
+        "code": "OSM-NODE-5349031085",
         "entity_code": "STOP-M1-SAAD-ZAGHLOUL",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "node",
-        "osm_id": 5349031084,
-        "osm_version": 4,
+        "osm_id": 5349031085,
+        "osm_version": 5,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "node",
-            "osm_id": 5349031084,
-            "osm_version": 4
+            "osm_id": 5349031085,
+            "osm_version": 5
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
           "entity_type": "transit_stop",
           "osm_tags": {
             "alt_name": "مترو سعد زغلول",
-            "gtfs:stop_id": "18",
+            "gtfs:stop_id": "78",
             "int_name": "Saad Zaghloul",
             "name": "سعد زغلول",
             "name:ar": "سعد زغلول",
@@ -6168,36 +6333,36 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-NODE-5355866946",
+      "id": "OSM-NODE-5355866947",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          31.200307,
-          30.0357856
+          31.2003246,
+          30.0357431
         ]
       },
       "properties": {
-        "code": "OSM-NODE-5355866946",
+        "code": "OSM-NODE-5355866947",
         "entity_code": "STOP-M2-BEHOOTH",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "node",
-        "osm_id": 5355866946,
-        "osm_version": 4,
+        "osm_id": 5355866947,
+        "osm_version": 5,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "node",
-            "osm_id": 5355866946,
-            "osm_version": 4
+            "osm_id": 5355866947,
+            "osm_version": 5
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
           "entity_type": "transit_stop",
           "osm_tags": {
             "alt_name": "البحوث",
-            "gtfs:stop_id": "101",
+            "gtfs:stop_id": "40",
             "int_name": "Bohooth",
             "name": "البحوث",
             "name:ar": "البحوث",
@@ -6505,35 +6670,35 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-NODE-7302135245",
+      "id": "OSM-NODE-7302135246",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          31.3439452,
-          30.1223389
+          31.3439972,
+          30.1222697
         ]
       },
       "properties": {
-        "code": "OSM-NODE-7302135245",
+        "code": "OSM-NODE-7302135246",
         "entity_code": "STOP-M3-EL-SHAMS-CLUB",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "node",
-        "osm_id": 7302135245,
-        "osm_version": 5,
+        "osm_id": 7302135246,
+        "osm_version": 6,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "node",
-            "osm_id": 7302135245,
-            "osm_version": 5
+            "osm_id": 7302135246,
+            "osm_version": 6
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
           "entity_type": "transit_stop",
           "osm_tags": {
-            "gtfs:stop_id": "132",
+            "gtfs:stop_id": "131",
             "name": "نادي الشمس‎",
             "name:en": "El Shams Club",
             "name:fr": "El Shams Club",
@@ -7530,55 +7695,6 @@
             "wikimedia_commons": "Category:10th of Ramadan (city)",
             "wikipedia": "en:10th of Ramadan City"
           }
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-NODE-7926259279",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.3605236,
-          30.1280974
-        ]
-      },
-      "properties": {
-        "code": "OSM-NODE-7926259279",
-        "entity_code": "STOP-M3-EL-NOZHA",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "node",
-        "osm_id": 7926259279,
-        "osm_version": 4,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "node",
-            "osm_id": 7926259279,
-            "osm_version": 4
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "transit_stop",
-          "osm_tags": {
-            "gtfs:stop_id": "143",
-            "name": "النزهة‎",
-            "name:en": "El Nozha",
-            "name:fr": "El Nozha",
-            "public_transport": "stop_position",
-            "railway": "stop",
-            "subway": "yes"
-          },
-          "match_method": "exact osm_node_id fact; no name-based substitution",
-          "matched_line_codes": [
-            "TRANSIT-METRO-L3"
-          ],
-          "station_node_source_quality": 2,
-          "source_station_modes": [
-            "subway"
-          ]
         }
       }
     },

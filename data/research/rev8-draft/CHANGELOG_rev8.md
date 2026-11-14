@@ -16,7 +16,7 @@ No numeric station-count shortfall appears on these five lines. The stored offic
 
 ## Entity and identifier cleanup
 
-- Final seed snapshot: 415 entities, 2,075 facts, and 368 evidence records. Compared with rev7, this adds 72 station entities and one ENR rail-station entity; five duplicate OSM station records were folded into their existing or consolidated canonical STOP entities.
+- Initial rev8 seed snapshot: 415 entities, 2,075 facts, and 368 evidence records. The Phase 08.1 additions and corrections are summarized below.
 - New metro/LRT/monorail STOP codes use stable line-prefixed slugs (`STOP-M1-*`, `STOP-M2-*`, `STOP-M3-*`, `STOP-LRT-*`, `STOP-MRE-*`). The ENR station uses `RAIL-GIZA-SUBURBS`. OSM node IDs remain represented by `osm_node_id` facts, and all fact references use the final stable entity codes.
 - OSM Ring Road is folded into existing `STOP-M3-RING-ROAD`; Al Marj, Shobra Al-Kheima, and Kit Kat are folded into existing `STOP-M1-EL-MARG`, `STOP-M2-SHUBRA-ELKHEIMA`, and `STOP-KIT-KAT`. Two OSM positions at the same El Nozha L3 station are represented once as `STOP-M3-EL-NOZHA`. All source node IDs remain attached as facts.
 - `STOP-MRW-WADI-EL-NIL` remains a separate WEST / under-construction West Monorail station from operational Metro L3 `STOP-M3-WADI-EL-NILE`; an `interchange_with` fact links the two without merging their identities.
@@ -28,3 +28,10 @@ No numeric station-count shortfall appears on these five lines. The stored offic
 - The stored OSM nodes have no Arabic name for four stops: Sudan, Al-Bohy, Imbaba, and Al-Kawmeiah. Their canonical Arabic and English fields both retain the available English name.
 - Added OSM route evidence: EV-351–EV-368 (18 relation-specific dataset records). Added route membership/order/node-ID facts remain `candidate`; each cites the corresponding OSM relation evidence. The explicit Wadi El Nil interchange fact also remains candidate.
 - OSM STOP matching was checked against existing STOP entities by station name and line before adaptation; duplicate groups were consolidated, not emitted as duplicate entities.
+
+## Phase 08.1 corrections
+
+- Current canonical snapshot: 417 entities, 2,083 facts, and 371 evidence records. Added `STOP-SHUHADA` as the separate operational metro interchange at OSM node 5194295702; superseded Ramses rail station's misattributed metro lines and metro stop-position node facts. Ramses remains mapped only to its railway station node 271864421.
+- Station matching now covers L1 35/35, L2 20/20, and L3 33/33 seed-linked stations. Kit Kat uses operational station node 10099279487 and Mohamed Naguib uses operational node 329978615. Ahmed Omar Hashem remains approved-planned with no geometry.
+- Transit station colors resolve from explicit line membership: L1 red, L2 yellow, L3 green (both branches), and L4 muted/dashed; remaining transit modes retain their established 07.7 palette. Interchanges use a neutral ring and expose their line list.
+- Stations without a documented line display the exact label «محطة — الخط غير موثق». Line facts are preferred for mode inference; no lifecycle validation was bypassed.

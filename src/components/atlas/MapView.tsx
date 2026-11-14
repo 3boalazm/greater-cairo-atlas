@@ -8,7 +8,7 @@ import type { FeatureCollection } from "geojson";
 import type { AtlasFeatureCollection, AtlasTheme } from "./atlas-client";
 import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 import { getAtlasMapStyleUrl } from "./map-styles";
-import { TRANSIT_LINE_COLORS, TRANSIT_LINE_MUTED_COLORS, TRANSIT_MODE_LABELS, type TransitMode } from "@/lib/atlas/transit-modes";
+import { TRANSIT_LINE_COLORS, TRANSIT_LINE_LABELS, TRANSIT_MODE_LABELS, type TransitMode } from "@/lib/atlas/transit-modes";
 
 maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
 
@@ -66,9 +66,11 @@ function syncRailLayers(map: MapLibreMap, enabled: boolean, showDisused: boolean
   }
 }
 
-function entityLineColor(theme: AtlasTheme, muted = false): MapExpression {
-  const colors = Object.entries(TRANSIT_LINE_COLORS).flatMap(([code, color]) => [code, muted ? TRANSIT_LINE_MUTED_COLORS[code] ?? (theme === "day" ? "#92999b" : "#68767b") : color]);
-  return ["match", ["get", "entity_code"], ...colors, ["case", ["==", ["get", "type"], "road"], theme === "day" ? "#854a0a" : "#f0ad58", theme === "day" ? "#145e63" : "#53d8d2"]] as unknown as MapExpression;
+function entityLineColor(theme: AtlasTheme): MapExpression {
+  const colors = Object.entries(TRANSIT_LINE_COLORS).flatMap(([code, color]) => [code, color]);
+  const lineCode = ["coalesce", ["get", "primary_line_code"], ["at", 0, ["get", "line_codes"]], ["get", "entity_code"]];
+  const fallback = ["case", ["==", ["get", "type"], "road"], theme === "day" ? "#854a0a" : "#f0ad58", theme === "day" ? "#145e63" : "#53d8d2"];
+  return ["match", lineCode, ...colors, fallback] as unknown as MapExpression;
 }
 
 function stationModeFilter(modes: readonly TransitMode[]): MapExpression {
@@ -115,10 +117,10 @@ function addTransitIcons(map: MapLibreMap) {
 }
 
 function stationIconColor(): MapExpression {
-  const full = Object.entries(TRANSIT_LINE_COLORS).flatMap(([code, color]) => [code, color]);
-  const muted = Object.entries(TRANSIT_LINE_MUTED_COLORS).flatMap(([code, color]) => [code, color]);
-  const fallback = ["case", ["==", ["at", 0, ["get", "modes"]], "metro"], "#c8202f", ["==", ["at", 0, ["get", "modes"]], "lrt"], "#b74831", ["==", ["at", 0, ["get", "modes"]], "monorail_east"], "#174d9b", ["==", ["at", 0, ["get", "modes"]], "monorail_west"], "#527da8", ["==", ["at", 0, ["get", "modes"]], "brt"], "#2477a8", ["==", ["at", 0, ["get", "modes"]], "hsr"], "#525e64", ["==", ["at", 0, ["get", "modes"]], "unclassified"], "#6c7475", "#925c2c"];
-  return ["case", ["in", ["get", "status"], ["literal", ["under_construction", "planned", "approved_planned"]]], ["match", ["get", "primary_line_code"], ...muted, fallback], ["match", ["get", "primary_line_code"], ...full, fallback]] as unknown as MapExpression;
+  const colors = Object.entries(TRANSIT_LINE_COLORS).flatMap(([code, color]) => [code, color]);
+  const lineCode = ["coalesce", ["get", "primary_line_code"], ["at", 0, ["get", "line_codes"]], ["get", "entity_code"]];
+  const fallback = ["case", ["==", ["at", 0, ["get", "modes"]], "metro"], "#c8202f", ["==", ["at", 0, ["get", "modes"]], "metro_l4"], "#85799b", ["==", ["at", 0, ["get", "modes"]], "lrt"], "#b74831", ["==", ["at", 0, ["get", "modes"]], "monorail_east"], "#174d9b", ["==", ["at", 0, ["get", "modes"]], "monorail_west"], "#527da8", ["==", ["at", 0, ["get", "modes"]], "brt"], "#2477a8", ["==", ["at", 0, ["get", "modes"]], "hsr"], "#525e64", ["==", ["at", 0, ["get", "modes"]], "unclassified"], "#6c7475", "#925c2c"];
+  return ["match", lineCode, ...colors, fallback] as unknown as MapExpression;
 }
 
 function visitPositions(geometry: unknown, visit: (point: [number, number]) => void) {
@@ -162,6 +164,7 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
+  const transitTooltipRef = useRef<maplibregl.Popup | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const dataRef = useRef<AtlasFeatureCollection>(features);
   const showRoadNetworkRef = useRef(showRoadNetwork);
@@ -300,19 +303,19 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       map.addLayer({
         id: "atlas-lines-construction", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "under_construction"],
-        paint: { "line-color": entityLineColor(theme, true), "line-width": 3, "line-dasharray": [1.5, 1.5], "line-opacity": 0.82 },
+        paint: { "line-color": entityLineColor(theme), "line-width": 3, "line-dasharray": [1.5, 1.5], "line-opacity": 0.82 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-planned", type: "line", source: sourceId,
         filter: ["in", ["get", "status"], ["literal", ["planned", "approved_planned"]]],
-        paint: { "line-color": entityLineColor(theme, true), "line-width": 2.8, "line-dasharray": [0.6, 2.3], "line-opacity": 0.88 },
+        paint: { "line-color": entityLineColor(theme), "line-width": 2.8, "line-dasharray": [0.6, 2.3], "line-opacity": 0.88 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-unknown", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "unknown"],
-        paint: { "line-color": ["match", ["get", "type"], "road", theme === "day" ? "#854a0a" : "#d39a55", theme === "day" ? "#58635b" : "#87938e"], "line-width": ["match", ["get", "type"], "road", 3.2, 1.8], "line-opacity": 0.82 },
+        paint: { "line-color": entityLineColor(theme), "line-width": ["match", ["get", "type"], "road", 3.2, 1.8], "line-opacity": 0.82 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
@@ -406,6 +409,24 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       map.on("mousemove", (event: MapLayerMouseEvent) => {
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers.filter((layerId) => map.getLayer(layerId)) });
         map.getCanvas().style.cursor = found.length ? "pointer" : "";
+        const interchange = found.find((feature) => feature.properties?.interchange === true);
+        if (!interchange) { transitTooltipRef.current?.remove(); return; }
+        const properties = interchange.properties ?? {};
+        const codes = Array.isArray(properties.line_codes)
+          ? (properties.line_codes as unknown[]).filter((code): code is string => typeof code === "string")
+          : [];
+        const content = document.createElement("div");
+        content.className = "transit-line-tooltip-content";
+        content.dir = language === "ar" ? "rtl" : "ltr";
+        const title = document.createElement("strong");
+        title.textContent = String(properties[language === "ar" ? "name_ar" : "name_en"] ?? properties.name ?? "");
+        const lines = document.createElement("span");
+        lines.textContent = codes.length
+          ? codes.map((code) => TRANSIT_LINE_LABELS[code]?.[language] ?? code).join(" · ")
+          : TRANSIT_MODE_LABELS.unclassified[language];
+        content.append(title, lines);
+        transitTooltipRef.current ??= new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 12, className: "transit-line-tooltip" });
+        transitTooltipRef.current.setLngLat(event.lngLat).setDOMContent(content).addTo(map);
       });
       if (boundaryRef.current || (fitToFeatures && dataRef.current.features.length > 0)) {
         const bounds = new maplibregl.LngLatBounds();
@@ -428,7 +449,7 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       requestAnimationFrame(() => map.resize());
     });
     map.on("zoomend", () => onZoomRef.current(Math.round(map.getZoom())));
-    return () => { map.remove(); mapRef.current = null; };
+    return () => { transitTooltipRef.current?.remove(); transitTooltipRef.current = null; map.remove(); mapRef.current = null; };
   }, [theme, compact, fitToFeatures, language]);
 
   useEffect(() => {

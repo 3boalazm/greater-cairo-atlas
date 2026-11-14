@@ -4046,5 +4046,38 @@
     "published_date_precision": "day",
     "accessed_date": "2026-11-14",
     "notes": "Stored OSM route relation; route membership/order source for ENR."
+  },
+  {
+    "code": "EV-369",
+    "title": "OpenStreetMap station node 10099279487: Kit Kat metro station",
+    "url": "https://www.openstreetmap.org/node/10099279487",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM extract shows railway=station, station=subway and subway=yes without construction tags; used as the operational station location."
+  },
+  {
+    "code": "EV-370",
+    "title": "OpenStreetMap station node 329978615: Mohamed Naguib metro station",
+    "url": "https://www.openstreetmap.org/node/329978615",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM extract tags the node as railway=station, station=subway and subway=yes; nearby L2 route relations 421706 and 7927231 include the matching stop-position nodes."
+  },
+  {
+    "code": "EV-371",
+    "title": "OpenStreetMap station node 5194295702: Al-Shohadaa metro station",
+    "url": "https://www.openstreetmap.org/node/5194295702",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM extract tags this exact node public_transport=station, railway=station, station=subway, subway=yes; separate from nearby Ramses railway station node 271864421."
   }
 ]

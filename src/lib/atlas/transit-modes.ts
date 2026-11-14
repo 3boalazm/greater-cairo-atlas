@@ -13,7 +13,7 @@ export const TRANSIT_MODE_LABELS: Record<TransitMode, { ar: string; en: string; 
   brt: { ar: "الأتوبيس الترددي السريع", en: "Bus Rapid Transit", color: "#2477a8", shape: "triangle" },
   enr: { ar: "سكك حديد مصر", en: "Conventional rail (ENR)", color: "#925c2c", shape: "cross" },
   hsr: { ar: "القطار الكهربائي السريع", en: "High-Speed Rail", color: "#525e64", shape: "hexagon" },
-  unclassified: { ar: "محطة نقل · الوسيلة غير محددة", en: "Transit stop · mode unconfirmed", color: "#6c7475", shape: "hexagon" },
+  unclassified: { ar: "محطة — الخط غير موثق", en: "Station — line undocumented", color: "#6c7475", shape: "hexagon" },
 };
 
 export const TRANSIT_LINE_MUTED_COLORS: Record<string, string> = {
@@ -35,7 +35,7 @@ export const TRANSIT_LINE_COLORS: Record<string, string> = {
   "TRANSIT-METRO-L1": "#c8202f",
   "TRANSIT-METRO-L2": "#e2b527",
   "TRANSIT-METRO-L3": "#08783e",
-  "TRANSIT-METRO-L4": "#7355a5",
+  "TRANSIT-METRO-L4": "#85799b",
   "TRANSIT-LRT": "#b74831",
   "TRANSIT-MONORAIL-EAST": "#174d9b",
   "TRANSIT-MONORAIL-WEST": "#527da8",
@@ -46,6 +46,25 @@ export const TRANSIT_LINE_COLORS: Record<string, string> = {
   "TRANSIT-HSR-L3": "#829098",
 };
 
+export const TRANSIT_LINE_LABELS: Record<string, { ar: string; en: string }> = {
+  "TRANSIT-METRO-L1": { ar: "المترو · الخط الأول", en: "Metro · Line 1" },
+  "TRANSIT-METRO-L2": { ar: "المترو · الخط الثاني", en: "Metro · Line 2" },
+  "TRANSIT-METRO-L3": { ar: "المترو · الخط الثالث (الفرعان)", en: "Metro · Line 3 (both branches)" },
+  "TRANSIT-METRO-L4": { ar: "المترو · الخط الرابع (إنشاء)", en: "Metro · Line 4 (construction)" },
+  "TRANSIT-LRT": { ar: "القطار الكهربائي الخفيف", en: "Light Rail Transit" },
+  "TRANSIT-MONORAIL-EAST": { ar: "المونوريل الشرقي", en: "East Monorail" },
+  "TRANSIT-MONORAIL-WEST": { ar: "المونوريل الغربي", en: "West Monorail" },
+  "TRANSIT-BRT": { ar: "الأتوبيس الترددي السريع", en: "Bus Rapid Transit" },
+  "TRANSIT-ENR": { ar: "سكك حديد مصر", en: "Egyptian National Railways" },
+  "TRANSIT-HSR-L1": { ar: "القطار السريع · الخط الأول", en: "High-Speed Rail · Line 1" },
+  "TRANSIT-HSR-L2": { ar: "القطار السريع · الخط الثاني", en: "High-Speed Rail · Line 2" },
+  "TRANSIT-HSR-L3": { ar: "القطار السريع · الخط الثالث", en: "High-Speed Rail · Line 3" },
+};
+
+export function transitLineLabel(code: string, language: "ar" | "en"): string {
+  return TRANSIT_LINE_LABELS[code]?.[language] ?? code;
+}
+
 const MULTI_MODE_STATIONS: Record<string, TransitMode[]> = {
   "STOP-ADLY-MANSOUR": ["metro", "lrt"],
   "STOP-CENTRAL-CAPITAL": ["lrt", "hsr"],
@@ -55,7 +74,7 @@ const MULTI_MODE_STATIONS: Record<string, TransitMode[]> = {
 };
 
 const INTERCHANGE_STATION_CODES = new Set([
-  "STOP-SADAT", "STOP-MONORAIL-MOSHIR-TANTAWY", "STOP-HADAEK-OCTOBER", "STOP-6-OCTOBER-INTERCHANGE", "RAIL-RAMSES",
+  "STOP-SADAT", "STOP-SHUHADA", "STOP-MONORAIL-MOSHIR-TANTAWY", "STOP-HADAEK-OCTOBER", "STOP-6-OCTOBER-INTERCHANGE", "RAIL-RAMSES",
 ]);
 
 const METRO_MISC_STATIONS = new Set([
@@ -65,8 +84,6 @@ const METRO_MISC_STATIONS = new Set([
 ]);
 
 export function transitModesForEntityCode(entityCode: string, lineCodes: readonly string[] = []): TransitMode[] {
-  const explicit = MULTI_MODE_STATIONS[entityCode];
-  if (explicit) return [...explicit];
   const modesFromLines = new Set<TransitMode>();
   for (const line of lineCodes) {
     if (line.startsWith("TRANSIT-METRO-L")) modesFromLines.add(line.endsWith("L4") ? "metro_l4" : "metro");
@@ -77,6 +94,8 @@ export function transitModesForEntityCode(entityCode: string, lineCodes: readonl
     else if (line.includes("HSR")) modesFromLines.add("hsr");
     else if (line.includes("ENR") || line.includes("SUEZ-TRAIN")) modesFromLines.add("enr");
   }
+  const explicit = MULTI_MODE_STATIONS[entityCode];
+  explicit?.forEach((mode) => modesFromLines.add(mode));
   if (modesFromLines.size) return [...modesFromLines];
   if (entityCode.startsWith("TRANSIT-METRO-L4")) return ["metro_l4"];
   if (entityCode.startsWith("TRANSIT-METRO-L") || /^STOP-M[123]-/.test(entityCode) || METRO_MISC_STATIONS.has(entityCode)) return ["metro"];
@@ -108,5 +127,8 @@ export function transitModeLabel(entityCode: string, language: "ar" | "en", line
   const modes = transitModesForEntityCode(entityCode, lineCodes);
   if (modes.length > 1) return language === "ar" ? "محطة تبادلية" : "Interchange station";
   const mode = modes[0];
-  return mode ? TRANSIT_MODE_LABELS[mode][language] : null;
+  if (mode) return TRANSIT_MODE_LABELS[mode][language];
+  return entityCode.startsWith("STOP-") || entityCode.startsWith("RAIL-")
+    ? TRANSIT_MODE_LABELS.unclassified[language]
+    : null;
 }

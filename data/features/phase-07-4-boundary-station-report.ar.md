@@ -1,9 +1,9 @@
 # تقرير PHASE 07.4 — الحدود والمحطات ومراجعة الطريق الإقليمي
 
-- كيانات المحطات في البذرة: 176؛ الحالات: `{'approved_planned': 1, 'operational': 146, 'planned': 4, 'under_construction': 25}` (المطابق منها فعليًا: 116).
-- ميزات نقاط المحطات: 117 قبل → 118 بعد؛ كيانات ذات هندسة: 115 → 116.
+- كيانات المحطات في البذرة: 178؛ الحالات: `{'approved_planned': 1, 'operational': 148, 'planned': 4, 'under_construction': 25}` (المطابق منها فعليًا: 119).
+- ميزات نقاط المحطات: 120 قبل → 120 بعد؛ كيانات ذات هندسة: 119 → 119.
 - عُقد المحطات المفحوصة: 769؛ ذات أسماء مرشحة في البذرة: 368.
-- العُقد المطابقة بعد فحوص الاسم والنوع والخط والحالة: 134؛ الملتبسة: 11؛ المرفوضة: 223.
+- العُقد المطابقة بعد فحوص الاسم والنوع والخط والحالة: 136؛ الملتبسة: 11؛ المرفوضة: 221.
 - لا تُقبل المحطة إلا باسم/اسم بديل مطابق بعد التطبيع، ونوع نقل متوافق، وبُعد لا يتجاوز 600 م عن هندسة الخط المطابق عند توفرها. المحطات المخططة/قيد الإنشاء تتطلب وسم construction ومحاذاة خط متاحة.
 - عند وجود عقدة محطة أساسية عالية الجودة، تُستبعد عقدة stop-position/platform الأقل جودة كنسخة فقط إذا كانت ضمن 150 م؛ أما عقد التوقف المتعددة على الخطوط المختلفة أو البعيدة فتبقى منفصلة أو تُرفع للالتباس دون تخمين.
 
@@ -11,40 +11,39 @@
 |---|---:|---:|---:|---:|
 | `MODE-RESOLVED` | 6 | 0 | 0 → 0 | 6 |
   - بلا مطابقة: `STOP-6-OCTOBER-INTERCHANGE, STOP-AHMED-OMAR-HASHEM, STOP-CENTRAL-CAPITAL, STOP-HADAEK-OCTOBER, STOP-SAYEDA-AISHA, STOP-SUN-CAPITAL`
-| `RAIL-TRAIN` | 3 | 2 | 1 → 2 | 1 |
+| `RAIL-TRAIN` | 3 | 2 | 2 → 2 | 1 |
   - بلا مطابقة: `RAIL-BASHTIL`
 | `TRANSIT-BRT` | 28 | 1 | 1 → 1 | 27 |
   - بلا مطابقة: `STOP-BRT-AIN-SOKHNA-RD, STOP-BRT-ALEX-AGRI, STOP-BRT-ALGERIA-ST, STOP-BRT-AUTOSTRAD, STOP-BRT-BAHR-AZAM, STOP-BRT-BAHTIM, STOP-BRT-EL-MARG, STOP-BRT-GOLF, STOP-BRT-IBRAHIM-ORABI, STOP-BRT-IMAMAIN, STOP-BRT-KHOSOUS, STOP-BRT-MAADI, STOP-BRT-MANSOURIYA, STOP-BRT-MARYUTEYA, STOP-BRT-MOKATTAM, STOP-BRT-MOSTOROD, STOP-BRT-OMRANIYA, STOP-BRT-POLICE-ACADEMY, STOP-BRT-QALG, STOP-BRT-SALAM, STOP-BRT-SHARQAWIYA, STOP-BRT-SHUBRA-BENHA, STOP-BRT-SUEZ-RD, STOP-BRT-TALBIYA, STOP-BRT-ZAHRAA, STOP-BRT-ZAHRAA-MAADI, STOP-BRT-ZAKAT`
 | `TRANSIT-HSR-L1` | 1 | 0 | 0 → 0 | 1 |
-  - بلا مطابقة: `STOP-HSR-SPHINX`
+  - بلا مطابقة: `STOP-AHMED-OMAR-HASHEM`
 | `TRANSIT-HSR-L2` | 1 | 0 | 0 → 0 | 1 |
   - بلا مطابقة: `STOP-HSR-GIZA`
 | `TRANSIT-LRT` | 12 | 12 | 13 → 13 | 0 |
-| `TRANSIT-METRO-L1` | 35 | 35 | 34 → 35 | 0 |
-| `TRANSIT-METRO-L2` | 20 | 19 | 18 → 19 | 1 |
-  - بلا مطابقة: `STOP-AHMED-OMAR-HASHEM`
-| `TRANSIT-METRO-L3` | 33 | 32 | 31 → 33 | 1 |
-  - بلا مطابقة: `STOP-KIT-KAT`
+| `TRANSIT-METRO-L1` | 35 | 35 | 35 → 35 | 0 |
+| `TRANSIT-METRO-L2` | 20 | 20 | 20 → 20 | 0 |
+| `TRANSIT-METRO-L3` | 33 | 33 | 31 → 33 | 0 |
 | `TRANSIT-MONORAIL-EAST` | 22 | 22 | 23 → 23 | 0 |
 | `TRANSIT-MONORAIL-WEST` | 13 | 0 | 0 → 0 | 13 |
   - بلا مطابقة: `STOP-MRW-ACU, STOP-MRW-ALEX-ROAD, STOP-MRW-BASHTIL, STOP-MRW-ENGINEERS, STOP-MRW-MALL-OF-EGYPT, STOP-MRW-MANSOURIYA, STOP-MRW-MARYUTEYA, STOP-MRW-NEW-OCTOBER, STOP-MRW-OCT-UNIV, STOP-MRW-RING-ROAD, STOP-MRW-SADAT, STOP-MRW-SHEIKH-ZAYED, STOP-MRW-WADI-EL-NIL`
 
 ## هندسة المحطات من حقائق osm_node_id
 
-- المنهج: `exact osm_node_id fact to exact stored OSM node; group primary IDs from the stored station report; no fuzzy fallback`؛ كيانات لها حقائق: 117؛ أرقام عقد مرجعية: 248؛ المجموعات المطابقة: 117.
+- المنهج: `exact osm_node_id fact to exact stored OSM node; group primary IDs from the stored station report; no fuzzy fallback`؛ كيانات لها حقائق: 118؛ أرقام عقد مرجعية: 243؛ المجموعات المطابقة: 119.
 - لم تُستبدل العقد المرجعية بمطابقة اسمية. العقدة المخططة التي لا تتوافق مع lifecycle لا تحصل على استثناء.
-- محطات بلا وسيلة نقل محددة من line membership أو بادئة الرمز: `['STOP-6-OCTOBER-INTERCHANGE', 'STOP-CENTRAL-CAPITAL', 'STOP-HADAEK-OCTOBER', 'STOP-SAYEDA-AISHA', 'STOP-SUN-CAPITAL']`؛ لم تُعرض لها وسيلة عامة بديلة.
+- محطات بلا وسيلة نقل محددة من line membership أو بادئة الرمز: `['STOP-6-OCTOBER-INTERCHANGE', 'STOP-HADAEK-OCTOBER', 'STOP-SAYEDA-AISHA', 'STOP-SUN-CAPITAL']`؛ لم تُعرض لها وسيلة عامة بديلة.
 
 | الكيان | الحالة | عُقد OSM ذات هندسة |
 |---|---|---|
 | `RAIL-GIZA-SUBURBS` | `operational` | `[5217365043]` |
-| `RAIL-RAMSES` | `operational` | `[5194295698]` |
+| `RAIL-RAMSES` | `operational` | `[271864421]` |
 | `STOP-ABBASSIA` | `operational` | `[1235803733]` |
 | `STOP-ADALA-CITY` | `operational` | `[9887149546]` |
 | `STOP-ADLY-MANSOUR` | `operational` | `[8954572010]` |
 | `STOP-ARTS-CULTURE-CITY` | `operational` | `[8953945678, 8153887919]` |
 | `STOP-CAIRO-STADIUM` | `operational` | `[1654760266]` |
 | `STOP-DEMERDASH` | `operational` | `[1642383282]` |
+| `STOP-KIT-KAT` | `operational` | `[10099279487]` |
 | `STOP-LRT-BADR` | `operational` | `[8953943083]` |
 | `STOP-LRT-CAPITAL-AIRPORT` | `operational` | `[8953945679]` |
 | `STOP-LRT-CAPITAL-GARDENS` | `operational` | `[8953945682]` |
@@ -69,7 +68,7 @@
 | `STOP-M1-HADAYEQ-AL-ZAITOUN` | `operational` | `[316643077]` |
 | `STOP-M1-HADAYEQ-HELWAN` | `operational` | `[316638393]` |
 | `STOP-M1-HAMMAMAT-AL-QOBBA` | `operational` | `[316643069]` |
-| `STOP-M1-HELMEYET-AL-ZAITOUN` | `operational` | `[5349031071]` |
+| `STOP-M1-HELMEYET-AL-ZAITOUN` | `operational` | `[5349031072]` |
 | `STOP-M1-HELWAN` | `operational` | `[3755981998]` |
 | `STOP-M1-HELWAN-UNIVERSITY` | `operational` | `[316637586]` |
 | `STOP-M1-KOBRI-AL-QOBBA` | `operational` | `[316643067]` |
@@ -80,7 +79,7 @@
 | `STOP-M1-NASSER` | `operational` | `[316641712]` |
 | `STOP-M1-NEW-EL-MARG` | `operational` | `[316643127]` |
 | `STOP-M1-ORABI` | `operational` | `[5353485468]` |
-| `STOP-M1-SAAD-ZAGHLOUL` | `operational` | `[5349031084]` |
+| `STOP-M1-SAAD-ZAGHLOUL` | `operational` | `[5349031085]` |
 | `STOP-M1-SARAY-AL-QOBBA` | `operational` | `[316643073]` |
 | `STOP-M1-SAYYEDA-ZEINAB` | `operational` | `[316639686]` |
 | `STOP-M1-THAKANAT-EL-MAADI` | `operational` | `[2208367177]` |
@@ -90,7 +89,7 @@
 | `STOP-M2-AL-MEZALLAT` | `operational` | `[6288254841]` |
 | `STOP-M2-AL-MOUNIB` | `operational` | `[1131555201]` |
 | `STOP-M2-ATTABA` | `operational` | `[317755256]` |
-| `STOP-M2-BEHOOTH` | `operational` | `[5355866946]` |
+| `STOP-M2-BEHOOTH` | `operational` | `[5355866947]` |
 | `STOP-M2-CAIRO-UNIVERSITY` | `operational` | `[316632489]` |
 | `STOP-M2-DOKKI` | `operational` | `[9076904709]` |
 | `STOP-M2-FAISAL` | `operational` | `[316631596]` |
@@ -98,6 +97,7 @@
 | `STOP-M2-KHALAFAWY` | `operational` | `[316634827]` |
 | `STOP-M2-KOLIET-EL-ZERAA` | `operational` | `[1641694429]` |
 | `STOP-M2-MASSARA` | `operational` | `[4978060988]` |
+| `STOP-M2-MOHAMED-NAGUIB` | `operational` | `[329978615]` |
 | `STOP-M2-OMM-EL-MISRYEEN` | `operational` | `[4979416433]` |
 | `STOP-M2-OPERA` | `operational` | `[4979414360]` |
 | `STOP-M2-RAWD-EL-FARAG` | `operational` | `[4978060979]` |
@@ -116,8 +116,8 @@
 | `STOP-M3-CAIRO-FAIRGROUND` | `operational` | `[1654760303]` |
 | `STOP-M3-EL-GEISH` | `operational` | `[1235803723]` |
 | `STOP-M3-EL-HAYKESTEP` | `operational` | `[7559190660]` |
-| `STOP-M3-EL-NOZHA` | `operational` | `[7559205785, 7926259279]` |
-| `STOP-M3-EL-SHAMS-CLUB` | `operational` | `[7302135245]` |
+| `STOP-M3-EL-NOZHA` | `operational` | `[7559205785]` |
+| `STOP-M3-EL-SHAMS-CLUB` | `operational` | `[7302135246]` |
 | `STOP-M3-GAMET-EL-DOWEL` | `operational` | `[11923472281]` |
 | `STOP-M3-HAROUN` | `operational` | `[7308408910]` |
 | `STOP-M3-HELIOPOLIS-SUBWAY` | `operational` | `[7302135248]` |
@@ -152,20 +152,18 @@
 | `STOP-MRE-R1` | `operational` | `[12204707792]` |
 | `STOP-MRE-R2` | `operational` | `[8153887878]` |
 | `STOP-SADAT` | `operational` | `[5194295704]` |
-- مرفوضة `STOP-AHMED-OMAR-HASHEM` / node/9076939018: seed lifecycle is planned/under-construction but this exact OSM node has no construction tag.
-- مرفوضة `STOP-KIT-KAT` / node/9077189602: OSM marks this exact node as construction while the seed entity is operational/unknown.
-- `Alexandria-Aswan line`: مجموعات 1؛ هندسة متاحة 1.
+| `STOP-SHUHADA` | `operational` | `[5194295702]` |
 - `TRANSIT-LRT`: مجموعات 12؛ هندسة متاحة 12.
 - `TRANSIT-METRO-L1`: مجموعات 35؛ هندسة متاحة 35.
-- `TRANSIT-METRO-L2`: مجموعات 20؛ هندسة متاحة 19.
-- `TRANSIT-METRO-L3`: مجموعات 34؛ هندسة متاحة 33.
+- `TRANSIT-METRO-L2`: مجموعات 20؛ هندسة متاحة 20.
+- `TRANSIT-METRO-L3`: مجموعات 33؛ هندسة متاحة 33.
 - `TRANSIT-MONORAIL-EAST`: مجموعات 22؛ هندسة متاحة 22.
 
 ## الكيانات بلا مطابقة مؤكدة
 
 - `RAIL-BASHTIL`: لم تُضف هندسة؛ equally strong station-name matches are more than 600 m apart; no geometry selected.
 - `STOP-6-OCTOBER-INTERCHANGE`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
-- `STOP-AHMED-OMAR-HASHEM`: لم تُضف هندسة؛ seed lifecycle is planned/under-construction but this exact OSM node has no construction tag.
+- `STOP-AHMED-OMAR-HASHEM`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
 - `STOP-BRT-AIN-SOKHNA-RD`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
 - `STOP-BRT-ALEX-AGRI`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
 - `STOP-BRT-ALGERIA-ST`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
@@ -197,7 +195,6 @@
 - `STOP-HADAEK-OCTOBER`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
 - `STOP-HSR-GIZA`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
 - `STOP-HSR-SPHINX`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
-- `STOP-KIT-KAT`: لم تُضف هندسة؛ OSM marks this exact node as construction while the seed entity is operational/unknown.
 - `STOP-LRT-10TH-CITY-CENTER`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
 - `STOP-LRT-10TH-RAMADAN-1`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
 - `STOP-LRT-HADAEK-10TH`: لم تُضف هندسة؛ no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards.
@@ -237,7 +234,6 @@
 
 العُقد المتعددة هنا حُفظت فقط بعد مطابقة الاسم والخط والنوع؛ تظهر عدة محطات monorail بعقدتين منفصلتين موسومتين stop-position، كما تظهر مرافق التبادل على خطوط مختلفة مستقلة. لا تعني النقاط المزدوجة استنتاج اتجاه خدمة غير موثق.
 - `STOP-ARTS-CULTURE-CITY`: OSM node IDs `[8953945678, 8153887919]`؛ الخطوط `['TRANSIT-LRT', 'TRANSIT-MONORAIL-EAST']`.
-- `STOP-M3-EL-NOZHA`: OSM node IDs `[7559205785, 7926259279]`؛ الخطوط `['TRANSIT-METRO-L3']`.
 
 ## مواضع ملتبسة لم تُخَمَّن
 

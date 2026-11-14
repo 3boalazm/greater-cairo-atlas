@@ -2,7 +2,7 @@ import { z } from "zod";
 import { getSql } from "@/lib/db/client";
 import { RequestValidationError } from "@/lib/errors";
 import { ENTITY_SECTORS, ENTITY_STATUSES, ENTITY_TYPES } from "@/lib/atlas/schema";
-import { isTransitInterchangeEntityCode, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
+import { isTransitInterchangeEntityCode, transitModesForEntityCode, type TransitMode } from "@/lib/atlas/transit-modes";
 import { stationDisplayName } from "@/lib/atlas/labels";
 
 const featureQuerySchema = z.strictObject({
@@ -133,7 +133,9 @@ export async function getAtlasFeatures(
     },
     features: rows.map((row) => {
       const lineCodes = Array.isArray(row.line_codes) ? row.line_codes.filter((item): item is string => typeof item === "string") : row.entity_code.startsWith("TRANSIT-") ? [row.entity_code] : [];
-      const modes = transitModesForEntityCode(row.entity_code, lineCodes);
+      const inferredModes = transitModesForEntityCode(row.entity_code, lineCodes);
+      const isStation = row.entity_type === "transit_stop" || row.entity_type === "rail_station";
+      const modes: TransitMode[] = inferredModes.length ? inferredModes : isStation ? ["unclassified"] : [];
       return {
       type: "Feature",
       id: row.code,
@@ -153,6 +155,7 @@ export async function getAtlasFeatures(
         retrieval_date: row.retrieval_date,
         source_ids: row.source_ids,
         line_codes: lineCodes,
+        primary_line_code: lineCodes[0] ?? (row.entity_code.startsWith("TRANSIT-") ? row.entity_code : null),
         modes,
         interchange: modes.length > 1 || isTransitInterchangeEntityCode(row.entity_code),
       },

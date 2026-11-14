@@ -66,12 +66,12 @@ describe("revision 8 seed + OSM geometry delivery", () => {
     const bundle = await loadAndValidateSeedDir(path.join(process.cwd(), "data/seed"));
     const report = summarizeValidatedSeedBundle(bundle);
     expect(report).toMatchObject({
-      entitiesCount: 415,
-      entitiesWithAliasesCount: 251,
-      evidenceCount: 368,
+      entitiesCount: 417,
+      entitiesWithAliasesCount: 253,
+      evidenceCount: 371,
       evidenceMissingUrlCount: 71,
-      factsCount: 2075,
-      factEvidenceLinksCount: 2427,
+      factsCount: 2083,
+      factEvidenceLinksCount: 2436,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");
@@ -95,7 +95,7 @@ describe("revision 8 seed + OSM geometry delivery", () => {
     const byEntity = new Map<string, number>();
     for (const feature of features) byEntity.set(feature.entity_code, (byEntity.get(feature.entity_code) ?? 0) + 1);
     expect(byCode.get("LANDMARK-HELWAN-UNIV")?.aliases).toEqual(expect.arrayContaining(["Capital University", "Capital University (formerly Helwan University)"]));
-    expect(features).toHaveLength(2926);
+    expect(features).toHaveLength(2928);
     expect(byEntity.get("ROAD-RING-ROAD")).toBe(429);
     expect(byEntity.get("ROAD-MIDDLE-RING")).toBe(174);
     expect(byEntity.get("ROAD-REGIONAL-RING")).toBe(524);
