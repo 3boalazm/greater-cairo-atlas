@@ -1,5 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
+  "road_gap_fill": {
+    "max_path_km": 3.0
+  },
   "entity_rules": {
     "ROAD-NASR": {
       "enabled": false,

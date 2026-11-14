@@ -27,6 +27,10 @@ from typing import Any
 from shapely import make_valid
 from shapely.geometry import GeometryCollection, MultiPolygon, Polygon, box, mapping, shape
 from shapely.validation import explain_validity
+from shapely.ops import unary_union
+from shapely.geometry.base import BaseGeometry
+
+from road_gap_fill import ROAD_HIGHWAYS, build_road_graph, connect_seed_components, filter_graph_for_entity, normalize as normalize_road_label
 
 ROOT = Path(__file__).resolve().parents[1]
 ENTITIES = ROOT / "data/seed/entities.csv"
@@ -392,6 +396,10 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
     eligible = {"road", "city", "district", "airport", "bridge", "landmark"}
     idx, by_code = matcher(entities, eligible)
     entity_rules = (rules or {}).get("entity_rules", {})
+    configured_road_refs = {
+        code: {normalize_road_label(str(value)) for value in rule.get("road_refs", []) if normalize_road_label(str(value))}
+        for code, rule in entity_rules.items()
+    }
     elements = data.get("elements", [])
     by_key = {(x.get("type"), x.get("id")): x for x in elements}
     out: list[dict[str, Any]] = []
@@ -454,95 +462,160 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
         used.add(code)
         return True
 
-    # Route relations take precedence for road geometry; only exact existing road names/ref match.
+    # Matched road routes and ways are graph seeds; every attributed geometry remains a raw OSM way.
+    road_rel_members: dict[tuple[str, int], set[str]] = defaultdict(set)
+    relation_member_ids: dict[str, set[int]] = defaultdict(set)
+    matched_road_relations: list[dict[str, Any]] = []
+    route_primary_entities: set[str] = set()
+    entity_refs: dict[str, set[str]] = defaultdict(set)
+    for code, refs in configured_road_refs.items():
+        entity_refs[code].update(refs)
+    road_seed_ways: dict[str, set[int]] = defaultdict(set)
+
+    def match_road_labels(values: list[str]) -> list[str]:
+        matched = set(exact_match(idx, "road", values))
+        normalized_values = {normalize_road_label(value) for value in values if normalize_road_label(value)}
+        matched.update(code for code, refs in configured_road_refs.items() if refs & normalized_values)
+        return sorted(matched)
     for item in elements:
-        tags=item.get("tags",{})
-        if item.get("type")!="relation" or tags.get("route") not in {"road","道路"}:continue
-        relation_labels=labels_for(tags,("name","ref"))
-        matches=exact_match(idx,"road",relation_labels)
-        if len(matches)!=1:continue
-        matched_road_relations.append((item,matches))
-        for member in item.get("members",[]):
-            if member.get("type")=="way":road_rel_members[("way",int(member["ref"]))].add(matches[0])
-
-    road_lines: dict[str,list[list[list[float]]]]=defaultdict(list)
-    unmatched_road_segments=[]
-
-    grid_size=0.00012
-    segment_grid: dict[tuple[int,int],list[tuple[str,list[list[float]],int,list[float],list[float]]]]=defaultdict(list)
-
-    def cell(point: list[float]) -> tuple[int,int]:
-        return math.floor(point[0]/grid_size),math.floor(point[1]/grid_size)
-
-    def index_road_line(entity_code: str,line: list[list[float]]) -> None:
-        for index,(a,b) in enumerate(zip(line,line[1:])):
-            x0,y0=cell(a);x1,y1=cell(b)
-            for x in range(min(x0,x1)-1,max(x0,x1)+2):
-                for y in range(min(y0,y1)-1,max(y0,y1)+2):
-                    segment_grid[(x,y)].append((entity_code,line,index,a,b))
-
-    def adjacent_roads(point: list[float],entity_code: str|None=None,exclude_line: list[list[float]]|None=None) -> set[str]:
-        x,y=cell(point);found=set();seen=set()
-        for gx in range(x-1,x+2):
-            for gy in range(y-1,y+2):
-                for code,line,index,a,b in segment_grid.get((gx,gy),[]):
-                    if entity_code is not None and code!=entity_code:continue
-                    if exclude_line is line:continue
-                    key=(code,id(line),index)
-                    if key in seen:continue
-                    seen.add(key)
-                    dx,dy=b[0]-a[0],b[1]-a[1];denom=dx*dx+dy*dy
-                    t=0.0 if denom==0 else max(0.0,min(1.0,((point[0]-a[0])*dx+(point[1]-a[1])*dy)/denom))
-                    if math.hypot(point[0]-(a[0]+t*dx),point[1]-(a[1]+t*dy))<=grid_size:found.add(code)
-        return found
-
-    # Process ordinary road ways before ramps so link matching is independent of extract ordering.
-    for item in sorted(elements,key=lambda x:str(x.get("tags",{}).get("highway"," ")).endswith("_link")):
-        tags=item.get("tags",{})
-        if item.get("type")!="way":continue
-        key=("way",int(item["id"]))
-        assigned_from_relation=sorted(road_rel_members.get(key,set()))
-        if not tags.get("highway") and not assigned_from_relation:continue
-        # A *_link is accepted only if an endpoint connects to a named, already-matched parent road.
-        is_link=str(tags.get("highway","")).endswith("_link")
-        coords=[[p["lon"],p["lat"]] for p in item.get("geometry",[]) if "lon" in p and "lat" in p]
-        if len(coords)<2:continue
-        geom={"type":"LineString","coordinates":coords}
-        assigned=sorted(road_rel_members.get(key,set()))
-        source="road route relation member"
-        if not assigned:
-            road_names=labels_for(tags,("name","name:ar","name:en","ref","old_name","alt_name"))
-            assigned=exact_match(idx,"road",road_names)
-            source="exact road name/alias"
-            if is_link and not assigned:
-                endpoints=[coords[0],coords[-1]]
-                connected_entities=sorted({code for endpoint in endpoints for code in adjacent_roads(endpoint)})
-                if len(connected_entities)==1:
-                    assigned=connected_entities
-                    source="unnamed ramp connected to exactly one matched road"
-                elif len(connected_entities)>1:
-                    add_candidate(report,"road",f"way:{item['id']}"," | ".join(road_names),"ambiguous",connected_entities,"ramp is adjacent to multiple matched roads")
-                    continue
-        if len(assigned)!=1:
-            if assigned: add_candidate(report,"road",f"way:{item['id']}"," | ".join(labels_for(tags,("name","name:ar","name:en","ref"))),"ambiguous",assigned,"road name/ref is not unique")
+        tags = item.get("tags", {})
+        if item.get("type") != "relation" or tags.get("type") != "route" or tags.get("route") != "road":
             continue
-        if is_link:
-            endpoints=[coords[0],coords[-1]]
-            connected=any(assigned[0] in adjacent_roads(endpoint,assigned[0]) for endpoint in endpoints)
-            if not connected:continue
-        rule=entity_rules.get(assigned[0],{})
-        if rule.get("enabled") is False:continue
-        if emit(item,assigned[0],"road",geom,tags,{"road_geometry_match":source}):
-            road_lines[assigned[0]].append(coords)
-            index_road_line(assigned[0],coords)
-            add_candidate(report,"road",f"way:{item['id']}"," | ".join(labels_for(tags,("name","name:ar","name:en","ref"))),"matched",assigned)
-        else:
-            if by_code[assigned[0]].get("status") not in {"planned","approved_planned","under_construction"}:
-                unmatched_road_segments.append({"source_id":f"way:{item['id']}","entity_code":assigned[0],"name":tags.get("name") or tags.get("name:ar") or tags.get("ref"),"endpoints":[coords[0],coords[-1]],"reason":"bbox, lifecycle, lineage, or existing match rule rejected geometry"})
+        relation_labels = labels_for(tags, ("name", "name:ar", "name:en", "official_name", "ref"))
+        matches = match_road_labels(relation_labels)
+        if len(matches) != 1:
+            continue
+        entity_code = matches[0]
+        if entity_rules.get(entity_code, {}).get("enabled") is False:
+            continue
+        member_way_ids = sorted({int(member["ref"]) for member in item.get("members", [])
+                                 if member.get("type") == "way" and member.get("ref") is not None})
+        if not member_way_ids:
+            continue
+        matched_road_relations.append({
+            "relation_id": int(item["id"]), "entity_code": entity_code,
+            "name": " | ".join(relation_labels), "ref": tags.get("ref"),
+            "member_way_ids": member_way_ids,
+        })
+        route_primary_entities.add(entity_code)
+        for value in str(tags.get("ref", "")).split(";"):
+            if normalize_road_label(value):
+                entity_refs[entity_code].add(normalize_road_label(value))
+        for member in item.get("members", []):
+            if member.get("type") == "way" and member.get("ref") is not None:
+                way_id = int(member["ref"])
+                road_rel_members[("way", way_id)].add(entity_code)
+                relation_member_ids[entity_code].add(way_id)
 
-    # One report item per matched route relation; all its member ways already emitted above.
-    for relation,matches in matched_road_relations:
-        add_candidate(report,"road",f"relation:{relation['id']}"," | ".join(labels_for(relation.get("tags",{}),("name","ref"))),"matched",matches)
+    road_lines: dict[str, list[list[list[float]]]] = defaultdict(list)
+    unmatched_road_segments: list[dict[str, Any]] = []
+    road_types = {"motorway", "trunk", "primary", "secondary", "motorway_link", "trunk_link", "primary_link", "secondary_link"}
+
+    # Relation member ways are primary for entities with a matching route=road relation.
+    for item in elements:
+        if item.get("type") != "way":
+            continue
+        tags = item.get("tags", {})
+        highway = tags.get("highway")
+        key = ("way", int(item["id"]))
+        relation_matches = sorted(road_rel_members.get(key, set()))
+        road_names = labels_for(tags, ("name", "name:ar", "name:en", "ref", "old_name", "alt_name"))
+        matches = relation_matches or match_road_labels(road_names)
+        if not highway and not relation_matches:
+            continue
+        if highway and highway not in road_types:
+            continue
+        if len(matches) != 1:
+            if matches:
+                add_candidate(report, "road", f"way:{item['id']}", " | ".join(road_names), "ambiguous", matches, "road name/ref is not unique")
+            continue
+        entity_code = matches[0]
+        if not relation_matches and entity_code in route_primary_entities:
+            # Do not broaden a route-relation alignment with similarly named roads elsewhere.
+            continue
+        coords = [[point["lon"], point["lat"]] for point in item.get("geometry", []) if "lon" in point and "lat" in point]
+        geom = {"type": "LineString", "coordinates": coords}
+        if len(coords) < 2:
+            continue
+        if by_code[entity_code].get("status") in {"planned", "approved_planned", "under_construction"}:
+            add_candidate(report, "road", f"way:{item['id']}", " | ".join(road_names), "unmatched", [], "lifecycle policy does not permit OSM alignment for this status")
+            continue
+        match_method = "route_relation" if relation_matches else "exact_name"
+        extra = {"entity_type": "road", "osm_tags": tags, "match_method": match_method,
+                 "road_geometry_match": "OSM route=road relation member" if relation_matches else "exact road name/ref"}
+        if emit(item, entity_code, "road", geom, tags, extra):
+            way_id = int(item["id"])
+            road_seed_ways[entity_code].add(way_id)
+            for value in str(tags.get("ref", "")).split(";"):
+                if normalize_road_label(value):
+                    entity_refs[entity_code].add(normalize_road_label(value))
+            road_lines[entity_code].append(coords)
+            add_candidate(report, "road", f"way:{item['id']}", " | ".join(road_names), "matched", matches)
+        else:
+            unmatched_road_segments.append({"source_id": f"way:{item['id']}", "entity_code": entity_code,
+                                           "name": tags.get("name") or tags.get("name:ar") or tags.get("ref"),
+                                           "endpoints": [coords[0], coords[-1]],
+                                           "reason": "bbox, lifecycle, lineage, or existing match rule rejected geometry"})
+
+    # Topology graph is built only from real OSM node IDs/ways in the importable WGS84 bbox.
+    graph_ways, graph_adjacency = build_road_graph(elements)
+    graph_ways = {way_id: way for way_id, way in graph_ways.items()
+                  if in_bbox({"type": "LineString", "coordinates": [list(point) for point in way["_coordinates"]]})}
+    graph_adjacency = {node: [edge for edge in edges if edge[1] in graph_ways]
+                       for node, edges in graph_adjacency.items() if any(edge[1] in graph_ways for edge in edges)}
+    gap_config = (rules or {}).get("road_gap_fill", {})
+    default_max_km = float(gap_config.get("max_path_km", 3.0))
+    gap_results: list[dict[str, Any]] = []
+    gap_fills: dict[int, list[float]] = defaultdict(list)
+    road_entity_codes = sorted(code for code, entity in by_code.items() if entity.get("entity_type") == "road")
+    for entity_code in road_entity_codes:
+        rule = entity_rules.get(entity_code, {})
+        max_km = float(rule.get("road_gap_fill_max_km", default_max_km))
+        seed_ids = road_seed_ways.get(entity_code, set()) & set(graph_ways)
+        if not seed_ids:
+            gap_results.append({"entity_code": entity_code, "components_before": 0, "gaps_before": 0,
+                                "components_after": 0, "gaps_after": 0, "gaps_closed": 0, "km_closed": 0.0,
+                                "filled_way_ids": [], "paths": [], "unresolved_gaps": [],
+                                "max_path_km": max_km, "entity_name_ar": by_code[entity_code].get("name_ar", ""),
+                                "entity_name_en": by_code[entity_code].get("name_en", ""),
+                                "note": "no matching motorway/trunk/primary seed ways"})
+            continue
+        entity_names = names(by_code[entity_code])
+        entity_graph = filter_graph_for_entity(
+            graph_ways, graph_adjacency, entity_names, entity_refs[entity_code], relation_member_ids.get(entity_code, set())
+        )
+        result = connect_seed_components(entity_code=entity_code, seed_way_ids=seed_ids, ways=graph_ways,
+                                         adjacency=entity_graph, max_km=max_km)
+        result["max_path_km"] = max_km
+        result["entity_name_ar"] = by_code[entity_code].get("name_ar", "")
+        result["entity_name_en"] = by_code[entity_code].get("name_en", "")
+        gap_results.append(result)
+        for path in result["paths"]:
+            for way_id in path["filled_way_ids"]:
+                gap_fills[way_id].append(path["path_length_km"])
+        for way_id in result["filled_way_ids"]:
+            item = graph_ways[way_id]
+            coords = [[lon, lat] for lon, lat in item["_coordinates"]]
+            geom = {"type": "LineString", "coordinates": coords}
+            extra = {"entity_type": "road", "osm_tags": item.get("tags", {}),
+                     "match_method": "gap_fill_graph", "road_geometry_match": "shortest eligible shared-node OSM path",
+                     "graph_path_length_km": round(sum(gap_fills[way_id]), 3)}
+            if emit(item, entity_code, "road", geom, item.get("tags", {}), extra):
+                road_seed_ways[entity_code].add(way_id)
+                road_lines[entity_code].append(coords)
+                add_candidate(report, "road", f"way:{way_id}", " | ".join(labels_for(item.get("tags", {}),
+                                                                        ("name", "name:ar", "name:en", "ref"))),
+                              "matched", [entity_code], "gap_fill_graph: real OSM way on an eligible shortest path")
+            else:
+                unmatched_road_segments.append({"source_id": f"way:{way_id}", "entity_code": entity_code,
+                                               "endpoints": [coords[0], coords[-1]],
+                                               "reason": "graph path way failed geometry/lifecycle import constraints"})
+
+    report["road_gap_fill_by_entity"] = gap_results
+    report["road_gaps"] = [gap for result in gap_results for gap in result.get("unresolved_gaps", [])]
+    report["road_route_relations"] = matched_road_relations
+    report["road_route_entities"] = sorted(route_primary_entities)
+    report.setdefault("rejected_road_segments", []).extend(unmatched_road_segments)
 
     # Named administrative polygons/place nodes, aerodromes, bridges and landmarks.
     for item in elements:
@@ -587,21 +660,12 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
         else:
             add_candidate(report,kind,ident," | ".join(match_values),"unmatched",matches,"entity match rule, lifecycle, OSM version or bbox rejected geometry")
 
-    # No connectors are fabricated: list open line endpoints as explicit unresolved gaps.
-    gaps=[]
-    for entity_code,lines in sorted(road_lines.items()):
-        for line in lines:
-            for side,pt in (("start",line[0]),("end",line[-1])):
-                if not adjacent_roads(pt,entity_code,exclude_line=line):
-                    gaps.append({"entity_code":entity_code,"endpoint":pt,"reason":"unconnected OSM line endpoint; no connector generated"})
-    report.setdefault("road_gaps",[]).extend(gaps)
-    report.setdefault("rejected_road_segments",[]).extend(unmatched_road_segments)
     return out
 
 
 def new_report():
     types=("road","transit_line","transit_stop","rail_station","city","district","airport","bridge","landmark")
-    return {"by_type": {t: {k: 0 for k in ("matched", "unmatched", "ambiguous")} for t in types}, "unmatched": [], "ambiguous": [], "road_gaps": [], "rejected_road_segments": [], "geometry_repairs": [], "invalid_geometry": []}
+    return {"by_type": {t: {k: 0 for k in ("matched", "unmatched", "ambiguous")} for t in types}, "unmatched": [], "ambiguous": [], "road_gaps": [], "road_gap_fill_by_entity": [], "road_route_relations": [], "road_route_entities": [], "rejected_road_segments": [], "geometry_repairs": [], "invalid_geometry": []}
 
 
 def load_osm(args) -> dict[str, Any]:
@@ -612,6 +676,110 @@ def load_osm(args) -> dict[str, Any]:
     req = urllib.request.Request(OVERPASS_URL, data=urllib.parse.urlencode({"data": overpass_query()}).encode(), headers={"User-Agent": "GreaterCairoAtlas/0.1 (offline feature ingestion)"})
     with urllib.request.urlopen(req, timeout=240) as response:
         return json.loads(response.read())
+
+
+def merge_osm_documents(documents: list[dict[str, Any]]) -> dict[str, Any]:
+    """Deduplicate overlapping saved extracts, preferring current versions and full geometry."""
+    merged: dict[tuple[str, int], dict[str, Any]] = {}
+    for document in documents:
+        for item in document.get("elements", []):
+            if item.get("type") not in {"node", "way", "relation"} or item.get("id") is None:
+                continue
+            key = (item["type"], int(item["id"]))
+            previous = merged.get(key)
+            def completeness(value: dict[str, Any]) -> tuple[int, int, int, int]:
+                geometry_count = len(value.get("geometry", []))
+                if value.get("type") == "relation":
+                    geometry_count += sum(len(member.get("geometry", [])) for member in value.get("members", []))
+                return (int(value.get("version", 0) or 0), geometry_count,
+                        len(value.get("nodes", [])), len(value.get("members", [])))
+            if previous is None or completeness(item) > completeness(previous):
+                merged[key] = item
+    elements = sorted(merged.values(), key=lambda item: (item["type"], int(item["id"])))
+    return {"elements": elements}
+
+
+def lineal_parts(geom: BaseGeometry) -> list[BaseGeometry]:
+    if geom.geom_type in {"LineString", "LinearRing"}:
+        return [geom]
+    if geom.geom_type in {"MultiLineString", "GeometryCollection"}:
+        return [line for part in geom.geoms for line in lineal_parts(part)]
+    return []
+
+
+def build_road_network(data: dict[str, Any], output_path: Path, detail_path: Path) -> dict[str, Any]:
+    """Write separate coarse/detail non-entity OSM layers generalized for zoom ranges."""
+    cairo_bbox = box(BBOX[0], BBOX[1], BBOX[2], BBOX[3])
+    context_highways = {"motorway", "trunk", "primary", "motorway_link", "trunk_link", "primary_link"}
+    coarse_features = []
+    detail_features = []
+    for item in data.get("elements", []):
+        tags = item.get("tags", {})
+        if item.get("type") != "way" or tags.get("highway") not in context_highways:
+            continue
+        coords = [[point["lon"], point["lat"]] for point in item.get("geometry", []) if "lon" in point and "lat" in point]
+        if len(coords) < 2:
+            continue
+        clipped = shape({"type": "LineString", "coordinates": coords}).intersection(cairo_bbox)
+        parts = [line for line in lineal_parts(clipped) if not line.is_empty and line.length > 0]
+        if not parts:
+            continue
+        geom = unary_union(parts)
+        properties = {
+            "osm_type": "way", "osm_id": int(item["id"]), "osm_version": int(item.get("version", 0) or 0),
+            "highway": tags.get("highway"), "name": tags.get("name"), "name_ar": tags.get("name:ar"),
+            "name_en": tags.get("name:en"), "ref": tags.get("ref"), "license": "ODbL-1.0",
+            "attribution": OSM_ATTRIBUTION, "context_only": True,
+        }
+        for tolerance, features in ((0.00035, coarse_features), (0.000035, detail_features)):
+            simplified = geom.simplify(tolerance, preserve_topology=False)
+            if not simplified.is_empty:
+                features.append({"type": "Feature", "id": f"OSM-WAY-{int(item['id'])}",
+                                 "geometry": mapping(simplified), "properties": properties})
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    detail_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps({"type": "FeatureCollection", "features": coarse_features}, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    detail_path.write_text(json.dumps({"type": "FeatureCollection", "features": detail_features}, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    return {"path": str(output_path.relative_to(ROOT)), "feature_count": len(coarse_features),
+            "simplification_tolerance_degrees": 0.00035, "detail_path": str(detail_path.relative_to(ROOT)),
+            "detail_feature_count": len(detail_features), "detail_simplification_tolerance_degrees": 0.000035,
+            "license": "ODbL-1.0", "attribution": OSM_ATTRIBUTION}
+
+
+def build_entity_map_geometries(features: list[dict[str, Any]], output_path: Path) -> dict[str, Any]:
+    """Merge and simplify actual source geometries for lighter entity-page map props."""
+    by_entity: dict[str, list[tuple[BaseGeometry, dict[str, Any]]]] = defaultdict(list)
+    for item in features:
+        props = item.get("properties", {})
+        entity_code = props.get("entity_code")
+        try:
+            geom = shape(item["geometry"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if entity_code and not geom.is_empty:
+            by_entity[entity_code].append((geom, props))
+    geometries = {}
+    for entity_code, parts in sorted(by_entity.items()):
+        merged = unary_union([geom for geom, _ in parts])
+        simplified = merged.simplify(0.0002, preserve_topology=True)
+        licenses = sorted({str(props.get("license")) for _, props in parts if props.get("license")})
+        attributions = sorted({str((props.get("properties") or {}).get("attribution"))
+                               for _, props in parts if (props.get("properties") or {}).get("attribution")})
+        sources = sorted({str((props.get("properties") or {}).get("source"))
+                          for _, props in parts if (props.get("properties") or {}).get("source")})
+        retrieval_dates = sorted({str((props.get("properties") or {}).get("retrieval_date"))
+                                  for _, props in parts if (props.get("properties") or {}).get("retrieval_date")})
+        geometries[entity_code] = {
+            "geometry": mapping(simplified if not simplified.is_empty else merged),
+            "license": licenses, "attribution": attributions, "sources": sources,
+            "retrieval_dates": retrieval_dates,
+        }
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps({"version": 1, "simplification_tolerance_degrees": 0.0002,
+                                       "geometries": geometries}, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    return {"path": str(output_path.relative_to(ROOT)), "entities_with_geometry": len(geometries),
+            "simplification_tolerance_degrees": 0.0002, "merge": "shapely.unary_union; no synthetic segments",
+            "preserved_metadata": ["license", "attribution", "source", "retrieval_date"]}
 
 
 def main():
@@ -625,6 +793,9 @@ def main():
     parser.add_argument("--gtfs-license", help="Must explicitly be CC-BY-4.0; CC-BY-NC is rejected")
     parser.add_argument("--gtfs-license-evidence-url", help="Exact Transport Data Commons dataset page documenting CC-BY-4.0")
     parser.add_argument("--match-rules", default=str(OUT / "match-rules.json"), help="Optional per-entity OSM match rules JSON")
+    parser.add_argument("--road-network-out", default=str(ROOT / "public/road-network.geojson"), help="Static generalized non-entity road context layer output")
+    parser.add_argument("--road-network-detail-out", default=str(ROOT / "public/road-network-detail.geojson"), help="Static detailed non-entity road context layer output")
+    parser.add_argument("--entity-map-out", default=str(ROOT / "data/derived/entity-map-geometries.json"), help="Simplified merged geometry for entity pages")
     parser.add_argument("--out", default=str(OUT))
     parser.add_argument("--check-geojson", help="Validate an existing GeoJSON feature collection against PostGIS geometry rules without modifying it")
     args = parser.parse_args()
@@ -659,13 +830,16 @@ def main():
     features: list[dict[str, Any]] = []
     source_results: list[dict[str, Any]] = []
     failures: list[dict[str, str]] = []
+    road_network_manifest: dict[str, Any] = {}
+    entity_map_manifest: dict[str, Any] = {}
+    combined_osm: dict[str, Any] | None = None
     if args.fetch_osm or args.osm_json:
         input_files = args.osm_json or [None]
+        osm_documents: list[dict[str, Any]] = []
         for input_name in input_files:
             try:
                 osm = load_osm(argparse.Namespace(osm_json=input_name, fetch_osm=args.fetch_osm))
-                features.extend(process_osm(osm, entities, osm_date, report, rules))
-                features.extend(process_advanced_osm(osm, entities, osm_date, report, rules))
+                osm_documents.append(osm)
                 input_path = Path(input_name) if input_name else None
                 source_results.append({"source": "OpenStreetMap", "url": args.osm_source_url or OVERPASS_URL,
                     "retrieval_date": osm_date, "retrieved_at": None, "input_file": input_path.name if input_path else None,
@@ -674,6 +848,11 @@ def main():
                     "timestamp_osm_base": osm.get("osm3s", {}).get("timestamp_osm_base")})
             except Exception as exc:
                 failures.append({"source": f"OpenStreetMap Overpass API ({input_name or 'fetch'})", "error": str(exc)})
+        if osm_documents:
+            combined_osm = merge_osm_documents(osm_documents)
+            features.extend(process_osm(combined_osm, entities, osm_date, report, rules))
+            features.extend(process_advanced_osm(combined_osm, entities, osm_date, report, rules))
+            road_network_manifest = build_road_network(combined_osm, Path(args.road_network_out), Path(args.road_network_detail_out))
     if args.gtfs_zip:
         try:
             features.extend(process_gtfs(Path(args.gtfs_zip), entities, gtfs_date, args.gtfs_license, args.gtfs_license_evidence_url, report))
@@ -690,7 +869,8 @@ def main():
             if props.get("entity_type") in {"transit_line", "transit_stop", "rail_station"} and old_feature.get("properties", {}).get("code") not in current_codes:
                 features.append(old_feature)
 
-    features = list({f["properties"]["code"]: f for f in reversed(features)}.values())
+    # Later advanced-OSM results carry route/gap-fill provenance and should override the legacy duplicate.
+    features = list({f["properties"]["code"]: f for f in features}.values())
     features, geometry_summary = validate_feature_geometries(features, repair=True)
     report["geometry_repairs"] = geometry_summary["repairs"]
     report["invalid_geometry"] = geometry_summary["dropped"]
@@ -718,6 +898,7 @@ def main():
     feature_count = len(features)
     if not (failures and not source_results):
         feature_file.write_text(json.dumps({"type": "FeatureCollection", "features": features}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        entity_map_manifest = build_entity_map_geometries(features, Path(args.entity_map_out))
     elif feature_file.exists():
         # A fully failed source run must never replace a previously curated collection.
         try:
@@ -747,8 +928,26 @@ def main():
     report["bbox_wgs84"] = list(BBOX)
     report["features_written"] = feature_count
     report["features_by_entity"] = {code: sum(1 for f in features if f["properties"]["entity_code"] == code) for code in sorted({f["properties"]["entity_code"] for f in features})}
-    report["road_gaps"] = list({(g["entity_code"],tuple(g["endpoint"])):g for g in report.get("road_gaps",[])}.values())
+    report["road_gap_fill_totals"] = {
+        "gaps_before": sum(item.get("gaps_before", 0) for item in report["road_gap_fill_by_entity"]),
+        "gaps_after": sum(item.get("gaps_after", 0) for item in report["road_gap_fill_by_entity"]),
+        "gaps_closed": sum(item.get("gaps_closed", 0) for item in report["road_gap_fill_by_entity"]),
+        "km_closed": round(sum(item.get("km_closed", 0.0) for item in report["road_gap_fill_by_entity"]), 3),
+    }
+    report["road_network_context"] = road_network_manifest
+    report["entity_page_map_geometries"] = entity_map_manifest
     report["rejected_road_segments"] = list({(g["source_id"],g["entity_code"]):g for g in report.get("rejected_road_segments",[])}.values())
+    report["ملخص_05_5"] = {
+        "فجوات_كل_طريق_قبل_وبعد_والكيلومترات_المغلقة": [{
+            "رمز_الكيان": item["entity_code"], "الاسم_العربي": item.get("entity_name_ar"),
+            "الاسم_الإنجليزي": item.get("entity_name_en"), "الفجوات_قبل": item.get("gaps_before", 0),
+            "الفجوات_بعد": item.get("gaps_after", 0), "الفجوات_المغلقة": item.get("gaps_closed", 0),
+            "الكيلومترات_المغلقة": item.get("km_closed", 0.0), "الفجوات_المتبقية_مع_الإحداثيات": item.get("unresolved_gaps", []),
+        } for item in report["road_gap_fill_by_entity"]],
+        "إجمالي_ميزات_الكيانات_بعد_التحديث": feature_count,
+        "الكيانات_المطابقة_بعلاقات_طريق_OSM": report["road_route_entities"],
+        "عدد_ميزات_شبكة_السياق_غير_الكيانية": road_network_manifest.get("feature_count", 0),
+    }
     report["ملخص_05_4"] = {
         "عدد_الميزات_لكل_كيان_قبل_وبعد": report["feature_counts_before_after_by_entity"],
         "الكيانات_ذات_الهندسة_من_إجمالي_342": {"العدد":report["entities_with_geometry"]["count"],"الإجمالي":len(entities)},
@@ -760,10 +959,48 @@ def main():
         "الهندسات_التي_تم_إسقاطها": {"العدد":len(report["invalid_geometry"]),"حسب_الكيان":dict(Counter(x["entity_code"] for x in report["invalid_geometry"])),"التفاصيل":report["invalid_geometry"]},
     }
     report["retrieval_date"] = date
+    arabic_lines = [
+        "# تقرير PHASE 05.5 — استمرارية هندسة الطرق",
+        "",
+        f"تاريخ التشغيل: {date}. المصدر: مستخلصات OpenStreetMap المخزنة (الأول وextract2 وroads-full)، بترخيص ODbL-1.0. لم تُنشأ وصلات هندسية اصطناعية.",
+        "",
+        f"- إجمالي ميزات الكيانات بعد التحديث: **{feature_count}** (شبكة السياق غير محتسبة ضمنها).",
+        f"- إجمالي الفجوات: **{report['road_gap_fill_totals']['gaps_before']}** قبل، **{report['road_gap_fill_totals']['gaps_after']}** بعد؛ أُغلقت **{report['road_gap_fill_totals']['gaps_closed']}**، بطول مسارات حقيقية **{report['road_gap_fill_totals']['km_closed']:.3f} كم**.",
+        f"- ميزات شبكة السياق المنفصلة: {road_network_manifest.get('feature_count', 0)} مبسطة للمستويات المنخفضة و{road_network_manifest.get('detail_feature_count', 0)} للتكبير العالي.",
+        "",
+        "## نتيجة كل طريق",
+        "",
+        "| الطريق | الفجوات قبل | الفجوات بعد | أُغلقت | كم مغلقة | فجوات متبقية |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    for item in report["road_gap_fill_by_entity"]:
+        arabic_lines.append(
+            f"| {item.get('entity_name_ar') or item['entity_code']} (`{item['entity_code']}`) | {item.get('gaps_before', 0)} | {item.get('gaps_after', 0)} | {item.get('gaps_closed', 0)} | {item.get('km_closed', 0.0):.3f} | {len(item.get('unresolved_gaps', []))} |"
+        )
+    arabic_lines.extend(["", "## الكيانات التي استخدمت علاقات OSM من النوع route=road", ""])
+    if report["road_route_relations"]:
+        for relation in report["road_route_relations"]:
+            arabic_lines.append(
+                f"- `{relation['entity_code']}` — relation/{relation['relation_id']}؛ {relation.get('name') or 'بلا اسم'}؛ ref: {relation.get('ref') or '—'}؛ {len(relation.get('member_way_ids', []))} مقطعًا عضوًا."
+            )
+    else:
+        arabic_lines.append("- لا توجد علاقات مطابقة في المستخلصات.")
+    arabic_lines.extend(["", "## الفجوات المتبقية وإحداثيات نهاياتها", ""])
+    remaining = [(item, gap) for item in report["road_gap_fill_by_entity"] for gap in item.get("unresolved_gaps", [])]
+    if remaining:
+        for item, gap in remaining:
+            a = gap.get("endpoint_a", {}).get("coordinates")
+            b = gap.get("endpoint_b", {}).get("coordinates")
+            arabic_lines.append(f"- `{item['entity_code']}`: `{a}` ↔ `{b}`؛ أقصر مسافة مستقيمة {gap.get('straight_line_km', 0):.3f} كم، والسبب: لا يوجد مسار طرق مسموح ضمن حد {gap.get('max_graph_path_km', 0):.3f} كم.")
+    else:
+        arabic_lines.append("- لا توجد فجوات متبقية بين مكونات الطرق المطابقة.")
+    arabic_report_path = outdir / "phase-05-5-road-gap-report.ar.md"
+    arabic_report_path.write_text("\n".join(arabic_lines) + "\n", encoding="utf-8")
+    report["arabic_road_gap_report"] = str(arabic_report_path.relative_to(ROOT))
     (outdir / "match-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     raw_archives = []
     original_hashes = {item.get("input_file"):item.get("input_sha256") for item in source_results}
-    for basename in ("cairo-osm-overpass-2026-11-14-extract2.json", "cairo-osm-overpass-2026-11-14-roads-full.json"):
+    for basename in ("osm-overpass-2026-11-14.json", "cairo-osm-overpass-2026-11-14-extract2.json", "cairo-osm-overpass-2026-11-14-roads-full.json"):
         archive = ROOT / "data/raw" / (basename + ".gz")
         raw_archives.append({"source_file":basename,"file":str(archive.relative_to(ROOT)),"sha256_original":original_hashes.get(basename),"sha256_gzip":hashlib.sha256(archive.read_bytes()).hexdigest() if archive.exists() else None})
     manifest = {
@@ -772,11 +1009,17 @@ def main():
         "sources": source_results, "source_failures": failures,
         "attribution": {"osm": OSM_ATTRIBUTION, "tfc": TFC_ATTRIBUTION},
         "license_policy": "OSM=ODbL-1.0; TfC GTFS accepted only when independently verified CC-BY-4.0. CC-BY-NC data is prohibited.",
-        "matching": "Exact Unicode-normalized rev5 entity names and aliases only; roads additionally use exact name/name:ar/name:en/ref/old_name/alt_name and named road relations; generic names are not inferred. No entity creation.",
+        "matching": "Exact Unicode-normalized entity names and aliases; road route relations are the primary alignment source where exact name/ref matches exist. Gaps are filled only with real motorway/trunk/primary ways and their links connected by shared OSM node IDs, constrained to unnamed ways or the same entity name/alias/ref and the configured graph-path distance. No synthetic connectors or entity creation.",
+        "road_gap_fill": {"max_path_km_default": (rules or {}).get("road_gap_fill", {}).get("max_path_km", 3.0),
+                          "summary": report["road_gap_fill_totals"], "by_entity": report["road_gap_fill_by_entity"],
+                          "route_relation_entities": report["road_route_entities"], "route_relations": report["road_route_relations"]},
+        "road_network_context_layer": road_network_manifest,
+        "entity_page_map_geometries": entity_map_manifest,
+        "arabic_road_gap_report": str(arabic_report_path.relative_to(ROOT)),
         "lifecycle_policy": "Only operational/partial entities are matched from OSM/GTFS. Planned/under-construction geometry requires official_alignment provenance and is not inferred from OSM/GTFS.",
         "geometry_policy": "WGS84 / SRID 4326; non-empty, GEOS-valid geometries must lie wholly within the declared Greater Cairo bbox. Every output geometry is checked with Shapely is_valid/explain_validity; invalid polygonal features are passed through make_valid and only polygonal components are retained. Degenerate lines and unrepaired/otherwise invalid geometries are dropped.",
         "geometry_validation": {"validator":f"Shapely {shapely.__version__}","db_constraint":"ST_SRID(geometry)=4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)","features_repaired_count":len(report["geometry_repairs"]),"features_dropped_count":len(report["invalid_geometry"]),"repairs":report["geometry_repairs"],"dropped":report["invalid_geometry"]},
-        "osm_query_coverage": "Two user-supplied Overpass extracts from https://overpass-api.de/api/interpreter (2026-11-14), both bbox query envelope [29.2,30.5,30.8,32.1] as south,west,north,east. The roads-full extract supplies full road-way geometry and route road relations; extract2 supplies administrative/place/aerodrome/bridge/landmark objects and other OSM candidates. Matching remains limited to explicit rev5 names/aliases. New extracts do not replace preserved previously accepted transit geometries where no replacement transit source was submitted. Geometry acceptance bbox is WGS84 [30.5,29.2,32.1,30.8].",
+        "osm_query_coverage": "Three preserved owner-supplied Overpass extracts (first extract, extract2, and roads-full) from 2026-11-14 are deduplicated by OSM type/id, preferring current versions and the most complete geometry. The route graph uses shared OSM node IDs, never coordinate snapping. Geometry acceptance bbox is WGS84 [30.5,29.2,32.1,30.8]. Previously accepted transit geometries remain preserved when no replacement transit source is supplied.",
         "match_rules_file": "match-rules.json",
         "raw_extracts": raw_archives
     }

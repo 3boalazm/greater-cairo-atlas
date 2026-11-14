@@ -30,6 +30,7 @@ export default function AtlasApp() {
   const [featuresLoading, setFeaturesLoading] = useState(true);
   const [featuresError, setFeaturesError] = useState<string | null>(null);
   const [zoom, setZoom] = useState(9);
+  const [showRoadNetwork, setShowRoadNetwork] = useState(true);
   const [mapStyleStatus, setMapStyleStatus] = useState<MapStyleStatus>("loading");
   const [mapGeneration, setMapGeneration] = useState(0);
   const [stats, setStats] = useState<AtlasStatsResponse | null>(null);
@@ -167,10 +168,11 @@ export default function AtlasApp() {
         {statsError && <span className="stats-retry"><AlertTriangle aria-hidden="true" />{statsError}</span>}
       </section>
       <section className="map-stage" aria-label={ar ? "مساحة الخريطة" : "Map workspace"}>
-        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} />
+        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} showRoadNetwork={showRoadNetwork} />
         <div className="map-header-card"><div className="map-title-icon"><MapPinned aria-hidden="true" /></div><div><span>{ar ? "القاهرة الكبرى" : "Greater Cairo"}</span><h1>{ar ? "المكان كما توثّقه المصادر" : "Place, as documented"}</h1><p>{ar ? "الحقائق المتعارضة تبقى ظاهرة؛ لا تخمين للهندسة أو الحالة." : "Conflicting claims remain visible. No inferred geometry or status."}</p></div></div>
         <div className="map-toolbar"><LayerChips type={filters.type} onTypeChange={(type) => setFilters((current) => ({ ...current, type }))} language={language} />
           <MapFilters filters={filters} onChange={setFilters} language={language} />
+          <label className="road-network-toggle"><input type="checkbox" checked={showRoadNetwork} onChange={(event) => setShowRoadNetwork(event.target.checked)} /><span>{ar ? "شبكة الطرق (OpenStreetMap)" : "Road network (OSM)"}</span></label>
           <span className="map-feature-count" aria-live="polite">{featuresLoading ? "…" : totalFeatures} {ar ? "ميزة هندسية" : "features"}</span>
         </div>
         <Legend language={language} />

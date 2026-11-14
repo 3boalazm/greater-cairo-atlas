@@ -61,9 +61,32 @@ async function loadStaticAtlasDataset(root: string): Promise<StaticAtlasDataset>
   };
 }
 
+interface EntityMapGeometryRecord {
+  geometry: FeatureSeed["geometry"];
+  license: string[];
+  attribution: string[];
+  sources: string[];
+  retrieval_dates: string[];
+}
+
 export interface StaticEntityPageData extends EntitySeed {
   facts: Array<FactSeed & { evidence: EvidenceSeed[] }>;
-  features: FeatureSeed[];
+  mapGeometry: FeatureSeed["geometry"] | null;
+  mapLicense: string;
+  mapAttribution: string;
+}
+
+const entityMapGeometryPromises = new Map<string, Promise<Record<string, EntityMapGeometryRecord>>>();
+
+async function loadEntityMapGeometries(root: string): Promise<Record<string, EntityMapGeometryRecord>> {
+  let pending = entityMapGeometryPromises.get(root);
+  if (!pending) {
+    pending = readFile(path.join(root, "data/derived/entity-map-geometries.json"), "utf8")
+      .then((text) => (JSON.parse(text) as { geometries: Record<string, EntityMapGeometryRecord> }).geometries)
+      .catch(() => ({}));
+    entityMapGeometryPromises.set(root, pending);
+  }
+  return pending;
 }
 
 export async function getStaticEntityPageData(code: string, root = process.cwd()): Promise<StaticEntityPageData | null> {
@@ -71,6 +94,7 @@ export async function getStaticEntityPageData(code: string, root = process.cwd()
   const entity = dataset.entities.find((item) => item.code === code);
   if (!entity) return null;
   const evidenceByCode = new Map(dataset.evidence.map((item) => [item.code, item]));
+  const mapGeometries = await loadEntityMapGeometries(root);
   return {
     ...entity,
     facts: dataset.facts.filter((fact) => fact.entity_code === code).map((fact) => ({
@@ -80,7 +104,9 @@ export async function getStaticEntityPageData(code: string, root = process.cwd()
         return source ? [source] : [];
       }),
     })),
-    features: dataset.features.filter((item) => item.entity_code === code),
+    mapGeometry: mapGeometries[code]?.geometry ?? null,
+    mapLicense: (mapGeometries[code]?.license ?? []).join(" + "),
+    mapAttribution: (mapGeometries[code]?.attribution ?? []).join(" · "),
   };
 }
 

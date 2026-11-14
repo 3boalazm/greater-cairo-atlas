@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["*.e2b.app", "*.vercel.app"],
   outputFileTracingIncludes: {
     "/api/admin/import-seed": ["./data/seed/**/*", "./data/features/**/*"],
+    "/entity/[code]": ["./data/seed/**/*", "./data/features/features.geojson", "./data/derived/entity-map-geometries.json"],
   },
 };
 

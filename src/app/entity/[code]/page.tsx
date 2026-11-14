@@ -88,13 +88,13 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
   const placeJsonLd={
     "@context":"https://schema.org","@type":"Place","@id":`${canonical}#place`,"url":canonical,
     "name":entity.name_en,"alternateName":entity.name_ar,"identifier":entity.code,
-    ...(entity.features.length ? { description:entity.description ?? undefined } : {}),
+    ...(entity.mapGeometry ? { description:entity.description ?? undefined } : {}),
   };
   const safeJsonLd=JSON.stringify(placeJsonLd).replaceAll("<","\\u003c");
-  const mapFeatures:AtlasFeatureCollection={type:"FeatureCollection",features:entity.features.map((feature)=>({
-    type:"Feature",id:feature.code,geometry:feature.geometry,
-    properties:(()=>{const props=feature.properties.properties&&typeof feature.properties.properties==="object"?feature.properties.properties as Record<string,unknown>:{};return {code:feature.code,entity_code:entity.code,name_ar:entity.name_ar,name_en:entity.name_en,type:entity.entity_type,status:entity.status,license:feature.license,attribution:feature.license.startsWith("ODbL")?"© OpenStreetMap contributors, ODbL 1.0":String(props.attribution??""),source:String(props.source??""),retrieval_date:String(props.retrieval_date??""),source_ids:props.source_ids};})(),
-  }))};
+  const mapFeatures:AtlasFeatureCollection={type:"FeatureCollection",features:entity.mapGeometry?[{
+    type:"Feature",id:`ENTITY-MAP-${entity.code}`,geometry:entity.mapGeometry,
+    properties:{code:`ENTITY-MAP-${entity.code}`,entity_code:entity.code,name_ar:entity.name_ar,name_en:entity.name_en,type:entity.entity_type,status:entity.status,license:entity.mapLicense,attribution:entity.mapAttribution,source:"Source geometries, merged and simplified for display",retrieval_date:"",source_ids:[]},
+  }]:[]};
 
   return <div className="site-layout" lang={language} dir={ar?"rtl":"ltr"}>
     <SiteHeader language={language}/>
@@ -118,7 +118,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
       {entity.description && <p className="entity-long-description">{entity.description}</p>}
       <section className="entity-section" aria-labelledby="entity-map-heading">
         <div className="section-title"><span>01</span><div><h2 id="entity-map-heading">{text.map}</h2><p>{ar?"عرض تقريبي للهندسة المسجلة؛ لا تُنشأ وصلات غير موجودة في المصدر.":"A view of recorded source geometry; no connectors are invented."}</p></div></div>
-        {entity.features.length ? <><EntityMap features={mapFeatures} language={language}/><p className="map-data-attribution">© OpenStreetMap contributors, ODbL 1.0 · OpenFreeMap</p></> : <p className="not-mapped-note">{text.notMapped}</p>}
+        {entity.mapGeometry ? <><EntityMap features={mapFeatures} language={language} attribution={entity.mapAttribution}/><p className="map-data-attribution">{entity.mapAttribution} · OpenFreeMap</p></> : <p className="not-mapped-note">{text.notMapped}</p>}
       </section>
       <section className="entity-section" aria-labelledby="entity-facts-heading">
         <div className="section-title"><span>02</span><div><h2 id="entity-facts-heading">{text.facts}</h2><p>{text.conflicts}</p></div></div>
@@ -143,7 +143,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
         </li>)}</ul>:<p className="quiet-note">{text.noSources}</p>}
       </section>
       <p className="page-generated-note">{text.generated} <time dateTime={now}>{now}</time></p>
-      {(entity.features.length > 0 || entity.facts.length > 0) && <script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJsonLd}}/>}
+      {(entity.mapGeometry || entity.facts.length > 0) && <script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJsonLd}}/>}
     </main>
     <SiteFooter language={language}/>
   </div>;
