@@ -18,6 +18,11 @@
 # Vercel
 .vercel
 
+# Build-time assets copied from pinned npm package versions
+/public/maplibre-gl-worker.mjs
+/public/IBM-Plex-OFL.txt
+/src/app/fonts/*.woff2
+
 # TypeScript & logs
 *.tsbuildinfo
 next-env.d.ts
