@@ -31,7 +31,7 @@ from shapely.validation import explain_validity
 from shapely.ops import nearest_points, unary_union
 from shapely.geometry.base import BaseGeometry
 
-from area_boundaries import process_osm_boundaries
+from area_boundaries import boundary_candidate_review, process_osm_boundaries
 from station_matching import match_osm_station_nodes
 from road_gap_fill import ROAD_HIGHWAYS, build_road_graph, connect_seed_components, filter_graph_for_entity, haversine_km, normalize as normalize_road_label
 
@@ -1075,6 +1075,78 @@ def road_name_search_audit(data: dict[str, Any], entities: list[dict[str, str]],
     return audit
 
 
+def render_boundary_candidate_report(review: dict[str, Any]) -> str:
+    lines = [
+        "# PHASE 07.5 — تدقيق مرشحي حدود المدن والأحياء",
+        "",
+        "## التغطية قبل/بعد حسب النوع",
+        "",
+        "| النوع | الكيانات | حدود قبل | حدود بعد | بلا حدود بعد |",
+        "|---|---:|---:|---:|---:|",
+    ]
+    for entity_type, row in sorted(review.get("counts_by_type", {}).items()):
+        lines.append(f"| `{entity_type}` | {row['entities']} | {row['matched_before']} | {row['matched_after']} | {row['unmatched_after']} |")
+    lines.extend([
+        "",
+        f"- التطبيع: {review.get('normalization')}",
+        f"- قاعدة القبول: {review.get('acceptance')}",
+        "- كل مسافة محسوبة بين النقطة الحالية للكيان ومضلع OSM (صفر إذا كانت النقطة داخله). `—` تعني أن الكيان لا يملك نقطة حالية؛ لذلك لا تُقبل هندسة تلقائيًا.",
+        "",
+        "## المطابقات الحالية ومراجعة المرشحين المرفوضين",
+        "",
+    ])
+    entities = review.get("entities", {})
+    for code, entry in sorted(entities.items()):
+        if entry.get("status") == "matched":
+            lines.append(f"### `{code}` — {entry.get('name_ar')} / {entry.get('name_en')}")
+            lines.append(f"- النتيجة: مطابق؛ OSM/{entry.get('matched_osm_id')}؛ {entry.get('summary_reason')}.")
+            if code == "CITY-CAIRO":
+                lines.append("- تسمية العرض المطلوبة: **حدود محافظة القاهرة**؛ المصدر relation/4103336 (مستوى محافظة)، وليس حدودًا لمدينة القاهرة.")
+            if code == "DIST-BAB-SHAREYA":
+                lines.append("- تنبيه: المرشح السابق way/709300098 لم يعد مقبولًا؛ مضلع `place=neighbourhood` بمساحة كتلية لا يمثل حدود قسم باب الشعرية.")
+            selected_candidate = entry.get("selected_candidate")
+            if selected_candidate:
+                lines.append(_boundary_candidate_markdown(selected_candidate))
+            for candidate in entry.get("top_candidates", []):
+                if selected_candidate and candidate.get("osm_id") == selected_candidate.get("osm_id") and candidate.get("osm_type") == selected_candidate.get("osm_type"):
+                    continue
+                lines.append(_boundary_candidate_markdown(candidate))
+            lines.append("")
+    lines.extend(["## الكيانات بلا حدود مؤكدة — أفضل ثلاثة مرشحين بالاسم المطبع", ""])
+    for code, entry in sorted(entities.items()):
+        if entry.get("status") == "matched":
+            continue
+        point = entry.get("entity_point")
+        point_text = f"`{point}`" if point else "— (لا توجد نقطة كيان حالية)"
+        lines.append(f"### `{code}` — {entry.get('name_ar')} / {entry.get('name_en')}")
+        lines.append(f"- نقطة الكيان: {point_text}. الحالة: **{entry.get('status')}**؛ {entry.get('summary_reason')}.")
+        candidates = entry.get("top_candidates", [])
+        if candidates:
+            lines.extend(_boundary_candidate_markdown(candidate) for candidate in candidates[:3])
+        else:
+            lines.append("- لا توجد مضلعات ذات اسم مطابق بعد التطبيع في ملف 07.4؛ الرفض: لا يوجد مرشح اسمي يمكن اختباره.")
+        lines.append("")
+    lines.extend(["## أمثلة landuse=residential المطلوبة", ""])
+    for code, example in sorted(review.get("landuse_examples", {}).items()):
+        ids = ", ".join(str(value) for value in example.get("osm_ids", [])) or "—"
+        lines.append(f"- `{code}` ({example['label']}): {example['status']}; OSM way/relation IDs: `{ids}`.")
+    lines.extend(["", "`source_kind=landuse` لا يُقبل إلا لمضلع سكني مسمى موجود في استخراج 07.4؛ غياب النقطة الحالية أو عدم اجتياز المساحة/المسافة يبقيه مرشحًا مرفوضًا ولا يبرر التخمين.", ""])
+    return "\n".join(lines)
+
+
+def _boundary_candidate_markdown(candidate: dict[str, Any]) -> str:
+    names = candidate.get("names", {})
+    name_text = " / ".join(f"{key}={value}" for key, value in names.items()) or "(بدون اسم ظاهر)"
+    distance = candidate.get("distance_to_entity_point_m")
+    distance_text = f"{distance:.0f} م" if isinstance(distance, (int, float)) else "—"
+    area = candidate.get("area_km2")
+    area_text = f"{area:.3f} كم²" if isinstance(area, (int, float)) else "—"
+    fields = f"place={candidate.get('place') or '—'}, admin_level={candidate.get('admin_level') or '—'}, landuse={candidate.get('landuse') or '—'}"
+    return (f"- OSM/{candidate.get('osm_type')}/{candidate.get('osm_id')} (v{candidate.get('osm_version')}): {name_text}; "
+            f"المسافة {distance_text}؛ المساحة {area_text}؛ {fields}؛ source_kind=`{candidate.get('source_kind')}`. "
+            f"القرار/سبب الاستبعاد إن انطبق: {candidate.get('decision')}.")
+
+
 def new_report():
     types=("road","transit_line","transit_stop","rail_station","city","district","airport","bridge","landmark")
     return {"by_type": {t: {k: 0 for k in ("matched", "unmatched", "ambiguous")} for t in types}, "unmatched": [], "ambiguous": [], "road_gaps": [], "road_gap_fill_by_entity": [], "road_route_relations": [], "road_route_entities": [], "rejected_road_segments": [], "geometry_repairs": [], "invalid_geometry": []}
@@ -1106,6 +1178,15 @@ def new_extract_inventory(data: dict[str, Any]) -> dict[str, Any]:
     elements = data.get("elements", [])
     place_counts = Counter(f"{item.get('type')}:{item.get('tags', {}).get('place')}" for item in elements
                           if item.get("tags", {}).get("place") in {"city", "town", "suburb", "quarter", "neighbourhood"})
+    named_residential_landuse = Counter(item.get("type") for item in elements
+        if item.get("type") in {"way", "relation"} and item.get("tags", {}).get("landuse") == "residential"
+        and any(item.get("tags", {}).get(key) for key in ("name", "name:ar", "name:en", "alt_name", "old_name")))
+    boundary_source_counts = Counter(item.get("type") for item in elements
+        if item.get("type") in {"way", "relation"} and
+        (item.get("tags", {}).get("boundary") == "administrative" or
+         item.get("tags", {}).get("place") in {"city", "town", "suburb", "quarter", "neighbourhood"} or
+         (item.get("tags", {}).get("landuse") == "residential" and
+          any(item.get("tags", {}).get(key) for key in ("name", "name:ar", "name:en", "alt_name", "old_name")))))
     admin_levels = Counter(str(item.get("tags", {}).get("admin_level", "missing")) for item in elements
                           if item.get("type") == "relation" and item.get("tags", {}).get("boundary") == "administrative")
     route_counts = Counter(str(item.get("tags", {}).get("route")) for item in elements
@@ -1128,6 +1209,8 @@ def new_extract_inventory(data: dict[str, Any]) -> dict[str, Any]:
                               "name_ar": tags.get("name:ar"), "name_en": tags.get("name:en")})
     return {"elements_total": len(elements), "element_types": dict(Counter(item.get("type") for item in elements)),
             "place_elements_by_type_and_value": dict(sorted(place_counts.items())),
+            "named_residential_landuse_polygons_by_element_type": dict(sorted(named_residential_landuse.items())),
+            "boundary_candidate_source_polygons_by_element_type": dict(sorted(boundary_source_counts.items())),
             "administrative_boundary_relation_counts_by_level": dict(sorted(admin_levels.items())),
             "route_relation_counts_by_route": dict(sorted(route_counts.items())),
             "railway_station_stop_halt_construction_nodes": dict(sorted(node_counts.items())),
@@ -1297,6 +1380,12 @@ def main():
     entity_map_manifest: dict[str, Any] = {}
     boundary_manifest: dict[str, Any] = {"available": False, "source_file": None, "feature_count": 0}
     boundaries_path = Path(args.boundaries_out)
+    previous_boundary_features: list[dict[str, Any]] = []
+    if boundaries_path.exists():
+        try:
+            previous_boundary_features = json.loads(boundaries_path.read_text(encoding="utf-8")).get("features", [])
+        except (OSError, json.JSONDecodeError, AttributeError):
+            previous_boundary_features = []
     boundary_source_path = Path(args.osm_boundaries)
     combined_osm: dict[str, Any] | None = None
     station_matching_ran = False
@@ -1358,6 +1447,16 @@ def main():
                     and item.get("geometry", {}).get("type") == "Point")
             boundary_features, boundary_audit = process_osm_boundaries(
                 boundary_osm, entities, osm_date, rules, existing_features=point_features)
+            candidate_review = boundary_candidate_review(
+                boundary_osm, entities, boundary_features, existing_features=point_features,
+                previous_features=previous_boundary_features, rules=rules, boundary_audit=boundary_audit)
+            candidate_report_path = outdir / "phase-07-5-boundary-candidates.ar.md"
+            candidate_report_path.parent.mkdir(parents=True, exist_ok=True)
+            candidate_report_path.write_text(render_boundary_candidate_report(candidate_review), encoding="utf-8")
+            candidate_review["report_path"] = str(candidate_report_path.relative_to(ROOT))
+            report["boundary_candidate_review"] = candidate_review
+            boundary_audit["coverage_before_after_by_type"] = candidate_review["counts_by_type"]
+            boundary_audit["candidate_report_path"] = str(candidate_report_path.relative_to(ROOT))
             boundaries_path.parent.mkdir(parents=True, exist_ok=True)
             boundaries_path.write_text(json.dumps({"type": "FeatureCollection", "features": boundary_features},
                                                    ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

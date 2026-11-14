@@ -52521,6 +52521,3811 @@
     "station_entities_with_geometry_after": 40,
     "station_entities_matched": 40
   },
+  "boundary_candidate_review": {
+    "counts_by_type": {
+      "city": {
+        "entities": 42,
+        "matched_before": 6,
+        "matched_after": 14,
+        "unmatched_after": 28
+      },
+      "district": {
+        "entities": 83,
+        "matched_before": 4,
+        "matched_after": 7,
+        "unmatched_after": 76
+      }
+    },
+    "entities": {
+      "CITY-10TH-RAMADAN": {
+        "entity_type": "city",
+        "name_ar": "العاشر من رمضان",
+        "name_en": "10th of Ramadan",
+        "entity_point": [
+          31.749342,
+          30.2900096
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 2,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 605783816,
+            "osm_version": 13,
+            "names": {
+              "name": "العاشر من رمضان",
+              "name:ar": "العاشر من رمضان",
+              "name:en": "10th of Ramadan"
+            },
+            "normalized_names": [
+              "10thoframadan",
+              "العاشرمنرمضان"
+            ],
+            "area_km2": 71.651,
+            "distance_to_entity_point_m": 0.0,
+            "place": "city",
+            "admin_level": "8",
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 544180702,
+            "osm_version": 4,
+            "names": {
+              "name": "الحى العاشر",
+              "name:ar": "الحى العاشر",
+              "name:en": "Buildings 86 Meter"
+            },
+            "normalized_names": [
+              "buildings86meter",
+              "العاشر"
+            ],
+            "area_km2": 0.179,
+            "distance_to_entity_point_m": 88355.8,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "polygon falls outside entity-specific bbox guard; polygon is 88356 m from entity point; exceeds 1 km point-to-polygon guard; candidate also lies beyond the 2 km candidate search radius; area 0.179 km² is outside city range 1–800 km²; superseded by larger plausible same-name polygon (71.651 km²)",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 605783816,
+          "osm_version": 13,
+          "names": {
+            "name": "العاشر من رمضان",
+            "name:ar": "العاشر من رمضان",
+            "name:en": "10th of Ramadan"
+          },
+          "normalized_names": [
+            "10thoframadan",
+            "العاشرمنرمضان"
+          ],
+          "area_km2": 71.651,
+          "distance_to_entity_point_m": 0.0,
+          "place": "city",
+          "admin_level": "8",
+          "boundary": null,
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 605783816
+      },
+      "CITY-15-MAY": {
+        "entity_type": "city",
+        "name_ar": "15 مايو",
+        "name_en": "15th of May City",
+        "entity_point": [
+          31.3647679,
+          29.8320418
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 1103679051,
+            "osm_version": 5,
+            "names": {
+              "name": "مدينة الخامس عشر من مايو",
+              "name:ar": "مدينة الخامس عشر من مايو",
+              "name:en": "15th of May"
+            },
+            "normalized_names": [
+              "15thofmay",
+              "الخامسعشرمنمايو"
+            ],
+            "area_km2": 72.266,
+            "distance_to_entity_point_m": 0.0,
+            "place": "city",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 1103679051,
+          "osm_version": 5,
+          "names": {
+            "name": "مدينة الخامس عشر من مايو",
+            "name:ar": "مدينة الخامس عشر من مايو",
+            "name:en": "15th of May"
+          },
+          "normalized_names": [
+            "15thofmay",
+            "الخامسعشرمنمايو"
+          ],
+          "area_km2": 72.266,
+          "distance_to_entity_point_m": 0.0,
+          "place": "city",
+          "admin_level": null,
+          "boundary": null,
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 1103679051
+      },
+      "CITY-6-OCTOBER": {
+        "entity_type": "city",
+        "name_ar": "6 أكتوبر",
+        "name_en": "6th of October City",
+        "entity_point": [
+          30.9409205,
+          29.9723458
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-ABU-SIMBEL": {
+        "entity_type": "city",
+        "name_ar": "أبو سمبل",
+        "name_en": "Abu Simbel",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-AIN-SOKHNA": {
+        "entity_type": "city",
+        "name_ar": "العين السخنة",
+        "name_en": "Ain Sokhna",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 1103680414,
+            "osm_version": 4,
+            "names": {
+              "name": "Ain Sokhna"
+            },
+            "normalized_names": [
+              "ainsokhna"
+            ],
+            "area_km2": 91.129,
+            "distance_to_entity_point_m": null,
+            "place": "city",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-ALAMEIN": {
+        "entity_type": "city",
+        "name_ar": "العلمين",
+        "name_en": "El Alamein",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-ALEXANDRIA": {
+        "entity_type": "city",
+        "name_ar": "إسكندرية",
+        "name_en": "Alexandria",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-AUSIM": {
+        "entity_type": "city",
+        "name_ar": "أوسيم",
+        "name_en": "Ausim",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 720891654,
+            "osm_version": 19,
+            "names": {
+              "name": "مدينة أوسيم",
+              "name:ar": "مدينة أوسيم",
+              "name:en": "Awseem City"
+            },
+            "normalized_names": [
+              "awseem",
+              "اوسيم"
+            ],
+            "area_km2": 12.032,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-BADR": {
+        "entity_type": "city",
+        "name_ar": "بدر",
+        "name_en": "Badr City",
+        "entity_point": [
+          31.742824,
+          30.142806
+        ],
+        "status": "unmatched",
+        "summary_reason": "no candidate passed every automatic acceptance guard",
+        "candidate_count": 2,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 800386645,
+            "osm_version": 3,
+            "names": {
+              "name": "مدينه بدر",
+              "name:ar": "مدينه بدر",
+              "name:en": "Badr City"
+            },
+            "normalized_names": [
+              "badr",
+              "بدر"
+            ],
+            "area_km2": 19.477,
+            "distance_to_entity_point_m": 107882.2,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "polygon falls outside entity-specific bbox guard; polygon is 107882 m from entity point; exceeds 1 km point-to-polygon guard; candidate also lies beyond the 2 km candidate search radius",
+            "rejected": true
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 1073953480,
+            "osm_version": 3,
+            "names": {
+              "name": "بدر",
+              "name:ar": "بدر",
+              "name:en": "Badr",
+              "alt_name": "مركز بدر"
+            },
+            "normalized_names": [
+              "badr",
+              "بدر"
+            ],
+            "area_km2": 3.528,
+            "distance_to_entity_point_m": 108617.7,
+            "place": "town",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "polygon falls outside entity-specific bbox guard; polygon is 108618 m from entity point; exceeds 1 km point-to-polygon guard; candidate also lies beyond the 2 km candidate search radius",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-BENHA": {
+        "entity_type": "city",
+        "name_ar": "بنها",
+        "name_en": "Benha",
+        "entity_point": [
+          31.184063,
+          30.4624974
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 739039585,
+            "osm_version": 17,
+            "names": {
+              "name": "مدينه بنها",
+              "name:ar": "مدينه بنها",
+              "name:en": "Banha City"
+            },
+            "normalized_names": [
+              "banha",
+              "بنها"
+            ],
+            "area_km2": 5.968,
+            "distance_to_entity_point_m": 111.2,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 739039585,
+          "osm_version": 17,
+          "names": {
+            "name": "مدينه بنها",
+            "name:ar": "مدينه بنها",
+            "name:en": "Banha City"
+          },
+          "normalized_names": [
+            "banha",
+            "بنها"
+          ],
+          "area_km2": 5.968,
+          "distance_to_entity_point_m": 111.2,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 739039585
+      },
+      "CITY-BILBEIS": {
+        "entity_type": "city",
+        "name_ar": "بلبيس",
+        "name_en": "Bilbeis",
+        "entity_point": [
+          31.56463,
+          30.418758
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 756158390,
+            "osm_version": 10,
+            "names": {
+              "name": "مدينة بلبيس",
+              "name:ar": "مدينة بلبيس",
+              "name:en": "Belbes City"
+            },
+            "normalized_names": [
+              "belbes",
+              "بلبيس"
+            ],
+            "area_km2": 42.476,
+            "distance_to_entity_point_m": 0.0,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 756158390,
+          "osm_version": 10,
+          "names": {
+            "name": "مدينة بلبيس",
+            "name:ar": "مدينة بلبيس",
+            "name:en": "Belbes City"
+          },
+          "normalized_names": [
+            "belbes",
+            "بلبيس"
+          ],
+          "area_km2": 42.476,
+          "distance_to_entity_point_m": 0.0,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": null,
+          "landuse": "residential",
+          "source_kind": "landuse",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 756158390
+      },
+      "CITY-CAIRO": {
+        "entity_type": "city",
+        "name_ar": "القاهرة",
+        "name_en": "Cairo",
+        "entity_point": [
+          31.2357257,
+          30.0443879
+        ],
+        "status": "matched",
+        "summary_reason": "explicit governorate relation override; show as Cairo Governorate",
+        "candidate_count": 2,
+        "top_candidates": [
+          {
+            "osm_type": "relation",
+            "osm_id": 4103336,
+            "osm_version": 27,
+            "names": {
+              "name": "القاهرة",
+              "name:ar": "القاهرة",
+              "name:en": "Cairo"
+            },
+            "normalized_names": [
+              "cairo",
+              "القاهره"
+            ],
+            "area_km2": 2995.882,
+            "distance_to_entity_point_m": 0.0,
+            "place": null,
+            "admin_level": "4",
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "administrative",
+            "decision": "accepted by explicit CITY-CAIRO governorate override; relation 4103336 is labeled as Cairo Governorate",
+            "rejected": false
+          },
+          {
+            "osm_type": "relation",
+            "osm_id": 5466227,
+            "osm_version": 24,
+            "names": {
+              "name": "القاهرة",
+              "name:ar": "القاهرة",
+              "name:en": "Cairo"
+            },
+            "normalized_names": [
+              "cairo",
+              "القاهره"
+            ],
+            "area_km2": 2992.003,
+            "distance_to_entity_point_m": 0.0,
+            "place": "city",
+            "admin_level": "4",
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "area 2992.003 km² is outside city range 1–800 km²; superseded by larger plausible same-name polygon (2995.882 km²)",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "relation",
+          "osm_id": 4103336,
+          "osm_version": 27,
+          "names": {
+            "name": "القاهرة",
+            "name:ar": "القاهرة",
+            "name:en": "Cairo"
+          },
+          "normalized_names": [
+            "cairo",
+            "القاهره"
+          ],
+          "area_km2": 2995.882,
+          "distance_to_entity_point_m": 0.0,
+          "place": null,
+          "admin_level": "4",
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "administrative",
+          "decision": "accepted by explicit CITY-CAIRO governorate override; relation 4103336 is labeled as Cairo Governorate",
+          "rejected": false
+        },
+        "matched_osm_id": 4103336
+      },
+      "CITY-FAYOUM": {
+        "entity_type": "city",
+        "name_ar": "الفيوم",
+        "name_en": "Fayoum",
+        "entity_point": [
+          30.8399651,
+          29.3074076
+        ],
+        "status": "unmatched",
+        "summary_reason": "no candidate passed every automatic acceptance guard",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "relation",
+            "osm_id": 3726124,
+            "osm_version": 24,
+            "names": {
+              "name": "الفيوم",
+              "name:ar": "الفيوم",
+              "name:en": "Faiyum"
+            },
+            "normalized_names": [
+              "faiyum",
+              "الفيوم"
+            ],
+            "area_km2": 5672.225,
+            "distance_to_entity_point_m": 0.0,
+            "place": null,
+            "admin_level": "4",
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "administrative",
+            "decision": "polygon falls outside entity-specific bbox guard; area 5672.225 km² is outside city range 1–800 km²",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-GIZA": {
+        "entity_type": "city",
+        "name_ar": "الجيزة",
+        "name_en": "Giza",
+        "entity_point": [
+          31.2118063,
+          29.9870753
+        ],
+        "status": "unmatched",
+        "summary_reason": "no candidate passed every automatic acceptance guard",
+        "candidate_count": 2,
+        "top_candidates": [
+          {
+            "osm_type": "relation",
+            "osm_id": 3824206,
+            "osm_version": 30,
+            "names": {
+              "name": "الجيزة",
+              "name:ar": "الجيزة",
+              "name:en": "Aj Jiza"
+            },
+            "normalized_names": [
+              "ajjiza",
+              "الجيزه"
+            ],
+            "area_km2": 38016.063,
+            "distance_to_entity_point_m": 0.0,
+            "place": null,
+            "admin_level": "4",
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "administrative",
+            "decision": "polygon falls outside entity-specific bbox guard; area 38016.063 km² is outside city range 1–800 km²",
+            "rejected": true
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 701014393,
+            "osm_version": 8,
+            "names": {
+              "name": "الجيزة",
+              "name:ar": "الجيزة",
+              "name:en": "El Giza"
+            },
+            "normalized_names": [
+              "elgiza",
+              "الجيزه"
+            ],
+            "area_km2": 0.484,
+            "distance_to_entity_point_m": 11659.3,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "polygon is 11659 m from entity point; exceeds 1 km point-to-polygon guard; candidate also lies beyond the 2 km candidate search radius; area 0.484 km² is outside city range 1–800 km²",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-HURGHADA": {
+        "entity_type": "city",
+        "name_ar": "الغردقة",
+        "name_en": "Hurghada",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-KAFR-SHUKR": {
+        "entity_type": "city",
+        "name_ar": "كفر شكر",
+        "name_en": "Kafr Shukr",
+        "entity_point": [
+          31.2554096,
+          30.5525408
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-KERDASA": {
+        "entity_type": "city",
+        "name_ar": "كرداسة",
+        "name_en": "Kerdasa",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 722860621,
+            "osm_version": 14,
+            "names": {
+              "name": "مدينه كرداسه",
+              "name:ar": "مدينه كرداسه",
+              "name:en": "Kerdasa City"
+            },
+            "normalized_names": [
+              "kerdasa",
+              "كرداسه"
+            ],
+            "area_km2": 14.671,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-KHANKA": {
+        "entity_type": "city",
+        "name_ar": "الخانكة",
+        "name_en": "El Khanka",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-MADINATY": {
+        "entity_type": "city",
+        "name_ar": "مدينتي",
+        "name_en": "Madinaty",
+        "entity_point": [
+          31.6238026,
+          30.0916925
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 1103956339,
+            "osm_version": 8,
+            "names": {
+              "name": "Madinaty",
+              "name:ar": "مدينتي"
+            },
+            "normalized_names": [
+              "madinaty",
+              "مدينتي"
+            ],
+            "area_km2": 37.835,
+            "distance_to_entity_point_m": 0.0,
+            "place": "city",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 1103956339,
+          "osm_version": 8,
+          "names": {
+            "name": "Madinaty",
+            "name:ar": "مدينتي"
+          },
+          "normalized_names": [
+            "madinaty",
+            "مدينتي"
+          ],
+          "area_km2": 37.835,
+          "distance_to_entity_point_m": 0.0,
+          "place": "city",
+          "admin_level": null,
+          "boundary": null,
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 1103956339
+      },
+      "CITY-MANSOURA": {
+        "entity_type": "city",
+        "name_ar": "المنصورة",
+        "name_en": "Mansoura",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-MARSA-MATROUH": {
+        "entity_type": "city",
+        "name_ar": "مرسى مطروح",
+        "name_en": "Marsa Matrouh",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "relation",
+            "osm_id": 3061826,
+            "osm_version": 25,
+            "names": {
+              "name": "مطروح",
+              "name:ar": "مطروح",
+              "name:en": "Matruh"
+            },
+            "normalized_names": [
+              "matruh",
+              "مطروح"
+            ],
+            "area_km2": 165248.428,
+            "distance_to_entity_point_m": null,
+            "place": null,
+            "admin_level": "4",
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "administrative",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked; area 165248.428 km² is outside city range 1–800 km²",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-MOSTAKBAL": {
+        "entity_type": "city",
+        "name_ar": "المستقبل سيتي",
+        "name_en": "Mostakbal City",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 2,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 532811212,
+            "osm_version": 7,
+            "names": {
+              "name": "مدينة المستقبل",
+              "name:ar": "مدينة المستقبل",
+              "name:en": "Al Mustakbal City"
+            },
+            "normalized_names": [
+              "almustakbal",
+              "المستقبل"
+            ],
+            "area_km2": 3.026,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 696939856,
+            "osm_version": 3,
+            "names": {
+              "name": "مدينة المستقبل",
+              "name:ar": "مدينة المستقبل",
+              "name:en": "Al Mostakbal City"
+            },
+            "normalized_names": [
+              "almostakbal",
+              "المستقبل"
+            ],
+            "area_km2": 0.154,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked; area 0.154 km² is outside city range 1–800 km²",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-NEW-CAIRO": {
+        "entity_type": "city",
+        "name_ar": "القاهرة الجديدة",
+        "name_en": "New Cairo",
+        "entity_point": [
+          31.4756825,
+          30.0277688
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 3,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 498580491,
+            "osm_version": 58,
+            "names": {
+              "name": "مدينة القاهرة الجديدة",
+              "name:ar": "مدينة القاهرة الجديدة",
+              "name:en": "New Cairo City"
+            },
+            "normalized_names": [
+              "newcairo",
+              "القاهرهالجديده"
+            ],
+            "area_km2": 379.758,
+            "distance_to_entity_point_m": 0.0,
+            "place": "city",
+            "admin_level": "8",
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "administrative",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 252475573,
+            "osm_version": 28,
+            "names": {
+              "name": "التجمع الأول",
+              "name:ar": "التجمع الأول",
+              "name:en": "First Settlement"
+            },
+            "normalized_names": [
+              "firstsettlement",
+              "التجمعالاول"
+            ],
+            "area_km2": 5.069,
+            "distance_to_entity_point_m": 3136.2,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "polygon is 3136 m from entity point; exceeds 1 km point-to-polygon guard; candidate also lies beyond the 2 km candidate search radius; superseded by larger plausible same-name polygon (379.758 km²)",
+            "rejected": true
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 774635278,
+            "osm_version": 12,
+            "names": {
+              "name": "التجمع الخامس",
+              "name:ar": "التجمع الخامس",
+              "name:en": "Fifth Settlement"
+            },
+            "normalized_names": [
+              "fifthsettlement",
+              "التجمعالخامس"
+            ],
+            "area_km2": 10.066,
+            "distance_to_entity_point_m": 3166.3,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "polygon is 3166 m from entity point; exceeds 1 km point-to-polygon guard; candidate also lies beyond the 2 km candidate search radius; superseded by larger plausible same-name polygon (379.758 km²)",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 498580491,
+          "osm_version": 58,
+          "names": {
+            "name": "مدينة القاهرة الجديدة",
+            "name:ar": "مدينة القاهرة الجديدة",
+            "name:en": "New Cairo City"
+          },
+          "normalized_names": [
+            "newcairo",
+            "القاهرهالجديده"
+          ],
+          "area_km2": 379.758,
+          "distance_to_entity_point_m": 0.0,
+          "place": "city",
+          "admin_level": "8",
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "administrative",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 498580491
+      },
+      "CITY-NEW-CAPITAL": {
+        "entity_type": "city",
+        "name_ar": "العاصمة الإدارية",
+        "name_en": "New Administrative Capital",
+        "entity_point": [
+          31.7549459,
+          30.023829
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-NEW-HELIOPOLIS": {
+        "entity_type": "city",
+        "name_ar": "هليوبوليس الجديدة",
+        "name_en": "New Heliopolis",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-NEW-OBOUR": {
+        "entity_type": "city",
+        "name_ar": "العبور الجديدة",
+        "name_en": "New Obour",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-NEW-OCTOBER": {
+        "entity_type": "city",
+        "name_ar": "أكتوبر الجديدة",
+        "name_en": "New October",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-NEW-SPHINX": {
+        "entity_type": "city",
+        "name_ar": "سفنكس الجديدة",
+        "name_en": "New Sphinx",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-NEW-ZAYED": {
+        "entity_type": "city",
+        "name_ar": "زايد الجديدة",
+        "name_en": "New Zayed",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-OBOUR": {
+        "entity_type": "city",
+        "name_ar": "العبور",
+        "name_en": "El Obour",
+        "entity_point": [
+          31.450548,
+          30.1914
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-QAHA": {
+        "entity_type": "city",
+        "name_ar": "قها",
+        "name_en": "Qaha",
+        "entity_point": [
+          31.206051,
+          30.280632
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 732374401,
+            "osm_version": 13,
+            "names": {
+              "name": "مدينه قها",
+              "name:ar": "مدينه قها",
+              "name:en": "Qaha City"
+            },
+            "normalized_names": [
+              "qaha",
+              "قها"
+            ],
+            "area_km2": 12.913,
+            "distance_to_entity_point_m": 0.0,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 732374401,
+          "osm_version": 13,
+          "names": {
+            "name": "مدينه قها",
+            "name:ar": "مدينه قها",
+            "name:en": "Qaha City"
+          },
+          "normalized_names": [
+            "qaha",
+            "قها"
+          ],
+          "area_km2": 12.913,
+          "distance_to_entity_point_m": 0.0,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 732374401
+      },
+      "CITY-QALYUB": {
+        "entity_type": "city",
+        "name_ar": "قليوب",
+        "name_en": "Qalyub",
+        "entity_point": [
+          31.206436,
+          30.178875
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 730141764,
+            "osm_version": 25,
+            "names": {
+              "name": "مدينه قليوب",
+              "name:ar": "مدينه قليوب",
+              "name:en": "Qalyub City"
+            },
+            "normalized_names": [
+              "qalyub",
+              "قليوب"
+            ],
+            "area_km2": 19.846,
+            "distance_to_entity_point_m": 0.0,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 730141764,
+          "osm_version": 25,
+          "names": {
+            "name": "مدينه قليوب",
+            "name:ar": "مدينه قليوب",
+            "name:en": "Qalyub City"
+          },
+          "normalized_names": [
+            "qalyub",
+            "قليوب"
+          ],
+          "area_km2": 19.846,
+          "distance_to_entity_point_m": 0.0,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 730141764
+      },
+      "CITY-QANATER": {
+        "entity_type": "city",
+        "name_ar": "القناطر",
+        "name_en": "El Qanater",
+        "entity_point": [
+          31.133908,
+          30.1966159
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 729636261,
+            "osm_version": 13,
+            "names": {
+              "name": "مدينه القناطر الخيريه",
+              "name:ar": "مدينه القناطر الخيريه",
+              "name:en": "Al Qanater Al Khaireia City"
+            },
+            "normalized_names": [
+              "alqanateralkhaireia",
+              "القناطرالخيريه"
+            ],
+            "area_km2": 16.68,
+            "distance_to_entity_point_m": 0.0,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 729636261,
+          "osm_version": 13,
+          "names": {
+            "name": "مدينه القناطر الخيريه",
+            "name:ar": "مدينه القناطر الخيريه",
+            "name:en": "Al Qanater Al Khaireia City"
+          },
+          "normalized_names": [
+            "alqanateralkhaireia",
+            "القناطرالخيريه"
+          ],
+          "area_km2": 16.68,
+          "distance_to_entity_point_m": 0.0,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 729636261
+      },
+      "CITY-QENA": {
+        "entity_type": "city",
+        "name_ar": "قنا",
+        "name_en": "Qena",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-REHAB": {
+        "entity_type": "city",
+        "name_ar": "الرحاب",
+        "name_en": "El Rehab",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-SAFAGA": {
+        "entity_type": "city",
+        "name_ar": "سفاجا",
+        "name_en": "Safaga",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-SHEIKH-ZAYED": {
+        "entity_type": "city",
+        "name_ar": "الشيخ زايد",
+        "name_en": "Sheikh Zayed",
+        "entity_point": [
+          30.9832235,
+          30.048347
+        ],
+        "status": "unmatched",
+        "summary_reason": "no candidate passed every automatic acceptance guard",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 810567752,
+            "osm_version": 6,
+            "names": {
+              "name": "الشيخ زايد",
+              "name:ar": "الشيخ زايد",
+              "name:en": "Al Sheikh Zaid"
+            },
+            "normalized_names": [
+              "alsheikhzaid",
+              "الشيخزايد"
+            ],
+            "area_km2": 3.706,
+            "distance_to_entity_point_m": 138274.8,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "polygon falls outside entity-specific bbox guard; polygon is 138275 m from entity point; exceeds 1 km point-to-polygon guard; candidate also lies beyond the 2 km candidate search radius",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-SHIBIN-ELQANATER": {
+        "entity_type": "city",
+        "name_ar": "شبين القناطر",
+        "name_en": "Shibin El Qanater",
+        "entity_point": [
+          31.317601,
+          30.3125348
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 736218125,
+            "osm_version": 13,
+            "names": {
+              "name": "مدينه شبين القناطر",
+              "name:ar": "مدينه شبين القناطر",
+              "name:en": "Shebin El Qanater City"
+            },
+            "normalized_names": [
+              "shebinelqanater",
+              "شبينالقناطر"
+            ],
+            "area_km2": 10.756,
+            "distance_to_entity_point_m": 0.0,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 736218125,
+          "osm_version": 13,
+          "names": {
+            "name": "مدينه شبين القناطر",
+            "name:ar": "مدينه شبين القناطر",
+            "name:en": "Shebin El Qanater City"
+          },
+          "normalized_names": [
+            "shebinelqanater",
+            "شبينالقناطر"
+          ],
+          "area_km2": 10.756,
+          "distance_to_entity_point_m": 0.0,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 736218125
+      },
+      "CITY-SHOROUK": {
+        "entity_type": "city",
+        "name_ar": "الشروق",
+        "name_en": "El Shorouk",
+        "entity_point": [
+          31.6295623,
+          30.1488541
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "CITY-SHUBRA-ELKHEIMA": {
+        "entity_type": "city",
+        "name_ar": "شبرا الخيمة",
+        "name_en": "Shubra El Kheima",
+        "entity_point": [
+          31.242218,
+          30.1285988
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 731047816,
+            "osm_version": 7,
+            "names": {
+              "name": "مدينه شبرا الخيمه",
+              "name:ar": "مدينه شبرا الخيمه",
+              "name:en": "Shobra Al Khima City"
+            },
+            "normalized_names": [
+              "shobraalkhima",
+              "شبراالخيمه"
+            ],
+            "area_km2": 1.82,
+            "distance_to_entity_point_m": 967.6,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 731047816,
+          "osm_version": 7,
+          "names": {
+            "name": "مدينه شبرا الخيمه",
+            "name:ar": "مدينه شبرا الخيمه",
+            "name:en": "Shobra Al Khima City"
+          },
+          "normalized_names": [
+            "shobraalkhima",
+            "شبراالخيمه"
+          ],
+          "area_km2": 1.82,
+          "distance_to_entity_point_m": 967.6,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": null,
+          "landuse": "residential",
+          "source_kind": "landuse",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 731047816
+      },
+      "CITY-TANTA": {
+        "entity_type": "city",
+        "name_ar": "طنطا",
+        "name_en": "Tanta",
+        "entity_point": [
+          30.9982536,
+          30.7833666
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "relation",
+            "osm_id": 3603506,
+            "osm_version": 15,
+            "names": {
+              "name": "طنطا",
+              "name:en": "Tanta"
+            },
+            "normalized_names": [
+              "tanta",
+              "طنطا"
+            ],
+            "area_km2": 36.832,
+            "distance_to_entity_point_m": 0.0,
+            "place": null,
+            "admin_level": "8",
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "administrative",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "relation",
+          "osm_id": 3603506,
+          "osm_version": 15,
+          "names": {
+            "name": "طنطا",
+            "name:en": "Tanta"
+          },
+          "normalized_names": [
+            "tanta",
+            "طنطا"
+          ],
+          "area_km2": 36.832,
+          "distance_to_entity_point_m": 0.0,
+          "place": null,
+          "admin_level": "8",
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "administrative",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 3603506
+      },
+      "CITY-TOUKH": {
+        "entity_type": "city",
+        "name_ar": "طوخ",
+        "name_en": "Toukh",
+        "entity_point": [
+          31.200979,
+          30.3540508
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 732390056,
+            "osm_version": 20,
+            "names": {
+              "name": "مدينه طوخ",
+              "name:ar": "مدينه طوخ",
+              "name:en": "Toukh City"
+            },
+            "normalized_names": [
+              "toukh",
+              "طوخ"
+            ],
+            "area_km2": 6.077,
+            "distance_to_entity_point_m": 0.0,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 732390056,
+          "osm_version": 20,
+          "names": {
+            "name": "مدينه طوخ",
+            "name:ar": "مدينه طوخ",
+            "name:en": "Toukh City"
+          },
+          "normalized_names": [
+            "toukh",
+            "طوخ"
+          ],
+          "area_km2": 6.077,
+          "distance_to_entity_point_m": 0.0,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 732390056
+      },
+      "DIST-ABBASSIA": {
+        "entity_type": "district",
+        "name_ar": "العباسية",
+        "name_en": "Abbassia",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-ABDEEN": {
+        "entity_type": "district",
+        "name_ar": "عابدين",
+        "name_en": "Abdeen",
+        "entity_point": [
+          31.2488627,
+          30.044988
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-ABU-RAWASH": {
+        "entity_type": "district",
+        "name_ar": "أبو رواش",
+        "name_en": "Abu Rawash",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-ABU-ZAABAL": {
+        "entity_type": "district",
+        "name_ar": "أبو زعبل",
+        "name_en": "Abu Zaabal",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-AGOUZA": {
+        "entity_type": "district",
+        "name_ar": "العجوزة",
+        "name_en": "Agouza",
+        "entity_point": [
+          31.2127281,
+          30.0549435
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 723745381,
+            "osm_version": 6,
+            "names": {
+              "name": "العجوزه",
+              "name:ar": "العجوزه",
+              "name:en": "Al Agouza"
+            },
+            "normalized_names": [
+              "alagouza",
+              "العجوزه"
+            ],
+            "area_km2": 0.782,
+            "distance_to_entity_point_m": 0.0,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 723745381,
+          "osm_version": 6,
+          "names": {
+            "name": "العجوزه",
+            "name:ar": "العجوزه",
+            "name:en": "Al Agouza"
+          },
+          "normalized_names": [
+            "alagouza",
+            "العجوزه"
+          ],
+          "area_km2": 0.782,
+          "distance_to_entity_point_m": 0.0,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 723745381
+      },
+      "DIST-AIN-SHAMS": {
+        "entity_type": "district",
+        "name_ar": "عين شمس",
+        "name_en": "Ain Shams",
+        "entity_point": [
+          31.3167491,
+          30.1304761
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-AMIRIYA": {
+        "entity_type": "district",
+        "name_ar": "حي الأميرية",
+        "name_en": "El Amiriya District",
+        "entity_point": [
+          31.283333,
+          30.1000001
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-AZBAKEYA": {
+        "entity_type": "district",
+        "name_ar": "حي الأزبكية",
+        "name_en": "El Azbakeya District",
+        "entity_point": [
+          31.2454725,
+          30.0538891
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-BAB-SHAREYA": {
+        "entity_type": "district",
+        "name_ar": "حي باب الشعرية",
+        "name_en": "Bab El Shaareya District",
+        "entity_point": [
+          31.2552829,
+          30.0584951
+        ],
+        "status": "unmatched",
+        "summary_reason": "no candidate passed every automatic acceptance guard",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 709300098,
+            "osm_version": 10,
+            "names": {
+              "name": "باب الشعريه",
+              "name:ar": "باب الشعريه",
+              "name:en": "Bab Al Shairia"
+            },
+            "normalized_names": [
+              "babalshairia",
+              "بابالشعريه"
+            ],
+            "area_km2": 0.093,
+            "distance_to_entity_point_m": 390.8,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "rejected: 0.09 km² place=neighbourhood is a block, not the full Bab al-Shaariya qism district",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-BAHTIM": {
+        "entity_type": "district",
+        "name_ar": "بهتيم",
+        "name_en": "Bahtim",
+        "entity_point": [
+          31.2655197,
+          30.1389642
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 741588124,
+            "osm_version": 10,
+            "names": {
+              "name": "بهتيم",
+              "name:ar": "بهتيم",
+              "name:en": "Bahtim"
+            },
+            "normalized_names": [
+              "bahtim",
+              "بهتيم"
+            ],
+            "area_km2": 11.746,
+            "distance_to_entity_point_m": 0.0,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 741588124,
+          "osm_version": 10,
+          "names": {
+            "name": "بهتيم",
+            "name:ar": "بهتيم",
+            "name:en": "Bahtim"
+          },
+          "normalized_names": [
+            "bahtim",
+            "بهتيم"
+          ],
+          "area_km2": 11.746,
+          "distance_to_entity_point_m": 0.0,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": null,
+          "landuse": "residential",
+          "source_kind": "landuse",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 741588124
+      },
+      "DIST-BASATIN": {
+        "entity_type": "district",
+        "name_ar": "حي البساتين",
+        "name_en": "El Basatin District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 716699354,
+            "osm_version": 16,
+            "names": {
+              "name": "البساتين",
+              "name:ar": "البساتين",
+              "name:en": "Al Basatine"
+            },
+            "normalized_names": [
+              "albasatine",
+              "البساتين"
+            ],
+            "area_km2": 3.873,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-BULAQ": {
+        "entity_type": "district",
+        "name_ar": "بولاق",
+        "name_en": "Bulaq",
+        "entity_point": [
+          31.2341778,
+          30.0591855
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-BULAQ-DAKROUR": {
+        "entity_type": "district",
+        "name_ar": "بولاق الدكرور",
+        "name_en": "Bulaq al-Dakrour",
+        "entity_point": [
+          31.1910129,
+          30.0338799
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 727388925,
+            "osm_version": 13,
+            "names": {
+              "name": "بولاق الدكرور",
+              "name:ar": "بولاق الدكرور",
+              "name:en": "Bolak Al Dakrour"
+            },
+            "normalized_names": [
+              "bolakaldakrour",
+              "بولاقالدكرور"
+            ],
+            "area_km2": 3.246,
+            "distance_to_entity_point_m": 184.5,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 727388925,
+          "osm_version": 13,
+          "names": {
+            "name": "بولاق الدكرور",
+            "name:ar": "بولاق الدكرور",
+            "name:en": "Bolak Al Dakrour"
+          },
+          "normalized_names": [
+            "bolakaldakrour",
+            "بولاقالدكرور"
+          ],
+          "area_km2": 3.246,
+          "distance_to_entity_point_m": 184.5,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 727388925
+      },
+      "DIST-CAPITAL-GARDENS": {
+        "entity_type": "district",
+        "name_ar": "حدائق العاصمة",
+        "name_en": "Capital Gardens",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-DAQADOS": {
+        "entity_type": "district",
+        "name_ar": "دقادوس",
+        "name_en": "Daqados",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-DAR-ELSALAM": {
+        "entity_type": "district",
+        "name_ar": "حي دار السلام",
+        "name_en": "Dar El Salam District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 708231172,
+            "osm_version": 9,
+            "names": {
+              "name": "دار السلام",
+              "name:ar": "دار السلام",
+              "name:en": "Dar Al Salam"
+            },
+            "normalized_names": [
+              "daralsalam",
+              "دارالسلام"
+            ],
+            "area_km2": 2.037,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-DEGLA": {
+        "entity_type": "district",
+        "name_ar": "دجلة",
+        "name_en": "Degla",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-DOKKI": {
+        "entity_type": "district",
+        "name_ar": "الدقي",
+        "name_en": "Dokki",
+        "entity_point": [
+          31.2125563,
+          30.0388955
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-DOWNTOWN": {
+        "entity_type": "district",
+        "name_ar": "وسط البلد",
+        "name_en": "Downtown Cairo",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-EAST-SHUBRA-ELKHEIMA": {
+        "entity_type": "district",
+        "name_ar": "حي شرق شبرا الخيمة",
+        "name_en": "East Shubra El Kheima District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-FAISAL": {
+        "entity_type": "district",
+        "name_ar": "فيصل",
+        "name_en": "Faisal",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 810845862,
+            "osm_version": 14,
+            "names": {
+              "name": "فيصل",
+              "name:ar": "فيصل",
+              "name:en": "Faisal"
+            },
+            "normalized_names": [
+              "faisal",
+              "فيصل"
+            ],
+            "area_km2": 212.32,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked; area 212.320 km² is outside district range 0.05–60 km²",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-FUSTAT": {
+        "entity_type": "district",
+        "name_ar": "الفسطاط",
+        "name_en": "Fustat",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 990530550,
+            "osm_version": 3,
+            "names": {
+              "name": "الفسطاط",
+              "name:ar": "الفسطاط",
+              "name:en": "Fostat"
+            },
+            "normalized_names": [
+              "fostat",
+              "الفسطاط"
+            ],
+            "area_km2": 0.475,
+            "distance_to_entity_point_m": null,
+            "place": "suburb",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-GARDEN-CITY": {
+        "entity_type": "district",
+        "name_ar": "جاردن سيتي",
+        "name_en": "Garden City",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 707036948,
+            "osm_version": 9,
+            "names": {
+              "name": "جاردن سيتى",
+              "name:ar": "جاردن سيتى",
+              "name:en": "Garden City"
+            },
+            "normalized_names": [
+              "garden",
+              "جاردنسيتي"
+            ],
+            "area_km2": 0.362,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-GHARB": {
+        "entity_type": "district",
+        "name_ar": "حي غرب",
+        "name_en": "Gharb (West) District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-GREEN-SARAYA": {
+        "entity_type": "district",
+        "name_ar": "السرايا الخضرا",
+        "name_en": "Green Saraya",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-HADAEK-ASHGAR": {
+        "entity_type": "district",
+        "name_ar": "حدائق الأشجار",
+        "name_en": "Hadaek El Ashgar",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-HADAEK-OCTOBER": {
+        "entity_type": "district",
+        "name_ar": "حدائق أكتوبر",
+        "name_en": "Hadaek October",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-HADAYEK-AHRAM": {
+        "entity_type": "district",
+        "name_ar": "حدائق الأهرام",
+        "name_en": "Hadayek El Ahram",
+        "entity_point": [
+          31.1011113,
+          29.9693117
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-HADAYEK-QOBBA": {
+        "entity_type": "district",
+        "name_ar": "حدائق القبة",
+        "name_en": "Hadayek El Qobba",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 703444827,
+            "osm_version": 8,
+            "names": {
+              "name": "حدائق القبه",
+              "name:ar": "حدائق القبه",
+              "name:en": "Hada'ek Al Kobba"
+            },
+            "normalized_names": [
+              "hadaekalkobba",
+              "حدائقالقبه"
+            ],
+            "area_km2": 1.071,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-HARAM": {
+        "entity_type": "district",
+        "name_ar": "الهرم",
+        "name_en": "Haram",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-HELIOPOLIS": {
+        "entity_type": "district",
+        "name_ar": "مصر الجديدة",
+        "name_en": "Heliopolis",
+        "entity_point": [
+          31.3323044,
+          30.1177224
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 1248798299,
+            "osm_version": 5,
+            "names": {
+              "name": "قسم مصر الجديدة",
+              "name:ar": "قسم مصر الجديدة",
+              "name:en": "Heliopolis"
+            },
+            "normalized_names": [
+              "heliopolis",
+              "مصرالجديده"
+            ],
+            "area_km2": 8.563,
+            "distance_to_entity_point_m": 0.0,
+            "place": "quarter",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 1248798299,
+          "osm_version": 5,
+          "names": {
+            "name": "قسم مصر الجديدة",
+            "name:ar": "قسم مصر الجديدة",
+            "name:en": "Heliopolis"
+          },
+          "normalized_names": [
+            "heliopolis",
+            "مصرالجديده"
+          ],
+          "area_km2": 8.563,
+          "distance_to_entity_point_m": 0.0,
+          "place": "quarter",
+          "admin_level": null,
+          "boundary": null,
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 1248798299
+      },
+      "DIST-HELWAN": {
+        "entity_type": "district",
+        "name_ar": "حلوان",
+        "name_en": "Helwan",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-HUSSEIN-AZHAR": {
+        "entity_type": "district",
+        "name_ar": "الحسين والأزهر",
+        "name_en": "El Hussein and Al Azhar",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 712064852,
+            "osm_version": 13,
+            "names": {
+              "name": "الأزهر",
+              "name:ar": "الأزهر",
+              "name:en": "El Azhar"
+            },
+            "normalized_names": [
+              "elazhar",
+              "الازهر"
+            ],
+            "area_km2": 0.051,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-IMBABA": {
+        "entity_type": "district",
+        "name_ar": "إمبابة",
+        "name_en": "Imbaba",
+        "entity_point": [
+          31.215927,
+          30.088512
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-JURIAN": {
+        "entity_type": "district",
+        "name_ar": "جريان",
+        "name_en": "Jurian",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-KATAMEYA": {
+        "entity_type": "district",
+        "name_ar": "القطامية",
+        "name_en": "Katameya",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-KHALIFA": {
+        "entity_type": "district",
+        "name_ar": "حي الخليفة",
+        "name_en": "El Khalifa District",
+        "entity_point": [
+          31.2647255,
+          30.0113183
+        ],
+        "status": "unmatched",
+        "summary_reason": "no candidate passed every automatic acceptance guard",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 711399636,
+            "osm_version": 6,
+            "names": {
+              "name": "الخليفه",
+              "name:ar": "الخليفه",
+              "name:en": "Al Khalifa"
+            },
+            "normalized_names": [
+              "alkhalifa",
+              "الخليفه"
+            ],
+            "area_km2": 0.062,
+            "distance_to_entity_point_m": 1934.4,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "polygon is 1934 m from entity point; exceeds 1 km point-to-polygon guard",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-KHOSOUS": {
+        "entity_type": "district",
+        "name_ar": "الخصوص",
+        "name_en": "El Khosous",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 729875378,
+            "osm_version": 12,
+            "names": {
+              "name": "الخصوص",
+              "name:ar": "الخصوص",
+              "name:en": "Al Khosous"
+            },
+            "normalized_names": [
+              "alkhosous",
+              "الخصوص"
+            ],
+            "area_km2": 6.782,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MAADI": {
+        "entity_type": "district",
+        "name_ar": "المعادي",
+        "name_en": "Maadi",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MAASARA": {
+        "entity_type": "district",
+        "name_ar": "حي المعصرة",
+        "name_en": "El Maasara District",
+        "entity_point": [
+          31.2912838,
+          29.9091281
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MANIAL": {
+        "entity_type": "district",
+        "name_ar": "المنيل",
+        "name_en": "Manial",
+        "entity_point": [
+          31.2255698,
+          30.0209947
+        ],
+        "status": "unmatched",
+        "summary_reason": "no candidate passed every automatic acceptance guard",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 846155421,
+            "osm_version": 3,
+            "names": {
+              "name": "حى الروضة",
+              "name:ar": "حى الروضة",
+              "name:en": "Al Rouda District"
+            },
+            "normalized_names": [
+              "alrouda",
+              "الروضه"
+            ],
+            "area_km2": 3.269,
+            "distance_to_entity_point_m": 81407.6,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "polygon falls outside entity-specific bbox guard; polygon is 81408 m from entity point; exceeds 1 km point-to-polygon guard; candidate also lies beyond the 2 km candidate search radius",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MANSHEYET-BAKARY": {
+        "entity_type": "district",
+        "name_ar": "منشأة البكاري",
+        "name_en": "Mansheyet El Bakary",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 3,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 701320188,
+            "osm_version": 19,
+            "names": {
+              "name": "منشيه البكرى",
+              "name:ar": "منشيه البكرى",
+              "name:en": "Mansheyet El Bakry"
+            },
+            "normalized_names": [
+              "mansheyetelbakry",
+              "منشيهالبكري"
+            ],
+            "area_km2": 3.206,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 727473214,
+            "osm_version": 7,
+            "names": {
+              "name": "مدينه منشاه البكارى",
+              "name:ar": "مدينه منشاه البكارى",
+              "name:en": "Monsha'et Al Bakary City"
+            },
+            "normalized_names": [
+              "monshaetalbakary",
+              "منشاهالبكاري"
+            ],
+            "area_km2": 2.422,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 765356373,
+            "osm_version": 2,
+            "names": {
+              "name": "منشيه البكري",
+              "name:ar": "منشيه البكري",
+              "name:en": "Mansheyah Al Bakry"
+            },
+            "normalized_names": [
+              "mansheyahalbakry",
+              "منشيهالبكري"
+            ],
+            "area_km2": 0.892,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MANSHIYAT-NASSER": {
+        "entity_type": "district",
+        "name_ar": "حي منشأة ناصر",
+        "name_en": "Manshiyat Nasser District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 309248507,
+            "osm_version": 20,
+            "names": {
+              "name": "منشاه ناصر",
+              "name:ar": "منشاه ناصر",
+              "name:en": "Monsha'at Nasir"
+            },
+            "normalized_names": [
+              "monshaatnasir",
+              "منشاهناصر"
+            ],
+            "area_km2": 1.002,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MANSOURIYA": {
+        "entity_type": "district",
+        "name_ar": "المنصورية",
+        "name_en": "El Mansouriya",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 711968070,
+            "osm_version": 5,
+            "names": {
+              "name": "المنصوريه",
+              "name:ar": "المنصوريه",
+              "name:en": "Al Mansuriyya"
+            },
+            "normalized_names": [
+              "almansuriyya",
+              "المنصوريه"
+            ],
+            "area_km2": 0.447,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MARG": {
+        "entity_type": "district",
+        "name_ar": "المرج",
+        "name_en": "El Marg",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MATARIYA": {
+        "entity_type": "district",
+        "name_ar": "المطرية",
+        "name_en": "El Matariya",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MERAJ": {
+        "entity_type": "district",
+        "name_ar": "المعراج",
+        "name_en": "El Meraj",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 703100081,
+            "osm_version": 5,
+            "names": {
+              "name": "مدينة المعراج",
+              "name:ar": "مدينة المعراج",
+              "name:en": "Al Mearag City"
+            },
+            "normalized_names": [
+              "almearag",
+              "المعراج"
+            ],
+            "area_km2": 2.093,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MIT-ELEZZ": {
+        "entity_type": "district",
+        "name_ar": "ميت العز",
+        "name_en": "Mit El Ezz",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MOHANDESSIN": {
+        "entity_type": "district",
+        "name_ar": "المهندسين",
+        "name_en": "Mohandessin",
+        "entity_point": [
+          31.2,
+          30.05
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 723065148,
+            "osm_version": 15,
+            "names": {
+              "name": "المهندسين",
+              "name:ar": "المهندسين",
+              "name:en": "Al Mohandessin"
+            },
+            "normalized_names": [
+              "almohandessin",
+              "المهندسين"
+            ],
+            "area_km2": 1.258,
+            "distance_to_entity_point_m": 96.7,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 723065148,
+          "osm_version": 15,
+          "names": {
+            "name": "المهندسين",
+            "name:ar": "المهندسين",
+            "name:en": "Al Mohandessin"
+          },
+          "normalized_names": [
+            "almohandessin",
+            "المهندسين"
+          ],
+          "area_km2": 1.258,
+          "distance_to_entity_point_m": 96.7,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 723065148
+      },
+      "DIST-MOKATTAM": {
+        "entity_type": "district",
+        "name_ar": "المقطم",
+        "name_en": "Mokattam",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 714742689,
+            "osm_version": 15,
+            "names": {
+              "name": "المقطم",
+              "name:ar": "المقطم",
+              "name:en": "El Mukkatam"
+            },
+            "normalized_names": [
+              "elmukkatam",
+              "المقطم"
+            ],
+            "area_km2": 5.69,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MOSTOROD": {
+        "entity_type": "district",
+        "name_ar": "مسطرد",
+        "name_en": "Mostorod",
+        "entity_point": [
+          31.2948719,
+          30.1308831
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 731002786,
+            "osm_version": 25,
+            "names": {
+              "name": "مسطرد",
+              "name:ar": "مسطرد",
+              "name:en": "Mustorod"
+            },
+            "normalized_names": [
+              "mustorod",
+              "مسطرد"
+            ],
+            "area_km2": 8.809,
+            "distance_to_entity_point_m": 0.0,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 731002786,
+          "osm_version": 25,
+          "names": {
+            "name": "مسطرد",
+            "name:ar": "مسطرد",
+            "name:en": "Mustorod"
+          },
+          "normalized_names": [
+            "mustorod",
+            "مسطرد"
+          ],
+          "area_km2": 8.809,
+          "distance_to_entity_point_m": 0.0,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": "administrative",
+          "landuse": null,
+          "source_kind": "place",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 731002786
+      },
+      "DIST-MOUSKY": {
+        "entity_type": "district",
+        "name_ar": "حي الموسكي",
+        "name_en": "El Mousky District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-MUNIRA-GHARBIYA": {
+        "entity_type": "district",
+        "name_ar": "المنيرة الغربية",
+        "name_en": "Al-Muneera Al-Gharbiya",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 740139776,
+            "osm_version": 11,
+            "names": {
+              "name": "المنيره الغربيه",
+              "name:ar": "المنيره الغربيه",
+              "name:en": "Western Al Mounira"
+            },
+            "normalized_names": [
+              "westernalmounira",
+              "المنيرهالغربيه"
+            ],
+            "area_km2": 4.908,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-NARGES": {
+        "entity_type": "district",
+        "name_ar": "النرجس",
+        "name_en": "El Narges",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 2,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 759863248,
+            "osm_version": 2,
+            "names": {
+              "name": "حى النرجس",
+              "name:ar": "حى النرجس",
+              "name:en": "El Narges District"
+            },
+            "normalized_names": [
+              "elnarges",
+              "النرجس"
+            ],
+            "area_km2": 0.381,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 693534141,
+            "osm_version": 4,
+            "names": {
+              "name": "النرجس",
+              "name:ar": "النرجس",
+              "name:en": "El Narges"
+            },
+            "normalized_names": [
+              "elnarges",
+              "النرجس"
+            ],
+            "area_km2": 0.022,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked; area 0.022 km² is outside district range 0.05–60 km²",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-NASR-CITY": {
+        "entity_type": "district",
+        "name_ar": "مدينة نصر",
+        "name_en": "Nasr City",
+        "entity_point": [
+          31.3422045,
+          30.0521177
+        ],
+        "status": "unmatched",
+        "summary_reason": "no candidate passed every automatic acceptance guard",
+        "candidate_count": 2,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 1249382787,
+            "osm_version": 11,
+            "names": {
+              "name": "مدينة نصر",
+              "name:ar": "مدينة نصر",
+              "name:en": "Nasr City"
+            },
+            "normalized_names": [
+              "nasr",
+              "نصر"
+            ],
+            "area_km2": 67.558,
+            "distance_to_entity_point_m": 0.0,
+            "place": "city",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "area 67.558 km² is outside district range 0.05–60 km²",
+            "rejected": true
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 1249385211,
+            "osm_version": 5,
+            "names": {
+              "name": "ثان مدينة نصر",
+              "name:ar": "ثان مدينة نصر",
+              "name:en": "Qesm Than Madinet Nasr"
+            },
+            "normalized_names": [
+              "qesmthanmadinetnasr",
+              "ثاننصر"
+            ],
+            "area_km2": 17.166,
+            "distance_to_entity_point_m": 1434.3,
+            "place": "city",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "polygon is 1434 m from entity point; exceeds 1 km point-to-polygon guard",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-NEW-MAADI": {
+        "entity_type": "district",
+        "name_ar": "المعادي الجديدة",
+        "name_en": "New Maadi",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 777522265,
+            "osm_version": 5,
+            "names": {
+              "name": "المعادي الجديدة",
+              "name:ar": "المعادي الجديدة",
+              "name:en": "El Maadi El Gadida"
+            },
+            "normalized_names": [
+              "elmaadielgadida",
+              "المعاديالجديده"
+            ],
+            "area_km2": 18.229,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-NOZHA": {
+        "entity_type": "district",
+        "name_ar": "النزهة",
+        "name_en": "El Nozha",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 701289197,
+            "osm_version": 9,
+            "names": {
+              "name": "النزهه",
+              "name:ar": "النزهه",
+              "name:en": "Al Nozha"
+            },
+            "normalized_names": [
+              "alnozha",
+              "النزهه"
+            ],
+            "area_km2": 2.114,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-OLD-CAIRO": {
+        "entity_type": "district",
+        "name_ar": "مصر القديمة",
+        "name_en": "Old Cairo",
+        "entity_point": [
+          31.229366,
+          30.0072008
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-OM-BAYOUMI": {
+        "entity_type": "district",
+        "name_ar": "أم بيومي",
+        "name_en": "Om Bayoumi",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-OMRANIYA": {
+        "entity_type": "district",
+        "name_ar": "العمرانية",
+        "name_en": "Omraneya",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-REMAYA": {
+        "entity_type": "district",
+        "name_ar": "الرماية",
+        "name_en": "El Remaya",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-ROD-ELFARAG": {
+        "entity_type": "district",
+        "name_ar": "روض الفرج",
+        "name_en": "Rod El Farag",
+        "entity_point": [
+          31.2363328,
+          30.0732299
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-SAFT-ELLABAN": {
+        "entity_type": "district",
+        "name_ar": "صفط اللبن",
+        "name_en": "Saft El Laban",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 98343218,
+            "osm_version": 22,
+            "names": {
+              "name": "صفط اللبن",
+              "name:ar": "صفط اللبن",
+              "name:en": "Saft Al Laban"
+            },
+            "normalized_names": [
+              "saftallaban",
+              "صفطاللبن"
+            ],
+            "area_km2": 2.353,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-SAHEL": {
+        "entity_type": "district",
+        "name_ar": "الساحل",
+        "name_en": "El Sahel",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 704920022,
+            "osm_version": 19,
+            "names": {
+              "name": "الساحل",
+              "name:ar": "الساحل",
+              "name:en": "El Sahel"
+            },
+            "normalized_names": [
+              "elsahel",
+              "الساحل"
+            ],
+            "area_km2": 1.722,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-SALAM-1": {
+        "entity_type": "district",
+        "name_ar": "حي السلام أول",
+        "name_en": "El Salam First District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-SALAM-2": {
+        "entity_type": "district",
+        "name_ar": "حي السلام ثان",
+        "name_en": "El Salam Second District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-SAYEDA-ZEINAB": {
+        "entity_type": "district",
+        "name_ar": "السيدة زينب",
+        "name_en": "Sayeda Zeinab",
+        "entity_point": [
+          31.2404117,
+          30.0273241
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-SHARABIYA": {
+        "entity_type": "district",
+        "name_ar": "حي الشرابية",
+        "name_en": "El Sharabiya District",
+        "entity_point": [
+          31.2639339,
+          30.079173
+        ],
+        "status": "matched",
+        "summary_reason": "automatically matched after name, distance, area, and source-priority guards",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 707288091,
+            "osm_version": 7,
+            "names": {
+              "name": "الشرابيه",
+              "name:ar": "الشرابيه",
+              "name:en": "Al Sharabeya"
+            },
+            "normalized_names": [
+              "alsharabeya",
+              "الشرابيه"
+            ],
+            "area_km2": 0.593,
+            "distance_to_entity_point_m": 858.1,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+            "rejected": false
+          }
+        ],
+        "selected_candidate": {
+          "osm_type": "way",
+          "osm_id": 707288091,
+          "osm_version": 7,
+          "names": {
+            "name": "الشرابيه",
+            "name:ar": "الشرابيه",
+            "name:en": "Al Sharabeya"
+          },
+          "normalized_names": [
+            "alsharabeya",
+            "الشرابيه"
+          ],
+          "area_km2": 0.593,
+          "distance_to_entity_point_m": 858.1,
+          "place": "neighbourhood",
+          "admin_level": null,
+          "boundary": null,
+          "landuse": "residential",
+          "source_kind": "landuse",
+          "decision": "accepted: unique/selected plausible exact-name candidate within point guard",
+          "rejected": false
+        },
+        "matched_osm_id": 707288091
+      },
+      "DIST-SHUBRA": {
+        "entity_type": "district",
+        "name_ar": "شبرا",
+        "name_en": "Shubra",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-SMART-VILLAGE": {
+        "entity_type": "district",
+        "name_ar": "القرية الذكية",
+        "name_en": "Smart Village",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-SOUTH-GIZA": {
+        "entity_type": "district",
+        "name_ar": "جنوب الجيزة",
+        "name_en": "South Giza",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 2,
+        "top_candidates": [
+          {
+            "osm_type": "relation",
+            "osm_id": 3824206,
+            "osm_version": 30,
+            "names": {
+              "name": "الجيزة",
+              "name:ar": "الجيزة",
+              "name:en": "Aj Jiza"
+            },
+            "normalized_names": [
+              "ajjiza",
+              "الجيزه"
+            ],
+            "area_km2": 38016.063,
+            "distance_to_entity_point_m": null,
+            "place": null,
+            "admin_level": "4",
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "administrative",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked; area 38016.063 km² is outside district range 0.05–60 km²",
+            "rejected": true
+          },
+          {
+            "osm_type": "way",
+            "osm_id": 701014393,
+            "osm_version": 8,
+            "names": {
+              "name": "الجيزة",
+              "name:ar": "الجيزة",
+              "name:en": "El Giza"
+            },
+            "normalized_names": [
+              "elgiza",
+              "الجيزه"
+            ],
+            "area_km2": 0.484,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-TAHRIR": {
+        "entity_type": "district",
+        "name_ar": "التحرير",
+        "name_en": "Tahrir",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-TALBIYA": {
+        "entity_type": "district",
+        "name_ar": "الطالبية",
+        "name_en": "Talbiya",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 725892870,
+            "osm_version": 4,
+            "names": {
+              "name": "الطالبيه",
+              "name:ar": "الطالبيه",
+              "name:en": "Al Talbia"
+            },
+            "normalized_names": [
+              "altalbia",
+              "الطالبيه"
+            ],
+            "area_km2": 2.28,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": "administrative",
+            "landuse": null,
+            "source_kind": "place",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-TEBBIN": {
+        "entity_type": "district",
+        "name_ar": "التبين",
+        "name_en": "El Tebbin",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-TORA": {
+        "entity_type": "district",
+        "name_ar": "حي طره",
+        "name_en": "Tora District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-WAILY": {
+        "entity_type": "district",
+        "name_ar": "حي الوايلي",
+        "name_en": "El Waily District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-WARRAQ": {
+        "entity_type": "district",
+        "name_ar": "الوراق",
+        "name_en": "El Warraq",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-WASAT": {
+        "entity_type": "district",
+        "name_ar": "حي وسط",
+        "name_en": "Wasat (Central) District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no existing entity point, so the 1 km proximity guard cannot be verified",
+        "candidate_count": 1,
+        "top_candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 685399399,
+            "osm_version": 3,
+            "names": {
+              "name": "The Spine - Madinaty",
+              "name:ar": "وسط المدينة",
+              "name:en": "The Spine - Madinaty"
+            },
+            "normalized_names": [
+              "thespinemadinaty",
+              "وسط"
+            ],
+            "area_km2": 0.776,
+            "distance_to_entity_point_m": null,
+            "place": "neighbourhood",
+            "admin_level": null,
+            "boundary": null,
+            "landuse": "residential",
+            "source_kind": "landuse",
+            "decision": "entity has no existing point geometry; proximity guard cannot be checked",
+            "rejected": true
+          }
+        ],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-WEST-SHUBRA-ELKHEIMA": {
+        "entity_type": "district",
+        "name_ar": "حي غرب شبرا الخيمة",
+        "name_en": "West Shubra El Kheima District",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-ZAHRAA-MAADI": {
+        "entity_type": "district",
+        "name_ar": "زهراء المعادي",
+        "name_en": "Zahraa El Maadi",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-ZAMALEK": {
+        "entity_type": "district",
+        "name_ar": "الزمالك",
+        "name_en": "Zamalek",
+        "entity_point": [
+          31.2230269,
+          30.0503539
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-ZAWYA-HAMRA": {
+        "entity_type": "district",
+        "name_ar": "الزاوية الحمرا",
+        "name_en": "El Zawya El Hamra",
+        "entity_point": null,
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      },
+      "DIST-ZEITOUN": {
+        "entity_type": "district",
+        "name_ar": "حي الزيتون",
+        "name_en": "El Zeitoun District",
+        "entity_point": [
+          31.3082194,
+          30.0998365
+        ],
+        "status": "unmatched",
+        "summary_reason": "no exact normalized-name candidate polygon exists in the 07.4 extract",
+        "candidate_count": 0,
+        "top_candidates": [],
+        "selected_candidate": null,
+        "matched_osm_id": null
+      }
+    },
+    "landuse_examples": {
+      "CITY-REHAB": {
+        "label": "الرحاب",
+        "named_residential_landuse_present": false,
+        "osm_ids": [],
+        "status": "needs extract for named landuse=residential polygon"
+      },
+      "CITY-MADINATY": {
+        "label": "مدينتي",
+        "named_residential_landuse_present": false,
+        "osm_ids": [],
+        "status": "needs extract for named landuse=residential polygon"
+      },
+      "DIST-NARGES": {
+        "label": "النرجس",
+        "named_residential_landuse_present": true,
+        "osm_ids": [
+          693534141,
+          759863248
+        ],
+        "status": "present in 07.4 extract"
+      },
+      "DIST-DEGLA": {
+        "label": "دجلة",
+        "named_residential_landuse_present": false,
+        "osm_ids": [],
+        "status": "needs extract for named landuse=residential polygon"
+      }
+    },
+    "existing_boundary_codes_before": [
+      "CITY-10TH-RAMADAN",
+      "CITY-15-MAY",
+      "CITY-CAIRO",
+      "CITY-MADINATY",
+      "CITY-NEW-CAIRO",
+      "CITY-TANTA",
+      "DIST-BAB-SHAREYA",
+      "DIST-BAHTIM",
+      "DIST-HELIOPOLIS",
+      "DIST-SHARABIYA"
+    ],
+    "existing_boundary_codes_after": [
+      "CITY-10TH-RAMADAN",
+      "CITY-15-MAY",
+      "CITY-BENHA",
+      "CITY-BILBEIS",
+      "CITY-CAIRO",
+      "CITY-MADINATY",
+      "CITY-NEW-CAIRO",
+      "CITY-QAHA",
+      "CITY-QALYUB",
+      "CITY-QANATER",
+      "CITY-SHIBIN-ELQANATER",
+      "CITY-SHUBRA-ELKHEIMA",
+      "CITY-TANTA",
+      "CITY-TOUKH",
+      "DIST-AGOUZA",
+      "DIST-BAHTIM",
+      "DIST-BULAQ-DAKROUR",
+      "DIST-HELIOPOLIS",
+      "DIST-MOHANDESSIN",
+      "DIST-MOSTOROD",
+      "DIST-SHARABIYA"
+    ],
+    "normalization": "NFKC/casefold; Arabic أ/إ/آ/ٱ→ا, ة→ه, ى→ي; remove حي/قسم/مدينة/منطقة/District/City and generic area words",
+    "acceptance": "exact normalized canonical/alias match; point covered or <=1km away (search radius <=2km); city 1-800km2, district 0.05-60km2; larger plausible same-name polygon can supersede a block; no guess on ties",
+    "report_path": "data/features/phase-07-5-boundary-candidates.ar.md"
+  },
   "candidate_entities": {
     "road": 46,
     "transit_line": 16,
@@ -58371,6 +62176,14 @@
         "way:suburb": 9,
         "way:town": 11
       },
+      "named_residential_landuse_polygons_by_element_type": {
+        "relation": 2,
+        "way": 5292
+      },
+      "boundary_candidate_source_polygons_by_element_type": {
+        "relation": 31,
+        "way": 6142
+      },
       "administrative_boundary_relation_counts_by_level": {
         "10": 1,
         "4": 14,
@@ -58418,18 +62231,25 @@
         }
       ]
     },
-    "feature_count": 10,
-    "matched_count": 10,
+    "feature_count": 21,
+    "matched_count": 21,
     "audit": [
       {
         "osm_type": "way",
         "osm_id": 98343218,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "saftallaban",
+          "صفطاللبن"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-SAFT-ELLABAN"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-SAFT-ELLABAN": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -58444,7 +62264,7 @@
           "CITY-NEW-CAIRO"
         ],
         "rejections": {
-          "CITY-NEW-CAIRO": "place_type_not_compatible_with_area_entity"
+          "CITY-NEW-CAIRO": "polygon_is_3136.2m_from_existing_entity_point_over_1000m_limit"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -58452,11 +62272,18 @@
         "osm_type": "way",
         "osm_id": 309248507,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "monshaatnasir",
+          "منشاهناصر"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-MANSHIYAT-NASSER"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-MANSHIYAT-NASSER": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -58480,7 +62307,7 @@
           "CITY-MOSTAKBAL"
         ],
         "rejections": {
-          "CITY-MOSTAKBAL": "place_type_not_compatible_with_area_entity"
+          "CITY-MOSTAKBAL": "entity_has_no_existing_point_geometry_for_boundary_validation"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -58497,7 +62324,7 @@
           "CITY-10TH-RAMADAN"
         ],
         "rejections": {
-          "CITY-10TH-RAMADAN": "place_type_not_compatible_with_area_entity"
+          "CITY-10TH-RAMADAN": "polygon_outside_entity_specific_bbox_guard"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -58557,7 +62384,7 @@
           "CITY-MOSTAKBAL"
         ],
         "rejections": {
-          "CITY-MOSTAKBAL": "place_type_not_compatible_with_area_entity"
+          "CITY-MOSTAKBAL": "entity_has_no_existing_point_geometry_for_boundary_validation"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -58577,7 +62404,7 @@
         ],
         "rejections": {
           "AUTH-GIZA-GOVERNORATE": "entity_has_no_existing_point_geometry_for_boundary_validation",
-          "CITY-GIZA": "place_type_not_compatible_with_area_entity",
+          "CITY-GIZA": "polygon_is_11659.3m_from_existing_entity_point_over_1000m_limit",
           "DIST-SOUTH-GIZA": "entity_has_no_existing_point_geometry_for_boundary_validation"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
@@ -58586,41 +62413,69 @@
         "osm_type": "way",
         "osm_id": 701289197,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "alnozha",
+          "النزهه"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-NOZHA"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-NOZHA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 701320188,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "mansheyetelbakry",
+          "منشيهالبكري"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-MANSHEYET-BAKARY"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-MANSHEYET-BAKARY": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 703100081,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "almearag",
+          "المعراج"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-MERAJ"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-MERAJ": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 703444827,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "hadaekalkobba",
+          "حدائقالقبه"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-HADAYEK-QOBBA"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-HADAYEK-QOBBA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -58669,20 +62524,35 @@
         "osm_type": "way",
         "osm_id": 708231172,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "daralsalam",
+          "دارالسلام"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-DAR-ELSALAM"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-DAR-ELSALAM": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 709300098,
-        "outcome": "candidate",
-        "entity_code": "DIST-BAB-SHAREYA",
+        "outcome": "rejected",
+        "labels": [
+          "babalshairia",
+          "بابالشعريه"
+        ],
         "admin_level": null,
-        "distance_to_existing_point_m": 390.8,
-        "source_priority": 3
+        "candidate_entity_codes": [
+          "DIST-BAB-SHAREYA"
+        ],
+        "rejections": {
+          "DIST-BAB-SHAREYA": "place_neighbourhood_polygon_is_block_scale_0.09km2_not_the_whole_qism_district"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -58739,198 +62609,236 @@
         "osm_type": "way",
         "osm_id": 714742689,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-MOKATTAM"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 716699354,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-BASATIN"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 720891654,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-AUSIM"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 722860621,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-KERDASA"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 723065148,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-MOHANDESSIN"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 723745381,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-AGOUZA"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 725892870,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-TALBIYA"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 727388925,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-BULAQ-DAKROUR"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 727473214,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-MANSHEYET-BAKARY"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 729636261,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-QANATER"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 729875378,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-KHOSOUS"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 730141764,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-QALYUB"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 731002786,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-MOSTOROD"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 731047816,
-        "outcome": "rejected",
         "labels": [
-          "shobraalkhima",
-          "شبراالخيمه"
+          "elmukkatam",
+          "المقطم"
         ],
         "admin_level": null,
         "candidate_entity_codes": [
-          "CITY-SHUBRA-ELKHEIMA"
+          "DIST-MOKATTAM"
         ],
         "rejections": {
-          "CITY-SHUBRA-ELKHEIMA": "place_type_not_compatible_with_area_entity"
+          "DIST-MOKATTAM": "entity_has_no_existing_point_geometry_for_boundary_validation"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
-        "osm_id": 732374401,
+        "osm_id": 716699354,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-QAHA"
+        "labels": [
+          "albasatine",
+          "البساتين"
         ],
-        "admin_level": null
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "DIST-BASATIN"
+        ],
+        "rejections": {
+          "DIST-BASATIN": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 720891654,
+        "outcome": "rejected",
+        "labels": [
+          "awseem",
+          "اوسيم"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "CITY-AUSIM"
+        ],
+        "rejections": {
+          "CITY-AUSIM": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 722860621,
+        "outcome": "rejected",
+        "labels": [
+          "kerdasa",
+          "كرداسه"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "CITY-KERDASA"
+        ],
+        "rejections": {
+          "CITY-KERDASA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 723065148,
+        "outcome": "candidate",
+        "entity_code": "DIST-MOHANDESSIN",
+        "admin_level": null,
+        "distance_to_existing_point_m": 96.7,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 723745381,
+        "outcome": "candidate",
+        "entity_code": "DIST-AGOUZA",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 725892870,
+        "outcome": "rejected",
+        "labels": [
+          "altalbia",
+          "الطالبيه"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "DIST-TALBIYA"
+        ],
+        "rejections": {
+          "DIST-TALBIYA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 727388925,
+        "outcome": "candidate",
+        "entity_code": "DIST-BULAQ-DAKROUR",
+        "admin_level": null,
+        "distance_to_existing_point_m": 184.5,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 727473214,
+        "outcome": "rejected",
+        "labels": [
+          "monshaetalbakary",
+          "منشاهالبكاري"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "DIST-MANSHEYET-BAKARY"
+        ],
+        "rejections": {
+          "DIST-MANSHEYET-BAKARY": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 729636261,
+        "outcome": "candidate",
+        "entity_code": "CITY-QANATER",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 729875378,
+        "outcome": "rejected",
+        "labels": [
+          "alkhosous",
+          "الخصوص"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "DIST-KHOSOUS"
+        ],
+        "rejections": {
+          "DIST-KHOSOUS": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 730141764,
+        "outcome": "candidate",
+        "entity_code": "CITY-QALYUB",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 731002786,
+        "outcome": "candidate",
+        "entity_code": "DIST-MOSTOROD",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 731047816,
+        "outcome": "candidate",
+        "entity_code": "CITY-SHUBRA-ELKHEIMA",
+        "admin_level": null,
+        "distance_to_existing_point_m": 967.6,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 732374401,
+        "outcome": "candidate",
+        "entity_code": "CITY-QAHA",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
         "osm_id": 732390056,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-TOUKH"
-        ],
-        "admin_level": null
+        "outcome": "candidate",
+        "entity_code": "CITY-TOUKH",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
         "osm_id": 736218125,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-SHIBIN-ELQANATER"
-        ],
-        "admin_level": null
+        "outcome": "candidate",
+        "entity_code": "CITY-SHIBIN-ELQANATER",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
         "osm_id": 739039585,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-BENHA"
-        ],
-        "admin_level": null
+        "outcome": "candidate",
+        "entity_code": "CITY-BENHA",
+        "admin_level": null,
+        "distance_to_existing_point_m": 111.2,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
         "osm_id": 740139776,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "westernalmounira",
+          "المنيرهالغربيه"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-MUNIRA-GHARBIYA"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-MUNIRA-GHARBIYA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -58944,19 +62852,11 @@
       {
         "osm_type": "way",
         "osm_id": 756158390,
-        "outcome": "rejected",
-        "labels": [
-          "belbes",
-          "بلبيس"
-        ],
+        "outcome": "candidate",
+        "entity_code": "CITY-BILBEIS",
         "admin_level": null,
-        "candidate_entity_codes": [
-          "CITY-BILBEIS"
-        ],
-        "rejections": {
-          "CITY-BILBEIS": "place_type_not_compatible_with_area_entity"
-        },
-        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
@@ -59005,7 +62905,7 @@
           "CITY-NEW-CAIRO"
         ],
         "rejections": {
-          "CITY-NEW-CAIRO": "place_type_not_compatible_with_area_entity"
+          "CITY-NEW-CAIRO": "polygon_is_3166.3m_from_existing_entity_point_over_1000m_limit"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -59030,31 +62930,52 @@
         "osm_type": "way",
         "osm_id": 800386645,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "badr",
+          "بدر"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "CITY-BADR"
         ],
-        "admin_level": null
+        "rejections": {
+          "CITY-BADR": "polygon_outside_entity_specific_bbox_guard"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 810567752,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "alsheikhzaid",
+          "الشيخزايد"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "CITY-SHEIKH-ZAYED"
         ],
-        "admin_level": null
+        "rejections": {
+          "CITY-SHEIKH-ZAYED": "polygon_outside_entity_specific_bbox_guard"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 810845862,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "faisal",
+          "فيصل"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-FAISAL"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-FAISAL": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -59163,7 +63084,7 @@
           "DIST-NASR-CITY"
         ],
         "rejections": {
-          "DIST-NASR-CITY": "place_type_not_compatible_with_city_entity"
+          "DIST-NASR-CITY": "polygon_area_67.558km2_outside_0.05_to_60km2_district_range"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -59180,7 +63101,7 @@
           "DIST-NASR-CITY"
         ],
         "rejections": {
-          "DIST-NASR-CITY": "place_type_not_compatible_with_city_entity"
+          "DIST-NASR-CITY": "polygon_is_1434.3m_from_existing_entity_point_over_1000m_limit"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -59277,11 +63198,21 @@
       {
         "osm_type": "relation",
         "osm_id": 5466227,
-        "outcome": "candidate",
-        "entity_code": "CITY-CAIRO",
+        "outcome": "rejected",
+        "labels": [
+          "cairo",
+          "القاهره"
+        ],
         "admin_level": "4",
-        "distance_to_existing_point_m": 0.0,
-        "source_priority": 2
+        "candidate_entity_codes": [
+          "AUTH-CAIRO-GOVERNORATE",
+          "CITY-CAIRO"
+        ],
+        "rejections": {
+          "AUTH-CAIRO-GOVERNORATE": "entity_has_no_existing_point_geometry_for_boundary_validation",
+          "CITY-CAIRO": "polygon_area_2992.003km2_outside_1_to_800km2_city_range"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -59289,6 +63220,8 @@
         "outcome": "matched",
         "entity_code": "CITY-10TH-RAMADAN",
         "admin_level": "8",
+        "source_kind": "place",
+        "area_km2": 71.651,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -59308,6 +63241,8 @@
         "outcome": "matched",
         "entity_code": "CITY-15-MAY",
         "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 72.266,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -59322,13 +63257,46 @@
         ]
       },
       {
-        "osm_type": "relation",
-        "osm_id": 5466227,
-        "outcome": "superseded",
-        "entity_code": "CITY-CAIRO",
-        "selected_osm_type": "relation",
-        "selected_osm_id": 4103336,
-        "reason": "higher-priority boundary candidate selected"
+        "osm_type": "way",
+        "osm_id": 739039585,
+        "outcome": "matched",
+        "entity_code": "CITY-BENHA",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 5.968,
+        "distance_to_existing_point_m": 111.2,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.350325988362997,
+          29.739000013634307,
+          32.017800011637,
+          31.0
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 756158390,
+        "outcome": "matched",
+        "entity_code": "CITY-BILBEIS",
+        "admin_level": null,
+        "source_kind": "landuse",
+        "area_km2": 42.476,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.731266927296037,
+          29.695260613634307,
+          32.39799307270396,
+          31.0
+        ]
       },
       {
         "osm_type": "relation",
@@ -59336,6 +63304,8 @@
         "outcome": "matched",
         "entity_code": "CITY-CAIRO",
         "admin_level": "4",
+        "source_kind": "administrative",
+        "area_km2": 2995.882,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 0,
@@ -59355,6 +63325,8 @@
         "outcome": "matched",
         "entity_code": "CITY-MADINATY",
         "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 37.835,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -59374,6 +63346,8 @@
         "outcome": "matched",
         "entity_code": "CITY-NEW-CAIRO",
         "admin_level": "8",
+        "source_kind": "administrative",
+        "area_km2": 379.758,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 1,
@@ -59388,11 +63362,118 @@
         ]
       },
       {
+        "osm_type": "way",
+        "osm_id": 732374401,
+        "outcome": "matched",
+        "entity_code": "CITY-QAHA",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 12.913,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.37386342101231,
+          29.557134613634307,
+          32.03823857898769,
+          31.0
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 730141764,
+        "outcome": "matched",
+        "entity_code": "CITY-QALYUB",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 19.846,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.37510919730782,
+          29.455377613634308,
+          32.03776280269218,
+          30.902372386365695
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 729636261,
+        "outcome": "matched",
+        "entity_code": "CITY-QANATER",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 16.68,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 2
+        },
+        "bbox_wgs84": [
+          30.302431441529997,
+          29.473118513634308,
+          31.965384558470006,
+          30.920113286365694
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 736218125,
+        "outcome": "matched",
+        "entity_code": "CITY-SHIBIN-ELQANATER",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 10.756,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.48514264277956,
+          29.58903741363431,
+          32.150059357220435,
+          31.0
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 731047816,
+        "outcome": "matched",
+        "entity_code": "CITY-SHUBRA-ELKHEIMA",
+        "admin_level": null,
+        "source_kind": "landuse",
+        "area_km2": 1.82,
+        "distance_to_existing_point_m": 967.6,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.41131486693177,
+          29.405101413634306,
+          32.073121133068234,
+          30.852096186365692
+        ]
+      },
+      {
         "osm_type": "relation",
         "osm_id": 3603506,
         "outcome": "matched",
         "entity_code": "CITY-TANTA",
         "admin_level": "8",
+        "source_kind": "administrative",
+        "area_km2": 36.832,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 0,
@@ -59408,21 +63489,44 @@
       },
       {
         "osm_type": "way",
-        "osm_id": 709300098,
+        "osm_id": 732390056,
         "outcome": "matched",
-        "entity_code": "DIST-BAB-SHAREYA",
+        "entity_code": "CITY-TOUKH",
         "admin_level": null,
-        "distance_to_existing_point_m": 390.8,
+        "source_kind": "place",
+        "area_km2": 6.077,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.36816762079183,
+          29.630553413634306,
+          32.03379037920817,
+          31.0
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 723745381,
+        "outcome": "matched",
+        "entity_code": "DIST-AGOUZA",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 0.782,
+        "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
           "admin_level": 4,
           "name": 3
         },
         "bbox_wgs84": [
-          30.892020451881734,
-          29.741964993465007,
-          31.618545348118268,
-          30.37502520653499
+          30.849478681923465,
+          29.73841339346501,
+          31.575977518076535,
+          30.37147360653499
         ]
       },
       {
@@ -59431,6 +63535,8 @@
         "outcome": "matched",
         "entity_code": "DIST-BAHTIM",
         "admin_level": null,
+        "source_kind": "landuse",
+        "area_km2": 11.746,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -59446,10 +63552,33 @@
       },
       {
         "osm_type": "way",
+        "osm_id": 727388925,
+        "outcome": "matched",
+        "entity_code": "DIST-BULAQ-DAKROUR",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 3.246,
+        "distance_to_existing_point_m": 184.5,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 4,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.827840711771266,
+          29.717349793465008,
+          31.554185088228735,
+          30.35041000653499
+        ]
+      },
+      {
+        "osm_type": "way",
         "osm_id": 1248798299,
         "outcome": "matched",
         "entity_code": "DIST-HELIOPOLIS",
         "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 8.563,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -59465,10 +63594,54 @@
       },
       {
         "osm_type": "way",
+        "osm_id": 723065148,
+        "outcome": "matched",
+        "entity_code": "DIST-MOHANDESSIN",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 1.258,
+        "distance_to_existing_point_m": 96.7,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 4,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.836768714661922,
+          29.73346989346501,
+          31.563231285338077,
+          30.36653010653499
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 731002786,
+        "outcome": "matched",
+        "entity_code": "DIST-MOSTOROD",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 8.809,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 4,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.931343367820173,
+          29.814352993465008,
+          31.65840043217983,
+          30.44741320653499
+        ]
+      },
+      {
+        "osm_type": "way",
         "osm_id": 707288091,
         "outcome": "matched",
         "entity_code": "DIST-SHARABIYA",
         "admin_level": null,
+        "source_kind": "landuse",
+        "area_km2": 0.593,
         "distance_to_existing_point_m": 858.1,
         "matching_priority": {
           "source": 3,
@@ -59495,27 +63668,38 @@
       },
       "city": {
         "entities": 42,
-        "matched": 6,
-        "unmatched": 36,
+        "matched": 14,
+        "unmatched": 28,
         "ambiguous": 0
       },
       "district": {
         "entities": 83,
-        "matched": 4,
-        "unmatched": 79,
+        "matched": 7,
+        "unmatched": 76,
         "ambiguous": 0
       }
     },
     "matched_entities": [
       "CITY-10TH-RAMADAN",
       "CITY-15-MAY",
+      "CITY-BENHA",
+      "CITY-BILBEIS",
       "CITY-CAIRO",
       "CITY-MADINATY",
       "CITY-NEW-CAIRO",
+      "CITY-QAHA",
+      "CITY-QALYUB",
+      "CITY-QANATER",
+      "CITY-SHIBIN-ELQANATER",
+      "CITY-SHUBRA-ELKHEIMA",
       "CITY-TANTA",
-      "DIST-BAB-SHAREYA",
+      "CITY-TOUKH",
+      "DIST-AGOUZA",
       "DIST-BAHTIM",
+      "DIST-BULAQ-DAKROUR",
       "DIST-HELIOPOLIS",
+      "DIST-MOHANDESSIN",
+      "DIST-MOSTOROD",
       "DIST-SHARABIYA"
     ],
     "unmatched_entities": {
@@ -59619,14 +63803,6 @@
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
-      "CITY-BENHA": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-BILBEIS": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "CITY-FAYOUM": {
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
@@ -59691,18 +63867,6 @@
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
-      "CITY-QAHA": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-QALYUB": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-QANATER": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "CITY-QENA": {
         "entity_type": "city",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
@@ -59719,19 +63883,7 @@
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
-      "CITY-SHIBIN-ELQANATER": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "CITY-SHOROUK": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-SHUBRA-ELKHEIMA": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-TOUKH": {
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
@@ -59751,10 +63903,6 @@
         "entity_type": "district",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
       },
-      "DIST-AGOUZA": {
-        "entity_type": "district",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "DIST-AIN-SHAMS": {
         "entity_type": "district",
         "reason": "no named polygon passed the point/bbox/type filters"
@@ -59767,15 +63915,15 @@
         "entity_type": "district",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
+      "DIST-BAB-SHAREYA": {
+        "entity_type": "district",
+        "reason": "no named polygon passed the point/bbox/type filters"
+      },
       "DIST-BASATIN": {
         "entity_type": "district",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
       },
       "DIST-BULAQ": {
-        "entity_type": "district",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "DIST-BULAQ-DAKROUR": {
         "entity_type": "district",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
@@ -59915,17 +64063,9 @@
         "entity_type": "district",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
       },
-      "DIST-MOHANDESSIN": {
-        "entity_type": "district",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "DIST-MOKATTAM": {
         "entity_type": "district",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
-      },
-      "DIST-MOSTOROD": {
-        "entity_type": "district",
-        "reason": "no named polygon passed the point/bbox/type filters"
       },
       "DIST-MOUSKY": {
         "entity_type": "district",
@@ -60915,7 +65055,22 @@
     },
     "existing_point_entity_count": 48,
     "source_polygon_elements_examined": 6173,
-    "candidates_passing_entity_guards": 11
+    "candidates_passing_entity_guards": 21,
+    "coverage_before_after_by_type": {
+      "city": {
+        "entities": 42,
+        "matched_before": 6,
+        "matched_after": 14,
+        "unmatched_after": 28
+      },
+      "district": {
+        "entities": 83,
+        "matched_before": 4,
+        "matched_after": 7,
+        "unmatched_after": 76
+      }
+    },
+    "candidate_report_path": "data/features/phase-07-5-boundary-candidates.ar.md"
   },
   "boundary_match_counts_by_type": {
     "authority": {
@@ -60926,14 +65081,14 @@
     },
     "city": {
       "entities": 42,
-      "matched": 6,
-      "unmatched": 36,
+      "matched": 14,
+      "unmatched": 28,
       "ambiguous": 0
     },
     "district": {
       "entities": 83,
-      "matched": 4,
-      "unmatched": 79,
+      "matched": 7,
+      "unmatched": 76,
       "ambiguous": 0
     }
   },

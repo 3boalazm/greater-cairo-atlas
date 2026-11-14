@@ -97,7 +97,11 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
         {!loading && entity && <>
           <Link className="entity-profile-link" href={`/entity/${encodeURIComponent(entity.code)}`}>{ar ? "فتح صفحة الكيان الكاملة ←" : "Open full entity page →"}</Link>
           {entity.has_boundary && <button className="boundary-toggle" type="button" aria-pressed={boundaryActive} onClick={() => onToggleBoundary(entity.code)} disabled={boundaryLoading}>
-            <MapPinned aria-hidden="true" />{boundaryLoading ? (ar ? "جارٍ تحميل الحدود…" : "Loading boundary…") : boundaryActive ? (ar ? "إخفاء الحدود" : "Hide boundary") : (ar ? "إظهار الحدود على الخريطة" : "Show boundary on map")}
+            <MapPinned aria-hidden="true" />{boundaryLoading
+              ? (ar ? "جارٍ تحميل الحدود…" : "Loading boundary…")
+              : entity.code === "CITY-CAIRO"
+                ? boundaryActive ? (ar ? "إخفاء حدود محافظة القاهرة" : "Hide Cairo Governorate boundary") : (ar ? "إظهار حدود محافظة القاهرة" : "Show Cairo Governorate boundary")
+                : boundaryActive ? (ar ? "إخفاء الحدود" : "Hide boundary") : (ar ? "إظهار الحدود على الخريطة" : "Show boundary on map")}
           </button>}
           {!entity.has_boundary && areaEntityTypes.has(entity.entity_type) && <p className="boundary-unavailable-note">{ar ? "الحدود غير متاحة في المصدر" : "Boundary unavailable in source"}</p>}
           {!entity.has_geometry && <p className="entity-unmapped-note"><MapPinOff aria-hidden="true" />{ar ? "غير مرسوم على الخريطة" : "Not mapped"}</p>}

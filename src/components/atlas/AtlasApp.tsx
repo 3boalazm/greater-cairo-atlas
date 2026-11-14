@@ -221,7 +221,9 @@ export default function AtlasApp() {
           <label className="road-network-toggle"><input type="checkbox" checked={showRoadNetwork} onChange={(event) => setShowRoadNetwork(event.target.checked)} /><span>{ar ? "شبكة الطرق (OpenStreetMap)" : "Road network (OSM)"}</span></label>
           <span className="map-feature-count" aria-live="polite">{featuresLoading ? "…" : totalFeatures} {ar ? "ميزة هندسية" : "features"}</span>
         </div>
-        <Legend language={language} boundaryActive={Boolean(highlightBoundary)} />
+        <Legend language={language} boundaryActive={Boolean(highlightBoundary)} boundaryLabel={language === "ar"
+          ? highlightBoundary?.properties.properties.display_label_ar
+          : highlightBoundary?.properties.properties.display_label_en} />
         {(featuresLoading || entitiesLoading) && <div className="map-loading" role="status"><RefreshCw aria-hidden="true" />{ar ? "جارٍ تحميل بيانات الأطلس…" : "Loading atlas data…"}</div>}
         {(featuresError || entitiesError || boundaryError) && <div className="map-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{boundaryError ?? featuresError ?? entitiesError}</span></div>}
         {mapStyleStatus === "error" && <div className="map-error map-style-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{ar ? "تعذّر تحميل خريطة OpenFreeMap." : "Could not load the OpenFreeMap basemap."}</span><button type="button" onClick={() => { setMapStyleStatus("loading"); setMapGeneration((value) => value + 1); }}>{ar ? "إعادة المحاولة" : "Retry"}</button></div>}

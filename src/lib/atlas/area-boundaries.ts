@@ -16,7 +16,11 @@ export interface AreaBoundaryFeature {
     properties: {
       role: "boundary";
       entity_type: string;
-      boundary_kind: "administrative" | "place";
+      boundary_kind: "administrative" | "place" | "landuse";
+      source_kind: "administrative" | "place" | "landuse";
+      area_km2: number;
+      display_label_ar: string | null;
+      display_label_en: string | null;
       admin_level: string | null;
       name: string | null;
       name_ar: string | null;
@@ -70,7 +74,8 @@ export function isAreaBoundaryFeature(value: unknown): value is AreaBoundaryFeat
   return typeof p.code === "string" && typeof p.entity_code === "string" &&
     (p.osm_type === "way" || p.osm_type === "relation") && Number.isInteger(p.osm_id) && Number(p.osm_id) > 0 &&
     Number.isInteger(p.osm_version) && Number(p.osm_version) > 0 && p.license === "ODbL-1.0" &&
-    m.role === "boundary" && (m.boundary_kind === "administrative" || m.boundary_kind === "place") &&
+    m.role === "boundary" && ["administrative", "place", "landuse"].includes(String(m.boundary_kind)) &&
+    ["administrative", "place", "landuse"].includes(String(m.source_kind)) &&
     m.source === "OpenStreetMap" && m.attribution === "© OpenStreetMap contributors, ODbL 1.0" &&
     m.license === "ODbL-1.0" && typeof m.retrieval_date === "string" &&
     Boolean(ids && ids.osm_type === p.osm_type && ids.osm_id === p.osm_id && ids.osm_version === p.osm_version);
@@ -109,7 +114,12 @@ export function isBoundaryEligibleEntity(entity: Pick<EntitySeed, "entity_type">
   return ["city", "district", "neighborhood", "authority"].includes(entity.entity_type);
 }
 
-const normalize = (value: string) => value.normalize("NFKC").toLocaleLowerCase("und").replace(/[^\p{L}\p{N}]+/gu, "");
+const normalize = (value: string) => {
+  const normalized = value.normalize("NFKC").toLocaleLowerCase("und")
+    .replace(/[أإآٱ]/gu, "ا").replace(/ة/gu, "ه").replace(/ى/gu, "ي");
+  const generic = new Set(["حي", "الحي", "قسم", "القسم", "مدينه", "المدينه", "منطقه", "المنطقه", "district", "city"]);
+  return normalized.match(/[\p{L}\p{N}]+/gu)?.filter((token) => !generic.has(token)).join("") ?? "";
+};
 const adminLevels: Record<string, Set<string>> = {
   city: new Set(["4", "6", "8"]), district: new Set(["6", "8", "9", "10"]),
   neighborhood: new Set(["8", "9", "10"]), authority: new Set(["4", "6", "8", "9", "10"]),
@@ -124,8 +134,9 @@ export function matchOsmBoundaryElement(
   const tags = element.tags;
   if (!tags || typeof tags !== "object") return null;
   const tagMap = tags as Record<string, unknown>;
-  const kind: "administrative" | "place" | null = tagMap.boundary === "administrative" ? "administrative" :
-    ["city", "town", "village", "suburb", "neighbourhood", "quarter", "district", "borough"].includes(String(tagMap.place)) ? "place" : null;
+  const kind: "administrative" | "place" | "landuse" | null = tagMap.boundary === "administrative" ? "administrative" :
+    ["city", "town", "village", "suburb", "neighbourhood", "neighborhood", "quarter", "district", "borough"].includes(String(tagMap.place)) ? "place" :
+      tagMap.landuse === "residential" && ["name", "name:ar", "name:en"].some((key) => typeof tagMap[key] === "string") ? "landuse" : null;
   if (!kind) return null;
   const adminLevel = typeof tagMap.admin_level === "string" ? tagMap.admin_level : null;
   if (kind === "administrative" && (!adminLevel || !adminLevels[entity.entity_type]?.has(adminLevel))) return null;
@@ -144,8 +155,17 @@ export function matchOsmBoundaryElement(
   if (!Number.isInteger(id) || id <= 0 || !Number.isInteger(version) || version <= 0) return null;
   const osmType = element.type as "way" | "relation";
   const code = `OSM-BOUNDARY-${osmType.toUpperCase()}-${id}-${entity.code}`;
+  const centerLat = ring.reduce((sum, position) => sum + (position[1] ?? 0), 0) / ring.length;
+  let twiceArea = 0;
+  for (let index = 0; index < ring.length - 1; index += 1) {
+    const left = ring[index]!;
+    const right = ring[index + 1]!;
+    twiceArea += (left[0]! * right[1]!) - (right[0]! * left[1]!);
+  }
+  const areaKm2 = Math.abs(twiceArea / 2) * 111.32 * 110.574 * Math.max(0.1, Math.abs(Math.cos(centerLat * Math.PI / 180)));
   const props = {
-    role: "boundary" as const, entity_type: entity.entity_type, boundary_kind: kind, admin_level: adminLevel,
+    role: "boundary" as const, entity_type: entity.entity_type, boundary_kind: kind, source_kind: kind,
+    area_km2: areaKm2, display_label_ar: null, display_label_en: null, admin_level: adminLevel,
     name: typeof tagMap.name === "string" ? tagMap.name : null,
     name_ar: typeof tagMap["name:ar"] === "string" ? tagMap["name:ar"] : null,
     name_en: typeof tagMap["name:en"] === "string" ? tagMap["name:en"] : null,
