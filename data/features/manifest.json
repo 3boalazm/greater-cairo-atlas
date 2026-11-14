@@ -13,7 +13,7 @@
     32.35,
     30.9
   ],
-  "feature_count": 2809,
+  "feature_count": 2832,
   "sources": [
     {
       "source": "OpenStreetMap",
@@ -55,7 +55,7 @@
     "tfc": "Transport for Cairo (TfC), GTFS for Public Road-Transport, CC BY 4.0"
   },
   "license_policy": "OSM=ODbL-1.0; TfC GTFS accepted only when independently verified CC-BY-4.0. CC-BY-NC data is prohibited.",
-  "matching": "Exact Unicode-normalized entity names, seed aliases, and explicit match-rule aliases; entity-specific WGS84 bboxes constrain ambiguous names. Road route relations are primary where exact name/ref matches exist. Gaps use real motorway/trunk/primary/secondary ways. Real *_link ways may be used only as shared-node paths joining components of the same entity within the configured distance; other named ways still require the same entity name/alias/ref. Sub-25 m endpoint pairs without a shared OSM node are reported as osm_topology_gap and are never snapped or filled. No synthetic connectors or entity creation.",
+  "matching": "Station points use normalized Arabic/English names and seed aliases, explicit station/railway modes or route-relation membership, and a 600 m matched-line guard where line geometry exists; ambiguous same-name nodes are reported rather than assigned. Road route relations are primary where exact name/ref matches exist. Gaps use real motorway/trunk/primary/secondary ways. Real *_link ways may be used only as shared-node paths joining components of the same entity within the configured distance; other named ways still require the same entity name/alias/ref. Sub-25 m endpoint pairs without a shared OSM node are reported as osm_topology_gap and are never snapped or filled. No synthetic connectors or entity creation.",
   "road_gap_fill": {
     "max_path_km_default": 3.0,
     "summary": {
@@ -64,6 +64,7 @@
       "gaps_closed": 44,
       "topology_gaps": 65,
       "network_gaps": 43,
+      "source_clipped_edges": 1,
       "km_closed": 19.881
     },
     "by_entity": [
@@ -4103,11 +4104,33 @@
             "straight_line_km": 0.011,
             "max_graph_path_km": 3.0,
             "reason": "osm_topology_gap"
+          },
+          {
+            "entity_code": "ROAD-REGIONAL-RING",
+            "gap_type": "source_clipped_edge",
+            "coordinate_wgs84": [
+              30.5148,
+              29.7646
+            ],
+            "source_bbox_west_lon": 30.5,
+            "reason": "source clipped at lon 30.5; westward regional-ring continuation lies outside stored extracts; supplemental patch pending; not a network gap"
           }
         ],
         "max_path_km": 3.0,
         "entity_name_ar": "الإقليمي",
-        "entity_name_en": "Regional Ring Road"
+        "entity_name_en": "Regional Ring Road",
+        "source_clipped_edges": [
+          {
+            "entity_code": "ROAD-REGIONAL-RING",
+            "gap_type": "source_clipped_edge",
+            "coordinate_wgs84": [
+              30.5148,
+              29.7646
+            ],
+            "source_bbox_west_lon": 30.5,
+            "reason": "source clipped at lon 30.5; westward regional-ring continuation lies outside stored extracts; supplemental patch pending; not a network gap"
+          }
+        ]
       },
       {
         "entity_code": "ROAD-RING-ROAD",
@@ -5592,9 +5615,2923 @@
     "feature_count": 0,
     "preserved_previous_output": true
   },
+  "station_matching": {
+    "source_station_nodes_examined": 437,
+    "source_nodes_with_seed_name_candidates": 42,
+    "matched_source_nodes": 27,
+    "ambiguous_source_nodes": 6,
+    "rejected_source_nodes": 9,
+    "entity_level_ambiguous_entities": 3,
+    "entity_level_conflicts": {
+      "STOP-LRT-ROBEIKI": {
+        "candidate_osm_node_ids": [
+          768766285,
+          9885200016
+        ],
+        "distant_pairs": [
+          {
+            "osm_ids": [
+              768766285,
+              9885200016
+            ],
+            "distance_m": 1849.1,
+            "line_codes": [
+              [
+                "TRANSIT-LRT"
+              ],
+              [
+                "TRANSIT-LRT"
+              ]
+            ]
+          }
+        ],
+        "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+      },
+      "RAIL-BASHTIL": {
+        "candidate_osm_node_ids": [
+          1129560332,
+          2265692735
+        ],
+        "distant_pairs": [
+          {
+            "osm_ids": [
+              1129560332,
+              2265692735
+            ],
+            "distance_m": 1779.2,
+            "line_codes": [
+              [],
+              []
+            ]
+          }
+        ],
+        "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+      },
+      "STOP-ARTS-CULTURE-CITY": {
+        "candidate_osm_node_ids": [
+          9885200015,
+          12250242532
+        ],
+        "distant_pairs": [
+          {
+            "osm_ids": [
+              9885200015,
+              12250242532
+            ],
+            "distance_m": 622.0,
+            "line_codes": [
+              [
+                "TRANSIT-LRT"
+              ],
+              [
+                "TRANSIT-MONORAIL-EAST"
+              ]
+            ]
+          }
+        ],
+        "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+      }
+    },
+    "station_entities": {
+      "STOP-ADLY-MANSOUR": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT",
+          "TRANSIT-METRO-L3",
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT",
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_osm_node_ids": [
+          9159388948,
+          9885252635
+        ],
+        "matched_count": 2,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 2
+      },
+      "STOP-CAIRO-STADIUM": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_osm_node_ids": [
+          5194348153
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-ARTS-CULTURE-CITY": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT",
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "candidate_osm_node_ids": [
+              9885200015,
+              12250242532
+            ],
+            "distant_pairs": [
+              {
+                "osm_ids": [
+                  9885200015,
+                  12250242532
+                ],
+                "distance_m": 622.0,
+                "line_codes": [
+                  [
+                    "TRANSIT-LRT"
+                  ],
+                  [
+                    "TRANSIT-MONORAIL-EAST"
+                  ]
+                ]
+              }
+            ],
+            "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-ADALA-CITY": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": null,
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MONORAIL-MOSHIR-TANTAWY": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_osm_node_ids": [
+          12250337774
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-SUN-CAPITAL": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": null,
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-SADAT": {
+        "entity_type": "transit_stop",
+        "status": "unknown",
+        "station_line": [
+          "TRANSIT-METRO-L1",
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1",
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_osm_node_ids": [
+          316633428
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-KIT-KAT": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_osm_node_ids": [
+          10099279487
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-OBOUR": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "matched_osm_node_ids": [
+          9885252630
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-MOSTAKBAL": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "matched_osm_node_ids": [
+          9885252628
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [
+          {
+            "osm_id": 5265581821,
+            "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+          }
+        ],
+        "feature_count_before": 1,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-SHOROUK": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "matched_osm_node_ids": [
+          9885252631
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-NEW-HELIOPOLIS": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "matched_osm_node_ids": [
+          9885252634
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-BADR": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "matched_osm_node_ids": [
+          9885252627
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-ROBEIKI": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "candidate_osm_node_ids": [
+              768766285,
+              9885200016
+            ],
+            "distant_pairs": [
+              {
+                "osm_ids": [
+                  768766285,
+                  9885200016
+                ],
+                "distance_m": 1849.1,
+                "line_codes": [
+                  [
+                    "TRANSIT-LRT"
+                  ],
+                  [
+                    "TRANSIT-LRT"
+                  ]
+                ]
+              }
+            ],
+            "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-LRT-CAPITAL-GARDENS": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "matched_osm_node_ids": [
+          9885199998
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-10TH-RAMADAN-1": {
+        "entity_type": "transit_stop",
+        "status": "unknown",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-LRT-KNOWLEDGE-CITY": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "matched_osm_node_ids": [
+          9885252618
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-INDUSTRIAL-ZONE": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "matched_osm_node_ids": [
+          9885252617
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-BRT-MAADI": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "osm_id": 312555676,
+            "reason": "seed line is outside the supported subway/light_rail/monorail/train node scope"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-ZAHRAA-MAADI": {
+        "entity_type": "transit_stop",
+        "status": "planned",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-MOKATTAM": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-AIN-SOKHNA-RD": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-AUTOSTRAD": {
+        "entity_type": "transit_stop",
+        "status": "planned",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-MANSOURIYA": {
+        "entity_type": "transit_stop",
+        "status": "planned",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-MARYUTEYA": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-TALBIYA": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-OMRANIYA": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-HADAEK-OCTOBER": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": null,
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-6-OCTOBER-INTERCHANGE": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": null,
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-AHMED-OMAR-HASHEM": {
+        "entity_type": "transit_stop",
+        "status": "approved_planned",
+        "station_line": null,
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "osm_id": 329978615,
+            "reason": "planned/construction entity has no explicit OSM construction tag"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-DEMERDASH": {
+        "entity_type": "transit_stop",
+        "status": "unknown",
+        "station_line": [
+          "TRANSIT-METRO-L1"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1"
+        ],
+        "matched_osm_node_ids": [
+          5349031078
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-ABBASSIA": {
+        "entity_type": "transit_stop",
+        "status": "unknown",
+        "station_line": [
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_osm_node_ids": [
+          5194348142
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-SAYEDA-AISHA": {
+        "entity_type": "transit_stop",
+        "status": "planned",
+        "station_line": null,
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "RAIL-RAMSES": {
+        "entity_type": "rail_station",
+        "status": "operational",
+        "station_line": null,
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [
+          271864421
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [
+          {
+            "osm_id": 5194295702,
+            "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+          },
+          {
+            "osm_id": 1039314336,
+            "reason": "a stronger OSM primary-name match to the seeded canonical name resolves this alias-only candidate"
+          }
+        ],
+        "feature_count_before": 2,
+        "feature_count_after": 1
+      },
+      "RAIL-BASHTIL": {
+        "entity_type": "rail_station",
+        "status": "operational",
+        "station_line": null,
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "candidate_osm_node_ids": [
+              1129560332,
+              2265692735
+            ],
+            "distant_pairs": [
+              {
+                "osm_ids": [
+                  1129560332,
+                  2265692735
+                ],
+                "distance_m": 1779.2,
+                "line_codes": [
+                  [],
+                  []
+                ]
+              }
+            ],
+            "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+          }
+        ],
+        "feature_count_before": 1,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-HISHAM-BARAKAT": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "osm_id": 9159388952,
+            "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-AZHAR-UNIV": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-7TH-DISTRICT": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-AHMED-ISMAIL": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-JEHAN-SADAT": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-ONE-NINETY": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-AIR-HOSPITAL": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-NARGES": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-MOSTATHMERIN": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "osm_id": 329978615,
+            "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-LOTUS": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "osm_id": 7027687285,
+            "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-GOLDEN-SQUARE": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-BEIT-EL-WATAN": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-FATTAH-ALIM": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-R1": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-R2": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRE-CBD": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_osm_node_ids": [
+          12250242514
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-MRE-GOV-DISTRICT": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_osm_node_ids": [
+          12250242531
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-MRE-MISR-MOSQUE": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "matched_osm_node_ids": [
+          12250242530
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-CAPITAL-AIRPORT": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "matched_osm_node_ids": [
+          9885200014
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-LRT-NATIVITY-CATHEDRAL": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-LRT-STRATEGIC-COMMAND": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-LRT-SPORTS-CITY": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-CENTRAL-CAPITAL": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": null,
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-LRT-HADAEK-10TH": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-LRT-OMAR-KHATTAB": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "osm_id": 9159388950,
+            "reason": "planned/construction entity has no explicit OSM construction tag"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-LRT-10TH-CITY-CENTER": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-LRT-TECH-INSTITUTE": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-LRT"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-NEW-OCTOBER": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-ACU": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-SADAT": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-OCT-UNIV": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-ENGINEERS": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-MALL-OF-EGYPT": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-SHEIKH-ZAYED": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-ALEX-ROAD": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-MANSOURIYA": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-MARYUTEYA": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-RING-ROAD": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "osm_id": 11495591819,
+            "reason": "planned/construction entity has no explicit OSM construction tag"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-BASHTIL": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "osm_id": 1129560332,
+            "reason": "planned/construction entity has no explicit OSM construction tag"
+          },
+          {
+            "osm_id": 2265692735,
+            "reason": "planned/construction entity has no explicit OSM construction tag"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-MRW-WADI-EL-NIL": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-MONORAIL-WEST"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "osm_id": 11923457960,
+            "reason": "planned/construction entity has no explicit OSM construction tag"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-HSR-SPHINX": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-HSR-L1"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-HSR-GIZA": {
+        "entity_type": "transit_stop",
+        "status": "under_construction",
+        "station_line": [
+          "TRANSIT-HSR-L2"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-M1-EL-MARG": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L1"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1"
+        ],
+        "matched_osm_node_ids": [
+          5349031066
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-M1-NEW-EL-MARG": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L1"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1"
+        ],
+        "matched_osm_node_ids": [
+          5353444300
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-M2-SHUBRA-ELKHEIMA": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_osm_node_ids": [
+          272197931,
+          9164359293
+        ],
+        "matched_count": 2,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 2
+      },
+      "STOP-M2-KHALAFAWY": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_osm_node_ids": [
+          2181318225
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-M2-ST-TERESA": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-M3-ROD-ELFARAG-AXIS": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-M3-RING-ROAD": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L3"
+        ],
+        "matched_osm_node_ids": [
+          11495591819
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 0,
+        "feature_count_after": 1
+      },
+      "STOP-BRT-ALEX-AGRI": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-SHARQAWIYA": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-SHUBRA-BENHA": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-BAHTIM": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-MOSTOROD": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-KHOSOUS": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-EL-MARG": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-QALG": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-ZAKAT": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-IBRAHIM-ORABI": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-SALAM": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-SUEZ-RD": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-POLICE-ACADEMY": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-MOSHIR-TANTAWY": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-GOLF": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-ALGERIA-ST": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-IMAMAIN": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-ZAHRAA": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      },
+      "STOP-BRT-BAHR-AZAM": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [],
+        "matched_line_codes": [],
+        "matched_osm_node_ids": [],
+        "matched_count": 0,
+        "outcome": "unmatched",
+        "rejected_candidates": [
+          {
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
+          }
+        ],
+        "feature_count_before": 0,
+        "feature_count_after": 0
+      }
+    },
+    "by_line": {
+      "TRANSIT-LRT": {
+        "station_entities": 20,
+        "matched_entities": 10,
+        "matched_entity_codes": [
+          "STOP-ADLY-MANSOUR",
+          "STOP-LRT-OBOUR",
+          "STOP-LRT-MOSTAKBAL",
+          "STOP-LRT-SHOROUK",
+          "STOP-LRT-NEW-HELIOPOLIS",
+          "STOP-LRT-BADR",
+          "STOP-LRT-CAPITAL-GARDENS",
+          "STOP-LRT-KNOWLEDGE-CITY",
+          "STOP-LRT-INDUSTRIAL-ZONE",
+          "STOP-LRT-CAPITAL-AIRPORT"
+        ],
+        "unmatched_entities": [
+          "STOP-ARTS-CULTURE-CITY",
+          "STOP-LRT-ROBEIKI",
+          "STOP-LRT-10TH-RAMADAN-1",
+          "STOP-LRT-NATIVITY-CATHEDRAL",
+          "STOP-LRT-STRATEGIC-COMMAND",
+          "STOP-LRT-SPORTS-CITY",
+          "STOP-LRT-HADAEK-10TH",
+          "STOP-LRT-OMAR-KHATTAB",
+          "STOP-LRT-10TH-CITY-CENTER",
+          "STOP-LRT-TECH-INSTITUTE"
+        ],
+        "matched_osm_nodes": 11,
+        "station_feature_count_before": 1,
+        "station_feature_count_after": 11
+      },
+      "TRANSIT-METRO-L3": {
+        "station_entities": 6,
+        "matched_entities": 5,
+        "matched_entity_codes": [
+          "STOP-ADLY-MANSOUR",
+          "STOP-CAIRO-STADIUM",
+          "STOP-KIT-KAT",
+          "STOP-ABBASSIA",
+          "STOP-M3-RING-ROAD"
+        ],
+        "unmatched_entities": [
+          "STOP-M3-ROD-ELFARAG-AXIS"
+        ],
+        "matched_osm_nodes": 6,
+        "station_feature_count_before": 0,
+        "station_feature_count_after": 6
+      },
+      "TRANSIT-MONORAIL-EAST": {
+        "station_entities": 20,
+        "matched_entities": 4,
+        "matched_entity_codes": [
+          "STOP-MONORAIL-MOSHIR-TANTAWY",
+          "STOP-MRE-CBD",
+          "STOP-MRE-GOV-DISTRICT",
+          "STOP-MRE-MISR-MOSQUE"
+        ],
+        "unmatched_entities": [
+          "STOP-ARTS-CULTURE-CITY",
+          "STOP-MRE-HISHAM-BARAKAT",
+          "STOP-MRE-AZHAR-UNIV",
+          "STOP-MRE-7TH-DISTRICT",
+          "STOP-MRE-AHMED-ISMAIL",
+          "STOP-MRE-JEHAN-SADAT",
+          "STOP-MRE-ONE-NINETY",
+          "STOP-MRE-AIR-HOSPITAL",
+          "STOP-MRE-NARGES",
+          "STOP-MRE-MOSTATHMERIN",
+          "STOP-MRE-LOTUS",
+          "STOP-MRE-GOLDEN-SQUARE",
+          "STOP-MRE-BEIT-EL-WATAN",
+          "STOP-MRE-FATTAH-ALIM",
+          "STOP-MRE-R1",
+          "STOP-MRE-R2"
+        ],
+        "matched_osm_nodes": 4,
+        "station_feature_count_before": 0,
+        "station_feature_count_after": 4
+      },
+      "MODE-RESOLVED": {
+        "station_entities": 7,
+        "matched_entities": 0,
+        "matched_entity_codes": [],
+        "unmatched_entities": [
+          "STOP-ADALA-CITY",
+          "STOP-SUN-CAPITAL",
+          "STOP-HADAEK-OCTOBER",
+          "STOP-6-OCTOBER-INTERCHANGE",
+          "STOP-AHMED-OMAR-HASHEM",
+          "STOP-SAYEDA-AISHA",
+          "STOP-CENTRAL-CAPITAL"
+        ],
+        "matched_osm_nodes": 0,
+        "station_feature_count_before": 0,
+        "station_feature_count_after": 0
+      },
+      "TRANSIT-METRO-L1": {
+        "station_entities": 4,
+        "matched_entities": 4,
+        "matched_entity_codes": [
+          "STOP-SADAT",
+          "STOP-DEMERDASH",
+          "STOP-M1-EL-MARG",
+          "STOP-M1-NEW-EL-MARG"
+        ],
+        "unmatched_entities": [],
+        "matched_osm_nodes": 4,
+        "station_feature_count_before": 0,
+        "station_feature_count_after": 4
+      },
+      "TRANSIT-METRO-L2": {
+        "station_entities": 4,
+        "matched_entities": 3,
+        "matched_entity_codes": [
+          "STOP-SADAT",
+          "STOP-M2-SHUBRA-ELKHEIMA",
+          "STOP-M2-KHALAFAWY"
+        ],
+        "unmatched_entities": [
+          "STOP-M2-ST-TERESA"
+        ],
+        "matched_osm_nodes": 4,
+        "station_feature_count_before": 0,
+        "station_feature_count_after": 4
+      },
+      "UNSUPPORTED-LINE": {
+        "station_entities": 28,
+        "matched_entities": 0,
+        "matched_entity_codes": [],
+        "unmatched_entities": [
+          "STOP-BRT-MAADI",
+          "STOP-BRT-ZAHRAA-MAADI",
+          "STOP-BRT-MOKATTAM",
+          "STOP-BRT-AIN-SOKHNA-RD",
+          "STOP-BRT-AUTOSTRAD",
+          "STOP-BRT-MANSOURIYA",
+          "STOP-BRT-MARYUTEYA",
+          "STOP-BRT-TALBIYA",
+          "STOP-BRT-OMRANIYA",
+          "STOP-BRT-ALEX-AGRI",
+          "STOP-BRT-SHARQAWIYA",
+          "STOP-BRT-SHUBRA-BENHA",
+          "STOP-BRT-BAHTIM",
+          "STOP-BRT-MOSTOROD",
+          "STOP-BRT-KHOSOUS",
+          "STOP-BRT-EL-MARG",
+          "STOP-BRT-QALG",
+          "STOP-BRT-ZAKAT",
+          "STOP-BRT-IBRAHIM-ORABI",
+          "STOP-BRT-SALAM",
+          "STOP-BRT-SUEZ-RD",
+          "STOP-BRT-POLICE-ACADEMY",
+          "STOP-BRT-MOSHIR-TANTAWY",
+          "STOP-BRT-GOLF",
+          "STOP-BRT-ALGERIA-ST",
+          "STOP-BRT-IMAMAIN",
+          "STOP-BRT-ZAHRAA",
+          "STOP-BRT-BAHR-AZAM"
+        ],
+        "matched_osm_nodes": 0,
+        "station_feature_count_before": 0,
+        "station_feature_count_after": 0
+      },
+      "RAIL-TRAIN": {
+        "station_entities": 2,
+        "matched_entities": 1,
+        "matched_entity_codes": [
+          "RAIL-RAMSES"
+        ],
+        "unmatched_entities": [
+          "RAIL-BASHTIL"
+        ],
+        "matched_osm_nodes": 1,
+        "station_feature_count_before": 3,
+        "station_feature_count_after": 1
+      },
+      "TRANSIT-MONORAIL-WEST": {
+        "station_entities": 13,
+        "matched_entities": 0,
+        "matched_entity_codes": [],
+        "unmatched_entities": [
+          "STOP-MRW-NEW-OCTOBER",
+          "STOP-MRW-ACU",
+          "STOP-MRW-SADAT",
+          "STOP-MRW-OCT-UNIV",
+          "STOP-MRW-ENGINEERS",
+          "STOP-MRW-MALL-OF-EGYPT",
+          "STOP-MRW-SHEIKH-ZAYED",
+          "STOP-MRW-ALEX-ROAD",
+          "STOP-MRW-MANSOURIYA",
+          "STOP-MRW-MARYUTEYA",
+          "STOP-MRW-RING-ROAD",
+          "STOP-MRW-BASHTIL",
+          "STOP-MRW-WADI-EL-NIL"
+        ],
+        "matched_osm_nodes": 0,
+        "station_feature_count_before": 0,
+        "station_feature_count_after": 0
+      },
+      "TRANSIT-HSR-L1": {
+        "station_entities": 1,
+        "matched_entities": 0,
+        "matched_entity_codes": [],
+        "unmatched_entities": [
+          "STOP-HSR-SPHINX"
+        ],
+        "matched_osm_nodes": 0,
+        "station_feature_count_before": 0,
+        "station_feature_count_after": 0
+      },
+      "TRANSIT-HSR-L2": {
+        "station_entities": 1,
+        "matched_entities": 0,
+        "matched_entity_codes": [],
+        "unmatched_entities": [
+          "STOP-HSR-GIZA"
+        ],
+        "matched_osm_nodes": 0,
+        "station_feature_count_before": 0,
+        "station_feature_count_after": 0
+      }
+    },
+    "source_node_audit": [
+      {
+        "osm_id": 271864421,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "RAIL-RAMSES"
+        ],
+        "source_labels": [
+          "ramses",
+          "رمسيس",
+          "مصر"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": []
+      },
+      {
+        "osm_id": 272197931,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-M2-SHUBRA-ELKHEIMA"
+        ],
+        "source_labels": [
+          "shobraalkheima",
+          "شبراالخيمه"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L2"
+        ]
+      },
+      {
+        "osm_id": 312555676,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "STOP-BRT-MAADI"
+        ],
+        "source_labels": [
+          "maadi",
+          "المعادي"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "rejections": {
+          "STOP-BRT-MAADI": "seed line is outside the supported subway/light_rail/monorail/train node scope"
+        }
+      },
+      {
+        "osm_id": 316633428,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-SADAT"
+        ],
+        "source_labels": [
+          "sadat",
+          "السادات"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1",
+          "TRANSIT-METRO-L2"
+        ]
+      },
+      {
+        "osm_id": 329978615,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "STOP-AHMED-OMAR-HASHEM",
+          "STOP-MRE-MOSTATHMERIN"
+        ],
+        "source_labels": [
+          "mohamednaguib",
+          "محمدنجيب",
+          "نجيب"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "rejections": {
+          "STOP-AHMED-OMAR-HASHEM": "planned/construction entity has no explicit OSM construction tag",
+          "STOP-MRE-MOSTATHMERIN": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        }
+      },
+      {
+        "osm_id": 768766285,
+        "outcome": "ambiguous",
+        "candidate_entity_codes": [
+          "STOP-LRT-ROBEIKI"
+        ],
+        "source_labels": [
+          "mahattatalrubayqi",
+          "الروبيكي"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+      },
+      {
+        "osm_id": 1039314336,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "RAIL-RAMSES"
+        ],
+        "source_labels": [
+          "alshuhada",
+          "الشهداء"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [],
+        "reason": "lower-confidence alias candidate; a stronger canonical-name match exists"
+      },
+      {
+        "osm_id": 1129560332,
+        "outcome": "ambiguous",
+        "candidate_entity_codes": [
+          "RAIL-BASHTIL"
+        ],
+        "source_labels": [
+          "mahattatbashtili",
+          "بشتيل",
+          "بشتيلالبلد"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [],
+        "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+      },
+      {
+        "osm_id": 2181318225,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-M2-KHALAFAWY"
+        ],
+        "source_labels": [
+          "alkhalafawy",
+          "الخلفاوي"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L2"
+        ]
+      },
+      {
+        "osm_id": 2265692735,
+        "outcome": "ambiguous",
+        "candidate_entity_codes": [
+          "RAIL-BASHTIL"
+        ],
+        "source_labels": [
+          "bashteel",
+          "بشتيل"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [],
+        "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+      },
+      {
+        "osm_id": 5194295702,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "RAIL-RAMSES"
+        ],
+        "source_labels": [
+          "shuhada",
+          "الشهداء",
+          "رمسيس",
+          "مبارك"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "rejections": {
+          "RAIL-RAMSES": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        }
+      },
+      {
+        "osm_id": 5194348142,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-ABBASSIA"
+        ],
+        "source_labels": [
+          "abbassia",
+          "العباسيه"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L3"
+        ]
+      },
+      {
+        "osm_id": 5194348153,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-CAIRO-STADIUM"
+        ],
+        "source_labels": [
+          "stadium",
+          "الاستاد"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L3"
+        ]
+      },
+      {
+        "osm_id": 5265581821,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "STOP-LRT-MOSTAKBAL"
+        ],
+        "source_labels": [
+          "future",
+          "المستقبل"
+        ],
+        "station_modes": [],
+        "rejections": {
+          "STOP-LRT-MOSTAKBAL": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        }
+      },
+      {
+        "osm_id": 5349031066,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-M1-EL-MARG"
+        ],
+        "source_labels": [
+          "almarj",
+          "المرج"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1"
+        ]
+      },
+      {
+        "osm_id": 5349031078,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-DEMERDASH"
+        ],
+        "source_labels": [
+          "aldemerdash",
+          "الدمرداش"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1"
+        ]
+      },
+      {
+        "osm_id": 5353444300,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-M1-NEW-EL-MARG"
+        ],
+        "source_labels": [
+          "newelmarg",
+          "المرجالجديده"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1"
+        ]
+      },
+      {
+        "osm_id": 7027687285,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "STOP-MRE-LOTUS"
+        ],
+        "source_labels": [
+          "aucterminal",
+          "الجامعهالامريكيه"
+        ],
+        "station_modes": [],
+        "rejections": {
+          "STOP-MRE-LOTUS": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        }
+      },
+      {
+        "osm_id": 9159388948,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-ADLY-MANSOUR"
+        ],
+        "source_labels": [
+          "adlymansour",
+          "عدليمنصور"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L3"
+        ]
+      },
+      {
+        "osm_id": 9159388950,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "STOP-LRT-OMAR-KHATTAB"
+        ],
+        "source_labels": [
+          "omarebnelkhatab",
+          "عمربنالخطاب"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "rejections": {
+          "STOP-LRT-OMAR-KHATTAB": "planned/construction entity has no explicit OSM construction tag"
+        }
+      },
+      {
+        "osm_id": 9159388952,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "STOP-MRE-HISHAM-BARAKAT"
+        ],
+        "source_labels": [
+          "heshambarakat",
+          "هشامبركات"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "rejections": {
+          "STOP-MRE-HISHAM-BARAKAT": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        }
+      },
+      {
+        "osm_id": 9164359293,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-M2-SHUBRA-ELKHEIMA"
+        ],
+        "source_labels": [
+          "shobraalkheima",
+          "شبراالخيمه"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L2"
+        ]
+      },
+      {
+        "osm_id": 9885199998,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-LRT-CAPITAL-GARDENS"
+        ],
+        "source_labels": [
+          "hadayekalassema",
+          "حدائقالعاصمه"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ]
+      },
+      {
+        "osm_id": 9885200014,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-LRT-CAPITAL-AIRPORT"
+        ],
+        "source_labels": [
+          "capitalairport",
+          "مطارالعاصمه"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ]
+      },
+      {
+        "osm_id": 9885200015,
+        "outcome": "ambiguous",
+        "candidate_entity_codes": [
+          "STOP-ARTS-CULTURE-CITY"
+        ],
+        "source_labels": [
+          "artsandculturecity",
+          "مدينهالفنونوالثقافه"
+        ],
+        "station_modes": [
+          "light_rail"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+      },
+      {
+        "osm_id": 9885200016,
+        "outcome": "ambiguous",
+        "candidate_entity_codes": [
+          "STOP-LRT-ROBEIKI"
+        ],
+        "source_labels": [
+          "elrobaiky",
+          "الروبيكي"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ],
+        "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+      },
+      {
+        "osm_id": 9885252617,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-LRT-INDUSTRIAL-ZONE"
+        ],
+        "source_labels": [
+          "industrialpark",
+          "المنطقهالصناعيه"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ]
+      },
+      {
+        "osm_id": 9885252618,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-LRT-KNOWLEDGE-CITY"
+        ],
+        "source_labels": [
+          "knowledgecity",
+          "القطارالكهربائيالخفيفمدينهالمعارف"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ]
+      },
+      {
+        "osm_id": 9885252627,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-LRT-BADR"
+        ],
+        "source_labels": [
+          "badr",
+          "بدر"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ]
+      },
+      {
+        "osm_id": 9885252628,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-LRT-MOSTAKBAL"
+        ],
+        "source_labels": [
+          "future",
+          "المستقبل"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ]
+      },
+      {
+        "osm_id": 9885252630,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-LRT-OBOUR"
+        ],
+        "source_labels": [
+          "elobour",
+          "العبور"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ]
+      },
+      {
+        "osm_id": 9885252631,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-LRT-SHOROUK"
+        ],
+        "source_labels": [
+          "elshorouk",
+          "الشروق"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ]
+      },
+      {
+        "osm_id": 9885252634,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-LRT-NEW-HELIOPOLIS"
+        ],
+        "source_labels": [
+          "newheliopolis",
+          "هليوبوليسالجديده"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT"
+        ]
+      },
+      {
+        "osm_id": 9885252635,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-ADLY-MANSOUR"
+        ],
+        "source_labels": [
+          "adlymansour",
+          "عدليمنصور"
+        ],
+        "station_modes": [
+          "train"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-LRT",
+          "TRANSIT-METRO-L3"
+        ]
+      },
+      {
+        "osm_id": 10099279487,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-KIT-KAT"
+        ],
+        "source_labels": [
+          "kitkat",
+          "الکيتکات"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L3"
+        ]
+      },
+      {
+        "osm_id": 11495591819,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-M3-RING-ROAD"
+        ],
+        "source_labels": [
+          "ringroad",
+          "الطريقالدائري"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L3"
+        ]
+      },
+      {
+        "osm_id": 11923457960,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "STOP-MRW-WADI-EL-NIL"
+        ],
+        "source_labels": [
+          "wadielnile",
+          "واديالنيل"
+        ],
+        "station_modes": [
+          "subway"
+        ],
+        "rejections": {
+          "STOP-MRW-WADI-EL-NIL": "planned/construction entity has no explicit OSM construction tag"
+        }
+      },
+      {
+        "osm_id": 12250242514,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-MRE-CBD"
+        ],
+        "source_labels": [
+          "centralbusinessdistrict",
+          "البرجالايقوني",
+          "حيالمالوالاعمال"
+        ],
+        "station_modes": [
+          "monorail"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-MONORAIL-EAST"
+        ]
+      },
+      {
+        "osm_id": 12250242530,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-MRE-MISR-MOSQUE"
+        ],
+        "source_labels": [
+          "misrmosque",
+          "العاصمهالاداريه",
+          "مسجدمصر"
+        ],
+        "station_modes": [
+          "monorail"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-MONORAIL-EAST"
+        ]
+      },
+      {
+        "osm_id": 12250242531,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-MRE-GOV-DISTRICT"
+        ],
+        "source_labels": [
+          "governmentaldistrict",
+          "الحيالحكومي",
+          "حيالوزارات"
+        ],
+        "station_modes": [
+          "monorail"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-MONORAIL-EAST"
+        ]
+      },
+      {
+        "osm_id": 12250242532,
+        "outcome": "ambiguous",
+        "candidate_entity_codes": [
+          "STOP-ARTS-CULTURE-CITY"
+        ],
+        "source_labels": [
+          "artsandculturecity",
+          "فندقالماسه",
+          "مدينهالفنونوالثقافه"
+        ],
+        "station_modes": [
+          "monorail"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-MONORAIL-EAST"
+        ],
+        "reason": "equally strong station-name matches are more than 600 m apart; no geometry selected"
+      },
+      {
+        "osm_id": 12250337774,
+        "outcome": "matched",
+        "candidate_entity_codes": [
+          "STOP-MONORAIL-MOSHIR-TANTAWY"
+        ],
+        "source_labels": [
+          "moushirtantawi",
+          "المشيرطنطاوي"
+        ],
+        "station_modes": [
+          "monorail"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-MONORAIL-EAST"
+        ]
+      }
+    ],
+    "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+    "license": "ODbL-1.0",
+    "seed_station_entity_count": 103,
+    "seed_status_counts": {
+      "approved_planned": 1,
+      "operational": 69,
+      "planned": 4,
+      "under_construction": 25,
+      "unknown": 4
+    },
+    "station_features_before": 4,
+    "station_features_after": 27,
+    "station_entities_with_geometry_before": 3,
+    "station_entities_with_geometry_after": 25,
+    "station_entities_matched": 25
+  },
   "entity_page_map_geometries": {
     "path": "data/derived/entity-map-geometries.json",
-    "entities_with_geometry": 108,
+    "entities_with_geometry": 130,
     "simplification_tolerance_degrees": 0.0002,
     "merge": "shapely.unary_union; no synthetic segments",
     "preserved_metadata": [
@@ -5605,7 +8542,8 @@
     ]
   },
   "arabic_road_gap_report": "data/features/phase-05-5-road-gap-report.ar.md",
-  "lifecycle_policy": "Only operational/partial entities are matched from OSM/GTFS. Planned/under-construction geometry requires official_alignment provenance and is not inferred from OSM/GTFS.",
+  "arabic_station_matching_report": "data/features/phase-07-3-station-matching-report.ar.md",
+  "lifecycle_policy": "Station nodes for operational/unknown entities require an exact normalized seed name/alias and compatible rail mode. Planned/under-construction station points require an explicit OSM construction tag and a matched official line alignment within 600 m; no station geometry is inferred.",
   "geometry_policy": "WGS84 / SRID 4326; non-empty, GEOS-valid geometries must lie wholly within the declared bbox: non-road features use bbox_wgs84, while road features use road_bbox_wgs84 and are clipped at that envelope. Every output geometry is checked with Shapely is_valid/explain_validity; invalid polygonal features are passed through make_valid and only polygonal components are retained. Degenerate lines and unrepaired/otherwise invalid geometries are dropped.",
   "geometry_validation": {
     "validator": "Shapely 2.2.0",

@@ -3,6 +3,62 @@
   "features": [
     {
       "type": "Feature",
+      "id": "OSM-NODE-10099279487",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2129901,
+          30.0667936
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-10099279487",
+        "entity_code": "STOP-KIT-KAT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 10099279487,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 10099279487,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "الکيت کات",
+            "name:ar": "الکيت کات",
+            "name:de": "Kit-kat",
+            "name:en": "Kit-kat",
+            "name:fa": "کيت-کات",
+            "name:fr": "Kit-kat",
+            "name:ml": "കിറ്റ്-കാറ്റ്",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L3"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-NODE-10154769796",
       "geometry": {
         "type": "Point",
@@ -61,6 +117,276 @@
             "source:population": "wikipedia",
             "wikipedia": "ar:العاشر_من_رمضان"
           }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-11495591819",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.1995819,
+          30.0964108
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-11495591819",
+        "entity_code": "STOP-M3-RING-ROAD",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 11495591819,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 11495591819,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "الطريق الدائري",
+            "name:en": "Ring Road",
+            "name:fa": "جاده کمربندی",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L3"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-12250242514",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.6891649,
+          30.0172912
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-12250242514",
+        "entity_code": "STOP-MRE-CBD",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 12250242514,
+        "osm_version": 4,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 12250242514,
+            "osm_version": 4
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "alt_name": "البرج الايقوني",
+            "monorail": "yes",
+            "name": "حي المال والأعمال",
+            "name:en": "Central Business District",
+            "network": "مونوريل وديان",
+            "public_transport": "station",
+            "railway": "station",
+            "ref": "18",
+            "wikidata": "Q138818847"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-MONORAIL-EAST"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "monorail"
+          ],
+          "matched_line_modes": [
+            "monorail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-12250242530",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.750102,
+          29.9953102
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-12250242530",
+        "entity_code": "STOP-MRE-MISR-MOSQUE",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 12250242530,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 12250242530,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "alt_name": "العاصمة الادارية",
+            "monorail": "yes",
+            "name": "مسجد مصر",
+            "name:ar": "مسجد مصر",
+            "name:en": "Misr Mosque",
+            "network": "مونوريل وديان",
+            "public_transport": "station",
+            "railway": "station",
+            "ref": "21",
+            "station": "monorail"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-MONORAIL-EAST"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "monorail"
+          ],
+          "matched_line_modes": [
+            "monorail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-12250242531",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.7448167,
+          30.0079754
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-12250242531",
+        "entity_code": "STOP-MRE-GOV-DISTRICT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 12250242531,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 12250242531,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "alt_name": "حي الوزارات",
+            "monorail": "yes",
+            "name": "الحي الحكومي",
+            "name:ar": "الحي الحكومي",
+            "name:en": "Governmental District",
+            "network": "مونوريل وديان",
+            "public_transport": "station",
+            "railway": "station",
+            "ref": "20",
+            "station": "monorail"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-MONORAIL-EAST"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "monorail"
+          ],
+          "matched_line_modes": [
+            "monorail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-12250337774",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.3833207,
+          30.0192072
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-12250337774",
+        "entity_code": "STOP-MONORAIL-MOSHIR-TANTAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 12250337774,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 12250337774,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "monorail": "yes",
+            "name": "المشير طنطاوي",
+            "name:en": "Moushir Tantawi",
+            "network": "مونوريل",
+            "public_transport": "station",
+            "railway": "station",
+            "ref": "7",
+            "station": "monorail",
+            "wikidata": "Q138818834"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-MONORAIL-EAST"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "monorail"
+          ],
+          "matched_line_modes": [
+            "monorail"
+          ]
         }
       }
     },
@@ -199,41 +525,60 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-NODE-2265692735",
+      "id": "OSM-NODE-2181318225",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          31.1850927,
-          30.0709859
+          31.2454368,
+          30.0977898
         ]
       },
       "properties": {
-        "code": "OSM-NODE-2265692735",
-        "entity_code": "RAIL-BASHTIL",
+        "code": "OSM-NODE-2181318225",
+        "entity_code": "STOP-M2-KHALAFAWY",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "node",
-        "osm_id": 2265692735,
-        "osm_version": 4,
+        "osm_id": 2181318225,
+        "osm_version": 10,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "node",
-            "osm_id": 2265692735,
-            "osm_version": 4
+            "osm_id": 2181318225,
+            "osm_version": 10
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "rail_station",
+          "entity_type": "transit_stop",
           "osm_tags": {
-            "name": "بشتيل",
-            "name:ar": "بشتيل",
-            "name:en": "Bashteel",
+            "int_name": "Khalafawy",
+            "name": "الخلفاوي",
+            "name:ar": "الخلفاوي",
+            "name:de": "Al-Khalafawy",
+            "name:en": "Al-Khalafawy",
+            "name:fa": "خلفاوی",
+            "name:fr": "Al-Khalafawy",
+            "name:ml": "അൽ-ഖലഫാവി",
             "public_transport": "station",
             "railway": "station",
-            "train": "yes"
-          }
+            "station": "subway",
+            "subway": "yes",
+            "wikidata": "Q10275910",
+            "wikimedia_commons": "Category:Khalafawy Metro station"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L2"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
         }
       }
     },
@@ -634,7 +979,68 @@
             "wikidata": "Q633754",
             "wikimedia_commons": "Category:Ramses Station",
             "wikipedia": "ar:محطة مصر (القاهرة)"
-          }
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "train"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-272197931",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2446088,
+          30.1224837
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-272197931",
+        "entity_code": "STOP-M2-SHUBRA-ELKHEIMA",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 272197931,
+        "osm_version": 11,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 272197931,
+            "osm_version": 11
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "شبرا الخيمة",
+            "name:ar": "شبرا الخيمة",
+            "name:en": "Shobra Al-Kheima",
+            "operator": "Egytian National Railways (ENR)",
+            "public_transport": "station",
+            "railway": "station",
+            "train": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L2"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
         }
       }
     },
@@ -1137,6 +1543,65 @@
             "wikidata": "Q6021507",
             "wikipedia": "ar:حي عابدين"
           }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-316633428",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2353785,
+          30.0439485
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-316633428",
+        "entity_code": "STOP-SADAT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 316633428,
+        "osm_version": 23,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 316633428,
+            "osm_version": 23
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "int_name": "Sadat",
+            "name": "السادات",
+            "name:ar": "السادات",
+            "name:de": "Sadat",
+            "name:en": "Sadat",
+            "name:fa": "سادات",
+            "name:fr": "Sadat",
+            "name:ml": "സാദാത്ത്",
+            "name:zh": "萨达特",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L1",
+            "TRANSIT-METRO-L2"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
         }
       }
     },
@@ -2061,95 +2526,287 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-NODE-5194295702",
+      "id": "OSM-NODE-5194348142",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          31.2460174,
-          30.061851
+          31.2840893,
+          30.0727858
         ]
       },
       "properties": {
-        "code": "OSM-NODE-5194295702",
-        "entity_code": "RAIL-RAMSES",
+        "code": "OSM-NODE-5194348142",
+        "entity_code": "STOP-ABBASSIA",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "node",
-        "osm_id": 5194295702,
-        "osm_version": 8,
+        "osm_id": 5194348142,
+        "osm_version": 6,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "node",
-            "osm_id": 5194295702,
-            "osm_version": 8
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "rail_station",
-          "osm_tags": {
-            "alt_name": "رمسيس",
-            "alt_name:ar": "رمسيس",
-            "alt_name:en": "Ramses",
-            "int_name": "Shuhada (previously: Mubarak)",
-            "name": "الشهداء",
-            "name:ar": "الشهداء",
-            "name:de": "Shuhada",
-            "name:en": "Shuhada",
-            "name:fa": "شهدا",
-            "name:fr": "Shuhada",
-            "name:ml": "ഷൂഹദ",
-            "name:zh": "烈士",
-            "old_name": "مبارك",
-            "old_name:ar": "مبارك",
-            "old_name:en": "Mubarak",
-            "public_transport": "station",
-            "railway": "station",
-            "station": "subway",
-            "subway": "yes",
-            "wheelchair": "yes"
-          }
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-NODE-5265581821",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.5627986,
-          30.1605118
-        ]
-      },
-      "properties": {
-        "code": "OSM-NODE-5265581821",
-        "entity_code": "STOP-LRT-MOSTAKBAL",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "node",
-        "osm_id": 5265581821,
-        "osm_version": 3,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "node",
-            "osm_id": 5265581821,
-            "osm_version": 3
+            "osm_id": 5194348142,
+            "osm_version": 6
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
           "entity_type": "transit_stop",
           "osm_tags": {
-            "amenity": "bus_station",
-            "bus": "yes",
-            "name": "المستقبل",
-            "name:ar": "المستقبل",
-            "name:en": "Future",
-            "public_transport": "station"
-          }
+            "int_name": "Abbassiya",
+            "name": "العباسية",
+            "name:ar": "العباسية",
+            "name:de": "Abbassia",
+            "name:en": "Abbassia",
+            "name:fa": "عباسیه",
+            "name:fr": "Abbassia",
+            "name:ml": "അബ്ബാസിയ",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes",
+            "wheelchair": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L3"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-5194348153",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.3173959,
+          30.072948
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-5194348153",
+        "entity_code": "STOP-CAIRO-STADIUM",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 5194348153,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 5194348153,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "الإستاد",
+            "name:ar": "الإستاد",
+            "name:de": "Stadion",
+            "name:en": "Stadium",
+            "name:fa": "ورزشگاه",
+            "name:fr": "Stade",
+            "name:ml": "സ്റ്റേഡിയം",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L3"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-5349031066",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.3357665,
+          30.1520818
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-5349031066",
+        "entity_code": "STOP-M1-EL-MARG",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 5349031066,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 5349031066,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "alt_name": "المرج",
+            "int_name": "El-Marg",
+            "name": "المرج",
+            "name:ar": "المرج",
+            "name:de": "Al Marj",
+            "name:en": "Al Marj",
+            "name:fa": "مرج",
+            "name:fr": "Al Marj",
+            "name:ml": "അൽ-മർഗ്",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes",
+            "wikidata": "Q5350666"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L1"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-5349031078",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2778133,
+          30.0772574
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-5349031078",
+        "entity_code": "STOP-DEMERDASH",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 5349031078,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 5349031078,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "int_name": "El-Demerdash",
+            "name": "الدمرداش",
+            "name:ar": "الدمرداش",
+            "name:de": "Al-Demerdash",
+            "name:en": "Al-Demerdash",
+            "name:fa": "دمرداش",
+            "name:fr": "Al-Demerdash",
+            "name:ml": "അൽ-ദമർദാഷ്",
+            "railway": "station",
+            "station": "subway",
+            "wikidata": "Q10275722"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L1"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-5353444300",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.338272,
+          30.1635097
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-5353444300",
+        "entity_code": "STOP-M1-NEW-EL-MARG",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 5353444300,
+        "osm_version": 4,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 5353444300,
+            "osm_version": 4
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "int_name": "New El-Marg",
+            "name": "المرج الجديدة",
+            "name:ar": "المرج الجديدة",
+            "name:de": "New El-Marg",
+            "name:en": "New El-Marg",
+            "name:fa": "مرج جديد",
+            "name:fr": "New El-Marg",
+            "name:ml": "പുതിയ അൽ-മർഗ്",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L1"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
         }
       }
     },
@@ -3012,6 +3669,635 @@
             "wikidata": "Q5607284",
             "wikipedia": "ar:كفر شكر"
           }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9159388948",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.4215168,
+          30.1470316
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9159388948",
+        "entity_code": "STOP-ADLY-MANSOUR",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9159388948,
+        "osm_version": 7,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9159388948,
+            "osm_version": 7
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "عدلى منصور",
+            "name:ar": "عدلى منصور",
+            "name:en": "Adly Mansour",
+            "name:fa": "عدلى منصور",
+            "name:fr": "Adli Mansour",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes",
+            "wikidata": "Q106678973"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L3"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9164359293",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2434932,
+          30.1240927
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9164359293",
+        "entity_code": "STOP-M2-SHUBRA-ELKHEIMA",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9164359293,
+        "osm_version": 5,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9164359293,
+            "osm_version": 5
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "int_name": "Shobra El Kheima",
+            "name": "شبرا الخيمة",
+            "name:ar": "شبرا الخيمة",
+            "name:de": "Shobra Al-Kheima",
+            "name:en": "Shobra Al-Kheima",
+            "name:fa": "شبرا الخیمه",
+            "name:fr": "Shobra Al-Kheima",
+            "name:ml": "ഷുബ്ര അൽ-ഖൈമ",
+            "public_transport": "station",
+            "railway": "station",
+            "station": "subway",
+            "subway": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-METRO-L2"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "subway"
+          ],
+          "matched_line_modes": [
+            "subway"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885199998",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.8067825,
+          30.1366817
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885199998",
+        "entity_code": "STOP-LRT-CAPITAL-GARDENS",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885199998,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885199998,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "حدائق العاصمة",
+            "name:ar": "حدائق العاصمة",
+            "name:en": "Hadayek al-Assema",
+            "name:fa": "حدائق العاصمه",
+            "public_transport": "station",
+            "railway": "station",
+            "wikidata": "Q125142207"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885200014",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.7824843,
+          30.0758949
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885200014",
+        "entity_code": "STOP-LRT-CAPITAL-AIRPORT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885200014,
+        "osm_version": 4,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885200014,
+            "osm_version": 4
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "مطار العاصمة",
+            "name:en": "Capital Airport",
+            "name:fa": "فرودگاه پایتخت",
+            "public_transport": "station",
+            "railway": "station",
+            "wikidata": "Q125142221"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885252617",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.7155954,
+          30.2039612
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885252617",
+        "entity_code": "STOP-LRT-INDUSTRIAL-ZONE",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885252617,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885252617,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "المنطقة الصناعية",
+            "name:en": "Industrial Park",
+            "name:fa": "منطقه صنعتی",
+            "operator": "RATP Dev Mobility Cairo",
+            "public_transport": "station",
+            "railway": "station",
+            "train": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885252618",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.6916138,
+          30.2307243
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885252618",
+        "entity_code": "STOP-LRT-KNOWLEDGE-CITY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885252618,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885252618,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "محطة القطار الكهربائي الخفيف - مدينة المعارف",
+            "name:en": "Knowledge City Station",
+            "name:fa": "شهر دانش",
+            "operator": "RATP Dev Mobility Cairo",
+            "public_transport": "station",
+            "railway": "station",
+            "train": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885252627",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.7160192,
+          30.1751897
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885252627",
+        "entity_code": "STOP-LRT-BADR",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885252627,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885252627,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "بدر",
+            "name:en": "Badr",
+            "name:fa": "بدر",
+            "public_transport": "station",
+            "railway": "station"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885252628",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.5540997,
+          30.173119
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885252628",
+        "entity_code": "STOP-LRT-MOSTAKBAL",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885252628,
+        "osm_version": 4,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885252628,
+            "osm_version": 4
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "المستقبل",
+            "name:en": "Future",
+            "name:fa": "آینده",
+            "public_transport": "station",
+            "railway": "station"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885252630",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.4816102,
+          30.1629263
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885252630",
+        "entity_code": "STOP-LRT-OBOUR",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885252630,
+        "osm_version": 5,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885252630,
+            "osm_version": 5
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "العبور",
+            "name:en": "El-Obour",
+            "name:fa": "عبور",
+            "public_transport": "station",
+            "railway": "station",
+            "train": "yes",
+            "wikidata": "Q125132255"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885252631",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.6057965,
+          30.1796323
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885252631",
+        "entity_code": "STOP-LRT-SHOROUK",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885252631,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885252631,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "الشروق",
+            "name:en": "El-Shorouk",
+            "name:fa": "طلوع خورشید",
+            "public_transport": "station",
+            "railway": "station",
+            "wheelchair": "yes"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885252634",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.6526735,
+          30.1837293
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885252634",
+        "entity_code": "STOP-LRT-NEW-HELIOPOLIS",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885252634,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885252634,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "هليوبوليس الجديدة",
+            "name:en": "New Heliopolis",
+            "name:fa": "هلیوپولیس جدید",
+            "public_transport": "station",
+            "railway": "station"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-NODE-9885252635",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.4212712,
+          30.1464017
+        ]
+      },
+      "properties": {
+        "code": "OSM-NODE-9885252635",
+        "entity_code": "STOP-ADLY-MANSOUR",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "node",
+        "osm_id": 9885252635,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "node",
+            "osm_id": 9885252635,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_stop",
+          "osm_tags": {
+            "name": "عدلى منصور",
+            "name:ar": "عدلى منصور",
+            "name:en": "Adly Mansour",
+            "name:fa": "عدلى منصور",
+            "name:fr": "Adli Mansour",
+            "name:ml": "അദ്‌ലി മൻസൂർ",
+            "public_transport": "station",
+            "railway": "station",
+            "train": "yes",
+            "wikidata": "Q112874062"
+          },
+          "match_method": "exact normalized bilingual station name + compatible OSM station mode + matched-line proximity",
+          "matched_line_codes": [
+            "TRANSIT-LRT",
+            "TRANSIT-METRO-L3"
+          ],
+          "route_relation_ids": [],
+          "source_station_modes": [
+            "train"
+          ],
+          "matched_line_modes": [
+            "light_rail",
+            "subway"
+          ]
         }
       }
     },

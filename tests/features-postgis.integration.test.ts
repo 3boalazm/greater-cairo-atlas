@@ -126,7 +126,7 @@ describe("real PostGIS features SQL regression", () => {
     expect(rows.rows).toHaveLength(featureCount);
     expect(rows.rows.every((row) => row.code && row.entity_code && row.geometry.type)).toBe(true);
     expect(rows.rows.every((row) => row.attribution && row.source_ids.length > 0)).toBe(true);
-    expect(rows.rows.filter((row) => row.geometry.type === "Point")).toHaveLength(59);
+    expect(rows.rows.filter((row) => row.geometry.type === "Point")).toHaveLength(82);
     expect(rows.rows.some((row) => row.geometry.type === "GeometryCollection")).toBe(false);
   }, 120_000);
 

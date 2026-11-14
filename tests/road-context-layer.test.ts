@@ -42,14 +42,17 @@ describe("separate OSM road context and entity map geometries", () => {
     const report = JSON.parse(await readFile(reportPath, "utf8")) as {
       road_route_relations: Array<{ entity_code: string; member_way_ids: number[] }>;
       road_route_entities: string[];
-      road_gap_fill_totals: { gaps_after: number; gaps_closed: number };
-      road_gaps: Array<{ endpoint_a: { coordinates: number[] }; endpoint_b: { coordinates: number[] } }>;
+      road_gap_fill_totals: { gaps_after: number; gaps_closed: number; source_clipped_edges: number };
+      road_gaps: Array<{ gap_type: string; coordinate_wgs84?: number[]; endpoint_a?: { coordinates: number[] }; endpoint_b?: { coordinates: number[] } }>;
     };
     expect(report.road_route_relations.length).toBeGreaterThan(0);
     expect(report.road_route_relations.every((relation) => relation.member_way_ids.length > 0)).toBe(true);
     expect(report.road_route_entities).toEqual(expect.arrayContaining(report.road_route_relations.map((relation) => relation.entity_code)));
-    expect(report.road_gaps).toHaveLength(report.road_gap_fill_totals.gaps_after);
-    expect(report.road_gaps.every((gap) => gap.endpoint_a.coordinates.length === 2 && gap.endpoint_b.coordinates.length === 2)).toBe(true);
+    expect(report.road_gaps.filter((gap) => gap.gap_type !== "source_clipped_edge")).toHaveLength(report.road_gap_fill_totals.gaps_after);
+    expect(report.road_gaps.filter((gap) => gap.gap_type !== "source_clipped_edge")
+      .every((gap) => gap.endpoint_a?.coordinates.length === 2 && gap.endpoint_b?.coordinates.length === 2)).toBe(true);
+    expect(report.road_gaps.filter((gap) => gap.gap_type === "source_clipped_edge")).toHaveLength(report.road_gap_fill_totals.source_clipped_edges);
+    expect(report.road_gaps.find((gap) => gap.gap_type === "source_clipped_edge")?.coordinate_wgs84).toEqual([30.5148, 29.7646]);
     expect(report.road_gap_fill_totals.gaps_closed).toBeGreaterThan(0);
   });
 });
