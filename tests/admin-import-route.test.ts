@@ -105,10 +105,10 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
     expect(payload.dryRun).toBe(true);
     expect(payload.summary).toEqual({
       entitiesCount: 342,
-      evidenceCount: 307,
-      factsCount: 1301,
-      factEvidenceLinksCount: 1411,
-      featuresCount: 2289,
+      evidenceCount: 324,
+      factsCount: 1348,
+      factEvidenceLinksCount: 1460,
+      featuresCount: 3030,
       importSync: {
         featuresDeletedCount: null,
         factEvidenceLinksDeletedCount: null,
@@ -131,7 +131,7 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
         .map((warning: { path: string }) => warning.path.match(/EV-\d+/)?.[0]),
     ).toEqual(["EV-045", "EV-046"]);
     expect(payload.report.breakdowns.entitiesBySector.REGIONAL).toBe(28);
-    expect(payload.report.breakdowns.factsByVerificationState.verified).toBe(310);
+    expect(payload.report.breakdowns.factsByVerificationState.verified).toBe(331);
     expect(JSON.stringify(payload)).not.toContain(validToken);
   });
 

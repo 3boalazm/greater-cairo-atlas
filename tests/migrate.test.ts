@@ -36,7 +36,7 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
     return dir;
   }
 
-  it("discovers migrations 000-005 in order, preserving immutable prior checksums and feature invariants", async () => {
+  it("discovers migrations 000-006 in order, preserving immutable prior checksums and feature invariants", async () => {
     const migrations = await discoverMigrations();
     expect(migrations.map((m) => m.filename)).toEqual([
       "000_enable_postgis.sql",
@@ -45,6 +45,7 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
       "003_research_seed_extensions.sql",
       "004_feature_bbox_attribution.sql",
       "005_import_runs.sql",
+      "006_road_only_bbox_extension.sql",
     ]);
 
     const m000 = migrations[0];
@@ -102,6 +103,13 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
     expect(m005?.filename).toBe("005_import_runs.sql");
     expect(m005?.sql).toMatch(/CREATE TABLE import_runs/i);
     expect(m005?.sql).toContain("checksum ~ '^[a-f0-9]{64}$'");
+
+    const m006 = migrations[6];
+    expect(m006?.filename).toBe("006_road_only_bbox_extension.sql");
+    expect(m006?.sql).toMatch(/DROP CONSTRAINT features_greater_cairo_bbox_chk/i);
+    expect(m006?.sql).toContain("east := 32.35");
+    expect(m006?.sql).toContain("north := 30.9");
+    expect(m006?.sql).toMatch(/feature_entity_type = 'road'/i);
   });
 
   it("runs dry-run without requiring DATABASE_URL", async () => {
@@ -115,6 +123,7 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
       "003_research_seed_extensions.sql",
       "004_feature_bbox_attribution.sql",
       "005_import_runs.sql",
+      "006_road_only_bbox_extension.sql",
     ]);
   });
 

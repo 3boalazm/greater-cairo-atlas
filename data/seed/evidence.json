@@ -3375,5 +3375,192 @@
     "published_date_precision": "day",
     "accessed_date": "2026-11-14",
     "notes": "rev6.1: ظهر في البحث. 6 يونيو 2024: من ضمن المشروعات «الجاري تنفيذها» تطوير محور بطول 2.8 كم، 6 حارات لكل اتجاه (محور العبور)"
+  },
+  {
+    "code": "EV-307",
+    "title": "مونوريل شرق النيل – بدء التشغيل للركاب (المرحلة الأولى)",
+    "url": "https://www.nat.gov.eg/NewsDetails.aspx?id=1297",
+    "publisher": "الهيئة القومية للأنفاق (NAT)",
+    "source_type": "official",
+    "published_date": "2026-05-10",
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: حسب المالك: بدء تشغيل المرحلة الأولى للركاب 2026-05-10. الموقع بيمنع الجلب الآلي (robots)، فمقدرتش أفتح الصفحة بنفسي؛ المحتوى زي ما المالك وصفه، والحقائق candidate"
+  },
+  {
+    "code": "EV-308",
+    "title": "مونوريل شرق النيل – تشغيل الخط بالكامل",
+    "url": "https://www.nat.gov.eg/NewsDetails.aspx?id=1304",
+    "publisher": "الهيئة القومية للأنفاق (NAT)",
+    "source_type": "official",
+    "published_date": "2026-06-28",
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: حسب المالك: تشغيل الخط كامل 2026-06-28، والمواعيد اليومية 06:00–21:00. الموقع بيمنع الجلب الآلي (robots)، فمقدرتش أفتح الصفحة بنفسي؛ المحتوى زي ما المالك وصفه، والحقائق candidate"
+  },
+  {
+    "code": "EV-309",
+    "title": "مونوريل شرق النيل – مواعيد تشغيل محدثة",
+    "url": "https://www.nat.gov.eg/NewsDetails.aspx?id=1310",
+    "publisher": "الهيئة القومية للأنفاق (NAT)",
+    "source_type": "official",
+    "published_date": "2026-09-16",
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: حسب المالك: مواعيد محدثة 06:00–19:50 من 2026-09-16. الموقع بيمنع الجلب الآلي (robots)، فمقدرتش أفتح الصفحة بنفسي؛ المحتوى زي ما المالك وصفه، والحقائق candidate"
+  },
+  {
+    "code": "EV-310",
+    "title": "وزارة النقل: بدء تشغيل المرحلة الأولى من مونوريل شرق النيل غدًا الأربعاء",
+    "url": "https://gate.ahram.org.eg/News/5609389.aspx",
+    "publisher": "بوابة الأهرام (عن وزارة النقل)",
+    "source_type": "news",
+    "published_date": "2026-05-05",
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر في البحث. 5 مايو 2026، بيان وزارة النقل: التشغيل يبدأ بكرة الأربعاء (6 مايو)"
+  },
+  {
+    "code": "EV-311",
+    "title": "وزارة النقل تعلن بدء تشغيل المرحلة الأولى من مونوريل شرق النيل ..غداً",
+    "url": "https://www.banker.news/135802",
+    "publisher": "بانكير",
+    "source_type": "news",
+    "published_date": "2026-05-05",
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر في البحث. التشغيل الفعلي من الأربعاء 6 مايو 2026، من 6 الصبح لـ 6 المسا"
+  },
+  {
+    "code": "EV-312",
+    "title": "Line 3 (English project page)",
+    "url": "https://www.nat.gov.eg/LocationActivity.aspx?id=85",
+    "publisher": "الهيئة القومية للأنفاق (NAT)",
+    "source_type": "official",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: فتحت الصفحة بنفسي. الخط كله: 41.2 كم و34 محطة (21 تحت الأرض + 2 سطحية + 11 علوية). أرقام المراحل: 1 (العتبة–العباسية) 4.4 كم/5؛ 2 (العباسية–الأهرام) 7.7 كم/4؛ 3أ 4 كم/4؛ 3ب 6.6 كم/6؛ 3ج 7.1 كم/5؛ 4 (هارون–عدلي منصور) 11.5 كم/10. مجموع أطوال المراحل 41.3 كم، يعني أكتر بشوية من الإجمالي المعلن"
+  },
+  {
+    "code": "EV-313",
+    "title": "الخط الثالث – المرحلة الخامسة (هليوبوليس – مطار القاهرة)",
+    "url": "https://www.nat.gov.eg/LocationActivity.aspx?id=2147",
+    "publisher": "الهيئة القومية للأنفاق (NAT)",
+    "source_type": "official",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: حسب المالك: 9.2 كم و7 محطات. الموقع بيمنع الجلب الآلي (robots)، فمقدرتش أفتح الصفحة بنفسي؛ المحتوى زي ما المالك وصفه، والحقائق candidate"
+  },
+  {
+    "code": "EV-314",
+    "title": "بدء تشغيل خدمة عدلي منصور – السويس",
+    "url": "https://www.enr.gov.eg/Ar/NewsDetails.aspx?NewsID=1586",
+    "publisher": "الهيئة القومية لسكك حديد مصر (ENR)",
+    "source_type": "official",
+    "published_date": "2022-09-26",
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: حسب المالك: الخدمة بدأت 2022-09-26. الموقع بيمنع الجلب الآلي (robots)، فمقدرتش أفتح الصفحة بنفسي؛ المحتوى زي ما المالك وصفه، والحقائق candidate"
+  },
+  {
+    "code": "EV-315",
+    "title": "وزير النقل يتفقد مشروع القطار الكهربائي الخفيف LRT…",
+    "url": "https://hapijournal.com/2022/03/19/وزير-النقل-يتفقد-مشروع-القطار-الكهربا/",
+    "publisher": "Hapi Journal",
+    "source_type": "news",
+    "published_date": "2022-03-19",
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر في البحث. 19 مارس 2022: خط القاهرة/السويس من محطة عدلي منصور للسويس، طوله 117 كم (ازدواج 35 كم لحد الروبيكي + رفع كفاءة 82 كم)"
+  },
+  {
+    "code": "EV-316",
+    "title": "President El-Sisi Directs to Name a Mosque, Road, Station after Late Scholar Ahmed Omar Hashem",
+    "url": "https://www.presidency.eg/EN/قسم-الأخبار/أخبار-رئاسية/news8102025/",
+    "publisher": "رئاسة الجمهورية",
+    "source_type": "official",
+    "published_date": "2025-10-08",
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر محتواها في البحث. 8 أكتوبر 2025: توجيه بتسمية الطريق اللي بيربط القاهرة الجديدة بالدائري الأوسطي، و«محطة القطار السريع في نهاية الطريق ده»، باسم الشيخ أحمد عمر هاشم. ده نفس الإعلان اللي SIS نشرته في 2025-10-08، بس رابط SIS نفسه مظهرش في البحث"
+  },
+  {
+    "code": "EV-317",
+    "title": "Transport Minister inspects workflow on first high-speed electric train",
+    "url": "https://www.egyptindependent.com/?p=2833565",
+    "publisher": "Egypt Independent",
+    "source_type": "news",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر في البحث. جولة وزير النقل غطت القطاع من محطة حدائق أكتوبر لمحطة أحمد عمر هاشم (أعمال جارية / تشطيبات)"
+  },
+  {
+    "code": "EV-318",
+    "title": "وزير النقل يتفقد مواقع العمل بالخط الأول من شبكة القطار الكهربائي",
+    "url": "https://almalnews.com/2133635/وزير-النقل-يتفقد-مواقع-العمل-بالخط-الأول/",
+    "publisher": "المال",
+    "source_type": "news",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر في البحث. متابعة «التشطيبات والتجهيزات النهائية» لمحطات الخط الأول من حدائق أكتوبر لمحطة أحمد عمر هاشم"
+  },
+  {
+    "code": "EV-319",
+    "title": "High-speed rail line 1 interchanges",
+    "url": "https://www.egyptindependent.com/?p=2832988",
+    "publisher": "Egypt Independent",
+    "source_type": "news",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر في البحث. الخط هيتبادل مع «الخط السادس المخطط للمترو في محطة أحمد عمر هاشم»"
+  },
+  {
+    "code": "EV-320",
+    "title": "Bus Rapid Transit (BRT)",
+    "url": "https://www.cairo.gov.eg/en/governorate-services/transportation-services/bus-rapid-transit/",
+    "publisher": "بوابة محافظة القاهرة",
+    "source_type": "official",
+    "published_date": "2026-06-01",
+    "published_date_precision": "month",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: فتحت الصفحة بنفسي (آخر تحديث يونيو 2026). طول المسار 106 كم (قابل للمد)؛ 49 محطة على الدائري، منهم 36 في المرحلة الأولى؛ المرحلة الأولى على 76 كم من أول مرحلة توسعة للدائري، من محطة الإسكندرية الزراعي لمحطة أكاديمية الشرطة. الصفحة مكتوبة بصيغة المستقبل ومفيهاش تاريخ تشغيل، فما اتاخدتش كدليل على حالة الخدمة"
+  },
+  {
+    "code": "EV-321",
+    "title": "Egypt plans massive expansion of new capital as first residents trickle in",
+    "url": "https://gulfnews.com/world/mena/photos-egypt-plans-massive-expansion-of-new-capital-as-first-residents-trickle-in-1.1704367554339",
+    "publisher": "Gulf News (عن رويترز)",
+    "source_type": "news",
+    "published_date": "2024-01-01",
+    "published_date_precision": "month",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر في البحث. رئيس ACUD خالد عباس لرويترز (يناير 2024): المرحلتين الأولى والتانية كل واحدة 40,000 فدان (168 كم²) ومتوقع 1.5 مليون ساكن لكل مرحلة؛ ACUD صرفت 500 مليار جنيه على بنية وإنشاءات المرحلة الأولى"
+  },
+  {
+    "code": "EV-322",
+    "title": "Egypt plans expansion of new capital…",
+    "url": "https://www.arabnews.pk/node/2436181/middle-east",
+    "publisher": "Arab News (عن رويترز)",
+    "source_type": "news",
+    "published_date": "2024-01-01",
+    "published_date_precision": "month",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر في البحث. خالد عباس: «حوالي 48,000 موظف بيجوا كل يوم»"
+  },
+  {
+    "code": "EV-323",
+    "title": "Egypt: Help sought for new administrative capital phase 2",
+    "url": "https://realassetinsight.com/2024/07/31/opportunities-exist-for-second-phase-of-egypts-new-administrative-capital/",
+    "publisher": "Real Asset Insight",
+    "source_type": "secondary",
+    "published_date": "2024-07-31",
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "rev6.2: ظهر في البحث. خالد عباس: «70% من المرحلة الأولى (40,000) خلص»، والمرحلة التانية فيها 2,000 للصناعة. (الوحدة في المقال «acres» وغالباً المقصود فدان)"
   }
 ]

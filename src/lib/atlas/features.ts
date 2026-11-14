@@ -15,6 +15,14 @@ export const GREATER_CAIRO_BBOX = {
   north: 30.8,
 } as const;
 
+/** Road-only corridor envelope; extended north/east without widening non-road geometry acceptance. */
+export const ROAD_GEOMETRY_BBOX = {
+  west: 30.5,
+  south: 29.2,
+  east: 32.35,
+  north: 30.9,
+} as const;
+
 function positions(geometry: unknown): number[][] {
   if (!geometry || typeof geometry !== "object") return [];
   const record = geometry as Record<string, unknown>;
@@ -85,12 +93,15 @@ function hasValidPolygonRings(geometry: unknown): boolean {
   return true;
 }
 
-export function isGeometryInsideGreaterCairoBbox(geometry: unknown): boolean {
+export function isGeometryInsideGreaterCairoBbox(
+  geometry: unknown,
+  bbox: typeof GREATER_CAIRO_BBOX | typeof ROAD_GEOMETRY_BBOX = GREATER_CAIRO_BBOX,
+): boolean {
   const points = positions(geometry);
   return points.length > 0 && points.every(([longitude, latitude]) =>
     longitude !== undefined && latitude !== undefined &&
-    longitude >= GREATER_CAIRO_BBOX.west && longitude <= GREATER_CAIRO_BBOX.east &&
-    latitude >= GREATER_CAIRO_BBOX.south && latitude <= GREATER_CAIRO_BBOX.north,
+    longitude >= bbox.west && longitude <= bbox.east &&
+    latitude >= bbox.south && latitude <= bbox.north,
   );
 }
 
@@ -173,8 +184,9 @@ export async function loadAndValidateFeatureCollection(
       issues.push({ path: `${label}.geometry`, message: "Polygon rings must be closed, non-degenerate, and non-self-intersecting." });
       continue;
     }
-    if (!isGeometryInsideGreaterCairoBbox(item.geometry)) {
-      issues.push({ path: `${label}.geometry`, message: `Geometry must lie wholly within Greater Cairo WGS84 bbox ${JSON.stringify(GREATER_CAIRO_BBOX)}.` });
+    const bbox = entity.entity_type === "road" ? ROAD_GEOMETRY_BBOX : GREATER_CAIRO_BBOX;
+    if (!isGeometryInsideGreaterCairoBbox(item.geometry, bbox)) {
+      issues.push({ path: `${label}.geometry`, message: `Geometry must lie wholly within ${entity?.entity_type === "road" ? "road-only" : "Greater Cairo"} WGS84 bbox ${JSON.stringify(bbox)}.` });
       continue;
     }
     const metadata = item.properties;
