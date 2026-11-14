@@ -5,18 +5,9 @@ import { MapPinOff, MapPinned, X } from "lucide-react";
 import { useEffect, useMemo, useRef } from "react";
 import type { AtlasEntityDetail, AtlasEntityFact, AtlasLanguage } from "./atlas-client";
 import { transitModeLabel } from "@/lib/atlas/transit-modes";
+import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, SECTOR_LABELS, SOURCE_TYPE_LABELS, STATUS_LABELS, VERIFICATION_LABELS, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
-const stateLabel: Record<string, { ar: string; en: string }> = {
-  candidate: { ar: "مرشح", en: "Candidate" }, single_source: { ar: "مصدر واحد", en: "Single source" },
-  corroborated: { ar: "مؤيد بمصادر", en: "Corroborated" }, verified: { ar: "موثّق", en: "Verified" },
-  disputed: { ar: "متنازع عليه", en: "Disputed" }, rejected: { ar: "مرفوض", en: "Rejected" }, superseded: { ar: "مستبدل", en: "Superseded" },
-};
 const areaEntityTypes = new Set(["city", "district", "neighborhood", "authority"]);
-const statusLabel: Record<string, { ar: string; en: string }> = {
-  operational: { ar: "يعمل", en: "Operational" }, partial: { ar: "يعمل جزئيًا", en: "Partial" },
-  under_construction: { ar: "قيد الإنشاء", en: "Under construction" }, planned: { ar: "مخطط", en: "Planned" },
-  approved_planned: { ar: "مخطط ومعتمد", en: "Approved planned" }, unknown: { ar: "غير معلوم", en: "Unknown" },
-};
 
 function dateText(fact: AtlasEntityFact, ar: boolean): string | null {
   if (!fact.valid_as_of) return null;
@@ -29,14 +20,14 @@ function FactCard({ fact, language }: { fact: AtlasEntityFact; language: AtlasLa
   const ar = language === "ar";
   const faded = fact.verification_state === "superseded" || fact.verification_state === "rejected";
   return <article className={`fact-card ${faded ? "fact-deemphasized" : ""}`}>
-    <div className="fact-value-row"><strong>{fact.value}{fact.unit ? <small> {fact.unit}</small> : null}</strong><span className={`verification-badge verification-${fact.verification_state}`}>{stateLabel[fact.verification_state]?.[language] ?? fact.verification_state}</span></div>
+    <div className="fact-value-row"><strong>{fact.value}{fact.unit ? <small> {fact.unit}</small> : null}</strong><span className={`verification-badge verification-${fact.verification_state}`}>{translateLabel(VERIFICATION_LABELS, fact.verification_state, language)}</span></div>
     <div className="fact-meta">
       {dateText(fact, ar) && <span>{ar ? "صالح بتاريخ" : "Valid as of"} {dateText(fact, ar)}{fact.valid_as_of_precision !== "day" ? ` · ${ar ? `دقة ${fact.valid_as_of_precision === "month" ? "شهر" : "سنة"}` : `${fact.valid_as_of_precision} precision`}` : ""}</span>}
       {fact.notes && <p>{fact.notes}</p>}
     </div>
     {fact.evidence.length > 0 ? <ul className="evidence-list" aria-label={ar ? "المصادر" : "Sources"}>
       {fact.evidence.map((source) => <li key={source.code}>
-        <span className="source-type">{source.source_type}</span>
+        <span className="source-type" title={source.source_type}>{translateLabel(SOURCE_TYPE_LABELS, source.source_type, language)}</span>
         <div><strong>{source.publisher}</strong>{source.source_type === "secondary" && <span className="weak-source">{ar ? "مصدر ثانوي · ضعيف" : "Secondary · weak source"}</span>}
           {source.url ? <a href={source.url} target="_blank" rel="noreferrer">{source.title || source.url}<span className="sr-only"> ({ar ? "يفتح في تبويب جديد" : "opens in a new tab"})</span></a> : <span className="source-no-url">{source.title} · {ar ? "لا يوجد رابط" : "No URL"}</span>}
           <small>{source.code}{source.accessed_date ? ` · ${ar ? "اطّلع عليه" : "accessed"} ${source.accessed_date}` : ""}</small>
@@ -80,16 +71,18 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
     for (const fact of entity?.facts ?? []) map.set(fact.attribute, [...(map.get(fact.attribute) ?? []), fact]);
     return [...map.entries()];
   }, [entity?.facts]);
+  const entityLineCodes = entity?.facts.filter((fact) => fact.attribute === "line_membership").map((fact) => fact.value) ?? [];
+  const entityModeLabel = entity ? transitModeLabel(entity.code, language, entityLineCodes) : null;
   return <>
     <button className="panel-backdrop" tabIndex={-1} onClick={onClose} aria-label={ar ? "إغلاق تفاصيل الكيان" : "Close entity details"} />
     <aside ref={panelRef} className="entity-panel" role="dialog" aria-modal="true" aria-labelledby="entity-panel-title" aria-busy={loading}>
       <div className="sheet-grab" aria-hidden="true"><span /></div>
       <header className="entity-panel-header">
-        <div className="entity-overline">{entity?.entity_type ?? "ATLAS ENTITY"} <span>·</span> {entity?.sector}</div>
+        <div className="entity-overline" title={`${entity?.entity_type ?? "ATLAS ENTITY"} · ${entity?.sector ?? ""}`}>{entity ? translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language) : (ar ? "كيان أطلس" : "ATLAS ENTITY")} <span>·</span> {entity ? translateLabel(SECTOR_LABELS, entity.sector, language) : ""}</div>
         <button ref={closeRef} className="close-panel" type="button" onClick={onClose} aria-label={ar ? "إغلاق" : "Close"}><X aria-hidden="true" /></button>
-        {entity ? <><h2 id="entity-panel-title">{ar ? entity.name_ar : entity.name_en}</h2><p className="entity-subtitle">{ar ? entity.name_en : entity.name_ar} <span>·</span> {entity.code}</p>
-          <div className="entity-badges"><span className={`status-pill status-${entity.status}`}>{statusLabel[entity.status]?.[language] ?? entity.status}</span>
-            {transitModeLabel(entity.code, language) && <span className="transit-mode-pill">{transitModeLabel(entity.code, language)}</span>}
+        {entity ? <><h2 id="entity-panel-title">{stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)}</h2><p className="entity-subtitle">{ar ? entity.name_en : entity.name_ar} <span>·</span> {entity.code}</p>
+          <div className="entity-badges"><span className={`status-pill status-${entity.status}`} title={entity.status}>{translateLabel(STATUS_LABELS, entity.status, language)}</span>
+            {entityModeLabel && <span className="transit-mode-pill">{entityModeLabel}</span>}
           </div></> : <h2 id="entity-panel-title">{loading ? (ar ? "جارٍ تحميل الكيان…" : "Loading entity…") : (ar ? "تعذر تحميل الكيان" : "Unable to load entity")}</h2>}
       </header>
       <div className="entity-panel-content">
@@ -105,12 +98,12 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
                 : boundaryActive ? (ar ? "إخفاء الحدود" : "Hide boundary") : (ar ? "إظهار الحدود على الخريطة" : "Show boundary on map")}
           </button>}
           {!entity.has_boundary && areaEntityTypes.has(entity.entity_type) && <p className="boundary-unavailable-note">{ar ? "الحدود غير متاحة في المصدر" : "Boundary unavailable in source"}</p>}
-          {!entity.has_geometry && <p className="entity-unmapped-note"><MapPinOff aria-hidden="true" />{ar ? "غير مرسوم على الخريطة" : "Not mapped"}</p>}
+          {!entity.has_geometry && <p className="entity-unmapped-note"><MapPinOff aria-hidden="true" />{ar ? "لا توجد هندسة مسجلة لهذا الكيان" : "No geometry is recorded for this entity"}</p>}
           {entity.description && <p className="entity-description">{entity.description}</p>}
           <section aria-labelledby="facts-heading">
             <div className="panel-section-heading"><span className="section-index">01</span><div><h3 id="facts-heading">{ar ? "الحقائق والمصادر" : "Facts & evidence"}</h3><small>{ar ? "التعارضات معروضة جنبًا إلى جنب دون ترجيح آلي" : "Conflicting claims stay side by side; no automatic winner."}</small></div></div>
             {groups.length ? groups.map(([attribute, facts]) => <div className="fact-group" key={attribute}>
-              <h4>{attribute.replaceAll("_", " ")}{facts.length > 1 && <span>{ar ? `${facts.length} قيم متعارضة/متعددة` : `${facts.length} claims`}</span>}</h4>
+              <h4 title={attribute}>{translateLabel(FACT_ATTRIBUTE_LABELS, attribute, language)}{facts.length > 1 && <span>{ar ? `${facts.length} قيم متعارضة/متعددة` : `${facts.length} claims`}</span>}</h4>
               <div className={facts.length > 1 ? "fact-grid conflicting-facts" : "fact-grid"}>{facts.map((fact) => <FactCard key={fact.code} fact={fact} language={language} />)}</div>
             </div>) : <p className="panel-state">{ar ? "لا توجد حقائق مسجلة لهذا الكيان." : "No facts are recorded for this entity."}</p>}
           </section>

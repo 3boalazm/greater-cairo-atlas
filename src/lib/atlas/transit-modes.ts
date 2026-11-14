@@ -64,9 +64,20 @@ const METRO_MISC_STATIONS = new Set([
   "STOP-M3-ROD-ELFARAG-AXIS", "STOP-M3-RING-ROAD", "STOP-M1-EL-MARG", "STOP-M1-NEW-EL-MARG",
 ]);
 
-export function transitModesForEntityCode(entityCode: string): TransitMode[] {
+export function transitModesForEntityCode(entityCode: string, lineCodes: readonly string[] = []): TransitMode[] {
   const explicit = MULTI_MODE_STATIONS[entityCode];
   if (explicit) return [...explicit];
+  const modesFromLines = new Set<TransitMode>();
+  for (const line of lineCodes) {
+    if (line.startsWith("TRANSIT-METRO-L")) modesFromLines.add(line.endsWith("L4") ? "metro_l4" : "metro");
+    else if (line.startsWith("TRANSIT-LRT")) modesFromLines.add("lrt");
+    else if (line.includes("MONORAIL-EAST")) modesFromLines.add("monorail_east");
+    else if (line.includes("MONORAIL-WEST")) modesFromLines.add("monorail_west");
+    else if (line.includes("BRT")) modesFromLines.add("brt");
+    else if (line.includes("HSR")) modesFromLines.add("hsr");
+    else if (line.includes("ENR") || line.includes("SUEZ-TRAIN")) modesFromLines.add("enr");
+  }
+  if (modesFromLines.size) return [...modesFromLines];
   if (entityCode.startsWith("TRANSIT-METRO-L4")) return ["metro_l4"];
   if (entityCode.startsWith("TRANSIT-METRO-L") || /^STOP-M[123]-/.test(entityCode) || METRO_MISC_STATIONS.has(entityCode)) return ["metro"];
   if (entityCode.startsWith("TRANSIT-LRT") || entityCode.startsWith("STOP-LRT-")) return ["lrt"];
@@ -78,7 +89,6 @@ export function transitModesForEntityCode(entityCode: string): TransitMode[] {
   if (entityCode === "STOP-ADLY-MANSOUR") return ["metro", "lrt"];
   if (entityCode === "STOP-ADALA-CITY") return ["monorail_east"];
   if (entityCode === "STOP-AHMED-OMAR-HASHEM") return ["hsr"];
-  if (entityCode.startsWith("STOP-")) return ["unclassified"];
   return [];
 }
 
@@ -86,16 +96,16 @@ export function isTransitInterchangeEntityCode(entityCode: string): boolean {
   return transitModesForEntityCode(entityCode).length > 1 || INTERCHANGE_STATION_CODES.has(entityCode);
 }
 
-export function transitModeForEntityCode(entityCode: string): TransitMode | null {
-  return transitModesForEntityCode(entityCode)[0] ?? null;
+export function transitModeForEntityCode(entityCode: string, lineCodes: readonly string[] = []): TransitMode | null {
+  return transitModesForEntityCode(entityCode, lineCodes)[0] ?? null;
 }
 
-export function transitModeLabel(entityCode: string, language: "ar" | "en"): string | null {
+export function transitModeLabel(entityCode: string, language: "ar" | "en", lineCodes: readonly string[] = []): string | null {
   if (entityCode.startsWith("TRANSIT-METRO-L1") || entityCode.startsWith("STOP-M1-")) return language === "ar" ? "مترو · الخط الأول" : "Metro · Line 1";
   if (entityCode.startsWith("TRANSIT-METRO-L2") || entityCode.startsWith("STOP-M2-")) return language === "ar" ? "مترو · الخط الثاني" : "Metro · Line 2";
   if (entityCode.startsWith("TRANSIT-METRO-L3") || entityCode.startsWith("STOP-M3-")) return language === "ar" ? "مترو · الخط الثالث" : "Metro · Line 3";
   if (entityCode.includes("METRO-L4")) return language === "ar" ? "مترو · الخط الرابع" : "Metro · Line 4";
-  const modes = transitModesForEntityCode(entityCode);
+  const modes = transitModesForEntityCode(entityCode, lineCodes);
   if (modes.length > 1) return language === "ar" ? "محطة تبادلية" : "Interchange station";
   const mode = modes[0];
   return mode ? TRANSIT_MODE_LABELS[mode][language] : null;

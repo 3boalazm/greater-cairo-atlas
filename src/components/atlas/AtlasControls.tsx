@@ -4,6 +4,7 @@ import { SlidersHorizontal } from "lucide-react";
 import type { CSSProperties } from "react";
 import type { AtlasLanguage } from "./atlas-client";
 import { TRANSIT_MODE_LABELS, TRANSIT_MODE_ORDER, TRANSIT_LINE_COLORS } from "@/lib/atlas/transit-modes";
+import { ENTITY_TYPE_LABELS, SECTOR_LABELS, STATUS_LABELS, translateLabel } from "@/lib/atlas/labels";
 
 export interface AtlasFilters {
   type: string;
@@ -15,27 +16,14 @@ export interface AtlasFilters {
 const types = ["road", "bridge", "interchange", "transit_line", "transit_stop", "rail_station", "city", "district", "airport", "project", "landmark"];
 const sectors = ["NORTH", "EAST", "SOUTH", "WEST", "CENTRAL", "REGIONAL"];
 const statuses = ["operational", "partial", "under_construction", "planned", "approved_planned", "unknown"];
-const typeLabel: Record<string, { ar: string; en: string }> = {
-  road: { ar: "طرق", en: "Roads" }, bridge: { ar: "جسور", en: "Bridges" }, interchange: { ar: "تقاطع", en: "Interchanges" },
-  transit_line: { ar: "خطوط نقل", en: "Transit lines" }, transit_stop: { ar: "محطات", en: "Stops" }, rail_station: { ar: "محطات سكك", en: "Rail stations" },
-  city: { ar: "مدن", en: "Cities" }, district: { ar: "أحياء", en: "Districts" }, airport: { ar: "مطارات", en: "Airports" }, project: { ar: "مشروعات", en: "Projects" }, landmark: { ar: "معالم", en: "Landmarks" },
-};
-const sectorLabel: Record<string, { ar: string; en: string }> = {
-  NORTH: { ar: "الشمال", en: "North" }, EAST: { ar: "الشرق", en: "East" }, SOUTH: { ar: "الجنوب", en: "South" },
-  WEST: { ar: "الغرب", en: "West" }, CENTRAL: { ar: "الوسط", en: "Central" }, REGIONAL: { ar: "إقليمي", en: "Regional" },
-};
-const statusLabel: Record<string, { ar: string; en: string }> = {
-  operational: { ar: "يعمل", en: "Operational" }, partial: { ar: "يعمل جزئيًا", en: "Partial" }, under_construction: { ar: "قيد الإنشاء", en: "Under construction" },
-  planned: { ar: "مخطط", en: "Planned" }, approved_planned: { ar: "مخطط ومعتمد", en: "Approved plan" }, unknown: { ar: "غير معلوم", en: "Unknown" },
-};
 
 export function LayerChips({ type, onTypeChange, language }: { type: string; onTypeChange: (type: string) => void; language: AtlasLanguage }) {
   const ar = language === "ar";
   const chips = [
     { key: "", label: ar ? "الكل" : "All" },
     { key: "road", label: ar ? "الطرق" : "Roads" },
-    { key: "transit_line", label: ar ? "خطوط النقل" : "Transit" },
-    { key: "transit_stop", label: ar ? "المحطات" : "Stops" },
+    { key: "transport", label: ar ? "النقل" : "Transit" },
+    { key: "city", label: ar ? "المدن" : "Cities" },
   ];
   return <div className="layer-chips" role="group" aria-label={ar ? "طبقات الخريطة" : "Map layers"}>
     {chips.map((chip) => <button type="button" key={chip.key} className={type === chip.key ? "layer-chip selected" : "layer-chip"} aria-pressed={type === chip.key} onClick={() => onTypeChange(chip.key)}>{chip.label}</button>)}
@@ -47,38 +35,93 @@ export function MapFilters({ filters, onChange, language }: { filters: AtlasFilt
   const set = (key: "type" | "sector" | "status", value: string) => onChange({ ...filters, [key]: value });
   return <div className="map-filter-row" aria-label={ar ? "تصفية الكيانات" : "Filter entities"}>
     <label><span><SlidersHorizontal aria-hidden="true" />{ar ? "نوع" : "Type"}</span><select value={filters.type} onChange={(event) => set("type", event.target.value)} aria-label={ar ? "تصفية حسب النوع" : "Filter by type"}>
-      <option value="">{ar ? "كل الأنواع" : "All types"}</option>{types.map((value) => <option key={value} value={value}>{typeLabel[value]?.[language] ?? value}</option>)}
+      <option value="">{ar ? "كل الأنواع" : "All types"}</option>{types.map((value) => <option key={value} value={value} title={value}>{translateLabel(ENTITY_TYPE_LABELS, value, language)}</option>)}
     </select></label>
     <label><span>{ar ? "القطاع" : "Sector"}</span><select value={filters.sector} onChange={(event) => set("sector", event.target.value)} aria-label={ar ? "تصفية حسب القطاع" : "Filter by sector"}>
-      <option value="">{ar ? "كل القطاعات" : "All sectors"}</option>{sectors.map((value) => <option key={value} value={value}>{sectorLabel[value]?.[language] ?? value}</option>)}
+      <option value="">{ar ? "كل القطاعات" : "All sectors"}</option>{sectors.map((value) => <option key={value} value={value} title={value}>{translateLabel(SECTOR_LABELS, value, language)}</option>)}
     </select></label>
     <label><span>{ar ? "الحالة" : "Status"}</span><select value={filters.status} onChange={(event) => set("status", event.target.value)} aria-label={ar ? "تصفية حسب الحالة" : "Filter by status"}>
-      <option value="">{ar ? "كل الحالات" : "All statuses"}</option>{statuses.map((value) => <option key={value} value={value}>{statusLabel[value]?.[language] ?? value}</option>)}
+      <option value="">{ar ? "كل الحالات" : "All statuses"}</option>{statuses.map((value) => <option key={value} value={value} title={value}>{translateLabel(STATUS_LABELS, value, language)}</option>)}
     </select></label>
     <label className="mapped-only-filter"><input type="checkbox" checked={filters.mappedOnly} onChange={(event) => onChange({ ...filters, mappedOnly: event.target.checked })} />
       <span>{ar ? "المُرسوم فقط" : "Mapped only"}</span></label>
   </div>;
 }
 
+export type AtlasLayerGroup = "infrastructure" | "transport" | "areas" | "projects" | "reference";
+export type AtlasLayerGroupState = Record<AtlasLayerGroup, boolean>;
+const layerGroupNames: Record<AtlasLayerGroup, { ar: string; en: string }> = {
+  infrastructure: { ar: "البنية التحتية · الطرق والمحاور والكباري والأنفاق", en: "Infrastructure · roads, axes, bridges & tunnels" },
+  transport: { ar: "النقل العام · خطوط النقل والمحطات", en: "Public transport · lines and stations" },
+  areas: { ar: "المناطق · المدن والأحياء والحدود", en: "Areas · cities, districts and boundaries" },
+  projects: { ar: "المشروعات · إنشاء ومخطط ومعتمد", en: "Projects · construction, planned and approved" },
+  reference: { ar: "مرجع OSM · شبكات الطرق والسكك", en: "OSM reference · road and rail networks" },
+};
+export function LayerGroupToggles({ enabled, onChange, language }: { enabled: AtlasLayerGroupState; onChange: (group: AtlasLayerGroup, value: boolean) => void; language: AtlasLanguage }) {
+  const ar = language === "ar";
+  return <fieldset className="layer-group-toggles"><legend>{ar ? "مجموعات الطبقات" : "Layer groups"}</legend>
+    {(Object.keys(layerGroupNames) as AtlasLayerGroup[]).map((group) => <label key={group} title={group}>
+      <input type="checkbox" checked={enabled[group]} onChange={(event) => onChange(group, event.target.checked)} />
+      <span>{layerGroupNames[group][language]}</span>
+    </label>)}
+  </fieldset>;
+}
+
+export function TransitLineToggles({ visibleLines, onChange, language }: { visibleLines: string[]; onChange: (lineCode: string, visible: boolean) => void; language: AtlasLanguage }) {
+  const ar = language === "ar";
+  const label = (code: string) => {
+    if (code.startsWith("TRANSIT-METRO-L")) return `${ar ? "مترو · الخط " : "Metro · Line "}${code.slice(-1)}`;
+    const names: Record<string, { ar: string; en: string }> = {
+      "TRANSIT-LRT": { ar: "القطار الكهربائي الخفيف", en: "Light Rail Transit" },
+      "TRANSIT-MONORAIL-EAST": { ar: "المونوريل الشرقي", en: "East Monorail" },
+      "TRANSIT-MONORAIL-WEST": { ar: "المونوريل الغربي", en: "West Monorail" },
+      "TRANSIT-BRT": { ar: "الأتوبيس الترددي", en: "BRT" },
+      "TRANSIT-ENR": { ar: "سكك حديد مصر", en: "Egyptian National Railways" },
+      "TRANSIT-HSR-L1": { ar: "القطار السريع · الخط الأول", en: "High-Speed Rail · Line 1" },
+      "TRANSIT-HSR-L2": { ar: "القطار السريع · الخط الثاني", en: "High-Speed Rail · Line 2" },
+      "TRANSIT-HSR-L3": { ar: "القطار السريع · الخط الثالث", en: "High-Speed Rail · Line 3" },
+    };
+    return names[code]?.[language] ?? code;
+  };
+  return <fieldset className="transit-line-toggles"><legend>{ar ? "خطوط النقل" : "Transit lines"}</legend>
+    {Object.entries(TRANSIT_LINE_COLORS).map(([code, color]) => <label key={code} title={code}>
+      <input type="checkbox" checked={visibleLines.includes(code)} onChange={(event) => onChange(code, event.target.checked)} />
+      <i style={{ "--line-toggle-color": color } as CSSProperties} />{label(code)}
+    </label>)}
+  </fieldset>;
+}
+
+export function ActiveFilterChips({ filters, quickLayer, onClearFilter, onClearQuick, onClearAll, language }: { filters: AtlasFilters; quickLayer: string; onClearFilter: (key: keyof AtlasFilters) => void; onClearQuick: () => void; onClearAll: () => void; language: AtlasLanguage }) {
+  const ar = language === "ar";
+  const chips: Array<{key: keyof AtlasFilters | "quick"; text: string}> = [];
+  if (quickLayer) chips.push({key: "quick", text: quickLayer === "road" ? (ar ? "الطرق" : "Roads") : quickLayer === "city" ? (ar ? "المدن" : "Cities") : (ar ? "النقل" : "Transit")});
+  if (filters.type) chips.push({key: "type", text: translateLabel(ENTITY_TYPE_LABELS, filters.type, language)});
+  if (filters.sector) chips.push({key: "sector", text: translateLabel(SECTOR_LABELS, filters.sector, language)});
+  if (filters.status) chips.push({key: "status", text: translateLabel(STATUS_LABELS, filters.status, language)});
+  if (filters.mappedOnly) chips.push({key: "mappedOnly", text: ar ? "المُرسوم فقط" : "Mapped only"});
+  if (!chips.length) return null;
+  return <div className="active-filter-chips" aria-label={ar ? "الفلاتر النشطة" : "Active filters"}>
+    {chips.map(({key,text}) => <button type="button" key={key} onClick={() => key === "quick" ? onClearQuick() : onClearFilter(key)}>{text} <span aria-hidden="true">×</span></button>)}
+    <button type="button" className="clear-all-filters" onClick={onClearAll}>{ar ? "مسح الكل" : "Clear all"}</button>
+  </div>;
+}
+
 export function Legend({ language, boundaryActive = false, boundaryLabel }: { language: AtlasLanguage; boundaryActive?: boolean; boundaryLabel?: string | null }) {
   const ar = language === "ar";
   const rows = [
-    ["operational", ar ? "يعمل" : "Operational", "solid"],
-    ["partial", ar ? "يعمل جزئيًا" : "Partial", "dash"],
-    ["under_construction", ar ? "قيد الإنشاء" : "Under construction", "dash"],
-    ["planned", ar ? "مخطط" : "Planned", "dot"],
-    ["approved_planned", ar ? "مخطط ومعتمد" : "Approved planned", "dot"],
-    ["unknown", ar ? "غير معلوم" : "Unknown", "muted"],
-  ];
+    ["operational", "solid"], ["partial", "dash"], ["under_construction", "dash"],
+    ["planned", "dot"], ["approved_planned", "dot"], ["unknown", "muted"],
+  ] as const;
   return <aside className="map-legend" aria-label={ar ? "مفتاح الخريطة" : "Map legend"}>
     <strong>{ar ? "حالة الكيان" : "Entity status"}</strong>
-    {rows.map(([status, label, style]) => <div className="legend-row" key={status}><i className={`legend-line ${style} status-${status}`} />{label}</div>)}
+    {rows.map(([status, style]) => <div className="legend-row" key={status}><i className={`legend-line ${style} status-${status}`} /><span title={status}>{translateLabel(STATUS_LABELS, status, language)}</span></div>)}
     <strong className="legend-type-heading">{ar ? "نوع الهندسة" : "Geometry type"}</strong>
     <div className="legend-row"><i className="legend-line type-road" />{ar ? "الطرق" : "Roads"}</div>
     <div className="legend-row"><i className="legend-line type-transit" />{ar ? "خطوط النقل" : "Transit lines"}</div>
+    <div className="legend-row"><i className="legend-polygon" />{ar ? "مضلعات الكيانات والحدود" : "Entity polygons and boundaries"}</div>
     <strong className="legend-type-heading">{ar ? "النقل حسب الوسيلة" : "Transit modes"}</strong>
     {(["TRANSIT-METRO-L1", "TRANSIT-METRO-L2", "TRANSIT-METRO-L3", "TRANSIT-METRO-L4"] as const).map((code, index) => <div className="legend-row transit-legend-row" key={code}><i className={`legend-line ${index === 3 ? "dot" : "solid"}`} style={{ borderColor: TRANSIT_LINE_COLORS[code] }} /><span>{ar ? `مترو · خط ${index + 1}${index === 3 ? " (إنشاء)" : ""}` : `Metro · Line ${index + 1}${index === 3 ? " (construction)" : ""}`}</span></div>)}
-    {TRANSIT_MODE_ORDER.filter((mode) => mode !== "metro" && mode !== "metro_l4").map((mode) => <div className="legend-row transit-legend-row" key={mode}><i className={`transit-shape transit-shape-${TRANSIT_MODE_LABELS[mode].shape}`} style={{ "--transit-mode-color": TRANSIT_MODE_LABELS[mode].color } as CSSProperties} /><span>{TRANSIT_MODE_LABELS[mode][language]}</span></div>)}
+    {TRANSIT_MODE_ORDER.filter((mode) => mode !== "metro" && mode !== "metro_l4" && mode !== "unclassified").map((mode) => <div className="legend-row transit-legend-row" key={mode}><i className={`transit-shape transit-shape-${TRANSIT_MODE_LABELS[mode].shape}`} style={{ "--transit-mode-color": TRANSIT_MODE_LABELS[mode].color } as CSSProperties} /><span>{TRANSIT_MODE_LABELS[mode][language]}</span></div>)}
     <div className="legend-row transit-legend-row"><i className="transit-interchange-symbol" />{ar ? "محطة تبادلية" : "Interchange station"}</div>
     {boundaryActive && <div className="legend-row"><i className="legend-boundary" />{boundaryLabel || (ar ? "حدود إدارية من OSM" : "OSM area boundary")}</div>}
     <small>{ar ? "الخطوط والحدود من هندسة موثقة فقط." : "Lines and boundaries are source geometries only."}</small>

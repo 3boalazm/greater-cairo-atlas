@@ -127,10 +127,10 @@ describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and
 
   it("enforces secondary source_type epistemic rules", () => {
     expect(canVerifyFactWithSources([])).toBe(false);
-    expect(canVerifyFactWithSources(["secondary"])).toBe(false);
-    expect(canVerifyFactWithSources(["secondary", "secondary"])).toBe(false);
-    expect(canVerifyFactWithSources(["secondary", "official"])).toBe(true);
-    expect(canVerifyFactWithSources(["dataset"])).toBe(true);
+    expect(canVerifyFactWithSources([{ source_type: "secondary", url: null }])).toBe(false);
+    expect(canVerifyFactWithSources([{ source_type: "official", url: null }])).toBe(false);
+    expect(canVerifyFactWithSources([{ source_type: "dataset", url: "https://example.org/data" }])).toBe(false);
+    expect(canVerifyFactWithSources([{ source_type: "secondary", url: "https://example.org" }, { source_type: "official", url: "https://example.gov" }])).toBe(true);
 
     // Seed bundle where a 'verified' fact cites ONLY 'secondary' evidence must fail
     const entitiesCsv = [
@@ -165,7 +165,7 @@ describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and
         evidenceJsonText: evidenceJson,
         factsJsonText: illegalVerifiedFactsJson,
       }),
-    ).toThrow(/solely by secondary evidence/);
+    ).toThrow(/official evidence with a URL/);
   });
 
   it("validates table Zod schemas and rejects unknown enums, invalid dates, and partial OSM lineage", () => {

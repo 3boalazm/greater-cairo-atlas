@@ -4,8 +4,8 @@
 
 | النوع | الكيانات | حدود قبل | حدود بعد | بلا حدود بعد |
 |---|---:|---:|---:|---:|
-| `city` | 42 | 14 | 13 | 29 |
-| `district` | 83 | 7 | 6 | 77 |
+| `city` | 42 | 13 | 13 | 29 |
+| `district` | 83 | 6 | 6 | 77 |
 
 - التطبيع: NFKC/casefold; Arabic أ/إ/آ/ٱ→ا, ة→ه, ى→ي; remove حي/قسم/مدينة/منطقة/District/City and generic area words
 - قاعدة القبول: exact normalized canonical/alias match; point covered or <=1km away (search radius <=2km); city 1-800km2, district 0.05-60km2; larger plausible same-name polygon can supersede a block; no guess on ties

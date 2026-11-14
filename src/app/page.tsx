@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import AtlasApp from "@/components/atlas/AtlasApp";
 import { getSiteUrl, resolveLanguage } from "@/components/site/SiteChrome";
+import { transitModesForEntityCode, isTransitInterchangeEntityCode } from "@/lib/atlas/transit-modes";
+import { stationDisplayName } from "@/lib/atlas/labels";
 import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
+import type { AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse } from "@/components/atlas/atlas-client";
+
+function hasOutOfRegionCoordinates(geometry: unknown): boolean {
+  const visit = (value: unknown): boolean => {
+    if (!Array.isArray(value)) return false;
+    if (value.length >= 2 && typeof value[0] === "number" && typeof value[1] === "number") {
+      const [lon, lat] = value as [number, number];
+      return lon < 30.5 || lon > 32.1 || lat < 29.2 || lat > 30.8;
+    }
+    return value.some(visit);
+  };
+  return !!geometry && typeof geometry === "object" && "coordinates" in geometry && visit((geometry as { coordinates: unknown }).coordinates);
+}
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ lang?: string | string[] }> }): Promise<Metadata> {
   const language = resolveLanguage((await searchParams).lang);
@@ -17,21 +31,42 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 }
 
 export default async function HomePage({ searchParams }: { searchParams: Promise<{ lang?: string | string[] }> }) {
-  const language = resolveLanguage((await searchParams).lang);
-  const ar = language === "ar";
   const dataset = await getStaticAtlasDataset();
-  const uniqueEntities = [...new Map(dataset.entities.map((entity) => [entity.code, entity])).values()];
-  const entities = [...uniqueEntities].sort((a, b) => a.name_ar.localeCompare(b.name_ar, "ar")).slice(0, 12);
-  return <>
-    <AtlasApp />
-    <section className="site-content" aria-labelledby="atlas-intro-title">
-      <p className="site-eyebrow">{ar ? "أطلس موثّق للقاهرة الكبرى" : "DOCUMENTED ATLAS OF GREATER CAIRO"}</p>
-      <h1 id="atlas-intro-title">{ar ? "بيانات موثوقة عن المكان ومصادرها" : "Greater Cairo, documented with sources"}</h1>
-      <p className="site-lede">{ar ? "استكشف أطلسًا جغرافيًا موثقًا؛ تُعرض الحقائق المتعارضة مع مصادرها، ولا تُستنتج حالة التشغيل أو الهندسة." : "Explore a source-backed geospatial atlas. Conflicting facts remain visible with their sources; operational status and geometry are never inferred."}</p>
-      <p>{ar ? `يتضمن الإصدار الحالي ${dataset.entities.length.toLocaleString("ar-EG")} كيانًا، و${dataset.facts.length.toLocaleString("ar-EG")} حقيقة، و${dataset.evidence.length.toLocaleString("ar-EG")} مصدرًا، و${dataset.features.length.toLocaleString("ar-EG")} ميزة هندسية.` : `The current dataset contains ${dataset.entities.length.toLocaleString()} entities, ${dataset.facts.length.toLocaleString()} facts, ${dataset.evidence.length.toLocaleString()} sources, and ${dataset.features.length.toLocaleString()} geometry features.`}</p>
-      <h2>{ar ? "استكشف كيانات الأطلس" : "Explore atlas entities"}</h2>
-      <ul>{entities.map((entity) => <li key={entity.code}><Link href={`/entity/${encodeURIComponent(entity.code)}?lang=${language}`}>{entity.name_ar} <span aria-label={ar ? "نوع الكيان" : "entity type"}>— {entity.entity_type}</span></Link></li>)}</ul>
-      <p><Link href={`/data?lang=${language}`}>{ar ? "تنزيل البيانات ومراجعة الإسناد والترخيص ←" : "Download data and review attribution and licensing →"}</Link></p>
-    </section>
-  </>;
+  const entityByCode = new Map(dataset.entities.map((entity) => [entity.code, entity]));
+  const geometryCodes = new Set(dataset.features.map((feature) => feature.entity_code));
+  const regionalCodes = [...new Set(dataset.entities.filter((entity) => entity.sector === "REGIONAL" || dataset.features.some((feature) => feature.entity_code === entity.code && hasOutOfRegionCoordinates(feature.geometry))).map((entity) => entity.code))];
+  const initialEntities: AtlasEntitySummary[] = dataset.entities.map((entity) => ({
+    code: entity.code, name_ar: entity.name_ar, name_en: entity.name_en, aliases: entity.aliases,
+    entity_type: entity.entity_type, sector: entity.sector, status: entity.status, has_geometry: geometryCodes.has(entity.code),
+  }));
+  const initialFeatures: AtlasFeatureCollection = {
+    type: "FeatureCollection",
+    metadata: { data_license: "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0", geometry_license: "© OpenStreetMap contributors, ODbL 1.0", contact: "01092500454 · 3boalazm@gmail.com" },
+    features: dataset.features.flatMap((feature) => {
+      const entity = entityByCode.get(feature.entity_code);
+      if (!entity) return [];
+      const properties = (feature.properties?.properties ?? {}) as Record<string, unknown>;
+      const lineCodes = Array.isArray(properties.matched_line_codes)
+        ? properties.matched_line_codes.filter((item): item is string => typeof item === "string")
+        : dataset.facts.filter((fact) => fact.entity_code === entity.code && fact.attribute === "line_membership").map((fact) => fact.value);
+      const modes = transitModesForEntityCode(entity.code, lineCodes);
+      return [{
+        type: "Feature" as const, id: feature.code, geometry: feature.geometry,
+        properties: {
+          code: feature.code, entity_code: entity.code, name_ar: stationDisplayName(entity.code, entity.name_ar), name_en: entity.name_en,
+          type: entity.entity_type, status: entity.status, license: feature.license,
+          attribution: feature.license === "ODbL-1.0" ? "© OpenStreetMap contributors, ODbL 1.0" : String(properties.attribution ?? ""),
+          source: String(properties.source ?? ""), retrieval_date: String(properties.retrieval_date ?? ""),
+          source_ids: properties.source_ids ?? [], line_codes: lineCodes.length ? lineCodes : entity.code.startsWith("TRANSIT-") ? [entity.code] : [], modes,
+          interchange: modes.length > 1 || isTransitInterchangeEntityCode(entity.code),
+        },
+      }];
+    }),
+  };
+  const initialStats: AtlasStatsResponse = { ok: true, counts: {
+    entities: dataset.entities.length, facts: dataset.facts.length, evidence: dataset.evidence.length,
+    features: dataset.features.length, fact_evidence: dataset.factEvidence.length,
+  } };
+  const language = resolveLanguage((await searchParams).lang);
+  return <AtlasApp initialEntities={initialEntities} initialFeatures={initialFeatures} initialStats={initialStats} initialLanguage={language} regionalCodes={regionalCodes} />;
 }

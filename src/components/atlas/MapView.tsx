@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { GeoJSONSource, Map as MapLibreMap, MapLayerMouseEvent } from "maplibre-gl";
@@ -32,7 +32,7 @@ const boundaryOutlineLayerId = "atlas-area-boundary-outline";
 const stationIconLayers = ["atlas-station-entity-icons", "atlas-transit-station-icons"];
 const stationLabelLayers = ["atlas-transit-station-labels", "atlas-station-entity-labels"];
 const stationRingLayers = ["atlas-station-entity-interchange-ring", "atlas-transit-interchange-ring"];
-const lineLayers = ["atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
+const lineLayers = ["atlas-polygons-fill", "atlas-polygons-outline", "atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
 
 type MapExpression = import("maplibre-gl").ExpressionSpecification;
 
@@ -142,7 +142,7 @@ function boundaryCollection(boundary: AreaBoundaryFeature | null): FeatureCollec
   return { type: "FeatureCollection", features: boundary ? [boundary as unknown as FeatureCollection["features"][number]] : [] };
 }
 
-export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false }: {
+export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, selectedCode = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false, showAreaBoundaries = true }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
   onSelect: (entityCode: string) => void;
@@ -154,17 +154,22 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
   showRoadNetwork?: boolean;
   showRailNetwork?: boolean;
   showDisusedRail?: boolean;
+  showAreaBoundaries?: boolean;
   highlightBoundary?: AreaBoundaryFeature | null;
+  selectedCode?: string | null;
   visibleTransitModes?: readonly TransitMode[];
   showInterchanges?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
+  const [mapReady, setMapReady] = useState(false);
   const dataRef = useRef<AtlasFeatureCollection>(features);
   const showRoadNetworkRef = useRef(showRoadNetwork);
   const showRailNetworkRef = useRef(showRailNetwork);
   const showDisusedRailRef = useRef(false);
+  const showAreaBoundariesRef = useRef(showAreaBoundaries);
   const boundaryRef = useRef<AreaBoundaryFeature | null>(highlightBoundary);
+  const selectedCodeRef = useRef<string | null>(selectedCode);
   const visibleModesRef = useRef<readonly TransitMode[]>(visibleTransitModes);
   const showInterchangesRef = useRef(showInterchanges);
   const onSelectRef = useRef(onSelect);
@@ -173,15 +178,18 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
   useEffect(() => {
     dataRef.current = features;
     boundaryRef.current = highlightBoundary;
+    selectedCodeRef.current = selectedCode;
+    showAreaBoundariesRef.current = showAreaBoundaries;
     visibleModesRef.current = visibleTransitModes;
     showInterchangesRef.current = showInterchanges;
     onSelectRef.current = onSelect;
     onZoomRef.current = onZoomChange;
     onStyleStatusRef.current = onStyleStatus;
-  }, [features, highlightBoundary, visibleTransitModes, showInterchanges, onSelect, onZoomChange, onStyleStatus]);
+  }, [features, highlightBoundary, selectedCode, showAreaBoundaries, visibleTransitModes, showInterchanges, onSelect, onZoomChange, onStyleStatus]);
 
   useEffect(() => {
     if (!containerRef.current) return;
+    setMapReady(false);
     onStyleStatusRef.current("loading");
     const map = new maplibregl.Map({
       container: containerRef.current,
@@ -194,6 +202,15 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       cooperativeGestures: !compact,
     });
     mapRef.current = map;
+    const urlView = window.location.hash.slice(1).split("/").map(Number);
+    if (urlView.length >= 3 && urlView.every(Number.isFinite)) map.jumpTo({ zoom: urlView[0]!, center: [urlView[2]!, urlView[1]!] });
+    const syncUrlView = () => {
+      const center = map.getCenter();
+      const url = new URL(window.location.href);
+      url.hash = `#${map.getZoom().toFixed(2)}/${center.lat.toFixed(5)}/${center.lng.toFixed(5)}`;
+      window.history.replaceState({}, "", url);
+    };
+    map.on("moveend", syncUrlView);
     if (!compact) map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-left");
     map.on("error", () => {
       if (!map.isStyleLoaded()) onStyleStatusRef.current("error");
@@ -250,6 +267,17 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       map.addLayer({
         id: boundaryFillLayerId, type: "fill", source: boundarySourceId,
         paint: { "fill-color": getComputedStyle(document.documentElement).getPropertyValue("--boundary-color").trim() || (theme === "day" ? "#116c62" : "#57d6c6"), "fill-opacity": 0.15 },
+        layout: { visibility: showAreaBoundariesRef.current ? "visible" : "none" },
+      });
+      map.addLayer({
+        id: "atlas-polygons-fill", type: "fill", source: sourceId,
+        filter: ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]],
+        paint: { "fill-color": theme === "day" ? "#278d78" : "#55d7ba", "fill-opacity": 0.11 },
+      });
+      map.addLayer({
+        id: "atlas-polygons-outline", type: "line", source: sourceId,
+        filter: ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]],
+        paint: { "line-color": theme === "day" ? "#147364" : "#43bfa5", "line-width": 1.3, "line-opacity": 0.82 },
       });
       map.addLayer({
         id: "atlas-roads-casing", type: "line", source: sourceId,
@@ -349,8 +377,24 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       map.addLayer({
         id: boundaryOutlineLayerId, type: "line", source: boundarySourceId,
         paint: { "line-color": getComputedStyle(document.documentElement).getPropertyValue("--boundary-color").trim() || (theme === "day" ? "#116c62" : "#57d6c6"), "line-width": 2, "line-opacity": 0.98 },
-        layout: { "line-cap": "round", "line-join": "round" },
+        layout: { "line-cap": "round", "line-join": "round", visibility: showAreaBoundariesRef.current ? "visible" : "none" },
       });
+      map.addLayer({
+        id: "atlas-selected-polygon-fill", type: "fill", source: sourceId,
+        filter: ["==", ["get", "entity_code"], "__none__"],
+        paint: { "fill-color": "#fff36d", "fill-opacity": 0.3 },
+      });
+      map.addLayer({
+        id: "atlas-selected-outline", type: "line", source: sourceId,
+        filter: ["==", ["get", "entity_code"], "__none__"],
+        paint: { "line-color": "#fff36d", "line-width": ["interpolate", ["linear"], ["zoom"], 6, 4, 14, 8], "line-opacity": 1 },
+      });
+      map.addLayer({
+        id: "atlas-selected-point-halo", type: "circle", source: sourceId,
+        filter: ["all", ["==", ["get", "entity_code"], "__none__"], ["==", ["geometry-type"], "Point"]],
+        paint: { "circle-radius": 15, "circle-color": "#fff36d", "circle-opacity": 0.4, "circle-stroke-color": "#fff36d", "circle-stroke-width": 3 },
+      });
+      setMapReady(true);
       syncRailLayers(map, showRailNetworkRef.current, showDisusedRailRef.current);
       map.on("zoomend", () => syncRailLayers(map, showRailNetworkRef.current, showDisusedRailRef.current));
       map.on("click", (event: MapLayerMouseEvent) => {
@@ -394,6 +438,29 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
 
   useEffect(() => {
     const map = mapRef.current;
+    if (!map || !mapReady) return;
+    const selectedFilter: maplibregl.FilterSpecification = ["==", ["get", "entity_code"], selectedCode ?? "__none__"];
+    for (const id of ["atlas-selected-polygon-fill", "atlas-selected-outline"]) {
+      if (map.getLayer(id)) map.setFilter(id, selectedFilter);
+    }
+    if (map.getLayer("atlas-selected-point-halo")) map.setFilter("atlas-selected-point-halo", ["all", selectedFilter, ["==", ["geometry-type"], "Point"]]);
+    if (!selectedCode) return;
+    const selected = features.features.filter((feature) => feature.properties.entity_code === selectedCode);
+    if (!selected.length) return;
+    const bounds = new maplibregl.LngLatBounds();
+    selected.forEach((feature) => visitPositions(feature.geometry, (point) => bounds.extend(point)));
+    if (bounds.isEmpty()) return;
+    const sw = bounds.getSouthWest();
+    const ne = bounds.getNorthEast();
+    if (Math.abs(ne.lng - sw.lng) < 0.0005 && Math.abs(ne.lat - sw.lat) < 0.0005) {
+      map.flyTo({ center: bounds.getCenter(), zoom: Math.max(map.getZoom(), compact ? 13 : 14), duration: 650 });
+    } else {
+      map.fitBounds(bounds, { padding: compact ? 28 : 90, maxZoom: compact ? 14 : 15, duration: 650 });
+    }
+  }, [selectedCode, features, mapReady, compact]);
+
+  useEffect(() => {
+    const map = mapRef.current;
     const source = map?.getSource(boundarySourceId) as GeoJSONSource | undefined;
     source?.setData(boundaryCollection(highlightBoundary));
     if (map && highlightBoundary) {
@@ -416,6 +483,14 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
         : modeFilter as maplibregl.FilterSpecification);
     }
   }, [visibleTransitModes, showInterchanges]);
+
+  useEffect(() => {
+    showAreaBoundariesRef.current = showAreaBoundaries;
+    const map = mapRef.current;
+    for (const id of [boundaryFillLayerId, boundaryOutlineLayerId]) {
+      if (map?.getLayer(id)) map.setLayoutProperty(id, "visibility", showAreaBoundaries ? "visible" : "none");
+    }
+  }, [showAreaBoundaries]);
 
   useEffect(() => {
     showRoadNetworkRef.current = showRoadNetwork;

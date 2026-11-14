@@ -671,11 +671,11 @@ export function validateSeedSources(
     if (
       fact.verification_state === "verified" &&
       !hasUnknownEvidence &&
-      !canVerifyFactWithSources(resolvedSources.map((s) => s.source_type))
+      !canVerifyFactWithSources(resolvedSources)
     ) {
       issues.push({
         path: `facts.json[${idx}].verification_state`,
-        message: `Fact "${fact.code}" cannot have verification_state "verified" when backed solely by secondary evidence (${fact.evidence_codes.join(", ")}). At least one non-secondary source is required.`,
+        message: `Fact "${fact.code}" cannot have verification_state "verified" without linked official evidence with a URL (${fact.evidence_codes.join(", ")}).`,
       });
     }
   }
