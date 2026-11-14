@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
 import { loadAndValidateSeedDir, summarizeValidatedSeedBundle } from "@/lib/atlas/seed";
 
-describe("revision 5 seed + OSM geometry delivery", () => {
+describe("revision 6.1 seed + OSM geometry delivery", () => {
   it("preserves the rev4 entity identity and fact-code baseline", async () => {
     const root = process.cwd();
     const [baseline, bundle] = await Promise.all([
@@ -31,20 +31,20 @@ describe("revision 5 seed + OSM geometry delivery", () => {
     for (const code of baseline.feature_codes) expect(currentFeatureCodes.has(code), `missing previous feature ${code}`).toBe(true);
   });
 
-  it("validates rev5 counts and requires official URL-backed evidence for every verified fact", async () => {
+  it("validates rev6.1 counts and requires official URL-backed evidence for every verified fact", async () => {
     const bundle = await loadAndValidateSeedDir(path.join(process.cwd(), "data/seed"));
     const report = summarizeValidatedSeedBundle(bundle);
     expect(report).toMatchObject({
       entitiesCount: 342,
-      entitiesWithAliasesCount: 232,
-      evidenceCount: 198,
-      evidenceMissingUrlCount: 6,
-      factsCount: 1108,
-      factEvidenceLinksCount: 1218,
+      entitiesWithAliasesCount: 233,
+      evidenceCount: 307,
+      evidenceMissingUrlCount: 74,
+      factsCount: 1301,
+      factEvidenceLinksCount: 1411,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");
-    expect(verified).toHaveLength(294);
+    expect(verified).toHaveLength(310);
     for (const fact of verified) {
       expect(fact.evidence_codes.some((code) => {
         const item = evidence.get(code);
@@ -62,7 +62,8 @@ describe("revision 5 seed + OSM geometry delivery", () => {
     );
     const byEntity = new Map<string, number>();
     for (const feature of features) byEntity.set(feature.entity_code, (byEntity.get(feature.entity_code) ?? 0) + 1);
-    expect(features).toHaveLength(3688);
+    expect(byCode.get("LANDMARK-HELWAN-UNIV")?.aliases).toEqual(expect.arrayContaining(["Capital University", "Capital University (formerly Helwan University)"]));
+    expect(features).toHaveLength(3615);
     expect(byEntity.get("ROAD-RING-ROAD")).toBe(800);
     expect(byEntity.get("ROAD-MIDDLE-RING")).toBe(249);
     expect(byEntity.get("ROAD-REGIONAL-RING")).toBe(907);

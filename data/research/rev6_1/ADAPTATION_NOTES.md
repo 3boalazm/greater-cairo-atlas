@@ -1,0 +1,7 @@
+# rev6.1 adaptation notes
+
+- The supplied entities and facts snapshots are preserved unchanged as `entities_rev6_1.csv` and `facts_rev6_1.json`; `evidence_rev6_1.json` is preserved with only the EV-231 publisher completion below. Both upstream changelogs are preserved unchanged alongside them.
+- `evidence_rev6_1.json` had an empty publisher for EV-231 even though it includes an official SIS (`sis.gov.eg`) page URL. The repository adapter correctly rejects empty publishers and would otherwise reject the five facts linked to EV-231. For the canonical seed only, the missing publisher metadata was completed as `State Information Service (SIS)`, based on that official URL. No claim, evidence URL, or fact value was changed. This repair is recorded here; the source Drive changelog is unchanged.
+- The requested “Capital University” and former Helwan University names are already present in the rev6.1 entity aliases for `LANDMARK-HELWAN-UNIV`; no supplementary alias or name inference was added. The exact normalized matcher was rerun against both preserved OSM extracts.
+- Adaptation used the existing revision-6 selector (`--rev 6`) with explicit rev6.1 source paths; the selector accepts integer revision numbers. Adapter report and canonical seed outputs are checked in for reproducibility.
+- Geometry validation kept the existing SRID 4326, non-empty, valid geometry, Greater Cairo bbox, lifecycle, and licensing checks. Raw compressed OSM source files were not modified.
