@@ -13,7 +13,7 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 
 ## Current Phase
 
-**Phase 03.1 — Seed Revision 3** (see [`PROJECT_STATE.md`](./PROJECT_STATE.md) for the full phase roadmap and architectural decisions).
+**Phase 04 — Real Geometry (`features`)** (see [`PROJECT_STATE.md`](./PROJECT_STATE.md) for the full phase roadmap and architectural decisions).
 
 ## Core Database Schema (`000` + `001` + `002` + `003`)
 
@@ -84,10 +84,26 @@ Allows the project owner to validate and idempotently import `data/seed/` into N
      -d '{"dryRun": false}'
    ```
 
+## Phase 04 — Geometry Ingestion & GeoJSON API
+
+`python3 scripts/ingest-features.py` is a local-only ingestion command; it is never run in a Vercel handler. It performs exact normalized Arabic/English name and alias matches against existing entities, gated by entity type. It does not create entities and reports unmatched/ambiguous source records in `data/features/match-report.json`. Every geometry must be valid WGS84 and wholly inside the Greater Cairo bbox `[30.5, 29.2, 32.1, 30.8]`. Planned, approved-planned, and under-construction items require a linked official alignment source; unknown status remains unknown and is never promoted by the geometry import.
+
+Source policy:
+- OSM geometry uses ODbL-1.0 and stores OSM element type/id/version and attribution.
+- TfC GTFS is accepted only with a verified `CC-BY-4.0` license; the script rejects unknown or `CC-BY-NC` licenses. Do not use the old 2016 Metro-GTFS (CC BY-NC).
+- Download the approved TfC GTFS zip from the Transport Data Commons portal separately, verify its license, then run:
+  ```bash
+  python3 scripts/ingest-features.py --fetch-osm --gtfs-zip /path/to/tfc-gtfs.zip --gtfs-retrieval-date YYYY-MM-DD --gtfs-license CC-BY-4.0 --gtfs-license-evidence-url "$TFC_LICENSE_PAGE_URL"
+  ```
+- If a GTFS archive is supplied without network fetching, use `--osm-json /path/to/overpass.json` instead of `--fetch-osm`.
+
+The protected import validates `data/features/features.geojson` and idempotently upserts features by code in the existing transaction. The current committed collection has 0 features because the TfC portal, Overpass, and Geofabrik endpoints were unreachable from this sandbox; see `data/features/manifest.json` and `match-report.json`. No geometry or match was fabricated. After ingestion, run `npm run db:migrate:dry-run` and `npm run seed:check` (includes features), then the protected admin endpoint's default dry-run before any separately approved import. The real import command is the same endpoint with `-d '{"dryRun": false}'`; do not run it without explicit owner approval.
+
 ## API Endpoints
 
-- **`GET /api/health`**: PostGIS smoke probe + `schema_migrations` count (`appliedMigrationsCount: 4` once `000`–`003` are applied).
+- **`GET /api/health`**: PostGIS smoke probe + `schema_migrations` count (`appliedMigrationsCount: 5` once `000`–`004` are applied).
 - **`GET /api/atlas/stats`**: Returns row counts across `{ entities, facts, evidence, features, fact_evidence }`.
+- **`GET /api/atlas/features?type=&sector=&status=&zoom=`**: Cached GeoJSON FeatureCollection with entity names/status, license, attribution, and source IDs; low zoom uses topology-preserving simplification and results are capped at 1,000 features.
 - **`POST /api/admin/import-seed`**: Protected by `ADMIN_IMPORT_TOKEN` (constant-time SHA-256 `timingSafeEqual`), `dryRun: true` by default, idempotent upsert when `dryRun: false`.
 
 ## Quality Checks
@@ -96,7 +112,7 @@ Allows the project owner to validate and idempotently import `data/seed/` into N
 npm run lint                # ESLint flat config
 npm run typecheck           # tsc --noEmit (strict)
 npm test                    # Vitest unit, schema, seed, adapter, admin-import & route tests
-npm run db:migrate:dry-run  # Offline SQL migration verification (000 + 001 + 002 + 003)
+npm run db:migrate:dry-run  # Offline SQL migration verification (000–004)
 npm run seed:check          # Offline canonical seed bundle validation
 npm run build               # DB-free production Next.js build
 ```

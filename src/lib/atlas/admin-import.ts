@@ -1,4 +1,5 @@
 import { createHash, timingSafeEqual } from "node:crypto";
+import path from "node:path";
 import { z } from "zod";
 import {
   runSeedImport,
@@ -24,6 +25,7 @@ export interface AdminSeedImportResponseBody {
     evidenceCount: number;
     factsCount: number;
     factEvidenceLinksCount: number;
+    featuresCount: number;
   };
   report: SeedBundleReport;
   timestamp: string;
@@ -33,6 +35,7 @@ export interface ExecuteAdminSeedImportOptions {
   request: Request;
   rawEnv?: NodeJS.ProcessEnv;
   seedDir?: string;
+  featuresPath?: string | null;
   sessionFactory?: () => SeedDbSession;
 }
 
@@ -156,6 +159,11 @@ export async function executeAdminSeedImport(
 
   const result = await runSeedImport({
     ...(options.seedDir ? { seedDir: options.seedDir } : {}),
+    featuresPath: options.featuresPath !== undefined
+      ? options.featuresPath
+      : options.seedDir
+        ? null
+        : path.join(process.cwd(), "data", "features", "features.geojson"),
     dryRun,
     ...(options.sessionFactory
       ? { sessionFactory: options.sessionFactory }
@@ -171,6 +179,7 @@ export async function executeAdminSeedImport(
       evidenceCount: result.evidenceCount,
       factsCount: result.factsCount,
       factEvidenceLinksCount: result.factEvidenceLinksCount,
+      featuresCount: result.featuresCount,
     },
     report: result.report,
     timestamp: new Date().toISOString(),

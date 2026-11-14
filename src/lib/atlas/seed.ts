@@ -15,7 +15,9 @@ import {
   type EvidenceSourceType,
   type FactSeed,
   type FactVerificationState,
+  type FeatureSeed,
 } from "@/lib/atlas/schema";
+import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
 import { createNeonSessionClient } from "@/lib/db/client";
 import {
   SeedValidationError,
@@ -98,6 +100,7 @@ export interface SeedDbSession {
 
 export interface RunSeedImportOptions {
   seedDir?: string;
+  featuresPath?: string | null;
   dryRun?: boolean;
   sessionFactory?: () => SeedDbSession;
 }
@@ -109,6 +112,7 @@ export interface SeedImportSummary {
   evidenceCount: number;
   factsCount: number;
   factEvidenceLinksCount: number;
+  featuresCount: number;
   report: SeedBundleReport;
 }
 
@@ -752,11 +756,13 @@ const defaultSessionFactory = (): SeedDbSession => {
 export async function upsertValidatedSeedBundle(
   bundle: ValidatedSeedBundle,
   sessionFactory: () => SeedDbSession = defaultSessionFactory,
+  features: readonly FeatureSeed[] = [],
 ): Promise<{
   entitiesCount: number;
   evidenceCount: number;
   factsCount: number;
   factEvidenceLinksCount: number;
+  featuresCount: number;
 }> {
   const session = sessionFactory();
   await session.connect();
@@ -906,6 +912,45 @@ export async function upsertValidatedSeedBundle(
       }
     }
 
+    for (const feature of features) {
+      const entityId = entityIdByCode.get(feature.entity_code);
+      if (!entityId) {
+        throw new Error(`Missing resolved entity UUID for feature entity "${feature.entity_code}".`);
+      }
+      const evidenceId = feature.evidence_code
+        ? evidenceIdByCode.get(feature.evidence_code)
+        : null;
+      if (feature.evidence_code && !evidenceId) {
+        throw new Error(`Missing resolved evidence UUID for feature evidence "${feature.evidence_code}".`);
+      }
+      await session.query(
+        `
+        INSERT INTO features (code, entity_id, evidence_id, geometry, osm_type, osm_id, osm_version, license, properties)
+        VALUES ($1, $2, $3, ST_SetSRID(ST_GeomFromGeoJSON($4), 4326), $5, $6, $7, $8, $9::jsonb)
+        ON CONFLICT (code) DO UPDATE SET
+          entity_id = EXCLUDED.entity_id,
+          evidence_id = EXCLUDED.evidence_id,
+          geometry = EXCLUDED.geometry,
+          osm_type = EXCLUDED.osm_type,
+          osm_id = EXCLUDED.osm_id,
+          osm_version = EXCLUDED.osm_version,
+          license = EXCLUDED.license,
+          properties = EXCLUDED.properties
+        `,
+        [
+          feature.code,
+          entityId,
+          evidenceId,
+          JSON.stringify(feature.geometry),
+          feature.osm_type,
+          feature.osm_id,
+          feature.osm_version,
+          feature.license,
+          JSON.stringify(feature.properties),
+        ],
+      );
+    }
+
     await session.query("COMMIT");
 
     return {
@@ -913,6 +958,7 @@ export async function upsertValidatedSeedBundle(
       evidenceCount: bundle.evidence.length,
       factsCount: bundle.facts.length,
       factEvidenceLinksCount,
+      featuresCount: features.length,
     };
   } catch (error) {
     await session.query("ROLLBACK").catch(() => undefined);
@@ -930,6 +976,10 @@ export async function runSeedImport(
   const dryRun = options.dryRun ?? false;
 
   const bundle = await loadAndValidateSeedDir(seedDir);
+  const featurePath = options.featuresPath ?? null;
+  const features = featurePath
+    ? await loadAndValidateFeatureCollection(featurePath, bundle.entities, bundle.evidence)
+    : [];
   const report = summarizeValidatedSeedBundle(bundle);
 
   if (dryRun) {
@@ -939,6 +989,7 @@ export async function runSeedImport(
       evidenceCount: report.evidenceCount,
       factsCount: report.factsCount,
       factEvidenceLinksCount: report.factEvidenceLinksCount,
+      featuresCount: features.length,
       warningsCount: report.warnings.length,
     });
     return {
@@ -948,6 +999,7 @@ export async function runSeedImport(
       evidenceCount: report.evidenceCount,
       factsCount: report.factsCount,
       factEvidenceLinksCount: report.factEvidenceLinksCount,
+      featuresCount: features.length,
       report,
     };
   }
@@ -955,6 +1007,7 @@ export async function runSeedImport(
   const counts = await upsertValidatedSeedBundle(
     bundle,
     options.sessionFactory,
+    features,
   );
 
   logger.info("Seed bundle imported idempotently", {
