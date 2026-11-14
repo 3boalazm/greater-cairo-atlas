@@ -42,6 +42,20 @@
     "notes": null
   },
   {
+    "code": "F-ROAD-RING-ROAD-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-RING-ROAD",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-09-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-043"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-ROAD-MIDDLE-RING-ENCIRCLES-1",
     "entity_code": "ROAD-MIDDLE-RING",
     "attribute": "encircles",
@@ -140,6 +154,48 @@
     "notes": null
   },
   {
+    "code": "F-ROAD-MIDDLE-RING-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-082"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-SECTIONS-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "sections",
+    "value": "9",
+    "unit": "sections",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-082"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-WIDTH-RANGE-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "width_range",
+    "value": "44–94",
+    "unit": "m",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-082"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-ROAD-REGIONAL-RING-ENCIRCLES-1",
     "entity_code": "ROAD-REGIONAL-RING",
     "attribute": "encircles",
@@ -178,6 +234,48 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-REGIONAL-RING",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2025-07-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-091"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-OPERATIONAL-STATUS-2",
+    "entity_code": "ROAD-REGIONAL-RING",
+    "attribute": "operational_status",
+    "value": "partial",
+    "unit": null,
+    "valid_as_of": "2025-07-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-090"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-TOTAL-LENGTH-1",
+    "entity_code": "ROAD-REGIONAL-RING",
+    "attribute": "total_length",
+    "value": "400",
+    "unit": "km",
+    "valid_as_of": "2025-07-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-091"
     ],
     "notes": null
   },
@@ -406,6 +504,34 @@
     "notes": null
   },
   {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-116"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-PHASE1-EXTENT-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "phase1_extent",
+    "value": "المرحلة الأولى: من الكيلو 39 إسكندرية الصحراوي للدائري الإقليمي",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-116"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-ROAD-DABAA-AXIS-ENTRY-CORRIDOR-FROM-1",
     "entity_code": "ROAD-DABAA-AXIS",
     "attribute": "entry_corridor_from",
@@ -560,6 +686,34 @@
     "notes": null
   },
   {
+    "code": "F-ROAD-CAIRO-SUEZ-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-CAIRO-SUEZ",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-088"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-SUEZ-WIDENING-1",
+    "entity_code": "ROAD-CAIRO-SUEZ",
+    "attribute": "widening",
+    "value": "من الدائري للإقليمي: 34 كم، عرض 20.6 م، 5 حارات في كل اتجاه",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-088"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-ROAD-CAIRO-ISMAILIA-DESERT-ENTRY-CORRIDOR-FROM-1",
     "entity_code": "ROAD-CAIRO-ISMAILIA-DESERT",
     "attribute": "entry_corridor_from",
@@ -570,6 +724,34 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ISMAILIA-DESERT-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-CAIRO-ISMAILIA-DESERT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-089"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ISMAILIA-DESERT-WIDENING-PHASE2-1",
+    "entity_code": "ROAD-CAIRO-ISMAILIA-DESERT",
+    "attribute": "widening_phase2",
+    "value": "المرحلة التانية من التوسعة، ومنها كوبري ونفق الشهيد العميد ماجد صالح",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-089"
     ],
     "notes": null
   },
@@ -598,6 +780,34 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MOSHIR-TANTAWY-EXTENSION-1",
+    "entity_code": "ROAD-MOSHIR-TANTAWY",
+    "attribute": "extension",
+    "value": "امتداد 8 كم، عرض 30 م، 3 حارات في كل اتجاه",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-084"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MOSHIR-TANTAWY-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-MOSHIR-TANTAWY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-084"
     ],
     "notes": null
   },
@@ -672,6 +882,20 @@
     "notes": null
   },
   {
+    "code": "F-ROAD-26-JULY-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-26-JULY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-127"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-ROAD-AMR-IBN-ALAS-BRIDGE-LENGTH-1",
     "entity_code": "ROAD-AMR-IBN-ALAS",
     "attribute": "bridge_length",
@@ -714,6 +938,34 @@
     "notes": null
   },
   {
+    "code": "F-ROAD-AMR-IBN-ALAS-LENGTH-1",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "length",
+    "value": "4.3",
+    "unit": "km",
+    "valid_as_of": "2026-03-20",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-120"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-LENGTH-2",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "length",
+    "value": "4.5",
+    "unit": "km",
+    "valid_as_of": "2024-07-17",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-119"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-ROAD-AMR-IBN-ALAS-LENGTH-APPROX-1",
     "entity_code": "ROAD-AMR-IBN-ALAS",
     "attribute": "length_approx",
@@ -721,7 +973,7 @@
     "unit": "km",
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-015"
     ],
@@ -729,6 +981,20 @@
   },
   {
     "code": "F-ROAD-AMR-IBN-ALAS-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "operational_status",
+    "value": "partial",
+    "unit": null,
+    "valid_as_of": "2024-07-17",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-119"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-OPERATIONAL-STATUS-2",
     "entity_code": "ROAD-AMR-IBN-ALAS",
     "attribute": "operational_status",
     "value": "unknown",
@@ -784,6 +1050,20 @@
     "notes": null
   },
   {
+    "code": "F-ROAD-KAMAL-AMER-OFFICIAL-ROUTE-1",
+    "entity_code": "ROAD-KAMAL-AMER",
+    "attribute": "official_route",
+    "value": "أول محور حر بيربط شمال الجيزة بجنوبها، ومترابط بالدائري ومحور أحمد عرابي",
+    "unit": null,
+    "valid_as_of": "2023-01-20",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-117"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-ROAD-KAMAL-AMER-OPERATIONAL-STATUS-1",
     "entity_code": "ROAD-KAMAL-AMER",
     "attribute": "operational_status",
@@ -794,6 +1074,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-KAMAL-AMER-OPERATIONAL-STATUS-2",
+    "entity_code": "ROAD-KAMAL-AMER",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2023-01-20",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-117"
     ],
     "notes": null
   },
@@ -812,6 +1106,20 @@
     "notes": null
   },
   {
+    "code": "F-ROAD-AHMED-ORABI-OFFICIAL-ROUTE-1",
+    "entity_code": "ROAD-AHMED-ORABI",
+    "attribute": "official_route",
+    "value": "اتطوّر واترابط بالدائري ومحور كمال عامر",
+    "unit": null,
+    "valid_as_of": "2023-04-07",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-118"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-ROAD-AHMED-ORABI-OPERATIONAL-STATUS-1",
     "entity_code": "ROAD-AHMED-ORABI",
     "attribute": "operational_status",
@@ -822,6 +1130,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AHMED-ORABI-OPERATIONAL-STATUS-2",
+    "entity_code": "ROAD-AHMED-ORABI",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2023-04-07",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-118"
     ],
     "notes": null
   },
@@ -924,6 +1246,20 @@
     "notes": null
   },
   {
+    "code": "F-BRIDGE-6-OCTOBER-MAINTENANCE-PLAN-1",
+    "entity_code": "BRIDGE-6-OCTOBER",
+    "attribute": "maintenance_plan",
+    "value": "خطة صيانة شاملة (أغسطس 2026)",
+    "unit": null,
+    "valid_as_of": "2026-08-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-053"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-BRIDGE-6-OCTOBER-NILE-CROSSING-ORDER-N-TO-S-1",
     "entity_code": "BRIDGE-6-OCTOBER",
     "attribute": "nile_crossing_order_n_to_s",
@@ -934,6 +1270,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-6-OCTOBER-OPERATIONAL-STATUS-1",
+    "entity_code": "BRIDGE-6-OCTOBER",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-08-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-053"
     ],
     "notes": null
   },
@@ -1106,6 +1456,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-METRO-L2-OPERATIONAL-STATUS-2",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-128"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-METRO-L2-ROUTE-1",
     "entity_code": "TRANSIT-METRO-L2",
     "attribute": "route",
@@ -1227,6 +1591,21 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-METRO-L3-OPERATIONAL-STATUS-2",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-108",
+      "EV-128"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-METRO-L3-PHASE3-FORMAL-INAUGURATION-DATE-1",
     "entity_code": "TRANSIT-METRO-L3",
     "attribute": "phase3_formal_inauguration_date",
@@ -1237,6 +1616,48 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3_length",
+    "value": "17.7",
+    "unit": "km",
+    "valid_as_of": "2024-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-108"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3_stations",
+    "value": "15",
+    "unit": "stations",
+    "valid_as_of": "2024-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-108"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE5-PLANNED-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase5_planned",
+    "value": "هليوبوليس → مطار القاهرة: 9.2 كم و7 محطات (مخطط)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-079"
     ],
     "notes": null
   },
@@ -1255,6 +1676,49 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-METRO-L3-TOTAL-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "total_length",
+    "value": "41.2",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-TOTAL-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "total_stations",
+    "value": "34",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-092",
+      "EV-134"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-METRO-L4-PHASE1-LENGTH-1",
     "entity_code": "TRANSIT-METRO-L4",
     "attribute": "phase1_length",
@@ -1265,6 +1729,21 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE1-LENGTH-2",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase1_length",
+    "value": "19",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-134",
+      "EV-132"
     ],
     "notes": null
   },
@@ -1293,6 +1772,92 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE1-STATIONS-2",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase1_stations",
+    "value": "17",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-134",
+      "EV-132"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE2-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase2_length",
+    "value": "26.9",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-080"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE2-LENGTH-2",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase2_length",
+    "value": "31.8",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-132"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE2-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase2_stations",
+    "value": "21",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-080",
+      "EV-132"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE3-PLANNED-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase3_planned",
+    "value": "حدائق الأشجار → الحصري: 16.3 كم و10 محطات",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-133"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-PHASE4-PLANNED-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "phase4_planned",
+    "value": "القاهرة الجديدة → مطار العاصمة: 38.7 كم و8 محطات",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-080"
     ],
     "notes": null
   },
@@ -1353,6 +1918,34 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-METRO-L4-TOTAL-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "total_length",
+    "value": "42",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-134"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-TOTAL-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "total_stations",
+    "value": "39",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-134"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-METRO-L4-TRIAL-OPERATION-TARGET-1",
     "entity_code": "TRANSIT-METRO-L4",
     "attribute": "trial_operation_target",
@@ -1377,6 +1970,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-EXTENSION-RATIFIED-DATE-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "extension_ratified_date",
+    "value": "2024-04-22",
+    "unit": null,
+    "valid_as_of": "2024-04-22",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-081"
     ],
     "notes": null
   },
@@ -1423,6 +2030,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-METRO-L6-HSR-INTERCHANGE-STATION-NAME-3",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "hsr_interchange_station_name",
+    "value": "محطة محمد نجيب بالقاهرة الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-081"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-METRO-L6-INTERCHANGES-1",
     "entity_code": "TRANSIT-METRO-L6",
     "attribute": "interchanges",
@@ -1461,6 +2082,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-OPERATIONAL-STATUS-2",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "operational_status",
+    "value": "planned",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-081"
     ],
     "notes": null
   },
@@ -1549,6 +2184,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-MONORAIL-EAST-DEPOT-AREA-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "depot_area",
+    "value": "85",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-136"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-MONORAIL-EAST-DIRECTION-1",
     "entity_code": "TRANSIT-MONORAIL-EAST",
     "attribute": "direction",
@@ -1595,6 +2244,20 @@
     "code": "F-TRANSIT-MONORAIL-EAST-LENGTH-1",
     "entity_code": "TRANSIT-MONORAIL-EAST",
     "attribute": "length",
+    "value": "53",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "rejected",
+    "evidence_codes": [
+      "EV-094"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-LENGTH-2",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "length",
     "value": "56.5",
     "unit": "km",
     "valid_as_of": "2026-11-13",
@@ -1624,11 +2287,25 @@
     "code": "F-TRANSIT-MONORAIL-EAST-OPERATING-HOURS-1",
     "entity_code": "TRANSIT-MONORAIL-EAST",
     "attribute": "operating_hours",
+    "value": "06:00–19:50 (التوقيت الشتوي)",
+    "unit": null,
+    "valid_as_of": "2026-10-29",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-093"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-OPERATING-HOURS-2",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "operating_hours",
     "value": "06:00–21:00",
     "unit": null,
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "superseded",
     "evidence_codes": [
       "EV-019"
     ],
@@ -1738,6 +2415,22 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-MONORAIL-EAST-STATION-ORDER-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "station_order",
+    "value": "استاد القاهرة، هشام بركات، جامعة الأزهر، الحي السابع، المشير أحمد إسماعيل، جيهان السادات، المشير طنطاوي، وان ناينتي، المستشفى الجوي، النرجس، المستثمرين، اللوتس، جولدن سكوير، بيت الوطن، مسجد الفتاح العليم، حي R1، حي R2، حي المال والأعمال، مدينة الفنون والثقافة، الحي الحكومي، مسجد مصر، مدينة العدالة",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-049",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-MONORAIL-EAST-STATIONS-1",
     "entity_code": "TRANSIT-MONORAIL-EAST",
     "attribute": "stations",
@@ -1749,6 +2442,91 @@
     "evidence_codes": [
       "EV-019",
       "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-CAPACITY-PER-DAY-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "capacity_per_day",
+    "value": "500000",
+    "unit": "passengers",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-110"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-CAPACITY-PER-DAY-2",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "capacity_per_day",
+    "value": "600000",
+    "unit": "passengers",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-111",
+      "EV-112"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-DEPOT-AREA-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "depot_area",
+    "value": "76",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-136"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-DEPOT-AREA-2",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "depot_area",
+    "value": "80",
+    "unit": "feddan",
+    "valid_as_of": "2026-08-11",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-112"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-L4-PHASE3-INTERCHANGE-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "l4_phase3_interchange",
+    "value": "الحصري",
+    "unit": null,
+    "valid_as_of": "2026-10-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-113"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-L4-PHASE3-INTERCHANGE-2",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "l4_phase3_interchange",
+    "value": "جامعة 6 أكتوبر",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-109"
     ],
     "notes": null
   },
@@ -1774,10 +2552,25 @@
     "unit": null,
     "valid_as_of": "2026-08-01",
     "valid_as_of_precision": "month",
-    "verification_state": "verified",
+    "verification_state": "superseded",
     "evidence_codes": [
       "EV-046",
       "EV-053"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-OPERATIONAL-STATUS-2",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-092",
+      "EV-111"
     ],
     "notes": null
   },
@@ -1792,6 +2585,34 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-SPEED-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "speed",
+    "value": "80",
+    "unit": "km/h",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-109"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-STATION-ORDER-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "station_order",
+    "value": "أكتوبر الجديدة، جامعة الأهرام الكندية، السادات، جامعة 6 أكتوبر، نقابة المهندسين، مول مصر، مدينة الشيخ زايد، طريق الإسكندرية، المنصورية، المريوطية، الطريق الدائري، بشتيل، وادي النيل",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
     ],
     "notes": null
   },
@@ -1835,6 +2656,20 @@
     "evidence_codes": [
       "EV-046",
       "EV-053"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-WEST-TRAINS-1",
+    "entity_code": "TRANSIT-MONORAIL-WEST",
+    "attribute": "trains",
+    "value": "30",
+    "unit": "trains",
+    "valid_as_of": "2026-08-11",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-112"
     ],
     "notes": null
   },
@@ -1909,6 +2744,21 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-LRT-OPERATIONAL-STATION-LIST-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "operational_station_list",
+    "value": "عدلي منصور، العبور، المستقبل، الشروق، هليوبوليس الجديدة، بدر؛ الفرع الشمالي: المنطقة الصناعية، مدينة المعرفة؛ الفرع الجنوبي: الروبيكي، حدائق العاصمة، مطار العاصمة، مدينة الفنون والثقافة",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-LRT-OPERATIONAL-STATUS-1",
     "entity_code": "TRANSIT-LRT",
     "attribute": "operational_status",
@@ -1919,6 +2769,135 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-OPERATIONAL-STATUS-2",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-073",
+      "EV-128"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE1-2-LENGTH-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase1_2_length",
+    "value": "68.81",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-135"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE1-2-LENGTH-2",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase1_2_length",
+    "value": "70",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-073"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE1-2-STATIONS-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase1_2_stations",
+    "value": "12",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE3-LENGTH-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase3_length",
+    "value": "18.5",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-078"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE3-LENGTH-2",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase3_length",
+    "value": "20.4",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE3-STATION-LIST-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase3_station_list",
+    "value": "كاتدرائية الميلاد، القيادة الإستراتيجية، المدينة الرياضية الدولية، العاصمة المركزية",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE3-STATIONS-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase3_stations",
+    "value": "4",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-074",
+      "EV-078"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE3-STATUS-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase3_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-092",
+      "EV-074"
     ],
     "notes": null
   },
@@ -1965,14 +2944,70 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-LRT-PHASE4-RATIFIED-DATE-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase4_ratified_date",
+    "value": "2021-03-22",
+    "unit": null,
+    "valid_as_of": "2021-03-22",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE4-STATION-LIST-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase4_station_list",
+    "value": "مدينة المعرفة ← حدائق العاشر، عمر بن الخطاب، مركز المدينة، المعهد التكنولوجي، العاشر من رمضان",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PHASE5-PLANNED-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "phase5_planned",
+    "value": "من بعد العاصمة المركزية للمنطقة الصناعية بالعاصمة: 7.8 كم، محطة واحدة (تحت الدراسة)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-075"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-LRT-PLANNED-LENGTH-ALL-BRANCHES-1",
+    "entity_code": "TRANSIT-LRT",
+    "attribute": "planned_length_all_branches",
+    "value": "103",
+    "unit": "km",
+    "valid_as_of": "2022-07-03",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-077"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-LRT-PLANNED-LENGTH-ALL-BRANCHES-2",
     "entity_code": "TRANSIT-LRT",
     "attribute": "planned_length_all_branches",
     "value": "105",
     "unit": "km",
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-013"
     ],
@@ -2077,6 +3112,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-BRT-OPERATIONAL-STATUS-2",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-09-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-043"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-BRT-PHASE2-ACTUAL-START-POINT-1",
     "entity_code": "TRANSIT-BRT",
     "attribute": "phase2_actual_start_point",
@@ -2087,6 +3136,34 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-LENGTH-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_length",
+    "value": "40",
+    "unit": null,
+    "valid_as_of": "2026-09-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-096"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-LENGTH-2",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_length",
+    "value": "57",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "rejected",
+    "evidence_codes": [
+      "EV-095"
     ],
     "notes": null
   },
@@ -2129,6 +3206,34 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-STATIONS-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_stations",
+    "value": "16",
+    "unit": null,
+    "valid_as_of": "2026-09-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-043"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-STATIONS-2",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_stations",
+    "value": "21",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "rejected",
+    "evidence_codes": [
+      "EV-095"
     ],
     "notes": null
   },
@@ -2211,9 +3316,24 @@
     "unit": "km",
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-LENGTH-2",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "length",
+    "value": "675",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-086",
+      "EV-087"
     ],
     "notes": null
   },
@@ -2228,6 +3348,21 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-OPERATIONAL-STATUS-2",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-092",
+      "EV-122"
     ],
     "notes": null
   },
@@ -2274,6 +3409,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-HSR-L1-SPEED-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "speed",
+    "value": "250",
+    "unit": "km/h",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-122"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-HSR-L1-STATIONS-1",
     "entity_code": "TRANSIT-HSR-L1",
     "attribute": "stations",
@@ -2281,9 +3430,37 @@
     "unit": "stations",
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-STATIONS-2",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "stations",
+    "value": "21",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-086"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-STATIONS-3",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "stations",
+    "value": "34",
+    "unit": "stations",
+    "valid_as_of": "2022-12-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-087"
     ],
     "notes": null
   },
@@ -2298,6 +3475,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L2-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-HSR-L2",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-092"
     ],
     "notes": null
   },
@@ -2372,6 +3563,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-HSR-L3-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-HSR-L3",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-HSR-L3-PASSENGER-SERVICE-1",
     "entity_code": "TRANSIT-HSR-L3",
     "attribute": "passenger_service",
@@ -2431,13 +3636,41 @@
     "code": "F-STOP-ADLY-MANSOUR-MODES-COUNT-1",
     "entity_code": "STOP-ADLY-MANSOUR",
     "attribute": "modes_count",
+    "value": "5",
+    "unit": "modes",
+    "valid_as_of": "2022-07-04",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-085"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ADLY-MANSOUR-MODES-COUNT-2",
+    "entity_code": "STOP-ADLY-MANSOUR",
+    "attribute": "modes_count",
     "value": "6",
     "unit": "modes",
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ADLY-MANSOUR-OPENING-1",
+    "entity_code": "STOP-ADLY-MANSOUR",
+    "attribute": "opening",
+    "value": "المترو أغسطس 2020؛ LRT ومجمع النقل يوليو 2022",
+    "unit": null,
+    "valid_as_of": "2022-07-04",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-085"
     ],
     "notes": null
   },
@@ -2452,6 +3685,35 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ADLY-MANSOUR-OPERATIONAL-STATUS-2",
+    "entity_code": "STOP-ADLY-MANSOUR",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2022-07-04",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-085",
+      "EV-128"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ADLY-MANSOUR-WORKSHOP-AREA-1",
+    "entity_code": "STOP-ADLY-MANSOUR",
+    "attribute": "workshop_area",
+    "value": "65",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-085"
     ],
     "notes": null
   },
@@ -2484,6 +3746,20 @@
     "notes": null
   },
   {
+    "code": "F-STOP-CAIRO-STADIUM-OPERATIONAL-STATUS-2",
+    "entity_code": "STOP-CAIRO-STADIUM",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-STOP-ARTS-CULTURE-CITY-MODES-1",
     "entity_code": "STOP-ARTS-CULTURE-CITY",
     "attribute": "modes",
@@ -2508,6 +3784,35 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ARTS-CULTURE-CITY-OPERATIONAL-STATUS-2",
+    "entity_code": "STOP-ARTS-CULTURE-CITY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-ADALA-CITY-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-ADALA-CITY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
     ],
     "notes": null
   },
@@ -2584,6 +3889,20 @@
     "notes": null
   },
   {
+    "code": "F-STOP-SUN-CAPITAL-OPERATIONAL-STATUS-2",
+    "entity_code": "STOP-SUN-CAPITAL",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-09-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-043"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-STOP-SUN-CAPITAL-ROLE-1",
     "entity_code": "STOP-SUN-CAPITAL",
     "attribute": "role",
@@ -2608,6 +3927,21 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-OBOUR-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-OBOUR",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
     ],
     "notes": null
   },
@@ -2640,6 +3974,36 @@
     "notes": null
   },
   {
+    "code": "F-STOP-LRT-MOSTAKBAL-OPERATIONAL-STATUS-2",
+    "entity_code": "STOP-LRT-MOSTAKBAL",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-SHOROUK-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-SHOROUK",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-STOP-LRT-SHOROUK-SERVED-BY-1",
     "entity_code": "STOP-LRT-SHOROUK",
     "attribute": "served_by",
@@ -2650,6 +4014,21 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-NEW-HELIOPOLIS-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-NEW-HELIOPOLIS",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
     ],
     "notes": null
   },
@@ -2668,6 +4047,21 @@
     "notes": null
   },
   {
+    "code": "F-STOP-LRT-BADR-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-BADR",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-STOP-LRT-BADR-SERVED-BY-1",
     "entity_code": "STOP-LRT-BADR",
     "attribute": "served_by",
@@ -2682,6 +4076,21 @@
     "notes": null
   },
   {
+    "code": "F-STOP-LRT-ROBEIKI-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-ROBEIKI",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-STOP-LRT-ROBEIKI-SERVED-BY-1",
     "entity_code": "STOP-LRT-ROBEIKI",
     "attribute": "served_by",
@@ -2692,6 +4101,21 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-CAPITAL-GARDENS-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-CAPITAL-GARDENS",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
     ],
     "notes": null
   },
@@ -2717,9 +4141,24 @@
     "unit": null,
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-10TH-RAMADAN-1-OPERATIONAL-STATUS-2",
+    "entity_code": "STOP-LRT-10TH-RAMADAN-1",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-074",
+      "EV-092"
     ],
     "notes": null
   },
@@ -2734,6 +4173,21 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-KNOWLEDGE-CITY-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-KNOWLEDGE-CITY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
     ],
     "notes": null
   },
@@ -2762,6 +4216,21 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-INDUSTRIAL-ZONE-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-INDUSTRIAL-ZONE",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
     ],
     "notes": null
   },
@@ -2867,13 +4336,41 @@
     "code": "F-STOP-BRT-MANSOURIYA-OPERATIONAL-STATUS-1",
     "entity_code": "STOP-BRT-MANSOURIYA",
     "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-09-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-121"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-MANSOURIYA-OPERATIONAL-STATUS-2",
+    "entity_code": "STOP-BRT-MANSOURIYA",
+    "attribute": "operational_status",
     "value": "planned",
     "unit": null,
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-MARYUTEYA-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-BRT-MARYUTEYA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-09-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-121"
     ],
     "notes": null
   },
@@ -2892,6 +4389,20 @@
     "notes": null
   },
   {
+    "code": "F-STOP-BRT-TALBIYA-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-BRT-TALBIYA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-09-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-121"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-STOP-BRT-TALBIYA-SERVED-BY-1",
     "entity_code": "STOP-BRT-TALBIYA",
     "attribute": "served_by",
@@ -2902,6 +4413,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-OMRANIYA-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-BRT-OMRANIYA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-09-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-121"
     ],
     "notes": null
   },
@@ -2941,9 +4466,23 @@
     "unit": null,
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "superseded",
     "evidence_codes": [
       "EV-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-HADAEK-OCTOBER-OPERATIONAL-STATUS-2",
+    "entity_code": "STOP-HADAEK-OCTOBER",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-122"
     ],
     "notes": null
   },
@@ -2969,9 +4508,24 @@
     "unit": null,
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "superseded",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-6-OCTOBER-INTERCHANGE-OPERATIONAL-STATUS-2",
+    "entity_code": "STOP-6-OCTOBER-INTERCHANGE",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-123",
+      "EV-111"
     ],
     "notes": null
   },
@@ -3057,6 +4611,21 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-BASHTIL-OPERATIONAL-STATUS-2",
+    "entity_code": "RAIL-BASHTIL",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-040",
+      "EV-041"
     ],
     "notes": null
   },
@@ -3232,6 +4801,34 @@
     "notes": null
   },
   {
+    "code": "F-CITY-NEW-CAIRO-AREA-1",
+    "entity_code": "CITY-NEW-CAIRO",
+    "attribute": "area",
+    "value": "70000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAIRO-AREA-2",
+    "entity_code": "CITY-NEW-CAIRO",
+    "attribute": "area",
+    "value": "85000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-070"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-CITY-NEW-CAIRO-CHARACTER-1",
     "entity_code": "CITY-NEW-CAIRO",
     "attribute": "character",
@@ -3242,6 +4839,90 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAIRO-DEVELOPMENT-AUTHORITY-1",
+    "entity_code": "CITY-NEW-CAIRO",
+    "attribute": "development_authority",
+    "value": "AUTH-NEW-CAIRO-AGENCY",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAIRO-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-NEW-CAIRO",
+    "attribute": "establishment_decree",
+    "value": "قرار جمهوري 191 لسنة 2000",
+    "unit": null,
+    "valid_as_of": "2000-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAIRO-EXPANSION-DECREE-499-2016-TYPE-1",
+    "entity_code": "CITY-NEW-CAIRO",
+    "attribute": "expansion_decree_499_2016_type",
+    "value": "قرار جمهوري",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-129"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAIRO-EXPANSION-DECREE-499-2016-TYPE-2",
+    "entity_code": "CITY-NEW-CAIRO",
+    "attribute": "expansion_decree_499_2016_type",
+    "value": "قرار وزاري",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "rejected",
+    "evidence_codes": [
+      "EV-070"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAIRO-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-NEW-CAIRO",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAIRO-POPULATION-RESIDENT-1",
+    "entity_code": "CITY-NEW-CAIRO",
+    "attribute": "population_resident",
+    "value": "1500000",
+    "unit": "persons",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-059"
     ],
     "notes": null
   },
@@ -3302,6 +4983,34 @@
     "notes": null
   },
   {
+    "code": "F-CITY-NEW-CAPITAL-AREA-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "area",
+    "value": "170000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-063"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-AREA-2",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "area",
+    "value": "184000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-064"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-CITY-NEW-CAPITAL-CHARACTER-1",
     "entity_code": "CITY-NEW-CAPITAL",
     "attribute": "character",
@@ -3312,6 +5021,62 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-DEVELOPER-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "developer",
+    "value": "AUTH-ACUD",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "operational_status",
+    "value": "partial",
+    "unit": null,
+    "valid_as_of": "2025-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-PHASES-AREA-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "phases_area",
+    "value": "المرحلة الأولى 40,000 + التانية 47,000 + التالتة 97,000 فدان",
+    "unit": "feddan",
+    "valid_as_of": "2025-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-TARGET-POPULATION-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "target_population",
+    "value": "6500000",
+    "unit": "persons",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-063"
     ],
     "notes": null
   },
@@ -3330,6 +5095,118 @@
     "notes": null
   },
   {
+    "code": "F-CITY-SHOROUK-AREA-1",
+    "entity_code": "CITY-SHOROUK",
+    "attribute": "area",
+    "value": "16110",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-SHOROUK-AREA-ADDED-1",
+    "entity_code": "CITY-SHOROUK",
+    "attribute": "area_added",
+    "value": "5302 فدان بقرار رئيس الوزراء 2119 لسنة 2015؛ تعديل الكردون بالقرار الجمهوري 636 لسنة 2017",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-SHOROUK-DEVELOPMENT-AUTHORITY-1",
+    "entity_code": "CITY-SHOROUK",
+    "attribute": "development_authority",
+    "value": "AUTH-SHOROUK-AGENCY",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-SHOROUK-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-SHOROUK",
+    "attribute": "establishment_decree",
+    "value": "قرار جمهوري 325 لسنة 1995",
+    "unit": null,
+    "valid_as_of": "1995-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-SHOROUK-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-SHOROUK",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-BADR-AREA-1",
+    "entity_code": "CITY-BADR",
+    "attribute": "area",
+    "value": "18545.43",
+    "unit": "feddan",
+    "valid_as_of": "2009-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-BADR-AREA-2",
+    "entity_code": "CITY-BADR",
+    "attribute": "area",
+    "value": "2971.34",
+    "unit": "feddan",
+    "valid_as_of": "1982-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "superseded",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-BADR-AREA-AMENDMENT-DECREE-1",
+    "entity_code": "CITY-BADR",
+    "attribute": "area_amendment_decree",
+    "value": "قرار جمهوري 87 لسنة 2009",
+    "unit": null,
+    "valid_as_of": "2009-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-CITY-BADR-CHARACTER-1",
     "entity_code": "CITY-BADR",
     "attribute": "character",
@@ -3344,6 +5221,62 @@
     "notes": null
   },
   {
+    "code": "F-CITY-BADR-DEVELOPMENT-AUTHORITY-1",
+    "entity_code": "CITY-BADR",
+    "attribute": "development_authority",
+    "value": "AUTH-BADR-AGENCY",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-BADR-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-BADR",
+    "attribute": "establishment_decree",
+    "value": "قرار رئيس الوزراء 235 لسنة 1982",
+    "unit": null,
+    "valid_as_of": "1982-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-BADR-LOCATION-1",
+    "entity_code": "CITY-BADR",
+    "attribute": "location",
+    "value": "الكيلو 47 طريق القاهرة–السويس",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-BADR-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-BADR",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-CITY-OBOUR-ADMIN-GOVERNORATE-1",
     "entity_code": "CITY-OBOUR",
     "attribute": "admin_governorate",
@@ -3354,6 +5287,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-OBOUR-AREA-URBAN-1",
+    "entity_code": "CITY-OBOUR",
+    "attribute": "area_urban",
+    "value": "16000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-062"
     ],
     "notes": null
   },
@@ -3382,6 +5329,63 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-OBOUR-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-OBOUR",
+    "attribute": "establishment_decree",
+    "value": "قرار رئيس الوزراء 1290 لسنة 1982؛ معدل بالقرار الجمهوري 59 لسنة 2003",
+    "unit": null,
+    "valid_as_of": "2003-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-062"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-OBOUR-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-OBOUR",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-062"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-AREA-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "area",
+    "value": "58114.4",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "rejected",
+    "evidence_codes": [
+      "EV-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-AREA-2",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "area",
+    "value": "58914.4",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-065",
+      "EV-067"
     ],
     "notes": null
   },
@@ -3428,6 +5432,21 @@
     "notes": null
   },
   {
+    "code": "F-CITY-NEW-OBOUR-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "establishment_decree",
+    "value": "قرار جمهوري 249 لسنة 2016",
+    "unit": null,
+    "valid_as_of": "2016-06-01",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-066",
+      "EV-065"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-CITY-NEW-OBOUR-RAIL-STATION-1",
     "entity_code": "CITY-NEW-OBOUR",
     "attribute": "rail_station",
@@ -3452,6 +5471,34 @@
     "verification_state": "superseded",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-REGULARIZATION-AREA-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "regularization_area",
+    "value": "40000",
+    "unit": "feddan",
+    "valid_as_of": "2022-06-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-069"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-STRATEGIC-PLAN-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "strategic_plan",
+    "value": "قرار وزاري 1005 بتاريخ 2017-11-14؛ 40 حي سكني",
+    "unit": null,
+    "valid_as_of": "2017-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-068"
     ],
     "notes": null
   },
@@ -3512,6 +5559,48 @@
     "notes": null
   },
   {
+    "code": "F-CITY-6-OCTOBER-DISTANCE-TO-DOWNTOWN-1",
+    "entity_code": "CITY-6-OCTOBER",
+    "attribute": "distance_to_downtown",
+    "value": "32",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-101"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-6-OCTOBER-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-6-OCTOBER",
+    "attribute": "establishment_decree",
+    "value": "قرار جمهوري 504 لسنة 1979",
+    "unit": null,
+    "valid_as_of": "1979-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-101"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-6-OCTOBER-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-6-OCTOBER",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-101"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-CITY-6-OCTOBER-TRANSIT-1",
     "entity_code": "CITY-6-OCTOBER",
     "attribute": "transit",
@@ -3540,6 +5629,104 @@
     "notes": null
   },
   {
+    "code": "F-CITY-SHEIKH-ZAYED-AREA-ORIGINAL-1",
+    "entity_code": "CITY-SHEIKH-ZAYED",
+    "attribute": "area_original",
+    "value": "10400",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-105"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-SHEIKH-ZAYED-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-SHEIKH-ZAYED",
+    "attribute": "establishment_decree",
+    "value": "قرار جمهوري 325 لسنة 1995",
+    "unit": null,
+    "valid_as_of": "1995-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-105"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-SHEIKH-ZAYED-HOUSING-UNITS-1",
+    "entity_code": "CITY-SHEIKH-ZAYED",
+    "attribute": "housing_units",
+    "value": "72942",
+    "unit": "units",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-105"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-SHEIKH-ZAYED-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-SHEIKH-ZAYED",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-105"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-ZAYED-AREA-1",
+    "entity_code": "CITY-NEW-ZAYED",
+    "attribute": "area",
+    "value": "21300",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-106"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-ZAYED-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-NEW-ZAYED",
+    "attribute": "establishment_decree",
+    "value": "قرارات جمهورية 30/2003 و77/2017 و230/2017",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-106"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-ZAYED-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-NEW-ZAYED",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-106"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-CITY-NEW-ZAYED-RAIL-STATION-1",
     "entity_code": "CITY-NEW-ZAYED",
     "attribute": "rail_station",
@@ -3550,6 +5737,48 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-SPHINX-AREA-1",
+    "entity_code": "CITY-NEW-SPHINX",
+    "attribute": "area",
+    "value": "77000",
+    "unit": "feddan",
+    "valid_as_of": "2021-01-10",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-107"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-SPHINX-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-NEW-SPHINX",
+    "attribute": "establishment_decree",
+    "value": "قرارات جمهورية 61/2019 و566/2020",
+    "unit": null,
+    "valid_as_of": "2021-01-10",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-107"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-SPHINX-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-NEW-SPHINX",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2021-01-10",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-107"
     ],
     "notes": null
   },
@@ -3578,6 +5807,48 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OCTOBER-AREA-1",
+    "entity_code": "CITY-NEW-OCTOBER",
+    "attribute": "area",
+    "value": "78100",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-104"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OCTOBER-AREA-2",
+    "entity_code": "CITY-NEW-OCTOBER",
+    "attribute": "area",
+    "value": "78198.5",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-103"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OCTOBER-ESTABLISHMENT-DECREE-1",
+    "entity_code": "CITY-NEW-OCTOBER",
+    "attribute": "establishment_decree",
+    "value": "قرار جمهوري 77 لسنة 2017 المعدل بالقرار 566 لسنة 2020",
+    "unit": null,
+    "valid_as_of": "2020-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-103"
     ],
     "notes": null
   },
@@ -3652,6 +5923,76 @@
     "notes": null
   },
   {
+    "code": "F-DIST-DOKKI-ADMIN-GOVERNORATE-1",
+    "entity_code": "DIST-DOKKI",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-DOKKI-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-DOKKI",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-AGOUZA-ADMIN-GOVERNORATE-1",
+    "entity_code": "DIST-AGOUZA",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-AGOUZA-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-AGOUZA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HARAM-ADMIN-GOVERNORATE-1",
+    "entity_code": "DIST-HARAM",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-DIST-HARAM-LAND-USE-SHIFT-1",
     "entity_code": "DIST-HARAM",
     "attribute": "land_use_shift",
@@ -3666,6 +6007,20 @@
     "notes": null
   },
   {
+    "code": "F-DIST-HARAM-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-HARAM",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-DIST-HADAYEK-AHRAM-TRANSIT-1",
     "entity_code": "DIST-HADAYEK-AHRAM",
     "attribute": "transit",
@@ -3676,6 +6031,34 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HADAEK-OCTOBER-AREA-1",
+    "entity_code": "DIST-HADAEK-OCTOBER",
+    "attribute": "area",
+    "value": "41780",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-102"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HADAEK-OCTOBER-AUTHORITY-ESTABLISHED-1",
+    "entity_code": "DIST-HADAEK-OCTOBER",
+    "attribute": "authority_established",
+    "value": "قرار مجلس إدارة NUCA رقم 109 بتاريخ 2017-08-21",
+    "unit": null,
+    "valid_as_of": "2017-08-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-130"
     ],
     "notes": null
   },
@@ -3722,6 +6105,76 @@
     "notes": null
   },
   {
+    "code": "F-DIST-ABU-RAWASH-ADMIN-UNIT-1",
+    "entity_code": "DIST-ABU-RAWASH",
+    "attribute": "admin_unit",
+    "value": "مركز كرداسة (CITY-KERDASA)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-WARRAQ-ADMIN-GOVERNORATE-1",
+    "entity_code": "DIST-WARRAQ",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-WARRAQ-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-WARRAQ",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-IMBABA-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-IMBABA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2023-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-100"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-IMBABA-RENAMED-FROM-1",
+    "entity_code": "DIST-IMBABA",
+    "attribute": "renamed_from",
+    "value": "حي شمال الجيزة (قرار رئيس الوزراء 1694/2022؛ قرار المحافظ 766/2023)",
+    "unit": null,
+    "valid_as_of": "2023-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-100"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-DIST-JURIAN-LOCATION-1",
     "entity_code": "DIST-JURIAN",
     "attribute": "location",
@@ -3750,6 +6203,34 @@
     "notes": null
   },
   {
+    "code": "F-LANDMARK-GEM-AREA-1",
+    "entity_code": "LANDMARK-GEM",
+    "attribute": "area",
+    "value": "117",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-126"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GEM-FORMAL-OPENING-DATE-1",
+    "entity_code": "LANDMARK-GEM",
+    "attribute": "formal_opening_date",
+    "value": "2025-11-01",
+    "unit": null,
+    "valid_as_of": "2025-11-01",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-124"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-LANDMARK-GEM-OPENING-DATE-1",
     "entity_code": "LANDMARK-GEM",
     "attribute": "opening_date",
@@ -3760,6 +6241,34 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-014"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GEM-OPERATIONAL-STATUS-1",
+    "entity_code": "LANDMARK-GEM",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-125"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GEM-TRIAL-OPERATION-START-1",
+    "entity_code": "LANDMARK-GEM",
+    "attribute": "trial_operation_start",
+    "value": "2024-10",
+    "unit": null,
+    "valid_as_of": "2024-10-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-124"
     ],
     "notes": null
   },
@@ -3816,6 +6325,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NEW-CAIRO-AGENCY-PARENT-AUTHORITY-1",
+    "entity_code": "AUTH-NEW-CAIRO-AGENCY",
+    "attribute": "parent_authority",
+    "value": "AUTH-NUCA",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-059"
     ],
     "notes": null
   },
@@ -3914,6 +6437,2074 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-HISHAM-BARAKAT-FUTURE-INTERCHANGE-1",
+    "entity_code": "STOP-MRE-HISHAM-BARAKAT",
+    "attribute": "future_interchange",
+    "value": "المرحلة التانية من الخط الرابع",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-054"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-HISHAM-BARAKAT-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-HISHAM-BARAKAT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-HISHAM-BARAKAT-SERVED-BY-1",
+    "entity_code": "STOP-MRE-HISHAM-BARAKAT",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-AZHAR-UNIV-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-AZHAR-UNIV",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-AZHAR-UNIV-SERVED-BY-1",
+    "entity_code": "STOP-MRE-AZHAR-UNIV",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-7TH-DISTRICT-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-7TH-DISTRICT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-7TH-DISTRICT-SERVED-BY-1",
+    "entity_code": "STOP-MRE-7TH-DISTRICT",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-AHMED-ISMAIL-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-AHMED-ISMAIL",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-AHMED-ISMAIL-SERVED-BY-1",
+    "entity_code": "STOP-MRE-AHMED-ISMAIL",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-JEHAN-SADAT-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-JEHAN-SADAT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-JEHAN-SADAT-SERVED-BY-1",
+    "entity_code": "STOP-MRE-JEHAN-SADAT",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-ONE-NINETY-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-ONE-NINETY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-ONE-NINETY-SERVED-BY-1",
+    "entity_code": "STOP-MRE-ONE-NINETY",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-AIR-HOSPITAL-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-AIR-HOSPITAL",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-AIR-HOSPITAL-SERVED-BY-1",
+    "entity_code": "STOP-MRE-AIR-HOSPITAL",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-NARGES-FUTURE-INTERCHANGE-1",
+    "entity_code": "STOP-MRE-NARGES",
+    "attribute": "future_interchange",
+    "value": "الخط السادس (امتداد النرجس)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-081"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-NARGES-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-NARGES",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-NARGES-SERVED-BY-1",
+    "entity_code": "STOP-MRE-NARGES",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-MOSTATHMERIN-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-MOSTATHMERIN",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-MOSTATHMERIN-SERVED-BY-1",
+    "entity_code": "STOP-MRE-MOSTATHMERIN",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-LOTUS-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-LOTUS",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-LOTUS-SERVED-BY-1",
+    "entity_code": "STOP-MRE-LOTUS",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-GOLDEN-SQUARE-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-GOLDEN-SQUARE",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-GOLDEN-SQUARE-SERVED-BY-1",
+    "entity_code": "STOP-MRE-GOLDEN-SQUARE",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-BEIT-EL-WATAN-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-BEIT-EL-WATAN",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-BEIT-EL-WATAN-SERVED-BY-1",
+    "entity_code": "STOP-MRE-BEIT-EL-WATAN",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-FATTAH-ALIM-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-FATTAH-ALIM",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-FATTAH-ALIM-SERVED-BY-1",
+    "entity_code": "STOP-MRE-FATTAH-ALIM",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-049",
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-R1-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-R1",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-R1-SERVED-BY-1",
+    "entity_code": "STOP-MRE-R1",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-049",
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-R2-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-R2",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-R2-SERVED-BY-1",
+    "entity_code": "STOP-MRE-R2",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-049",
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-CBD-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-CBD",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-CBD-SERVED-BY-1",
+    "entity_code": "STOP-MRE-CBD",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-049",
+      "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-GOV-DISTRICT-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-GOV-DISTRICT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-GOV-DISTRICT-SERVED-BY-1",
+    "entity_code": "STOP-MRE-GOV-DISTRICT",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-MISR-MOSQUE-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRE-MISR-MOSQUE",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-06-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-050",
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRE-MISR-MOSQUE-SERVED-BY-1",
+    "entity_code": "STOP-MRE-MISR-MOSQUE",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-EAST",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-CAPITAL-AIRPORT-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-CAPITAL-AIRPORT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-CAPITAL-AIRPORT-SERVED-BY-1",
+    "entity_code": "STOP-LRT-CAPITAL-AIRPORT",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (الفرع الجنوبي)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-073",
+      "EV-076"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-NATIVITY-CATHEDRAL-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-NATIVITY-CATHEDRAL",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-074",
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-NATIVITY-CATHEDRAL-SERVED-BY-1",
+    "entity_code": "STOP-LRT-NATIVITY-CATHEDRAL",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (المرحلة 3)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-STRATEGIC-COMMAND-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-STRATEGIC-COMMAND",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-074",
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-STRATEGIC-COMMAND-SERVED-BY-1",
+    "entity_code": "STOP-LRT-STRATEGIC-COMMAND",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (المرحلة 3)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-SPORTS-CITY-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-SPORTS-CITY",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-074",
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-SPORTS-CITY-SERVED-BY-1",
+    "entity_code": "STOP-LRT-SPORTS-CITY",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (المرحلة 3)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-CENTRAL-CAPITAL-INTERCHANGE-1",
+    "entity_code": "STOP-CENTRAL-CAPITAL",
+    "attribute": "interchange",
+    "value": "LRT المرحلة 3 + الخط الأول للقطار السريع",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-CENTRAL-CAPITAL-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-CENTRAL-CAPITAL",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-074",
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-CENTRAL-CAPITAL-SERVED-BY-1",
+    "entity_code": "STOP-CENTRAL-CAPITAL",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (المرحلة 3)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-HADAEK-10TH-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-HADAEK-10TH",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-074",
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-HADAEK-10TH-SERVED-BY-1",
+    "entity_code": "STOP-LRT-HADAEK-10TH",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (المرحلة 4)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-OMAR-KHATTAB-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-OMAR-KHATTAB",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-074",
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-OMAR-KHATTAB-SERVED-BY-1",
+    "entity_code": "STOP-LRT-OMAR-KHATTAB",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (المرحلة 4)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-10TH-CITY-CENTER-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-10TH-CITY-CENTER",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-074",
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-10TH-CITY-CENTER-SERVED-BY-1",
+    "entity_code": "STOP-LRT-10TH-CITY-CENTER",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (المرحلة 4)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-TECH-INSTITUTE-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-LRT-TECH-INSTITUTE",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-074",
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-LRT-TECH-INSTITUTE-SERVED-BY-1",
+    "entity_code": "STOP-LRT-TECH-INSTITUTE",
+    "attribute": "served_by",
+    "value": "TRANSIT-LRT (المرحلة 4)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-074"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-NEW-OCTOBER-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-NEW-OCTOBER",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-NEW-OCTOBER-SERVED-BY-1",
+    "entity_code": "STOP-MRW-NEW-OCTOBER",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-ACU-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-ACU",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-ACU-SERVED-BY-1",
+    "entity_code": "STOP-MRW-ACU",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-SADAT-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-SADAT",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-SADAT-SERVED-BY-1",
+    "entity_code": "STOP-MRW-SADAT",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-OCT-UNIV-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-OCT-UNIV",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-OCT-UNIV-SERVED-BY-1",
+    "entity_code": "STOP-MRW-OCT-UNIV",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-ENGINEERS-INTERCHANGE-1",
+    "entity_code": "STOP-MRW-ENGINEERS",
+    "attribute": "interchange",
+    "value": "الخط الأول للقطار السريع (محطة 6 أكتوبر)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-109"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-ENGINEERS-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-ENGINEERS",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-ENGINEERS-SERVED-BY-1",
+    "entity_code": "STOP-MRW-ENGINEERS",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-MALL-OF-EGYPT-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-MALL-OF-EGYPT",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-MALL-OF-EGYPT-SERVED-BY-1",
+    "entity_code": "STOP-MRW-MALL-OF-EGYPT",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-SHEIKH-ZAYED-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-SHEIKH-ZAYED",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-SHEIKH-ZAYED-SERVED-BY-1",
+    "entity_code": "STOP-MRW-SHEIKH-ZAYED",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-ALEX-ROAD-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-ALEX-ROAD",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-ALEX-ROAD-SERVED-BY-1",
+    "entity_code": "STOP-MRW-ALEX-ROAD",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-MANSOURIYA-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-MANSOURIYA",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-MANSOURIYA-SERVED-BY-1",
+    "entity_code": "STOP-MRW-MANSOURIYA",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-MARYUTEYA-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-MARYUTEYA",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-MARYUTEYA-SERVED-BY-1",
+    "entity_code": "STOP-MRW-MARYUTEYA",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-RING-ROAD-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-RING-ROAD",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-RING-ROAD-SERVED-BY-1",
+    "entity_code": "STOP-MRW-RING-ROAD",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-BASHTIL-INTERCHANGE-1",
+    "entity_code": "STOP-MRW-BASHTIL",
+    "attribute": "interchange",
+    "value": "RAIL-BASHTIL",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-109"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-BASHTIL-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-BASHTIL",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-BASHTIL-SERVED-BY-1",
+    "entity_code": "STOP-MRW-BASHTIL",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-WADI-EL-NIL-INTERCHANGE-1",
+    "entity_code": "STOP-MRW-WADI-EL-NIL",
+    "attribute": "interchange",
+    "value": "الخط التالت للمترو (محطة وادي النيل)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-WADI-EL-NIL-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-MRW-WADI-EL-NIL",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-MRW-WADI-EL-NIL-SERVED-BY-1",
+    "entity_code": "STOP-MRW-WADI-EL-NIL",
+    "attribute": "served_by",
+    "value": "TRANSIT-MONORAIL-WEST",
+    "unit": null,
+    "valid_as_of": "2026-04-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-HSR-SPHINX-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-HSR-SPHINX",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-123"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-HSR-SPHINX-SERVED-BY-1",
+    "entity_code": "STOP-HSR-SPHINX",
+    "attribute": "served_by",
+    "value": "TRANSIT-HSR-L1",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-123"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-HSR-GIZA-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-HSR-GIZA",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-122"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-HSR-GIZA-SERVED-BY-1",
+    "entity_code": "STOP-HSR-GIZA",
+    "attribute": "served_by",
+    "value": "TRANSIT-HSR-L1",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-122"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-LANES-PER-DIRECTION-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "lanes_per_direction",
+    "value": "6",
+    "unit": "lanes",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-114"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-LENGTH-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "length",
+    "value": "540",
+    "unit": "m",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-114"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-OPERATIONAL-STATUS-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-114"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-PART-OF-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "part_of",
+    "value": "ROAD-ROD-ELFARAG-DABAA",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-114"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-WIDTH-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "width",
+    "value": "66.8",
+    "unit": "m",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-114"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-WIDTH-2",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "width",
+    "value": "67.3",
+    "unit": "m",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-115"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MIDDLE-RING-ISMAILIA-LANES-PER-DIRECTION-1",
+    "entity_code": "BRIDGE-MIDDLE-RING-ISMAILIA",
+    "attribute": "lanes_per_direction",
+    "value": "8",
+    "unit": "lanes",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-083"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MIDDLE-RING-ISMAILIA-LENGTH-1",
+    "entity_code": "BRIDGE-MIDDLE-RING-ISMAILIA",
+    "attribute": "length",
+    "value": "570",
+    "unit": "m",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-083"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MIDDLE-RING-ISMAILIA-OPERATIONAL-STATUS-1",
+    "entity_code": "BRIDGE-MIDDLE-RING-ISMAILIA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-083"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MIDDLE-RING-ISMAILIA-WIDTH-1",
+    "entity_code": "BRIDGE-MIDDLE-RING-ISMAILIA",
+    "attribute": "width",
+    "value": "100",
+    "unit": "m",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-083"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NUCA-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-NUCA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NAT-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-NAT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-GIZA-GOVERNORATE-AREA-1",
+    "entity_code": "AUTH-GIZA-GOVERNORATE",
+    "attribute": "area",
+    "value": "13184",
+    "unit": "km2",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-GIZA-GOVERNORATE-AREA-2",
+    "entity_code": "AUTH-GIZA-GOVERNORATE",
+    "attribute": "area",
+    "value": "36589",
+    "unit": "km2",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-098"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-GIZA-GOVERNORATE-AREA-3",
+    "entity_code": "AUTH-GIZA-GOVERNORATE",
+    "attribute": "area",
+    "value": "38157",
+    "unit": "km2",
+    "valid_as_of": "2017-10-10",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-099"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-GIZA-GOVERNORATE-DISTRICTS-COUNT-1",
+    "entity_code": "AUTH-GIZA-GOVERNORATE",
+    "attribute": "districts_count",
+    "value": "10",
+    "unit": null,
+    "valid_as_of": "2023-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-098",
+      "EV-100"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-GIZA-GOVERNORATE-DISTRICTS-COUNT-2",
+    "entity_code": "AUTH-GIZA-GOVERNORATE",
+    "attribute": "districts_count",
+    "value": "9",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "superseded",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-GIZA-GOVERNORATE-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-GIZA-GOVERNORATE",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-SHOROUK-AGENCY-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-SHOROUK-AGENCY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-SHOROUK-AGENCY-PARENT-AUTHORITY-1",
+    "entity_code": "AUTH-SHOROUK-AGENCY",
+    "attribute": "parent_authority",
+    "value": "AUTH-NUCA",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-SHOROUK-AGENCY-RESPONSIBLE-FOR-1",
+    "entity_code": "AUTH-SHOROUK-AGENCY",
+    "attribute": "responsible_for",
+    "value": "CITY-SHOROUK",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-BADR-AGENCY-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-BADR-AGENCY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-BADR-AGENCY-PARENT-AUTHORITY-1",
+    "entity_code": "AUTH-BADR-AGENCY",
+    "attribute": "parent_authority",
+    "value": "AUTH-NUCA",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-BADR-AGENCY-RESPONSIBLE-FOR-1",
+    "entity_code": "AUTH-BADR-AGENCY",
+    "attribute": "responsible_for",
+    "value": "CITY-BADR",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-ACUD-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-ACUD",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-ACUD-PAID-IN-CAPITAL-1",
+    "entity_code": "AUTH-ACUD",
+    "attribute": "paid_in_capital",
+    "value": "204000000000",
+    "unit": "EGP",
+    "valid_as_of": "2025-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-6-OCTOBER-AGENCY-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-6-OCTOBER-AGENCY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-101"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-6-OCTOBER-AGENCY-PARENT-AUTHORITY-1",
+    "entity_code": "AUTH-6-OCTOBER-AGENCY",
+    "attribute": "parent_authority",
+    "value": "AUTH-NUCA",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-101"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-6-OCTOBER-AGENCY-RESPONSIBLE-FOR-1",
+    "entity_code": "AUTH-6-OCTOBER-AGENCY",
+    "attribute": "responsible_for",
+    "value": "CITY-6-OCTOBER",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-101"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-HADAEK-OCTOBER-AGENCY-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-HADAEK-OCTOBER-AGENCY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-130"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-HADAEK-OCTOBER-AGENCY-PARENT-AUTHORITY-1",
+    "entity_code": "AUTH-HADAEK-OCTOBER-AGENCY",
+    "attribute": "parent_authority",
+    "value": "AUTH-NUCA",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-130"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-HADAEK-OCTOBER-AGENCY-RESPONSIBLE-FOR-1",
+    "entity_code": "AUTH-HADAEK-OCTOBER-AGENCY",
+    "attribute": "responsible_for",
+    "value": "DIST-HADAEK-OCTOBER",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-130"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NEW-OCTOBER-AGENCY-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-NEW-OCTOBER-AGENCY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-131"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NEW-OCTOBER-AGENCY-PARENT-AUTHORITY-1",
+    "entity_code": "AUTH-NEW-OCTOBER-AGENCY",
+    "attribute": "parent_authority",
+    "value": "AUTH-NUCA",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-131"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NEW-OCTOBER-AGENCY-RESPONSIBLE-FOR-1",
+    "entity_code": "AUTH-NEW-OCTOBER-AGENCY",
+    "attribute": "responsible_for",
+    "value": "CITY-NEW-OCTOBER",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-131"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-SHEIKH-ZAYED-AGENCY-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-SHEIKH-ZAYED-AGENCY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-105"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-SHEIKH-ZAYED-AGENCY-PARENT-AUTHORITY-1",
+    "entity_code": "AUTH-SHEIKH-ZAYED-AGENCY",
+    "attribute": "parent_authority",
+    "value": "AUTH-NUCA",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-105"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-SHEIKH-ZAYED-AGENCY-RESPONSIBLE-FOR-1",
+    "entity_code": "AUTH-SHEIKH-ZAYED-AGENCY",
+    "attribute": "responsible_for",
+    "value": "CITY-SHEIKH-ZAYED",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-105"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NEW-SPHINX-AGENCY-HQ-LOCATION-1",
+    "entity_code": "AUTH-NEW-SPHINX-AGENCY",
+    "attribute": "hq_location",
+    "value": "الكيلو 55 طريق القاهرة–الإسكندرية الصحراوي",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-131"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NEW-SPHINX-AGENCY-OPERATIONAL-STATUS-1",
+    "entity_code": "AUTH-NEW-SPHINX-AGENCY",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-131"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NEW-SPHINX-AGENCY-PARENT-AUTHORITY-1",
+    "entity_code": "AUTH-NEW-SPHINX-AGENCY",
+    "attribute": "parent_authority",
+    "value": "AUTH-NUCA",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-131"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NEW-SPHINX-AGENCY-RESPONSIBLE-FOR-1",
+    "entity_code": "AUTH-NEW-SPHINX-AGENCY",
+    "attribute": "responsible_for",
+    "value": "CITY-NEW-SPHINX",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-131"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-MUNIRA-GHARBIYA-CREATION-DECREE-1",
+    "entity_code": "DIST-MUNIRA-GHARBIYA",
+    "attribute": "creation_decree",
+    "value": "قرار رئيس الوزراء 1694 لسنة 2022؛ قرار محافظ الجيزة 766 لسنة 2023",
+    "unit": null,
+    "valid_as_of": "2023-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-100"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-MUNIRA-GHARBIYA-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-MUNIRA-GHARBIYA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2023-01-01",
+    "valid_as_of_precision": "year",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-100"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-BULAQ-DAKROUR-ADMIN-GOVERNORATE-1",
+    "entity_code": "DIST-BULAQ-DAKROUR",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-BULAQ-DAKROUR-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-BULAQ-DAKROUR",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-OMRANIYA-ADMIN-GOVERNORATE-1",
+    "entity_code": "DIST-OMRANIYA",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-OMRANIYA-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-OMRANIYA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-TALBIYA-ADMIN-GOVERNORATE-1",
+    "entity_code": "DIST-TALBIYA",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-TALBIYA-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-TALBIYA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SOUTH-GIZA-ADMIN-GOVERNORATE-1",
+    "entity_code": "DIST-SOUTH-GIZA",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SOUTH-GIZA-OPERATIONAL-STATUS-1",
+    "entity_code": "DIST-SOUTH-GIZA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-KERDASA-ADMIN-GOVERNORATE-1",
+    "entity_code": "CITY-KERDASA",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-KERDASA-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-KERDASA",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-AUSIM-ADMIN-GOVERNORATE-1",
+    "entity_code": "CITY-AUSIM",
+    "attribute": "admin_governorate",
+    "value": "AUTH-GIZA-GOVERNORATE",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-AUSIM-OPERATIONAL-STATUS-1",
+    "entity_code": "CITY-AUSIM",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-097"
     ],
     "notes": null
   }
