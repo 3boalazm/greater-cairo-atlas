@@ -10,7 +10,7 @@ from typing import Any
 
 ROAD_HIGHWAYS = {
     "motorway", "trunk", "primary", "secondary",
-    "motorway_link", "trunk_link", "primary_link", "secondary_link",
+    "motorway_link", "trunk_link", "primary_link", "secondary_link", "tertiary",
 }
 LINK_HIGHWAYS = {highway for highway in ROAD_HIGHWAYS if highway.endswith("_link")}
 TOPOLOGY_GAP_THRESHOLD_KM = 0.025
@@ -18,7 +18,16 @@ TOPOLOGY_GAP_THRESHOLD_KM = 0.025
 
 def normalize(value: str | None) -> str:
     text = unicodedata.normalize("NFKC", value or "").casefold()
-    return re.sub(r"[^\w]+", "", text, flags=re.UNICODE)
+    text = "".join(char for char in text if unicodedata.category(char) not in {"Mn", "Cf"})
+    text = text.translate(str.maketrans({"أ": "ا", "إ": "ا", "آ": "ا", "ٱ": "ا", "ى": "ي", "ئ": "ي", "ؤ": "و", "ة": "ه"}))
+    tokens = re.findall(r"[\w]+", text, flags=re.UNICODE)
+    # Drop common road-type prefixes/suffixes but retain substantive names.
+    road_words = {"طريق", "شارع", "محور", "محورال", "كوبري", "جسر", "road", "street", "axis", "highway", "route"}
+    while tokens and tokens[0] in road_words:
+        tokens.pop(0)
+    while tokens and tokens[-1] in road_words:
+        tokens.pop()
+    return "".join(tokens)
 
 
 def way_labels(tags: dict[str, Any]) -> tuple[set[str], set[str]]:
@@ -93,6 +102,7 @@ def filter_graph_for_entity(
     entity_refs: set[str],
     relation_member_way_ids: set[int] | None = None,
     allow_interchange_links: bool = False,
+    allow_bridges: bool = False,
 ) -> dict[int, list[tuple[int, int, float]]]:
     """Filter per entity; optional real OSM *_link ways can connect that entity's components."""
     relation_member_way_ids = relation_member_way_ids or set()
@@ -101,6 +111,7 @@ def filter_graph_for_entity(
         if way_id in relation_member_way_ids
         or allowed_for_entity(way.get("tags", {}), entity_names, entity_refs)
         or (allow_interchange_links and way.get("tags", {}).get("highway") in LINK_HIGHWAYS)
+        or (allow_bridges and way.get("tags", {}).get("bridge") == "yes")
     }
     return {
         node: [edge for edge in edges if edge[1] in allowed_ids]

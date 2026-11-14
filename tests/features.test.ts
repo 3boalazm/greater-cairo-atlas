@@ -44,10 +44,15 @@ describe("feature ingestion validation and GeoJSON API", () => {
     expect(features[0]).toMatchObject({ code: "OSM-WAY-100", entity_code: roadEntity.code, license: "ODbL-1.0", osm_type: "way", osm_id: 100, osm_version: 3 });
   });
 
-  it("rejects geometry outside the Greater Cairo bbox and never creates unknown entities", async () => {
+  it("uses the extended envelope for roads only and never creates unknown entities", async () => {
+    const extendedRoad = JSON.parse(JSON.stringify(geojsonFeature())) as Record<string, unknown>;
+    extendedRoad.geometry = { type: "LineString", coordinates: [[32.2, 30.85], [32.25, 30.86]] };
+    await expect(loadAndValidateFeatureCollection(await featureFile([extendedRoad]), [roadEntity])).resolves.toHaveLength(1);
     const outside = JSON.parse(JSON.stringify(geojsonFeature())) as Record<string, unknown>;
-    outside.geometry = { type: "Point", coordinates: [32.2, 30.0] };
-    await expect(loadAndValidateFeatureCollection(await featureFile([outside]), [roadEntity])).rejects.toThrow(/Greater Cairo WGS84 bbox/);
+    outside.geometry = { type: "Point", coordinates: [32.2, 30.85] };
+    const nonRoad = entitySeedSchema.parse({ ...roadEntity, code: "LANDMARK-TEST", entity_type: "landmark" });
+    outside.properties = { ...(outside.properties as Record<string, unknown>), entity_code: nonRoad.code };
+    await expect(loadAndValidateFeatureCollection(await featureFile([outside]), [nonRoad])).rejects.toThrow(/Greater Cairo WGS84 bbox/);
     const unknown = geojsonFeature({ entity_code: "ROAD-NOT-IN-SEED" });
     await expect(loadAndValidateFeatureCollection(await featureFile([unknown]), [roadEntity])).rejects.toThrow(/never create entities/);
   });

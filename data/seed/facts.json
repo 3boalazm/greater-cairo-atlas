@@ -3231,6 +3231,62 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-METRO-L3-PHASE1-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase1_length",
+    "value": "4.4",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE1-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase1_stations",
+    "value": "5",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE2-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase2_length",
+    "value": "7.7",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE2-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase2_stations",
+    "value": "4",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-METRO-L3-PHASE3-FORMAL-INAUGURATION-DATE-1",
     "entity_code": "TRANSIT-METRO-L3",
     "attribute": "phase3_formal_inauguration_date",
@@ -3273,6 +3329,132 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-METRO-L3-PHASE3A-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3a_length",
+    "value": "4",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3A-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3a_stations",
+    "value": "4",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3B-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3b_length",
+    "value": "6.6",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3B-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3b_stations",
+    "value": "6",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3C-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3c_length",
+    "value": "7.1",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3C-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3c_stations",
+    "value": "5",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE4-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase4_length",
+    "value": "11.5",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE4-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase4_stations",
+    "value": "10",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE5-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase5_length",
+    "value": "9.2",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-313"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-METRO-L3-PHASE5-PLANNED-1",
     "entity_code": "TRANSIT-METRO-L3",
     "attribute": "phase5_planned",
@@ -3283,6 +3465,48 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-079"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE5-ROUTE-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase5_route",
+    "value": "هليوبوليس → مطار القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-313"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE5-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase5_stations",
+    "value": "7",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-313"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE-LENGTHS-NOTE-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase_lengths_note",
+    "value": "مجموع أطوال المراحل في صفحة NAT = 41.3 كم، والإجمالي المعلن 41.2 كم؛ أرقام المراحل مش هي أرقام الخط كله",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
     ],
     "notes": null
   },
@@ -3315,6 +3539,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-METRO-L3-STATIONS-BY-TYPE-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "stations_by_type",
+    "value": "21 تحت الأرض + 2 سطحية + 11 علوية",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-METRO-L3-TOTAL-LENGTH-1",
     "entity_code": "TRANSIT-METRO-L3",
     "attribute": "total_length",
@@ -3330,6 +3568,20 @@
   },
   {
     "code": "F-TRANSIT-METRO-L3-TOTAL-LENGTH-2",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "total_length",
+    "value": "41.2",
+    "unit": "km",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-TOTAL-LENGTH-3",
     "entity_code": "TRANSIT-METRO-L3",
     "attribute": "total_length",
     "value": "47.87",
@@ -3367,6 +3619,20 @@
     "verification_state": "verified",
     "evidence_codes": [
       "EV-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-TOTAL-STATIONS-3",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "total_stations",
+    "value": "34",
+    "unit": "stations",
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-312"
     ],
     "notes": null
   },
@@ -3928,10 +4194,24 @@
     "unit": null,
     "valid_as_of": "2026-06-27",
     "valid_as_of_precision": "day",
-    "verification_state": "verified",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-019",
       "EV-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-FULL-OPERATION-DATE-2",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "full_operation_date",
+    "value": "2026-06-28",
+    "unit": null,
+    "valid_as_of": "2026-06-28",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-308"
     ],
     "notes": null
   },
@@ -3982,6 +4262,20 @@
     "code": "F-TRANSIT-MONORAIL-EAST-OPERATING-HOURS-1",
     "entity_code": "TRANSIT-MONORAIL-EAST",
     "attribute": "operating_hours",
+    "value": "06:00–19:50",
+    "unit": null,
+    "valid_as_of": "2026-09-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-309"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-OPERATING-HOURS-2",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "operating_hours",
     "value": "06:00–19:50 (التوقيت الشتوي)",
     "unit": null,
     "valid_as_of": "2026-10-29",
@@ -3993,7 +4287,7 @@
     "notes": null
   },
   {
-    "code": "F-TRANSIT-MONORAIL-EAST-OPERATING-HOURS-2",
+    "code": "F-TRANSIT-MONORAIL-EAST-OPERATING-HOURS-3",
     "entity_code": "TRANSIT-MONORAIL-EAST",
     "attribute": "operating_hours",
     "value": "06:00–21:00",
@@ -4003,6 +4297,20 @@
     "verification_state": "superseded",
     "evidence_codes": [
       "EV-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-OPERATING-HOURS-4",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "operating_hours",
+    "value": "06:00–21:00",
+    "unit": null,
+    "valid_as_of": "2026-06-28",
+    "valid_as_of_precision": "day",
+    "verification_state": "superseded",
+    "evidence_codes": [
+      "EV-308"
     ],
     "notes": null
   },
@@ -4029,7 +4337,7 @@
     "unit": null,
     "valid_as_of": "2026-05-06",
     "valid_as_of_precision": "day",
-    "verification_state": "corroborated",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-035"
     ],
@@ -4043,7 +4351,7 @@
     "unit": null,
     "valid_as_of": "2026-05-06",
     "valid_as_of_precision": "day",
-    "verification_state": "corroborated",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-050"
     ],
@@ -4053,13 +4361,56 @@
     "code": "F-TRANSIT-MONORAIL-EAST-PHASE1-OPENING-DATE-3",
     "entity_code": "TRANSIT-MONORAIL-EAST",
     "attribute": "phase1_opening_date",
+    "value": "2026-05-06",
+    "unit": null,
+    "valid_as_of": "2026-05-05",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-310",
+      "EV-311"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-PHASE1-OPENING-DATE-4",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "phase1_opening_date",
     "value": "2026-05-10",
     "unit": null,
     "valid_as_of": "2026-11-13",
     "valid_as_of_precision": "day",
-    "verification_state": "rejected",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-PHASE1-OPENING-DATE-5",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "phase1_opening_date",
+    "value": "2026-05-10",
+    "unit": null,
+    "valid_as_of": "2026-05-10",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-307"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MONORAIL-EAST-PHASE1-OPERATING-HOURS-1",
+    "entity_code": "TRANSIT-MONORAIL-EAST",
+    "attribute": "phase1_operating_hours",
+    "value": "06:00–18:00",
+    "unit": null,
+    "valid_as_of": "2026-05-06",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-311"
     ],
     "notes": null
   },
@@ -5053,9 +5404,23 @@
     "unit": "km",
     "valid_as_of": "2025-06-01",
     "valid_as_of_precision": "month",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-146"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE1-LENGTH-2",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase1_length",
+    "value": "76",
+    "unit": "km",
+    "valid_as_of": "2026-06-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-320"
     ],
     "notes": null
   },
@@ -5074,6 +5439,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-BRT-PHASE1-ROUTE-CAIRO-GOV-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase1_route_cairo_gov",
+    "value": "الإسكندرية الزراعي → أكاديمية الشرطة",
+    "unit": null,
+    "valid_as_of": "2026-06-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-320"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-BRT-PHASE1-STATIONS-1",
     "entity_code": "TRANSIT-BRT",
     "attribute": "phase1_stations",
@@ -5081,9 +5460,23 @@
     "unit": "stations",
     "valid_as_of": "2025-06-01",
     "valid_as_of_precision": "month",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-146"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE1-STATIONS-2",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase1_stations",
+    "value": "36",
+    "unit": "stations",
+    "valid_as_of": "2026-06-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-320"
     ],
     "notes": null
   },
@@ -5332,6 +5725,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-BRT-PLANNED-CORRIDOR-LENGTH-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "planned_corridor_length",
+    "value": "106",
+    "unit": "km",
+    "valid_as_of": "2026-06-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-320"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-BRT-PLANNED-TOTAL-STATIONS-1",
     "entity_code": "TRANSIT-BRT",
     "attribute": "planned_total_stations",
@@ -5347,6 +5754,20 @@
   },
   {
     "code": "F-TRANSIT-BRT-PLANNED-TOTAL-STATIONS-2",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "planned_total_stations",
+    "value": "49",
+    "unit": "stations",
+    "valid_as_of": "2026-06-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-320"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PLANNED-TOTAL-STATIONS-3",
     "entity_code": "TRANSIT-BRT",
     "attribute": "planned_total_stations",
     "value": "57",
@@ -5370,6 +5791,20 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-RUNS-ON-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "runs_on",
+    "value": "ROAD-RING-ROAD (حالة الدائري مستقلة عن حالة BRT)",
+    "unit": null,
+    "valid_as_of": "2026-06-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-320"
     ],
     "notes": null
   },
@@ -5755,6 +6190,20 @@
     "notes": null
   },
   {
+    "code": "F-TRANSIT-SUEZ-TRAIN-LENGTH-1",
+    "entity_code": "TRANSIT-SUEZ-TRAIN",
+    "attribute": "length",
+    "value": "117",
+    "unit": "km",
+    "valid_as_of": "2022-03-19",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-315"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-TRANSIT-SUEZ-TRAIN-OPERATIONAL-STATUS-1",
     "entity_code": "TRANSIT-SUEZ-TRAIN",
     "attribute": "operational_status",
@@ -5765,6 +6214,48 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-289"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-SUEZ-TRAIN-OPERATIONAL-STATUS-2",
+    "entity_code": "TRANSIT-SUEZ-TRAIN",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2022-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-314"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-SUEZ-TRAIN-ROUTE-1",
+    "entity_code": "TRANSIT-SUEZ-TRAIN",
+    "attribute": "route",
+    "value": "عدلي منصور → السويس",
+    "unit": null,
+    "valid_as_of": "2022-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-314"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-SUEZ-TRAIN-SERVICE-START-1",
+    "entity_code": "TRANSIT-SUEZ-TRAIN",
+    "attribute": "service_start",
+    "value": "2022-09-26",
+    "unit": null,
+    "valid_as_of": "2022-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-314"
     ],
     "notes": null
   },
@@ -7141,16 +7632,101 @@
     "notes": null
   },
   {
+    "code": "F-STOP-AHMED-OMAR-HASHEM-LOCATION-1",
+    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "attribute": "location",
+    "value": "في نهاية الطريق اللي بيربط القاهرة الجديدة بالدائري الأوسطي",
+    "unit": null,
+    "valid_as_of": "2025-10-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-316"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-AHMED-OMAR-HASHEM-NAMING-DIRECTIVE-1",
+    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "attribute": "naming_directive",
+    "value": "2025-10-08 (توجيه رئاسي)",
+    "unit": null,
+    "valid_as_of": "2025-10-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-316"
+    ],
+    "notes": null
+  },
+  {
     "code": "F-STOP-AHMED-OMAR-HASHEM-OPERATIONAL-STATUS-1",
+    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "attribute": "operational_status",
+    "value": "approved_planned",
+    "unit": null,
+    "valid_as_of": "2025-10-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-316"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-AHMED-OMAR-HASHEM-OPERATIONAL-STATUS-2",
     "entity_code": "STOP-AHMED-OMAR-HASHEM",
     "attribute": "operational_status",
     "value": "under_construction",
     "unit": null,
     "valid_as_of": "2026-09-06",
     "valid_as_of_precision": "day",
-    "verification_state": "candidate",
+    "verification_state": "disputed",
     "evidence_codes": [
       "EV-292"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-AHMED-OMAR-HASHEM-OPERATIONAL-STATUS-3",
+    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "attribute": "operational_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "disputed",
+    "evidence_codes": [
+      "EV-317",
+      "EV-318"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-AHMED-OMAR-HASHEM-PLANNED-INTERCHANGE-1",
+    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "attribute": "planned_interchange",
+    "value": "الخط السادس للمترو (مخطط)",
+    "unit": null,
+    "valid_as_of": "2026-11-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-319"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-AHMED-OMAR-HASHEM-STATION-MODE-1",
+    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "attribute": "station_mode",
+    "value": "محطة قطار كهربائي سريع (الخط الأول السخنة–العلمين–مطروح)، مش محطة مترو",
+    "unit": null,
+    "valid_as_of": "2025-10-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-316"
     ],
     "notes": null
   },
@@ -8010,6 +8586,90 @@
     "verification_state": "candidate",
     "evidence_codes": [
       "EV-000"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-ACUD-PUBLISHED-DAILY-EMPLOYEES-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "acud_published_daily_employees",
+    "value": "48000",
+    "unit": "persons",
+    "valid_as_of": "2024-01-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-322"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-ACUD-PUBLISHED-PHASE1-AREA-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "acud_published_phase1_area",
+    "value": "40000",
+    "unit": "feddan",
+    "valid_as_of": "2024-01-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-321"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-ACUD-PUBLISHED-PHASE1-COMPLETION-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "acud_published_phase1_completion",
+    "value": "70%",
+    "unit": null,
+    "valid_as_of": "2024-07-31",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-323"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-ACUD-PUBLISHED-PHASE1-SPEND-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "acud_published_phase1_spend",
+    "value": "500",
+    "unit": "billion EGP",
+    "valid_as_of": "2024-01-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-321"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-ACUD-PUBLISHED-PHASE2-AREA-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "acud_published_phase2_area",
+    "value": "40000",
+    "unit": "feddan",
+    "valid_as_of": "2024-01-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-321"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-CAPITAL-ACUD-PUBLISHED-PHASE-PROJECTED-RESIDENTS-1",
+    "entity_code": "CITY-NEW-CAPITAL",
+    "attribute": "acud_published_phase_projected_residents",
+    "value": "1.5 مليون لكل مرحلة من الأولى والتانية (تقدير ACUD مش تعداد)",
+    "unit": null,
+    "valid_as_of": "2024-01-01",
+    "valid_as_of_precision": "month",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-321"
     ],
     "notes": null
   },

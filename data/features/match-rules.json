@@ -6,18 +6,329 @@
   },
   "entity_rules": {
     "ROAD-NASR": {
-      "enabled": false,
-      "bbox_wgs84": null,
-      "reason": "Ambiguous OSM name طريق النصر spans multiple distinct roads; owner review required before a boundary can be specified."
+      "bbox_wgs84": [
+        31.27,
+        30.035,
+        31.46,
+        30.14
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary.",
+      "match_aliases": [
+        "طريق النصر",
+        "Al Nasr Road"
+      ]
     },
     "ROAD-RING-ROAD": {
-      "bbox_wgs84": [31.1, 29.9, 31.5, 30.17],
+      "bbox_wgs84": [
+        31.1,
+        29.9,
+        31.5,
+        30.17
+      ],
       "reason": "Disambiguate generic الطريق الدائري / Ring Road labels to Greater Cairo's core ring road; exclude distant ring-road names such as the Benha-area match."
     },
     "ROAD-26-JULY": {
-      "bbox_wgs84": [30.8, 29.85, 31.5, 30.2],
-      "match_aliases": ["شارع 26 يوليو", "26th July Street"],
-      "reason": "Limit generic 26 July Street aliases to Greater Cairo's central/western corridor; similarly named roads recur well outside the entity's area. Aliases remain matcher-only until the research owner mirrors them into the seed."
+      "bbox_wgs84": [
+        30.8,
+        29.85,
+        31.5,
+        30.2
+      ],
+      "match_aliases": [
+        "شارع 26 يوليو",
+        "26th July Street"
+      ],
+      "reason": "Limit generic 26 July Street aliases to Greater Cairo's central/western corridor; similarly named roads recur well outside the entity's area. Aliases remain matcher-only until the research owner mirrors them into the seed.",
+      "allow_bridge_ways": true
+    },
+    "ROAD-HARAM": {
+      "bbox_wgs84": [
+        31.12,
+        29.97,
+        31.23,
+        30.04
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-90-NORTH": {
+      "bbox_wgs84": [
+        31.38,
+        30.015,
+        31.59,
+        30.105
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-90-SOUTH": {
+      "bbox_wgs84": [
+        31.39,
+        29.94,
+        31.55,
+        30.04
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-AUTOSTRAD": {
+      "bbox_wgs84": [
+        31.12,
+        29.62,
+        31.39,
+        30.035
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-CORNICHE": {
+      "bbox_wgs84": [
+        31.05,
+        29.86,
+        31.42,
+        30.22
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-GAMET-EL-DOWAL": {
+      "bbox_wgs84": [
+        31.16,
+        30.02,
+        31.24,
+        30.08
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary.",
+      "search_terms": [
+        "شارع جامعة الدول العربية",
+        "شارع جامعة الدول",
+        "Gamaa Al Doul Al Arabiya Street"
+      ]
+    },
+    "ROAD-MOSHIR-TANTAWY": {
+      "bbox_wgs84": [
+        31.34,
+        30.0,
+        31.45,
+        30.1
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-ADLY-MANSOUR-AXIS": {
+      "bbox_wgs84": [
+        31.36,
+        30.1,
+        31.51,
+        30.19
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-MOSTOROD-AXIS": {
+      "bbox_wgs84": [
+        31.27,
+        30.11,
+        31.37,
+        30.19
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-MOKATTAM-AXIS": {
+      "bbox_wgs84": [
+        31.24,
+        29.97,
+        31.35,
+        30.06
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-WAHAT": {
+      "bbox_wgs84": [
+        30.5,
+        29.7,
+        31.13,
+        30.03
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-CAIRO-FAYOUM": {
+      "bbox_wgs84": [
+        30.8,
+        29.3,
+        31.17,
+        30.04
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-CAIRO-ASSIUT-AGRI": {
+      "bbox_wgs84": [
+        30.5,
+        28.1,
+        31.14,
+        29.9
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary.",
+      "search_terms": [
+        "طريق الصعيد الزراعي",
+        "القاهرة أسيوط الزراعي",
+        "طريق القاهرة أسيوط الزراعي",
+        "Cairo Asyut Agricultural Road",
+        "Upper Egypt Agricultural Road"
+      ]
+    },
+    "ROAD-WESTERN-DESERT": {
+      "bbox_wgs84": [
+        30.5,
+        28.1,
+        31.15,
+        29.9
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-EASTERN-DESERT": {
+      "bbox_wgs84": [
+        31.15,
+        29.2,
+        32.35,
+        30.9
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary.",
+      "search_terms": [
+        "طريق القاهرة السويس الصحراوي",
+        "طريق السويس الصحراوي",
+        "طريق الصعيد الشرقي",
+        "Eastern Desert Highway",
+        "Cairo Eastern Desert Road"
+      ]
+    },
+    "ROAD-MARYUTEYA": {
+      "bbox_wgs84": [
+        31.02,
+        29.95,
+        31.2,
+        30.19
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-DAHSHUR-LINK": {
+      "bbox_wgs84": [
+        30.88,
+        29.86,
+        31.04,
+        30.09
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-BILBEIS-DESERT": {
+      "bbox_wgs84": [
+        31.35,
+        30.1,
+        31.62,
+        30.43
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-BENHA-MANSOURA": {
+      "bbox_wgs84": [
+        31.15,
+        30.43,
+        31.32,
+        30.9
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary.",
+      "match_aliases": [
+        "طريق بنها ميت غمر",
+        "طريق ميت غمر بنها",
+        "طريق المنصورة ميت غمر",
+        "طريق بنها المنصورة",
+        "Banha Mit Ghamr Road",
+        "Al Mansoura Mit Ghamr Road"
+      ],
+      "search_terms": [
+        "طريق بنها ميت غمر",
+        "طريق المنصورة ميت غمر",
+        "طريق بنها المنصورة القديم",
+        "Banha Mit Ghamr Road",
+        "Benha Mansoura Road"
+      ]
+    },
+    "ROAD-ISMAILIA-AGRI": {
+      "bbox_wgs84": [
+        31.25,
+        30.08,
+        32.16,
+        30.62
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "ROAD-REGIONAL-NW-ARC": {
+      "bbox_wgs84": [
+        30.5,
+        29.56,
+        31.25,
+        30.6
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary.",
+      "match_aliases": [
+        "القوس الشمالي الغربي للإقليمي",
+        "القوس الشمالي الغربي للطريق الدائري الإقليمي",
+        "Regional Ring Road North-West Arc"
+      ],
+      "search_terms": [
+        "القوس الشمالي الغربي للإقليمي",
+        "القوس الشمالي الغربي للطريق الدائري الإقليمي",
+        "طريق بنها الإسكندرية الصحراوي",
+        "Regional Ring Road North-West Arc",
+        "Regional Ring Road northwestern arc",
+        "515"
+      ]
+    },
+    "ROAD-REGIONAL-RING": {
+      "bbox_wgs84": [
+        30.5,
+        29.2,
+        32.35,
+        30.9
+      ],
+      "reason": "Tight entity-specific WGS84 guard; road-only study envelope is clipped at its boundary."
+    },
+    "BRIDGE-15-MAY": {
+      "bbox_wgs84": [
+        31.2,
+        30.045,
+        31.25,
+        30.07
+      ],
+      "reason": "Tight Cairo bridge guard distinguishes the named 15 May crossing from same-named features in regional extracts."
+    },
+    "BRIDGE-6-OCTOBER": {
+      "bbox_wgs84": [
+        31.2,
+        30.035,
+        31.26,
+        30.075
+      ],
+      "reason": "Tight Greater Cairo crossing guard for the named 6 October bridge."
+    },
+    "ROAD-CAIRO-SUEZ": {
+      "bbox_wgs84": [
+        31.34,
+        29.95,
+        32.35,
+        30.2
+      ],
+      "exclude_aliases": [
+        "السويس",
+        "جسر السويس",
+        "شارع جسر السويس",
+        "محور جسر السويس"
+      ],
+      "match_aliases": [
+        "طريق القاهرة السويس",
+        "طريق القاهرة, السويس",
+        "Cairo Suez Road"
+      ],
+      "reason": "Tight guard and exclusions distinguish the Cairo–Suez trunk corridor from generic Jisr Suez street and unrelated Suez-labelled local roads."
     }
-  }
+  },
+  "road_bbox_wgs84": [
+    30.5,
+    29.2,
+    32.35,
+    30.9
+  ]
 }
