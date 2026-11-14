@@ -183,6 +183,8 @@ a { color: inherit; }
 .map-loading svg, .map-error svg { width: 13px; height: 13px; flex: none; }
 .map-loading svg { animation: atlas-spin 1.5s linear infinite; }
 .map-error { color: var(--danger); }
+.map-style-error { top: 52px; inset-inline-start: 16px; inset-inline-end: auto; max-width: min(360px, calc(100% - 225px)); }
+.map-style-error button { flex: none; padding: 3px 7px; border: 1px solid var(--border); border-radius: 5px; color: var(--foreground); background: var(--surface-raised); cursor: pointer; font-size: 9px; }
 .map-empty { top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: min(360px, 80%); text-align: center; line-height: 1.6; }
 .map-attribution { position: absolute; bottom: 8px; inset-inline-start: 10px; display: flex; gap: 5px; padding: 4px 7px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface-overlay); color: var(--muted); font: 8px "IBM Plex Mono", monospace; }
 .map-attribution a { text-decoration: none; }
