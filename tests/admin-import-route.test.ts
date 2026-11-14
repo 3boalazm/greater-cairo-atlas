@@ -108,7 +108,7 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
       evidenceCount: 307,
       factsCount: 1301,
       factEvidenceLinksCount: 1411,
-      featuresCount: 3615,
+      featuresCount: 2305,
     });
     expect(payload.report.evidenceMissingUrlCount).toBe(74);
     expect(payload.report.unresolvedOfficialEvidenceCount).toBe(2);

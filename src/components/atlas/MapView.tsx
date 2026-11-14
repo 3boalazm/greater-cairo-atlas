@@ -12,6 +12,10 @@ maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
 export type MapStyleStatus = "loading" | "ready" | "error";
 
 const sourceId = "atlas-features";
+const roadNetworkSourceId = "atlas-road-network";
+const roadNetworkDetailSourceId = "atlas-road-network-detail";
+const roadNetworkLayerId = "atlas-road-network-lines";
+const roadNetworkDetailLayerId = "atlas-road-network-detail-lines";
 const lineLayers = ["atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points"];
 
 function visitPositions(geometry: unknown, visit: (point: [number, number]) => void) {
@@ -31,7 +35,7 @@ function visitPositions(geometry: unknown, visit: (point: [number, number]) => v
   walk(record.coordinates);
 }
 
-export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false }: {
+export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
   onSelect: (entityCode: string) => void;
@@ -40,10 +44,12 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
   language: "ar" | "en";
   fitToFeatures?: boolean;
   compact?: boolean;
+  showRoadNetwork?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const dataRef = useRef<AtlasFeatureCollection>(features);
+  const showRoadNetworkRef = useRef(showRoadNetwork);
   const onSelectRef = useRef(onSelect);
   const onZoomRef = useRef(onZoomChange);
   const onStyleStatusRef = useRef(onStyleStatus);
@@ -75,6 +81,34 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
     map.on("style.load", () => onStyleStatusRef.current("ready"));
     map.on("load", () => {
       map.addSource(sourceId, { type: "geojson", data: dataRef.current as unknown as FeatureCollection });
+      if (!compact) {
+        map.addSource(roadNetworkSourceId, { type: "geojson", data: "/road-network.geojson" });
+        map.addSource(roadNetworkDetailSourceId, { type: "geojson", data: "/road-network-detail.geojson" });
+        map.addLayer({
+          id: roadNetworkLayerId, type: "line", source: roadNetworkSourceId, maxzoom: 11,
+          paint: {
+            "line-color": theme === "day" ? "#60756a" : "#7f9185",
+            "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.35, 9, 0.75, 11, 0.95],
+            "line-opacity": 0.34,
+          },
+          layout: {
+            "line-cap": "round", "line-join": "round",
+            visibility: showRoadNetworkRef.current ? "visible" : "none",
+          },
+        });
+        map.addLayer({
+          id: roadNetworkDetailLayerId, type: "line", source: roadNetworkDetailSourceId, minzoom: 11,
+          paint: {
+            "line-color": theme === "day" ? "#60756a" : "#7f9185",
+            "line-width": ["interpolate", ["linear"], ["zoom"], 11, 0.9, 14, 1.25],
+            "line-opacity": 0.34,
+          },
+          layout: {
+            "line-cap": "round", "line-join": "round",
+            visibility: showRoadNetworkRef.current ? "visible" : "none",
+          },
+        });
+      }
       map.addLayer({
         id: "atlas-roads-casing", type: "line", source: sourceId,
         filter: ["==", ["get", "type"], "road"],
@@ -152,6 +186,16 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
     const source = mapRef.current?.getSource(sourceId) as GeoJSONSource | undefined;
     source?.setData(features as unknown as FeatureCollection);
   }, [features]);
+
+  useEffect(() => {
+    showRoadNetworkRef.current = showRoadNetwork;
+    const map = mapRef.current;
+    for (const layerId of [roadNetworkLayerId, roadNetworkDetailLayerId]) {
+      if (map?.getLayer(layerId)) {
+        map.setLayoutProperty(layerId, "visibility", showRoadNetwork ? "visible" : "none");
+      }
+    }
+  }, [showRoadNetwork]);
 
   return <div className="map-canvas" ref={containerRef} tabIndex={0} role="application" aria-label={language === "ar" ? "خريطة تفاعلية للقاهرة الكبرى" : "Interactive Greater Cairo map"} />;
 }
