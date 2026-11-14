@@ -23,6 +23,14 @@ export const ROAD_GEOMETRY_BBOX = {
   north: 30.9,
 } as const;
 
+/** Narrow westward exception for the explicitly scoped Regional Ring patch. */
+export const REGIONAL_RING_ROAD_GEOMETRY_BBOX = {
+  west: 30.25,
+  south: 29.2,
+  east: 32.35,
+  north: 30.9,
+} as const;
+
 function positions(geometry: unknown): number[][] {
   if (!geometry || typeof geometry !== "object") return [];
   const record = geometry as Record<string, unknown>;
@@ -93,9 +101,11 @@ function hasValidPolygonRings(geometry: unknown): boolean {
   return true;
 }
 
+type Wgs84Bounds = { west: number; south: number; east: number; north: number };
+
 export function isGeometryInsideGreaterCairoBbox(
   geometry: unknown,
-  bbox: typeof GREATER_CAIRO_BBOX | typeof ROAD_GEOMETRY_BBOX = GREATER_CAIRO_BBOX,
+  bbox: Wgs84Bounds = GREATER_CAIRO_BBOX,
 ): boolean {
   const points = positions(geometry);
   return points.length > 0 && points.every(([longitude, latitude]) =>
@@ -184,7 +194,9 @@ export async function loadAndValidateFeatureCollection(
       issues.push({ path: `${label}.geometry`, message: "Polygon rings must be closed, non-degenerate, and non-self-intersecting." });
       continue;
     }
-    const bbox = entity.entity_type === "road" ? ROAD_GEOMETRY_BBOX : GREATER_CAIRO_BBOX;
+    const bbox = entity.entity_type === "road"
+      ? item.entity_code === "ROAD-REGIONAL-RING" ? REGIONAL_RING_ROAD_GEOMETRY_BBOX : ROAD_GEOMETRY_BBOX
+      : GREATER_CAIRO_BBOX;
     if (!isGeometryInsideGreaterCairoBbox(item.geometry, bbox)) {
       issues.push({ path: `${label}.geometry`, message: `Geometry must lie wholly within ${entity?.entity_type === "road" ? "road-only" : "Greater Cairo"} WGS84 bbox ${JSON.stringify(bbox)}.` });
       continue;
