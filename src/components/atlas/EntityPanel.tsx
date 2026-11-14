@@ -4,6 +4,7 @@ import Link from "next/link";
 import { MapPinOff, MapPinned, X } from "lucide-react";
 import { useEffect, useMemo, useRef } from "react";
 import type { AtlasEntityDetail, AtlasEntityFact, AtlasLanguage } from "./atlas-client";
+import { transitModeLabel } from "@/lib/atlas/transit-modes";
 
 const stateLabel: Record<string, { ar: string; en: string }> = {
   candidate: { ar: "مرشح", en: "Candidate" }, single_source: { ar: "مصدر واحد", en: "Single source" },
@@ -88,7 +89,7 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
         <button ref={closeRef} className="close-panel" type="button" onClick={onClose} aria-label={ar ? "إغلاق" : "Close"}><X aria-hidden="true" /></button>
         {entity ? <><h2 id="entity-panel-title">{ar ? entity.name_ar : entity.name_en}</h2><p className="entity-subtitle">{ar ? entity.name_en : entity.name_ar} <span>·</span> {entity.code}</p>
           <div className="entity-badges"><span className={`status-pill status-${entity.status}`}>{statusLabel[entity.status]?.[language] ?? entity.status}</span>
-
+            {transitModeLabel(entity.code, language) && <span className="transit-mode-pill">{transitModeLabel(entity.code, language)}</span>}
           </div></> : <h2 id="entity-panel-title">{loading ? (ar ? "جارٍ تحميل الكيان…" : "Loading entity…") : (ar ? "تعذر تحميل الكيان" : "Unable to load entity")}</h2>}
       </header>
       <div className="entity-panel-content">

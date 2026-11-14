@@ -178,6 +178,24 @@ a { color: inherit; }
 .map-feature-count { padding: 4px 7px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface-overlay); color: var(--muted); font: 9px var(--font-ibm-plex-mono), monospace; }
 .road-network-toggle { min-height: 28px; display: flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-overlay); color: var(--muted); font-size: 10px; backdrop-filter: blur(8px); cursor: pointer; }
 .road-network-toggle input { width: 12px; height: 12px; margin: 0; accent-color: var(--accent); }
+.transit-mode-details { position: relative; z-index: 5; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-overlay); color: var(--foreground); font-size: 10px; backdrop-filter: blur(10px); }
+.transit-mode-details>summary { padding: 6px 9px; color: var(--muted); cursor: pointer; font-weight: 650; list-style-position: inside; }
+.transit-mode-filter { position: absolute; top: calc(100% + 4px); inset-inline-start: 0; z-index: 5; display: grid; gap: 5px; min-width: 230px; max-height: min(350px, 55vh); overflow: auto; margin: 0; padding: 7px 10px 9px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-overlay); box-shadow: 0 8px 24px #0004; backdrop-filter: blur(12px); }
+.transit-mode-filter>legend { padding: 0 4px; color: var(--muted); font-size: 9px; }
+.transit-mode-options { display: grid; gap: 2px; }
+.transit-mode-option { display: flex; align-items: center; gap: 7px; min-height: 23px; cursor: pointer; }
+.transit-mode-option input { width: 12px; height: 12px; margin: 0; accent-color: var(--accent); }
+.transit-mode-option>span { line-height: 1.3; }
+.transit-interchange-option { border-top: 1px solid var(--border); margin-top: 3px; padding-top: 4px; }
+.transit-shape { position: relative; display: inline-block; flex: 0 0 12px; width: 12px; height: 12px; background: var(--transit-mode-color, #925c2c); border: 1px solid color-mix(in srgb, var(--foreground) 60%, transparent); }
+.transit-shape-circle { border-radius: 50%; }
+.transit-shape-square { border-radius: 2px; }
+.transit-shape-diamond { width: 10px; height: 10px; margin-inline: 1px; transform: rotate(45deg) scale(.86); }
+.transit-shape-triangle { width: 0; height: 0; flex-basis: 0; background: transparent; border: 6px solid transparent; border-bottom: 11px solid var(--transit-mode-color, #2477a8); border-top: 0; }
+.transit-shape-hexagon { clip-path: polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%); }
+.transit-shape-cross { background: var(--transit-mode-color, #925c2c); clip-path: polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%); }
+.transit-interchange-symbol { display: inline-block; flex: 0 0 11px; width: 11px; height: 11px; border: 2px solid var(--foreground); border-radius: 50%; outline: 1px solid var(--muted); outline-offset: 1px; }
+.transit-mode-pill { display: inline-flex; align-items: center; width: fit-content; margin-inline-start: 5px; padding: 3px 8px; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border)); border-radius: 999px; background: color-mix(in srgb, var(--accent) 10%, var(--surface)); color: var(--foreground); font-size: 11px; font-weight: 700; }
 .entity-map-placeholder { width: 100%; height: 100%; background: linear-gradient(115deg, rgba(46,61,55,.8), rgba(83,102,91,.38), rgba(46,61,55,.8)); }
 .map-legend { position: absolute; inset-inline-end: 14px; bottom: 49px; z-index: 2; width: 176px; max-height: min(310px, calc(100% - 190px)); overflow: auto; padding: 11px 12px 9px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-overlay); box-shadow: 0 5px 18px #0002; backdrop-filter: blur(12px); scrollbar-width: thin; }
 .map-legend>strong { display: block; margin-bottom: 7px; font-size: 10px; }

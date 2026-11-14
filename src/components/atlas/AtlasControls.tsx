@@ -1,7 +1,9 @@
 "use client";
 
 import { SlidersHorizontal } from "lucide-react";
+import type { CSSProperties } from "react";
 import type { AtlasLanguage } from "./atlas-client";
+import { TRANSIT_MODE_LABELS, TRANSIT_MODE_ORDER, TRANSIT_LINE_COLORS } from "@/lib/atlas/transit-modes";
 
 export interface AtlasFilters {
   type: string;
@@ -74,6 +76,10 @@ export function Legend({ language, boundaryActive = false, boundaryLabel }: { la
     <strong className="legend-type-heading">{ar ? "نوع الهندسة" : "Geometry type"}</strong>
     <div className="legend-row"><i className="legend-line type-road" />{ar ? "الطرق" : "Roads"}</div>
     <div className="legend-row"><i className="legend-line type-transit" />{ar ? "خطوط النقل" : "Transit lines"}</div>
+    <strong className="legend-type-heading">{ar ? "النقل حسب الوسيلة" : "Transit modes"}</strong>
+    {(["TRANSIT-METRO-L1", "TRANSIT-METRO-L2", "TRANSIT-METRO-L3", "TRANSIT-METRO-L4"] as const).map((code, index) => <div className="legend-row transit-legend-row" key={code}><i className={`legend-line ${index === 3 ? "dot" : "solid"}`} style={{ borderColor: TRANSIT_LINE_COLORS[code] }} /><span>{ar ? `مترو · خط ${index + 1}${index === 3 ? " (إنشاء)" : ""}` : `Metro · Line ${index + 1}${index === 3 ? " (construction)" : ""}`}</span></div>)}
+    {TRANSIT_MODE_ORDER.filter((mode) => mode !== "metro" && mode !== "metro_l4").map((mode) => <div className="legend-row transit-legend-row" key={mode}><i className={`transit-shape transit-shape-${TRANSIT_MODE_LABELS[mode].shape}`} style={{ "--transit-mode-color": TRANSIT_MODE_LABELS[mode].color } as CSSProperties} /><span>{TRANSIT_MODE_LABELS[mode][language]}</span></div>)}
+    <div className="legend-row transit-legend-row"><i className="transit-interchange-symbol" />{ar ? "محطة تبادلية" : "Interchange station"}</div>
     {boundaryActive && <div className="legend-row"><i className="legend-boundary" />{boundaryLabel || (ar ? "حدود إدارية من OSM" : "OSM area boundary")}</div>}
     <small>{ar ? "الخطوط والحدود من هندسة موثقة فقط." : "Lines and boundaries are source geometries only."}</small>
   </aside>;

@@ -2,6 +2,7 @@ import { z } from "zod";
 import { getSql } from "@/lib/db/client";
 import { RequestValidationError } from "@/lib/errors";
 import { ENTITY_SECTORS, ENTITY_STATUSES, ENTITY_TYPES } from "@/lib/atlas/schema";
+import { isTransitInterchangeEntityCode, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
 
 const featureQuerySchema = z.strictObject({
   type: z.enum(ENTITY_TYPES).optional(),
@@ -55,6 +56,8 @@ export interface AtlasFeatureCollection {
       source: string;
       retrieval_date: string;
       source_ids: unknown;
+      modes: string[];
+      interchange: boolean;
     };
   }>;
 }
@@ -143,6 +146,8 @@ export async function getAtlasFeatures(
         source: row.source,
         retrieval_date: row.retrieval_date,
         source_ids: row.source_ids,
+        modes: transitModesForEntityCode(row.entity_code),
+        interchange: isTransitInterchangeEntityCode(row.entity_code),
       },
     })),
   };
