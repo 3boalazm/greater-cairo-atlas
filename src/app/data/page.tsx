@@ -1,14 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiteFooter, SiteHeader, resolveLanguage } from "@/components/site/SiteChrome";
+import { getSiteUrl, SiteFooter, SiteHeader, resolveLanguage } from "@/components/site/SiteChrome";
 import { getExportMetadata } from "@/lib/atlas/static-dataset";
 
-export const metadata: Metadata = { title: "Data exports | Greater Cairo Atlas", description: "Download the Greater Cairo Atlas data as CSV, JSON, and GeoJSON, with provenance, version, and licensing notes." };
+export async function generateMetadata(): Promise<Metadata> {
+  const canonical = `${getSiteUrl()}/data`;
+  return {
+    title: "Data exports",
+    description: "Download the Greater Cairo Atlas data as CSV, JSON, and GeoJSON, with provenance, version, and licensing notes.",
+    alternates: { canonical, languages: { ar: canonical, en: `${canonical}?lang=en` } },
+  };
+}
 
 export default async function DataPage({ searchParams }: { searchParams: Promise<{ lang?: string | string[] }> }) {
   const language=resolveLanguage((await searchParams).lang);
   const ar=language==="ar";
   const metadata=await getExportMetadata();
+  const datasetJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "Greater Cairo Atlas",
+    alternateName: "أطلس القاهرة الكبرى",
+    description: "A documented, source-backed geospatial atlas of Greater Cairo, Egypt, with entity, evidence, fact, and geometry downloads.",
+    url: `${getSiteUrl()}/data`,
+    creator: { "@type": "Person", name: "Mustafa Aboalazm", alternateName: "مصطفى أبوالعزم" },
+    license: ["https://creativecommons.org/licenses/by/4.0/", "https://opendatacommons.org/licenses/odbl/1-0/"],
+    dateModified: metadata.generated_at,
+    version: metadata.dataset_version,
+    distribution: [
+      { "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: `${getSiteUrl()}/api/exports/csv?table=entities` },
+      { "@type": "DataDownload", encodingFormat: "application/json", contentUrl: `${getSiteUrl()}/api/exports/json` },
+      { "@type": "DataDownload", encodingFormat: "application/geo+json", contentUrl: `${getSiteUrl()}/api/exports/geojson` },
+    ],
+  };
   const links=[
     {name:ar?"الكيانات · CSV":"Entities · CSV",url:"/api/exports/csv?table=entities",count:metadata.counts.entities},
     {name:ar?"الحقائق · CSV":"Facts · CSV",url:"/api/exports/csv?table=facts",count:metadata.counts.facts},
@@ -20,6 +44,7 @@ export default async function DataPage({ searchParams }: { searchParams: Promise
   return <div className="site-layout" lang={language} dir={ar?"rtl":"ltr"}>
     <SiteHeader language={language}/>
     <main className="site-content" id="main-content">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd).replace(/</g, "\\u003c") }} />
       <p className="site-eyebrow">{ar?"واجهة البيانات المفتوحة":"OPEN DATA"}</p>
       <h1>{ar?"تنزيل بيانات الأطلس":"Download atlas data"}</h1>
       <p className="site-lede">{ar?"نسخ قابلة للتنزيل من السجل المعتمد. تحفظ صيغ JSON وGeoJSON رموز الكيانات والمصادر؛ وتبقى الأدلة المتعارضة منفصلة.":"Downloadable snapshots of the canonical atlas. JSON and GeoJSON preserve entity identifiers and source lineage; conflicting evidence remains separate."}</p>

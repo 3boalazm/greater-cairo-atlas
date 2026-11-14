@@ -9,9 +9,11 @@ from collections import defaultdict
 from typing import Any
 
 ROAD_HIGHWAYS = {
-    "motorway", "trunk", "primary",
-    "motorway_link", "trunk_link", "primary_link",
+    "motorway", "trunk", "primary", "secondary",
+    "motorway_link", "trunk_link", "primary_link", "secondary_link",
 }
+LINK_HIGHWAYS = {highway for highway in ROAD_HIGHWAYS if highway.endswith("_link")}
+TOPOLOGY_GAP_THRESHOLD_KM = 0.025
 
 
 def normalize(value: str | None) -> str:
@@ -90,12 +92,15 @@ def filter_graph_for_entity(
     entity_names: set[str],
     entity_refs: set[str],
     relation_member_way_ids: set[int] | None = None,
+    allow_interchange_links: bool = False,
 ) -> dict[int, list[tuple[int, int, float]]]:
-    """Filter the network per entity, with explicit route-relation membership as an allowlist."""
+    """Filter per entity; optional real OSM *_link ways can connect that entity's components."""
     relation_member_way_ids = relation_member_way_ids or set()
     allowed_ids = {
         way_id for way_id, way in ways.items()
-        if way_id in relation_member_way_ids or allowed_for_entity(way.get("tags", {}), entity_names, entity_refs)
+        if way_id in relation_member_way_ids
+        or allowed_for_entity(way.get("tags", {}), entity_names, entity_refs)
+        or (allow_interchange_links and way.get("tags", {}).get("highway") in LINK_HIGHWAYS)
     }
     return {
         node: [edge for edge in edges if edge[1] in allowed_ids]
@@ -135,6 +140,16 @@ def _components(seed_way_ids: set[int], ways: dict[int, dict[str, Any]]) -> list
 
 def _component_nodes(component: set[int], ways: dict[int, dict[str, Any]]) -> set[int]:
     return {node for way_id in component for node in ways[way_id]["nodes"]}
+
+
+def _component_endpoints(component: set[int], ways: dict[int, dict[str, Any]]) -> set[int]:
+    """Return matched-way endpoints only; internal vertices are not gap endpoints."""
+    endpoints: set[int] = set()
+    for way_id in component:
+        nodes = ways[way_id]["nodes"]
+        if nodes:
+            endpoints.update((nodes[0], nodes[-1]))
+    return endpoints
 
 
 def _node_coordinate(node_id: int, ways: dict[int, dict[str, Any]]) -> list[float] | None:
@@ -187,6 +202,7 @@ def connect_seed_components(
     ways: dict[int, dict[str, Any]],
     adjacency: dict[int, list[tuple[int, int, float]]],
     max_km: float,
+    topology_gap_threshold_km: float = TOPOLOGY_GAP_THRESHOLD_KM,
 ) -> dict[str, Any]:
     """Connect source way components by shortest eligible OSM paths, never by synthetic edges."""
     components = _components(seed_way_ids, ways)
@@ -203,13 +219,23 @@ def connect_seed_components(
         while len(components) > 1:
             best: tuple[float, int, int, list[int], int, int] | None = None
             component_node_sets = [_component_nodes(component, ways) for component in components]
+            component_endpoint_sets = [_component_endpoints(component, ways) for component in components]
             for source_index, source_nodes in enumerate(component_node_sets):
-                targets = {
-                    node: index
-                    for index, node_set in enumerate(component_node_sets)
-                    if index != source_index
-                    for node in node_set
-                }
+                targets: dict[int, int] = {}
+                for index, node_set in enumerate(component_node_sets):
+                    if index == source_index:
+                        continue
+                    endpoint_distance = min((
+                        haversine_km(node_coordinates[left], node_coordinates[right])
+                        for left in component_endpoint_sets[source_index]
+                        for right in component_endpoint_sets[index]
+                        if left in node_coordinates and right in node_coordinates
+                    ), default=float("inf"))
+                    # A tiny endpoint mismatch is topology-only. Do not bridge it with a
+                    # nearby real way; preserve the disconnected OSM node IDs for review.
+                    if endpoint_distance <= topology_gap_threshold_km:
+                        continue
+                    targets.update((node, index) for node in node_set)
                 if not source_nodes or not targets:
                     continue
                 result = _shortest_path(adjacency, source_nodes, targets, max_km)
@@ -235,22 +261,26 @@ def connect_seed_components(
                 "path_length_km": round(distance, 3),
                 "way_ids": sorted(set(path_way_ids)),
                 "filled_way_ids": added_ids,
+                "interchange_link_way_ids": sorted(
+                    way_id for way_id in set(path_way_ids)
+                    if ways.get(way_id, {}).get("tags", {}).get("highway") in LINK_HIGHWAYS
+                ),
                 "method": "gap_fill_graph",
             })
             components = _components(selected_seed, ways)
 
     unresolved: list[dict[str, Any]] = []
     if len(components) > 1:
-        component_node_sets = [_component_nodes(component, ways) for component in components]
+        component_endpoint_sets = [_component_endpoints(component, ways) for component in components]
         pair_nearest: dict[tuple[int, int], tuple[float, int, int]] = {}
-        for left_index, left_nodes in enumerate(component_node_sets):
+        for left_index, left_nodes in enumerate(component_endpoint_sets):
             for right_index in range(left_index + 1, len(component_node_sets)):
                 nearest: tuple[float, int, int] | None = None
                 for left in sorted(left_nodes):
                     left_coord = node_coordinates.get(left)
                     if left_coord is None:
                         continue
-                    for right in sorted(component_node_sets[right_index]):
+                    for right in sorted(component_endpoint_sets[right_index]):
                         right_coord = node_coordinates.get(right)
                         if right_coord is None:
                             continue
@@ -274,15 +304,17 @@ def connect_seed_components(
                 break
             distance, left_index, right_index, left, right = best
             connected_components.update((left_index, right_index))
+            gap_type = "osm_topology_gap" if distance <= topology_gap_threshold_km else "network_gap"
             unresolved.append({
                 "entity_code": entity_code,
+                "gap_type": gap_type,
                 "component_a": left_index,
                 "component_b": right_index,
                 "endpoint_a": {"node_id": left, "coordinates": node_coordinates.get(left)},
                 "endpoint_b": {"node_id": right, "coordinates": node_coordinates.get(right)},
                 "straight_line_km": round(distance, 3),
                 "max_graph_path_km": max_km,
-                "reason": "no eligible real-way graph path within configured maximum distance",
+                "reason": "osm_topology_gap" if gap_type == "osm_topology_gap" else "no eligible real-way graph path within configured maximum distance",
             })
 
     return {

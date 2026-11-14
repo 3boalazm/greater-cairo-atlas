@@ -1,13 +1,23 @@
 {
-  "version": 2,
+  "version": 3,
   "road_gap_fill": {
-    "max_path_km": 3.0
+    "max_path_km": 3.0,
+    "topology_gap_threshold_m": 25
   },
   "entity_rules": {
     "ROAD-NASR": {
       "enabled": false,
       "bbox_wgs84": null,
       "reason": "Ambiguous OSM name طريق النصر spans multiple distinct roads; owner review required before a boundary can be specified."
+    },
+    "ROAD-RING-ROAD": {
+      "bbox_wgs84": [31.1, 29.9, 31.5, 30.17],
+      "reason": "Disambiguate generic الطريق الدائري / Ring Road labels to Greater Cairo's core ring road; exclude distant ring-road names such as the Benha-area match."
+    },
+    "ROAD-26-JULY": {
+      "bbox_wgs84": [30.8, 29.85, 31.5, 30.2],
+      "match_aliases": ["شارع 26 يوليو", "26th July Street"],
+      "reason": "Limit generic 26 July Street aliases to Greater Cairo's central/western corridor; similarly named roads recur well outside the entity's area. Aliases remain matcher-only until the research owner mirrors them into the seed."
     }
   }
 }

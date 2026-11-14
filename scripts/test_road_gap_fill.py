@@ -85,6 +85,38 @@ class RoadGapFillTests(unittest.TestCase):
         )
         self.assertEqual(result["filled_way_ids"], [103])
 
+    def test_secondary_link_can_connect_same_entity_components_when_enabled(self):
+        self.elements[2]["tags"].update({"highway": "secondary_link", "name": "Interchange ramp"})
+        self.ways, self.adjacency = build_road_graph(self.elements)
+        graph = filter_graph_for_entity(
+            self.ways, self.adjacency, {normalize("Ring Road")}, {normalize("R1")},
+            allow_interchange_links=True,
+        )
+        result = connect_seed_components(
+            entity_code="ROAD-RING-ROAD", seed_way_ids={101, 102}, ways=self.ways,
+            adjacency=graph, max_km=3.0,
+        )
+        self.assertEqual(result["filled_way_ids"], [103])
+        self.assertEqual(result["paths"][0]["interchange_link_way_ids"], [103])
+
+    def test_secondary_way_is_supported_and_short_disconnected_endpoints_are_topology_gaps(self):
+        self.elements = [
+            way(201, [11, 12], [31.0000, 31.0010], {"name": "July Street", "highway": "secondary"}),
+            way(202, [13, 14], [31.0011, 31.0020], {"name": "July Street", "highway": "secondary"}),
+            way(203, [12, 13], [31.0010, 31.0011], {"highway": "secondary"}),
+        ]
+        self.ways, self.adjacency = build_road_graph(self.elements)
+        graph = filter_graph_for_entity(
+            self.ways, self.adjacency, {normalize("July Street")}, set()
+        )
+        result = connect_seed_components(
+            entity_code="ROAD-26-JULY", seed_way_ids={201, 202}, ways=self.ways,
+            adjacency=graph, max_km=3.0,
+        )
+        self.assertEqual(result["gaps_after"], 1)
+        self.assertEqual(result["unresolved_gaps"][0]["gap_type"], "osm_topology_gap")
+        self.assertEqual(result["unresolved_gaps"][0]["reason"], "osm_topology_gap")
+
 
 if __name__ == "__main__":
     unittest.main()

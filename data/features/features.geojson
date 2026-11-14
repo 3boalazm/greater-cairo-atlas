@@ -23247,127 +23247,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-1018529477",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0667974,
-            29.9590554
-          ],
-          [
-            31.0668361,
-            29.9588855
-          ],
-          [
-            31.0668669,
-            29.9587736
-          ],
-          [
-            31.0668904,
-            29.9587179
-          ],
-          [
-            31.0669246,
-            29.9586665
-          ],
-          [
-            31.0669686,
-            29.958621
-          ],
-          [
-            31.0670331,
-            29.9585782
-          ],
-          [
-            31.0671003,
-            29.9585519
-          ],
-          [
-            31.0671753,
-            29.9585471
-          ],
-          [
-            31.0672482,
-            29.9585523
-          ],
-          [
-            31.0677642,
-            29.9586325
-          ],
-          [
-            31.0680634,
-            29.958679
-          ],
-          [
-            31.0681036,
-            29.9586905
-          ],
-          [
-            31.0681403,
-            29.9587089
-          ],
-          [
-            31.0681719,
-            29.9587334
-          ],
-          [
-            31.068197,
-            29.9587629
-          ],
-          [
-            31.0682147,
-            29.9587963
-          ],
-          [
-            31.0682241,
-            29.9588321
-          ],
-          [
-            31.0682249,
-            29.9588688
-          ],
-          [
-            31.068217,
-            29.9589049
-          ],
-          [
-            31.0681546,
-            29.9592818
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1018529477",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1018529477,
-        "osm_version": 3,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1018529477,
-            "osm_version": 3
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.236
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-1028986475",
       "geometry": {
         "type": "LineString",
@@ -31746,6 +31625,139 @@
     },
     {
       "type": "Feature",
+      "id": "OSM-WAY-11138519",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2466166,
+            30.05244
+          ],
+          [
+            31.2460179,
+            30.0524675
+          ],
+          [
+            31.2456542,
+            30.0524843
+          ],
+          [
+            31.2454037,
+            30.0524958
+          ],
+          [
+            31.2448531,
+            30.0525211
+          ],
+          [
+            31.2447503,
+            30.0525258
+          ],
+          [
+            31.2443083,
+            30.0525462
+          ],
+          [
+            31.2436194,
+            30.0525779
+          ],
+          [
+            31.2435564,
+            30.0525808
+          ],
+          [
+            31.2431556,
+            30.0525992
+          ],
+          [
+            31.2430592,
+            30.0526036
+          ],
+          [
+            31.2424778,
+            30.0526304
+          ],
+          [
+            31.2418878,
+            30.0526449
+          ],
+          [
+            31.2417162,
+            30.0526491
+          ],
+          [
+            31.2416091,
+            30.0526508
+          ],
+          [
+            31.2415025,
+            30.0526599
+          ],
+          [
+            31.241397,
+            30.0526763
+          ],
+          [
+            31.2412934,
+            30.0526999
+          ],
+          [
+            31.2409627,
+            30.0528017
+          ],
+          [
+            31.2404597,
+            30.0529564
+          ],
+          [
+            31.2403367,
+            30.0529948
+          ],
+          [
+            31.2396014,
+            30.0532244
+          ],
+          [
+            31.2388378,
+            30.0535014
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-11138519",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 11138519,
+        "osm_version": 47,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 11138519,
+            "osm_version": 47
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "secondary",
+            "lit": "yes",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "name:fr": "26 Juillet",
+            "oneway": "yes"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-WAY-1115552472",
       "geometry": {
         "type": "LineString",
@@ -40012,6 +40024,277 @@
     },
     {
       "type": "Feature",
+      "id": "OSM-WAY-1149622323",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.207654,
+            30.0615985
+          ],
+          [
+            31.2076223,
+            30.0613977
+          ],
+          [
+            31.2076025,
+            30.0613195
+          ],
+          [
+            31.2075716,
+            30.0612432
+          ],
+          [
+            31.2075112,
+            30.0611667
+          ],
+          [
+            31.2074617,
+            30.0611291
+          ],
+          [
+            31.2073818,
+            30.0611023
+          ],
+          [
+            31.2072676,
+            30.0610856
+          ],
+          [
+            31.2061405,
+            30.0609971
+          ],
+          [
+            31.2054069,
+            30.0609526
+          ],
+          [
+            31.2053297,
+            30.0609468
+          ],
+          [
+            31.2045453,
+            30.0609177
+          ],
+          [
+            31.2037653,
+            30.0608705
+          ],
+          [
+            31.2036287,
+            30.0608613
+          ],
+          [
+            31.2018386,
+            30.0607239
+          ],
+          [
+            31.2014202,
+            30.0606937
+          ],
+          [
+            31.2009093,
+            30.0606583
+          ],
+          [
+            31.2005072,
+            30.0606309
+          ],
+          [
+            31.2000133,
+            30.0606028
+          ],
+          [
+            31.1994176,
+            30.060565
+          ],
+          [
+            31.1990347,
+            30.0605407
+          ],
+          [
+            31.1988653,
+            30.06053
+          ],
+          [
+            31.1983875,
+            30.0604997
+          ],
+          [
+            31.1980593,
+            30.0604789
+          ],
+          [
+            31.1973867,
+            30.0604204
+          ],
+          [
+            31.1968077,
+            30.0603438
+          ],
+          [
+            31.1964279,
+            30.0602754
+          ],
+          [
+            31.1960817,
+            30.0602049
+          ],
+          [
+            31.1957622,
+            30.0601556
+          ],
+          [
+            31.1955902,
+            30.0601336
+          ],
+          [
+            31.1953909,
+            30.0601207
+          ],
+          [
+            31.1951404,
+            30.0601044
+          ],
+          [
+            31.1947821,
+            30.0600812
+          ],
+          [
+            31.1940317,
+            30.0599825
+          ],
+          [
+            31.1937633,
+            30.0599483
+          ],
+          [
+            31.1935879,
+            30.059935
+          ],
+          [
+            31.1934613,
+            30.0599373
+          ],
+          [
+            31.1933404,
+            30.059959
+          ],
+          [
+            31.1932748,
+            30.0599953
+          ],
+          [
+            31.1932035,
+            30.060053
+          ],
+          [
+            31.193167,
+            30.0600814
+          ],
+          [
+            31.1931255,
+            30.0601039
+          ],
+          [
+            31.19308,
+            30.0601199
+          ],
+          [
+            31.1930261,
+            30.0601294
+          ],
+          [
+            31.1929711,
+            30.0601297
+          ],
+          [
+            31.192917,
+            30.0601208
+          ],
+          [
+            31.1928419,
+            30.0601029
+          ],
+          [
+            31.1927803,
+            30.0600569
+          ],
+          [
+            31.1927394,
+            30.0600149
+          ],
+          [
+            31.1926594,
+            30.0599207
+          ],
+          [
+            31.1926173,
+            30.0598638
+          ],
+          [
+            31.1925069,
+            30.0598576
+          ],
+          [
+            31.1923963,
+            30.0598467
+          ],
+          [
+            31.1922558,
+            30.0598313
+          ],
+          [
+            31.1921248,
+            30.0598202
+          ],
+          [
+            31.1918301,
+            30.0597797
+          ],
+          [
+            31.1900506,
+            30.0594842
+          ],
+          [
+            31.1899418,
+            30.0594686
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1149622323",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1149622323,
+        "osm_version": 5,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1149622323,
+            "osm_version": 5
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "secondary",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "oneway": "yes"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-WAY-1149636062",
       "geometry": {
         "type": "LineString",
@@ -43201,54 +43484,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-1169654701",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.5883531,
-            30.0940398
-          ],
-          [
-            31.5881617,
-            30.094015
-          ],
-          [
-            31.5879438,
-            30.0939867
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1169654701",
-        "entity_code": "ROAD-MIDDLE-RING",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1169654701,
-        "osm_version": 1,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1169654701,
-            "osm_version": 1
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway_link"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.021
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-1171211939",
       "geometry": {
         "type": "LineString",
@@ -45964,6 +46199,98 @@
           },
           "match_method": "exact_name",
           "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1193473909",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2091191,
+            30.061142
+          ],
+          [
+            31.2091967,
+            30.0611249
+          ],
+          [
+            31.2092756,
+            30.061113
+          ],
+          [
+            31.2093553,
+            30.0611063
+          ],
+          [
+            31.2094497,
+            30.0611051
+          ],
+          [
+            31.2095438,
+            30.0611113
+          ],
+          [
+            31.2096369,
+            30.0611248
+          ],
+          [
+            31.2106227,
+            30.0613242
+          ],
+          [
+            31.2107339,
+            30.0613428
+          ],
+          [
+            31.2108466,
+            30.0613523
+          ],
+          [
+            31.2109386,
+            30.0613533
+          ],
+          [
+            31.2110304,
+            30.0613482
+          ],
+          [
+            31.2111798,
+            30.0613035
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1193473909",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1193473909,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1193473909,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway_link",
+            "layer": "1",
+            "oneway": "yes"
+          },
+          "match_method": "gap_fill_graph",
+          "road_geometry_match": "shortest eligible shared-node OSM path",
+          "graph_path_length_km": 0.203
         }
       }
     },
@@ -56069,6 +56396,189 @@
             "oneway": "yes",
             "surface": "asphalt"
           }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1315992579",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2357904,
+            30.0545663
+          ],
+          [
+            31.2362819,
+            30.0543953
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1315992579",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1315992579,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1315992579,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "name:fr": "26 Juillet",
+            "oneway": "yes"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1315992580",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2364508,
+            30.0544352
+          ],
+          [
+            31.2362571,
+            30.0545004
+          ],
+          [
+            31.2359733,
+            30.0545962
+          ],
+          [
+            31.2357911,
+            30.0546613
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1315992580",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1315992580,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1315992580,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "name:fr": "26 Juillet",
+            "oneway": "yes"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1315992581",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2362819,
+            30.0543953
+          ],
+          [
+            31.2364813,
+            30.0543154
+          ],
+          [
+            31.2367642,
+            30.0542034
+          ],
+          [
+            31.2369871,
+            30.0541188
+          ],
+          [
+            31.2374347,
+            30.0539446
+          ],
+          [
+            31.2374894,
+            30.053922
+          ],
+          [
+            31.2375325,
+            30.0538852
+          ],
+          [
+            31.2375593,
+            30.0538381
+          ],
+          [
+            31.2375668,
+            30.0537861
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1315992581",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1315992581,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1315992581,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "name:fr": "26 Juillet",
+            "oneway": "yes"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
         }
       }
     },
@@ -66903,510 +67413,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-1351149029",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0762613,
-            29.973983
-          ],
-          [
-            31.0776414,
-            29.9766274
-          ],
-          [
-            31.0785314,
-            29.9783561
-          ],
-          [
-            31.0802261,
-            29.9816212
-          ],
-          [
-            31.0814857,
-            29.9840114
-          ],
-          [
-            31.0820017,
-            29.9849905
-          ],
-          [
-            31.0829132,
-            29.9867345
-          ],
-          [
-            31.0833236,
-            29.9874757
-          ],
-          [
-            31.0848109,
-            29.9902855
-          ],
-          [
-            31.0853782,
-            29.9913901
-          ],
-          [
-            31.0856867,
-            29.9919651
-          ],
-          [
-            31.0860005,
-            29.9925493
-          ],
-          [
-            31.0874215,
-            29.9952691
-          ],
-          [
-            31.0876519,
-            29.9957164
-          ],
-          [
-            31.087793,
-            29.9959798
-          ],
-          [
-            31.0879277,
-            29.9962023
-          ],
-          [
-            31.0881035,
-            29.9964385
-          ],
-          [
-            31.0882701,
-            29.9966571
-          ],
-          [
-            31.0884164,
-            29.9968302
-          ],
-          [
-            31.0887757,
-            29.9972706
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1351149029",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1351149029,
-        "osm_version": 5,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1351149029,
-            "osm_version": 5
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway",
-            "lanes": "8",
-            "maxspeed": "90",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "old_ref": "06",
-            "oneway": "yes",
-            "ref": "516"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-1351149030",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0681546,
-            29.9592818
-          ],
-          [
-            31.0680854,
-            29.9593935
-          ],
-          [
-            31.0680218,
-            29.9595076
-          ],
-          [
-            31.0679638,
-            29.9596239
-          ],
-          [
-            31.0679117,
-            29.9597423
-          ],
-          [
-            31.0678655,
-            29.9598626
-          ],
-          [
-            31.0675895,
-            29.9605846
-          ],
-          [
-            31.0674964,
-            29.9608345
-          ],
-          [
-            31.0674326,
-            29.9610822
-          ],
-          [
-            31.0672813,
-            29.9618781
-          ],
-          [
-            31.0668657,
-            29.9643735
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1351149030",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1351149030,
-        "osm_version": 1,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1351149030,
-            "osm_version": 1
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway",
-            "lanes": "5",
-            "maxspeed": "90",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "old_ref": "06",
-            "oneway": "yes",
-            "ref": "516"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-1351149031",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0664053,
-            29.9641581
-          ],
-          [
-            31.0664044,
-            29.963865
-          ],
-          [
-            31.0664114,
-            29.9635719
-          ],
-          [
-            31.0664261,
-            29.963279
-          ],
-          [
-            31.0664486,
-            29.9629866
-          ],
-          [
-            31.0664789,
-            29.9626946
-          ],
-          [
-            31.0665763,
-            29.9619371
-          ],
-          [
-            31.0666783,
-            29.9611801
-          ],
-          [
-            31.0667852,
-            29.9604235
-          ],
-          [
-            31.066879,
-            29.9597635
-          ],
-          [
-            31.0668938,
-            29.9596542
-          ],
-          [
-            31.0668984,
-            29.9595443
-          ],
-          [
-            31.0668928,
-            29.9594343
-          ],
-          [
-            31.0668771,
-            29.9593251
-          ],
-          [
-            31.0668514,
-            29.9592173
-          ],
-          [
-            31.0668321,
-            29.9591407
-          ],
-          [
-            31.0667974,
-            29.9590554
-          ],
-          [
-            31.0667624,
-            29.9589839
-          ],
-          [
-            31.0667161,
-            29.9589095
-          ],
-          [
-            31.0666525,
-            29.9588142
-          ],
-          [
-            31.0665804,
-            29.9587236
-          ],
-          [
-            31.0665002,
-            29.9586383
-          ],
-          [
-            31.0664123,
-            29.9585588
-          ],
-          [
-            31.0663174,
-            29.9584857
-          ],
-          [
-            31.066216,
-            29.9584194
-          ],
-          [
-            31.0661088,
-            29.9583603
-          ],
-          [
-            31.0659966,
-            29.9583088
-          ],
-          [
-            31.0658881,
-            29.9582659
-          ],
-          [
-            31.0657828,
-            29.9582171
-          ],
-          [
-            31.0656813,
-            29.9581628
-          ],
-          [
-            31.065584,
-            29.9581031
-          ],
-          [
-            31.0654911,
-            29.9580382
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1351149031",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1351149031,
-        "osm_version": 2,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1351149031,
-            "osm_version": 2
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway",
-            "lanes": "4",
-            "maxspeed": "90",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "old_ref": "06",
-            "oneway": "yes",
-            "ref": "516"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-1351149032",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0944777,
-            29.998993
-          ],
-          [
-            31.0935735,
-            29.9990351
-          ],
-          [
-            31.0931596,
-            29.9990338
-          ],
-          [
-            31.0927211,
-            29.9990236
-          ],
-          [
-            31.092337,
-            29.998988
-          ],
-          [
-            31.0919279,
-            29.9989388
-          ],
-          [
-            31.0915648,
-            29.9988808
-          ],
-          [
-            31.0911708,
-            29.9988048
-          ],
-          [
-            31.0909512,
-            29.9987549
-          ],
-          [
-            31.0907279,
-            29.9986889
-          ],
-          [
-            31.0904543,
-            29.9986065
-          ],
-          [
-            31.0902209,
-            29.9985182
-          ],
-          [
-            31.0900332,
-            29.9984369
-          ],
-          [
-            31.0898387,
-            29.9983475
-          ],
-          [
-            31.0896492,
-            29.9982402
-          ],
-          [
-            31.0894431,
-            29.9981189
-          ],
-          [
-            31.0892174,
-            29.9979849
-          ],
-          [
-            31.0890077,
-            29.9978328
-          ],
-          [
-            31.0887971,
-            29.9976662
-          ],
-          [
-            31.0883388,
-            29.9972975
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1351149032",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1351149032,
-        "osm_version": 5,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1351149032,
-            "osm_version": 5
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway",
-            "lanes": "3",
-            "maxspeed": "90",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "old_ref": "06",
-            "oneway": "yes",
-            "ref": "516"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-1351151743",
       "geometry": {
         "type": "LineString",
@@ -71379,67 +71385,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-1367664914",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.8048705,
-            30.1271479
-          ],
-          [
-            31.8048274,
-            30.1271686
-          ],
-          [
-            31.8047805,
-            30.1271815
-          ],
-          [
-            31.8047316,
-            30.1271862
-          ],
-          [
-            31.8046825,
-            30.1271824
-          ],
-          [
-            31.8046353,
-            30.1271703
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1367664914",
-        "entity_code": "ROAD-REGIONAL-RING",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1367664914,
-        "osm_version": 2,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1367664914,
-            "osm_version": 2
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.024
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-1370639427",
       "geometry": {
         "type": "LineString",
@@ -72004,270 +71949,6 @@
             "osm_type": "way",
             "osm_id": 1390657923,
             "osm_version": 2
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway",
-            "lanes": "4",
-            "maxspeed": "90",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "old_ref": "06",
-            "oneway": "yes",
-            "ref": "516"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-1408710155",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            30.9616491,
-            29.9956976
-          ],
-          [
-            30.9618625,
-            29.9954968
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1408710155",
-        "entity_code": "ROAD-26-JULY",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1408710155,
-        "osm_version": 1,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1408710155,
-            "osm_version": 1
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "trunk_link"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.03
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-1413442517",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.4223644,
-            30.1484838
-          ],
-          [
-            31.4222721,
-            30.1484617
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1413442517",
-        "entity_code": "ROAD-CAIRO-ISMAILIA-DESERT",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1413442517,
-        "osm_version": 1,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1413442517,
-            "osm_version": 1
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "destination": "مدينة السلام; الدائرى; اسكندرية الزراعى",
-            "destination:lang:en": "Salam City; The Ring; Alexandria Agricultural",
-            "foot": "no",
-            "highway": "trunk_link",
-            "lit": "yes",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.733
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-1436758997",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.1096801,
-            29.9956041
-          ],
-          [
-            31.1094569,
-            29.9955988
-          ],
-          [
-            31.1092338,
-            29.9956058
-          ],
-          [
-            31.1090116,
-            29.9956251
-          ],
-          [
-            31.1087914,
-            29.9956567
-          ],
-          [
-            31.1084251,
-            29.9957318
-          ],
-          [
-            31.1080625,
-            29.9958373
-          ],
-          [
-            31.1079041,
-            29.9958966
-          ],
-          [
-            31.1076781,
-            29.9960012
-          ],
-          [
-            31.1074743,
-            29.9961035
-          ],
-          [
-            31.1071847,
-            29.9962396
-          ],
-          [
-            31.1067272,
-            29.9964545
-          ],
-          [
-            31.1056376,
-            29.9970071
-          ],
-          [
-            31.1046973,
-            29.9974752
-          ],
-          [
-            31.1036736,
-            29.9979183
-          ],
-          [
-            31.103151,
-            29.9981241
-          ],
-          [
-            31.1026354,
-            29.9982922
-          ],
-          [
-            31.1020962,
-            29.9984401
-          ],
-          [
-            31.1015075,
-            29.9985523
-          ],
-          [
-            31.1007764,
-            29.9986681
-          ],
-          [
-            31.1003194,
-            29.9987287
-          ],
-          [
-            31.1000165,
-            29.9987554
-          ],
-          [
-            31.0997179,
-            29.9987771
-          ],
-          [
-            31.0994189,
-            29.9987942
-          ],
-          [
-            31.0991196,
-            29.9988067
-          ],
-          [
-            31.0988201,
-            29.9988145
-          ],
-          [
-            31.0985326,
-            29.9988316
-          ],
-          [
-            31.0982223,
-            29.9988463
-          ],
-          [
-            31.0976487,
-            29.9988658
-          ],
-          [
-            31.0973073,
-            29.9988755
-          ],
-          [
-            31.0970146,
-            29.9988839
-          ],
-          [
-            31.0944777,
-            29.998993
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1436758997",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1436758997,
-        "osm_version": 3,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1436758997,
-            "osm_version": 3
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
@@ -73927,7 +73608,7 @@
           },
           "match_method": "gap_fill_graph",
           "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.035
+          "graph_path_length_km": 1.759
         }
       }
     },
@@ -90423,176 +90104,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-1562006053",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.2544417,
-            30.1492875
-          ],
-          [
-            31.2545845,
-            30.149248
-          ],
-          [
-            31.2547226,
-            30.1491978
-          ],
-          [
-            31.254855,
-            30.1491371
-          ],
-          [
-            31.2549806,
-            30.1490664
-          ],
-          [
-            31.2550984,
-            30.1489864
-          ],
-          [
-            31.2552076,
-            30.1488976
-          ],
-          [
-            31.2553071,
-            30.1488007
-          ],
-          [
-            31.2553963,
-            30.1486966
-          ],
-          [
-            31.2554744,
-            30.148586
-          ],
-          [
-            31.2555407,
-            30.1484698
-          ],
-          [
-            31.2555855,
-            30.1483501
-          ],
-          [
-            31.2556109,
-            30.1482314
-          ],
-          [
-            31.2556247,
-            30.1481267
-          ],
-          [
-            31.2556428,
-            30.1480341
-          ],
-          [
-            31.2556677,
-            30.1479488
-          ],
-          [
-            31.255732,
-            30.147794
-          ],
-          [
-            31.2558963,
-            30.1475535
-          ],
-          [
-            31.2559438,
-            30.1474927
-          ],
-          [
-            31.256023,
-            30.1474165
-          ],
-          [
-            31.256182,
-            30.1473074
-          ],
-          [
-            31.2563457,
-            30.1472038
-          ],
-          [
-            31.2565139,
-            30.1471057
-          ],
-          [
-            31.2567153,
-            30.1469984
-          ],
-          [
-            31.2570501,
-            30.1468415
-          ],
-          [
-            31.2572763,
-            30.146744
-          ],
-          [
-            31.2574987,
-            30.1466441
-          ],
-          [
-            31.2577177,
-            30.1465387
-          ],
-          [
-            31.2579331,
-            30.1464277
-          ],
-          [
-            31.2581445,
-            30.1463114
-          ],
-          [
-            31.258352,
-            30.1461897
-          ],
-          [
-            31.2585552,
-            30.1460629
-          ],
-          [
-            31.2587667,
-            30.1459018
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-1562006053",
-        "entity_code": "ROAD-ASSAR-AXIS",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 1562006053,
-        "osm_version": 1,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 1562006053,
-            "osm_version": 1
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "foot": "no",
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.595
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-1565567018",
       "geometry": {
         "type": "LineString",
@@ -92672,627 +92183,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-174480869",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0668657,
-            29.9643735
-          ],
-          [
-            31.0668664,
-            29.9646825
-          ],
-          [
-            31.066888,
-            29.9649541
-          ],
-          [
-            31.0669296,
-            29.9651868
-          ],
-          [
-            31.0669865,
-            29.965417
-          ],
-          [
-            31.0670583,
-            29.9656441
-          ],
-          [
-            31.067145,
-            29.9658673
-          ],
-          [
-            31.0672461,
-            29.9660859
-          ],
-          [
-            31.0673614,
-            29.9662991
-          ],
-          [
-            31.0674904,
-            29.9665063
-          ],
-          [
-            31.0676329,
-            29.9667069
-          ],
-          [
-            31.0677882,
-            29.9669001
-          ],
-          [
-            31.067956,
-            29.9670853
-          ],
-          [
-            31.0681357,
-            29.967262
-          ],
-          [
-            31.0683266,
-            29.9674296
-          ],
-          [
-            31.0685648,
-            29.9676223
-          ],
-          [
-            31.0687924,
-            29.9677702
-          ],
-          [
-            31.0731278,
-            29.9705303
-          ],
-          [
-            31.0733465,
-            29.9706723
-          ],
-          [
-            31.0735604,
-            29.9708196
-          ],
-          [
-            31.0737808,
-            29.9709806
-          ],
-          [
-            31.0739956,
-            29.9711474
-          ],
-          [
-            31.0742632,
-            29.9713653
-          ],
-          [
-            31.0745175,
-            29.9715949
-          ],
-          [
-            31.074758,
-            29.9718354
-          ],
-          [
-            31.0749839,
-            29.9720863
-          ],
-          [
-            31.0751948,
-            29.9723468
-          ],
-          [
-            31.0754034,
-            29.9726233
-          ],
-          [
-            31.0755663,
-            29.972857
-          ],
-          [
-            31.0757706,
-            29.9731524
-          ],
-          [
-            31.0759342,
-            29.9734173
-          ],
-          [
-            31.0761058,
-            29.9737054
-          ],
-          [
-            31.0762613,
-            29.973983
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-174480869",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 174480869,
-        "osm_version": 36,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 174480869,
-            "osm_version": 36
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway",
-            "lanes": "10",
-            "maxspeed": "90",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "old_ref": "06",
-            "oneway": "yes",
-            "ref": "516"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-174492241",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0887757,
-            29.9972706
-          ],
-          [
-            31.0890689,
-            29.9975501
-          ],
-          [
-            31.0891812,
-            29.9976463
-          ],
-          [
-            31.0893027,
-            29.9977593
-          ],
-          [
-            31.0898816,
-            29.9981124
-          ],
-          [
-            31.0905488,
-            29.9983995
-          ],
-          [
-            31.0914396,
-            29.998655
-          ],
-          [
-            31.0924404,
-            29.9987776
-          ],
-          [
-            31.0934605,
-            29.9987998
-          ],
-          [
-            31.0957945,
-            29.9986605
-          ],
-          [
-            31.0964223,
-            29.9986134
-          ],
-          [
-            31.0975521,
-            29.9985418
-          ],
-          [
-            31.098644,
-            29.9984766
-          ],
-          [
-            31.0996222,
-            29.9984005
-          ],
-          [
-            31.1000339,
-            29.998377
-          ],
-          [
-            31.1005099,
-            29.9983323
-          ],
-          [
-            31.1012822,
-            29.9982303
-          ],
-          [
-            31.1019622,
-            29.998091
-          ],
-          [
-            31.1026864,
-            29.9978935
-          ],
-          [
-            31.1031559,
-            29.9977342
-          ],
-          [
-            31.1036118,
-            29.9975473
-          ],
-          [
-            31.1040275,
-            29.9973755
-          ],
-          [
-            31.1047758,
-            29.9970456
-          ],
-          [
-            31.1057227,
-            29.9966414
-          ],
-          [
-            31.1065594,
-            29.9963017
-          ],
-          [
-            31.1073965,
-            29.9959618
-          ],
-          [
-            31.1076606,
-            29.9958398
-          ],
-          [
-            31.1078867,
-            29.9957493
-          ],
-          [
-            31.1080603,
-            29.9956797
-          ],
-          [
-            31.1082375,
-            29.9956173
-          ],
-          [
-            31.1084179,
-            29.9955622
-          ],
-          [
-            31.1086011,
-            29.9955146
-          ],
-          [
-            31.1087867,
-            29.9954745
-          ],
-          [
-            31.1089743,
-            29.995442
-          ],
-          [
-            31.1091634,
-            29.9954173
-          ],
-          [
-            31.1093537,
-            29.9954003
-          ],
-          [
-            31.1095447,
-            29.9953911
-          ],
-          [
-            31.1097359,
-            29.9953897
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-174492241",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 174492241,
-        "osm_version": 18,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 174492241,
-            "osm_version": 18
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway",
-            "lanes": "4",
-            "maxspeed": "90",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "old_ref": "06",
-            "oneway": "yes",
-            "ref": "516"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-174492246",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0883388,
-            29.9972975
-          ],
-          [
-            31.0881771,
-            29.9971302
-          ],
-          [
-            31.087996,
-            29.9969246
-          ],
-          [
-            31.0877007,
-            29.9965523
-          ],
-          [
-            31.0874683,
-            29.9962053
-          ],
-          [
-            31.0866521,
-            29.9946488
-          ],
-          [
-            31.0865463,
-            29.9944739
-          ],
-          [
-            31.0864364,
-            29.9942801
-          ],
-          [
-            31.0863327,
-            29.9940838
-          ],
-          [
-            31.0862351,
-            29.9938851
-          ],
-          [
-            31.0856545,
-            29.9925772
-          ],
-          [
-            31.0854217,
-            29.992149
-          ],
-          [
-            31.0853779,
-            29.9920644
-          ],
-          [
-            31.0850832,
-            29.9914946
-          ],
-          [
-            31.0840827,
-            29.989613
-          ],
-          [
-            31.083034,
-            29.9876058
-          ],
-          [
-            31.0812815,
-            29.9843764
-          ],
-          [
-            31.081159,
-            29.9841507
-          ],
-          [
-            31.0811217,
-            29.984082
-          ],
-          [
-            31.0790381,
-            29.9802422
-          ],
-          [
-            31.0767674,
-            29.9757668
-          ],
-          [
-            31.0756687,
-            29.9738029
-          ],
-          [
-            31.0754809,
-            29.9734823
-          ],
-          [
-            31.0752553,
-            29.9731367
-          ],
-          [
-            31.0750776,
-            29.9728761
-          ],
-          [
-            31.0748875,
-            29.9726222
-          ],
-          [
-            31.0746853,
-            29.9723754
-          ],
-          [
-            31.0744714,
-            29.9721361
-          ],
-          [
-            31.0742462,
-            29.9719048
-          ],
-          [
-            31.0740101,
-            29.9716817
-          ],
-          [
-            31.0737635,
-            29.9714674
-          ],
-          [
-            31.0735067,
-            29.9712622
-          ],
-          [
-            31.0685276,
-            29.9680567
-          ],
-          [
-            31.0682552,
-            29.9678686
-          ],
-          [
-            31.0679974,
-            29.9676656
-          ],
-          [
-            31.0677554,
-            29.9674484
-          ],
-          [
-            31.0675303,
-            29.9672181
-          ],
-          [
-            31.0673229,
-            29.9669755
-          ],
-          [
-            31.0671341,
-            29.9667218
-          ],
-          [
-            31.0670165,
-            29.9665607
-          ],
-          [
-            31.0669121,
-            29.966393
-          ],
-          [
-            31.0668173,
-            29.9662211
-          ],
-          [
-            31.0667324,
-            29.9660453
-          ],
-          [
-            31.0666577,
-            29.9658661
-          ],
-          [
-            31.0665932,
-            29.9656838
-          ],
-          [
-            31.0665393,
-            29.9654991
-          ],
-          [
-            31.0664959,
-            29.9653123
-          ],
-          [
-            31.0664633,
-            29.9651239
-          ],
-          [
-            31.0664414,
-            29.9649343
-          ],
-          [
-            31.0664303,
-            29.9647439
-          ],
-          [
-            31.0664139,
-            29.9644511
-          ],
-          [
-            31.0664053,
-            29.9641581
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-174492246",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 174492246,
-        "osm_version": 32,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 174492246,
-            "osm_version": 32
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway",
-            "lanes": "10",
-            "maxspeed": "90",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "old_ref": "06",
-            "oneway": "yes",
-            "ref": "516"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-174514652",
       "geometry": {
         "type": "LineString",
@@ -93421,6 +92311,478 @@
           },
           "match_method": "route_relation",
           "road_geometry_match": "OSM route=road relation member"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-174546462",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.1929511,
+            30.0593617
+          ],
+          [
+            31.1929997,
+            30.0593599
+          ],
+          [
+            31.193048,
+            30.0593647
+          ],
+          [
+            31.1930949,
+            30.0593759
+          ],
+          [
+            31.1931391,
+            30.0593934
+          ],
+          [
+            31.1931795,
+            30.0594164
+          ],
+          [
+            31.1932153,
+            30.0594446
+          ],
+          [
+            31.1932471,
+            30.0594786
+          ],
+          [
+            31.1932894,
+            30.0595353
+          ],
+          [
+            31.1933394,
+            30.0595833
+          ],
+          [
+            31.1933734,
+            30.0596016
+          ],
+          [
+            31.1934081,
+            30.0596118
+          ],
+          [
+            31.1936452,
+            30.0596512
+          ],
+          [
+            31.1937815,
+            30.0596667
+          ],
+          [
+            31.194111,
+            30.0596954
+          ],
+          [
+            31.1947888,
+            30.0597648
+          ],
+          [
+            31.1949128,
+            30.0597782
+          ],
+          [
+            31.1956276,
+            30.0598655
+          ],
+          [
+            31.195883,
+            30.059903
+          ],
+          [
+            31.1961316,
+            30.0599415
+          ],
+          [
+            31.196418,
+            30.059998
+          ],
+          [
+            31.1966544,
+            30.0600344
+          ],
+          [
+            31.1971231,
+            30.0601147
+          ],
+          [
+            31.1973512,
+            30.0601458
+          ],
+          [
+            31.1977839,
+            30.0602032
+          ],
+          [
+            31.198003,
+            30.0602157
+          ],
+          [
+            31.1980293,
+            30.0602172
+          ],
+          [
+            31.1982324,
+            30.0602287
+          ],
+          [
+            31.1984451,
+            30.0602407
+          ],
+          [
+            31.1986257,
+            30.060251
+          ],
+          [
+            31.1987229,
+            30.0602565
+          ],
+          [
+            31.1988186,
+            30.0602619
+          ],
+          [
+            31.1989871,
+            30.0602715
+          ],
+          [
+            31.1991452,
+            30.0602804
+          ],
+          [
+            31.1993891,
+            30.0602943
+          ],
+          [
+            31.1994726,
+            30.060299
+          ],
+          [
+            31.1995929,
+            30.0603056
+          ],
+          [
+            31.2002393,
+            30.060341
+          ],
+          [
+            31.2004625,
+            30.0603532
+          ],
+          [
+            31.2006909,
+            30.0603657
+          ],
+          [
+            31.2008472,
+            30.0603742
+          ],
+          [
+            31.2010166,
+            30.0603835
+          ],
+          [
+            31.2012722,
+            30.0603975
+          ],
+          [
+            31.2015246,
+            30.0604167
+          ],
+          [
+            31.2018898,
+            30.0604422
+          ],
+          [
+            31.203068,
+            30.0605344
+          ],
+          [
+            31.2038459,
+            30.0605937
+          ],
+          [
+            31.2041795,
+            30.0606121
+          ],
+          [
+            31.2062212,
+            30.0607414
+          ],
+          [
+            31.2072913,
+            30.0607638
+          ],
+          [
+            31.2073322,
+            30.0607639
+          ],
+          [
+            31.2073722,
+            30.060771
+          ],
+          [
+            31.2074097,
+            30.060785
+          ],
+          [
+            31.2074432,
+            30.0608052
+          ],
+          [
+            31.2074714,
+            30.0608308
+          ],
+          [
+            31.207493,
+            30.0608607
+          ],
+          [
+            31.2075073,
+            30.0608938
+          ],
+          [
+            31.2075136,
+            30.0609302
+          ],
+          [
+            31.2075111,
+            30.0609668
+          ],
+          [
+            31.2074998,
+            30.0610023
+          ],
+          [
+            31.2074801,
+            30.0610348
+          ],
+          [
+            31.2074531,
+            30.0610632
+          ],
+          [
+            31.2074198,
+            30.061086
+          ],
+          [
+            31.2073818,
+            30.0611023
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-174546462",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 174546462,
+        "osm_version": 38,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 174546462,
+            "osm_version": 38
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "secondary",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-174550363",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.228686,
+            30.0568341
+          ],
+          [
+            31.2287356,
+            30.0568841
+          ],
+          [
+            31.2287839,
+            30.0569235
+          ],
+          [
+            31.2288469,
+            30.0569525
+          ],
+          [
+            31.228922,
+            30.0569589
+          ],
+          [
+            31.2290159,
+            30.056938
+          ],
+          [
+            31.2291989,
+            30.0569029
+          ],
+          [
+            31.2294131,
+            30.0568155
+          ],
+          [
+            31.2294731,
+            30.056791
+          ],
+          [
+            31.2298286,
+            30.0566304
+          ],
+          [
+            31.2300991,
+            30.0565157
+          ],
+          [
+            31.2302799,
+            30.0564421
+          ],
+          [
+            31.2306877,
+            30.0562814
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-174550363",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 174550363,
+        "osm_version": 14,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 174550363,
+            "osm_version": 14
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "destination": "شارع 26 يوليو; وسط المدينة",
+            "destination:lang:en": "26th Of July Street; Down Town",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "name:fr": "26 Juillet",
+            "oneway": "yes"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-174550557",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2306877,
+            30.0562814
+          ],
+          [
+            31.2307468,
+            30.0562552
+          ],
+          [
+            31.2308287,
+            30.0562188
+          ],
+          [
+            31.2308974,
+            30.0561917
+          ],
+          [
+            31.2310155,
+            30.0561463
+          ],
+          [
+            31.2330951,
+            30.0554535
+          ],
+          [
+            31.2336077,
+            30.055287
+          ],
+          [
+            31.2338466,
+            30.0552009
+          ],
+          [
+            31.2347485,
+            30.0549023
+          ],
+          [
+            31.2357904,
+            30.0545663
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-174550557",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 174550557,
+        "osm_version": 20,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 174550557,
+            "osm_version": 20
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "name:fr": "26 Juillet",
+            "oneway": "yes"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
         }
       }
     },
@@ -97730,6 +97092,130 @@
     },
     {
       "type": "Feature",
+      "id": "OSM-WAY-25055007",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2084788,
+            30.0605584
+          ],
+          [
+            31.2085742,
+            30.0606239
+          ],
+          [
+            31.2086744,
+            30.0606836
+          ],
+          [
+            31.2087791,
+            30.0607375
+          ],
+          [
+            31.2088876,
+            30.0607851
+          ],
+          [
+            31.2089996,
+            30.0608263
+          ],
+          [
+            31.2092683,
+            30.0608919
+          ],
+          [
+            31.2097163,
+            30.0610102
+          ],
+          [
+            31.2111798,
+            30.0613035
+          ],
+          [
+            31.2115493,
+            30.0613775
+          ],
+          [
+            31.2116568,
+            30.0613977
+          ],
+          [
+            31.2120784,
+            30.0614732
+          ],
+          [
+            31.2135472,
+            30.0617075
+          ],
+          [
+            31.2139492,
+            30.0617554
+          ],
+          [
+            31.2139882,
+            30.06176
+          ],
+          [
+            31.2140873,
+            30.0617797
+          ],
+          [
+            31.2142005,
+            30.0618022
+          ],
+          [
+            31.2142954,
+            30.0618409
+          ],
+          [
+            31.2143776,
+            30.0618972
+          ],
+          [
+            31.214443,
+            30.0619683
+          ],
+          [
+            31.2144921,
+            30.0620511
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-25055007",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 25055007,
+        "osm_version": 36,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 25055007,
+            "osm_version": 36
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "secondary",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-WAY-256874414",
       "geometry": {
         "type": "LineString",
@@ -101646,6 +101132,155 @@
           },
           "match_method": "route_relation",
           "road_geometry_match": "OSM route=road relation member"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-285476950",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2357911,
+            30.0546613
+          ],
+          [
+            31.235372,
+            30.0547979
+          ],
+          [
+            31.2348768,
+            30.0549557
+          ],
+          [
+            31.2337098,
+            30.0553582
+          ],
+          [
+            31.2330503,
+            30.0555702
+          ],
+          [
+            31.2325745,
+            30.0557339
+          ],
+          [
+            31.2323125,
+            30.0558236
+          ],
+          [
+            31.2320589,
+            30.0559075
+          ],
+          [
+            31.231814,
+            30.0559977
+          ],
+          [
+            31.2315627,
+            30.0560826
+          ],
+          [
+            31.2313223,
+            30.0561642
+          ],
+          [
+            31.2310785,
+            30.0562425
+          ],
+          [
+            31.2309412,
+            30.0563013
+          ],
+          [
+            31.2307868,
+            30.0563849
+          ],
+          [
+            31.2306574,
+            30.0564656
+          ],
+          [
+            31.2305228,
+            30.0565655
+          ],
+          [
+            31.2303054,
+            30.0567212
+          ],
+          [
+            31.2302496,
+            30.0567572
+          ],
+          [
+            31.2299969,
+            30.0568702
+          ],
+          [
+            31.2294611,
+            30.0570692
+          ],
+          [
+            31.2293784,
+            30.0571014
+          ],
+          [
+            31.2292968,
+            30.0571329
+          ],
+          [
+            31.2292184,
+            30.05716
+          ],
+          [
+            31.2290868,
+            30.0571987
+          ],
+          [
+            31.2289526,
+            30.0572299
+          ],
+          [
+            31.2288217,
+            30.057264
+          ],
+          [
+            31.228591,
+            30.0573213
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-285476950",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 285476950,
+        "osm_version": 19,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 285476950,
+            "osm_version": 19
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "name:fr": "26 Juillet",
+            "oneway": "yes"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
         }
       }
     },
@@ -133270,7 +132905,7 @@
           },
           "match_method": "gap_fill_graph",
           "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 1.729
+          "graph_path_length_km": 1.759
         }
       }
     },
@@ -147937,50 +147572,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-680126004",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.2149931,
-            30.2426861
-          ],
-          [
-            31.2151678,
-            30.2427077
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-680126004",
-        "entity_code": "ROAD-CAIRO-ALEX-AGRI",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 680126004,
-        "osm_version": 3,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 680126004,
-            "osm_version": 3
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "trunk_link"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.017
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-680469892",
       "geometry": {
         "type": "LineString",
@@ -152727,256 +152318,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-683367929",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.471132,
-            29.9664906
-          ],
-          [
-            31.4713994,
-            29.9663379
-          ],
-          [
-            31.4715602,
-            29.9662235
-          ],
-          [
-            31.4716916,
-            29.9660836
-          ],
-          [
-            31.4717883,
-            29.965924
-          ],
-          [
-            31.4718465,
-            29.9657508
-          ],
-          [
-            31.4718638,
-            29.9655711
-          ],
-          [
-            31.4718395,
-            29.9653921
-          ],
-          [
-            31.4717747,
-            29.9652207
-          ],
-          [
-            31.4716719,
-            29.9650639
-          ],
-          [
-            31.4715351,
-            29.964928
-          ],
-          [
-            31.4713699,
-            29.9648183
-          ],
-          [
-            31.4711829,
-            29.9647392
-          ],
-          [
-            31.4709814,
-            29.9646939
-          ],
-          [
-            31.4707736,
-            29.9646842
-          ],
-          [
-            31.4705677,
-            29.9647104
-          ],
-          [
-            31.4703719,
-            29.9647715
-          ],
-          [
-            31.470194,
-            29.9648651
-          ],
-          [
-            31.4700666,
-            29.9649956
-          ],
-          [
-            31.4699596,
-            29.9651326
-          ],
-          [
-            31.4698088,
-            29.9652935
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-683367929",
-        "entity_code": "ROAD-MOHAMED-NAGUIB",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 683367929,
-        "osm_version": 8,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 683367929,
-            "osm_version": 8
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "destination": "القاهرة الجديدة; محور محمد نجيب; طريق الدائرى",
-            "destination:lang:en": "New Cairo; Mohamed Naguib Axis; Ring Road",
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 1.117
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-683367930",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.4694801,
-            29.9658065
-          ],
-          [
-            31.4694719,
-            29.9656681
-          ],
-          [
-            31.469382,
-            29.9654485
-          ],
-          [
-            31.4692734,
-            29.9652836
-          ],
-          [
-            31.4690924,
-            29.9651163
-          ],
-          [
-            31.4689355,
-            29.965028
-          ],
-          [
-            31.4687464,
-            29.9649641
-          ],
-          [
-            31.4685868,
-            29.964942
-          ],
-          [
-            31.4683802,
-            29.9649385
-          ],
-          [
-            31.4682019,
-            29.9649606
-          ],
-          [
-            31.4680047,
-            29.9650361
-          ],
-          [
-            31.467762,
-            29.9651918
-          ],
-          [
-            31.467648,
-            29.9653289
-          ],
-          [
-            31.4675635,
-            29.9654904
-          ],
-          [
-            31.4675206,
-            29.9656565
-          ],
-          [
-            31.4675139,
-            29.9658633
-          ],
-          [
-            31.4675447,
-            29.9660225
-          ],
-          [
-            31.4676359,
-            29.9662049
-          ],
-          [
-            31.4678156,
-            29.9664024
-          ],
-          [
-            31.4678881,
-            29.9664582
-          ],
-          [
-            31.4679658,
-            29.9665047
-          ],
-          [
-            31.4682636,
-            29.9666496
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-683367930",
-        "entity_code": "ROAD-MOHAMED-NAGUIB",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 683367930,
-        "osm_version": 8,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 683367930,
-            "osm_version": 8
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "destination": "طريق السخنة; القاهرة الجديدة",
-            "destination:lang:en": "Sukhna Road; New Cairo",
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 1.117
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-683367932",
       "geometry": {
         "type": "LineString",
@@ -154931,6 +154272,55 @@
             "old_ref": "06",
             "oneway": "yes",
             "ref": "516"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-690753307",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2388378,
+            30.0535014
+          ],
+          [
+            31.2379412,
+            30.0538227
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-690753307",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 690753307,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 690753307,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "secondary",
+            "lit": "yes",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "name:fr": "26 Juillet",
+            "oneway": "yes"
           },
           "match_method": "exact_name",
           "road_geometry_match": "exact road name/ref"
@@ -168884,75 +168274,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-733066278",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.232818,
-            30.2061821
-          ],
-          [
-            31.232792,
-            30.2061963
-          ],
-          [
-            31.2327619,
-            30.2062017
-          ],
-          [
-            31.2327316,
-            30.2061975
-          ],
-          [
-            31.2327049,
-            30.2061844
-          ],
-          [
-            31.2326853,
-            30.2061639
-          ],
-          [
-            31.2326753,
-            30.2061388
-          ],
-          [
-            31.2326762,
-            30.2061123
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-733066278",
-        "entity_code": "ROAD-SHUBRA-BENHA-FREE",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 733066278,
-        "osm_version": 4,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 733066278,
-            "osm_version": 4
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.021
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-733269092",
       "geometry": {
         "type": "LineString",
@@ -169176,87 +168497,6 @@
           },
           "match_method": "exact_name",
           "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-733272636",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.4655915,
-            29.9665784
-          ],
-          [
-            31.4657928,
-            29.9665652
-          ],
-          [
-            31.4659944,
-            29.9665581
-          ],
-          [
-            31.4661976,
-            29.9665573
-          ],
-          [
-            31.4664006,
-            29.9665627
-          ],
-          [
-            31.4682636,
-            29.9666496
-          ],
-          [
-            31.4688392,
-            29.9666599
-          ],
-          [
-            31.4694148,
-            29.9666475
-          ],
-          [
-            31.4699892,
-            29.9666124
-          ],
-          [
-            31.470561,
-            29.9665546
-          ],
-          [
-            31.471132,
-            29.9664906
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-733272636",
-        "entity_code": "ROAD-MOHAMED-NAGUIB",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 733272636,
-        "osm_version": 5,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 733272636,
-            "osm_version": 5
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 1.117
         }
       }
     },
@@ -182269,50 +181509,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-745186264",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.1516704,
-            30.5253836
-          ],
-          [
-            31.151809,
-            30.5254317
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-745186264",
-        "entity_code": "ROAD-CAIRO-ALEX-AGRI",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 745186264,
-        "osm_version": 3,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 745186264,
-            "osm_version": 3
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "trunk_link"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.014
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-746836965",
       "geometry": {
         "type": "LineString",
@@ -185707,92 +184903,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-754527840",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0694063,
-            29.9586551
-          ],
-          [
-            31.0692216,
-            29.9586857
-          ],
-          [
-            31.0690551,
-            29.958724
-          ],
-          [
-            31.0688933,
-            29.9587756
-          ],
-          [
-            31.0687378,
-            29.95884
-          ],
-          [
-            31.0685899,
-            29.9589166
-          ],
-          [
-            31.0684508,
-            29.9590047
-          ],
-          [
-            31.0683218,
-            29.9591037
-          ],
-          [
-            31.068204,
-            29.9592127
-          ],
-          [
-            31.0681546,
-            29.9592818
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-754527840",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 754527840,
-        "osm_version": 7,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 754527840,
-            "osm_version": 7
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "destination": "الطريق الدائرى;المنيب;طريق إسكندرية الصحراوى",
-            "destination:lang:en": "The Ring Road;Al Mounib;Alexandria Desert Road",
-            "destination:ref": "516",
-            "highway": "motorway",
-            "lanes": "4",
-            "maxspeed": "90",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "old_ref": "06",
-            "oneway": "yes",
-            "ref": "516"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-754836804",
       "geometry": {
         "type": "LineString",
@@ -186742,53 +185852,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-756623903",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.6002052,
-            30.6788803
-          ],
-          [
-            31.6004332,
-            30.6787243
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-756623903",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 756623903,
-        "osm_version": 2,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 756623903,
-            "osm_version": 2
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "primary",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "oneway": "yes"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-756893556",
       "geometry": {
         "type": "LineString",
@@ -186884,53 +185947,6 @@
             "name:en": "6th October Bridge",
             "oneway": "yes"
           }
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-757023081",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.6004332,
-            30.6787243
-          ],
-          [
-            31.6003974,
-            30.6790158
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-757023081",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 757023081,
-        "osm_version": 1,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 757023081,
-            "osm_version": 1
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "primary",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road",
-            "oneway": "yes"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
         }
       }
     },
@@ -188652,50 +187668,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-763936928",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.0183712,
-            30.7798136
-          ],
-          [
-            31.018478,
-            30.7798366
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-763936928",
-        "entity_code": "ROAD-CAIRO-ALEX-AGRI",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 763936928,
-        "osm_version": 4,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 763936928,
-            "osm_version": 4
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "trunk_link"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.011
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-766904668",
       "geometry": {
         "type": "LineString",
@@ -190295,282 +189267,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-771875520",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.4538153,
-            30.0859364
-          ],
-          [
-            31.4535811,
-            30.0866113
-          ],
-          [
-            31.4535677,
-            30.0868244
-          ],
-          [
-            31.4535793,
-            30.086959
-          ],
-          [
-            31.4536389,
-            30.0871063
-          ],
-          [
-            31.4537517,
-            30.087285
-          ],
-          [
-            31.4539093,
-            30.0874398
-          ],
-          [
-            31.4542669,
-            30.0876313
-          ],
-          [
-            31.4545032,
-            30.0876792
-          ],
-          [
-            31.454814,
-            30.0876792
-          ],
-          [
-            31.4550078,
-            30.0876479
-          ],
-          [
-            31.4552228,
-            30.0875613
-          ],
-          [
-            31.4553867,
-            30.0874434
-          ],
-          [
-            31.4555379,
-            30.0872795
-          ],
-          [
-            31.455633,
-            30.0871173
-          ],
-          [
-            31.4557108,
-            30.0868487
-          ],
-          [
-            31.4557083,
-            30.0865936
-          ],
-          [
-            31.4556357,
-            30.0863942
-          ],
-          [
-            31.4554695,
-            30.0861606
-          ],
-          [
-            31.4553085,
-            30.0859889
-          ],
-          [
-            31.4551371,
-            30.0858419
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-771875520",
-        "entity_code": "ROAD-CAIRO-SUEZ",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 771875520,
-        "osm_version": 3,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 771875520,
-            "osm_version": 3
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "foot": "no",
-            "highway": "trunk_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 2.094
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-771875523",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.4579913,
-            30.0823746
-          ],
-          [
-            31.4576936,
-            30.0823663
-          ],
-          [
-            31.4574805,
-            30.0823796
-          ],
-          [
-            31.4572448,
-            30.0824103
-          ],
-          [
-            31.4569857,
-            30.0824727
-          ],
-          [
-            31.4567181,
-            30.0825647
-          ],
-          [
-            31.4564169,
-            30.0827026
-          ],
-          [
-            31.4561583,
-            30.0828682
-          ],
-          [
-            31.4557667,
-            30.0832229
-          ],
-          [
-            31.4556318,
-            30.0833999
-          ],
-          [
-            31.4555236,
-            30.0835589
-          ],
-          [
-            31.4553907,
-            30.0837279
-          ],
-          [
-            31.4551881,
-            30.0840662
-          ],
-          [
-            31.454025,
-            30.0856628
-          ],
-          [
-            31.4538153,
-            30.0859364
-          ],
-          [
-            31.4529052,
-            30.0872027
-          ],
-          [
-            31.4526107,
-            30.0875697
-          ],
-          [
-            31.4523127,
-            30.0879037
-          ],
-          [
-            31.452053,
-            30.0882349
-          ],
-          [
-            31.4516634,
-            30.0885649
-          ],
-          [
-            31.4511035,
-            30.0890128
-          ],
-          [
-            31.4504562,
-            30.0894728
-          ],
-          [
-            31.449797,
-            30.089892
-          ],
-          [
-            31.4490195,
-            30.090356
-          ],
-          [
-            31.4463221,
-            30.091794
-          ],
-          [
-            31.4458027,
-            30.0920925
-          ],
-          [
-            31.445269,
-            30.0923849
-          ],
-          [
-            31.4441988,
-            30.0929964
-          ],
-          [
-            31.4433204,
-            30.0934652
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-771875523",
-        "entity_code": "ROAD-CAIRO-SUEZ",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 771875523,
-        "osm_version": 7,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 771875523,
-            "osm_version": 7
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "trunk",
-            "lit": "yes",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 2.094
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-772012760",
       "geometry": {
         "type": "LineString",
@@ -191190,53 +189886,6 @@
           },
           "match_method": "exact_name",
           "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-772012783",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.4638073,
-            30.0899216
-          ],
-          [
-            31.4623242,
-            30.0895482
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-772012783",
-        "entity_code": "ROAD-CAIRO-SUEZ",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 772012783,
-        "osm_version": 2,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 772012783,
-            "osm_version": 2
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "destination": "التجمع الاول; مدينة الرحاب; مدينة السلام; الطريق الدائرى",
-            "destination:lang:en": "1st Settlement; Al Rehab City; Al Salam City",
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 2.094
         }
       }
     },
@@ -201130,383 +199779,105 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-772546519",
+      "id": "OSM-WAY-77599334",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            31.5501379,
-            30.0896279
+            31.2139901,
+            30.0624877
           ],
           [
-            31.5490116,
-            30.0892553
+            31.2139422,
+            30.062477
           ],
           [
-            31.5458492,
-            30.0882089
+            31.2130643,
+            30.0623322
           ],
           [
-            31.5456515,
-            30.0881502
+            31.2110269,
+            30.061931
           ],
           [
-            31.545451,
-            30.0880986
+            31.21061,
+            30.0618493
           ],
           [
-            31.5452483,
-            30.0880544
+            31.2100056,
+            30.0617309
           ],
           [
-            31.5450527,
-            30.0880189
+            31.2092612,
+            30.0615961
           ],
           [
-            31.5448556,
-            30.0879903
+            31.2090502,
+            30.0615582
           ],
           [
-            31.5446573,
-            30.0879684
+            31.2088173,
+            30.0615577
           ],
           [
-            31.5444582,
-            30.0879534
+            31.2087428,
+            30.0615539
           ],
           [
-            31.5442586,
-            30.0879453
+            31.2086681,
+            30.0615562
           ],
           [
-            31.544038,
-            30.0879556
+            31.2085941,
+            30.0615646
           ],
           [
-            31.543817,
-            30.0879579
+            31.2085269,
+            30.0615777
           ],
           [
-            31.5435962,
-            30.0879523
+            31.2084613,
+            30.0615959
           ],
           [
-            31.5433758,
-            30.0879388
+            31.2083978,
+            30.0616189
           ],
           [
-            31.5431562,
-            30.0879175
-          ],
-          [
-            31.542913,
-            30.0878844
-          ],
-          [
-            31.5426719,
-            30.0878416
-          ],
-          [
-            31.5424333,
-            30.0877893
-          ],
-          [
-            31.5421977,
-            30.0877275
-          ],
-          [
-            31.5419657,
-            30.0876563
-          ],
-          [
-            31.5417377,
-            30.087576
-          ],
-          [
-            31.5415143,
-            30.0874866
-          ],
-          [
-            31.5412958,
-            30.0873884
-          ],
-          [
-            31.5410829,
-            30.0872815
-          ],
-          [
-            31.5405813,
-            30.0870054
-          ],
-          [
-            31.5399343,
-            30.0865635
-          ],
-          [
-            31.5397684,
-            30.0864419
-          ],
-          [
-            31.5395958,
-            30.0863276
-          ],
-          [
-            31.5394168,
-            30.0862207
-          ],
-          [
-            31.539232,
-            30.0861217
-          ],
-          [
-            31.5390417,
-            30.0860306
-          ],
-          [
-            31.5388456,
-            30.0859475
-          ],
-          [
-            31.538645,
-            30.0858728
-          ],
-          [
-            31.5384403,
-            30.0858069
-          ],
-          [
-            31.5379942,
-            30.0856896
-          ],
-          [
-            31.5374333,
-            30.0855479
-          ],
-          [
-            31.5351927,
-            30.085151
-          ],
-          [
-            31.5346777,
-            30.0850721
-          ],
-          [
-            31.534187,
-            30.0850276
-          ],
-          [
-            31.533403,
-            30.0849983
-          ],
-          [
-            31.5326663,
-            30.0850422
-          ],
-          [
-            31.5319499,
-            30.085127
-          ],
-          [
-            31.530588,
-            30.0853609
-          ],
-          [
-            31.5201255,
-            30.0878581
-          ],
-          [
-            31.5186647,
-            30.0881983
-          ],
-          [
-            31.5110961,
-            30.0899244
-          ],
-          [
-            31.5077545,
-            30.0907084
-          ],
-          [
-            31.5073137,
-            30.0908188
-          ],
-          [
-            31.5067968,
-            30.0909352
-          ],
-          [
-            31.506386,
-            30.0910279
-          ],
-          [
-            31.5057988,
-            30.0911597
-          ],
-          [
-            31.5054195,
-            30.0912483
-          ],
-          [
-            31.5051066,
-            30.0913193
-          ],
-          [
-            31.5042799,
-            30.0914988
-          ],
-          [
-            31.5031155,
-            30.091773
-          ],
-          [
-            31.5015802,
-            30.0921244
-          ],
-          [
-            31.5012518,
-            30.0922025
-          ],
-          [
-            31.4984544,
-            30.0928677
-          ],
-          [
-            31.4948685,
-            30.0936638
-          ],
-          [
-            31.494203,
-            30.0938115
-          ],
-          [
-            31.4939068,
-            30.0938773
-          ],
-          [
-            31.4924505,
-            30.0942066
-          ],
-          [
-            31.4906521,
-            30.0946009
-          ],
-          [
-            31.4894229,
-            30.0948139
-          ],
-          [
-            31.4885478,
-            30.0949349
-          ],
-          [
-            31.4874752,
-            30.0950415
-          ],
-          [
-            31.4859648,
-            30.0951421
-          ],
-          [
-            31.4838901,
-            30.0951256
-          ],
-          [
-            31.4822868,
-            30.0950311
-          ],
-          [
-            31.4811917,
-            30.0949135
-          ],
-          [
-            31.4801269,
-            30.094759
-          ],
-          [
-            31.479147,
-            30.094581
-          ],
-          [
-            31.4781689,
-            30.0943726
-          ],
-          [
-            31.4774822,
-            30.094202
-          ],
-          [
-            31.4742341,
-            30.0932807
-          ],
-          [
-            31.4728351,
-            30.0928709
-          ],
-          [
-            31.4710755,
-            30.0923628
-          ],
-          [
-            31.4677102,
-            30.0913766
-          ],
-          [
-            31.4636517,
-            30.0901183
-          ],
-          [
-            31.4623242,
-            30.0895482
-          ],
-          [
-            31.4614866,
-            30.0891885
-          ],
-          [
-            31.4574956,
-            30.0870872
-          ],
-          [
-            31.4556844,
-            30.0861259
-          ],
-          [
-            31.4551371,
-            30.0858419
-          ],
-          [
-            31.4546873,
-            30.0856007
+            31.2083073,
+            30.0616537
           ]
         ]
       },
       "properties": {
-        "code": "OSM-WAY-772546519",
-        "entity_code": "ROAD-CAIRO-SUEZ",
+        "code": "OSM-WAY-77599334",
+        "entity_code": "ROAD-26-JULY",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "way",
-        "osm_id": 772546519,
-        "osm_version": 7,
+        "osm_id": 77599334,
+        "osm_version": 20,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "way",
-            "osm_id": 772546519,
-            "osm_version": 7
+            "osm_id": 77599334,
+            "osm_version": 20
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
           "entity_type": "road",
           "osm_tags": {
-            "highway": "trunk",
+            "highway": "secondary",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
             "oneway": "yes",
-            "ref": "16"
+            "surface": "asphalt"
           },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 2.094
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
         }
       }
     },
@@ -201851,7 +200222,7 @@
           },
           "match_method": "gap_fill_graph",
           "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 1.729
+          "graph_path_length_km": 1.759
         }
       }
     },
@@ -206524,149 +204895,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-840207376",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.259676,
-            30.145396
-          ],
-          [
-            31.2593785,
-            30.1457254
-          ],
-          [
-            31.2590347,
-            30.1460953
-          ],
-          [
-            31.2586723,
-            30.1464516
-          ],
-          [
-            31.2582919,
-            30.1467935
-          ],
-          [
-            31.2578942,
-            30.1471205
-          ],
-          [
-            31.2574788,
-            30.1474314
-          ],
-          [
-            31.2568223,
-            30.1480149
-          ],
-          [
-            31.2567633,
-            30.1480936
-          ],
-          [
-            31.2567117,
-            30.1481762
-          ],
-          [
-            31.256668,
-            30.1482621
-          ],
-          [
-            31.2566323,
-            30.1483508
-          ],
-          [
-            31.2566051,
-            30.1484416
-          ],
-          [
-            31.2565869,
-            30.1485303
-          ],
-          [
-            31.2565768,
-            30.14862
-          ],
-          [
-            31.2565746,
-            30.1487101
-          ],
-          [
-            31.2565805,
-            30.1488
-          ],
-          [
-            31.2565944,
-            30.1488893
-          ],
-          [
-            31.2566232,
-            30.1489616
-          ],
-          [
-            31.2566618,
-            30.1490304
-          ],
-          [
-            31.2567096,
-            30.1490947
-          ],
-          [
-            31.256766,
-            30.1491537
-          ],
-          [
-            31.2568224,
-            30.1492007
-          ],
-          [
-            31.2568841,
-            30.1492422
-          ],
-          [
-            31.2569506,
-            30.1492779
-          ],
-          [
-            31.2570948,
-            30.1493334
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-840207376",
-        "entity_code": "ROAD-ASSAR-AXIS",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 840207376,
-        "osm_version": 8,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 840207376,
-            "osm_version": 8
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "destination": "طريق الإسماعيلية; طريق السويس",
-            "destination:lang:en": "Ismailia Road; Suez Road",
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.595
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-840239351",
       "geometry": {
         "type": "LineString",
@@ -208831,88 +207059,6 @@
           },
           "match_method": "exact_name",
           "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-858820196",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.2570501,
-            30.1468415
-          ],
-          [
-            31.257141,
-            30.146857
-          ],
-          [
-            31.2572272,
-            30.1468863
-          ],
-          [
-            31.2573059,
-            30.1469286
-          ],
-          [
-            31.2573744,
-            30.1469825
-          ],
-          [
-            31.2574306,
-            30.1470462
-          ],
-          [
-            31.2574726,
-            30.1471176
-          ],
-          [
-            31.257499,
-            30.1471944
-          ],
-          [
-            31.257509,
-            30.147274
-          ],
-          [
-            31.2575022,
-            30.1473539
-          ],
-          [
-            31.2574788,
-            30.1474314
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-858820196",
-        "entity_code": "ROAD-ASSAR-AXIS",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 858820196,
-        "osm_version": 2,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 858820196,
-            "osm_version": 2
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "foot": "no",
-            "highway": "motorway_link",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.595
         }
       }
     },
@@ -215577,280 +213723,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-88432637",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.5832096,
-            30.6624753
-          ],
-          [
-            31.5836281,
-            30.662278
-          ],
-          [
-            31.5839952,
-            30.6621115
-          ],
-          [
-            31.5842513,
-            30.6620039
-          ],
-          [
-            31.5845154,
-            30.6619117
-          ],
-          [
-            31.5847862,
-            30.6618352
-          ],
-          [
-            31.5850624,
-            30.6617749
-          ],
-          [
-            31.5853058,
-            30.6617393
-          ],
-          [
-            31.5856168,
-            30.6617175
-          ],
-          [
-            31.5859603,
-            30.6617028
-          ],
-          [
-            31.586355,
-            30.6617096
-          ],
-          [
-            31.5869669,
-            30.6617619
-          ],
-          [
-            31.5871403,
-            30.6617767
-          ],
-          [
-            31.5881081,
-            30.661871
-          ],
-          [
-            31.5884346,
-            30.6619146
-          ],
-          [
-            31.5885833,
-            30.6619395
-          ],
-          [
-            31.5886957,
-            30.6619584
-          ],
-          [
-            31.5889944,
-            30.6620148
-          ],
-          [
-            31.5892863,
-            30.6620937
-          ],
-          [
-            31.5895689,
-            30.6621942
-          ],
-          [
-            31.5898402,
-            30.6623158
-          ],
-          [
-            31.590098,
-            30.6624574
-          ],
-          [
-            31.5903404,
-            30.6626179
-          ],
-          [
-            31.5905654,
-            30.6627961
-          ],
-          [
-            31.5911789,
-            30.6633165
-          ],
-          [
-            31.5918676,
-            30.6638876
-          ],
-          [
-            31.5924497,
-            30.6643638
-          ],
-          [
-            31.5936086,
-            30.665312
-          ],
-          [
-            31.5950957,
-            30.6665305
-          ],
-          [
-            31.5955421,
-            30.6669055
-          ],
-          [
-            31.5959545,
-            30.6672534
-          ],
-          [
-            31.5960887,
-            30.6673608
-          ],
-          [
-            31.5964259,
-            30.6676417
-          ],
-          [
-            31.5966324,
-            30.6678113
-          ],
-          [
-            31.5972616,
-            30.6683499
-          ],
-          [
-            31.5976315,
-            30.6686665
-          ],
-          [
-            31.5980297,
-            30.6690472
-          ],
-          [
-            31.5981607,
-            30.6691881
-          ],
-          [
-            31.5982827,
-            30.6693349
-          ],
-          [
-            31.598331,
-            30.6693948
-          ],
-          [
-            31.5989616,
-            30.6704489
-          ],
-          [
-            31.5990196,
-            30.6705475
-          ],
-          [
-            31.599638,
-            30.6715937
-          ],
-          [
-            31.600169,
-            30.6724941
-          ],
-          [
-            31.6002135,
-            30.672568
-          ],
-          [
-            31.6005495,
-            30.6731261
-          ],
-          [
-            31.6007506,
-            30.6734625
-          ],
-          [
-            31.6008653,
-            30.6736613
-          ],
-          [
-            31.6009634,
-            30.6738665
-          ],
-          [
-            31.6010442,
-            30.6740773
-          ],
-          [
-            31.6011074,
-            30.6742924
-          ],
-          [
-            31.6011527,
-            30.6745109
-          ],
-          [
-            31.6011721,
-            30.6747346
-          ],
-          [
-            31.6011681,
-            30.6749589
-          ],
-          [
-            31.6011405,
-            30.675182
-          ],
-          [
-            31.6011017,
-            30.6753789
-          ],
-          [
-            31.6007741,
-            30.6769081
-          ],
-          [
-            31.6004894,
-            30.6784247
-          ],
-          [
-            31.6004332,
-            30.6787243
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-88432637",
-        "entity_code": "ROAD-RING-ROAD",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 88432637,
-        "osm_version": 19,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 88432637,
-            "osm_version": 19
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "primary",
-            "name": "الطريق الدائري",
-            "name:ar": "الطريق الدائري",
-            "name:en": "The Ring Road"
-          },
-          "match_method": "exact_name",
-          "road_geometry_match": "exact road name/ref"
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-885863137",
       "geometry": {
         "type": "LineString",
@@ -218697,6 +216569,327 @@
     },
     {
       "type": "Feature",
+      "id": "OSM-WAY-895165971",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.6430112,
+            30.1176986
+          ],
+          [
+            31.6429341,
+            30.1177355
+          ],
+          [
+            31.6428536,
+            30.1177665
+          ],
+          [
+            31.6427703,
+            30.1177911
+          ],
+          [
+            31.6426847,
+            30.1178093
+          ],
+          [
+            31.6425976,
+            30.1178209
+          ],
+          [
+            31.6425097,
+            30.1178257
+          ],
+          [
+            31.6424217,
+            30.1178238
+          ],
+          [
+            31.6423342,
+            30.1178152
+          ],
+          [
+            31.6422479,
+            30.1177998
+          ],
+          [
+            31.6421635,
+            30.117778
+          ],
+          [
+            31.6420817,
+            30.1177509
+          ],
+          [
+            31.639747,
+            30.1169652
+          ],
+          [
+            31.6396029,
+            30.1169159
+          ],
+          [
+            31.6394602,
+            30.1168659
+          ],
+          [
+            31.6393189,
+            30.1168129
+          ],
+          [
+            31.6391791,
+            30.1167582
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-895165971",
+        "entity_code": "ROAD-CAIRO-SUEZ",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 895165971,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 895165971,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "trunk_link",
+            "name": "كوبرى مدينتى",
+            "name:ar": "كوبرى مدينتى",
+            "name:en": "Madinaty Bridge",
+            "oneway": "yes"
+          },
+          "match_method": "gap_fill_graph",
+          "road_geometry_match": "shortest eligible shared-node OSM path",
+          "graph_path_length_km": 0.893
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-895165972",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.6398663,
+            30.11583
+          ],
+          [
+            31.6401226,
+            30.1158466
+          ],
+          [
+            31.6403785,
+            30.1158675
+          ],
+          [
+            31.6406337,
+            30.1158938
+          ],
+          [
+            31.6408881,
+            30.1159243
+          ],
+          [
+            31.6411289,
+            30.1159534
+          ],
+          [
+            31.641368,
+            30.1159824
+          ],
+          [
+            31.6426243,
+            30.1161467
+          ],
+          [
+            31.6427355,
+            30.1161639
+          ],
+          [
+            31.6428436,
+            30.116192
+          ],
+          [
+            31.6429473,
+            30.1162306
+          ],
+          [
+            31.6430452,
+            30.1162791
+          ],
+          [
+            31.6431361,
+            30.1163371
+          ],
+          [
+            31.6432188,
+            30.1164036
+          ],
+          [
+            31.6432921,
+            30.1164779
+          ],
+          [
+            31.6433546,
+            30.1165591
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-895165972",
+        "entity_code": "ROAD-CAIRO-SUEZ",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 895165972,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 895165972,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "trunk_link",
+            "name": "كوبرى مدينتى",
+            "name:ar": "كوبرى مدينتى",
+            "name:en": "Madinaty Bridge",
+            "oneway": "yes"
+          },
+          "match_method": "gap_fill_graph",
+          "road_geometry_match": "shortest eligible shared-node OSM path",
+          "graph_path_length_km": 0.893
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-895165973",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.6433546,
+            30.1165591
+          ],
+          [
+            31.643401,
+            30.1166365
+          ],
+          [
+            31.6434377,
+            30.1167177
+          ],
+          [
+            31.6434645,
+            30.1168017
+          ],
+          [
+            31.643481,
+            30.1168877
+          ],
+          [
+            31.6434869,
+            30.1169747
+          ],
+          [
+            31.6434823,
+            30.1170618
+          ],
+          [
+            31.6434673,
+            30.117148
+          ],
+          [
+            31.6434418,
+            30.1172323
+          ],
+          [
+            31.6434064,
+            30.1173139
+          ],
+          [
+            31.6433612,
+            30.1173918
+          ],
+          [
+            31.6433069,
+            30.1174653
+          ],
+          [
+            31.643244,
+            30.1175334
+          ],
+          [
+            31.6431732,
+            30.1175954
+          ],
+          [
+            31.6430953,
+            30.1176507
+          ],
+          [
+            31.6430112,
+            30.1176986
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-895165973",
+        "entity_code": "ROAD-CAIRO-SUEZ",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 895165973,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 895165973,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "trunk_link",
+            "layer": "1",
+            "name": "كوبرى مدينتى",
+            "name:ar": "كوبرى مدينتى",
+            "name:en": "Madinaty Bridge",
+            "oneway": "yes"
+          },
+          "match_method": "gap_fill_graph",
+          "road_geometry_match": "shortest eligible shared-node OSM path",
+          "graph_path_length_km": 0.893
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-WAY-896208319",
       "geometry": {
         "type": "LineString",
@@ -219027,6 +217220,80 @@
           },
           "match_method": "route_relation",
           "road_geometry_match": "OSM route=road relation member"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-896428255",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2144015,
+            30.0623947
+          ],
+          [
+            31.2143483,
+            30.062443
+          ],
+          [
+            31.2142852,
+            30.0624799
+          ],
+          [
+            31.2142139,
+            30.0625029
+          ],
+          [
+            31.2141383,
+            30.0625106
+          ],
+          [
+            31.2141042,
+            30.062507
+          ],
+          [
+            31.2140627,
+            30.0625027
+          ],
+          [
+            31.2139901,
+            30.0624877
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-896428255",
+        "entity_code": "ROAD-26-JULY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 896428255,
+        "osm_version": 2,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 896428255,
+            "osm_version": 2
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "destination": "شارع احمد عرابى",
+            "destination:lang:en": "Ahmed Orabi Street",
+            "highway": "secondary",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
         }
       }
     },
@@ -219732,50 +217999,6 @@
             "ref": "27",
             "surface": "paved"
           }
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "OSM-WAY-905723532",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            30.9464761,
-            29.6207399
-          ],
-          [
-            30.9465688,
-            29.6205785
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-905723532",
-        "entity_code": "ROAD-REGIONAL-RING",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 905723532,
-        "osm_version": 1,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 905723532,
-            "osm_version": 1
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "highway": "motorway_link"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.02
         }
       }
     },
@@ -233218,73 +231441,58 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-941430288",
+      "id": "OSM-WAY-94125750",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            31.4222721,
-            30.1484617
+            31.193203,
+            30.4477642
           ],
           [
-            31.4222178,
-            30.1484258
-          ],
-          [
-            31.4221836,
-            30.1483745
-          ],
-          [
-            31.422175,
-            30.1483158
-          ],
-          [
-            31.4221933,
-            30.1482588
-          ],
-          [
-            31.4222355,
-            30.1482123
-          ],
-          [
-            31.4222953,
-            30.1481835
-          ],
-          [
-            31.4223847,
-            30.148156
+            31.192046,
+            30.4461934
           ]
         ]
       },
       "properties": {
-        "code": "OSM-WAY-941430288",
-        "entity_code": "ROAD-CAIRO-ISMAILIA-DESERT",
+        "code": "OSM-WAY-94125750",
+        "entity_code": "ROAD-CAIRO-ALEX-AGRI",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "way",
-        "osm_id": 941430288,
-        "osm_version": 3,
+        "osm_id": 94125750,
+        "osm_version": 9,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "way",
-            "osm_id": 941430288,
-            "osm_version": 3
+            "osm_id": 94125750,
+            "osm_version": 9
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
           "entity_type": "road",
           "osm_tags": {
-            "destination": "مناطق المرج",
-            "destination:lang:en": "El Marg Areas",
-            "highway": "trunk_link",
-            "lit": "yes",
-            "oneway": "yes"
+            "alt_name": "طريق القاهرة, الاسكندرية الزراعى",
+            "alt_name:en": "Cairo, Alexandria Al Zeraai Road",
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "trunk",
+            "lanes": "3",
+            "layer": "1",
+            "maxspeed": "90",
+            "name": "كوبرى الشموت",
+            "name:ar": "كوبرى الشموت",
+            "name:en": "Al Shamout Bridge",
+            "old_ref": "01",
+            "oneway": "yes",
+            "ref": "21"
           },
           "match_method": "gap_fill_graph",
           "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.733
+          "graph_path_length_km": 0.207
         }
       }
     },
@@ -236363,86 +234571,6 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-967905021",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            31.4249067,
-            30.1490863
-          ],
-          [
-            31.4248341,
-            30.149111
-          ],
-          [
-            31.4247574,
-            30.149124
-          ],
-          [
-            31.4246794,
-            30.1491249
-          ],
-          [
-            31.4246069,
-            30.1491147
-          ],
-          [
-            31.4245375,
-            30.1490939
-          ],
-          [
-            31.4242611,
-            30.1490142
-          ],
-          [
-            31.4235686,
-            30.1488145
-          ],
-          [
-            31.4224378,
-            30.1484952
-          ],
-          [
-            31.4223644,
-            30.1484838
-          ]
-        ]
-      },
-      "properties": {
-        "code": "OSM-WAY-967905021",
-        "entity_code": "ROAD-CAIRO-ISMAILIA-DESERT",
-        "evidence_code": null,
-        "srid": 4326,
-        "license": "ODbL-1.0",
-        "osm_type": "way",
-        "osm_id": 967905021,
-        "osm_version": 7,
-        "properties": {
-          "source": "OpenStreetMap",
-          "source_ids": {
-            "osm_type": "way",
-            "osm_id": 967905021,
-            "osm_version": 7
-          },
-          "retrieval_date": "2026-11-14",
-          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
-          "entity_type": "road",
-          "osm_tags": {
-            "destination": "مدينة السلام; الدائرى; اسكندرية الزراعى",
-            "destination:lang:en": "Salam City; The Ring; Alexandria Agricultural",
-            "highway": "trunk_link",
-            "lit": "yes",
-            "oneway": "yes"
-          },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.733
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "OSM-WAY-968208526",
       "geometry": {
         "type": "LineString",
@@ -236678,84 +234806,84 @@
     },
     {
       "type": "Feature",
-      "id": "OSM-WAY-969477035",
+      "id": "OSM-WAY-972026099",
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            31.4195328,
-            30.1473588
+            31.2378672,
+            30.0541075
           ],
           [
-            31.4220403,
-            30.1480783
+            31.237743,
+            30.0540598
           ],
           [
-            31.4223847,
-            30.148156
+            31.2377017,
+            30.0540508
           ],
           [
-            31.42411,
-            30.1486245
+            31.2376324,
+            30.0540357
           ],
           [
-            31.4249365,
-            30.1488325
+            31.2375262,
+            30.054042
           ],
           [
-            31.4255751,
-            30.1489913
+            31.2374005,
+            30.054075
           ],
           [
-            31.4259919,
-            30.1491137
+            31.2373012,
+            30.0541132
           ],
           [
-            31.4261283,
-            30.1491601
+            31.2366539,
+            30.0543655
           ],
           [
-            31.4262615,
-            30.1492128
+            31.2365424,
+            30.0544048
           ],
           [
-            31.4263911,
-            30.1492717
-          ],
-          [
-            31.4265169,
-            30.1493366
+            31.2364508,
+            30.0544352
           ]
         ]
       },
       "properties": {
-        "code": "OSM-WAY-969477035",
-        "entity_code": "ROAD-CAIRO-ISMAILIA-DESERT",
+        "code": "OSM-WAY-972026099",
+        "entity_code": "ROAD-26-JULY",
         "evidence_code": null,
         "srid": 4326,
         "license": "ODbL-1.0",
         "osm_type": "way",
-        "osm_id": 969477035,
-        "osm_version": 6,
+        "osm_id": 972026099,
+        "osm_version": 5,
         "properties": {
           "source": "OpenStreetMap",
           "source_ids": {
             "osm_type": "way",
-            "osm_id": 969477035,
-            "osm_version": 6
+            "osm_id": 972026099,
+            "osm_version": 5
           },
           "retrieval_date": "2026-11-14",
           "attribution": "© OpenStreetMap contributors, ODbL 1.0",
           "entity_type": "road",
           "osm_tags": {
-            "foot": "no",
-            "highway": "trunk_link",
+            "destination": "شارع 26 يوليو",
+            "destination:lang:en": "26th July Street",
+            "highway": "primary",
             "lit": "yes",
+            "name": "شارع 26 يوليو",
+            "name:ar": "شارع 26 يوليو",
+            "name:en": "26th July Street",
+            "name:fr": "26 Juillet",
             "oneway": "yes"
           },
-          "match_method": "gap_fill_graph",
-          "road_geometry_match": "shortest eligible shared-node OSM path",
-          "graph_path_length_km": 0.733
+          "match_method": "exact_name",
+          "road_geometry_match": "exact road name/ref"
         }
       }
     },
