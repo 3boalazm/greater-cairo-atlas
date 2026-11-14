@@ -7,6 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const dataset=await getStaticAtlasDataset();
   const pages:MetadataRoute.Sitemap=[
     {url:base,lastModified:new Date(),changeFrequency:"weekly",priority:1},
+    {url:`${base}/directory`,lastModified:new Date(),changeFrequency:"weekly",priority:0.9},
     {url:`${base}/data`,lastModified:new Date(),changeFrequency:"monthly",priority:0.7},
     {url:`${base}/methodology`,lastModified:new Date(),changeFrequency:"monthly",priority:0.6},
     {url:`${base}/sources`,lastModified:new Date(),changeFrequency:"monthly",priority:0.6},

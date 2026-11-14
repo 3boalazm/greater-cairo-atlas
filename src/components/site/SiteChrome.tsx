@@ -3,8 +3,8 @@ import Link from "next/link";
 export type SiteLanguage = "ar" | "en";
 
 const labels = {
-  ar: { atlas: "أطلس القاهرة الكبرى", data: "البيانات", methodology: "المنهجية", sources: "المصادر", home: "الخريطة", lang: "English" },
-  en: { atlas: "Greater Cairo Atlas", data: "Data", methodology: "Methodology", sources: "Sources", home: "Map", lang: "العربية" },
+  ar: { atlas: "أطلس القاهرة الكبرى", data: "البيانات", directory: "الدليل", methodology: "المنهجية", sources: "المصادر", home: "الخريطة", lang: "English" },
+  en: { atlas: "Greater Cairo Atlas", data: "Data", directory: "Directory", methodology: "Methodology", sources: "Sources", home: "Map", lang: "العربية" },
 };
 
 export function SiteHeader({ language = "ar" }: { language?: SiteLanguage }) {
@@ -15,6 +15,7 @@ export function SiteHeader({ language = "ar" }: { language?: SiteLanguage }) {
     <Link className="site-brand" href="/">{text.atlas}</Link>
     <nav aria-label={language === "ar" ? "التنقل الرئيسي" : "Main navigation"}>
       <Link href="/">{text.home}</Link>
+      <Link href={`/directory?lang=${language}`}>{text.directory}</Link>
       <Link href={`/data?lang=${language}`}>{text.data}</Link>
       <Link href={`/methodology?lang=${language}`}>{text.methodology}</Link>
       <Link href={`/sources?lang=${language}`}>{text.sources}</Link>
@@ -27,8 +28,9 @@ export function SiteFooter({ language = "ar" }: { language?: SiteLanguage }) {
   const text = labels[language];
   return <footer className="site-footer">
     <span>{language === "ar" ? "أطلس موثّق · لا تخمين للحالة أو الهندسة" : "Evidence-led atlas · no inferred status or geometry"}</span>
-    <span>{language === "ar" ? "البيانات © مصطفى أبوالعزم · CC BY 4.0 | هندسة OSM · ODbL 1.0" : "Data © Mustafa Aboalazm · CC BY 4.0 | OSM geometry · ODbL 1.0"}</span>
+    <span>{language === "ar" ? "حقائق البحث والأدلة وكل البيانات غير المشتقة من OSM: © Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0 | الهندسة المشتقة من OpenStreetMap: © OpenStreetMap contributors, ODbL 1.0" : "Research facts, evidence, and all data not derived from OpenStreetMap: © Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0 | OpenStreetMap-derived geometry: © OpenStreetMap contributors, ODbL 1.0"}</span>
     <nav aria-label={language === "ar" ? "روابط معلوماتية" : "Information links"}>
+      <Link href={`/directory?lang=${language}`}>{text.directory}</Link>
       <Link href={`/data?lang=${language}`}>{text.data}</Link>
       <Link href={`/methodology?lang=${language}`}>{text.methodology}</Link>
       <Link href={`/sources?lang=${language}`}>{text.sources}</Link>
@@ -38,8 +40,7 @@ export function SiteFooter({ language = "ar" }: { language?: SiteLanguage }) {
 
 export function getSiteUrl(): string {
   const configured = process.env.NEXT_PUBLIC_SITE_URL;
-  const deployment = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined;
-  return (configured || deployment || "https://greater-cairo-atlas.vercel.app").replace(/\/$/, "");
+  return (configured || "https://greater-cairo-atlas.vercel.app").replace(/\/$/, "");
 }
 
 export function resolveLanguage(value?: string | string[]): SiteLanguage {

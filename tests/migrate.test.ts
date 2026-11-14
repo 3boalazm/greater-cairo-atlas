@@ -36,7 +36,7 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
     return dir;
   }
 
-  it("discovers migrations 000-007 in order, preserving immutable prior checksums and feature invariants", async () => {
+  it("discovers migrations 000-008 in order, preserving immutable prior checksums and feature invariants", async () => {
     const migrations = await discoverMigrations();
     expect(migrations.map((m) => m.filename)).toEqual([
       "000_enable_postgis.sql",
@@ -47,6 +47,7 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
       "005_import_runs.sql",
       "006_road_only_bbox_extension.sql",
       "007_regional_ring_west_bbox.sql",
+      "008_verified_facts_require_official_url.sql",
     ]);
 
     const m000 = migrations[0];
@@ -119,6 +120,10 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
     expect(m007?.sql).toContain("south DOUBLE PRECISION := 29.2");
     expect(m007?.sql).toContain("east := 32.35");
     expect(m007?.sql).toContain("north := 30.9");
+    const m008 = migrations[8];
+    expect(m008?.sql).toMatch(/source_type = 'official'/i);
+    expect(m008?.sql).toMatch(/url IS NOT NULL/i);
+    expect(m008?.sql).toMatch(/AFTER INSERT OR DELETE OR UPDATE ON fact_evidence/i);
   });
 
   it("runs dry-run without requiring DATABASE_URL", async () => {
@@ -134,6 +139,7 @@ describe("SQL migrations runner and migrations 000 through 004", () => {
       "005_import_runs.sql",
       "006_road_only_bbox_extension.sql",
       "007_regional_ring_west_bbox.sql",
+      "008_verified_facts_require_official_url.sql",
     ]);
   });
 

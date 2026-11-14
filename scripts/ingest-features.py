@@ -33,6 +33,7 @@ from shapely.geometry.base import BaseGeometry
 
 from area_boundaries import boundary_candidate_review, process_osm_boundaries
 from station_matching import match_osm_station_nodes
+from station_fact_geometry import match_station_fact_nodes
 from road_gap_fill import ROAD_HIGHWAYS, build_road_graph, connect_seed_components, filter_graph_for_entity, haversine_km, normalize as normalize_road_label
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -58,6 +59,26 @@ def load_entities() -> list[dict[str, str]]:
     for row in rows:
         row["aliases"] = row.get("aliases", "") or ""
     return rows
+
+
+def load_station_node_facts() -> tuple[dict[str, set[int]], dict[str, set[str]]]:
+    """Read canonical OSM station-node lineage without inferring IDs from names."""
+    facts_path = ROOT / "data/seed/facts.json"
+    facts = json.loads(facts_path.read_text(encoding="utf-8"))
+    node_ids: dict[str, set[int]] = defaultdict(set)
+    line_memberships: dict[str, set[str]] = defaultdict(set)
+    for fact in facts:
+        code = fact.get("entity_code")
+        if not isinstance(code, str):
+            continue
+        if fact.get("attribute") == "osm_node_id":
+            try:
+                node_ids[code].add(int(fact.get("value")))
+            except (TypeError, ValueError):
+                continue
+        elif fact.get("attribute") == "line_membership" and isinstance(fact.get("value"), str):
+            line_memberships[code].add(fact["value"])
+    return dict(node_ids), dict(line_memberships)
 
 
 def names(row: dict[str, str]) -> set[str]:
@@ -1370,6 +1391,7 @@ def main():
     outdir = Path(args.out)
     date = dt.date.today().isoformat()
     entities = load_entities()
+    station_node_ids_by_entity, station_lines_by_entity = load_station_node_facts()
     rules_path = Path(args.match_rules)
     rules = json.loads(rules_path.read_text(encoding="utf-8")) if rules_path.exists() else {}
     report = new_report()
@@ -1389,6 +1411,7 @@ def main():
     boundary_source_path = Path(args.osm_boundaries)
     combined_osm: dict[str, Any] | None = None
     station_matching_ran = False
+    station_node_fact_audit: dict[str, Any] | None = None
     if args.fetch_osm or args.osm_json:
         input_files = args.osm_json or [None]
         osm_documents: list[dict[str, Any]] = []
@@ -1416,10 +1439,43 @@ def main():
                     if item.get("properties", {}).get("properties", {}).get("entity_type") == "transit_line"
                     and item.get("properties", {}).get("code") not in current_codes)
             station_features, station_audit = match_osm_station_nodes(combined_osm, entities, station_line_features, osm_date, rules)
+            station_groups: list[dict[str, Any]] = []
+            station_group_report_path = ROOT / "data/research/osm-stations/stations_from_osm.json"
+            if station_group_report_path.exists():
+                try:
+                    station_groups = json.loads(station_group_report_path.read_text(encoding="utf-8")).get("stations", [])
+                except (OSError, json.JSONDecodeError, AttributeError):
+                    station_groups = []
+            fact_station_features, station_node_fact_audit = match_station_fact_nodes(
+                combined_osm, entities, station_node_ids_by_entity, station_lines_by_entity,
+                osm_date, station_groups,
+            )
+            fact_station_codes = {
+                entity["code"] for entity in entities
+                if entity.get("entity_type") in {"transit_stop", "rail_station"}
+                and entity.get("code") in station_node_ids_by_entity
+            }
+            # Fact-backed station identities are authoritative. Do not leave a name-matched point
+            # from a different OSM node attached to the same entity.
+            station_features = [item for item in station_features
+                                if item.get("properties", {}).get("entity_code") not in fact_station_codes]
+            station_features.extend(fact_station_features)
             station_matching_ran = True
             features.extend(station_features)
             report["station_matching"] = station_audit
+            report["station_node_fact_matching"] = station_node_fact_audit
             entity_by_code = {entity["code"]: entity for entity in entities}
+            station_rows = station_audit.setdefault("station_entities", {})
+            for code in sorted(fact_station_codes):
+                direct = station_node_fact_audit.get("station_entities", {}).get(code, {})
+                node_ids = direct.get("matched_osm_node_ids", [])
+                station_row = station_rows.setdefault(code, {"entity_type": entity_by_code.get(code, {}).get("entity_type"),
+                                                              "status": entity_by_code.get(code, {}).get("status")})
+                station_row["matched_osm_node_ids"] = node_ids
+                station_row["matched_count"] = len(node_ids)
+                station_row["matched_line_codes"] = sorted(station_lines_by_entity.get(code, set()))
+                station_row["outcome"] = "matched" if node_ids else "unmatched"
+                station_row["rejected_candidates"] = station_node_fact_audit.get("lifecycle_or_geometry_rejections", {}).get(code, [])
             for item in station_audit.get("source_node_audit", []):
                 if item.get("outcome") == "unmatched" and not item.get("candidate_entity_codes"):
                     continue
@@ -1580,6 +1636,44 @@ def main():
         station_audit["station_entities_with_geometry_before"] = sum(before_counts[code] > 0 for code in station_audit.get("station_entities", {}))
         station_audit["station_entities_with_geometry_after"] = sum(after_counts[code] > 0 for code in station_audit.get("station_entities", {}))
         station_audit["station_entities_matched"] = sum(item.get("matched_count", 0) > 0 for item in station_audit.get("station_entities", {}).values())
+        fact_line_entities: dict[str, set[str]] = defaultdict(set)
+        for code, line_codes in station_lines_by_entity.items():
+            if code not in entity_by_code or entity_by_code[code].get("entity_type") not in {"transit_stop", "rail_station"}:
+                continue
+            for line_code in line_codes:
+                if line_code.startswith("TRANSIT-"):
+                    fact_line_entities[line_code].add(code)
+        point_entity_codes = {item.get("properties", {}).get("entity_code") for item in features
+                              if item.get("geometry", {}).get("type") == "Point"}
+        per_line_geometry: dict[str, dict[str, Any]] = {}
+        exact_by_line = (station_node_fact_audit or {}).get("by_line", {})
+        for line_code, codes_for_line in sorted(fact_line_entities.items()):
+            with_geometry = sorted(codes_for_line & point_entity_codes)
+            exact_line = exact_by_line.get(line_code, {})
+            missing_codes = sorted(codes_for_line - set(with_geometry))
+            point_count = sum(sum(1 for item in features
+                                  if item.get("properties", {}).get("entity_code") == code
+                                  and item.get("geometry", {}).get("type") == "Point")
+                              for code in codes_for_line)
+            per_line_geometry[line_code] = {
+                "station_entities": len(codes_for_line),
+                "station_entities_with_geometry": len(with_geometry),
+                "station_entities_without_geometry": missing_codes,
+                "point_feature_count": point_count,
+                "osm_station_groups": exact_line.get("station_group_count", 0),
+                "osm_station_groups_with_geometry": exact_line.get("matched_group_count", 0),
+                "lifecycle_or_geometry_rejected_groups": exact_line.get("rejected_groups", []),
+            }
+            summary = station_audit.setdefault("by_line", {}).setdefault(line_code, {})
+            summary.update({
+                "station_entities": len(codes_for_line), "matched_entities": len(with_geometry),
+                "matched_entity_codes": with_geometry, "unmatched_entities": missing_codes,
+                "station_feature_count_after": point_count,
+                "station_group_count": exact_line.get("station_group_count", 0),
+                "station_groups_with_geometry": exact_line.get("matched_group_count", 0),
+            })
+        station_audit["station_entities_with_geometry_by_line"] = per_line_geometry
+        report["station_entities_with_geometry_by_line"] = per_line_geometry
     report["feature_counts_before_after_by_entity"] = {e["code"]:{"before":before_counts[e["code"]],"after":after_counts[e["code"]]} for e in entities}
     report["entities_with_geometry"] = {"count":sum(v>0 for v in after_counts.values()),"total_entities":len(entities),"entity_codes":sorted(after_counts)}
     def entity_extent(items: list[dict[str, Any]], entity_code: str) -> list[float] | None:
@@ -1755,6 +1849,20 @@ def main():
             )
             if detail.get("unmatched_entities"):
                 station_lines.append(f"  - بلا مطابقة: `{', '.join(detail['unmatched_entities'])}`")
+        fact_audit = report.get("station_node_fact_matching", {})
+        if fact_audit:
+            station_lines.extend(["", "## هندسة المحطات من حقائق osm_node_id", "",
+                f"- المنهج: `{fact_audit.get('method')}`؛ كيانات لها حقائق: {fact_audit.get('source_station_entities_with_node_facts', 0)}؛ أرقام عقد مرجعية: {fact_audit.get('source_node_ids_in_facts', 0)}؛ المجموعات المطابقة: {fact_audit.get('station_groups_matched', 0)}.",
+                "- لم تُستبدل العقد المرجعية بمطابقة اسمية. العقدة المخططة التي لا تتوافق مع lifecycle لا تحصل على استثناء.",
+                f"- محطات بلا وسيلة نقل محددة من line membership أو بادئة الرمز: `{fact_audit.get('stations_with_undetermined_mode', [])}`؛ لم تُعرض لها وسيلة عامة بديلة.",
+                "", "| الكيان | الحالة | عُقد OSM ذات هندسة |", "|---|---|---|"])
+            for code, item in sorted(fact_audit.get("station_entities", {}).items()):
+                station_lines.append(f"| `{code}` | `{item.get('status')}` | `{item.get('matched_osm_node_ids', [])}` |")
+            for code, items in sorted(fact_audit.get("lifecycle_or_geometry_rejections", {}).items()):
+                for item in items:
+                    station_lines.append(f"- مرفوضة `{code}` / node/{item.get('osm_id')}: {item.get('reason')}.")
+            for line_code, detail in sorted(fact_audit.get("by_line", {}).items()):
+                station_lines.append(f"- `{line_code}`: مجموعات {detail.get('station_group_count', 0)}؛ هندسة متاحة {detail.get('matched_group_count', 0)}.")
         station_lines.extend(["", "## الكيانات بلا مطابقة مؤكدة", ""])
         for code, detail in sorted(station_audit.get("station_entities", {}).items()):
             if detail.get("matched_count", 0):

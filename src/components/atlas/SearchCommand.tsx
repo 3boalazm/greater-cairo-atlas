@@ -1,9 +1,10 @@
 "use client";
 /* eslint-disable react-hooks/set-state-in-effect -- clear stale async results when the query becomes empty. */
 
-import { ArrowDown, Command, MapPinned, Search, X } from "lucide-react";
+import { ArrowDown, MapPinned, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { AtlasEntitySummary, AtlasLanguage } from "./atlas-client";
+import { stationDisplayName } from "@/lib/atlas/labels";
 
 export function SearchCommand({ language, onSelect, onShowBoundary }: { language: AtlasLanguage; onSelect: (code: string) => void; onShowBoundary: (code: string) => void }) {
   const [query, setQuery] = useState("");
@@ -11,10 +12,13 @@ export function SearchCommand({ language, onSelect, onShowBoundary }: { language
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [shortcutLabel, setShortcutLabel] = useState("Ctrl K");
   const inputRef = useRef<HTMLInputElement>(null);
   const ar = language === "ar";
 
   useEffect(() => {
+    const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
+    setShortcutLabel(isMac ? "⌘ K" : "Ctrl K");
     const shortcut = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
@@ -58,20 +62,20 @@ export function SearchCommand({ language, onSelect, onShowBoundary }: { language
       placeholder={ar ? "ابحث عن طريق أو محطة أو مدينة…" : "Search roads, transit, cities…"} />
     {loading && <span className="search-loading" role="status">{ar ? "بحث…" : "Searching…"}</span>}
     {!loading && query && <button className="search-clear" onClick={() => { setQuery(""); inputRef.current?.focus(); }} aria-label={ar ? "مسح البحث" : "Clear search"}><X aria-hidden="true" /></button>}
-    <kbd><Command aria-hidden="true" /> K</kbd>
+    <kbd aria-label={shortcutLabel}>{shortcutLabel}</kbd>
     {open && query.trim() && <>
       <button className="search-dismiss" tabIndex={-1} aria-label={ar ? "إغلاق البحث" : "Close search"} onClick={() => setOpen(false)} />
       <div className="search-results" id="atlas-search-results" role="listbox" aria-label={ar ? "نتائج البحث" : "Search results"}>
         {results.map((entity, index) => <div key={entity.code} role="option" aria-selected={index === active} className={`search-result-row ${index === active ? "active-result" : ""}`} onMouseEnter={() => setActive(index)}>
           <button className="search-result-select" type="button" onClick={() => choose(entity)}>
-            <span className="result-main"><strong>{ar ? entity.name_ar : entity.name_en}</strong><small>{ar ? entity.name_en : entity.name_ar} · {entity.code}</small></span>
+            <span className="result-main"><strong>{stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)}</strong><small>{ar ? entity.name_en : entity.name_ar} · {entity.code}</small></span>
             {!entity.has_geometry && <span className="no-geometry-result">{ar ? "لا توجد هندسة" : "No geometry"}</span>}
             <ArrowDown className="result-enter" aria-hidden="true" />
           </button>
           {entity.has_boundary && <button type="button" className="search-boundary-action" onClick={() => {
             onShowBoundary(entity.code); setOpen(false); setQuery(""); inputRef.current?.blur();
           }} aria-label={ar
-            ? entity.code === "CITY-CAIRO" ? "إظهار حدود محافظة القاهرة على الخريطة" : `إظهار حدود ${entity.name_ar} على الخريطة`
+            ? entity.code === "CITY-CAIRO" ? "إظهار حدود محافظة القاهرة على الخريطة" : `إظهار حدود ${stationDisplayName(entity.code, entity.name_ar)} على الخريطة`
             : entity.code === "CITY-CAIRO" ? "Show Cairo Governorate boundary on map" : `Show ${entity.name_en} boundary on map`}>
             <MapPinned aria-hidden="true" />{ar ? entity.code === "CITY-CAIRO" ? "حدود محافظة القاهرة" : "إظهار الحدود" : "Show boundary"}
           </button>}

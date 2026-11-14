@@ -3,6 +3,7 @@ import { getSql } from "@/lib/db/client";
 import { RequestValidationError } from "@/lib/errors";
 import { ENTITY_SECTORS, ENTITY_STATUSES, ENTITY_TYPES } from "@/lib/atlas/schema";
 import { isTransitInterchangeEntityCode, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
+import { stationDisplayName } from "@/lib/atlas/labels";
 
 const featureQuerySchema = z.strictObject({
   type: z.enum(ENTITY_TYPES).optional(),
@@ -31,6 +32,7 @@ export interface FeatureCollectionRow {
   source: string;
   retrieval_date: string;
   source_ids: unknown;
+  line_codes?: unknown;
 }
 
 export interface AtlasFeatureCollection {
@@ -92,7 +94,8 @@ export const ATLAS_FEATURES_SQL = `
               ELSE f.properties ->> 'attribution' END AS attribution,
          f.properties ->> 'source' AS source,
          f.properties ->> 'retrieval_date' AS retrieval_date,
-         jsonb_build_array(f.properties -> 'source_ids') AS source_ids
+         jsonb_build_array(f.properties -> 'source_ids') AS source_ids,
+         COALESCE(f.properties -> 'matched_line_codes', '[]'::jsonb) AS line_codes
     FROM features f
     JOIN entities e ON e.id = f.entity_id
    WHERE ($1::text IS NULL OR e.entity_type = $1)
@@ -128,14 +131,17 @@ export async function getAtlasFeatures(
       geometry_license: "© OpenStreetMap contributors, ODbL 1.0",
       contact: "01092500454 · 3boalazm@gmail.com",
     },
-    features: rows.map((row) => ({
+    features: rows.map((row) => {
+      const lineCodes = Array.isArray(row.line_codes) ? row.line_codes.filter((item): item is string => typeof item === "string") : row.entity_code.startsWith("TRANSIT-") ? [row.entity_code] : [];
+      const modes = transitModesForEntityCode(row.entity_code, lineCodes);
+      return {
       type: "Feature",
       id: row.code,
       geometry: typeof row.geometry === "string" ? JSON.parse(row.geometry) : row.geometry,
       properties: {
         code: row.code,
         entity_code: row.entity_code,
-        name_ar: row.name_ar,
+        name_ar: stationDisplayName(row.entity_code, row.name_ar),
         name_en: row.name_en,
         type: row.entity_type,
         status: row.status,
@@ -146,9 +152,10 @@ export async function getAtlasFeatures(
         source: row.source,
         retrieval_date: row.retrieval_date,
         source_ids: row.source_ids,
-        modes: transitModesForEntityCode(row.entity_code),
-        interchange: isTransitInterchangeEntityCode(row.entity_code),
+        line_codes: lineCodes,
+        modes,
+        interchange: modes.length > 1 || isTransitInterchangeEntityCode(row.entity_code),
       },
-    })),
+    }; }),
   };
 }

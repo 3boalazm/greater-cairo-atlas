@@ -99,14 +99,11 @@ export function isOperationalStatus(status: EntityStatus): boolean {
   return status === "operational";
 }
 
-/**
- * Weak 'secondary' sources (Wikipedia, real-estate blogs, aggregators) must never
- * by themselves qualify a fact as 'verified'. At least one non-secondary source is required.
- */
+/** Verified facts require at least one linked official evidence record with a URL, matching the DB trigger. */
 export function canVerifyFactWithSources(
-  sourceTypes: readonly EvidenceSourceType[],
+  sources: readonly { source_type: EvidenceSourceType; url: string | null }[],
 ): boolean {
-  return sourceTypes.some((sourceType) => sourceType !== "secondary");
+  return sources.some((source) => source.source_type === "official" && typeof source.url === "string" && source.url.length > 0);
 }
 
 function isRealCalendarDate(value: string): boolean {

@@ -1280,8 +1280,7 @@ function adaptResearchFactsJson(
       if (
         item.verificationState === "verified" &&
         !hasMissingOrInvalidEvidence &&
-        resolvedSources.length > 0 &&
-        !canVerifyFactWithSources(resolvedSources.map((s) => s.source_type))
+        !canVerifyFactWithSources(resolvedSources)
       ) {
         secondaryOnlyVerifiedFacts.push({
           index: item.originalIndex,
@@ -1292,7 +1291,7 @@ function adaptResearchFactsJson(
         });
         issues.push({
           path: `facts.json[${item.originalIndex}].verification_state`,
-          message: `Fact "${code}" (${item.entityCode} · ${item.attribute}) cannot have verification_state "verified" when backed solely by secondary evidence (${item.evidenceCodes.join(", ")}). At least one non-secondary source is required.`,
+          message: `Fact "${code}" (${item.entityCode} · ${item.attribute}) cannot have verification_state "verified" without linked official evidence with a URL (${item.evidenceCodes.join(", ")}).`,
         });
       }
 

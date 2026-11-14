@@ -6,26 +6,28 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import type { AtlasLanguage, AtlasTheme } from "./atlas-client";
 
-export function useAtlasPreferences() {
+export function useAtlasPreferences(initialLanguage: AtlasLanguage = "ar") {
   const [theme, setTheme] = useState<AtlasTheme>("night");
-  const [language, setLanguage] = useState<AtlasLanguage>("ar");
+  const [language, setLanguage] = useState<AtlasLanguage>(initialLanguage);
 
   useEffect(() => {
-    const savedTheme = window.localStorage.getItem("gca-theme");
-    if (savedTheme === "day" || savedTheme === "night") setTheme(savedTheme);
-    const savedLanguage = window.localStorage.getItem("gca-language");
-    if (savedLanguage === "ar" || savedLanguage === "en") setLanguage(savedLanguage);
+    try {
+      const savedTheme = window.localStorage.getItem("gca-theme");
+      if (savedTheme === "day" || savedTheme === "night") setTheme(savedTheme);
+      const savedLanguage = window.localStorage.getItem("gca-language");
+      if (savedLanguage === "ar" || savedLanguage === "en") setLanguage(savedLanguage);
+    } catch { /* Storage can be disabled; server-selected defaults remain usable. */ }
   }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem("gca-theme", theme);
+    try { window.localStorage.setItem("gca-theme", theme); } catch { /* Preference persistence is optional. */ }
   }, [theme]);
 
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-    window.localStorage.setItem("gca-language", language);
+    try { window.localStorage.setItem("gca-language", language); } catch { /* Preference persistence is optional. */ }
   }, [language]);
 
   return { theme, setTheme, language, setLanguage };

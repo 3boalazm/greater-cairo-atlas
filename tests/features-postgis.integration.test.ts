@@ -93,6 +93,7 @@ describe("real PostGIS features SQL regression", () => {
     // Install the original trigger and its actual hotfix replacement as production does.
     await db.exec(await readFile(path.resolve(process.cwd(), "db/migrations/006_road_only_bbox_extension.sql"), "utf8"));
     await db.exec(await readFile(path.resolve(process.cwd(), "db/migrations/007_regional_ring_west_bbox.sql"), "utf8"));
+    await db.exec(await readFile(path.resolve(process.cwd(), "db/migrations/008_verified_facts_require_official_url.sql"), "utf8"));
 
     const importSummary = await runSeedImport({
       seedDir: path.resolve(process.cwd(), "data/seed"),
@@ -141,7 +142,7 @@ describe("real PostGIS features SQL regression", () => {
       WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)
     `);
     expect(Number(result.rows[0]?.valid_count)).toBe(featureCount);
-    expect(featureCount).toBe(2863);
+    expect(featureCount).toBe(2926);
     const constraint = await db.query<{ constraint_name: string }>(`
       SELECT conname AS constraint_name
       FROM pg_constraint
@@ -160,7 +161,7 @@ describe("real PostGIS features SQL regression", () => {
         (SELECT COUNT(*) FROM features)::text AS features,
         (SELECT COUNT(*) FROM boundaries)::text AS boundaries
     `);
-    expect(counts.rows[0]).toEqual({ entities: "415", evidence: "368", facts: "2075", links: "2427", features: "2863", boundaries: "19" });
+    expect(counts.rows[0]).toEqual({ entities: "415", evidence: "368", facts: "2075", links: "2427", features: "2926", boundaries: "19" });
     const validBoundaries = await db.query<{ count: string }>("SELECT COUNT(*)::text AS count FROM boundaries WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)");
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
   }, 120_000);
@@ -219,7 +220,7 @@ describe("real PostGIS features SQL regression", () => {
     expect(rows.rows).toHaveLength(featureCount);
     expect(rows.rows.every((row) => row.code && row.entity_code && row.geometry.type)).toBe(true);
     expect(rows.rows.every((row) => row.attribution && row.source_ids.length > 0)).toBe(true);
-    expect(rows.rows.filter((row) => row.geometry.type === "Point")).toHaveLength(111);
+    expect(rows.rows.filter((row) => row.geometry.type === "Point")).toHaveLength(173);
     expect(rows.rows.some((row) => row.geometry.type === "GeometryCollection")).toBe(false);
   }, 120_000);
 
