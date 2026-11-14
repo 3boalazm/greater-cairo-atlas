@@ -1,6 +1,7 @@
 "use client";
 /* eslint-disable react-hooks/set-state-in-effect -- fetch lifecycle and URL hydration synchronize external state. */
 
+import Link from "next/link";
 import { AlertTriangle, Database, MapPinned, RefreshCw } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AppSidebar } from "./AppSidebar";
@@ -152,6 +153,7 @@ export default function AtlasApp() {
       <header className="atlas-topbar">
         <div className="topbar-heading"><span className="eyebrow">{ar ? "مصر · دلتا النيل" : "EGYPT · NILE DELTA"}</span><strong>{ar ? "الخريطة التفاعلية" : "Interactive map"}</strong></div>
         <SearchCommand language={language} onSelect={selectEntity} />
+        <nav className="atlas-info-nav" aria-label={ar ? "روابط الأطلس" : "Atlas information links"}><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link></nav>
         <div className="topbar-actions"><ThemeToggle theme={theme} onChange={setTheme} language={language} /><LanguageToggle language={language} onChange={setLanguage} /></div>
       </header>
       <section className="stats-strip" aria-label={ar ? "إحصاءات قاعدة البيانات" : "Database statistics"} aria-live="polite">
@@ -177,6 +179,7 @@ export default function AtlasApp() {
         {mapStyleStatus === "error" && <div className="map-error map-style-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{ar ? "تعذّر تحميل خريطة OpenFreeMap." : "Could not load the OpenFreeMap basemap."}</span><button type="button" onClick={() => { setMapStyleStatus("loading"); setMapGeneration((value) => value + 1); }}>{ar ? "إعادة المحاولة" : "Retry"}</button></div>}
         {!featuresLoading && !featuresError && totalFeatures === 0 && <div className="map-empty">{ar ? "لا توجد هندسة تطابق هذه الفلاتر. الكيانات تظل متاحة في القائمة والبحث." : "No geometries match these filters. Entities remain available in the list and search."}</div>}
         <div className="map-attribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors, ODbL 1.0</a><span>·</span><a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a></div>
+        <nav className="atlas-site-footer" aria-label={ar ? "روابط الأطلس" : "Atlas information links"}><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link></nav>
       </section>
     </section>
     {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} language={language} />}

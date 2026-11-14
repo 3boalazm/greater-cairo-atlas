@@ -14,13 +14,32 @@ export type MapStyleStatus = "loading" | "ready" | "error";
 const sourceId = "atlas-features";
 const lineLayers = ["atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points"];
 
-export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language }: {
+function visitPositions(geometry: unknown, visit: (point: [number, number]) => void) {
+  if (!geometry || typeof geometry !== "object") return;
+  const record=geometry as Record<string,unknown>;
+  if (record.type === "GeometryCollection" && Array.isArray(record.geometries)) {
+    record.geometries.forEach((child)=>visitPositions(child,visit));
+    return;
+  }
+  const walk=(value:unknown):void=>{
+    if (!Array.isArray(value))return;
+    if (value.length>=2 && typeof value[0]==="number" && typeof value[1]==="number") {
+      visit([value[0],value[1]]);return;
+    }
+    value.forEach(walk);
+  };
+  walk(record.coordinates);
+}
+
+export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
   onSelect: (entityCode: string) => void;
   onZoomChange: (zoom: number) => void;
   onStyleStatus: (status: MapStyleStatus) => void;
   language: "ar" | "en";
+  fitToFeatures?: boolean;
+  compact?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -46,10 +65,10 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       minZoom: 6,
       maxZoom: 17,
       attributionControl: false,
-      cooperativeGestures: true,
+      cooperativeGestures: !compact,
     });
     mapRef.current = map;
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-left");
+    if (!compact) map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-left");
     map.on("error", () => {
       if (!map.isStyleLoaded()) onStyleStatusRef.current("error");
     });
@@ -106,12 +125,28 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers });
         map.getCanvas().style.cursor = found.length ? "pointer" : "";
       });
+      if (fitToFeatures && dataRef.current.features.length > 0) {
+        const bounds = new maplibregl.LngLatBounds();
+        for (const feature of dataRef.current.features) {
+          visitPositions(feature.geometry, (point) => bounds.extend(point));
+        }
+        if (!bounds.isEmpty()) {
+          const sw = bounds.getSouthWest();
+          const ne = bounds.getNorthEast();
+          if (Math.abs(ne.lng - sw.lng) < 0.0005 && Math.abs(ne.lat - sw.lat) < 0.0005) {
+            map.setCenter(bounds.getCenter());
+            map.setZoom(compact ? 13 : 11);
+          } else {
+            map.fitBounds(bounds, { padding: compact ? 28 : 54, maxZoom: compact ? 14 : 15, duration: 0 });
+          }
+        }
+      }
       onZoomRef.current(Math.round(map.getZoom()));
       requestAnimationFrame(() => map.resize());
     });
     map.on("zoomend", () => onZoomRef.current(Math.round(map.getZoom())));
     return () => { map.remove(); mapRef.current = null; };
-  }, [theme]);
+  }, [theme, compact, fitToFeatures]);
 
   useEffect(() => {
     const source = mapRef.current?.getSource(sourceId) as GeoJSONSource | undefined;
