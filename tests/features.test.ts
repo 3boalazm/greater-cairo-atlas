@@ -56,8 +56,11 @@ describe("feature ingestion validation and GeoJSON API", () => {
     const regionalRing = entitySeedSchema.parse({ ...roadEntity, code: "ROAD-REGIONAL-RING" });
     const regionalPatch = JSON.parse(JSON.stringify(geojsonFeature())) as Record<string, unknown>;
     regionalPatch.properties = { ...(regionalPatch.properties as Record<string, unknown>), entity_code: regionalRing.code };
-    regionalPatch.geometry = { type: "LineString", coordinates: [[30.4986, 29.8], [30.51, 29.8]] };
+    regionalPatch.geometry = { type: "LineString", coordinates: [[30.3, 29.8], [30.31, 29.8]] };
     await expect(loadAndValidateFeatureCollection(await featureFile([regionalPatch]), [regionalRing])).resolves.toHaveLength(1);
+    const regionalOutside = JSON.parse(JSON.stringify(regionalPatch)) as Record<string, unknown>;
+    regionalOutside.geometry = { type: "LineString", coordinates: [[30.1, 29.8], [30.11, 29.8]] };
+    await expect(loadAndValidateFeatureCollection(await featureFile([regionalOutside]), [regionalRing])).rejects.toThrow(/road-only WGS84 bbox/);
     const unrelatedRoad = JSON.parse(JSON.stringify(geojsonFeature())) as Record<string, unknown>;
     unrelatedRoad.geometry = { type: "LineString", coordinates: [[30.4986, 29.8], [30.51, 29.8]] };
     await expect(loadAndValidateFeatureCollection(await featureFile([unrelatedRoad]), [roadEntity])).rejects.toThrow(/road-only WGS84 bbox/);
