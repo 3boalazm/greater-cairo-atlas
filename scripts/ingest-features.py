@@ -14,14 +14,19 @@ import hashlib
 import json
 import math
 import re
+import shapely
 import sys
 import unicodedata
 import urllib.parse
 import urllib.request
 import zipfile
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
+
+from shapely import make_valid
+from shapely.geometry import GeometryCollection, MultiPolygon, Polygon, box, mapping, shape
+from shapely.validation import explain_validity
 
 ROOT = Path(__file__).resolve().parents[1]
 ENTITIES = ROOT / "data/seed/entities.csv"
@@ -82,6 +87,110 @@ def in_bbox(geometry: dict[str, Any]) -> bool:
     coords = geometry.get("coordinates", [])
     points = list(positions(coords))
     return bool(points) and all(BBOX[0] <= p[0] <= BBOX[2] and BBOX[1] <= p[1] <= BBOX[3] for p in points)
+
+
+def polygonal_parts(geometry: Any) -> list[Polygon]:
+    if isinstance(geometry, Polygon):
+        return [geometry]
+    if isinstance(geometry, MultiPolygon):
+        return list(geometry.geoms)
+    if isinstance(geometry, GeometryCollection):
+        return [polygon for part in geometry.geoms for polygon in polygonal_parts(part)]
+    return []
+
+
+def validate_feature_geometries(features: list[dict[str, Any]], *, repair: bool) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Apply the PostGIS feature constraint plus the importer's WGS84 bbox/lifecycle assumptions."""
+    cairo_bbox = box(BBOX[0], BBOX[1], BBOX[2], BBOX[3])
+    accepted: list[dict[str, Any]] = []
+    repairs: list[dict[str, Any]] = []
+    dropped: list[dict[str, Any]] = []
+
+    def reject(item: dict[str, Any], reason: str, validity_reason: str | None = None) -> None:
+        props = item.get("properties", {})
+        nested = props.get("properties", {}) if isinstance(props, dict) else {}
+        dropped.append({
+            "feature_code": props.get("code"),
+            "entity_code": props.get("entity_code"),
+            "osm_type": props.get("osm_type"),
+            "osm_id": props.get("osm_id"),
+            "geometry_type": (item.get("geometry") or {}).get("type") if isinstance(item.get("geometry"), dict) else None,
+            "category": "invalid geometry",
+            "reason": reason,
+            "validity_reason": validity_reason,
+        })
+
+    for item in features:
+        if not isinstance(item, dict):
+            dropped.append({"feature_code":None,"entity_code":None,"osm_type":None,"osm_id":None,"geometry_type":None,"category":"invalid geometry","reason":"feature_not_object","validity_reason":None})
+            continue
+        props = item.get("properties", {})
+        if not isinstance(props, dict) or props.get("srid") != 4326:
+            reject(item, "srid_must_equal_4326")
+            continue
+        try:
+            geom = shape(item["geometry"])
+        except Exception as exc:
+            reject(item, f"geometry_parse_error: {exc}")
+            continue
+        if geom.is_empty:
+            reject(item, "empty_geometry")
+            continue
+
+        validity_reason = explain_validity(geom)
+        if not geom.is_valid:
+            original_type = geom.geom_type
+            if repair and original_type in {"Polygon", "MultiPolygon"}:
+                try:
+                    repaired = make_valid(geom)
+                    polygons = [part for part in polygonal_parts(repaired) if not part.is_empty]
+                    if polygons:
+                        candidate = polygons[0] if len(polygons) == 1 else MultiPolygon(polygons)
+                        if not candidate.is_valid:
+                            candidate = make_valid(candidate)
+                            polygons = [part for part in polygonal_parts(candidate) if not part.is_empty]
+                            candidate = polygons[0] if len(polygons) == 1 else MultiPolygon(polygons) if polygons else GeometryCollection()
+                        if not candidate.is_empty and candidate.is_valid:
+                            geom = candidate
+                            item["geometry"] = mapping(geom)
+                            repairs.append({
+                                "feature_code": props.get("code"),
+                                "entity_code": props.get("entity_code"),
+                                "osm_type": props.get("osm_type"),
+                                "osm_id": props.get("osm_id"),
+                                "geometry_type_before": original_type,
+                                "geometry_type_after": geom.geom_type,
+                                "validity_reason_before": validity_reason,
+                                "repair": "shapely.make_valid; retained polygonal components only",
+                            })
+                        else:
+                            reject(item, "make_valid_did_not_produce_valid_polygonal_geometry", explain_validity(candidate))
+                            continue
+                    else:
+                        reject(item, "make_valid_produced_no_polygonal_components", validity_reason)
+                        continue
+                except Exception as exc:
+                    reject(item, f"make_valid_failed: {exc}", validity_reason)
+                    continue
+            else:
+                reject(item, "invalid_geometry", validity_reason)
+                continue
+
+        # GEOS allows zero-length line strings as valid; reject these before PostGIS import.
+        if geom.geom_type in {"LineString", "MultiLineString"}:
+            lines = list(geom.geoms) if geom.geom_type == "MultiLineString" else [geom]
+            if any(line.is_empty or line.length <= 0 or len(set(line.coords)) < 2 for line in lines):
+                reject(item, "degenerate_line", explain_validity(geom))
+                continue
+        if geom.is_empty:
+            reject(item, "empty_geometry_after_repair")
+            continue
+        if not cairo_bbox.covers(geom):
+            reject(item, "geometry_outside_greater_cairo_bbox")
+            continue
+        accepted.append(item)
+
+    return accepted, {"repairs": repairs, "dropped": dropped}
 
 
 def feature(code: str, entity: dict[str, str], geometry: dict[str, Any], license_id: str,
@@ -492,7 +601,7 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
 
 def new_report():
     types=("road","transit_line","transit_stop","rail_station","city","district","airport","bridge","landmark")
-    return {"by_type": {t: {k: 0 for k in ("matched", "unmatched", "ambiguous")} for t in types}, "unmatched": [], "ambiguous": [], "road_gaps": [], "rejected_road_segments": []}
+    return {"by_type": {t: {k: 0 for k in ("matched", "unmatched", "ambiguous")} for t in types}, "unmatched": [], "ambiguous": [], "road_gaps": [], "rejected_road_segments": [], "geometry_repairs": [], "invalid_geometry": []}
 
 
 def load_osm(args) -> dict[str, Any]:
@@ -517,7 +626,19 @@ def main():
     parser.add_argument("--gtfs-license-evidence-url", help="Exact Transport Data Commons dataset page documenting CC-BY-4.0")
     parser.add_argument("--match-rules", default=str(OUT / "match-rules.json"), help="Optional per-entity OSM match rules JSON")
     parser.add_argument("--out", default=str(OUT))
+    parser.add_argument("--check-geojson", help="Validate an existing GeoJSON feature collection against PostGIS geometry rules without modifying it")
     args = parser.parse_args()
+    if args.check_geojson:
+        try:
+            collection=json.loads(Path(args.check_geojson).read_text(encoding="utf-8"))
+            if not isinstance(collection,dict) or collection.get("type")!="FeatureCollection" or not isinstance(collection.get("features"),list):
+                raise ValueError("expected a GeoJSON FeatureCollection")
+            _, geometry_summary=validate_feature_geometries(collection["features"],repair=False)
+            print(json.dumps({"features_checked":len(collection["features"]),"invalid_geometry":geometry_summary["dropped"]},ensure_ascii=False,indent=2))
+            if geometry_summary["dropped"]:raise SystemExit(1)
+            return
+        except (OSError,json.JSONDecodeError,ValueError) as exc:
+            parser.error(f"cannot validate GeoJSON: {exc}")
     if not (args.fetch_osm or args.osm_json or args.gtfs_zip):
         parser.error("provide --fetch-osm, --osm-json, or --gtfs-zip; refusing an empty-source run")
     if args.osm_json and (not args.osm_source_url or not args.osm_retrieval_date):
@@ -569,6 +690,11 @@ def main():
             if props.get("entity_type") in {"transit_line", "transit_stop", "rail_station"} and old_feature.get("properties", {}).get("code") not in current_codes:
                 features.append(old_feature)
 
+    features = list({f["properties"]["code"]: f for f in reversed(features)}.values())
+    features, geometry_summary = validate_feature_geometries(features, repair=True)
+    report["geometry_repairs"] = geometry_summary["repairs"]
+    report["invalid_geometry"] = geometry_summary["dropped"]
+
     # Dedupe overlapping objects across the two submitted extracts and choose the strongest outcome.
     priority = {"matched": 2, "ambiguous": 1, "unmatched": 0}
     unique_outcomes = {}
@@ -583,7 +709,6 @@ def main():
         if outcome["outcome"] != "matched":
             report["unmatched" if outcome["outcome"] == "unmatched" else "ambiguous"].append({k:v for k,v in outcome.items() if k!="outcome"})
     # Identical OSM objects can occur in both submitted extracts; retain one stable geometry.
-    features = list({f["properties"]["code"]: f for f in reversed(features)}.values())
     features.sort(key=lambda f: f["properties"]["code"])
     codes = [f["properties"]["code"] for f in features]
     if len(codes) != len(set(codes)):
@@ -631,6 +756,8 @@ def main():
         "الطرق_المرفوضة_دون_اختلاق_وصلات": report["rejected_road_segments"],
         "العناصر_غير_المطابقة": report["unmatched"],
         "العناصر_الملتبسة": report["ambiguous"],
+        "الهندسات_التي_تم_إصلاحها": {"العدد":len(report["geometry_repairs"]),"حسب_الكيان":dict(Counter(x["entity_code"] for x in report["geometry_repairs"])),"التفاصيل":report["geometry_repairs"]},
+        "الهندسات_التي_تم_إسقاطها": {"العدد":len(report["invalid_geometry"]),"حسب_الكيان":dict(Counter(x["entity_code"] for x in report["invalid_geometry"])),"التفاصيل":report["invalid_geometry"]},
     }
     report["retrieval_date"] = date
     (outdir / "match-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -647,7 +774,8 @@ def main():
         "license_policy": "OSM=ODbL-1.0; TfC GTFS accepted only when independently verified CC-BY-4.0. CC-BY-NC data is prohibited.",
         "matching": "Exact Unicode-normalized rev5 entity names and aliases only; roads additionally use exact name/name:ar/name:en/ref/old_name/alt_name and named road relations; generic names are not inferred. No entity creation.",
         "lifecycle_policy": "Only operational/partial entities are matched from OSM/GTFS. Planned/under-construction geometry requires official_alignment provenance and is not inferred from OSM/GTFS.",
-        "geometry_policy": "WGS84 / SRID 4326; geometries must lie wholly within the declared Greater Cairo bbox.",
+        "geometry_policy": "WGS84 / SRID 4326; non-empty, GEOS-valid geometries must lie wholly within the declared Greater Cairo bbox. Every output geometry is checked with Shapely is_valid/explain_validity; invalid polygonal features are passed through make_valid and only polygonal components are retained. Degenerate lines and unrepaired/otherwise invalid geometries are dropped.",
+        "geometry_validation": {"validator":f"Shapely {shapely.__version__}","db_constraint":"ST_SRID(geometry)=4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)","features_repaired_count":len(report["geometry_repairs"]),"features_dropped_count":len(report["invalid_geometry"]),"repairs":report["geometry_repairs"],"dropped":report["invalid_geometry"]},
         "osm_query_coverage": "Two user-supplied Overpass extracts from https://overpass-api.de/api/interpreter (2026-11-14), both bbox query envelope [29.2,30.5,30.8,32.1] as south,west,north,east. The roads-full extract supplies full road-way geometry and route road relations; extract2 supplies administrative/place/aerodrome/bridge/landmark objects and other OSM candidates. Matching remains limited to explicit rev5 names/aliases. New extracts do not replace preserved previously accepted transit geometries where no replacement transit source was submitted. Geometry acceptance bbox is WGS84 [30.5,29.2,32.1,30.8].",
         "match_rules_file": "match-rules.json",
         "raw_extracts": raw_archives

@@ -55,18 +55,25 @@ describe("executeVercelBuild (build-time migration orchestration)", () => {
     const { log, entries } = createTestLogger();
     const runMigrationsFn = vi.fn();
     const runNextBuildFn = vi.fn();
+    const runPreviewValidationFn = vi.fn(async () => ({
+      entitiesCount: 342, evidenceCount: 198, factsCount: 1108,
+      factEvidenceLinksCount: 1218, featuresCount: 3688,
+    }));
 
     const result = await executeVercelBuild({
       env: { NODE_ENV: "production", VERCEL: "1", VERCEL_ENV: "preview" },
       log,
       runMigrationsFn,
+      runPreviewValidationFn,
       runNextBuildFn,
     });
 
     expect(result).toEqual({
       migrated: false,
       skipReason: "missing_database_url",
+      previewValidated: true,
     });
+    expect(runPreviewValidationFn).toHaveBeenCalledTimes(1);
     expect(runMigrationsFn).not.toHaveBeenCalled();
     expect(runNextBuildFn).toHaveBeenCalledTimes(1);
     expect(
@@ -139,17 +146,36 @@ describe("executeVercelBuild (build-time migration orchestration)", () => {
     expect(runNextBuildFn).not.toHaveBeenCalled();
   });
 
-  it("does not run the automatic dataset import on preview deployments", async () => {
+  it("validates seed and features without writes on preview deployments", async () => {
     const { log } = createTestLogger();
     const runProductionImportFn = vi.fn();
-    await executeVercelBuild({
+    const runPreviewValidationFn = vi.fn(async () => ({
+      entitiesCount: 342, evidenceCount: 198, factsCount: 1108,
+      factEvidenceLinksCount: 1218, featuresCount: 3688,
+    }));
+    const result = await executeVercelBuild({
       env: { NODE_ENV: "production", VERCEL: "1", VERCEL_ENV: "preview", DATABASE_URL: "postgresql://user:secret@db.example/test" },
       log,
       runMigrationsFn: async () => ({ dryRun: false, discovered: [], appliedNow: [], alreadyApplied: [] }),
       runProductionImportFn,
+      runPreviewValidationFn,
       runNextBuildFn: vi.fn(),
     });
+    expect(result.previewValidated).toBe(true);
+    expect(runPreviewValidationFn).toHaveBeenCalledTimes(1);
     expect(runProductionImportFn).not.toHaveBeenCalled();
+  });
+
+  it("aborts preview build before Next.js when seed/features dry-run validation fails", async () => {
+    const { log } = createTestLogger();
+    const runNextBuildFn = vi.fn();
+    await expect(executeVercelBuild({
+      env: { NODE_ENV: "production", VERCEL: "1", VERCEL_ENV: "preview" },
+      log,
+      runPreviewValidationFn: async () => { throw new Error("invalid GeoJSON geometry"); },
+      runNextBuildFn,
+    })).rejects.toThrow("invalid GeoJSON geometry");
+    expect(runNextBuildFn).not.toHaveBeenCalled();
   });
 
   it("aborts before Next.js build when the production data import fails", async () => {

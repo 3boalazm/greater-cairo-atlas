@@ -31,6 +31,7 @@ async function main(): Promise<void> {
     env: process.env,
     runNextBuildFn: runNextBuild,
     runProductionImportFn: () => runAutomaticAtlasImport(),
+    runPreviewValidationFn: () => runAutomaticAtlasImport(process.cwd(), { dryRun: true }),
   });
 }
 

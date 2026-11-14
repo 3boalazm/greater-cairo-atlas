@@ -2,7 +2,7 @@ import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import { computeAtlasDatasetChecksum } from "@/lib/db/automatic-import";
+import { computeAtlasDatasetChecksum, runAutomaticAtlasImport } from "@/lib/db/automatic-import";
 
 const tempDirs: string[] = [];
 afterEach(async () => {
@@ -10,6 +10,13 @@ afterEach(async () => {
 });
 
 describe("checksummed production dataset gate", () => {
+  it("runs full checked-in seed + GeoJSON validation in dry-run mode without database writes", async () => {
+    const summary = await runAutomaticAtlasImport(process.cwd(), { dryRun: true });
+    expect(summary.dryRun).toBe(true);
+    expect(summary.entitiesCount).toBe(342);
+    expect(summary.featuresCount).toBe(3688);
+  });
+
   it("hashes all seed and feature files deterministically and changes when source data changes", async () => {
     const root = await mkdtemp(path.join(os.tmpdir(), "atlas-checksum-"));
     tempDirs.push(root);

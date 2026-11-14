@@ -90841,6 +90841,19 @@
       "reason": "bbox, lifecycle, lineage, or existing match rule rejected geometry"
     }
   ],
+  "geometry_repairs": [
+    {
+      "feature_code": "OSM-RELATION-15072032",
+      "entity_code": "LANDMARK-CAIRO-UNIV",
+      "osm_type": "relation",
+      "osm_id": 15072032,
+      "geometry_type_before": "MultiPolygon",
+      "geometry_type_after": "MultiPolygon",
+      "validity_reason_before": "Self-intersection[31.2123645 30.0275328]",
+      "repair": "shapely.make_valid; retained polygonal components only"
+    }
+  ],
+  "invalid_geometry": [],
   "candidate_entities": {
     "road": 46,
     "transit_line": 16,
@@ -184864,7 +184877,30 @@
         ],
         "reason": "ramp is adjacent to multiple matched roads"
       }
-    ]
+    ],
+    "الهندسات_التي_تم_إصلاحها": {
+      "العدد": 1,
+      "حسب_الكيان": {
+        "LANDMARK-CAIRO-UNIV": 1
+      },
+      "التفاصيل": [
+        {
+          "feature_code": "OSM-RELATION-15072032",
+          "entity_code": "LANDMARK-CAIRO-UNIV",
+          "osm_type": "relation",
+          "osm_id": 15072032,
+          "geometry_type_before": "MultiPolygon",
+          "geometry_type_after": "MultiPolygon",
+          "validity_reason_before": "Self-intersection[31.2123645 30.0275328]",
+          "repair": "shapely.make_valid; retained polygonal components only"
+        }
+      ]
+    },
+    "الهندسات_التي_تم_إسقاطها": {
+      "العدد": 0,
+      "حسب_الكيان": {},
+      "التفاصيل": []
+    }
   },
   "retrieval_date": "2026-11-14"
 }

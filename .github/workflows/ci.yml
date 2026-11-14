@@ -25,6 +25,17 @@ jobs:
           node-version: "22"
           cache: "npm"
 
+      - name: Set up Python for geometry validation
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install geometry validator
+        run: python -m pip install -r requirements-ingest.txt
+
+      - name: Validate committed GeoJSON against PostGIS geometry rules
+        run: python scripts/ingest-features.py --check-geojson data/features/features.geojson
+
       - name: Install dependencies
         run: npm ci
 

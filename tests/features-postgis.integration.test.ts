@@ -38,7 +38,10 @@ describe("real PostGIS features SQL regression", () => {
         entity_id integer NOT NULL REFERENCES entities(id),
         geometry geometry(Geometry, 4326) NOT NULL,
         license text NOT NULL,
-        properties jsonb NOT NULL
+        properties jsonb NOT NULL,
+        CONSTRAINT features_geometry_valid_wgs84_chk CHECK (
+          ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)
+        )
       );
     `);
 
@@ -80,6 +83,21 @@ describe("real PostGIS features SQL regression", () => {
   afterAll(async () => {
     await db?.close();
   });
+
+  it("inserts every real GeoJSON feature under the production geometry validity constraint", async () => {
+    const result = await db.query<{ valid_count: string }>(`
+      SELECT COUNT(*)::text AS valid_count
+      FROM features
+      WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)
+    `);
+    expect(Number(result.rows[0]?.valid_count)).toBe(featureCount);
+    const constraint = await db.query<{ constraint_name: string }>(`
+      SELECT conname AS constraint_name
+      FROM pg_constraint
+      WHERE conrelid = 'features'::regclass AND conname = 'features_geometry_valid_wgs84_chk'
+    `);
+    expect(constraint.rows).toHaveLength(1);
+  }, 120_000);
 
   it("reproduces PostgreSQL 42803 from the former CASE-dependent GROUP BY on the real fixture", async () => {
     const formerQuery = `

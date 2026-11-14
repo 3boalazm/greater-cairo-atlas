@@ -25,6 +25,13 @@ export interface VercelBuildOptions {
     factEvidenceLinksCount: number;
     featuresCount: number;
   }>;
+  runPreviewValidationFn?: () => Promise<{
+    entitiesCount: number;
+    evidenceCount: number;
+    factsCount: number;
+    factEvidenceLinksCount: number;
+    featuresCount: number;
+  }>;
 }
 
 export interface VercelBuildResult {
@@ -33,15 +40,16 @@ export interface VercelBuildResult {
   connectionSource?: MigrationDatabaseEnv["source"];
   migrationSummary?: RunMigrationsSummary;
   autoImported?: boolean;
+  previewValidated?: boolean;
 }
 
 /**
- * Runs SQL migrations before `next build` on Vercel. Production builds then run the
- * validated seed + feature import after migrations and before Next.js compiles. The import
- * itself is checksummed and atomic; previews only run migrations.
+ * Runs SQL migrations before `next build` on Vercel. Production builds run the validated,
+ * checksummed seed + feature import; preview builds run the same validation in dry-run mode
+ * before compiling, without writing seed data. Database URLs are never included in logs.
  *
- * Outside Vercel migrations/import are skipped. Missing database configuration is fatal in
- * production and a warning-only skip in preview. Database URLs are never included in logs.
+ * Outside Vercel build-time database work is skipped. Missing database configuration is fatal
+ * in production and a warning-only migration skip in preview (preview data validation still runs).
  */
 export async function executeVercelBuild(
   options: VercelBuildOptions & { runNextBuildFn: () => Promise<void> | void },
@@ -61,6 +69,28 @@ export async function executeVercelBuild(
     };
   }
 
+  let previewValidated = false;
+  if (env.VERCEL_ENV === "preview") {
+    if (!options.runPreviewValidationFn) {
+      throw new Error("Preview build is missing its atlas seed + features dry-run validator.");
+    }
+    try {
+      const summary = await options.runPreviewValidationFn();
+      previewValidated = true;
+      log.info("Preview atlas seed + features passed full dry-run validation (no data writes)", {
+        entitiesCount: summary.entitiesCount,
+        evidenceCount: summary.evidenceCount,
+        factsCount: summary.factsCount,
+        factEvidenceLinksCount: summary.factEvidenceLinksCount,
+        featuresCount: summary.featuresCount,
+      });
+    } catch (error) {
+      const safeMessage = error instanceof Error ? redactSecrets(error.message) : "Unknown validation error";
+      log.error(`Vercel preview build aborted due to atlas seed + features validation failure: ${safeMessage}`);
+      throw error;
+    }
+  }
+
   const hasDatabaseUrl = Boolean(env.DATABASE_URL?.trim());
   const hasUnpooledUrl = Boolean(env.DATABASE_URL_UNPOOLED?.trim());
 
@@ -74,7 +104,7 @@ export async function executeVercelBuild(
       { vercelEnv: env.VERCEL_ENV ?? "unknown" },
     );
     await options.runNextBuildFn();
-    return { migrated: false, skipReason: "missing_database_url" };
+    return { migrated: false, skipReason: "missing_database_url", ...(previewValidated ? { previewValidated: true } : {}) };
   }
 
   let resolvedDbEnv: MigrationDatabaseEnv;
@@ -152,5 +182,6 @@ export async function executeVercelBuild(
     connectionSource: resolvedDbEnv.source,
     migrationSummary,
     ...(autoImported ? { autoImported: true } : {}),
+    ...(previewValidated ? { previewValidated: true } : {}),
   };
 }
