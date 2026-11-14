@@ -23,6 +23,9 @@ export function AreaBoundaryToggle({ code, name, language }: { code: string; nam
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const ar = language === "ar";
+  const displayName = boundary
+    ? (ar ? boundary.properties.properties.display_label_ar : boundary.properties.properties.display_label_en) || (ar ? `حدود ${name}` : `${name} boundary`)
+    : (ar ? `حدود ${name}` : `${name} boundary`);
   const toggle = async () => {
     if (boundary) { setBoundary(null); setError(null); return; }
     setLoading(true); setError(null);
@@ -44,12 +47,12 @@ export function AreaBoundaryToggle({ code, name, language }: { code: string; nam
       <MapPinned aria-hidden="true" />{loading ? (ar ? "جارٍ تحميل الحدود…" : "Loading boundary…") : boundary ? (ar ? "إخفاء الحدود" : "Hide boundary") : (ar ? "إظهار الحدود على الخريطة" : "Show boundary on map")}
     </button>
     {error && <p className="boundary-unavailable-note" role="alert">{error}</p>}
-    {boundary && <div className="area-boundary-map-wrap" aria-label={ar ? `حدود ${name}` : `${name} boundary`}>
+    {boundary && <div className="area-boundary-map-wrap" aria-label={displayName}>
       <div className="area-boundary-map">
         <LazyMapView theme={theme} features={EMPTY_FEATURES} highlightBoundary={boundary} onSelect={noop} onZoomChange={noop} onStyleStatus={noop} language={language} compact />
       </div>
       <p className="map-data-attribution">© OpenStreetMap contributors, ODbL 1.0 · OpenFreeMap</p>
-      <p className="area-boundary-name">{name}</p>
+      <p className="area-boundary-name">{displayName}</p>
     </div>}
   </div>;
 }

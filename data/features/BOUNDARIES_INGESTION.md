@@ -1,11 +1,7 @@
 # OSM area boundary ingestion
 
-Only versioned OSM `boundary=administrative` or supported `place=*` polygons are eligible. Exact entity names/aliases, compatible `admin_level`, WGS84 bounds, valid polygon geometry, OSM way/relation ID+version, ODbL-1.0 license, and attribution are required. The boundary store is separate from point/line features and served one entity at a time by `/api/atlas/entities/{code}/boundary`.
+Versioned OSM `boundary=administrative`, supported `place=*`, and named `landuse=residential` polygons are candidate sources. Landuse-backed boundaries carry `source_kind=landuse` and are considered only when their exact normalized name/alias, point proximity, entity-specific bbox, and city/district area guards pass. City candidates must be 1–800 km²; district candidates 0.05–60 km². Same-name smaller blocks are superseded by clearly larger plausible polygons; unresolved ties remain unmatched. `CITY-CAIRO` is an explicit exception: relation/4103336 is the governorate polygon and is labeled «حدود محافظة القاهرة», not as a city boundary. The boundary store is separate from point/line features and served one entity at a time by `/api/atlas/entities/{code}/boundary`.
 
-When supplied, place the owner-provided source at:
+The tracked source is `data/raw/cairo-osm-boundaries-2026-11-14.json.gz`. Rerun `scripts/ingest-features.py` with the saved OSM extracts and existing match rules. The script decompresses the file, writes selected polygons to `data/features/boundaries.geojson`, writes the full top-three audit for every unmatched city/district entity to `data/features/phase-07-5-boundary-candidates.ar.md`, and records hashes, inventory, per-object decisions, license, and attribution in the manifest. If the raw source is absent, an existing generated boundary store is preserved.
 
-`data/raw/cairo-osm-boundaries-2026-11-14.json.gz`
-
-Then rerun `scripts/ingest-features.py` with the saved OSM extracts and existing match rules. The script auto-detects and decompresses this file, writes matched polygons to `data/features/boundaries.geojson`, and records the source hash, per-object audit, license, and attribution in the ingestion manifest. If the raw source is absent, an existing generated boundary store is preserved; when no store exists an empty FeatureCollection is created, so no boundary button is shown for unsupported entities.
-
-The boundary raw file is not present in this checkout yet; the pipeline and empty store are ready for it.
+The audited 07.4 extract contains named residential landuse polygons for El Narges but not the requested Rehab, Madinaty, or Degla landuse sources; these are marked `needs extract` in the PHASE 07.5 candidate report.

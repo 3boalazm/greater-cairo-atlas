@@ -58,7 +58,7 @@ export function MapFilters({ filters, onChange, language }: { filters: AtlasFilt
   </div>;
 }
 
-export function Legend({ language, boundaryActive = false }: { language: AtlasLanguage; boundaryActive?: boolean }) {
+export function Legend({ language, boundaryActive = false, boundaryLabel }: { language: AtlasLanguage; boundaryActive?: boolean; boundaryLabel?: string | null }) {
   const ar = language === "ar";
   const rows = [
     ["operational", ar ? "يعمل" : "Operational", "solid"],
@@ -74,7 +74,7 @@ export function Legend({ language, boundaryActive = false }: { language: AtlasLa
     <strong className="legend-type-heading">{ar ? "نوع الهندسة" : "Geometry type"}</strong>
     <div className="legend-row"><i className="legend-line type-road" />{ar ? "الطرق" : "Roads"}</div>
     <div className="legend-row"><i className="legend-line type-transit" />{ar ? "خطوط النقل" : "Transit lines"}</div>
-    {boundaryActive && <div className="legend-row"><i className="legend-boundary" />{ar ? "حدود إدارية من OSM" : "OSM area boundary"}</div>}
+    {boundaryActive && <div className="legend-row"><i className="legend-boundary" />{boundaryLabel || (ar ? "حدود إدارية من OSM" : "OSM area boundary")}</div>}
     <small>{ar ? "الخطوط والحدود من هندسة موثقة فقط." : "Lines and boundaries are source geometries only."}</small>
   </aside>;
 }

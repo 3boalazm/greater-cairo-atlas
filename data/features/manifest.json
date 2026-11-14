@@ -5627,6 +5627,14 @@
         "way:suburb": 9,
         "way:town": 11
       },
+      "named_residential_landuse_polygons_by_element_type": {
+        "relation": 2,
+        "way": 5292
+      },
+      "boundary_candidate_source_polygons_by_element_type": {
+        "relation": 31,
+        "way": 6142
+      },
       "administrative_boundary_relation_counts_by_level": {
         "10": 1,
         "4": 14,
@@ -5674,18 +5682,25 @@
         }
       ]
     },
-    "feature_count": 10,
-    "matched_count": 10,
+    "feature_count": 21,
+    "matched_count": 21,
     "audit": [
       {
         "osm_type": "way",
         "osm_id": 98343218,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "saftallaban",
+          "صفطاللبن"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-SAFT-ELLABAN"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-SAFT-ELLABAN": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -5700,7 +5715,7 @@
           "CITY-NEW-CAIRO"
         ],
         "rejections": {
-          "CITY-NEW-CAIRO": "place_type_not_compatible_with_area_entity"
+          "CITY-NEW-CAIRO": "polygon_is_3136.2m_from_existing_entity_point_over_1000m_limit"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -5708,11 +5723,18 @@
         "osm_type": "way",
         "osm_id": 309248507,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "monshaatnasir",
+          "منشاهناصر"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-MANSHIYAT-NASSER"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-MANSHIYAT-NASSER": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -5736,7 +5758,7 @@
           "CITY-MOSTAKBAL"
         ],
         "rejections": {
-          "CITY-MOSTAKBAL": "place_type_not_compatible_with_area_entity"
+          "CITY-MOSTAKBAL": "entity_has_no_existing_point_geometry_for_boundary_validation"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -5753,7 +5775,7 @@
           "CITY-10TH-RAMADAN"
         ],
         "rejections": {
-          "CITY-10TH-RAMADAN": "place_type_not_compatible_with_area_entity"
+          "CITY-10TH-RAMADAN": "polygon_outside_entity_specific_bbox_guard"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -5813,7 +5835,7 @@
           "CITY-MOSTAKBAL"
         ],
         "rejections": {
-          "CITY-MOSTAKBAL": "place_type_not_compatible_with_area_entity"
+          "CITY-MOSTAKBAL": "entity_has_no_existing_point_geometry_for_boundary_validation"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -5833,7 +5855,7 @@
         ],
         "rejections": {
           "AUTH-GIZA-GOVERNORATE": "entity_has_no_existing_point_geometry_for_boundary_validation",
-          "CITY-GIZA": "place_type_not_compatible_with_area_entity",
+          "CITY-GIZA": "polygon_is_11659.3m_from_existing_entity_point_over_1000m_limit",
           "DIST-SOUTH-GIZA": "entity_has_no_existing_point_geometry_for_boundary_validation"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
@@ -5842,41 +5864,69 @@
         "osm_type": "way",
         "osm_id": 701289197,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "alnozha",
+          "النزهه"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-NOZHA"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-NOZHA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 701320188,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "mansheyetelbakry",
+          "منشيهالبكري"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-MANSHEYET-BAKARY"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-MANSHEYET-BAKARY": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 703100081,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "almearag",
+          "المعراج"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-MERAJ"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-MERAJ": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 703444827,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "hadaekalkobba",
+          "حدائقالقبه"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-HADAYEK-QOBBA"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-HADAYEK-QOBBA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -5925,20 +5975,35 @@
         "osm_type": "way",
         "osm_id": 708231172,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "daralsalam",
+          "دارالسلام"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-DAR-ELSALAM"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-DAR-ELSALAM": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 709300098,
-        "outcome": "candidate",
-        "entity_code": "DIST-BAB-SHAREYA",
+        "outcome": "rejected",
+        "labels": [
+          "babalshairia",
+          "بابالشعريه"
+        ],
         "admin_level": null,
-        "distance_to_existing_point_m": 390.8,
-        "source_priority": 3
+        "candidate_entity_codes": [
+          "DIST-BAB-SHAREYA"
+        ],
+        "rejections": {
+          "DIST-BAB-SHAREYA": "place_neighbourhood_polygon_is_block_scale_0.09km2_not_the_whole_qism_district"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -5995,198 +6060,236 @@
         "osm_type": "way",
         "osm_id": 714742689,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-MOKATTAM"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 716699354,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-BASATIN"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 720891654,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-AUSIM"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 722860621,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-KERDASA"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 723065148,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-MOHANDESSIN"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 723745381,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-AGOUZA"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 725892870,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-TALBIYA"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 727388925,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-BULAQ-DAKROUR"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 727473214,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-MANSHEYET-BAKARY"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 729636261,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-QANATER"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 729875378,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-KHOSOUS"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 730141764,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-QALYUB"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 731002786,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "DIST-MOSTOROD"
-        ],
-        "admin_level": null
-      },
-      {
-        "osm_type": "way",
-        "osm_id": 731047816,
-        "outcome": "rejected",
         "labels": [
-          "shobraalkhima",
-          "شبراالخيمه"
+          "elmukkatam",
+          "المقطم"
         ],
         "admin_level": null,
         "candidate_entity_codes": [
-          "CITY-SHUBRA-ELKHEIMA"
+          "DIST-MOKATTAM"
         ],
         "rejections": {
-          "CITY-SHUBRA-ELKHEIMA": "place_type_not_compatible_with_area_entity"
+          "DIST-MOKATTAM": "entity_has_no_existing_point_geometry_for_boundary_validation"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
-        "osm_id": 732374401,
+        "osm_id": 716699354,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-QAHA"
+        "labels": [
+          "albasatine",
+          "البساتين"
         ],
-        "admin_level": null
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "DIST-BASATIN"
+        ],
+        "rejections": {
+          "DIST-BASATIN": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 720891654,
+        "outcome": "rejected",
+        "labels": [
+          "awseem",
+          "اوسيم"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "CITY-AUSIM"
+        ],
+        "rejections": {
+          "CITY-AUSIM": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 722860621,
+        "outcome": "rejected",
+        "labels": [
+          "kerdasa",
+          "كرداسه"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "CITY-KERDASA"
+        ],
+        "rejections": {
+          "CITY-KERDASA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 723065148,
+        "outcome": "candidate",
+        "entity_code": "DIST-MOHANDESSIN",
+        "admin_level": null,
+        "distance_to_existing_point_m": 96.7,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 723745381,
+        "outcome": "candidate",
+        "entity_code": "DIST-AGOUZA",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 725892870,
+        "outcome": "rejected",
+        "labels": [
+          "altalbia",
+          "الطالبيه"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "DIST-TALBIYA"
+        ],
+        "rejections": {
+          "DIST-TALBIYA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 727388925,
+        "outcome": "candidate",
+        "entity_code": "DIST-BULAQ-DAKROUR",
+        "admin_level": null,
+        "distance_to_existing_point_m": 184.5,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 727473214,
+        "outcome": "rejected",
+        "labels": [
+          "monshaetalbakary",
+          "منشاهالبكاري"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "DIST-MANSHEYET-BAKARY"
+        ],
+        "rejections": {
+          "DIST-MANSHEYET-BAKARY": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 729636261,
+        "outcome": "candidate",
+        "entity_code": "CITY-QANATER",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 729875378,
+        "outcome": "rejected",
+        "labels": [
+          "alkhosous",
+          "الخصوص"
+        ],
+        "admin_level": null,
+        "candidate_entity_codes": [
+          "DIST-KHOSOUS"
+        ],
+        "rejections": {
+          "DIST-KHOSOUS": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 730141764,
+        "outcome": "candidate",
+        "entity_code": "CITY-QALYUB",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 731002786,
+        "outcome": "candidate",
+        "entity_code": "DIST-MOSTOROD",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 731047816,
+        "outcome": "candidate",
+        "entity_code": "CITY-SHUBRA-ELKHEIMA",
+        "admin_level": null,
+        "distance_to_existing_point_m": 967.6,
+        "source_priority": 3
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 732374401,
+        "outcome": "candidate",
+        "entity_code": "CITY-QAHA",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
         "osm_id": 732390056,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-TOUKH"
-        ],
-        "admin_level": null
+        "outcome": "candidate",
+        "entity_code": "CITY-TOUKH",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
         "osm_id": 736218125,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-SHIBIN-ELQANATER"
-        ],
-        "admin_level": null
+        "outcome": "candidate",
+        "entity_code": "CITY-SHIBIN-ELQANATER",
+        "admin_level": null,
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
         "osm_id": 739039585,
-        "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
-        "candidate_entity_codes": [
-          "CITY-BENHA"
-        ],
-        "admin_level": null
+        "outcome": "candidate",
+        "entity_code": "CITY-BENHA",
+        "admin_level": null,
+        "distance_to_existing_point_m": 111.2,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
         "osm_id": 740139776,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "westernalmounira",
+          "المنيرهالغربيه"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-MUNIRA-GHARBIYA"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-MUNIRA-GHARBIYA": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -6200,19 +6303,11 @@
       {
         "osm_type": "way",
         "osm_id": 756158390,
-        "outcome": "rejected",
-        "labels": [
-          "belbes",
-          "بلبيس"
-        ],
+        "outcome": "candidate",
+        "entity_code": "CITY-BILBEIS",
         "admin_level": null,
-        "candidate_entity_codes": [
-          "CITY-BILBEIS"
-        ],
-        "rejections": {
-          "CITY-BILBEIS": "place_type_not_compatible_with_area_entity"
-        },
-        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
+        "distance_to_existing_point_m": 0.0,
+        "source_priority": 3
       },
       {
         "osm_type": "way",
@@ -6261,7 +6356,7 @@
           "CITY-NEW-CAIRO"
         ],
         "rejections": {
-          "CITY-NEW-CAIRO": "place_type_not_compatible_with_area_entity"
+          "CITY-NEW-CAIRO": "polygon_is_3166.3m_from_existing_entity_point_over_1000m_limit"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -6286,31 +6381,52 @@
         "osm_type": "way",
         "osm_id": 800386645,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "badr",
+          "بدر"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "CITY-BADR"
         ],
-        "admin_level": null
+        "rejections": {
+          "CITY-BADR": "polygon_outside_entity_specific_bbox_guard"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 810567752,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "alsheikhzaid",
+          "الشيخزايد"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "CITY-SHEIKH-ZAYED"
         ],
-        "admin_level": null
+        "rejections": {
+          "CITY-SHEIKH-ZAYED": "polygon_outside_entity_specific_bbox_guard"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
         "osm_id": 810845862,
         "outcome": "rejected",
-        "reason": "admin_level_outside_requested_4_to_10",
+        "labels": [
+          "faisal",
+          "فيصل"
+        ],
+        "admin_level": null,
         "candidate_entity_codes": [
           "DIST-FAISAL"
         ],
-        "admin_level": null
+        "rejections": {
+          "DIST-FAISAL": "entity_has_no_existing_point_geometry_for_boundary_validation"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -6419,7 +6535,7 @@
           "DIST-NASR-CITY"
         ],
         "rejections": {
-          "DIST-NASR-CITY": "place_type_not_compatible_with_city_entity"
+          "DIST-NASR-CITY": "polygon_area_67.558km2_outside_0.05_to_60km2_district_range"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -6436,7 +6552,7 @@
           "DIST-NASR-CITY"
         ],
         "rejections": {
-          "DIST-NASR-CITY": "place_type_not_compatible_with_city_entity"
+          "DIST-NASR-CITY": "polygon_is_1434.3m_from_existing_entity_point_over_1000m_limit"
         },
         "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
@@ -6533,11 +6649,21 @@
       {
         "osm_type": "relation",
         "osm_id": 5466227,
-        "outcome": "candidate",
-        "entity_code": "CITY-CAIRO",
+        "outcome": "rejected",
+        "labels": [
+          "cairo",
+          "القاهره"
+        ],
         "admin_level": "4",
-        "distance_to_existing_point_m": 0.0,
-        "source_priority": 2
+        "candidate_entity_codes": [
+          "AUTH-CAIRO-GOVERNORATE",
+          "CITY-CAIRO"
+        ],
+        "rejections": {
+          "AUTH-CAIRO-GOVERNORATE": "entity_has_no_existing_point_geometry_for_boundary_validation",
+          "CITY-CAIRO": "polygon_area_2992.003km2_outside_1_to_800km2_city_range"
+        },
+        "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"
       },
       {
         "osm_type": "way",
@@ -6545,6 +6671,8 @@
         "outcome": "matched",
         "entity_code": "CITY-10TH-RAMADAN",
         "admin_level": "8",
+        "source_kind": "place",
+        "area_km2": 71.651,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -6564,6 +6692,8 @@
         "outcome": "matched",
         "entity_code": "CITY-15-MAY",
         "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 72.266,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -6578,13 +6708,46 @@
         ]
       },
       {
-        "osm_type": "relation",
-        "osm_id": 5466227,
-        "outcome": "superseded",
-        "entity_code": "CITY-CAIRO",
-        "selected_osm_type": "relation",
-        "selected_osm_id": 4103336,
-        "reason": "higher-priority boundary candidate selected"
+        "osm_type": "way",
+        "osm_id": 739039585,
+        "outcome": "matched",
+        "entity_code": "CITY-BENHA",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 5.968,
+        "distance_to_existing_point_m": 111.2,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.350325988362997,
+          29.739000013634307,
+          32.017800011637,
+          31.0
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 756158390,
+        "outcome": "matched",
+        "entity_code": "CITY-BILBEIS",
+        "admin_level": null,
+        "source_kind": "landuse",
+        "area_km2": 42.476,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.731266927296037,
+          29.695260613634307,
+          32.39799307270396,
+          31.0
+        ]
       },
       {
         "osm_type": "relation",
@@ -6592,6 +6755,8 @@
         "outcome": "matched",
         "entity_code": "CITY-CAIRO",
         "admin_level": "4",
+        "source_kind": "administrative",
+        "area_km2": 2995.882,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 0,
@@ -6611,6 +6776,8 @@
         "outcome": "matched",
         "entity_code": "CITY-MADINATY",
         "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 37.835,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -6630,6 +6797,8 @@
         "outcome": "matched",
         "entity_code": "CITY-NEW-CAIRO",
         "admin_level": "8",
+        "source_kind": "administrative",
+        "area_km2": 379.758,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 1,
@@ -6644,11 +6813,118 @@
         ]
       },
       {
+        "osm_type": "way",
+        "osm_id": 732374401,
+        "outcome": "matched",
+        "entity_code": "CITY-QAHA",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 12.913,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.37386342101231,
+          29.557134613634307,
+          32.03823857898769,
+          31.0
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 730141764,
+        "outcome": "matched",
+        "entity_code": "CITY-QALYUB",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 19.846,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.37510919730782,
+          29.455377613634308,
+          32.03776280269218,
+          30.902372386365695
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 729636261,
+        "outcome": "matched",
+        "entity_code": "CITY-QANATER",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 16.68,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 2
+        },
+        "bbox_wgs84": [
+          30.302431441529997,
+          29.473118513634308,
+          31.965384558470006,
+          30.920113286365694
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 736218125,
+        "outcome": "matched",
+        "entity_code": "CITY-SHIBIN-ELQANATER",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 10.756,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.48514264277956,
+          29.58903741363431,
+          32.150059357220435,
+          31.0
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 731047816,
+        "outcome": "matched",
+        "entity_code": "CITY-SHUBRA-ELKHEIMA",
+        "admin_level": null,
+        "source_kind": "landuse",
+        "area_km2": 1.82,
+        "distance_to_existing_point_m": 967.6,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.41131486693177,
+          29.405101413634306,
+          32.073121133068234,
+          30.852096186365692
+        ]
+      },
+      {
         "osm_type": "relation",
         "osm_id": 3603506,
         "outcome": "matched",
         "entity_code": "CITY-TANTA",
         "admin_level": "8",
+        "source_kind": "administrative",
+        "area_km2": 36.832,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 0,
@@ -6664,21 +6940,44 @@
       },
       {
         "osm_type": "way",
-        "osm_id": 709300098,
+        "osm_id": 732390056,
         "outcome": "matched",
-        "entity_code": "DIST-BAB-SHAREYA",
+        "entity_code": "CITY-TOUKH",
         "admin_level": null,
-        "distance_to_existing_point_m": 390.8,
+        "source_kind": "place",
+        "area_km2": 6.077,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 3,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.36816762079183,
+          29.630553413634306,
+          32.03379037920817,
+          31.0
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 723745381,
+        "outcome": "matched",
+        "entity_code": "DIST-AGOUZA",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 0.782,
+        "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
           "admin_level": 4,
           "name": 3
         },
         "bbox_wgs84": [
-          30.892020451881734,
-          29.741964993465007,
-          31.618545348118268,
-          30.37502520653499
+          30.849478681923465,
+          29.73841339346501,
+          31.575977518076535,
+          30.37147360653499
         ]
       },
       {
@@ -6687,6 +6986,8 @@
         "outcome": "matched",
         "entity_code": "DIST-BAHTIM",
         "admin_level": null,
+        "source_kind": "landuse",
+        "area_km2": 11.746,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -6702,10 +7003,33 @@
       },
       {
         "osm_type": "way",
+        "osm_id": 727388925,
+        "outcome": "matched",
+        "entity_code": "DIST-BULAQ-DAKROUR",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 3.246,
+        "distance_to_existing_point_m": 184.5,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 4,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.827840711771266,
+          29.717349793465008,
+          31.554185088228735,
+          30.35041000653499
+        ]
+      },
+      {
+        "osm_type": "way",
         "osm_id": 1248798299,
         "outcome": "matched",
         "entity_code": "DIST-HELIOPOLIS",
         "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 8.563,
         "distance_to_existing_point_m": 0.0,
         "matching_priority": {
           "source": 3,
@@ -6721,10 +7045,54 @@
       },
       {
         "osm_type": "way",
+        "osm_id": 723065148,
+        "outcome": "matched",
+        "entity_code": "DIST-MOHANDESSIN",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 1.258,
+        "distance_to_existing_point_m": 96.7,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 4,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.836768714661922,
+          29.73346989346501,
+          31.563231285338077,
+          30.36653010653499
+        ]
+      },
+      {
+        "osm_type": "way",
+        "osm_id": 731002786,
+        "outcome": "matched",
+        "entity_code": "DIST-MOSTOROD",
+        "admin_level": null,
+        "source_kind": "place",
+        "area_km2": 8.809,
+        "distance_to_existing_point_m": 0.0,
+        "matching_priority": {
+          "source": 3,
+          "admin_level": 4,
+          "name": 3
+        },
+        "bbox_wgs84": [
+          30.931343367820173,
+          29.814352993465008,
+          31.65840043217983,
+          30.44741320653499
+        ]
+      },
+      {
+        "osm_type": "way",
         "osm_id": 707288091,
         "outcome": "matched",
         "entity_code": "DIST-SHARABIYA",
         "admin_level": null,
+        "source_kind": "landuse",
+        "area_km2": 0.593,
         "distance_to_existing_point_m": 858.1,
         "matching_priority": {
           "source": 3,
@@ -6751,27 +7119,38 @@
       },
       "city": {
         "entities": 42,
-        "matched": 6,
-        "unmatched": 36,
+        "matched": 14,
+        "unmatched": 28,
         "ambiguous": 0
       },
       "district": {
         "entities": 83,
-        "matched": 4,
-        "unmatched": 79,
+        "matched": 7,
+        "unmatched": 76,
         "ambiguous": 0
       }
     },
     "matched_entities": [
       "CITY-10TH-RAMADAN",
       "CITY-15-MAY",
+      "CITY-BENHA",
+      "CITY-BILBEIS",
       "CITY-CAIRO",
       "CITY-MADINATY",
       "CITY-NEW-CAIRO",
+      "CITY-QAHA",
+      "CITY-QALYUB",
+      "CITY-QANATER",
+      "CITY-SHIBIN-ELQANATER",
+      "CITY-SHUBRA-ELKHEIMA",
       "CITY-TANTA",
-      "DIST-BAB-SHAREYA",
+      "CITY-TOUKH",
+      "DIST-AGOUZA",
       "DIST-BAHTIM",
+      "DIST-BULAQ-DAKROUR",
       "DIST-HELIOPOLIS",
+      "DIST-MOHANDESSIN",
+      "DIST-MOSTOROD",
       "DIST-SHARABIYA"
     ],
     "unmatched_entities": {
@@ -6875,14 +7254,6 @@
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
-      "CITY-BENHA": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-BILBEIS": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "CITY-FAYOUM": {
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
@@ -6947,18 +7318,6 @@
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
-      "CITY-QAHA": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-QALYUB": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-QANATER": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "CITY-QENA": {
         "entity_type": "city",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
@@ -6975,19 +7334,7 @@
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
-      "CITY-SHIBIN-ELQANATER": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "CITY-SHOROUK": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-SHUBRA-ELKHEIMA": {
-        "entity_type": "city",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "CITY-TOUKH": {
         "entity_type": "city",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
@@ -7007,10 +7354,6 @@
         "entity_type": "district",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
       },
-      "DIST-AGOUZA": {
-        "entity_type": "district",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "DIST-AIN-SHAMS": {
         "entity_type": "district",
         "reason": "no named polygon passed the point/bbox/type filters"
@@ -7023,15 +7366,15 @@
         "entity_type": "district",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
+      "DIST-BAB-SHAREYA": {
+        "entity_type": "district",
+        "reason": "no named polygon passed the point/bbox/type filters"
+      },
       "DIST-BASATIN": {
         "entity_type": "district",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
       },
       "DIST-BULAQ": {
-        "entity_type": "district",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
-      "DIST-BULAQ-DAKROUR": {
         "entity_type": "district",
         "reason": "no named polygon passed the point/bbox/type filters"
       },
@@ -7171,17 +7514,9 @@
         "entity_type": "district",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
       },
-      "DIST-MOHANDESSIN": {
-        "entity_type": "district",
-        "reason": "no named polygon passed the point/bbox/type filters"
-      },
       "DIST-MOKATTAM": {
         "entity_type": "district",
         "reason": "entity has no existing point geometry to validate a boundary candidate"
-      },
-      "DIST-MOSTOROD": {
-        "entity_type": "district",
-        "reason": "no named polygon passed the point/bbox/type filters"
       },
       "DIST-MOUSKY": {
         "entity_type": "district",
@@ -8171,7 +8506,22 @@
     },
     "existing_point_entity_count": 48,
     "source_polygon_elements_examined": 6173,
-    "candidates_passing_entity_guards": 11
+    "candidates_passing_entity_guards": 21,
+    "coverage_before_after_by_type": {
+      "city": {
+        "entities": 42,
+        "matched_before": 6,
+        "matched_after": 14,
+        "unmatched_after": 28
+      },
+      "district": {
+        "entities": 83,
+        "matched_before": 4,
+        "matched_after": 7,
+        "unmatched_after": 76
+      }
+    },
+    "candidate_report_path": "data/features/phase-07-5-boundary-candidates.ar.md"
   },
   "station_matching": {
     "source_station_nodes_examined": 725,
@@ -13746,7 +14096,7 @@
   "lifecycle_policy": "Operational/unknown station nodes require exact normalized seed/configured names and compatible mode/route evidence. Planned/under-construction station points require explicit OSM construction tags, matched non-planned official line geometry within 600 m, and compatible lifecycle; planned line geometry is never used. BRT geometry matches only existing STOP-BRT entities from bus=yes/route evidence. No station entity is inferred.",
   "geometry_policy": "WGS84 / SRID 4326; non-empty, GEOS-valid geometries are validated and repaired only when polygonal. Non-road features use bbox_wgs84; roads use their entity-specific road_bbox_wgs84 override when configured, otherwise the shared road envelope. The Regional Ring west patch is accepted only for ROAD-REGIONAL-RING. Every output geometry is checked with Shapely is_valid/explain_validity; degenerate lines and unrepaired/otherwise invalid geometries are dropped.",
   "geometry_validation": {
-    "validator": "Shapely 2.2.0",
+    "validator": "Shapely 2.1.2",
     "db_constraint": "ST_SRID(geometry)=4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)",
     "features_repaired_count": 1,
     "features_dropped_count": 9,
@@ -13949,6 +14299,14 @@
           "way:quarter": 1,
           "way:suburb": 9,
           "way:town": 11
+        },
+        "named_residential_landuse_polygons_by_element_type": {
+          "relation": 2,
+          "way": 5292
+        },
+        "boundary_candidate_source_polygons_by_element_type": {
+          "relation": 31,
+          "way": 6142
         },
         "administrative_boundary_relation_counts_by_level": {
           "10": 1,

@@ -70,8 +70,10 @@ export function SearchCommand({ language, onSelect, onShowBoundary }: { language
           </button>
           {entity.has_boundary && <button type="button" className="search-boundary-action" onClick={() => {
             onShowBoundary(entity.code); setOpen(false); setQuery(""); inputRef.current?.blur();
-          }} aria-label={ar ? `إظهار حدود ${entity.name_ar} على الخريطة` : `Show ${entity.name_en} boundary on map`}>
-            <MapPinned aria-hidden="true" />{ar ? "إظهار الحدود" : "Show boundary"}
+          }} aria-label={ar
+            ? entity.code === "CITY-CAIRO" ? "إظهار حدود محافظة القاهرة على الخريطة" : `إظهار حدود ${entity.name_ar} على الخريطة`
+            : entity.code === "CITY-CAIRO" ? "Show Cairo Governorate boundary on map" : `Show ${entity.name_en} boundary on map`}>
+            <MapPinned aria-hidden="true" />{ar ? entity.code === "CITY-CAIRO" ? "حدود محافظة القاهرة" : "إظهار الحدود" : "Show boundary"}
           </button>}
         </div>)}
         {!loading && results.length === 0 && <p role="status">{ar ? "لا توجد نتائج مطابقة." : "No matching entities."}</p>}
