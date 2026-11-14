@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { executeVercelBuild } from "../src/lib/db/vercel-build";
+import { runAutomaticAtlasImport } from "../src/lib/db/automatic-import";
 import { redactSecrets } from "../src/lib/errors";
 
 function runNextBuild(): void {
@@ -29,6 +30,7 @@ async function main(): Promise<void> {
   await executeVercelBuild({
     env: process.env,
     runNextBuildFn: runNextBuild,
+    runProductionImportFn: () => runAutomaticAtlasImport(),
   });
 }
 

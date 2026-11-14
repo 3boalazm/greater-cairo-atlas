@@ -12,7 +12,7 @@ maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
 export type MapStyleStatus = "loading" | "ready" | "error";
 
 const sourceId = "atlas-features";
-const lineLayers = ["atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points"];
+const lineLayers = ["atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points"];
 
 export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language }: {
   theme: AtlasTheme;
@@ -57,33 +57,39 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
     map.on("load", () => {
       map.addSource(sourceId, { type: "geojson", data: dataRef.current as unknown as FeatureCollection });
       map.addLayer({
+        id: "atlas-roads-casing", type: "line", source: sourceId,
+        filter: ["==", ["get", "type"], "road"],
+        paint: { "line-color": theme === "day" ? "#fff8e8" : "#23332f", "line-width": ["interpolate", ["linear"], ["zoom"], 6, 3.4, 10, 7, 14, 10], "line-opacity": 0.92 },
+        layout: { "line-cap": "round", "line-join": "round" },
+      });
+      map.addLayer({
         id: "atlas-lines-operational", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "operational"],
-        paint: { "line-color": ["match", ["get", "type"], "road", "#e6a85c", "transit_line", "#53d8d2", "#99a8b5"], "line-width": ["interpolate", ["linear"], ["zoom"], 6, 1.8, 12, 4.2], "line-opacity": 0.92 },
+        paint: { "line-color": ["match", ["get", "type"], "road", "#f0ad58", "transit_line", "#53d8d2", "#99a8b5"], "line-width": ["interpolate", ["linear"], ["zoom"], 6, ["match", ["get", "type"], "road", 2.1, 1.6], 12, ["match", ["get", "type"], "road", 5.2, 3.7], 16, ["match", ["get", "type"], "road", 8, 5.5]], "line-opacity": 0.96 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-partial", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "partial"],
-        paint: { "line-color": ["match", ["get", "type"], "road", "#e6a85c", "transit_line", "#53d8d2", "#99a8b5"], "line-width": 3.2, "line-dasharray": [2, 1], "line-opacity": 0.95 },
+        paint: { "line-color": ["match", ["get", "type"], "road", "#f0ad58", "transit_line", "#53d8d2", "#99a8b5"], "line-width": 3.2, "line-dasharray": [2, 1], "line-opacity": 0.95 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-construction", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "under_construction"],
-        paint: { "line-color": ["match", ["get", "type"], "road", "#e6a85c", "transit_line", "#53d8d2", "#99a8b5"], "line-width": 3, "line-dasharray": [1.5, 1.5], "line-opacity": 0.9 },
+        paint: { "line-color": ["match", ["get", "type"], "road", "#f0ad58", "transit_line", "#53d8d2", "#99a8b5"], "line-width": 3, "line-dasharray": [1.5, 1.5], "line-opacity": 0.9 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-planned", type: "line", source: sourceId,
         filter: ["in", ["get", "status"], ["literal", ["planned", "approved_planned"]]],
-        paint: { "line-color": "#a89af1", "line-width": 2.6, "line-dasharray": [0.6, 2.3], "line-opacity": 0.8 },
+        paint: { "line-color": ["match", ["get", "type"], "road", "#d39a55", "#a89af1"], "line-width": 2.8, "line-dasharray": [0.6, 2.3], "line-opacity": 0.88 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-unknown", type: "line", source: sourceId,
         filter: ["==", ["get", "status"], "unknown"],
-        paint: { "line-color": "#87938e", "line-width": 1.8, "line-opacity": 0.72 },
+        paint: { "line-color": ["match", ["get", "type"], "road", "#d39a55", "#87938e"], "line-width": ["match", ["get", "type"], "road", 3.2, 1.8], "line-opacity": 0.82 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({

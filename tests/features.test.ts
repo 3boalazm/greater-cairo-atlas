@@ -84,6 +84,40 @@ describe("feature ingestion validation and GeoJSON API", () => {
     expect(statements.at(-1)).toBe("COMMIT");
   });
 
+  it("commits the automatic import checksum atomically and skips unchanged datasets", async () => {
+    let currentChecksum: string | null = null;
+    const checksum = "a".repeat(64);
+    const statements: string[] = [];
+    const createSession = (): SeedDbSession => ({
+      async connect() {},
+      async query<Row = Record<string, unknown>>(text: string, values?: unknown[]) {
+        const sql = text.trim();
+        statements.push(sql);
+        if (sql.startsWith("SELECT checksum FROM import_runs")) {
+          return { rows: (currentChecksum ? [{ checksum: currentChecksum }] : []) as unknown as Row[] };
+        }
+        if (sql.startsWith("INSERT INTO entities")) {
+          return { rows: [{ id: "entity-uuid", code: roadEntity.code }] as unknown as Row[] };
+        }
+        if (sql.startsWith("INSERT INTO import_runs")) currentChecksum = String(values?.[1]);
+        return { rows: [] };
+      },
+      async end() {},
+    });
+    const bundle = { entities: [roadEntity], evidence: [], facts: [] };
+    const first = await upsertValidatedSeedBundle(bundle, createSession, [], { datasetKey: "atlas-seed-features", checksum });
+    expect(first.importSkipped).toBe(false);
+    expect(statements.indexOf("BEGIN")).toBeLessThan(statements.findIndex((sql) => sql.startsWith("INSERT INTO entities")));
+    expect(statements.some((sql) => sql.startsWith("INSERT INTO import_runs"))).toBe(true);
+    expect(statements.at(-1)).toBe("COMMIT");
+
+    statements.length = 0;
+    const second = await upsertValidatedSeedBundle(bundle, createSession, [], { datasetKey: "atlas-seed-features", checksum });
+    expect(second.importSkipped).toBe(true);
+    expect(statements.some((sql) => sql.startsWith("INSERT INTO entities"))).toBe(false);
+    expect(statements.at(-1)).toBe("COMMIT");
+  });
+
   it("returns a small standard GeoJSON FeatureCollection with provenance and entity properties", async () => {
     const collection = await getAtlasFeatures({ zoom: 8, type: "road" }, async (filters) => {
       expect(filters).toMatchObject({ zoom: 8, type: "road" });

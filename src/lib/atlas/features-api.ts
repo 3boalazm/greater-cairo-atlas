@@ -91,7 +91,7 @@ export const ATLAS_FEATURES_SQL = `
      AND ($2::text IS NULL OR e.sector = $2)
      AND ($3::text IS NULL OR e.status = $3)
    ORDER BY e.entity_type, e.code, f.code
-   LIMIT 1000
+   LIMIT 5000
 `;
 
 export function featureSimplificationTolerance(zoom: number): number {

@@ -13,7 +13,7 @@ import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, Atl
 import { STATUSES } from "./atlas-client";
 
 const EMPTY_FEATURES: AtlasFeatureCollection = { type: "FeatureCollection", features: [] };
-const emptyFilters: AtlasFilters = { type: "", sector: "", status: "" };
+const emptyFilters: AtlasFilters = { type: "", sector: "", status: "", mappedOnly: false };
 
 function messageFrom(error: unknown, language: "ar" | "en") {
   return error instanceof Error ? error.message : language === "ar" ? "تعذر الاتصال بالخدمة." : "Could not connect to the service.";
@@ -54,6 +54,7 @@ export default function AtlasApp() {
     if (filters.type) params.set("type", filters.type);
     if (filters.sector) params.set("sector", filters.sector);
     if (filters.status) params.set("status", filters.status);
+    if (filters.mappedOnly) params.set("has_geometry", "true");
     fetch(`/api/atlas/entities?${params}`, { signal: controller.signal })
       .then(async (response) => {
         if (!response.ok) throw new Error((await response.json()).error?.message ?? `HTTP ${response.status}`);
@@ -63,7 +64,7 @@ export default function AtlasApp() {
       .catch((error: unknown) => { if (!(error instanceof DOMException && error.name === "AbortError")) setEntitiesError(messageFrom(error, language)); })
       .finally(() => setEntitiesLoading(false));
     return () => controller.abort();
-  }, [filters.type, filters.sector, filters.status, language]);
+  }, [filters.type, filters.sector, filters.status, filters.mappedOnly, language]);
 
   useEffect(() => {
     const controller = new AbortController();

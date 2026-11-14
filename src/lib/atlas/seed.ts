@@ -98,11 +98,17 @@ export interface SeedDbSession {
   end(): Promise<void>;
 }
 
+export interface ImportRunChecksum {
+  datasetKey: string;
+  checksum: string;
+}
+
 export interface RunSeedImportOptions {
   seedDir?: string;
   featuresPath?: string | null;
   dryRun?: boolean;
   sessionFactory?: () => SeedDbSession;
+  importRun?: ImportRunChecksum;
 }
 
 export interface SeedImportSummary {
@@ -113,6 +119,7 @@ export interface SeedImportSummary {
   factsCount: number;
   factEvidenceLinksCount: number;
   featuresCount: number;
+  importSkipped?: boolean;
   report: SeedBundleReport;
 }
 
@@ -757,18 +764,45 @@ export async function upsertValidatedSeedBundle(
   bundle: ValidatedSeedBundle,
   sessionFactory: () => SeedDbSession = defaultSessionFactory,
   features: readonly FeatureSeed[] = [],
+  importRun?: ImportRunChecksum,
 ): Promise<{
   entitiesCount: number;
   evidenceCount: number;
   factsCount: number;
   factEvidenceLinksCount: number;
   featuresCount: number;
+  importSkipped?: boolean;
 }> {
   const session = sessionFactory();
   await session.connect();
 
   try {
     await session.query("BEGIN");
+
+    if (importRun) {
+      if (!/^[a-z0-9_-]{1,80}$/.test(importRun.datasetKey)) {
+        throw new Error("Invalid automatic import dataset key.");
+      }
+      if (!/^[a-f0-9]{64}$/.test(importRun.checksum)) {
+        throw new Error("Invalid automatic import checksum.");
+      }
+      await session.query("SELECT pg_advisory_xact_lock($1)", [72940132]);
+      const previous = await session.query<{ checksum: string }>(
+        "SELECT checksum FROM import_runs WHERE dataset_key = $1 FOR UPDATE",
+        [importRun.datasetKey],
+      );
+      if (previous.rows[0]?.checksum === importRun.checksum) {
+        await session.query("COMMIT");
+        return {
+          entitiesCount: bundle.entities.length,
+          evidenceCount: bundle.evidence.length,
+          factsCount: bundle.facts.length,
+          factEvidenceLinksCount: bundle.facts.reduce((count, fact) => count + fact.evidence_codes.length, 0),
+          featuresCount: features.length,
+          importSkipped: true,
+        };
+      }
+    }
 
     const entityIdByCode = new Map<string, string>();
     for (const entity of bundle.entities) {
@@ -951,6 +985,15 @@ export async function upsertValidatedSeedBundle(
       );
     }
 
+    if (importRun) {
+      await session.query(
+        `INSERT INTO import_runs (dataset_key, checksum, imported_at)
+         VALUES ($1, $2, NOW())
+         ON CONFLICT (dataset_key) DO UPDATE
+           SET checksum = EXCLUDED.checksum, imported_at = EXCLUDED.imported_at`,
+        [importRun.datasetKey, importRun.checksum],
+      );
+    }
     await session.query("COMMIT");
 
     return {
@@ -959,6 +1002,7 @@ export async function upsertValidatedSeedBundle(
       factsCount: bundle.facts.length,
       factEvidenceLinksCount,
       featuresCount: features.length,
+      ...(importRun ? { importSkipped: false } : {}),
     };
   } catch (error) {
     await session.query("ROLLBACK").catch(() => undefined);
@@ -1008,9 +1052,12 @@ export async function runSeedImport(
     bundle,
     options.sessionFactory,
     features,
+    options.importRun,
   );
 
-  logger.info("Seed bundle imported idempotently", {
+  logger.info(counts.importSkipped
+    ? "Seed bundle checksum unchanged; automatic import skipped"
+    : "Seed bundle imported idempotently", {
     seedDir,
     ...counts,
     warningsCount: report.warnings.length,

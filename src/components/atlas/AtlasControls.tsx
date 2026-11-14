@@ -7,6 +7,7 @@ export interface AtlasFilters {
   type: string;
   sector: string;
   status: string;
+  mappedOnly: boolean;
 }
 
 const types = ["road", "bridge", "interchange", "transit_line", "transit_stop", "rail_station", "city", "district", "airport", "project", "landmark"];
@@ -41,7 +42,7 @@ export function LayerChips({ type, onTypeChange, language }: { type: string; onT
 
 export function MapFilters({ filters, onChange, language }: { filters: AtlasFilters; onChange: (filters: AtlasFilters) => void; language: AtlasLanguage }) {
   const ar = language === "ar";
-  const set = (key: keyof AtlasFilters, value: string) => onChange({ ...filters, [key]: value });
+  const set = (key: "type" | "sector" | "status", value: string) => onChange({ ...filters, [key]: value });
   return <div className="map-filter-row" aria-label={ar ? "تصفية الكيانات" : "Filter entities"}>
     <label><span><SlidersHorizontal aria-hidden="true" />{ar ? "نوع" : "Type"}</span><select value={filters.type} onChange={(event) => set("type", event.target.value)} aria-label={ar ? "تصفية حسب النوع" : "Filter by type"}>
       <option value="">{ar ? "كل الأنواع" : "All types"}</option>{types.map((value) => <option key={value} value={value}>{typeLabel[value]?.[language] ?? value}</option>)}
@@ -52,6 +53,8 @@ export function MapFilters({ filters, onChange, language }: { filters: AtlasFilt
     <label><span>{ar ? "الحالة" : "Status"}</span><select value={filters.status} onChange={(event) => set("status", event.target.value)} aria-label={ar ? "تصفية حسب الحالة" : "Filter by status"}>
       <option value="">{ar ? "كل الحالات" : "All statuses"}</option>{statuses.map((value) => <option key={value} value={value}>{statusLabel[value]?.[language] ?? value}</option>)}
     </select></label>
+    <label className="mapped-only-filter"><input type="checkbox" checked={filters.mappedOnly} onChange={(event) => onChange({ ...filters, mappedOnly: event.target.checked })} />
+      <span>{ar ? "المُرسوم فقط" : "Mapped only"}</span></label>
   </div>;
 }
 
@@ -68,6 +71,9 @@ export function Legend({ language }: { language: AtlasLanguage }) {
   return <aside className="map-legend" aria-label={ar ? "مفتاح الخريطة" : "Map legend"}>
     <strong>{ar ? "حالة الكيان" : "Entity status"}</strong>
     {rows.map(([status, label, style]) => <div className="legend-row" key={status}><i className={`legend-line ${style} status-${status}`} />{label}</div>)}
+    <strong className="legend-type-heading">{ar ? "نوع الهندسة" : "Geometry type"}</strong>
+    <div className="legend-row"><i className="legend-line type-road" />{ar ? "الطرق" : "Roads"}</div>
+    <div className="legend-row"><i className="legend-line type-transit" />{ar ? "خطوط النقل" : "Transit lines"}</div>
     <small>{ar ? "الخطوط تشير إلى هندسة موثقة فقط." : "Lines are sourced geometries only."}</small>
   </aside>;
 }
