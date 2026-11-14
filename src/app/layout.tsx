@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Greater Cairo Atlas",
+    default: "أطلس القاهرة الكبرى | Greater Cairo Atlas",
     template: "%s | Greater Cairo Atlas",
   },
   description:
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body className="min-h-screen bg-background text-foreground">
         {children}
       </body>

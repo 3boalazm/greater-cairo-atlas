@@ -1,11 +1,12 @@
 import { z } from "zod";
 import { getSql } from "@/lib/db/client";
 import { RequestValidationError } from "@/lib/errors";
+import { ENTITY_SECTORS, ENTITY_STATUSES, ENTITY_TYPES } from "@/lib/atlas/schema";
 
 const featureQuerySchema = z.strictObject({
-  type: z.enum(["road", "transit_line", "transit_stop", "transit_station", "rail_station"]).optional(),
-  sector: z.enum(["NORTH", "EAST", "SOUTH", "WEST", "CENTRAL", "REGIONAL"]).optional(),
-  status: z.enum(["operational", "partial", "under_construction", "planned", "approved_planned", "unknown"]).optional(),
+  type: z.enum(ENTITY_TYPES).optional(),
+  sector: z.enum(ENTITY_SECTORS).optional(),
+  status: z.enum(ENTITY_STATUSES).optional(),
   zoom: z.coerce.number().int().min(4).max(20).default(12),
 });
 
