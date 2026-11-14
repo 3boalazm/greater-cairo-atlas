@@ -62,10 +62,10 @@ describe("revision 5 seed + OSM geometry delivery", () => {
     );
     const byEntity = new Map<string, number>();
     for (const feature of features) byEntity.set(feature.entity_code, (byEntity.get(feature.entity_code) ?? 0) + 1);
-    expect(features).toHaveLength(1970);
-    expect(byEntity.get("ROAD-RING-ROAD")).toBe(473);
-    expect(byEntity.get("ROAD-MIDDLE-RING")).toBe(125);
-    expect(byEntity.get("ROAD-REGIONAL-RING")).toBe(589);
+    expect(features).toHaveLength(3688);
+    expect(byEntity.get("ROAD-RING-ROAD")).toBe(800);
+    expect(byEntity.get("ROAD-MIDDLE-RING")).toBe(249);
+    expect(byEntity.get("ROAD-REGIONAL-RING")).toBe(907);
     expect(byEntity.get("TRANSIT-METRO-L1")).toBe(13);
     expect(byEntity.get("TRANSIT-METRO-L2")).toBe(2);
     expect(byEntity.get("TRANSIT-METRO-L3")).toBe(17);
