@@ -9,6 +9,8 @@ import { AtlasFilters, LayerChips, Legend, MapFilters } from "./AtlasControls";
 import { EntityPanel } from "./EntityPanel";
 import dynamic from "next/dynamic";
 import type { MapStyleStatus } from "./MapView";
+import { TransitModeFilter } from "./TransitModeFilter";
+import { TRANSIT_MODE_ORDER, transitModesForEntityCode, type TransitMode } from "@/lib/atlas/transit-modes";
 import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 
 const MapView = dynamic(
@@ -46,6 +48,10 @@ export default function AtlasApp() {
   const [featuresError, setFeaturesError] = useState<string | null>(null);
   const [zoom, setZoom] = useState(9);
   const [showRoadNetwork, setShowRoadNetwork] = useState(true);
+  const [railNetworkAvailable, setRailNetworkAvailable] = useState(false);
+  const [showRailNetwork, setShowRailNetwork] = useState(false);
+  const [visibleTransitModes, setVisibleTransitModes] = useState<TransitMode[]>([...TRANSIT_MODE_ORDER]);
+  const [showInterchanges, setShowInterchanges] = useState(true);
   const [mapStyleStatus, setMapStyleStatus] = useState<MapStyleStatus>("loading");
   const [mapGeneration, setMapGeneration] = useState(0);
   const [stats, setStats] = useState<AtlasStatsResponse | null>(null);
@@ -104,6 +110,18 @@ export default function AtlasApp() {
       .finally(() => setFeaturesLoading(false));
     return () => controller.abort();
   }, [filters.type, filters.sector, filters.status, zoom, language]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("/rail-network-status.json", { signal: controller.signal })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json() as Promise<{ available?: boolean }>;
+      })
+      .then((status) => setRailNetworkAvailable(status.available === true))
+      .catch(() => setRailNetworkAvailable(false));
+    return () => controller.abort();
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -188,10 +206,20 @@ export default function AtlasApp() {
 
   const visibleFeatureCollection = useMemo(() => ({
     ...features,
-    features: features.features.filter((feature) => STATUSES.includes(feature.properties.status as (typeof STATUSES)[number])),
-  }), [features]);
+    features: features.features.filter((feature) => {
+      if (!STATUSES.includes(feature.properties.status as (typeof STATUSES)[number])) return false;
+      if (feature.properties.type === "transit_line" || feature.properties.type === "transit_stop" || feature.properties.type === "rail_station") {
+        const modes = feature.properties.modes?.length ? feature.properties.modes : transitModesForEntityCode(feature.properties.entity_code);
+        if (modes.length && !modes.some((mode) => visibleTransitModes.includes(mode as TransitMode))) return false;
+      }
+      return true;
+    }),
+  }), [features, visibleTransitModes]);
   const ar = language === "ar";
   const totalFeatures = features.features.length;
+  const mapTransitModes = !filters.type || ["transit_line", "transit_stop", "rail_station", "transit_station"].includes(filters.type)
+    ? visibleTransitModes
+    : [];
 
   return <main className={`atlas-shell theme-${theme}`} data-theme={theme} dir={ar ? "rtl" : "ltr"} id="main-content">
     <a className="skip-link" href="#main-content">{ar ? "تجاوز إلى المحتوى" : "Skip to content"}</a>
@@ -214,11 +242,21 @@ export default function AtlasApp() {
         {statsError && <span className="stats-retry"><AlertTriangle aria-hidden="true" />{statsError}</span>}
       </section>
       <section className="map-stage" aria-label={ar ? "مساحة الخريطة" : "Map workspace"}>
-        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} showRoadNetwork={showRoadNetwork} highlightBoundary={highlightBoundary} />
+        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} showRoadNetwork={showRoadNetwork} showRailNetwork={showRailNetwork && railNetworkAvailable} highlightBoundary={highlightBoundary} visibleTransitModes={mapTransitModes} showInterchanges={showInterchanges} />
         <div className="map-header-card"><div className="map-title-icon"><MapPinned aria-hidden="true" /></div><div><span>{ar ? "القاهرة الكبرى" : "Greater Cairo"}</span><h1>{ar ? "المكان كما توثّقه المصادر" : "Place, as documented"}</h1><p>{ar ? "الحقائق المتعارضة تبقى ظاهرة؛ لا تخمين للهندسة أو الحالة." : "Conflicting claims remain visible. No inferred geometry or status."}</p></div></div>
         <div className="map-toolbar"><LayerChips type={filters.type} onTypeChange={(type) => setFilters((current) => ({ ...current, type }))} language={language} />
           <MapFilters filters={filters} onChange={setFilters} language={language} />
           <label className="road-network-toggle"><input type="checkbox" checked={showRoadNetwork} onChange={(event) => setShowRoadNetwork(event.target.checked)} /><span>{ar ? "شبكة الطرق (OpenStreetMap)" : "Road network (OSM)"}</span></label>
+          <label className={`road-network-toggle rail-network-toggle ${!railNetworkAvailable ? "is-unavailable" : ""}`} title={!railNetworkAvailable ? (ar ? "ملف استخراج السكك لم يُرفق بعد" : "Rail extract has not been attached yet") : undefined}>
+            <input type="checkbox" checked={showRailNetwork} disabled={!railNetworkAvailable} onChange={(event) => setShowRailNetwork(event.target.checked)} />
+            <span>{railNetworkAvailable ? (ar ? "شبكة السكك الحديدية (OpenStreetMap)" : "Rail network (OpenStreetMap)") : (ar ? "شبكة السكك الحديدية — بانتظار ملف OSM" : "Rail network — awaiting OSM extract")}</span>
+          </label>
+          <details className="transit-mode-details">
+            <summary>{ar ? "وسائل النقل والفلترة" : "Transit modes & filter"}</summary>
+            <TransitModeFilter visibleModes={visibleTransitModes}
+              onChange={(mode, visible) => setVisibleTransitModes((current) => visible ? [...new Set([...current, mode])] : current.filter((item) => item !== mode))}
+              showInterchanges={showInterchanges} onInterchangesChange={setShowInterchanges} language={language} />
+          </details>
           <span className="map-feature-count" aria-live="polite">{featuresLoading ? "…" : totalFeatures} {ar ? "ميزة هندسية" : "features"}</span>
         </div>
         <Legend language={language} boundaryActive={Boolean(highlightBoundary)} boundaryLabel={language === "ar"

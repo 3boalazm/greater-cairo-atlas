@@ -6,6 +6,7 @@ import { AreaBoundaryToggle } from "@/components/atlas/AreaBoundaryToggle";
 import { SiteFooter, SiteHeader, getSiteUrl, resolveLanguage } from "@/components/site/SiteChrome";
 import { getStaticEntityPageData } from "@/lib/atlas/static-dataset";
 import type { AtlasFeatureCollection } from "@/components/atlas/atlas-client";
+import { transitModeLabel, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
 
 interface EntityPageProps {
   params: Promise<{ code: string }>;
@@ -78,6 +79,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
   const text=labels[language];
   const entity=await getStaticEntityPageData(code);
   if (!entity) notFound();
+  const transitLabel = transitModeLabel(entity.code, language);
 
   const groups=new Map<string,typeof entity.facts>();
   for (const fact of entity.facts) groups.set(fact.attribute,[...(groups.get(fact.attribute) ?? []),fact]);
@@ -94,7 +96,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
   const safeJsonLd=JSON.stringify(placeJsonLd).replaceAll("<","\\u003c");
   const mapFeatures:AtlasFeatureCollection={type:"FeatureCollection",metadata:{data_license:"© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0",geometry_license:"© OpenStreetMap contributors, ODbL 1.0",contact:"01092500454 · 3boalazm@gmail.com"},features:entity.mapGeometry?[{
     type:"Feature",id:`ENTITY-MAP-${entity.code}`,geometry:entity.mapGeometry,
-    properties:{code:`ENTITY-MAP-${entity.code}`,entity_code:entity.code,name_ar:entity.name_ar,name_en:entity.name_en,type:entity.entity_type,status:entity.status,license:entity.mapLicense,attribution:entity.mapAttribution,source:"Source geometries, merged and simplified for display",retrieval_date:"",source_ids:[]},
+    properties:{code:`ENTITY-MAP-${entity.code}`,entity_code:entity.code,name_ar:entity.name_ar,name_en:entity.name_en,type:entity.entity_type,status:entity.status,license:entity.mapLicense,attribution:entity.mapAttribution,source:"Source geometries, merged and simplified for display",retrieval_date:"",source_ids:[],modes:transitModesForEntityCode(entity.code),interchange:transitModesForEntityCode(entity.code).length>1},
   }]:[]};
 
   return <div className="site-layout" lang={language} dir={ar?"rtl":"ltr"}>
@@ -114,6 +116,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
         <div><dt>{text.type}</dt><dd>{entityTypeLabels[entity.entity_type]?.[language] ?? entity.entity_type.replaceAll("_"," ")}</dd></div>
         <div><dt>{text.sector}</dt><dd>{text.sectorLabels[entity.sector] ?? entity.sector}</dd></div>
         <div><dt>{text.aliases}</dt><dd>{entity.aliases.length?entity.aliases.join(" · "):"—"}</dd></div>
+        {transitLabel && <div><dt>{ar ? "وسيلة النقل" : "Transit mode"}</dt><dd><span className="transit-mode-pill">{transitLabel}</span></dd></div>}
         <div><dt>{ar?"لقطة السجل":"Record snapshot"}</dt><dd><time dateTime={now}>{now}</time></dd></div>
       </dl>
       {entity.description && <p className="entity-long-description">{entity.description}</p>}

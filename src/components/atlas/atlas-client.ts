@@ -72,6 +72,8 @@ export interface AtlasFeature {
     source: string;
     retrieval_date: string;
     source_ids: unknown;
+    modes?: string[];
+    interchange?: boolean;
   };
 }
 
