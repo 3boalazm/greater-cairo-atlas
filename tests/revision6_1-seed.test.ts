@@ -2,9 +2,10 @@ import path from "node:path";
 import { readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
 import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
+import { adaptResearchSeedSources } from "@/lib/atlas/research-seed";
 import { loadAndValidateSeedDir, summarizeValidatedSeedBundle } from "@/lib/atlas/seed";
 
-describe("revision 6.2 seed + OSM geometry delivery", () => {
+describe("revision 7 seed + OSM geometry delivery", () => {
   it("preserves the rev4 entity identity and fact-code baseline", async () => {
     const root = process.cwd();
     const [baseline, bundle] = await Promise.all([
@@ -28,16 +29,49 @@ describe("revision 6.2 seed + OSM geometry delivery", () => {
     // Feature geometry matching is intentionally re-evaluated by later OSM-ingestion phases; entity/fact IDs remain stable.
   });
 
-  it("validates rev6.2 counts and requires official URL-backed evidence for every verified fact", async () => {
+  it("preserves the full rev6.2 baseline and only advances 28 unknown statuses", async () => {
+    const root = process.cwd();
+    const [entitiesCsv, evidenceJsonText, factsJsonText, current] = await Promise.all([
+      readFile(path.join(root, "data/research/rev6_2/entities_rev6_2_adapted.csv"), "utf8"),
+      readFile(path.join(root, "data/research/rev6_2/evidence_rev6_2_adapted.json"), "utf8"),
+      readFile(path.join(root, "data/research/rev6_2/facts_rev6_2.json"), "utf8"),
+      loadAndValidateSeedDir(path.join(root, "data/seed")),
+    ]);
+    const prior = adaptResearchSeedSources({ entitiesCsv, evidenceJsonText, factsJsonText, selectedRevision: "rev6.2" });
+    expect(prior.ok).toBe(true);
+    if (!prior.ok || !prior.bundle) throw new Error("rev6.2 baseline must adapt successfully");
+
+    const currentEntities = new Map(current.entities.map((item) => [item.code, item]));
+    for (const entity of prior.bundle.entities) {
+      const next = currentEntities.get(entity.code);
+      expect(next, `rev7 deleted entity ${entity.code}`).toBeDefined();
+      expect(next?.entity_type, `rev7 retyped entity ${entity.code}`).toBe(entity.entity_type);
+    }
+    const currentFacts = new Set(current.facts.map((item) => item.code));
+    for (const fact of prior.bundle.facts) expect(currentFacts.has(fact.code), `rev7 deleted fact ${fact.code}`).toBe(true);
+    const currentEvidence = new Set(current.evidence.map((item) => item.code));
+    for (const evidence of prior.bundle.evidence) expect(currentEvidence.has(evidence.code), `rev7 deleted evidence ${evidence.code}`).toBe(true);
+
+    const changes = prior.bundle.entities.flatMap((old) => {
+      const next = currentEntities.get(old.code)!;
+      return old.status === next.status ? [] : [{ code: old.code, oldStatus: old.status, newStatus: next.status }];
+    });
+    expect(changes).toHaveLength(28);
+    expect(changes.every((change) => change.oldStatus === "unknown" && ["operational", "partial", "under_construction"].includes(change.newStatus))).toBe(true);
+    expect(changes.some((change) => change.oldStatus === "planned" && change.newStatus === "operational")).toBe(false);
+    expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(17);
+  });
+
+  it("validates rev7 counts and requires official URL-backed evidence for every verified fact", async () => {
     const bundle = await loadAndValidateSeedDir(path.join(process.cwd(), "data/seed"));
     const report = summarizeValidatedSeedBundle(bundle);
     expect(report).toMatchObject({
       entitiesCount: 342,
       entitiesWithAliasesCount: 250,
-      evidenceCount: 324,
-      evidenceMissingUrlCount: 74,
-      factsCount: 1348,
-      factEvidenceLinksCount: 1460,
+      evidenceCount: 350,
+      evidenceMissingUrlCount: 71,
+      factsCount: 1391,
+      factEvidenceLinksCount: 1505,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");

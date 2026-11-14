@@ -227,7 +227,7 @@ def _name_score(tags: dict[str, Any], entity: dict[str, str]) -> int:
 def process_osm_boundaries(data: dict[str, Any], entities: list[dict[str, str]], date: str,
                            rules: dict[str, Any] | None = None,
                            existing_features: list[dict[str, Any]] | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Return one unambiguous source polygon per area entity after name, type, bbox and point guards."""
+    """Return one unambiguous admin, place, or named-residential polygon per area entity."""
     rules = rules or {}
     area_rules = rules.get("area_entity_rules", {})
     by_code = {entity["code"]: entity for entity in entities if entity.get("entity_type") in AREA_TYPES}
@@ -329,6 +329,11 @@ def process_osm_boundaries(data: dict[str, Any], entities: list[dict[str, str]],
             if area_range and not cairo_governorate_override and not (area_range[0] <= area_km2 <= area_range[1]):
                 rejected_codes[code] = f"polygon_area_{area_km2:.3f}km2_outside_{area_range[0]:g}_to_{area_range[1]:g}km2_{entity['entity_type']}_range"
                 continue
+            minimum_area = area_rules.get(code, {}).get("minimum_area_km2")
+            if minimum_area is not None and area_km2 < float(minimum_area):
+                minimum_reason = area_rules.get(code, {}).get("minimum_area_reason", "candidate is a much smaller same-name sub-area")
+                rejected_codes[code] = f"polygon_area_{area_km2:.3f}km2_below_entity_minimum_{float(minimum_area):g}km2; {minimum_reason}"
+                continue
             if code == "DIST-BAB-SHAREYA" and osm_id == 709300098 and not boundary and area_km2 < 0.2:
                 rejected_codes[code] = "place_neighbourhood_polygon_is_block_scale_0.09km2_not_the_whole_qism_district"
                 continue
@@ -356,7 +361,7 @@ def process_osm_boundaries(data: dict[str, Any], entities: list[dict[str, str]],
             audit.append({"osm_type": kind, "osm_id": osm_id, "outcome": "rejected",
                           "labels": sorted(labels), "admin_level": level,
                           "candidate_entity_codes": sorted(label_candidates), "rejections": rejected_codes,
-                          "reason": "no entity passed admin/place type, source-point distance and entity-bbox guards"})
+                          "reason": "no entity passed admin/place type, point-distance, entity-bbox, or area-size guards"})
 
     selected: list[dict[str, Any]] = []
     matched_by_type: Counter[str] = Counter()
@@ -447,7 +452,7 @@ def process_osm_boundaries(data: dict[str, Any], entities: list[dict[str, str]],
                                        "ambiguous": ambiguous}
     return sorted(selected, key=lambda item: item["properties"]["entity_code"]), {
         "matched_count": len(selected), "audit": audit,
-        "source": "OpenStreetMap boundary=administrative / place polygons only",
+        "source": "OpenStreetMap boundary=administrative / place / named landuse=residential polygons",
         "attribution": OSM_ATTRIBUTION, "license": "ODbL-1.0",
         "entity_counts_by_type": counts_by_type,
         "matched_entities": sorted(item["properties"]["entity_code"] for item in selected),
@@ -546,6 +551,10 @@ def boundary_candidate_review(data: dict[str, Any], entities: list[dict[str, str
             cairo_override = code == "CITY-CAIRO" and kind == "relation" and osm_id == 4103336
             if area_km2 is not None and area_range and not cairo_override and not (area_range[0] <= area_km2 <= area_range[1]):
                 reasons.append(f"area {area_km2:.3f} km² is outside {entity['entity_type']} range {area_range[0]:g}–{area_range[1]:g} km²")
+            minimum_area = area_rules.get(code, {}).get("minimum_area_km2")
+            if area_km2 is not None and minimum_area is not None and area_km2 < float(minimum_area):
+                minimum_reason = area_rules.get(code, {}).get("minimum_area_reason", "candidate is a much smaller same-name sub-area")
+                reasons.append(f"area {area_km2:.3f} km² is below entity-specific minimum {float(minimum_area):g} km²: {minimum_reason}")
             if code == "DIST-BAB-SHAREYA" and osm_id == 709300098 and not is_admin and (area_km2 or 0) < 0.2:
                 reasons.append("rejected: 0.09 km² place=neighbourhood is a block, not the full Bab al-Shaariya qism district")
             chosen = selected_by_code.get(code)
