@@ -5,15 +5,19 @@ import * as maplibregl from "maplibre-gl";
 import type { GeoJSONSource, Map as MapLibreMap, MapLayerMouseEvent } from "maplibre-gl";
 import type { FeatureCollection } from "geojson";
 import type { AtlasFeatureCollection, AtlasTheme } from "./atlas-client";
+import { getAtlasMapStyleUrl } from "./map-styles";
+
+export type MapStyleStatus = "loading" | "ready" | "error";
 
 const sourceId = "atlas-features";
 const lineLayers = ["atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points"];
 
-export function MapView({ theme, features, onSelect, onZoomChange, language }: {
+export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
   onSelect: (entityCode: string) => void;
   onZoomChange: (zoom: number) => void;
+  onStyleStatus: (status: MapStyleStatus) => void;
   language: "ar" | "en";
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -21,17 +25,20 @@ export function MapView({ theme, features, onSelect, onZoomChange, language }: {
   const dataRef = useRef<AtlasFeatureCollection>(features);
   const onSelectRef = useRef(onSelect);
   const onZoomRef = useRef(onZoomChange);
+  const onStyleStatusRef = useRef(onStyleStatus);
   useEffect(() => {
     dataRef.current = features;
     onSelectRef.current = onSelect;
     onZoomRef.current = onZoomChange;
-  }, [features, onSelect, onZoomChange]);
+    onStyleStatusRef.current = onStyleStatus;
+  }, [features, onSelect, onZoomChange, onStyleStatus]);
 
   useEffect(() => {
     if (!containerRef.current) return;
+    onStyleStatusRef.current("loading");
     const map = new maplibregl.Map({
       container: containerRef.current,
-      style: theme === "day" ? "https://tiles.openfreemap.org/styles/positron" : "https://tiles.openfreemap.org/styles/dark",
+      style: getAtlasMapStyleUrl(theme),
       center: [31.25, 30.045],
       zoom: 9.2,
       minZoom: 6,
@@ -41,6 +48,10 @@ export function MapView({ theme, features, onSelect, onZoomChange, language }: {
     });
     mapRef.current = map;
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-left");
+    map.on("error", () => {
+      if (!map.isStyleLoaded()) onStyleStatusRef.current("error");
+    });
+    map.on("style.load", () => onStyleStatusRef.current("ready"));
     map.on("load", () => {
       map.addSource(sourceId, { type: "geojson", data: dataRef.current as unknown as FeatureCollection });
       map.addLayer({

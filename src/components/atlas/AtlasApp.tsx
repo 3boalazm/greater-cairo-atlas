@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { AppSidebar } from "./AppSidebar";
 import { AtlasFilters, LayerChips, Legend, MapFilters } from "./AtlasControls";
 import { EntityPanel } from "./EntityPanel";
-import { MapView } from "./MapView";
+import { MapView, type MapStyleStatus } from "./MapView";
 import { LanguageToggle, ThemeToggle, useAtlasPreferences } from "./Preferences";
 import { SearchCommand } from "./SearchCommand";
 import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, EntityListResponse } from "./atlas-client";
@@ -29,6 +29,8 @@ export default function AtlasApp() {
   const [featuresLoading, setFeaturesLoading] = useState(true);
   const [featuresError, setFeaturesError] = useState<string | null>(null);
   const [zoom, setZoom] = useState(9);
+  const [mapStyleStatus, setMapStyleStatus] = useState<MapStyleStatus>("loading");
+  const [mapGeneration, setMapGeneration] = useState(0);
   const [stats, setStats] = useState<AtlasStatsResponse | null>(null);
   const [statsError, setStatsError] = useState<string | null>(null);
   const [selectedCode, setSelectedCode] = useState<string | null>(null);
@@ -162,7 +164,7 @@ export default function AtlasApp() {
         {statsError && <span className="stats-retry"><AlertTriangle aria-hidden="true" />{statsError}</span>}
       </section>
       <section className="map-stage" aria-label={ar ? "مساحة الخريطة" : "Map workspace"}>
-        <MapView theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} language={language} />
+        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} />
         <div className="map-header-card"><div className="map-title-icon"><MapPinned aria-hidden="true" /></div><div><span>{ar ? "القاهرة الكبرى" : "Greater Cairo"}</span><h1>{ar ? "المكان كما توثّقه المصادر" : "Place, as documented"}</h1><p>{ar ? "الحقائق المتعارضة تبقى ظاهرة؛ لا تخمين للهندسة أو الحالة." : "Conflicting claims remain visible. No inferred geometry or status."}</p></div></div>
         <div className="map-toolbar"><LayerChips type={filters.type} onTypeChange={(type) => setFilters((current) => ({ ...current, type }))} language={language} />
           <MapFilters filters={filters} onChange={setFilters} language={language} />
@@ -171,6 +173,7 @@ export default function AtlasApp() {
         <Legend language={language} />
         {(featuresLoading || entitiesLoading) && <div className="map-loading" role="status"><RefreshCw aria-hidden="true" />{ar ? "جارٍ تحميل بيانات الأطلس…" : "Loading atlas data…"}</div>}
         {(featuresError || entitiesError) && <div className="map-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{featuresError ?? entitiesError}</span></div>}
+        {mapStyleStatus === "error" && <div className="map-error map-style-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{ar ? "تعذّر تحميل خريطة OpenFreeMap." : "Could not load the OpenFreeMap basemap."}</span><button type="button" onClick={() => { setMapStyleStatus("loading"); setMapGeneration((value) => value + 1); }}>{ar ? "إعادة المحاولة" : "Retry"}</button></div>}
         {!featuresLoading && !featuresError && totalFeatures === 0 && <div className="map-empty">{ar ? "لا توجد هندسة تطابق هذه الفلاتر. الكيانات تظل متاحة في القائمة والبحث." : "No geometries match these filters. Entities remain available in the list and search."}</div>}
         <div className="map-attribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors, ODbL 1.0</a><span>·</span><a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a></div>
       </section>
