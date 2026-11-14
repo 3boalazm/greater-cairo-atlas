@@ -7,6 +7,8 @@ import type { FeatureCollection } from "geojson";
 import type { AtlasFeatureCollection, AtlasTheme } from "./atlas-client";
 import { getAtlasMapStyleUrl } from "./map-styles";
 
+maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
+
 export type MapStyleStatus = "loading" | "ready" | "error";
 
 const sourceId = "atlas-features";

@@ -7,9 +7,10 @@
     "node": ">=20.9.0"
   },
   "scripts": {
+    "postinstall": "node scripts/prepare-static-assets.mjs",
     "dev": "next dev",
-    "build": "next build",
-    "vercel-build": "tsx scripts/vercel-build.ts",
+    "build": "node scripts/prepare-static-assets.mjs && next build && node scripts/verify-static-assets.mjs",
+    "vercel-build": "node scripts/prepare-static-assets.mjs && tsx scripts/vercel-build.ts && node scripts/verify-static-assets.mjs",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -23,6 +24,8 @@
     "env:check": "tsx scripts/check-env.ts"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans-arabic": "^5.3.0",
     "@neondatabase/serverless": "^1.2.1",
     "@radix-ui/react-slot": "^1.5.0",
     "class-variance-authority": "^0.7.1",
