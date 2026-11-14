@@ -178,6 +178,7 @@ a { color: inherit; }
 .map-feature-count { padding: 4px 7px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface-overlay); color: var(--muted); font: 9px var(--font-ibm-plex-mono), monospace; }
 .road-network-toggle { min-height: 28px; display: flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-overlay); color: var(--muted); font-size: 10px; backdrop-filter: blur(8px); cursor: pointer; }
 .road-network-toggle input { width: 12px; height: 12px; margin: 0; accent-color: var(--accent); }
+.rail-network-attribution { display: block; margin-top: 2px; color: var(--muted); font: 8px var(--font-ibm-plex-mono), monospace; }
 .transit-mode-details { position: relative; z-index: 5; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-overlay); color: var(--foreground); font-size: 10px; backdrop-filter: blur(10px); }
 .transit-mode-details>summary { padding: 6px 9px; color: var(--muted); cursor: pointer; font-weight: 650; list-style-position: inside; }
 .transit-mode-filter { position: absolute; top: calc(100% + 4px); inset-inline-start: 0; z-index: 5; display: grid; gap: 5px; min-width: 230px; max-height: min(350px, 55vh); overflow: auto; margin: 0; padding: 7px 10px 9px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-overlay); box-shadow: 0 8px 24px #0004; backdrop-filter: blur(12px); }

@@ -64,6 +64,43 @@
         "Regional Ring road patch",
         "area boundaries"
       ]
+    },
+    {
+      "source": "OpenStreetMap",
+      "url": "https://overpass-api.de/api/interpreter",
+      "retrieval_date": "2026-11-14",
+      "retrieved_at": null,
+      "input_file": "cairo-osm-rail-2026-11-14.json.gz",
+      "input_sha256": "24e458266d40003a7d27676eecadc92cf67fa876a77230af75bfeb80bb2741ae",
+      "sha256_original_json": "61edc008933c560262b64f43ebb4581534499ecb063a577174241475d7c530ae",
+      "license": "ODbL-1.0",
+      "elements_received": 3154,
+      "timestamp_osm_base": "2026-11-14T20:16:43Z",
+      "bbox_wgs84": [
+        29.2,
+        30.25,
+        30.95,
+        32.4
+      ],
+      "query": "Overpass bbox south,west,north,east = 29.2,30.25,30.95,32.4; ways railway~rail|narrow_gauge|construction|disused|preserved; relations route~train|railway|subway|light_rail|monorail; nodes railway~station|halt|stop; public_transport station/stop_position nodes tagged train=yes, subway=yes, light_rail=yes, or monorail=yes; out meta geom.",
+      "element_counts": {
+        "railway_rail_ways": 2285,
+        "railway_construction_ways": 99,
+        "railway_disused_ways": 55,
+        "railway_station_nodes": 275,
+        "railway_halt_nodes": 107,
+        "railway_stop_nodes": 276,
+        "route_train_relations": 8,
+        "route_subway_relations": 8,
+        "route_railway_relations": 14,
+        "route_monorail_relations": 4
+      },
+      "also_used_for": [
+        "railway context layer",
+        "ordered subway station relations for Metro L1/L2/L3",
+        "named ENR station candidates from route=train relations"
+      ],
+      "overpass_query": "[out:json][timeout:180];\n(\n  way[\"railway\"~\"^(rail|narrow_gauge|construction|disused|preserved)$\"](29.2,30.25,30.95,32.4);\n  relation[\"route\"~\"^(train|railway|subway|light_rail|monorail)$\"](29.2,30.25,30.95,32.4);\n  node[\"railway\"~\"^(station|halt|stop)$\"](29.2,30.25,30.95,32.4);\n  node[\"public_transport\"~\"^(station|stop_position)$\"][\"train\"=\"yes\"](29.2,30.25,30.95,32.4);\n  node[\"public_transport\"~\"^(station|stop_position)$\"][\"subway\"=\"yes\"](29.2,30.25,30.95,32.4);\n  node[\"public_transport\"~\"^(station|stop_position)$\"][\"light_rail\"=\"yes\"](29.2,30.25,30.95,32.4);\n  node[\"public_transport\"~\"^(station|stop_position)$\"][\"monorail\"=\"yes\"](29.2,30.25,30.95,32.4);\n);\nout meta geom;"
     }
   ],
   "source_failures": [],

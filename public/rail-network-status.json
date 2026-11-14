@@ -1,5 +1,6 @@
 {
-  "available": false,
-  "feature_count": 0,
+  "available": true,
+  "feature_count": 2684,
+  "detail_feature_count": 2439,
   "source": "data/raw/cairo-osm-rail-2026-11-14.json.gz"
 }

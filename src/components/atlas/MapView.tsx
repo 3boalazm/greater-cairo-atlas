@@ -20,7 +20,11 @@ const roadNetworkDetailSourceId = "atlas-road-network-detail";
 const roadNetworkLayerId = "atlas-road-network-lines";
 const roadNetworkDetailLayerId = "atlas-road-network-detail-lines";
 const railNetworkSourceId = "atlas-rail-network";
-const railNetworkLayerId = "atlas-rail-network-lines";
+const railNetworkDetailSourceId = "atlas-rail-network-detail";
+const railOperationalLayerIds = ["atlas-rail-operational-low", "atlas-rail-operational-detail"];
+const railConstructionLayerIds = ["atlas-rail-construction-low", "atlas-rail-construction-detail"];
+const railDisusedLayerIds = ["atlas-rail-disused-low", "atlas-rail-disused-detail", "atlas-rail-preserved-low", "atlas-rail-preserved-detail"];
+const railStationLayerIds = ["atlas-rail-stations", "atlas-rail-station-labels"];
 const transitStationSourceId = "atlas-transit-stations";
 const boundarySourceId = "atlas-area-boundary";
 const boundaryFillLayerId = "atlas-area-boundary-fill";
@@ -28,9 +32,39 @@ const boundaryOutlineLayerId = "atlas-area-boundary-outline";
 const stationIconLayers = ["atlas-station-entity-icons", "atlas-transit-station-icons"];
 const stationLabelLayers = ["atlas-transit-station-labels", "atlas-station-entity-labels"];
 const stationRingLayers = ["atlas-station-entity-interchange-ring", "atlas-transit-interchange-ring"];
-const lineLayers = [railNetworkLayerId, "atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
+const lineLayers = ["atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
 
 type MapExpression = import("maplibre-gl").ExpressionSpecification;
+
+interface RailLoadState { baseRequested: boolean; detailRequested: boolean }
+const railLoadStates = new WeakMap<MapLibreMap, RailLoadState>();
+const EMPTY_GEOJSON: FeatureCollection = { type: "FeatureCollection", features: [] };
+const RAIL_STATION_BASE_FILTER: unknown[] = ["all", ["==", ["geometry-type"], "Point"], ["in", ["get", "railway"], ["literal", ["station", "halt"]]]];
+
+function syncRailLayers(map: MapLibreMap, enabled: boolean, showDisused: boolean) {
+  const state = railLoadStates.get(map);
+  const base = map.getSource(railNetworkSourceId) as GeoJSONSource | undefined;
+  const detail = map.getSource(railNetworkDetailSourceId) as GeoJSONSource | undefined;
+  if (enabled && base && state && !state.baseRequested) {
+    base.setData("/rail-network.geojson");
+    state.baseRequested = true;
+  }
+  if (enabled && map.getZoom() >= 12 && detail && state && !state.detailRequested) {
+    detail.setData("/rail-network-detail.geojson");
+    state.detailRequested = true;
+  }
+  for (const id of [...railOperationalLayerIds, ...railConstructionLayerIds]) {
+    if (map.getLayer(id)) map.setLayoutProperty(id, "visibility", enabled ? "visible" : "none");
+  }
+  for (const id of railDisusedLayerIds) {
+    if (map.getLayer(id)) map.setLayoutProperty(id, "visibility", enabled && showDisused ? "visible" : "none");
+  }
+  for (const id of railStationLayerIds) {
+    if (!map.getLayer(id)) continue;
+    map.setLayoutProperty(id, "visibility", enabled ? "visible" : "none");
+    map.setFilter(id, (showDisused ? RAIL_STATION_BASE_FILTER : ["all", ...RAIL_STATION_BASE_FILTER.slice(1), ["!", ["in", ["get", "rail_status"], ["literal", ["disused", "preserved"]]]]]) as maplibregl.FilterSpecification);
+  }
+}
 
 function entityLineColor(theme: AtlasTheme, muted = false): MapExpression {
   const colors = Object.entries(TRANSIT_LINE_COLORS).flatMap(([code, color]) => [code, muted ? TRANSIT_LINE_MUTED_COLORS[code] ?? (theme === "day" ? "#92999b" : "#68767b") : color]);
@@ -108,7 +142,7 @@ function boundaryCollection(boundary: AreaBoundaryFeature | null): FeatureCollec
   return { type: "FeatureCollection", features: boundary ? [boundary as unknown as FeatureCollection["features"][number]] : [] };
 }
 
-export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true }: {
+export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
   onSelect: (entityCode: string) => void;
@@ -119,6 +153,7 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
   compact?: boolean;
   showRoadNetwork?: boolean;
   showRailNetwork?: boolean;
+  showDisusedRail?: boolean;
   highlightBoundary?: AreaBoundaryFeature | null;
   visibleTransitModes?: readonly TransitMode[];
   showInterchanges?: boolean;
@@ -128,6 +163,7 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
   const dataRef = useRef<AtlasFeatureCollection>(features);
   const showRoadNetworkRef = useRef(showRoadNetwork);
   const showRailNetworkRef = useRef(showRailNetwork);
+  const showDisusedRailRef = useRef(false);
   const boundaryRef = useRef<AreaBoundaryFeature | null>(highlightBoundary);
   const visibleModesRef = useRef<readonly TransitMode[]>(visibleTransitModes);
   const showInterchangesRef = useRef(showInterchanges);
@@ -166,7 +202,9 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
     map.on("load", () => {
       map.addSource(sourceId, { type: "geojson", data: dataRef.current as unknown as FeatureCollection });
       if (!compact) map.addSource(transitStationSourceId, { type: "geojson", data: "/transit-stations.geojson" });
-      map.addSource(railNetworkSourceId, { type: "geojson", data: "/rail-network.geojson" });
+      map.addSource(railNetworkSourceId, { type: "geojson", data: EMPTY_GEOJSON });
+      map.addSource(railNetworkDetailSourceId, { type: "geojson", data: EMPTY_GEOJSON });
+      railLoadStates.set(map, { baseRequested: false, detailRequested: false });
       addTransitIcons(map);
       map.addSource(boundarySourceId, { type: "geojson", data: boundaryCollection(boundaryRef.current) });
       if (!compact) {
@@ -197,11 +235,18 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
           },
         });
       }
-        map.addLayer({
-          id: railNetworkLayerId, type: "line", source: railNetworkSourceId,
-          paint: { "line-color": theme === "day" ? "#8d653c" : "#c29a6b", "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.45, 9, 0.95, 14, 1.5], "line-opacity": 0.76 },
-          layout: { "line-cap": "round", "line-join": "round", visibility: showRailNetworkRef.current ? "visible" : "none" },
-        });
+      const addRailLineLayer = (id: string, source: string, status: string, color: string, dasharray?: number[], maxzoom?: number, minzoom?: number) => map.addLayer({
+        id, type: "line", source, filter: ["==", ["get", "rail_status"], status],
+        ...(maxzoom === undefined ? {} : { maxzoom }), ...(minzoom === undefined ? {} : { minzoom }),
+        paint: { "line-color": color, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.45, 9, 0.95, 14, 1.5], "line-opacity": status === "operational" ? 0.78 : 0.62, ...(dasharray ? { "line-dasharray": dasharray } : {}) },
+        layout: { "line-cap": "round", "line-join": "round", visibility: "none" },
+      });
+      for (const [source, suffix, maxzoom, minzoom] of [[railNetworkSourceId, "low", 12, undefined], [railNetworkDetailSourceId, "detail", undefined, 12]] as const) {
+        addRailLineLayer(`atlas-rail-operational-${suffix}`, source, "operational", theme === "day" ? "#79512e" : "#c29a6b", undefined, maxzoom, minzoom);
+        addRailLineLayer(`atlas-rail-construction-${suffix}`, source, "under_construction", theme === "day" ? "#9a7454" : "#d7ad78", [2, 1.5], maxzoom, minzoom);
+        addRailLineLayer(`atlas-rail-disused-${suffix}`, source, "disused", theme === "day" ? "#9b8d7d" : "#8e8375", [1, 2], maxzoom, minzoom);
+        addRailLineLayer(`atlas-rail-preserved-${suffix}`, source, "preserved", theme === "day" ? "#9b8d7d" : "#8e8375", [1, 2], maxzoom, minzoom);
+      }
       map.addLayer({
         id: boundaryFillLayerId, type: "fill", source: boundarySourceId,
         paint: { "fill-color": getComputedStyle(document.documentElement).getPropertyValue("--boundary-color").trim() || (theme === "day" ? "#116c62" : "#57d6c6"), "fill-opacity": 0.15 },
@@ -287,11 +332,27 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
         layout: { "text-field": ["coalesce", ["get", language === "ar" ? "name_ar" : "name_en"]], "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"], "text-size": ["interpolate", ["linear"], ["zoom"], 13.5, 9, 17, 12], "text-offset": [0, 1.1], "text-anchor": "top", "text-max-width": 9, "text-allow-overlap": false },
         paint: { "text-color": theme === "day" ? "#172322" : "#f4f7f4", "text-halo-color": theme === "day" ? "#fff" : "#111715", "text-halo-width": 1.25 },
       });
+      if (!compact) {
+        map.addLayer({
+          id: "atlas-rail-stations", type: "symbol", source: railNetworkSourceId,
+          filter: ["all", ["==", ["geometry-type"], "Point"], ["in", ["get", "railway"], ["literal", ["station", "halt"]]]],
+          paint: { "icon-color": theme === "day" ? "#825126" : "#d2a16e", "icon-halo-color": theme === "day" ? "#fff" : "#15201e", "icon-halo-width": 1.2 },
+          layout: { visibility: "none", "icon-image": "transit-enr", "icon-size": ["interpolate", ["linear"], ["zoom"], 6, ["case", ["==", ["get", "railway"], "halt"], 0.25, 0.34], 10, ["case", ["==", ["get", "railway"], "halt"], 0.38, 0.52], 14, ["case", ["==", ["get", "railway"], "halt"], 0.55, 0.72]], "icon-allow-overlap": true, "icon-padding": 1 },
+        });
+        map.addLayer({
+          id: "atlas-rail-station-labels", type: "symbol", source: railNetworkSourceId, minzoom: 13.5,
+          filter: ["all", ["==", ["geometry-type"], "Point"], ["in", ["get", "railway"], ["literal", ["station", "halt"]]]],
+          layout: { visibility: "none", "text-field": ["coalesce", ["get", language === "ar" ? "name_ar" : "name_en"], ["get", "name"]], "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"], "text-size": 10, "text-offset": [0, 1.1], "text-anchor": "top", "text-max-width": 9, "text-allow-overlap": false },
+          paint: { "text-color": theme === "day" ? "#172322" : "#f4f7f4", "text-halo-color": theme === "day" ? "#fff" : "#111715", "text-halo-width": 1.25 },
+        });
+      }
       map.addLayer({
         id: boundaryOutlineLayerId, type: "line", source: boundarySourceId,
         paint: { "line-color": getComputedStyle(document.documentElement).getPropertyValue("--boundary-color").trim() || (theme === "day" ? "#116c62" : "#57d6c6"), "line-width": 2, "line-opacity": 0.98 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
+      syncRailLayers(map, showRailNetworkRef.current, showDisusedRailRef.current);
+      map.on("zoomend", () => syncRailLayers(map, showRailNetworkRef.current, showDisusedRailRef.current));
       map.on("click", (event: MapLayerMouseEvent) => {
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers.filter((layerId) => map.getLayer(layerId)) });
         const properties = found[0]?.properties;
@@ -369,8 +430,14 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
   useEffect(() => {
     showRailNetworkRef.current = showRailNetwork;
     const map = mapRef.current;
-    if (map?.getLayer(railNetworkLayerId)) map.setLayoutProperty(railNetworkLayerId, "visibility", showRailNetwork ? "visible" : "none");
+    if (map) syncRailLayers(map, showRailNetwork, showDisusedRailRef.current);
   }, [showRailNetwork]);
+
+  useEffect(() => {
+    showDisusedRailRef.current = showDisusedRail;
+    const map = mapRef.current;
+    if (map) syncRailLayers(map, showRailNetworkRef.current, showDisusedRail);
+  }, [showDisusedRail]);
 
   return <div className="map-canvas" ref={containerRef} tabIndex={0} role="application" aria-label={language === "ar" ? "خريطة تفاعلية للقاهرة الكبرى" : "Interactive Greater Cairo map"} />;
 }

@@ -50,6 +50,7 @@ export default function AtlasApp() {
   const [showRoadNetwork, setShowRoadNetwork] = useState(true);
   const [railNetworkAvailable, setRailNetworkAvailable] = useState(false);
   const [showRailNetwork, setShowRailNetwork] = useState(false);
+  const [showDisusedRail, setShowDisusedRail] = useState(false);
   const [visibleTransitModes, setVisibleTransitModes] = useState<TransitMode[]>([...TRANSIT_MODE_ORDER]);
   const [showInterchanges, setShowInterchanges] = useState(true);
   const [mapStyleStatus, setMapStyleStatus] = useState<MapStyleStatus>("loading");
@@ -242,15 +243,16 @@ export default function AtlasApp() {
         {statsError && <span className="stats-retry"><AlertTriangle aria-hidden="true" />{statsError}</span>}
       </section>
       <section className="map-stage" aria-label={ar ? "مساحة الخريطة" : "Map workspace"}>
-        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} showRoadNetwork={showRoadNetwork} showRailNetwork={showRailNetwork && railNetworkAvailable} highlightBoundary={highlightBoundary} visibleTransitModes={mapTransitModes} showInterchanges={showInterchanges} />
+        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} showRoadNetwork={showRoadNetwork} showRailNetwork={showRailNetwork && railNetworkAvailable} showDisusedRail={showDisusedRail} highlightBoundary={highlightBoundary} visibleTransitModes={mapTransitModes} showInterchanges={showInterchanges} />
         <div className="map-header-card"><div className="map-title-icon"><MapPinned aria-hidden="true" /></div><div><span>{ar ? "القاهرة الكبرى" : "Greater Cairo"}</span><h1>{ar ? "المكان كما توثّقه المصادر" : "Place, as documented"}</h1><p>{ar ? "الحقائق المتعارضة تبقى ظاهرة؛ لا تخمين للهندسة أو الحالة." : "Conflicting claims remain visible. No inferred geometry or status."}</p></div></div>
         <div className="map-toolbar"><LayerChips type={filters.type} onTypeChange={(type) => setFilters((current) => ({ ...current, type }))} language={language} />
           <MapFilters filters={filters} onChange={setFilters} language={language} />
           <label className="road-network-toggle"><input type="checkbox" checked={showRoadNetwork} onChange={(event) => setShowRoadNetwork(event.target.checked)} /><span>{ar ? "شبكة الطرق (OpenStreetMap)" : "Road network (OSM)"}</span></label>
           <label className={`road-network-toggle rail-network-toggle ${!railNetworkAvailable ? "is-unavailable" : ""}`} title={!railNetworkAvailable ? (ar ? "ملف استخراج السكك لم يُرفق بعد" : "Rail extract has not been attached yet") : undefined}>
             <input type="checkbox" checked={showRailNetwork} disabled={!railNetworkAvailable} onChange={(event) => setShowRailNetwork(event.target.checked)} />
-            <span>{railNetworkAvailable ? (ar ? "شبكة السكك الحديدية (OpenStreetMap)" : "Rail network (OpenStreetMap)") : (ar ? "شبكة السكك الحديدية — بانتظار ملف OSM" : "Rail network — awaiting OSM extract")}</span>
+            <span>{railNetworkAvailable ? (ar ? "شبكة السكك الحديدية (OpenStreetMap)" : "Rail network (OpenStreetMap)") : (ar ? "شبكة السكك الحديدية — بانتظار ملف OSM" : "Rail network — awaiting OSM extract")}{railNetworkAvailable && <small className="rail-network-attribution">© OpenStreetMap contributors · ODbL 1.0</small>}</span>
           </label>
+          {railNetworkAvailable && <label className="road-network-toggle rail-network-toggle"><input type="checkbox" checked={showDisusedRail} disabled={!showRailNetwork} onChange={(event) => setShowDisusedRail(event.target.checked)} /><span>{ar ? "إظهار المسارات المهجورة والمحافظة عليها" : "Show disused and preserved tracks"}</span></label>}
           <details className="transit-mode-details">
             <summary>{ar ? "وسائل النقل والفلترة" : "Transit modes & filter"}</summary>
             <TransitModeFilter visibleModes={visibleTransitModes}

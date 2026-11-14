@@ -25,11 +25,11 @@ BBOX = (30.25, 29.2, 32.4, 30.95)  # west, south, east, north
 RAIL_EXTRACT = RAW_DIR / "cairo-osm-rail-2026-11-14.json.gz"
 
 LINE_DEFS = {
-    "TRANSIT-METRO-L1": {"mode": "metro", "label_en": "Cairo Metro Line 1", "label_ar": "مترو القاهرة — الخط الأول", "status": "operational", "official_count": 35},
-    "TRANSIT-METRO-L2": {"mode": "metro", "label_en": "Cairo Metro Line 2", "label_ar": "مترو القاهرة — الخط الثاني", "status": "operational", "official_count": 20},
-    "TRANSIT-METRO-L3": {"mode": "metro", "label_en": "Cairo Metro Line 3", "label_ar": "مترو القاهرة — الخط الثالث", "status": "operational", "official_count": None},
-    "TRANSIT-LRT": {"mode": "lrt", "label_en": "Cairo Light Rail Transit", "label_ar": "القطار الكهربائي الخفيف", "status": "operational", "official_count": None},
-    "TRANSIT-MONORAIL-EAST": {"mode": "monorail_east", "label_en": "East Nile Monorail", "label_ar": "مونوريل شرق النيل", "status": "operational", "official_count": None},
+    "TRANSIT-METRO-L1": {"mode": "metro", "label_en": "Cairo Metro Line 1", "label_ar": "مترو القاهرة — الخط الأول", "status": "operational", "official_count": 35, "official_count_evidence": "EV-140"},
+    "TRANSIT-METRO-L2": {"mode": "metro", "label_en": "Cairo Metro Line 2", "label_ar": "مترو القاهرة — الخط الثاني", "status": "operational", "official_count": 20, "official_count_evidence": "EV-143"},
+    "TRANSIT-METRO-L3": {"mode": "metro", "label_en": "Cairo Metro Line 3", "label_ar": "مترو القاهرة — الخط الثالث", "status": "operational", "official_count": 34, "official_count_evidence": "EV-312"},
+    "TRANSIT-LRT": {"mode": "lrt", "label_en": "Cairo Light Rail Transit", "label_ar": "القطار الكهربائي الخفيف", "status": "operational", "official_count": 12, "official_count_evidence": "EV-073"},
+    "TRANSIT-MONORAIL-EAST": {"mode": "monorail_east", "label_en": "East Nile Monorail", "label_ar": "مونوريل شرق النيل", "status": "operational", "official_count": 22, "official_count_evidence": "EV-050"},
     "TRANSIT-MONORAIL-WEST": {"mode": "monorail_west", "label_en": "West Nile Monorail", "label_ar": "مونوريل غرب النيل", "status": "under_construction", "official_count": None},
     "TRANSIT-METRO-L4": {"mode": "metro_l4", "label_en": "Cairo Metro Line 4", "label_ar": "مترو القاهرة — الخط الرابع", "status": "under_construction", "official_count": None},
     "TRANSIT-HSR-L1": {"mode": "hsr", "label_en": "High-Speed Rail", "label_ar": "القطار الكهربائي السريع", "status": "under_construction", "official_count": None},
@@ -49,6 +49,21 @@ def norm(value: Any) -> str:
     return re.sub(r"[^\w]+", "", text, flags=re.UNICODE)
 
 
+def station_match_keys(value: Any) -> set[str]:
+    key = norm(value)
+    if not key:
+        return set()
+    keys = {key}
+    for prefix in ("محطة", "station", "metrostation", "metrostn"):
+        if key.startswith(prefix) and len(key) > len(prefix):
+            keys.add(key[len(prefix):])
+    for candidate in list(keys):
+        for article in ("ال", "al", "el"):
+            if candidate.startswith(article) and len(candidate) > len(article) + 2:
+                keys.add(candidate[len(article):])
+    return keys
+
+
 def in_bbox(lon: float, lat: float) -> bool:
     west, south, east, north = BBOX
     return west <= lon <= east and south <= lat <= north
@@ -64,7 +79,9 @@ def load_extract(filename: Path) -> dict[str, Any]:
 
 
 def iter_existing_extracts() -> list[Path]:
-    return sorted(path for path in RAW_DIR.glob("*.json*") if path.is_file() and path != RAIL_EXTRACT)
+    # The dedicated rail extract contains the route=subway relations needed to
+    # refresh the L1/L2/L3 ordered station sequences as well as rail context.
+    return sorted(path for path in RAW_DIR.glob("*.json*") if path.is_file())
 
 
 def more_complete(old: dict[str, Any] | None, new: dict[str, Any]) -> dict[str, Any]:
@@ -132,7 +149,7 @@ def load_seed_station_names() -> list[dict[str, Any]]:
             continue
         names = [row.get("name_ar", ""), row.get("name_en", ""), row.get("code", "")]
         names.extend(part.strip() for part in (row.get("aliases", "") or "").split("|") if part.strip())
-        result.append({"code": row["code"], "names": [norm(name) for name in names if norm(name)]})
+        result.append({"code": row["code"], "names": sorted({key for name in names for key in station_match_keys(name)})})
     return result
 
 
@@ -153,12 +170,24 @@ def load_feature_node_entity_map() -> dict[int, set[str]]:
 
 
 def resolve_entity_codes(station: dict[str, Any], seed_names: list[dict[str, Any]], direct: dict[int, set[str]]) -> list[dict[str, str]]:
+    line_codes = set(station.get("line_codes", []))
+
+    def compatible(code: str) -> bool:
+        specific = {
+            "STOP-M1-": "TRANSIT-METRO-L1", "STOP-M2-": "TRANSIT-METRO-L2", "STOP-M3-": "TRANSIT-METRO-L3",
+            "STOP-LRT-": "TRANSIT-LRT", "STOP-MRE-": "TRANSIT-MONORAIL-EAST", "STOP-MRW-": "TRANSIT-MONORAIL-WEST",
+        }
+        required = next((line for prefix, line in specific.items() if code.startswith(prefix)), None)
+        return required is None or required in line_codes
+
     node_id = station["osm_node_id"]
     if direct.get(node_id):
-        return [{"entity_code": code, "matched_by": "OSM node id"} for code in sorted(direct[node_id])]
-    candidates = {norm(station.get(key)) for key in ("name", "name_ar", "name_en") if norm(station.get(key))}
+        matched = [code for code in sorted(direct[node_id]) if compatible(code)]
+        if matched:
+            return [{"entity_code": code, "matched_by": "OSM node id"} for code in matched]
+    candidates = {name_key for key in ("name", "name_ar", "name_en") for name_key in station_match_keys(station.get(key))}
     matches = [{"entity_code": row["code"], "matched_by": "exact normalized name"}
-               for row in seed_names if candidates.intersection(row["names"])]
+               for row in seed_names if compatible(row["code"]) and candidates.intersection(row["names"])]
     return matches
 
 
@@ -253,8 +282,31 @@ def create_station_outputs() -> tuple[dict[str, Any], dict[str, Any]]:
     relation_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     all_stations: dict[int, dict[str, Any]] = {}
     route_sequences: list[dict[str, Any]] = []
+    enr_relation_groups: list[dict[str, Any]] = []
     for relation_id, relation in sorted(relations.items()):
         tags = relation.get("tags", {}) or {}
+        if tags.get("route") == "train" and tags.get("ref", "").upper() != "LRT":
+            ordered_enr_stations = []
+            for member in relation.get("members", []):
+                if member.get("type") != "node" or member.get("role") not in {"stop", "platform"}:
+                    continue
+                node_id = int(member["ref"])
+                node = node_elements.get(node_id)
+                if node is None and member.get("lat") is not None and member.get("lon") is not None:
+                    node = {"id": node_id, "lat": member["lat"], "lon": member["lon"]}
+                if node is None:
+                    continue
+                station = station_from_node(node_id, node, member.get("role", ""), relation_id)
+                if station is not None and any(station.get(key) for key in ("name", "name_ar", "name_en")):
+                    station["line_order"] = len(ordered_enr_stations) + 1
+                    ordered_enr_stations.append(station)
+            if ordered_enr_stations:
+                enr_relation_groups.append({
+                    "relation_id": relation_id, "relation_version": relation.get("version"),
+                    "route_name": tags.get("name"), "route_name_en": tags.get("name:en"),
+                    "route_name_ar": tags.get("name:ar"), "route_ref": tags.get("ref"),
+                    "ordered_stations": ordered_enr_stations,
+                })
         line_code = line_for_relation(tags)
         if not line_code:
             continue
@@ -297,22 +349,16 @@ def create_station_outputs() -> tuple[dict[str, Any], dict[str, Any]]:
         })
         route_sequences.append({"line_code": line_code, "relation_id": relation_id, "ordered_node_ids": [s["osm_node_id"] for s in stops]})
 
-    # Include stored rail station/halt nodes not already represented by a transit relation.
+    # Keep unassigned railway station/halt nodes as research context only; only
+    # route=train relation membership establishes an ENR route assignment.
     rail_nodes = []
     for node_id, node in node_elements.items():
         tags = node.get("tags", {}) or {}
-        if tags.get("railway") not in {"station", "halt"}:
-            continue
-        if tags.get("subway") == "yes" or tags.get("station") == "subway":
+        if tags.get("railway") not in {"station", "halt"} or tags.get("subway") == "yes" or tags.get("station") == "subway":
             continue
         station = station_from_node(node_id, node, "railway_station")
-        if station is None:
-            continue
-        rail_nodes.append(station)
-        if node_id not in all_stations:
-            all_stations[node_id] = {**station, "line_codes": ["TRANSIT-ENR"], "source_relation_ids": [], "existing_entities": []}
-        else:
-            append_station(all_stations[node_id], station, "TRANSIT-ENR")
+        if station is not None:
+            rail_nodes.append(station)
     seed_names = load_seed_station_names()
     direct_matches = load_feature_node_entity_map()
     for station in all_stations.values():
@@ -350,6 +396,7 @@ def create_station_outputs() -> tuple[dict[str, Any], dict[str, Any]]:
             "line_code": line_code, **definition,
             "relation_count": len(group), "osm_station_count": len(line_stations), "source_node_reference_count": len(unique_ids),
             "official_count_comparison": ({"official_count": definition["official_count"], "osm_count": len(line_stations), "difference": len(line_stations) - definition["official_count"]} if definition["official_count"] is not None else None),
+            "official_count_shortfall": max(0, definition["official_count"] - len(line_stations)) if definition["official_count"] is not None else None,
             "relations": group,
             "stations": line_stations,
         })
@@ -376,6 +423,8 @@ def create_station_outputs() -> tuple[dict[str, Any], dict[str, Any]]:
         "lines": lines,
         "stations": stations_sorted,
         "unassigned_railway_stations": rail_nodes,
+        "enr_route_relations": enr_relation_groups,
+        "enr_named_station_node_count": len({station["osm_node_id"] for route in enr_relation_groups for station in route["ordered_stations"]}),
         "route_sequences": route_sequences,
     }
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -428,8 +477,11 @@ def render_arabic_report(report: dict[str, Any]) -> str:
     ]
     for line in report["lines"]:
         official = line.get("official_count_comparison")
-        official_note = f"المرجع الرسمي المدخل: {official['official_count']}؛ OSM: {official['osm_count']} (الفارق {official['difference']:+d})" if official else "لا يوجد عدد رسمي واحد مدخل للمقارنة؛ العدد أدناه هو ما ظهر في OSM فقط."
-        lines.extend([f"## {line['label_ar']} (`{line['line_code']}`)", "", f"- الحالة: `{line['status']}`؛ علاقات OSM: {line['relation_count']}؛ محطات OSM الفريدة: **{line['osm_station_count']}**. {official_note}", ""])
+        official_ref = line.get("official_count_evidence")
+        official_note = f"المرجع الرسمي المدخل: {official['official_count']} ({official_ref})؛ OSM: {official['osm_count']} (الفارق {official['difference']:+d})" if official else "لا يوجد عدد رسمي واحد مدخل للمقارنة؛ العدد أدناه هو ما ظهر في OSM فقط."
+        shortfall = line.get("official_count_shortfall")
+        gap_note = f"النقص العددي مقارنة بالمرجع الرسمي: {shortfall}." if shortfall is not None else "لم يُقدّم للخط عدد رسمي مرجعي."
+        lines.extend([f"## {line['label_ar']} (`{line['line_code']}`)", "", f"- الحالة: `{line['status']}`؛ علاقات OSM: {line['relation_count']}؛ محطات OSM الفريدة: **{line['osm_station_count']}**. {official_note} {gap_note}", ""])
         if not line["relations"]:
             lines.extend(["لا توجد علاقة مطابقة في ملفات OSM المخزنة.", ""])
             continue
@@ -469,7 +521,41 @@ def clip_segment(a: tuple[float, float], b: tuple[float, float]) -> tuple[tuple[
     return ((a[0] + u0 * dx, a[1] + u0 * dy), (a[0] + u1 * dx, a[1] + u1 * dy))
 
 
-def derive_rail_context(payload: dict[str, Any]) -> dict[str, Any]:
+def simplify_coordinates(coords: list[list[float]], tolerance_m: float) -> list[list[float]]:
+    """Ramer-Douglas-Peucker simplification in local metric coordinates."""
+    if len(coords) <= 2 or tolerance_m <= 0:
+        return coords
+    mean_lat = math.radians(sum(point[1] for point in coords) / len(coords))
+    x_scale = 111_320.0 * math.cos(mean_lat)
+    y_scale = 110_574.0
+    points = [(point[0] * x_scale, point[1] * y_scale) for point in coords]
+    keep = {0, len(coords) - 1}
+    stack = [(0, len(coords) - 1)]
+    tolerance_squared = tolerance_m * tolerance_m
+    while stack:
+        start, end = stack.pop()
+        ax, ay = points[start]
+        bx, by = points[end]
+        dx, dy = bx - ax, by - ay
+        denom = dx * dx + dy * dy
+        max_distance = -1.0
+        max_index = -1
+        for index in range(start + 1, end):
+            px, py = points[index]
+            if denom == 0:
+                distance = (px - ax) ** 2 + (py - ay) ** 2
+            else:
+                fraction = max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / denom))
+                distance = (px - (ax + fraction * dx)) ** 2 + (py - (ay + fraction * dy)) ** 2
+            if distance > max_distance:
+                max_distance, max_index = distance, index
+        if max_index >= 0 and max_distance > tolerance_squared:
+            keep.add(max_index)
+            stack.extend(((start, max_index), (max_index, end)))
+    return [coords[index] for index in sorted(keep)]
+
+
+def derive_rail_context(payload: dict[str, Any], simplify_tolerance_m: float = 100.0, include_station_nodes: bool = True) -> dict[str, Any]:
     elements = payload["elements"]
     nodes: dict[int, dict[str, Any]] = {}
     ways: dict[int, dict[str, Any]] = {}
@@ -482,10 +568,10 @@ def derive_rail_context(payload: dict[str, Any]) -> dict[str, Any]:
             ways[int(element["id"])] = more_complete(ways.get(int(element["id"])), element)
         elif kind == "relation" and (element.get("tags", {}) or {}).get("route") == "train":
             relations.append(element)
-    seed_lines = load_seed_station_names()
     entity_rows = {}
     with (ROOT / "data/seed/entities.csv").open(encoding="utf-8-sig", newline="") as stream:
-        entity_rows = {row["code"]: row for row in csv.DictReader(stream) if row.get("entity_type") == "transit_line"}
+        entity_rows = {row["code"]: row for row in csv.DictReader(stream)
+                       if row.get("entity_type") == "transit_line" and row["code"].startswith(("TRANSIT-ENR", "TRANSIT-SUEZ-TRAIN"))}
     entity_norms: dict[str, list[str]] = {}
     for code, row in entity_rows.items():
         entity_norms[code] = [norm(row.get("name_en")), norm(row.get("name_ar")), *[norm(x) for x in row.get("aliases", "").split("|")]]
@@ -494,10 +580,12 @@ def derive_rail_context(payload: dict[str, Any]) -> dict[str, Any]:
     for way_id, way in sorted(ways.items()):
         tags = way.get("tags", {}) or {}
         railway = tags.get("railway")
-        if railway not in {"rail", "narrow_gauge", "construction"} and not (railway == "construction" and tags.get("construction") == "rail"):
+        construction_type = tags.get("construction") or tags.get("construction:railway")
+        if railway not in {"rail", "narrow_gauge", "construction", "disused", "preserved"}:
             continue
-        if railway == "construction" and tags.get("construction") not in {"rail", "narrow_gauge"}:
+        if railway == "construction" and construction_type not in {None, "rail", "narrow_gauge", "light_rail", "subway"}:
             continue
+        rail_status = "disused" if railway == "disused" else "preserved" if railway == "preserved" else "under_construction" if railway == "construction" or tags.get("construction:railway") in {"rail", "narrow_gauge"} else "operational"
         coords = []
         for point in way.get("geometry", []) or []:
             if point.get("lon") is not None and point.get("lat") is not None:
@@ -525,6 +613,8 @@ def derive_rail_context(payload: dict[str, Any]) -> dict[str, Any]:
                 current = [[left[0], left[1]], [right[0], right[1]]]
         if len(current) > 1:
             fragments.append(current)
+        fragments = [simplify_coordinates(fragment, simplify_tolerance_m) for fragment in fragments]
+        fragments = [fragment for fragment in fragments if len(fragment) > 1]
         if not fragments:
             continue
         code = None
@@ -540,9 +630,11 @@ def derive_rail_context(payload: dict[str, Any]) -> dict[str, Any]:
         features.append({"type": "Feature", "id": f"OSM-WAY-{way_id}", "geometry": geometry, "properties": {
             "osm_type": "way", "osm_id": way_id, "osm_version": way.get("version"), "railway": railway,
             "construction": tags.get("construction"), "name": tags.get("name"), "name_en": tags.get("name:en"),
-            "entity_code": code, "mode": "enr", "license": "ODbL-1.0", "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+            "entity_code": code, "mode": "enr", "rail_status": rail_status, "license": "ODbL-1.0", "attribution": "© OpenStreetMap contributors, ODbL 1.0",
         }})
     for node_id, node in sorted(nodes.items()):
+        if not include_station_nodes:
+            continue
         tags = node.get("tags", {}) or {}
         if tags.get("railway") not in {"station", "halt"} or tags.get("train") != "yes":
             continue
@@ -551,10 +643,10 @@ def derive_rail_context(payload: dict[str, Any]) -> dict[str, Any]:
         features.append({"type": "Feature", "id": f"OSM-NODE-{node_id}", "geometry": {"type": "Point", "coordinates": [float(node["lon"]), float(node["lat"])]}, "properties": {
             "osm_type": "node", "osm_id": node_id, "osm_version": node.get("version"), "railway": tags.get("railway"),
             "name": tags.get("name"), "name_ar": tags.get("name:ar"), "name_en": tags.get("name:en"),
-            "entity_code": None, "mode": "enr", "license": "ODbL-1.0", "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+            "entity_code": None, "mode": "enr", "rail_status": "disused" if tags.get("railway") == "disused" or tags.get("disused:railway") or tags.get("disused") else "under_construction" if tags.get("railway") == "construction" or tags.get("construction:railway") else "operational", "license": "ODbL-1.0", "attribution": "© OpenStreetMap contributors, ODbL 1.0",
         }})
     features.sort(key=lambda feature: (feature["geometry"]["type"] == "Point", feature["id"]))
-    return {"type": "FeatureCollection", "metadata": {"source": str(RAIL_EXTRACT.relative_to(ROOT)), "license": "ODbL-1.0", "bbox_wgs84": list(BBOX), "feature_count": len(features)}, "features": features}
+    return {"type": "FeatureCollection", "metadata": {"source": str(RAIL_EXTRACT.relative_to(ROOT)), "license": "ODbL-1.0", "attribution": "© OpenStreetMap contributors, ODbL 1.0", "bbox_wgs84": list(BBOX), "feature_count": len(features), "simplification_tolerance_m": simplify_tolerance_m}, "features": features}
 
 
 def main() -> int:
@@ -566,16 +658,20 @@ def main() -> int:
     if not args.stations_only:
         rail_source = str(args.rail_extract.relative_to(ROOT)) if args.rail_extract.is_relative_to(ROOT) else args.rail_extract.name
         if args.rail_extract.exists():
-            rail = derive_rail_context(load_extract(args.rail_extract))
+            payload = load_extract(args.rail_extract)
+            rail = derive_rail_context(payload, simplify_tolerance_m=100.0, include_station_nodes=True)
+            detail = derive_rail_context(payload, simplify_tolerance_m=12.0, include_station_nodes=False)
             rail["metadata"]["source"] = rail_source
+            detail["metadata"]["source"] = rail_source
             available = len(rail["features"]) > 0
-            print(f"Rail context ready: {len(rail['features'])} OSM features from {args.rail_extract}")
+            (PUBLIC_DIR / "rail-network-detail.geojson").write_text(json.dumps(detail, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+            print(f"Rail context ready: {len(rail['features'])} generalized features and {len(detail['features'])} high-zoom ways from {args.rail_extract}")
         else:
             rail = {"type": "FeatureCollection", "metadata": {"source": rail_source, "license": "ODbL-1.0", "bbox_wgs84": list(BBOX), "feature_count": 0}, "features": []}
             available = False
             print(f"Rail extract not attached yet; pipeline ready for {args.rail_extract.relative_to(ROOT) if args.rail_extract.is_relative_to(ROOT) else args.rail_extract}")
         (PUBLIC_DIR / "rail-network.geojson").write_text(json.dumps(rail, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
-        (PUBLIC_DIR / "rail-network-status.json").write_text(json.dumps({"available": available, "feature_count": len(rail["features"]), "source": rail_source}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        (PUBLIC_DIR / "rail-network-status.json").write_text(json.dumps({"available": available, "feature_count": len(rail["features"]), "detail_feature_count": len(detail["features"]) if args.rail_extract.exists() else 0, "source": rail_source}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "station_features": report["station_feature_count"],
         "interchanges": report["interchange_station_count"],
