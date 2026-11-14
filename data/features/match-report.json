@@ -1,8 +1,8 @@
 {
   "by_type": {
     "road": {
-      "matched": 3397,
-      "unmatched": 6226,
+      "matched": 3324,
+      "unmatched": 6256,
       "ambiguous": 163
     },
     "transit_line": {
@@ -12900,6 +12900,20 @@
       "reason": "OSM names did not identify exactly one compatible existing entity"
     },
     {
+      "source_id": "way:679759543",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:679759547",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
       "source_id": "way:679819612",
       "source_name": "طريق الباجور, القناطر الخيريه | طريق الباجور, القناطر الخيريه | Al Bagour, Al Qanater Al Khiria Road",
       "entity_type": "road",
@@ -15194,6 +15208,20 @@
       "entity_type": "road",
       "candidate_entity_codes": [],
       "reason": "OSM names did not identify exactly one compatible existing entity"
+    },
+    {
+      "source_id": "way:703376781",
+      "source_name": "محور المرج | محور المرج | Al Marg Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:703376783",
+      "source_name": "محور المرج | محور المرج | Al Marg Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
     },
     {
       "source_id": "way:704274593",
@@ -19128,6 +19156,20 @@
       "entity_type": "road",
       "candidate_entity_codes": [],
       "reason": "OSM names did not identify exactly one compatible existing entity"
+    },
+    {
+      "source_id": "way:749328109",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:749328112",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
     },
     {
       "source_id": "way:749328216",
@@ -30010,6 +30052,27 @@
       "entity_type": "road",
       "candidate_entity_codes": [],
       "reason": "OSM names did not identify exactly one compatible existing entity"
+    },
+    {
+      "source_id": "way:1169802412",
+      "source_name": "محور المرج | محور المرج | Al Marg Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1169802413",
+      "source_name": "محور المرج | محور المرج | Al Marg Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1169802414",
+      "source_name": "محور المرج | محور المرج | Al Marg Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
     },
     {
       "source_id": "way:1169904313",
@@ -63453,6 +63516,13 @@
       "reason": "OSM names did not identify exactly one compatible existing entity"
     },
     {
+      "source_id": "way:27196275",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
       "source_id": "way:28200860",
       "source_name": "طريق القاهرة, اسيوط الزراعى | طريق القاهرة, اسيوط الزراعى | Cairo,Asyout Agricultural Road | 25",
       "entity_type": "road",
@@ -63649,6 +63719,13 @@
       "reason": "OSM names did not identify exactly one compatible existing entity"
     },
     {
+      "source_id": "way:47976947",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
       "source_id": "way:48837011",
       "source_name": "ميدان ركن الفاروق | ميدان ركن الفاروق | Rokn Al Farouq Square",
       "entity_type": "road",
@@ -63684,6 +63761,13 @@
         "ROAD-CAIRO-ALEX-AGRI"
       ],
       "reason": "geometry is invalid or not wholly inside the Greater Cairo bbox"
+    },
+    {
+      "source_id": "way:49730361",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
     },
     {
       "source_id": "way:51353443",
@@ -64440,6 +64524,27 @@
       "entity_type": "road",
       "candidate_entity_codes": [],
       "reason": "OSM names did not identify exactly one compatible existing entity"
+    },
+    {
+      "source_id": "way:155519717",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:155519763",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:155519928",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
     },
     {
       "source_id": "way:156101320",
@@ -66756,6 +66861,20 @@
       "entity_type": "road",
       "candidate_entity_codes": [],
       "reason": "OSM names did not identify exactly one compatible existing entity"
+    },
+    {
+      "source_id": "way:749328110",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:749328111",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
     },
     {
       "source_id": "way:749332770",
@@ -69215,6 +69334,20 @@
       "reason": "OSM names did not identify exactly one compatible existing entity"
     },
     {
+      "source_id": "way:935840521",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:941385712",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
       "source_id": "way:941705151",
       "source_name": "طريق بنها, ميت غمر | طريق بنها, ميت غمر | Banha, Mit Ghamr Road",
       "entity_type": "road",
@@ -71126,6 +71259,55 @@
       "reason": "OSM names did not identify exactly one compatible existing entity"
     },
     {
+      "source_id": "way:1547185897",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1547185898",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1548631745",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1548631746",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1548631747",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1548631748",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1548912221",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
       "source_id": "way:1552198335",
       "source_name": "شارع كورنيش النيل | شارع كورنيش النيل | Kornish Al Nil Street",
       "entity_type": "road",
@@ -71516,6 +71698,34 @@
       "entity_type": "road",
       "candidate_entity_codes": [],
       "reason": "OSM names did not identify exactly one compatible existing entity"
+    },
+    {
+      "source_id": "way:1562012687",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1562012688",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1562012689",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
+    },
+    {
+      "source_id": "way:1562012690",
+      "source_name": "محور العبور | محور العبور | Al Obour Axis",
+      "entity_type": "road",
+      "candidate_entity_codes": [],
+      "reason": "planned entity geometry requires official alignment evidence"
     },
     {
       "source_id": "way:1562210337",
@@ -74743,22 +74953,6 @@
       "reason": "unconnected OSM line endpoint; no connector generated"
     },
     {
-      "entity_code": "ROAD-MARG-AXIS",
-      "endpoint": [
-        31.3330446,
-        30.1415542
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-MARG-AXIS",
-      "endpoint": [
-        31.3278375,
-        30.1418939
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
       "entity_code": "ROAD-MBZ-NORTH",
       "endpoint": [
         31.7122241,
@@ -75459,70 +75653,6 @@
       "endpoint": [
         31.4690667,
         29.9987778
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4692935,
-        30.1845687
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4695095,
-        30.1842069
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4696355,
-        30.1842892
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4694344,
-        30.1846462
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4575646,
-        30.2079651
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4575863,
-        30.2083787
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4574261,
-        30.208379
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.457412,
-        30.2079766
       ],
       "reason": "unconnected OSM line endpoint; no connector generated"
     },
@@ -86951,222 +87081,6 @@
       "reason": "unconnected OSM line endpoint; no connector generated"
     },
     {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4797126,
-        30.1640987
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4752492,
-        30.1631996
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4523243,
-        30.2582012
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4550248,
-        30.2604752
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4592664,
-        30.2236254
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4707085,
-        30.1848654
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4726499,
-        30.1746347
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4561862,
-        30.2553025
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4582174,
-        30.2084625
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4567231,
-        30.2537981
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4566688,
-        30.2539502
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4699342,
-        30.1846811
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4761622,
-        30.1662906
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4723053,
-        30.1754111
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4689476,
-        30.1833386
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4586036,
-        30.2398205
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4582964,
-        30.2317104
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4688699,
-        30.184201
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4738238,
-        30.1727561
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4741355,
-        30.1723039
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4581044,
-        30.2075704
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4593099,
-        30.2427477
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4575582,
-        30.2285727
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4562667,
-        30.2550568
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4576825,
-        30.2506916
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4575866,
-        30.2509743
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
-      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-      "endpoint": [
-        31.4759513,
-        30.1661654
-      ],
-      "reason": "unconnected OSM line endpoint; no connector generated"
-    },
-    {
       "entity_code": "ROAD-REGIONAL-RING",
       "endpoint": [
         31.4873871,
@@ -90867,23 +90781,23 @@
   },
   "feature_counts_before_after_by_entity": {
     "ROAD-RING-ROAD": {
-      "before": 473,
+      "before": 800,
       "after": 800
     },
     "ROAD-MIDDLE-RING": {
-      "before": 125,
+      "before": 249,
       "after": 249
     },
     "ROAD-REGIONAL-RING": {
-      "before": 589,
+      "before": 907,
       "after": 907
     },
     "ROAD-SHUBRA-BENHA-FREE": {
-      "before": 125,
+      "before": 140,
       "after": 140
     },
     "ROAD-CAIRO-ALEX-AGRI": {
-      "before": 83,
+      "before": 186,
       "after": 186
     },
     "ROAD-BENHA-MANSOURA": {
@@ -90899,20 +90813,20 @@
       "after": 0
     },
     "ROAD-ASSAR-AXIS": {
-      "before": 0,
+      "before": 20,
       "after": 20
     },
     "ROAD-ROD-ELFARAG-DABAA": {
-      "before": 2,
+      "before": 35,
       "after": 35
     },
     "ROAD-DABAA-AXIS": {
-      "before": 53,
+      "before": 62,
       "after": 62
     },
     "ROAD-MARG-AXIS": {
-      "before": 0,
-      "after": 5
+      "before": 5,
+      "after": 0
     },
     "ROAD-ISMAILIA-AGRI": {
       "before": 0,
@@ -90923,11 +90837,11 @@
       "after": 0
     },
     "ROAD-CAIRO-SUEZ": {
-      "before": 34,
+      "before": 152,
       "after": 152
     },
     "ROAD-CAIRO-ISMAILIA-DESERT": {
-      "before": 43,
+      "before": 154,
       "after": 154
     },
     "ROAD-BILBEIS-DESERT": {
@@ -90935,7 +90849,7 @@
       "after": 0
     },
     "ROAD-AIN-SOKHNA": {
-      "before": 0,
+      "before": 7,
       "after": 7
     },
     "ROAD-NASR": {
@@ -90955,19 +90869,19 @@
       "after": 0
     },
     "ROAD-MOHAMED-NAGUIB": {
-      "before": 0,
+      "before": 56,
       "after": 56
     },
     "ROAD-MBZ-NORTH": {
-      "before": 26,
+      "before": 57,
       "after": 57
     },
     "ROAD-MBZ-SOUTH": {
-      "before": 25,
+      "before": 60,
       "after": 60
     },
     "ROAD-30-JUNE": {
-      "before": 16,
+      "before": 28,
       "after": 28
     },
     "ROAD-EASTERN-DESERT": {
@@ -90999,7 +90913,7 @@
       "after": 0
     },
     "ROAD-CAIRO-ALEX-DESERT": {
-      "before": 17,
+      "before": 59,
       "after": 59
     },
     "ROAD-WAHAT": {
@@ -91007,7 +90921,7 @@
       "after": 0
     },
     "ROAD-26-JULY": {
-      "before": 57,
+      "before": 138,
       "after": 138
     },
     "ROAD-HARAM": {
@@ -91023,15 +90937,15 @@
       "after": 0
     },
     "ROAD-AMR-IBN-ALAS": {
-      "before": 12,
+      "before": 33,
       "after": 33
     },
     "ROAD-KAMAL-AMER": {
-      "before": 31,
+      "before": 78,
       "after": 78
     },
     "ROAD-AHMED-ORABI": {
-      "before": 18,
+      "before": 69,
       "after": 69
     },
     "ROAD-GAMET-EL-DOWAL": {
@@ -91043,23 +90957,23 @@
       "after": 0
     },
     "BRIDGE-IMBABA": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "BRIDGE-15-MAY": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "BRIDGE-6-OCTOBER": {
-      "before": 0,
+      "before": 5,
       "after": 5
     },
     "BRIDGE-QASR-EL-NIL": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "BRIDGE-GALAA": {
-      "before": 0,
+      "before": 4,
       "after": 4
     },
     "BRIDGE-GIZA": {
@@ -91067,7 +90981,7 @@
       "after": 0
     },
     "BRIDGE-ABBAS": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "BRIDGE-UNIVERSITY": {
@@ -91275,31 +91189,31 @@
       "after": 1
     },
     "AIRPORT-CAIRO": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "AIRPORT-SPHINX": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "AIRPORT-CAPITAL": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-CAIRO": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-GIZA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-SHUBRA-ELKHEIMA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-QALYUB": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-KHANKA": {
@@ -91307,15 +91221,15 @@
       "after": 0
     },
     "CITY-QANATER": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-BENHA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-NEW-CAIRO": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-REHAB": {
@@ -91323,11 +91237,11 @@
       "after": 0
     },
     "CITY-MADINATY": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-NEW-CAPITAL": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-MOSTAKBAL": {
@@ -91335,7 +91249,7 @@
       "after": 0
     },
     "CITY-SHOROUK": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-NEW-HELIOPOLIS": {
@@ -91343,11 +91257,11 @@
       "after": 0
     },
     "CITY-BADR": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-OBOUR": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-NEW-OBOUR": {
@@ -91355,19 +91269,19 @@
       "after": 0
     },
     "CITY-10TH-RAMADAN": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "CITY-15-MAY": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-6-OCTOBER": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-SHEIKH-ZAYED": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "CITY-NEW-ZAYED": {
@@ -91383,7 +91297,7 @@
       "after": 0
     },
     "CITY-BILBEIS": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-MANSOURA": {
@@ -91391,7 +91305,7 @@
       "after": 0
     },
     "CITY-TANTA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-ALEXANDRIA": {
@@ -91411,7 +91325,7 @@
       "after": 0
     },
     "CITY-FAYOUM": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-HURGHADA": {
@@ -91443,7 +91357,7 @@
       "after": 0
     },
     "DIST-ABDEEN": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-HUSSEIN-AZHAR": {
@@ -91451,11 +91365,11 @@
       "after": 0
     },
     "DIST-SAYEDA-ZEINAB": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-OLD-CAIRO": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "DIST-FUSTAT": {
@@ -91463,15 +91377,15 @@
       "after": 0
     },
     "DIST-ZAMALEK": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "DIST-MANIAL": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-BULAQ": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-SHUBRA": {
@@ -91479,7 +91393,7 @@
       "after": 0
     },
     "DIST-ROD-ELFARAG": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-SAHEL": {
@@ -91495,7 +91409,7 @@
       "after": 0
     },
     "DIST-AIN-SHAMS": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-MATARIYA": {
@@ -91519,7 +91433,7 @@
       "after": 0
     },
     "DIST-BAHTIM": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-ZAWYA-HAMRA": {
@@ -91527,11 +91441,11 @@
       "after": 0
     },
     "DIST-NASR-CITY": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-HELIOPOLIS": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "DIST-NOZHA": {
@@ -91583,15 +91497,15 @@
       "after": 0
     },
     "DIST-DOKKI": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-MOHANDESSIN": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-AGOUZA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-FAISAL": {
@@ -91607,7 +91521,7 @@
       "after": 0
     },
     "DIST-HADAYEK-AHRAM": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-HADAEK-OCTOBER": {
@@ -91631,7 +91545,7 @@
       "after": 0
     },
     "DIST-IMBABA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-SAFT-ELLABAN": {
@@ -91667,7 +91581,7 @@
       "after": 0
     },
     "LANDMARK-PYRAMIDS": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "LANDMARK-MALL-OF-EGYPT": {
@@ -91679,15 +91593,15 @@
       "after": 0
     },
     "LANDMARK-BUE": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "LANDMARK-HELWAN-UNIV": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "LANDMARK-CAIRO-UNIV": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "LANDMARK-LEBANON-SQ": {
@@ -91943,7 +91857,7 @@
       "after": 0
     },
     "DIST-BULAQ-DAKROUR": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-OMRANIYA": {
@@ -91983,23 +91897,23 @@
       "after": 0
     },
     "DIST-MOSTOROD": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-SHIBIN-ELQANATER": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-TOUKH": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-QAHA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "CITY-KAFR-SHUKR": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-SALAM-1": {
@@ -92027,7 +91941,7 @@
       "after": 0
     },
     "DIST-AZBAKEYA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-MOUSKY": {
@@ -92035,23 +91949,23 @@
       "after": 0
     },
     "DIST-BAB-SHAREYA": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "DIST-SHARABIYA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-ZEITOUN": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-AMIRIYA": {
-      "before": 0,
+      "before": 2,
       "after": 2
     },
     "DIST-KHALIFA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-BASATIN": {
@@ -92063,7 +91977,7 @@
       "after": 0
     },
     "DIST-MAASARA": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "DIST-TORA": {
@@ -92087,7 +92001,7 @@
       "after": 0
     },
     "ROAD-IBRAHIM-ORABI-AXIS": {
-      "before": 0,
+      "before": 30,
       "after": 30
     },
     "ROAD-ADLY-MANSOUR-AXIS": {
@@ -92099,8 +92013,8 @@
       "after": 0
     },
     "ROAD-OBOUR-AXIS-NEW-CAIRO": {
-      "before": 25,
-      "after": 68
+      "before": 68,
+      "after": 0
     },
     "TRANSIT-METRO-L1-EXT": {
       "before": 0,
@@ -92236,7 +92150,7 @@
     }
   },
   "entities_with_geometry": {
-    "count": 91,
+    "count": 89,
     "total_entities": 342,
     "entity_codes": [
       "AIRPORT-CAIRO",
@@ -92614,7 +92528,7 @@
     32.1,
     30.8
   ],
-  "features_written": 3688,
+  "features_written": 3615,
   "features_by_entity": {
     "AIRPORT-CAIRO": 1,
     "AIRPORT-CAPITAL": 1,
@@ -92692,12 +92606,10 @@
     "ROAD-DABAA-AXIS": 62,
     "ROAD-IBRAHIM-ORABI-AXIS": 30,
     "ROAD-KAMAL-AMER": 78,
-    "ROAD-MARG-AXIS": 5,
     "ROAD-MBZ-NORTH": 57,
     "ROAD-MBZ-SOUTH": 60,
     "ROAD-MIDDLE-RING": 249,
     "ROAD-MOHAMED-NAGUIB": 56,
-    "ROAD-OBOUR-AXIS-NEW-CAIRO": 68,
     "ROAD-REGIONAL-RING": 907,
     "ROAD-RING-ROAD": 800,
     "ROAD-ROD-ELFARAG-DABAA": 35,
@@ -92711,23 +92623,23 @@
   "ملخص_05_4": {
     "عدد_الميزات_لكل_كيان_قبل_وبعد": {
       "ROAD-RING-ROAD": {
-        "before": 473,
+        "before": 800,
         "after": 800
       },
       "ROAD-MIDDLE-RING": {
-        "before": 125,
+        "before": 249,
         "after": 249
       },
       "ROAD-REGIONAL-RING": {
-        "before": 589,
+        "before": 907,
         "after": 907
       },
       "ROAD-SHUBRA-BENHA-FREE": {
-        "before": 125,
+        "before": 140,
         "after": 140
       },
       "ROAD-CAIRO-ALEX-AGRI": {
-        "before": 83,
+        "before": 186,
         "after": 186
       },
       "ROAD-BENHA-MANSOURA": {
@@ -92743,20 +92655,20 @@
         "after": 0
       },
       "ROAD-ASSAR-AXIS": {
-        "before": 0,
+        "before": 20,
         "after": 20
       },
       "ROAD-ROD-ELFARAG-DABAA": {
-        "before": 2,
+        "before": 35,
         "after": 35
       },
       "ROAD-DABAA-AXIS": {
-        "before": 53,
+        "before": 62,
         "after": 62
       },
       "ROAD-MARG-AXIS": {
-        "before": 0,
-        "after": 5
+        "before": 5,
+        "after": 0
       },
       "ROAD-ISMAILIA-AGRI": {
         "before": 0,
@@ -92767,11 +92679,11 @@
         "after": 0
       },
       "ROAD-CAIRO-SUEZ": {
-        "before": 34,
+        "before": 152,
         "after": 152
       },
       "ROAD-CAIRO-ISMAILIA-DESERT": {
-        "before": 43,
+        "before": 154,
         "after": 154
       },
       "ROAD-BILBEIS-DESERT": {
@@ -92779,7 +92691,7 @@
         "after": 0
       },
       "ROAD-AIN-SOKHNA": {
-        "before": 0,
+        "before": 7,
         "after": 7
       },
       "ROAD-NASR": {
@@ -92799,19 +92711,19 @@
         "after": 0
       },
       "ROAD-MOHAMED-NAGUIB": {
-        "before": 0,
+        "before": 56,
         "after": 56
       },
       "ROAD-MBZ-NORTH": {
-        "before": 26,
+        "before": 57,
         "after": 57
       },
       "ROAD-MBZ-SOUTH": {
-        "before": 25,
+        "before": 60,
         "after": 60
       },
       "ROAD-30-JUNE": {
-        "before": 16,
+        "before": 28,
         "after": 28
       },
       "ROAD-EASTERN-DESERT": {
@@ -92843,7 +92755,7 @@
         "after": 0
       },
       "ROAD-CAIRO-ALEX-DESERT": {
-        "before": 17,
+        "before": 59,
         "after": 59
       },
       "ROAD-WAHAT": {
@@ -92851,7 +92763,7 @@
         "after": 0
       },
       "ROAD-26-JULY": {
-        "before": 57,
+        "before": 138,
         "after": 138
       },
       "ROAD-HARAM": {
@@ -92867,15 +92779,15 @@
         "after": 0
       },
       "ROAD-AMR-IBN-ALAS": {
-        "before": 12,
+        "before": 33,
         "after": 33
       },
       "ROAD-KAMAL-AMER": {
-        "before": 31,
+        "before": 78,
         "after": 78
       },
       "ROAD-AHMED-ORABI": {
-        "before": 18,
+        "before": 69,
         "after": 69
       },
       "ROAD-GAMET-EL-DOWAL": {
@@ -92887,23 +92799,23 @@
         "after": 0
       },
       "BRIDGE-IMBABA": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "BRIDGE-15-MAY": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "BRIDGE-6-OCTOBER": {
-        "before": 0,
+        "before": 5,
         "after": 5
       },
       "BRIDGE-QASR-EL-NIL": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "BRIDGE-GALAA": {
-        "before": 0,
+        "before": 4,
         "after": 4
       },
       "BRIDGE-GIZA": {
@@ -92911,7 +92823,7 @@
         "after": 0
       },
       "BRIDGE-ABBAS": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "BRIDGE-UNIVERSITY": {
@@ -93119,31 +93031,31 @@
         "after": 1
       },
       "AIRPORT-CAIRO": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "AIRPORT-SPHINX": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "AIRPORT-CAPITAL": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-CAIRO": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-GIZA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-SHUBRA-ELKHEIMA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-QALYUB": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-KHANKA": {
@@ -93151,15 +93063,15 @@
         "after": 0
       },
       "CITY-QANATER": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-BENHA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-NEW-CAIRO": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-REHAB": {
@@ -93167,11 +93079,11 @@
         "after": 0
       },
       "CITY-MADINATY": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-NEW-CAPITAL": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-MOSTAKBAL": {
@@ -93179,7 +93091,7 @@
         "after": 0
       },
       "CITY-SHOROUK": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-NEW-HELIOPOLIS": {
@@ -93187,11 +93099,11 @@
         "after": 0
       },
       "CITY-BADR": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-OBOUR": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-NEW-OBOUR": {
@@ -93199,19 +93111,19 @@
         "after": 0
       },
       "CITY-10TH-RAMADAN": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "CITY-15-MAY": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-6-OCTOBER": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-SHEIKH-ZAYED": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "CITY-NEW-ZAYED": {
@@ -93227,7 +93139,7 @@
         "after": 0
       },
       "CITY-BILBEIS": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-MANSOURA": {
@@ -93235,7 +93147,7 @@
         "after": 0
       },
       "CITY-TANTA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-ALEXANDRIA": {
@@ -93255,7 +93167,7 @@
         "after": 0
       },
       "CITY-FAYOUM": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-HURGHADA": {
@@ -93287,7 +93199,7 @@
         "after": 0
       },
       "DIST-ABDEEN": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-HUSSEIN-AZHAR": {
@@ -93295,11 +93207,11 @@
         "after": 0
       },
       "DIST-SAYEDA-ZEINAB": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-OLD-CAIRO": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "DIST-FUSTAT": {
@@ -93307,15 +93219,15 @@
         "after": 0
       },
       "DIST-ZAMALEK": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "DIST-MANIAL": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-BULAQ": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-SHUBRA": {
@@ -93323,7 +93235,7 @@
         "after": 0
       },
       "DIST-ROD-ELFARAG": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-SAHEL": {
@@ -93339,7 +93251,7 @@
         "after": 0
       },
       "DIST-AIN-SHAMS": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-MATARIYA": {
@@ -93363,7 +93275,7 @@
         "after": 0
       },
       "DIST-BAHTIM": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-ZAWYA-HAMRA": {
@@ -93371,11 +93283,11 @@
         "after": 0
       },
       "DIST-NASR-CITY": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-HELIOPOLIS": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "DIST-NOZHA": {
@@ -93427,15 +93339,15 @@
         "after": 0
       },
       "DIST-DOKKI": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-MOHANDESSIN": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-AGOUZA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-FAISAL": {
@@ -93451,7 +93363,7 @@
         "after": 0
       },
       "DIST-HADAYEK-AHRAM": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-HADAEK-OCTOBER": {
@@ -93475,7 +93387,7 @@
         "after": 0
       },
       "DIST-IMBABA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-SAFT-ELLABAN": {
@@ -93511,7 +93423,7 @@
         "after": 0
       },
       "LANDMARK-PYRAMIDS": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "LANDMARK-MALL-OF-EGYPT": {
@@ -93523,15 +93435,15 @@
         "after": 0
       },
       "LANDMARK-BUE": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "LANDMARK-HELWAN-UNIV": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "LANDMARK-CAIRO-UNIV": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "LANDMARK-LEBANON-SQ": {
@@ -93787,7 +93699,7 @@
         "after": 0
       },
       "DIST-BULAQ-DAKROUR": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-OMRANIYA": {
@@ -93827,23 +93739,23 @@
         "after": 0
       },
       "DIST-MOSTOROD": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-SHIBIN-ELQANATER": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-TOUKH": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-QAHA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "CITY-KAFR-SHUKR": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-SALAM-1": {
@@ -93871,7 +93783,7 @@
         "after": 0
       },
       "DIST-AZBAKEYA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-MOUSKY": {
@@ -93879,23 +93791,23 @@
         "after": 0
       },
       "DIST-BAB-SHAREYA": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "DIST-SHARABIYA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-ZEITOUN": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-AMIRIYA": {
-        "before": 0,
+        "before": 2,
         "after": 2
       },
       "DIST-KHALIFA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-BASATIN": {
@@ -93907,7 +93819,7 @@
         "after": 0
       },
       "DIST-MAASARA": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "DIST-TORA": {
@@ -93931,7 +93843,7 @@
         "after": 0
       },
       "ROAD-IBRAHIM-ORABI-AXIS": {
-        "before": 0,
+        "before": 30,
         "after": 30
       },
       "ROAD-ADLY-MANSOUR-AXIS": {
@@ -93943,8 +93855,8 @@
         "after": 0
       },
       "ROAD-OBOUR-AXIS-NEW-CAIRO": {
-        "before": 25,
-        "after": 68
+        "before": 68,
+        "after": 0
       },
       "TRANSIT-METRO-L1-EXT": {
         "before": 0,
@@ -94080,7 +93992,7 @@
       }
     },
     "الكيانات_ذات_الهندسة_من_إجمالي_342": {
-      "العدد": 91,
+      "العدد": 89,
       "الإجمالي": 342
     },
     "فجوات_الطرق_المتبقية_مع_نقاط_النهاية": [
@@ -95597,22 +95509,6 @@
         "reason": "unconnected OSM line endpoint; no connector generated"
       },
       {
-        "entity_code": "ROAD-MARG-AXIS",
-        "endpoint": [
-          31.3330446,
-          30.1415542
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-MARG-AXIS",
-        "endpoint": [
-          31.3278375,
-          30.1418939
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
         "entity_code": "ROAD-MBZ-NORTH",
         "endpoint": [
           31.7122241,
@@ -96313,70 +96209,6 @@
         "endpoint": [
           31.4690667,
           29.9987778
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4692935,
-          30.1845687
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4695095,
-          30.1842069
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4696355,
-          30.1842892
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4694344,
-          30.1846462
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4575646,
-          30.2079651
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4575863,
-          30.2083787
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4574261,
-          30.208379
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.457412,
-          30.2079766
         ],
         "reason": "unconnected OSM line endpoint; no connector generated"
       },
@@ -107801,222 +107633,6 @@
         "endpoint": [
           31.5477911,
           29.9631211
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4797126,
-          30.1640987
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4752492,
-          30.1631996
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4523243,
-          30.2582012
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4550248,
-          30.2604752
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4592664,
-          30.2236254
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4707085,
-          30.1848654
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4726499,
-          30.1746347
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4561862,
-          30.2553025
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4582174,
-          30.2084625
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4567231,
-          30.2537981
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4566688,
-          30.2539502
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4699342,
-          30.1846811
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4761622,
-          30.1662906
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4723053,
-          30.1754111
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4689476,
-          30.1833386
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4586036,
-          30.2398205
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4582964,
-          30.2317104
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4688699,
-          30.184201
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4738238,
-          30.1727561
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4741355,
-          30.1723039
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4581044,
-          30.2075704
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4593099,
-          30.2427477
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4575582,
-          30.2285727
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4562667,
-          30.2550568
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4576825,
-          30.2506916
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4575866,
-          30.2509743
-        ],
-        "reason": "unconnected OSM line endpoint; no connector generated"
-      },
-      {
-        "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
-        "endpoint": [
-          31.4759513,
-          30.1661654
         ],
         "reason": "unconnected OSM line endpoint; no connector generated"
       },
@@ -124549,6 +124165,20 @@
         "reason": "OSM names did not identify exactly one compatible existing entity"
       },
       {
+        "source_id": "way:679759543",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:679759547",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
         "source_id": "way:679819612",
         "source_name": "طريق الباجور, القناطر الخيريه | طريق الباجور, القناطر الخيريه | Al Bagour, Al Qanater Al Khiria Road",
         "entity_type": "road",
@@ -126843,6 +126473,20 @@
         "entity_type": "road",
         "candidate_entity_codes": [],
         "reason": "OSM names did not identify exactly one compatible existing entity"
+      },
+      {
+        "source_id": "way:703376781",
+        "source_name": "محور المرج | محور المرج | Al Marg Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:703376783",
+        "source_name": "محور المرج | محور المرج | Al Marg Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
       },
       {
         "source_id": "way:704274593",
@@ -130777,6 +130421,20 @@
         "entity_type": "road",
         "candidate_entity_codes": [],
         "reason": "OSM names did not identify exactly one compatible existing entity"
+      },
+      {
+        "source_id": "way:749328109",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:749328112",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
       },
       {
         "source_id": "way:749328216",
@@ -141659,6 +141317,27 @@
         "entity_type": "road",
         "candidate_entity_codes": [],
         "reason": "OSM names did not identify exactly one compatible existing entity"
+      },
+      {
+        "source_id": "way:1169802412",
+        "source_name": "محور المرج | محور المرج | Al Marg Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1169802413",
+        "source_name": "محور المرج | محور المرج | Al Marg Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1169802414",
+        "source_name": "محور المرج | محور المرج | Al Marg Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
       },
       {
         "source_id": "way:1169904313",
@@ -175102,6 +174781,13 @@
         "reason": "OSM names did not identify exactly one compatible existing entity"
       },
       {
+        "source_id": "way:27196275",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
         "source_id": "way:28200860",
         "source_name": "طريق القاهرة, اسيوط الزراعى | طريق القاهرة, اسيوط الزراعى | Cairo,Asyout Agricultural Road | 25",
         "entity_type": "road",
@@ -175298,6 +174984,13 @@
         "reason": "OSM names did not identify exactly one compatible existing entity"
       },
       {
+        "source_id": "way:47976947",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
         "source_id": "way:48837011",
         "source_name": "ميدان ركن الفاروق | ميدان ركن الفاروق | Rokn Al Farouq Square",
         "entity_type": "road",
@@ -175333,6 +175026,13 @@
           "ROAD-CAIRO-ALEX-AGRI"
         ],
         "reason": "geometry is invalid or not wholly inside the Greater Cairo bbox"
+      },
+      {
+        "source_id": "way:49730361",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
       },
       {
         "source_id": "way:51353443",
@@ -176089,6 +175789,27 @@
         "entity_type": "road",
         "candidate_entity_codes": [],
         "reason": "OSM names did not identify exactly one compatible existing entity"
+      },
+      {
+        "source_id": "way:155519717",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:155519763",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:155519928",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
       },
       {
         "source_id": "way:156101320",
@@ -178405,6 +178126,20 @@
         "entity_type": "road",
         "candidate_entity_codes": [],
         "reason": "OSM names did not identify exactly one compatible existing entity"
+      },
+      {
+        "source_id": "way:749328110",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:749328111",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
       },
       {
         "source_id": "way:749332770",
@@ -180864,6 +180599,20 @@
         "reason": "OSM names did not identify exactly one compatible existing entity"
       },
       {
+        "source_id": "way:935840521",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:941385712",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
         "source_id": "way:941705151",
         "source_name": "طريق بنها, ميت غمر | طريق بنها, ميت غمر | Banha, Mit Ghamr Road",
         "entity_type": "road",
@@ -182775,6 +182524,55 @@
         "reason": "OSM names did not identify exactly one compatible existing entity"
       },
       {
+        "source_id": "way:1547185897",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1547185898",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1548631745",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1548631746",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1548631747",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1548631748",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1548912221",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
         "source_id": "way:1552198335",
         "source_name": "شارع كورنيش النيل | شارع كورنيش النيل | Kornish Al Nil Street",
         "entity_type": "road",
@@ -183165,6 +182963,34 @@
         "entity_type": "road",
         "candidate_entity_codes": [],
         "reason": "OSM names did not identify exactly one compatible existing entity"
+      },
+      {
+        "source_id": "way:1562012687",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1562012688",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1562012689",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
+      },
+      {
+        "source_id": "way:1562012690",
+        "source_name": "محور العبور | محور العبور | Al Obour Axis",
+        "entity_type": "road",
+        "candidate_entity_codes": [],
+        "reason": "planned entity geometry requires official alignment evidence"
       },
       {
         "source_id": "way:1562210337",

@@ -1,0 +1,466 @@
+{
+  "ok": true,
+  "selectedRevision": "rev6",
+  "detectedAliasSeparator": "|",
+  "counts": {
+    "entities": 342,
+    "entitiesWithAliases": 233,
+    "missingStatusDefaultedToUnknown": 0,
+    "evidence": 307,
+    "evidenceMissingUrl": 74,
+    "facts": 1301,
+    "factEvidenceLinks": 1411,
+    "factDatePrecisions": {
+      "day": 1092,
+      "month": 184,
+      "year": 25,
+      "null": 0
+    },
+    "evidencePublishedDatePrecisions": {
+      "day": 149,
+      "month": 26,
+      "year": 12,
+      "null": 120
+    }
+  },
+  "missingSourceTypeEvidenceRefs": [],
+  "secondaryOnlyVerifiedFacts": [],
+  "bundleReport": {
+    "entitiesCount": 342,
+    "entitiesWithAliasesCount": 233,
+    "evidenceCount": 307,
+    "evidenceMissingUrlCount": 74,
+    "unresolvedOfficialEvidenceCount": 2,
+    "unresolvedOfficialEvidenceCodes": [
+      "EV-045",
+      "EV-046"
+    ],
+    "factsCount": 1301,
+    "factEvidenceLinksCount": 1411,
+    "breakdowns": {
+      "entitiesByStatus": {
+        "operational": 245,
+        "partial": 4,
+        "unknown": 47,
+        "planned": 8,
+        "under_construction": 36,
+        "approved_planned": 2
+      },
+      "entitiesBySector": {
+        "CENTRAL": 41,
+        "REGIONAL": 28,
+        "NORTH": 64,
+        "WEST": 86,
+        "EAST": 94,
+        "SOUTH": 29
+      },
+      "entitiesByType": {
+        "road": 46,
+        "bridge": 17,
+        "transit_line": 16,
+        "transit_stop": 101,
+        "rail_station": 2,
+        "airport": 3,
+        "city": 42,
+        "district": 83,
+        "landmark": 9,
+        "authority": 18,
+        "project": 5
+      },
+      "evidenceBySourceType": {
+        "secondary": 92,
+        "news": 69,
+        "official": 144,
+        "pdf": 2
+      },
+      "factsByVerificationState": {
+        "candidate": 762,
+        "verified": 310,
+        "rejected": 9,
+        "superseded": 15,
+        "disputed": 84,
+        "single_source": 89,
+        "corroborated": 32
+      },
+      "factsByDatePrecision": {
+        "day": 1092,
+        "month": 184,
+        "year": 25,
+        "null": 0
+      }
+    },
+    "warnings": [
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[0] (EV-000)",
+        "message": "Evidence \"EV-000\" (secondary, publisher: \"Greater Cairo Atlas (internal)\") has url = null and relies on title \"دليل خريطة القاهرة الكبرى (cairo_guide.md)\"."
+      },
+      {
+        "code": "OFFICIAL_SOURCE_MISSING_URL",
+        "path": "evidence[45] (EV-045)",
+        "message": "Unresolved official source \"EV-045\" (publisher: \"رئاسة الجمهورية (presidency.eg)\", title: \"الدائري الأوسطي – 18 ديسمبر 2020\") has url = null."
+      },
+      {
+        "code": "OFFICIAL_SOURCE_MISSING_URL",
+        "path": "evidence[46] (EV-046)",
+        "message": "Unresolved official source \"EV-046\" (publisher: \"الهيئة العامة للاستعلامات (sis.gov.eg)\", title: \"مونوريل غرب النيل – أغسطس 2026\") has url = null."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[51] (EV-051)",
+        "message": "Evidence \"EV-051\" (secondary, publisher: \"Greater Cairo Atlas – مراجعة rev1 (Perplexity + ChatGPT + Gemini)\") has url = null and relies on title \"تصحيحات Batch 00 – revision 1\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[129] (EV-129)",
+        "message": "Evidence \"EV-129\" (secondary, publisher: \"Greater Cairo Atlas – مراجعة rev4\") has url = null and relies on title \"ملاحظة المراجع على القرار 499/2016\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[210] (EV-210)",
+        "message": "Evidence \"EV-210\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2021-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[211] (EV-211)",
+        "message": "Evidence \"EV-211\" (secondary, publisher: \"Giza Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: giza.gov.eg, 2026-06-21\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[213] (EV-213)",
+        "message": "Evidence \"EV-213\" (secondary, publisher: \"North Cairo Electricity Distribution Co. (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: ncedc.gov.eg, 2021-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[214] (EV-214)",
+        "message": "Evidence \"EV-214\" (secondary, publisher: \"Cairo Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: cairo.gov.eg, 2020-07-03\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[216] (EV-216)",
+        "message": "Evidence \"EV-216\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-08-31\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[217] (EV-217)",
+        "message": "Evidence \"EV-217\" (secondary, publisher: \"Youm7 (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2026-11-11\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[218] (EV-218)",
+        "message": "Evidence \"EV-218\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2020-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[219] (EV-219)",
+        "message": "Evidence \"EV-219\" (secondary, publisher: \"Giza Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: giza.gov.eg, 2020-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[220] (EV-220)",
+        "message": "Evidence \"EV-220\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-09-13\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[221] (EV-221)",
+        "message": "Evidence \"EV-221\" (secondary, publisher: \"The British University in Egypt (BUE) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: bue.edu.eg, 2025-07-31\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[223] (EV-223)",
+        "message": "Evidence \"EV-223\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-02-27\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[225] (EV-225)",
+        "message": "Evidence \"EV-225\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2026-05-17\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[227] (EV-227)",
+        "message": "Evidence \"EV-227\" (secondary, publisher: \"New Urban Communities Authority (NUCA) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: newcities.gov.eg, 2015-05-31\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[228] (EV-228)",
+        "message": "Evidence \"EV-228\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2018-09-09\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[230] (EV-230)",
+        "message": "Evidence \"EV-230\" (secondary, publisher: \"National Authority for Tunnels (NAT) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: nat.gov.eg, 2024-04-22\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[232] (EV-232)",
+        "message": "Evidence \"EV-232\" (secondary, publisher: \"New Urban Communities Authority (NUCA) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: newcities.gov.eg, 2026-02-28\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[234] (EV-234)",
+        "message": "Evidence \"EV-234\" (secondary, publisher: \"Giza Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: giza.gov.eg, 2019-04-23\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[237] (EV-237)",
+        "message": "Evidence \"EV-237\" (secondary, publisher: \"New Urban Communities Authority (NUCA) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: newcities.gov.eg, 2026-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[238] (EV-238)",
+        "message": "Evidence \"EV-238\" (secondary, publisher: \"General Organization for Physical Planning (GOPP) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: gopp.gov.eg, 2026-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[239] (EV-239)",
+        "message": "Evidence \"EV-239\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-11-08\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[240] (EV-240)",
+        "message": "Evidence \"EV-240\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[241] (EV-241)",
+        "message": "Evidence \"EV-241\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2026-10-04\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[243] (EV-243)",
+        "message": "Evidence \"EV-243\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-08-24\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[245] (EV-245)",
+        "message": "Evidence \"EV-245\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2019-11-24\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[247] (EV-247)",
+        "message": "Evidence \"EV-247\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2026-11-12\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[249] (EV-249)",
+        "message": "Evidence \"EV-249\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2025-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[251] (EV-251)",
+        "message": "Evidence \"EV-251\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2026-01-18\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[252] (EV-252)",
+        "message": "Evidence \"EV-252\" (secondary, publisher: \"Youm7 (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2021-09-04\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[254] (EV-254)",
+        "message": "Evidence \"EV-254\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-07-18\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[255] (EV-255)",
+        "message": "Evidence \"EV-255\" (secondary, publisher: \"Giza Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: giza.gov.eg, 2021-12-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[257] (EV-257)",
+        "message": "Evidence \"EV-257\" (secondary, publisher: \"Giza Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: giza.gov.eg, 2026-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[260] (EV-260)",
+        "message": "Evidence \"EV-260\" (secondary, publisher: \"Cairo University (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: cu.edu.eg, 2026-11-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[262] (EV-262)",
+        "message": "Evidence \"EV-262\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-07-05\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[264] (EV-264)",
+        "message": "Evidence \"EV-264\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-08-17\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[266] (EV-266)",
+        "message": "Evidence \"EV-266\" (secondary, publisher: \"Youm7 (citing New Cairo City Authority) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2025-06-09\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[267] (EV-267)",
+        "message": "Evidence \"EV-267\" (secondary, publisher: \"Al-Ahram Gate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: gate.ahram.org.eg, 2022-03-30\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[269] (EV-269)",
+        "message": "Evidence \"EV-269\" (secondary, publisher: \"New Urban Communities Authority (NUCA) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: lands.nuca.gov.eg, 2026-08-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[271] (EV-271)",
+        "message": "Evidence \"EV-271\" (secondary, publisher: \"New Urban Communities Authority (NUCA) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: newcities.gov.eg, 2021-06-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[272] (EV-272)",
+        "message": "Evidence \"EV-272\" (secondary, publisher: \"Youm7 (citing New Cairo City Authority) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2024-06-06\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[274] (EV-274)",
+        "message": "Evidence \"EV-274\" (secondary, publisher: \"Ministry of Housing (MHUC) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: mhuc.gov.eg, 2026-02-23\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[275] (EV-275)",
+        "message": "Evidence \"EV-275\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2021-08-11\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[276] (EV-276)",
+        "message": "Evidence \"EV-276\" (secondary, publisher: \"Youm7 (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2025-06-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[278] (EV-278)",
+        "message": "Evidence \"EV-278\" (secondary, publisher: \"New Urban Communities Authority (NUCA) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: apart.nuca.gov.eg, 2026-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[279] (EV-279)",
+        "message": "Evidence \"EV-279\" (secondary, publisher: \"Youm7 (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2023-07-26\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[280] (EV-280)",
+        "message": "Evidence \"EV-280\" (secondary, publisher: \"Ministry of Defense (Egypt) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: seglat.mod.gov.eg, 2026-11-08\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[281] (EV-281)",
+        "message": "Evidence \"EV-281\" (secondary, publisher: \"Youm7 (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2024-04-04\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[282] (EV-282)",
+        "message": "Evidence \"EV-282\" (secondary, publisher: \"Presidency of Egypt (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: presidency.eg, 2020-12-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[283] (EV-283)",
+        "message": "Evidence \"EV-283\" (secondary, publisher: \"Youm7 (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2023-08-24\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[284] (EV-284)",
+        "message": "Evidence \"EV-284\" (secondary, publisher: \"Giza Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: giza.gov.eg, 2025-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[285] (EV-285)",
+        "message": "Evidence \"EV-285\" (secondary, publisher: \"Ministry of Defense (Egypt) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: mod.gov.eg, 2026-09-05\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[286] (EV-286)",
+        "message": "Evidence \"EV-286\" (secondary, publisher: \"Giza Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: giza.gov.eg, 2025-09-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[287] (EV-287)",
+        "message": "Evidence \"EV-287\" (secondary, publisher: \"Youm7 (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2026-03-28\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[288] (EV-288)",
+        "message": "Evidence \"EV-288\" (secondary, publisher: \"Youm7 (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2026-01-15\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[289] (EV-289)",
+        "message": "Evidence \"EV-289\" (secondary, publisher: \"Youm7 (citing Egyptian National Railways) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2022-10-07\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[290] (EV-290)",
+        "message": "Evidence \"EV-290\" (secondary, publisher: \"Cairo Metro (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: cairometro.gov.eg, 2026-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[291] (EV-291)",
+        "message": "Evidence \"EV-291\" (secondary, publisher: \"National Authority for Tunnels (NAT) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: nat.gov.eg, 2026-09-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[292] (EV-292)",
+        "message": "Evidence \"EV-292\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-09-06\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[293] (EV-293)",
+        "message": "Evidence \"EV-293\" (secondary, publisher: \"Cairo Metro (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: cairometro.gov.eg, 2024-04-22\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[294] (EV-294)",
+        "message": "Evidence \"EV-294\" (secondary, publisher: \"National Authority for Tunnels (NAT) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: nat.gov.eg, 2019-06-15\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[295] (EV-295)",
+        "message": "Evidence \"EV-295\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-01-27\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[296] (EV-296)",
+        "message": "Evidence \"EV-296\" (secondary, publisher: \"Cairo Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: cairo.gov.eg, 2020-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[297] (EV-297)",
+        "message": "Evidence \"EV-297\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2025-09-25\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[298] (EV-298)",
+        "message": "Evidence \"EV-298\" (secondary, publisher: \"Youm7 (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: youm7.com, 2026-11-02\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[299] (EV-299)",
+        "message": "Evidence \"EV-299\" (secondary, publisher: \"Ministry of Public Business Sector (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: mpbs.gov.eg, 2020-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[300] (EV-300)",
+        "message": "Evidence \"EV-300\" (secondary, publisher: \"Giza Governorate (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: giza.gov.eg, 2021-12-04\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[301] (EV-301)",
+        "message": "Evidence \"EV-301\" (secondary, publisher: \"State Information Service (SIS) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: sis.gov.eg, 2026-08-16\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[302] (EV-302)",
+        "message": "Evidence \"EV-302\" (secondary, publisher: \"Ministry of Social Solidarity (Egypt) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: rdis.moss.gov.eg, 2026-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[303] (EV-303)",
+        "message": "Evidence \"EV-303\" (secondary, publisher: \"Egyptian Tax Authority (Ministry of Finance) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: eta.gov.eg, 2026-01-01\"."
+      },
+      {
+        "code": "EVIDENCE_MISSING_URL",
+        "path": "evidence[304] (EV-304)",
+        "message": "Evidence \"EV-304\" (secondary, publisher: \"Ministry of Housing (MHUC) (حسب باحث Gemini)\") has url = null and relies on title \"Gemini verification: mhuc.gov.eg, 2026-07-11\"."
+      }
+    ]
+  },
+  "issues": []
+}

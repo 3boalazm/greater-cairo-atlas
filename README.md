@@ -46,7 +46,7 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 
 ### 1. Adapt Research Seed (`scripts/adapt-research-seed.ts`)
 
-Deterministically converts mixed-revision research inputs into canonical `data/seed/` files (`entities.csv`, `evidence.json`, `facts.json`) while enforcing strict epistemic validation. Revision 5 inputs and the approved changelog are preserved in `data/research/rev5/`; canonical `data/seed/` is generated from that source bundle. OSM-matcher aliases supplement the researched metro names without changing operational status.
+Deterministically converts mixed-revision research inputs into canonical `data/seed/` files (`entities.csv`, `evidence.json`, `facts.json`) while enforcing strict epistemic validation. Revision 5 sources remain in `data/research/rev5/`; the current canonical seed is adapted from the rev6.1 source bundle preserved in `data/research/rev6_1/`. The rev6.1 “Capital University” aliases are source-provided; matching remains exact and does not infer operational status.
 
 - Missing/blank `status` -> `'unknown'` (never guessed as `'operational'`).
 - Missing `source_type` -> fails with an explicit list of offending `evidence_ref`s (`rev2` required before import).
@@ -83,7 +83,26 @@ python3 scripts/ingest-features.py --osm-json /tmp/cairo-osm-overpass-2026-11-14
   --osm-source-url https://overpass-api.de/api/interpreter --osm-retrieval-date 2026-11-14
 ```
 
-The revision 5 OSM re-match produces 1,970 ODbL features across 25 entities. This includes ROAD-RING-ROAD 473, ROAD-MIDDLE-RING 125, ROAD-REGIONAL-RING 589, Metro L1 13, L2 2, and L3 17. The full per-entity table and unmatched candidates are in `data/features/match-report.json`.
+That historical revision 5 OSM re-match produced 1,970 ODbL features across 25 entities. The current rev6.1 source bundle produces 3,615 features; the detailed per-entity before/after counts and unmatched candidates are in `data/features/match-report.json`.
+
+To reproduce the rev6.1 seed adaptation and OSM rematch using the preserved source extracts:
+
+```bash
+npm run seed:adapt -- --rev 6 \
+  --entities data/research/rev6_1/entities_rev6_1.csv \
+  --facts data/research/rev6_1/facts_rev6_1.json \
+  --evidence data/research/rev6_1/evidence_rev6_1.json \
+  --report /tmp/rev6_1-report.json
+gzip -dc data/raw/cairo-osm-overpass-2026-11-14-extract2.json.gz > /tmp/cairo-osm-overpass-2026-11-14-extract2.json
+gzip -dc data/raw/cairo-osm-overpass-2026-11-14-roads-full.json.gz > /tmp/cairo-osm-overpass-2026-11-14-roads-full.json
+python3 scripts/ingest-features.py \
+  --osm-json /tmp/cairo-osm-overpass-2026-11-14-extract2.json \
+  --osm-json /tmp/cairo-osm-overpass-2026-11-14-roads-full.json \
+  --osm-source-url https://overpass-api.de/api/interpreter --osm-retrieval-date 2026-11-14
+npm run seed:check
+```
+
+Install `requirements-ingest.txt` before running the Python matcher. `data/research/rev6_1/ADAPTATION_NOTES.md` records the minimal publisher-metadata repair made for EV-231, necessary for adapter validation; no fact values or source URLs were changed.
 
 ### 2. Protected Server-Side Seed Import (`POST /api/admin/import-seed`)
 
@@ -116,7 +135,7 @@ Source policy:
   ```
 - If a GTFS archive is supplied without network fetching, use `--osm-json /path/to/overpass.json` instead of `--fetch-osm`.
 
-The 2026-11-14 owner-supplied Overpass extract is recorded in `data/raw/osm-overpass-2026-11-14.json.gz`; its SHA-256 and the uncompressed input hash are recorded in `data/features/manifest.json`. The current rev5-generated collection contains 1,970 features across 25 entities. `ROAD-NASR` is excluded via `data/features/match-rules.json` and its 73 OSM candidates are reported as ambiguous. `data/features/alias-suggestions.json` is research-only: none of its proposed aliases are applied; only the separately documented Metro source-label aliases are used. Extract coverage is limited to route relations (subway/light_rail/monorail/train), selected railway ways, station/platform/stop nodes, and named motorway/trunk roads; it does not include primary/secondary highways or bus routes. No TfC GTFS or NC data is included. Do not run a real import as part of this phase.
+The owner-supplied Overpass extracts from 2026-11-14 are preserved in `data/raw/` and their hashes are recorded in `data/features/manifest.json`. The current rev6.1-generated collection contains 3,615 features. `ROAD-NASR` remains excluded via `data/features/match-rules.json` and its candidates are reported as ambiguous. `data/features/alias-suggestions.json` is research-only: none of its proposed aliases are applied; only source-provided entity aliases and the separately documented Metro source-label aliases are used. Extract coverage is limited to route relations (subway/light_rail/monorail/train), selected railway ways, station/platform/stop nodes, and named motorway/trunk roads; it does not include primary/secondary highways or bus routes. No TfC GTFS or NC data is included. Production deployments run the configured automatic import; preview builds run a dry-run validator only.
 
 The protected import validates `data/features/features.geojson` and idempotently upserts features by code in the existing transaction. To validate locally without writing to the database, run `npm run db:migrate:dry-run` and `npm run seed:check`. Production deployments automatically import changed, validated seed/features; previews and local builds do not.
 
