@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "entity_rules": {
+    "ROAD-NASR": {
+      "enabled": false,
+      "bbox_wgs84": null,
+      "reason": "Ambiguous OSM name طريق النصر spans multiple distinct roads; owner review required before a boundary can be specified."
+    }
+  }
+}

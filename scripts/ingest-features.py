@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import csv
 import datetime as dt
+import hashlib
 import json
 import re
 import sys
@@ -205,8 +206,9 @@ def overpass_query() -> str:
 
 
 def process_osm(data: dict[str, Any], entities: list[dict[str, str]], date: str,
-                report: dict[str, Any]) -> list[dict[str, Any]]:
+                report: dict[str, Any], rules: dict[str, Any] | None = None) -> list[dict[str, Any]]:
     idx, by_code = matcher(entities, {"road", "transit_line", "transit_stop", "transit_station", "rail_station"})
+    entity_rules = (rules or {}).get("entity_rules", {})
     out: list[dict[str, Any]] = []
     for item in data.get("elements", []):
         tags = item.get("tags", {})
@@ -235,6 +237,22 @@ def process_osm(data: dict[str, Any], entities: list[dict[str, str]], date: str,
         labels = [tags.get(k, "") for k in ("name", "name:ar", "name:en", "ref") if tags.get(k)]
         matches = exact_match(idx, etype, labels)
         ident = f"{item['type']}:{item['id']}"
+        if len(matches) == 1:
+            rule = entity_rules.get(matches[0], {})
+            if rule.get("enabled") is False:
+                add_candidate(report, match_type, ident, " | ".join(labels), "ambiguous", matches,
+                              rule.get("reason", "entity disabled by match rule"))
+                continue
+            rule_bbox = rule.get("bbox_wgs84")
+            if rule_bbox:
+                def inside_rule_bbox(value: Any) -> bool:
+                    if isinstance(value, list) and len(value) >= 2 and all(isinstance(x, (int, float)) for x in value[:2]):
+                        return rule_bbox[0] <= value[0] <= rule_bbox[2] and rule_bbox[1] <= value[1] <= rule_bbox[3]
+                    return all(inside_rule_bbox(child) for child in value) if isinstance(value, list) else True
+                if not inside_rule_bbox(geom.get("coordinates", [])):
+                    add_candidate(report, match_type, ident, " | ".join(labels), "ambiguous", matches,
+                                  "geometry falls outside the entity-specific match-rule bbox")
+                    continue
         if len(matches) != 1:
             add_candidate(report, match_type, ident, " | ".join(labels), "ambiguous" if matches else "unmatched", matches,
                           "OSM names did not identify exactly one compatible existing entity")
@@ -282,6 +300,7 @@ def main():
     parser.add_argument("--gtfs-retrieval-date", help="ISO date the supplied GTFS archive was retrieved")
     parser.add_argument("--gtfs-license", help="Must explicitly be CC-BY-4.0; CC-BY-NC is rejected")
     parser.add_argument("--gtfs-license-evidence-url", help="Exact Transport Data Commons dataset page documenting CC-BY-4.0")
+    parser.add_argument("--match-rules", default=str(OUT / "match-rules.json"), help="Optional per-entity OSM match rules JSON")
     parser.add_argument("--out", default=str(OUT))
     args = parser.parse_args()
     if not (args.fetch_osm or args.osm_json or args.gtfs_zip):
@@ -298,6 +317,8 @@ def main():
     outdir = Path(args.out)
     date = dt.date.today().isoformat()
     entities = load_entities()
+    rules_path = Path(args.match_rules)
+    rules = json.loads(rules_path.read_text(encoding="utf-8")) if rules_path.exists() else {}
     report = new_report()
     features: list[dict[str, Any]] = []
     source_results: list[dict[str, Any]] = []
@@ -305,8 +326,9 @@ def main():
     if args.fetch_osm or args.osm_json:
         try:
             osm = load_osm(args)
-            features.extend(process_osm(osm, entities, osm_date, report))
-            source_results.append({"source": "OpenStreetMap", "url": args.osm_source_url or OVERPASS_URL, "retrieval_date": osm_date, "retrieved_at": dt.datetime.now(dt.timezone.utc).isoformat() if args.fetch_osm else None, "input_file": Path(args.osm_json).name if args.osm_json else None, "license": "ODbL-1.0", "elements_received": len(osm.get("elements", []))})
+            features.extend(process_osm(osm, entities, osm_date, report, rules))
+            input_path = Path(args.osm_json) if args.osm_json else None
+            source_results.append({"source": "OpenStreetMap", "url": args.osm_source_url or OVERPASS_URL, "retrieval_date": osm_date, "retrieved_at": dt.datetime.now(dt.timezone.utc).isoformat() if args.fetch_osm else None, "input_file": input_path.name if input_path else None, "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest() if input_path else None, "license": "ODbL-1.0", "elements_received": len(osm.get("elements", [])), "timestamp_osm_base": osm.get("osm3s", {}).get("timestamp_osm_base")})
         except Exception as exc:
             failures.append({"source": "OpenStreetMap Overpass API", "error": str(exc)})
     if args.gtfs_zip:
@@ -339,8 +361,11 @@ def main():
     report["source_failures"] = failures
     report["bbox_wgs84"] = list(BBOX)
     report["features_written"] = feature_count
+    report["features_by_entity"] = {code: sum(1 for f in features if f["properties"]["entity_code"] == code) for code in sorted({f["properties"]["entity_code"] for f in features})}
     report["retrieval_date"] = date
     (outdir / "match-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    raw_archive = ROOT / "data/raw/osm-overpass-2026-11-14.json.gz"
+    raw_archive_sha256 = hashlib.sha256(raw_archive.read_bytes()).hexdigest() if raw_archive.exists() else None
     manifest = {
         "title": "Greater Cairo Atlas geometry ingestion manifest", "retrieval_date": date,
         "bbox_wgs84": list(BBOX), "feature_count": feature_count,
@@ -350,6 +375,10 @@ def main():
         "matching": "exact Unicode-normalized Arabic/English name or alias, gated by entity_type; no entity creation; unmatched/ambiguous items remain in match-report.json",
         "lifecycle_policy": "Only operational/partial entities are matched from OSM/GTFS. Planned/under-construction geometry requires official_alignment provenance and is not inferred from OSM/GTFS.",
         "geometry_policy": "WGS84 / SRID 4326; geometries must lie wholly within the declared Greater Cairo bbox.",
+        "osm_query_coverage": "Supplied Overpass extract: route relations subway/light_rail/monorail/train; selected railway ways; named motorway/trunk highways only; station/platform/stop nodes. It does not cover primary/secondary highways or bus routes. Extract bbox is [29.2,30.5,30.8,32.1] as south,west,north,east in the submitted query; geometry acceptance bbox is WGS84 [30.5,29.2,32.1,30.8].",
+        "match_rules_file": "match-rules.json",
+        "raw_extract": "data/raw/osm-overpass-2026-11-14.json.gz",
+        "raw_extract_sha256": raw_archive_sha256
     }
     (outdir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"features_written": feature_count, "by_type": report["by_type"], "candidate_entities": report["candidate_entities"], "source_failures": failures}, ensure_ascii=False, indent=2))
