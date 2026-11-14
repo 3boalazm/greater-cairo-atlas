@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { MapPinOff, X } from "lucide-react";
 import { useEffect, useMemo, useRef } from "react";
 import type { AtlasEntityDetail, AtlasEntityFact, AtlasLanguage } from "./atlas-client";
@@ -90,6 +91,7 @@ export function EntityPanel({ entity, loading, error, onClose, language }: {
         {loading && <p className="panel-state" role="status">{ar ? "جارٍ جلب الحقائق والمصادر…" : "Loading facts and evidence…"}</p>}
         {!loading && error && <div className="panel-error" role="alert">{error}</div>}
         {!loading && entity && <>
+          <Link className="entity-profile-link" href={`/entity/${encodeURIComponent(entity.code)}`}>{ar ? "فتح صفحة الكيان الكاملة ←" : "Open full entity page →"}</Link>
           {!entity.has_geometry && <p className="entity-unmapped-note"><MapPinOff aria-hidden="true" />{ar ? "غير مرسوم على الخريطة" : "Not mapped"}</p>}
           {entity.description && <p className="entity-description">{entity.description}</p>}
           <section aria-labelledby="facts-heading">
