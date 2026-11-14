@@ -4,8 +4,8 @@
 
 | النوع | الكيانات | حدود قبل | حدود بعد | بلا حدود بعد |
 |---|---:|---:|---:|---:|
-| `city` | 42 | 6 | 14 | 28 |
-| `district` | 83 | 4 | 7 | 76 |
+| `city` | 42 | 14 | 13 | 29 |
+| `district` | 83 | 7 | 6 | 77 |
 
 - التطبيع: NFKC/casefold; Arabic أ/إ/آ/ٱ→ا, ة→ه, ى→ي; remove حي/قسم/مدينة/منطقة/District/City and generic area words
 - قاعدة القبول: exact normalized canonical/alias match; point covered or <=1km away (search radius <=2km); city 1-800km2, district 0.05-60km2; larger plausible same-name polygon can supersede a block; no guess on ties
@@ -62,10 +62,6 @@
 - النتيجة: مطابق؛ OSM/736218125؛ automatically matched after name, distance, area, and source-priority guards.
 - OSM/way/736218125 (v13): name=مدينه شبين القناطر / name:ar=مدينه شبين القناطر / name:en=Shebin El Qanater City; المسافة 0 م؛ المساحة 10.756 كم²؛ place=neighbourhood, admin_level=—, landuse=—؛ source_kind=`place`. القرار/سبب الاستبعاد إن انطبق: accepted: unique/selected plausible exact-name candidate within point guard.
 
-### `CITY-SHUBRA-ELKHEIMA` — شبرا الخيمة / Shubra El Kheima
-- النتيجة: مطابق؛ OSM/731047816؛ automatically matched after name, distance, area, and source-priority guards.
-- OSM/way/731047816 (v7): name=مدينه شبرا الخيمه / name:ar=مدينه شبرا الخيمه / name:en=Shobra Al Khima City; المسافة 968 م؛ المساحة 1.820 كم²؛ place=neighbourhood, admin_level=—, landuse=residential؛ source_kind=`landuse`. القرار/سبب الاستبعاد إن انطبق: accepted: unique/selected plausible exact-name candidate within point guard.
-
 ### `CITY-TANTA` — طنطا / Tanta
 - النتيجة: مطابق؛ OSM/3603506؛ automatically matched after name, distance, area, and source-priority guards.
 - OSM/relation/3603506 (v15): name=طنطا / name:en=Tanta; المسافة 0 م؛ المساحة 36.832 كم²؛ place=—, admin_level=8, landuse=—؛ source_kind=`administrative`. القرار/سبب الاستبعاد إن انطبق: accepted: unique/selected plausible exact-name candidate within point guard.
@@ -73,10 +69,6 @@
 ### `CITY-TOUKH` — طوخ / Toukh
 - النتيجة: مطابق؛ OSM/732390056؛ automatically matched after name, distance, area, and source-priority guards.
 - OSM/way/732390056 (v20): name=مدينه طوخ / name:ar=مدينه طوخ / name:en=Toukh City; المسافة 0 م؛ المساحة 6.077 كم²؛ place=neighbourhood, admin_level=—, landuse=—؛ source_kind=`place`. القرار/سبب الاستبعاد إن انطبق: accepted: unique/selected plausible exact-name candidate within point guard.
-
-### `DIST-AGOUZA` — العجوزة / Agouza
-- النتيجة: مطابق؛ OSM/723745381؛ automatically matched after name, distance, area, and source-priority guards.
-- OSM/way/723745381 (v6): name=العجوزه / name:ar=العجوزه / name:en=Al Agouza; المسافة 0 م؛ المساحة 0.782 كم²؛ place=neighbourhood, admin_level=—, landuse=—؛ source_kind=`place`. القرار/سبب الاستبعاد إن انطبق: accepted: unique/selected plausible exact-name candidate within point guard.
 
 ### `DIST-BAHTIM` — بهتيم / Bahtim
 - النتيجة: مطابق؛ OSM/741588124؛ automatically matched after name, distance, area, and source-priority guards.
@@ -219,6 +211,10 @@
 - نقطة الكيان: `[31.6295623, 30.1488541]`. الحالة: **unmatched**؛ no exact normalized-name candidate polygon exists in the 07.4 extract.
 - لا توجد مضلعات ذات اسم مطابق بعد التطبيع في ملف 07.4؛ الرفض: لا يوجد مرشح اسمي يمكن اختباره.
 
+### `CITY-SHUBRA-ELKHEIMA` — شبرا الخيمة / Shubra El Kheima
+- نقطة الكيان: `[31.242218, 30.1285988]`. الحالة: **unmatched**؛ no candidate passed every automatic acceptance guard.
+- OSM/way/731047816 (v7): name=مدينه شبرا الخيمه / name:ar=مدينه شبرا الخيمه / name:en=Shobra Al Khima City; المسافة 968 م؛ المساحة 1.820 كم²؛ place=neighbourhood, admin_level=—, landuse=residential؛ source_kind=`landuse`. القرار/سبب الاستبعاد إن انطبق: area 1.820 km² is below entity-specific minimum 10 km²: the city is approximately 30 km²; the sole 1.82 km² place=neighbourhood residential polygon is a small sub-area, not city coverage.
+
 ### `DIST-ABBASSIA` — العباسية / Abbassia
 - نقطة الكيان: — (لا توجد نقطة كيان حالية). الحالة: **unmatched**؛ no exact normalized-name candidate polygon exists in the 07.4 extract.
 - لا توجد مضلعات ذات اسم مطابق بعد التطبيع في ملف 07.4؛ الرفض: لا يوجد مرشح اسمي يمكن اختباره.
@@ -234,6 +230,10 @@
 ### `DIST-ABU-ZAABAL` — أبو زعبل / Abu Zaabal
 - نقطة الكيان: — (لا توجد نقطة كيان حالية). الحالة: **unmatched**؛ no exact normalized-name candidate polygon exists in the 07.4 extract.
 - لا توجد مضلعات ذات اسم مطابق بعد التطبيع في ملف 07.4؛ الرفض: لا يوجد مرشح اسمي يمكن اختباره.
+
+### `DIST-AGOUZA` — العجوزة / Agouza
+- نقطة الكيان: `[31.2127281, 30.0549435]`. الحالة: **unmatched**؛ no candidate passed every automatic acceptance guard.
+- OSM/way/723745381 (v6): name=العجوزه / name:ar=العجوزه / name:en=Al Agouza; المسافة 0 م؛ المساحة 0.782 كم²؛ place=neighbourhood, admin_level=—, landuse=—؛ source_kind=`place`. القرار/سبب الاستبعاد إن انطبق: area 0.782 km² is below entity-specific minimum 2 km²: the sole 0.782 km² place=neighbourhood polygon is a locality-scale sub-area, not the full district; no larger named admin polygon is in the checked extracts.
 
 ### `DIST-AIN-SHAMS` — عين شمس / Ain Shams
 - نقطة الكيان: `[31.3167491, 30.1304761]`. الحالة: **unmatched**؛ no exact normalized-name candidate polygon exists in the 07.4 extract.

@@ -105,9 +105,9 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
     expect(payload.dryRun).toBe(true);
     expect(payload.summary).toEqual({
       entitiesCount: 342,
-      evidenceCount: 324,
-      factsCount: 1348,
-      factEvidenceLinksCount: 1460,
+      evidenceCount: 350,
+      factsCount: 1391,
+      factEvidenceLinksCount: 1505,
       featuresCount: 2863,
       importSync: {
         featuresDeletedCount: null,
@@ -118,18 +118,11 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
         databasePreviewAvailable: false,
       },
     });
-    expect(payload.report.evidenceMissingUrlCount).toBe(74);
-    expect(payload.report.unresolvedOfficialEvidenceCount).toBe(2);
-    expect(payload.report.unresolvedOfficialEvidenceCodes).toEqual([
-      "EV-045",
-      "EV-046",
-    ]);
-    expect(payload.report.warnings).toHaveLength(74);
-    expect(
-      payload.report.warnings
-        .filter((warning: { code: string }) => warning.code === "OFFICIAL_SOURCE_MISSING_URL")
-        .map((warning: { path: string }) => warning.path.match(/EV-\d+/)?.[0]),
-    ).toEqual(["EV-045", "EV-046"]);
+    expect(payload.report.evidenceMissingUrlCount).toBe(71);
+    expect(payload.report.unresolvedOfficialEvidenceCount).toBe(0);
+    expect(payload.report.unresolvedOfficialEvidenceCodes).toEqual([]);
+    expect(payload.report.warnings).toHaveLength(71);
+    expect(payload.report.warnings.filter((warning: { code: string }) => warning.code === "OFFICIAL_SOURCE_MISSING_URL")).toEqual([]);
     expect(payload.report.breakdowns.entitiesBySector.REGIONAL).toBe(28);
     expect(payload.report.breakdowns.factsByVerificationState.verified).toBe(331);
     expect(JSON.stringify(payload)).not.toContain(validToken);

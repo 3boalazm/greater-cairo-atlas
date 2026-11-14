@@ -136,6 +136,18 @@ class AreaBoundaryIngestionTests(unittest.TestCase):
         self.assertEqual(metadata["display_label_ar"], "حدود محافظة القاهرة")
         self.assertEqual(metadata["source_kind"], "administrative")
 
+    def test_rejects_candidate_below_entity_specific_minimum_area_as_sub_area(self):
+        element = {**self.fixture["elements"][0], "id": 123463,
+                   "tags": {"place": "neighbourhood", "name": "Test District", "name:ar": "حي الاختبار"}}
+        rules = {"area_entity_rules": {"DIST-TEST": {
+            "minimum_area_km2": 5.0,
+            "minimum_area_reason": "test district geometry is only a locality-sized sub-area",
+        }}}
+        features, audit = process_osm_boundaries({"elements": [element]}, [self.entity], "2026-11-14", rules,
+                                                  self.point_features)
+        self.assertEqual(features, [])
+        self.assertIn("below_entity_minimum_5km2", audit["audit"][0]["rejections"]["DIST-TEST"])
+
     def test_rejects_bab_shaaria_neighbourhood_block_as_qism_boundary(self):
         element = self.fixture["elements"][0]
         small_geometry = [

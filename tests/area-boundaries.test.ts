@@ -51,11 +51,22 @@ describe("OSM area boundary provenance and matching", () => {
     const collection = JSON.parse(await readFile(path.join(process.cwd(), "data/features/boundaries.geojson"), "utf8")) as {
       features: Array<{ properties: { entity_code: string; osm_id: number; properties: Record<string, unknown> } }>;
     };
-    expect(collection.features).toHaveLength(21);
+    expect(collection.features).toHaveLength(19);
     const cairo = collection.features.find((feature) => feature.properties.entity_code === "CITY-CAIRO");
     expect(cairo).toMatchObject({ properties: { osm_id: 4103336, properties: { display_label_ar: "حدود محافظة القاهرة", source_kind: "administrative" } } });
     expect(collection.features.some((feature) => feature.properties.entity_code === "DIST-BAB-SHAREYA")).toBe(false);
+    expect(collection.features.some((feature) => feature.properties.entity_code === "CITY-SHUBRA-ELKHEIMA")).toBe(false);
+    expect(collection.features.some((feature) => feature.properties.entity_code === "DIST-AGOUZA")).toBe(false);
     expect(collection.features.some((feature) => feature.properties.properties.source_kind === "landuse")).toBe(true);
+    const report = JSON.parse(await readFile(path.join(process.cwd(), "data/features/match-report.json"), "utf8")) as {
+      boundary_candidate_review: { entities: Record<string, { status: string; top_candidates: Array<{ osm_id: number; decision: string }> }> };
+    };
+    expect(report.boundary_candidate_review.entities["CITY-SHUBRA-ELKHEIMA"]).toMatchObject({
+      status: "unmatched", top_candidates: [expect.objectContaining({ osm_id: 731047816, decision: expect.stringContaining("below entity-specific minimum 10 km²") })],
+    });
+    expect(report.boundary_candidate_review.entities["DIST-AGOUZA"]).toMatchObject({
+      status: "unmatched", top_candidates: [expect.objectContaining({ osm_id: 723745381, decision: expect.stringContaining("below entity-specific minimum 2 km²") })],
+    });
   });
 
   it("rejects point-only, wrong-name, unsupported-admin-level, and out-of-bounds candidates", async () => {

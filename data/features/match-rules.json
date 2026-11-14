@@ -414,5 +414,15 @@
       ],
       "reason": "Exact source spelling on the OSM bus station; transliteration variant of seeded El Moshir Tantawy."
     }
+  },
+  "area_entity_rules": {
+    "CITY-SHUBRA-ELKHEIMA": {
+      "minimum_area_km2": 10.0,
+      "minimum_area_reason": "the city is approximately 30 km²; the sole 1.82 km² place=neighbourhood residential polygon is a small sub-area, not city coverage"
+    },
+    "DIST-AGOUZA": {
+      "minimum_area_km2": 2.0,
+      "minimum_area_reason": "the sole 0.782 km² place=neighbourhood polygon is a locality-scale sub-area, not the full district; no larger named admin polygon is in the checked extracts"
+    }
   }
 }
