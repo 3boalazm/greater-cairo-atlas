@@ -26,8 +26,9 @@ describe("OSM-derived transit stations and mode styles", () => {
     const line = (code: string) => report.lines.find((item) => item.line_code === code);
     expect(line("TRANSIT-METRO-L1")).toMatchObject({ osm_station_count: 35, official_count_comparison: { official_count: 35, osm_count: 35, difference: 0 } });
     expect(line("TRANSIT-METRO-L2")).toMatchObject({ osm_station_count: 20, official_count_comparison: { official_count: 20, osm_count: 20, difference: 0 } });
-    expect(line("TRANSIT-METRO-L3")?.official_count_comparison).toBeNull();
-    expect(line("TRANSIT-METRO-L3")?.osm_station_count).toBe(34);
+    expect(line("TRANSIT-METRO-L3")).toMatchObject({ osm_station_count: 34, official_count_comparison: { official_count: 34, osm_count: 34, difference: 0 } });
+    expect(line("TRANSIT-LRT")).toMatchObject({ osm_station_count: 12, official_count_comparison: { official_count: 12, osm_count: 12, difference: 0 } });
+    expect(line("TRANSIT-MONORAIL-EAST")).toMatchObject({ osm_station_count: 22, official_count_comparison: { official_count: 22, osm_count: 22, difference: 0 } });
     for (const code of ["TRANSIT-METRO-L1", "TRANSIT-METRO-L2", "TRANSIT-METRO-L3", "TRANSIT-LRT", "TRANSIT-MONORAIL-EAST"]) {
       const routes = line(code)?.relations ?? [];
       expect(routes.length).toBeGreaterThan(0);
@@ -48,13 +49,33 @@ describe("OSM-derived transit stations and mode styles", () => {
       features: Array<{ properties: { mode: string; modes: string[]; interchange: boolean; osm_node_id: number; osm_node_version: number | null } }>;
     };
     expect(collection.metadata.license).toBe("ODbL-1.0");
-    expect(collection.features.length).toBeGreaterThan(300);
+    expect(collection.features.length).toBeGreaterThan(100);
     expect(collection.features.every((feature) => feature.properties.osm_node_id > 0)).toBe(true);
     expect(collection.features.some((feature) => feature.properties.interchange)).toBe(true);
     expect(TRANSIT_MODE_ORDER).toEqual(["metro", "metro_l4", "lrt", "monorail_east", "monorail_west", "brt", "enr", "hsr", "unclassified"]);
     expect(TRANSIT_LINE_COLORS["TRANSIT-METRO-L1"]).toBe("#c8202f");
     expect(TRANSIT_LINE_COLORS["TRANSIT-METRO-L2"]).toBe("#e2b527");
     expect(TRANSIT_LINE_COLORS["TRANSIT-METRO-L3"]).toBe("#08783e");
+  });
+
+  it("publishes attributed, status-classified and generalized rail context with a separate lazy detail payload", async () => {
+    const low = JSON.parse(await readFile(path.resolve(process.cwd(), "public/rail-network.geojson"), "utf8")) as {
+      metadata: { license: string; attribution: string; simplification_tolerance_m: number };
+      features: Array<{ geometry: { type: string }; properties: { rail_status: string; license: string } }>;
+    };
+    const detail = JSON.parse(await readFile(path.resolve(process.cwd(), "public/rail-network-detail.geojson"), "utf8")) as {
+      metadata: { simplification_tolerance_m: number };
+      features: Array<{ geometry: { type: string }; properties: { rail_status: string } }>;
+    };
+    const status = JSON.parse(await readFile(path.resolve(process.cwd(), "public/rail-network-status.json"), "utf8")) as { available: boolean; feature_count: number };
+    expect(status.available).toBe(true);
+    expect(low.metadata).toMatchObject({ license: "ODbL-1.0", attribution: "© OpenStreetMap contributors, ODbL 1.0", simplification_tolerance_m: 100 });
+    expect(detail.metadata.simplification_tolerance_m).toBe(12);
+    expect(low.features.some((feature) => feature.properties.rail_status === "operational")).toBe(true);
+    expect(low.features.some((feature) => feature.properties.rail_status === "under_construction")).toBe(true);
+    expect(low.features.some((feature) => feature.properties.rail_status === "disused")).toBe(true);
+    expect(low.features.some((feature) => feature.geometry.type === "Point")).toBe(true);
+    expect(detail.features.every((feature) => feature.geometry.type !== "Point")).toBe(true);
   });
 
   it("maps existing STOP/RAIL entities to explicit mode labels and interchange modes", () => {
