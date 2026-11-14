@@ -119,6 +119,8 @@ export async function getExportMetadata(root = process.cwd()): Promise<{
   licenses: {
     geometry: string;
     research_data: string;
+    code: string;
+    contact: string;
     basemap: string;
   };
 }> {
@@ -147,7 +149,9 @@ export async function getExportMetadata(root = process.cwd()): Promise<{
     },
     licenses: {
       geometry: "© OpenStreetMap contributors, ODbL 1.0. Derived geometry exports must retain this ODbL attribution notice.",
-      research_data: "No blanket dataset license for facts/evidence is specified in the repository; owner decision required before redistribution under a license.",
+      research_data: "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0",
+      code: "No code license has been specified by the owner; code licensing remains for the owner to decide.",
+      contact: "01092500454 · 3boalazm@gmail.com",
       basemap: "OpenFreeMap basemap; see https://openfreemap.org/ for its terms and attribution.",
     },
   };

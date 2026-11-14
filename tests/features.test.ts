@@ -84,6 +84,53 @@ describe("feature ingestion validation and GeoJSON API", () => {
     expect(statements.at(-1)).toBe("COMMIT");
   });
 
+  it("full-syncs stale features and fact-evidence links atomically without deleting seed records", async () => {
+    const featureRows = await loadAndValidateFeatureCollection(await featureFile([geojsonFeature()]), [roadEntity]);
+    const statements: string[] = [];
+    let inTransaction = false;
+    const session: SeedDbSession = {
+      async connect() {},
+      async query<Row = Record<string, unknown>>(text: string) {
+        const sql = text.trim();
+        statements.push(sql);
+        if (sql === "BEGIN") inTransaction = true;
+        if (sql === "COMMIT") inTransaction = false;
+        if (sql.startsWith("SELECT COUNT(*)::int AS count FROM features")) return { rows: [{ count: 2 }] as unknown as Row[] };
+        if (sql.startsWith("SELECT COUNT(*)::int AS count FROM entities")) return { rows: [{ count: 1 }] as unknown as Row[] };
+        if (sql.startsWith("SELECT COUNT(*)::int AS count FROM facts")) return { rows: [{ count: 3 }] as unknown as Row[] };
+        if (sql.startsWith("SELECT COUNT(*)::int AS count FROM evidence")) return { rows: [{ count: 2 }] as unknown as Row[] };
+        if (sql.startsWith("SELECT COUNT(*)::int AS count")) return { rows: [{ count: 1 }] as unknown as Row[] };
+        if (sql.startsWith("INSERT INTO entities")) return { rows: [{ id: "entity-current", code: roadEntity.code }] as unknown as Row[] };
+        if (sql.startsWith("DELETE FROM fact_evidence fe")) {
+          expect(inTransaction).toBe(true);
+          return { rows: [{ fact_id: "stale-fact", evidence_id: "stale-evidence" }, { fact_id: "other-fact", evidence_id: "other-evidence" }] as unknown as Row[] };
+        }
+        if (sql.startsWith("DELETE FROM features")) {
+          expect(inTransaction).toBe(true);
+          return { rows: [{ code: "OSM-WAY-OLD-1" }, { code: "OSM-WAY-OLD-2" }] as unknown as Row[] } as unknown as { rows: Row[] };
+        }
+        return { rows: [] };
+      },
+      async end() {},
+    };
+    const result = await upsertValidatedSeedBundle(
+      { entities: [roadEntity], evidence: [], facts: [] },
+      () => session,
+      featureRows,
+    );
+    expect(result.importSync).toEqual({
+      featuresDeletedCount: 2,
+      factEvidenceLinksDeletedCount: 2,
+      entitiesNotInSeedCount: 1,
+      factsNotInSeedCount: 3,
+      evidenceNotInSeedCount: 2,
+      databasePreviewAvailable: true,
+    });
+    expect(statements.at(-1)).toBe("COMMIT");
+    expect(statements.some((sql) => sql.startsWith("DELETE FROM entities") || sql.startsWith("DELETE FROM facts") || sql.startsWith("DELETE FROM evidence"))).toBe(false);
+    expect(statements.findIndex((sql) => sql.startsWith("DELETE FROM features"))).toBeGreaterThan(statements.indexOf("BEGIN"));
+  });
+
   it("commits the automatic import checksum atomically and skips unchanged datasets", async () => {
     let currentChecksum: string | null = null;
     const checksum = "a".repeat(64);
@@ -130,6 +177,11 @@ describe("feature ingestion validation and GeoJSON API", () => {
       }];
     });
     expect(collection.type).toBe("FeatureCollection");
+    expect(collection.metadata).toEqual({
+      data_license: "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0",
+      geometry_license: "© OpenStreetMap contributors, ODbL 1.0",
+      contact: "01092500454 · 3boalazm@gmail.com",
+    });
     expect(collection.features[0]).toMatchObject({
       type: "Feature", id: "OSM-WAY-100",
       properties: { entity_code: roadEntity.code, type: "road", status: "operational", license: "ODbL-1.0", attribution: "© OpenStreetMap contributors, ODbL 1.0" },

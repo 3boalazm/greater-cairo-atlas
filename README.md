@@ -13,7 +13,7 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 
 ## Current Phase
 
-**Phase 05.3 — Revision 5 Data, Automatic Production Import & Map Polish** (see [`PROJECT_STATE.md`](./PROJECT_STATE.md) for the full phase roadmap and architectural decisions).
+**Phase 07 — Final polish, data licensing, full-sync imports & QA** (see [`PROJECT_STATE.md`](./PROJECT_STATE.md) for completed phases and known limitations).
 
 ## Core Database Schema (`000` + `001` + `002` + `003` + `004` + `005`)
 
@@ -83,7 +83,7 @@ python3 scripts/ingest-features.py --osm-json /tmp/cairo-osm-overpass-2026-11-14
   --osm-source-url https://overpass-api.de/api/interpreter --osm-retrieval-date 2026-11-14
 ```
 
-That historical revision 5 OSM re-match produced 1,970 ODbL features across 25 entities. The current rev6.1 source bundle produces 3,615 features; the detailed per-entity before/after counts and unmatched candidates are in `data/features/match-report.json`.
+That historical revision 5 OSM re-match produced 1,970 ODbL features across 25 entities. A later rev6.1 matching snapshot produced 3,615 candidates; the checked-in, validated Phase 07 source collection is now **2,305 features** after subsequent review/reconciliation. Historical per-entity counts and unmatched candidates remain in `data/features/match-report.json`.
 
 To reproduce the rev6.1 seed adaptation and OSM rematch using the preserved source extracts:
 
@@ -135,7 +135,7 @@ Source policy:
   ```
 - If a GTFS archive is supplied without network fetching, use `--osm-json /path/to/overpass.json` instead of `--fetch-osm`.
 
-The owner-supplied Overpass extracts from 2026-11-14 are preserved in `data/raw/` and their hashes are recorded in `data/features/manifest.json`. The current rev6.1-generated collection contains 3,615 features. `ROAD-NASR` remains excluded via `data/features/match-rules.json` and its candidates are reported as ambiguous. `data/features/alias-suggestions.json` is research-only: none of its proposed aliases are applied; only source-provided entity aliases and the separately documented Metro source-label aliases are used. Extract coverage is limited to route relations (subway/light_rail/monorail/train), selected railway ways, station/platform/stop nodes, and named motorway/trunk roads; it does not include primary/secondary highways or bus routes. No TfC GTFS or NC data is included. Production deployments run the configured automatic import; preview builds run a dry-run validator only.
+The owner-supplied Overpass extracts from 2026-11-14 are preserved in `data/raw/` and their hashes are recorded in `data/features/manifest.json`. The historical rev6.1 matching run contained 3,615 candidates; the current checked-in, validated collection contains 2,305 features. `ROAD-NASR` remains excluded via `data/features/match-rules.json` and its candidates are reported as ambiguous. `data/features/alias-suggestions.json` is research-only: none of its proposed aliases are applied; only source-provided entity aliases and the separately documented Metro source-label aliases are used. Extract coverage is limited to route relations (subway/light_rail/monorail/train), selected railway ways, station/platform/stop nodes, and named motorway/trunk roads; it does not include primary/secondary highways or bus routes. No TfC GTFS or NC data is included. Production deployments run the configured automatic import; preview builds run a dry-run validator only.
 
 The protected import validates `data/features/features.geojson` and idempotently upserts features by code in the existing transaction. To validate locally without writing to the database, run `npm run db:migrate:dry-run` and `npm run seed:check`. Production deployments automatically import changed, validated seed/features; previews and local builds do not.
 
@@ -163,3 +163,19 @@ npm run db:migrate:dry-run  # Offline SQL migration verification (000–005)
 npm run seed:check          # Offline canonical seed bundle validation
 npm run build               # DB-free production Next.js build
 ```
+
+## Phase 07 — Final reconciliation, attribution & release QA
+
+### Data import reconciliation
+
+Production import reconciles `features` and the full `fact_evidence` relationship set inside the same transaction as the seed upserts and checksum record. Stale feature geometry and stale fact/evidence links are deleted; legacy entities, facts, and evidence not present in the current source seed are counted and reported, not automatically deleted. The dataset key was bumped for a one-time reconciliation even when the source checksum has not changed. `npm run seed:check` prints read-only deletion/retention counts when a database preview connection is configured; without one it clearly reports the counts as unavailable. The current checked-in feature source contains **2,305** features; that is the expected live total after the next successful production deployment/import (not a claim that the live database has already reconciled).
+
+### Data and code licenses
+
+Facts, evidence, and all data not derived from OSM carry `© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0`; contact `01092500454 · 3boalazm@gmail.com`. OSM-derived geometry carries `© OpenStreetMap contributors, ODbL 1.0`. CSV downloads include a license/contact comment header; JSON and GeoJSON include license metadata and per-feature source attribution. `/data`, the site footer, and [`DATA_LICENSE.md`](./DATA_LICENSE.md) reproduce these notices. The code has no owner-designated license and is not relicensed by the data license; ask the owner before reusing code.
+
+### Revisioned data pipeline
+
+Research revision inputs and adaptation notes remain under `data/research/`. To update data, preserve a new revision and source changelog there, run `npm run seed:adapt` against the chosen revision/source files, regenerate OSM features only from licensed source extracts with `scripts/ingest-features.py`, inspect the adapter and feature reports, then run `npm run seed:check` and the full checks below. Do not edit generated canonical seed/features without recording how to reproduce them. Vercel previews validate without writes; production performs the transactional checksum-gated reconciliation after migrations.
+
+Known data limitations are documented in [`PROJECT_STATE.md`](./PROJECT_STATE.md): **47 unknown statuses**, **21 remaining road-network gaps**, and unresolved official evidence records **EV-045/EV-046**.

@@ -11,6 +11,7 @@ export function SiteHeader({ language = "ar" }: { language?: SiteLanguage }) {
   const text = labels[language];
   const other = language === "ar" ? "en" : "ar";
   return <header className="site-header">
+    <a className="skip-link" href="#main-content">{language === "ar" ? "تجاوز إلى المحتوى" : "Skip to content"}</a>
     <Link className="site-brand" href="/">{text.atlas}</Link>
     <nav aria-label={language === "ar" ? "التنقل الرئيسي" : "Main navigation"}>
       <Link href="/">{text.home}</Link>
@@ -26,6 +27,7 @@ export function SiteFooter({ language = "ar" }: { language?: SiteLanguage }) {
   const text = labels[language];
   return <footer className="site-footer">
     <span>{language === "ar" ? "أطلس موثّق · لا تخمين للحالة أو الهندسة" : "Evidence-led atlas · no inferred status or geometry"}</span>
+    <span>{language === "ar" ? "البيانات © مصطفى أبوالعزم · CC BY 4.0 | هندسة OSM · ODbL 1.0" : "Data © Mustafa Aboalazm · CC BY 4.0 | OSM geometry · ODbL 1.0"}</span>
     <nav aria-label={language === "ar" ? "روابط معلوماتية" : "Information links"}>
       <Link href={`/data?lang=${language}`}>{text.data}</Link>
       <Link href={`/methodology?lang=${language}`}>{text.methodology}</Link>

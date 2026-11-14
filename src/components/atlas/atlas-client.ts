@@ -76,6 +76,7 @@ export interface AtlasFeature {
 
 export interface AtlasFeatureCollection {
   type: "FeatureCollection";
+  metadata: { data_license: string; geometry_license: string; contact: string };
   features: AtlasFeature[];
 }
 

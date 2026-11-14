@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CSV_HEADERS, csvForTable } from "@/lib/atlas/export-api";
+import { CSV_HEADERS, csvForTable, exportResponseHeaders } from "@/lib/atlas/export-api";
 import { computeAtlasDatasetChecksum } from "@/lib/db/automatic-import";
 import { getExportMetadata, getStaticAtlasDataset, joinedFeatureCollection, getStaticEntityPageData } from "@/lib/atlas/static-dataset";
 
@@ -16,8 +16,19 @@ describe("atlas data exports", () => {
       features: dataset.features.length,
     });
     await expect(metadata.import_checksum).toBe(await computeAtlasDatasetChecksum(root));
+    expect(metadata.licenses.research_data).toBe("© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0");
+    expect(metadata.licenses.geometry).toContain("© OpenStreetMap contributors, ODbL 1.0");
+    expect(metadata.licenses.contact).toBe("01092500454 · 3boalazm@gmail.com");
+    expect(metadata.licenses.code).toContain("No code license has been specified");
+    const headers = new Headers(exportResponseHeaders(metadata, "application/json; charset=utf-8"));
+    expect(headers.get("X-Atlas-Research-Data-License")).toBe("CC BY 4.0");
+    expect(headers.get("X-Atlas-Research-Data-Copyright")).toBe("Mustafa Aboalazm");
+    expect(headers.get("Cache-Control")).toBe("public, s-maxage=3600, stale-while-revalidate=86400");
     for (const table of ["entities", "facts", "evidence", "fact_evidence"] as const) {
-      expect(csvForTable(dataset, table).split("\r\n", 1)[0]).toBe(CSV_HEADERS[table].join(","));
+      const lines = csvForTable(dataset, table).split("\r\n");
+      expect(lines[0]).toContain("© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0");
+      expect(lines[1]).toContain("Contact: 01092500454 · 3boalazm@gmail.com");
+      expect(lines[2]).toBe(CSV_HEADERS[table].join(","));
     }
   });
 
@@ -26,6 +37,8 @@ describe("atlas data exports", () => {
     const collection = joinedFeatureCollection(dataset, metadata);
     expect(collection.type).toBe("FeatureCollection");
     expect(collection.features).toHaveLength(metadata.counts.features);
+    expect(collection.metadata.licenses.research_data).toBe(metadata.licenses.research_data);
+    expect(collection.metadata.licenses.geometry).toBe(metadata.licenses.geometry);
     expect(() => JSON.stringify(collection)).not.toThrow();
     for (const feature of collection.features) {
       expect(feature.type).toBe("Feature");

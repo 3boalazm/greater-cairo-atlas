@@ -69,6 +69,15 @@ export interface SeedBundleWarning {
   message: string;
 }
 
+export interface ImportSyncReport {
+  featuresDeletedCount: number | null;
+  factEvidenceLinksDeletedCount: number | null;
+  entitiesNotInSeedCount: number | null;
+  factsNotInSeedCount: number | null;
+  evidenceNotInSeedCount: number | null;
+  databasePreviewAvailable: boolean;
+}
+
 export interface SeedBundleReport {
   entitiesCount: number;
   entitiesWithAliasesCount: number;
@@ -87,6 +96,7 @@ export interface SeedBundleReport {
     factsByDatePrecision: Record<DatePrecision | "null", number>;
   };
   warnings: SeedBundleWarning[];
+  importSync?: ImportSyncReport;
 }
 
 export interface SeedDbSession {
@@ -119,6 +129,7 @@ export interface SeedImportSummary {
   factsCount: number;
   factEvidenceLinksCount: number;
   featuresCount: number;
+  importSync: ImportSyncReport;
   importSkipped?: boolean;
   report: SeedBundleReport;
 }
@@ -755,22 +766,83 @@ const defaultSessionFactory = (): SeedDbSession => {
   };
 };
 
+async function getImportSyncPreview(
+  bundle: ValidatedSeedBundle,
+  features: readonly FeatureSeed[],
+  sessionFactory: () => SeedDbSession,
+  syncFeatures: boolean,
+): Promise<ImportSyncReport> {
+  const session = sessionFactory();
+  await session.connect();
+  try {
+    await session.query("BEGIN READ ONLY");
+    const report = await readImportSyncCounts(session, bundle, features, syncFeatures);
+    await session.query("COMMIT");
+    return { ...report, databasePreviewAvailable: true };
+  } catch (error) {
+    await session.query("ROLLBACK").catch(() => undefined);
+    throw error;
+  } finally {
+    await session.end().catch(() => undefined);
+  }
+}
+
+async function readImportSyncCounts(
+  session: SeedDbSession,
+  bundle: ValidatedSeedBundle,
+  features: readonly FeatureSeed[],
+  syncFeatures: boolean,
+): Promise<Omit<ImportSyncReport, "databasePreviewAvailable">> {
+  const count = async (table: "entities" | "facts" | "evidence" | "features", codes: readonly string[]) => {
+    const result = await session.query<{ count: number | string }>(
+      `SELECT COUNT(*)::int AS count FROM ${table} WHERE NOT (code = ANY($1::text[]))`,
+      [codes],
+    );
+    return Number(result.rows[0]?.count ?? 0);
+  };
+  const factCodes = bundle.facts.map((fact) => fact.code);
+  const evidenceCodes = bundle.evidence.map((item) => item.code);
+  const factPairCodes = bundle.facts.flatMap((fact) => fact.evidence_codes.map((evidenceCode) => [fact.code, evidenceCode]));
+  const pairFactCodes = factPairCodes.map(([factCode]) => factCode);
+  const pairEvidenceCodes = factPairCodes.map(([, evidenceCode]) => evidenceCode);
+  const linkCount = await session.query<{ count: number | string }>(
+    `SELECT COUNT(*)::int AS count
+     FROM fact_evidence fe
+     JOIN facts f ON f.id = fe.fact_id
+     JOIN evidence e ON e.id = fe.evidence_id
+     WHERE NOT EXISTS (
+       SELECT 1 FROM unnest($1::text[], $2::text[]) AS desired(fact_code, evidence_code)
+       WHERE desired.fact_code = f.code AND desired.evidence_code = e.code
+     )`,
+    [pairFactCodes, pairEvidenceCodes],
+  );
+  return {
+    featuresDeletedCount: syncFeatures ? await count("features", features.map((feature) => feature.code)) : null,
+    factEvidenceLinksDeletedCount: Number(linkCount.rows[0]?.count ?? 0),
+    entitiesNotInSeedCount: await count("entities", bundle.entities.map((item) => item.code)),
+    factsNotInSeedCount: await count("facts", factCodes),
+    evidenceNotInSeedCount: await count("evidence", evidenceCodes),
+  };
+}
+
 /**
- * Upserts a validated seed bundle idempotently by `code` within a single
- * PostgreSQL transaction, preserving side-by-side conflicting facts and
- * synchronizing many-to-many `fact_evidence` links.
+ * Upserts a validated seed bundle idempotently by `code` within one PostgreSQL
+ * transaction. Features and fact/evidence associations are fully synchronized;
+ * stale entities, facts and evidence are reported but never deleted.
  */
 export async function upsertValidatedSeedBundle(
   bundle: ValidatedSeedBundle,
   sessionFactory: () => SeedDbSession = defaultSessionFactory,
   features: readonly FeatureSeed[] = [],
   importRun?: ImportRunChecksum,
+  syncFeatures = true,
 ): Promise<{
   entitiesCount: number;
   evidenceCount: number;
   factsCount: number;
   factEvidenceLinksCount: number;
   featuresCount: number;
+  importSync: ImportSyncReport;
   importSkipped?: boolean;
 }> {
   const session = sessionFactory();
@@ -778,6 +850,7 @@ export async function upsertValidatedSeedBundle(
 
   try {
     await session.query("BEGIN");
+    const importSyncCounts = await readImportSyncCounts(session, bundle, features, syncFeatures);
 
     if (importRun) {
       if (!/^[a-z0-9_-]{1,80}$/.test(importRun.datasetKey)) {
@@ -791,7 +864,11 @@ export async function upsertValidatedSeedBundle(
         "SELECT checksum FROM import_runs WHERE dataset_key = $1 FOR UPDATE",
         [importRun.datasetKey],
       );
-      if (previous.rows[0]?.checksum === importRun.checksum) {
+      if (
+        previous.rows[0]?.checksum === importRun.checksum &&
+        importSyncCounts.featuresDeletedCount === 0 &&
+        importSyncCounts.factEvidenceLinksDeletedCount === 0
+      ) {
         await session.query("COMMIT");
         return {
           entitiesCount: bundle.entities.length,
@@ -799,6 +876,7 @@ export async function upsertValidatedSeedBundle(
           factsCount: bundle.facts.length,
           factEvidenceLinksCount: bundle.facts.reduce((count, fact) => count + fact.evidence_codes.length, 0),
           featuresCount: features.length,
+          importSync: { ...importSyncCounts, databasePreviewAvailable: true },
           importSkipped: true,
         };
       }
@@ -875,6 +953,7 @@ export async function upsertValidatedSeedBundle(
     }
 
     let factEvidenceLinksCount = 0;
+    let factEvidenceLinksDeletedCount = 0;
 
     for (const fact of bundle.facts) {
       const entityId = entityIdByCode.get(fact.entity_code);
@@ -928,10 +1007,11 @@ export async function upsertValidatedSeedBundle(
         resolvedEvidenceIds.push(evId);
       }
 
-      await session.query(
-        `DELETE FROM fact_evidence WHERE fact_id = $1 AND NOT (evidence_id = ANY($2::uuid[]))`,
+      const obsoleteFactLinks = await session.query<{ fact_id: string; evidence_id: string }>(
+        `DELETE FROM fact_evidence WHERE fact_id = $1 AND NOT (evidence_id = ANY($2::uuid[])) RETURNING fact_id, evidence_id`,
         [factRow.id, resolvedEvidenceIds],
       );
+      factEvidenceLinksDeletedCount += obsoleteFactLinks.rows.length;
 
       for (const evId of resolvedEvidenceIds) {
         await session.query(
@@ -944,6 +1024,31 @@ export async function upsertValidatedSeedBundle(
         );
         factEvidenceLinksCount++;
       }
+    }
+
+    const seedFactCodes = bundle.facts.flatMap((fact) => fact.evidence_codes.map(() => fact.code));
+    const seedEvidenceCodes = bundle.facts.flatMap((fact) => fact.evidence_codes);
+    const orphanFactEvidenceLinks = await session.query<{ fact_id: string; evidence_id: string }>(
+      `DELETE FROM fact_evidence fe
+       WHERE NOT EXISTS (
+         SELECT 1 FROM facts f
+         JOIN evidence e ON e.id = fe.evidence_id
+         JOIN unnest($1::text[], $2::text[]) AS desired(fact_code, evidence_code)
+           ON desired.fact_code = f.code AND desired.evidence_code = e.code
+         WHERE f.id = fe.fact_id
+       )
+       RETURNING fe.fact_id, fe.evidence_id`,
+      [seedFactCodes, seedEvidenceCodes],
+    );
+    factEvidenceLinksDeletedCount += orphanFactEvidenceLinks.rows.length;
+
+    let featuresDeletedCount = 0;
+    if (syncFeatures) {
+      const staleFeatures = await session.query<{ code: string }>(
+        `DELETE FROM features WHERE NOT (code = ANY($1::text[])) RETURNING code`,
+        [features.map((feature) => feature.code)],
+      );
+      featuresDeletedCount = staleFeatures.rows.length;
     }
 
     for (const feature of features) {
@@ -1002,6 +1107,14 @@ export async function upsertValidatedSeedBundle(
       factsCount: bundle.facts.length,
       factEvidenceLinksCount,
       featuresCount: features.length,
+      importSync: {
+        featuresDeletedCount: syncFeatures ? featuresDeletedCount : null,
+        factEvidenceLinksDeletedCount,
+        entitiesNotInSeedCount: importSyncCounts.entitiesNotInSeedCount,
+        factsNotInSeedCount: importSyncCounts.factsNotInSeedCount,
+        evidenceNotInSeedCount: importSyncCounts.evidenceNotInSeedCount,
+        databasePreviewAvailable: true,
+      },
       ...(importRun ? { importSkipped: false } : {}),
     };
   } catch (error) {
@@ -1024,9 +1137,23 @@ export async function runSeedImport(
   const features = featurePath
     ? await loadAndValidateFeatureCollection(featurePath, bundle.entities, bundle.evidence)
     : [];
+  const syncFeatures = Boolean(featurePath);
   const report = summarizeValidatedSeedBundle(bundle);
 
   if (dryRun) {
+    const hasDatabaseConfig = Boolean(process.env.DATABASE_URL?.trim() || process.env.DATABASE_URL_UNPOOLED?.trim());
+    const previewSessionFactory = options.sessionFactory ?? (hasDatabaseConfig ? defaultSessionFactory : null);
+    const importSync: ImportSyncReport = previewSessionFactory
+      ? { ...(await getImportSyncPreview(bundle, features, previewSessionFactory, syncFeatures)), databasePreviewAvailable: true }
+      : {
+          featuresDeletedCount: null,
+          factEvidenceLinksDeletedCount: null,
+          entitiesNotInSeedCount: null,
+          factsNotInSeedCount: null,
+          evidenceNotInSeedCount: null,
+          databasePreviewAvailable: false,
+        };
+    report.importSync = importSync;
     logger.info("Validated seed bundle in dry-run mode", {
       seedDir,
       entitiesCount: report.entitiesCount,
@@ -1034,6 +1161,7 @@ export async function runSeedImport(
       factsCount: report.factsCount,
       factEvidenceLinksCount: report.factEvidenceLinksCount,
       featuresCount: features.length,
+      ...importSync,
       warningsCount: report.warnings.length,
     });
     return {
@@ -1044,6 +1172,7 @@ export async function runSeedImport(
       factsCount: report.factsCount,
       factEvidenceLinksCount: report.factEvidenceLinksCount,
       featuresCount: features.length,
+      importSync,
       report,
     };
   }
@@ -1053,6 +1182,7 @@ export async function runSeedImport(
     options.sessionFactory,
     features,
     options.importRun,
+    syncFeatures,
   );
 
   logger.info(counts.importSkipped
@@ -1060,6 +1190,7 @@ export async function runSeedImport(
     : "Seed bundle imported idempotently", {
     seedDir,
     ...counts,
+    ...counts.importSync,
     warningsCount: report.warnings.length,
   });
 

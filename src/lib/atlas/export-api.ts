@@ -1,6 +1,9 @@
 import type { StaticAtlasDataset } from "@/lib/atlas/static-dataset";
 import { serializeCsv } from "@/lib/atlas/static-dataset";
 
+export const OWNER_DATA_LICENSE = "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0";
+export const OSM_DATA_LICENSE = "© OpenStreetMap contributors, ODbL 1.0";
+
 export const CSV_TABLES = ["entities", "facts", "evidence", "fact_evidence"] as const;
 export type CsvTable = (typeof CSV_TABLES)[number];
 
@@ -13,7 +16,7 @@ export const CSV_HEADERS: Record<CsvTable, readonly string[]> = {
 
 export function csvForTable(dataset: StaticAtlasDataset, table: CsvTable): string {
   const rows = table === "fact_evidence" ? dataset.factEvidence : dataset[table];
-  return serializeCsv(CSV_HEADERS[table], rows as unknown as Array<Record<string, unknown>>);
+  return `# ${OWNER_DATA_LICENSE}\r\n# Contact: 01092500454 · 3boalazm@gmail.com\r\n${serializeCsv(CSV_HEADERS[table], rows as unknown as Array<Record<string, unknown>>)}`;
 }
 
 export function exportResponseHeaders(metadata: {
@@ -28,8 +31,11 @@ export function exportResponseHeaders(metadata: {
     "X-Atlas-Git-SHA": metadata.dataset_version.split("+")[0] ?? "unknown",
     "X-Atlas-Import-Checksum": metadata.import_checksum,
     "X-Atlas-Generated-At": metadata.generated_at,
-    "X-Atlas-Geometry-Attribution": "OpenStreetMap contributors; ODbL 1.0",
-    "X-Atlas-Research-Data-License": "Not specified in repository; owner decision required",
+    "X-Atlas-Geometry-Attribution": OSM_DATA_LICENSE,
+    // HTTP Headers are ByteString-only; keep these metadata headers ASCII/Latin-1 safe.
+    "X-Atlas-Research-Data-License": "CC BY 4.0",
+    "X-Atlas-Research-Data-Copyright": "Mustafa Aboalazm",
+    "X-Atlas-License-Contact": "01092500454 / 3boalazm@gmail.com",
     ...(filename ? { "Content-Disposition": `attachment; filename=\"${filename}\"` } : {}),
   };
 }

@@ -91,14 +91,14 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
     ...(entity.mapGeometry ? { description:entity.description ?? undefined } : {}),
   };
   const safeJsonLd=JSON.stringify(placeJsonLd).replaceAll("<","\\u003c");
-  const mapFeatures:AtlasFeatureCollection={type:"FeatureCollection",features:entity.mapGeometry?[{
+  const mapFeatures:AtlasFeatureCollection={type:"FeatureCollection",metadata:{data_license:"© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0",geometry_license:"© OpenStreetMap contributors, ODbL 1.0",contact:"01092500454 · 3boalazm@gmail.com"},features:entity.mapGeometry?[{
     type:"Feature",id:`ENTITY-MAP-${entity.code}`,geometry:entity.mapGeometry,
     properties:{code:`ENTITY-MAP-${entity.code}`,entity_code:entity.code,name_ar:entity.name_ar,name_en:entity.name_en,type:entity.entity_type,status:entity.status,license:entity.mapLicense,attribution:entity.mapAttribution,source:"Source geometries, merged and simplified for display",retrieval_date:"",source_ids:[]},
   }]:[]};
 
   return <div className="site-layout" lang={language} dir={ar?"rtl":"ltr"}>
     <SiteHeader language={language}/>
-    <main className="site-content entity-page">
+    <main className="site-content entity-page" id="main-content">
       <nav className="breadcrumbs" aria-label={ar?"مسار التنقل":"Breadcrumbs"}><Link href="/">{text.back}</Link><span aria-hidden="true">/</span><span>{text.entity}</span></nav>
       <section className="entity-hero">
         <div><p className="site-eyebrow">{text.entity} · {entityTypeLabels[entity.entity_type]?.[language] ?? entity.entity_type.replaceAll("_"," ")}</p>

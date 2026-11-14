@@ -3,6 +3,7 @@ import path from "node:path";
 import { z } from "zod";
 import {
   runSeedImport,
+  type ImportSyncReport,
   type SeedBundleReport,
   type SeedDbSession,
 } from "@/lib/atlas/seed";
@@ -26,6 +27,7 @@ export interface AdminSeedImportResponseBody {
     factsCount: number;
     factEvidenceLinksCount: number;
     featuresCount: number;
+    importSync: ImportSyncReport;
   };
   report: SeedBundleReport;
   timestamp: string;
@@ -180,6 +182,7 @@ export async function executeAdminSeedImport(
       factsCount: result.factsCount,
       factEvidenceLinksCount: result.factEvidenceLinksCount,
       featuresCount: result.featuresCount,
+      importSync: result.importSync,
     },
     report: result.report,
     timestamp: new Date().toISOString(),

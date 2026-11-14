@@ -7,13 +7,27 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { AppSidebar } from "./AppSidebar";
 import { AtlasFilters, LayerChips, Legend, MapFilters } from "./AtlasControls";
 import { EntityPanel } from "./EntityPanel";
-import { MapView, type MapStyleStatus } from "./MapView";
+import dynamic from "next/dynamic";
+import type { MapStyleStatus } from "./MapView";
+
+const MapView = dynamic(
+  () => import("./MapView").then((module) => module.MapView),
+  { ssr: false, loading: () => <div className="map-canvas map-canvas-loading" role="status">Loading interactive map…</div> },
+);
 import { LanguageToggle, ThemeToggle, useAtlasPreferences } from "./Preferences";
 import { SearchCommand } from "./SearchCommand";
 import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, EntityListResponse } from "./atlas-client";
 import { STATUSES } from "./atlas-client";
 
-const EMPTY_FEATURES: AtlasFeatureCollection = { type: "FeatureCollection", features: [] };
+const EMPTY_FEATURES: AtlasFeatureCollection = {
+  type: "FeatureCollection",
+  metadata: {
+    data_license: "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0",
+    geometry_license: "© OpenStreetMap contributors, ODbL 1.0",
+    contact: "01092500454 · 3boalazm@gmail.com",
+  },
+  features: [],
+};
 const emptyFilters: AtlasFilters = { type: "", sector: "", status: "", mappedOnly: false };
 
 function messageFrom(error: unknown, language: "ar" | "en") {
@@ -148,7 +162,8 @@ export default function AtlasApp() {
   const ar = language === "ar";
   const totalFeatures = features.features.length;
 
-  return <main className={`atlas-shell theme-${theme}`} data-theme={theme} dir={ar ? "rtl" : "ltr"}>
+  return <main className={`atlas-shell theme-${theme}`} data-theme={theme} dir={ar ? "rtl" : "ltr"} id="main-content">
+    <a className="skip-link" href="#main-content">{ar ? "تجاوز إلى المحتوى" : "Skip to content"}</a>
     <AppSidebar entities={entities} loading={entitiesLoading} selectedCode={selectedCode} onSelect={selectEntity} language={language} />
     <section className="atlas-workspace">
       <header className="atlas-topbar">
@@ -181,7 +196,7 @@ export default function AtlasApp() {
         {mapStyleStatus === "error" && <div className="map-error map-style-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{ar ? "تعذّر تحميل خريطة OpenFreeMap." : "Could not load the OpenFreeMap basemap."}</span><button type="button" onClick={() => { setMapStyleStatus("loading"); setMapGeneration((value) => value + 1); }}>{ar ? "إعادة المحاولة" : "Retry"}</button></div>}
         {!featuresLoading && !featuresError && totalFeatures === 0 && <div className="map-empty">{ar ? "لا توجد هندسة تطابق هذه الفلاتر. الكيانات تظل متاحة في القائمة والبحث." : "No geometries match these filters. Entities remain available in the list and search."}</div>}
         <div className="map-attribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors, ODbL 1.0</a><span>·</span><a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a></div>
-        <nav className="atlas-site-footer" aria-label={ar ? "روابط الأطلس" : "Atlas information links"}><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link></nav>
+        <nav className="atlas-site-footer" aria-label={ar ? "روابط الأطلس وإسناد البيانات" : "Atlas links and data attribution"}><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link><span>© Mustafa Aboalazm · CC BY 4.0</span></nav>
       </section>
     </section>
     {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} language={language} />}

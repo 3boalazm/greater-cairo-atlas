@@ -1,46 +1,21 @@
 "use client";
 
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import Link from "next/link";
+import { SiteFooter, SiteHeader } from "@/components/site/SiteChrome";
 
-export default function SegmentError({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
-  useEffect(() => {
-    console.error("Unhandled route segment error:", error);
-  }, [error]);
-
-  return (
-    <div className="flex min-h-screen items-center justify-center p-6">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>Application Error</CardTitle>
-          <CardDescription>
-            An unexpected error occurred while rendering this view.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {error.digest && (
-            <p className="font-mono text-xs text-muted-foreground">
-              Reference: {error.digest}
-            </p>
-          )}
-          <Button type="button" onClick={reset}>
-            Try again
-          </Button>
-        </CardContent>
-      </Card>
-    </div>
-  );
+export default function ErrorPage({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+  useEffect(() => console.error("Unhandled atlas route error:", error), [error]);
+  return <div className="site-layout" lang="ar" dir="rtl">
+    <SiteHeader language="ar" />
+    <main className="site-content" id="main-content" role="alert">
+      <p className="site-eyebrow">تعذّر إكمال الطلب</p>
+      <h1>حدث خطأ غير متوقع</h1>
+      <p className="site-lede">لم تُحذف البيانات أو تُعدّل بسبب هذا الخطأ. حاول مجددًا أو عد إلى الصفحة الرئيسية.</p>
+      {error.digest && <p className="entity-code">مرجع الخطأ: <code>{error.digest}</code></p>}
+      <p><button type="button" className="atlas-icon-button" onClick={reset}>إعادة المحاولة</button></p>
+      <p className="site-backlink"><Link href="/">العودة إلى الخريطة ←</Link></p>
+    </main>
+    <SiteFooter language="ar" />
+  </div>;
 }
