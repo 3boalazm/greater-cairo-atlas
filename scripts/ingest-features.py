@@ -82,15 +82,26 @@ def exact_match(index: dict[tuple[str, str], set[str]], entity_type: str, values
 
 
 def in_bbox(geometry: dict[str, Any]) -> bool:
+    return geometry_within_bbox(geometry, BBOX)
+
+
+def geometry_within_bbox(geometry: dict[str, Any], bbox_wgs84: list[float] | tuple[float, ...] | None) -> bool:
+    """Check every coordinate against a [west, south, east, north] WGS84 envelope."""
+    if bbox_wgs84 is None:
+        return True
+    if len(bbox_wgs84) != 4:
+        return False
+    west, south, east, north = bbox_wgs84
+
     def positions(value: Any):
         if isinstance(value, list) and len(value) >= 2 and all(isinstance(x, (int, float)) for x in value[:2]):
             yield value
         elif isinstance(value, list):
             for item in value:
                 yield from positions(item)
-    coords = geometry.get("coordinates", [])
-    points = list(positions(coords))
-    return bool(points) and all(BBOX[0] <= p[0] <= BBOX[2] and BBOX[1] <= p[1] <= BBOX[3] for p in points)
+
+    points = list(positions(geometry.get("coordinates", [])))
+    return bool(points) and all(west <= point[0] <= east and south <= point[1] <= north for point in points)
 
 
 def polygonal_parts(geometry: Any) -> list[Polygon]:
@@ -311,6 +322,7 @@ def overpass_query() -> str:
     box = f"{s},{w},{n},{e}"
     return f"""[out:json][timeout:180];(
       way[highway~\"^(motorway|trunk|primary|secondary)$\"][name]({box});
+      way[highway~\"^(motorway_link|trunk_link|primary_link|secondary_link)$\"]({box});
       relation[route~\"^(train|subway|light_rail|monorail|bus)$\"]({box});
       way[railway~\"^(subway|light_rail|monorail)$\"][name]({box});
       node[public_transport~\"^(stop_position|platform|station)$\"]({box});
@@ -357,16 +369,10 @@ def process_osm(data: dict[str, Any], entities: list[dict[str, str]], date: str,
                 add_candidate(report, match_type, ident, " | ".join(labels), "ambiguous", matches,
                               rule.get("reason", "entity disabled by match rule"))
                 continue
-            rule_bbox = rule.get("bbox_wgs84")
-            if rule_bbox:
-                def inside_rule_bbox(value: Any) -> bool:
-                    if isinstance(value, list) and len(value) >= 2 and all(isinstance(x, (int, float)) for x in value[:2]):
-                        return rule_bbox[0] <= value[0] <= rule_bbox[2] and rule_bbox[1] <= value[1] <= rule_bbox[3]
-                    return all(inside_rule_bbox(child) for child in value) if isinstance(value, list) else True
-                if not inside_rule_bbox(geom.get("coordinates", [])):
-                    add_candidate(report, match_type, ident, " | ".join(labels), "ambiguous", matches,
-                                  "geometry falls outside the entity-specific match-rule bbox")
-                    continue
+            if not geometry_within_bbox(geom, rule.get("bbox_wgs84")):
+                add_candidate(report, match_type, ident, " | ".join(labels), "ambiguous", matches,
+                              "geometry falls outside the entity-specific match-rule bbox")
+                continue
         if len(matches) != 1:
             add_candidate(report, match_type, ident, " | ".join(labels), "ambiguous" if matches else "unmatched", matches,
                           "OSM names did not identify exactly one compatible existing entity")
@@ -398,6 +404,10 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
     entity_rules = (rules or {}).get("entity_rules", {})
     configured_road_refs = {
         code: {normalize_road_label(str(value)) for value in rule.get("road_refs", []) if normalize_road_label(str(value))}
+        for code, rule in entity_rules.items()
+    }
+    configured_road_aliases = {
+        code: {normalize_road_label(str(value)) for value in rule.get("match_aliases", []) if normalize_road_label(str(value))}
         for code, rule in entity_rules.items()
     }
     elements = data.get("elements", [])
@@ -451,7 +461,7 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
         rule=entity_rules.get(entity_code,{})
         if rule.get("enabled") is False:return False
         if entity.get("status") in {"planned","approved_planned","under_construction"}:return False
-        if not in_bbox(geom):return False
+        if not in_bbox(geom) or not geometry_within_bbox(geom, rule.get("bbox_wgs84")):return False
         version=int(item.get("version",0) or 0)
         if version<1:return False
         code=f"OSM-{item['type'].upper()}-{int(item['id'])}"
@@ -476,6 +486,7 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
         matched = set(exact_match(idx, "road", values))
         normalized_values = {normalize_road_label(value) for value in values if normalize_road_label(value)}
         matched.update(code for code, refs in configured_road_refs.items() if refs & normalized_values)
+        matched.update(code for code, aliases in configured_road_aliases.items() if aliases & normalized_values)
         return sorted(matched)
     for item in elements:
         tags = item.get("tags", {})
@@ -565,13 +576,26 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
                        for node, edges in graph_adjacency.items() if any(edge[1] in graph_ways for edge in edges)}
     gap_config = (rules or {}).get("road_gap_fill", {})
     default_max_km = float(gap_config.get("max_path_km", 3.0))
+    topology_gap_threshold_km = float(gap_config.get("topology_gap_threshold_m", 25.0)) / 1000.0
     gap_results: list[dict[str, Any]] = []
     gap_fills: dict[int, list[float]] = defaultdict(list)
     road_entity_codes = sorted(code for code, entity in by_code.items() if entity.get("entity_type") == "road")
     for entity_code in road_entity_codes:
         rule = entity_rules.get(entity_code, {})
         max_km = float(rule.get("road_gap_fill_max_km", default_max_km))
-        seed_ids = road_seed_ways.get(entity_code, set()) & set(graph_ways)
+        entity_graph_ways = {
+            way_id: way for way_id, way in graph_ways.items()
+            if geometry_within_bbox(
+                {"type": "LineString", "coordinates": [list(point) for point in way["_coordinates"]]},
+                rule.get("bbox_wgs84"),
+            )
+        }
+        entity_graph_adjacency = {
+            node: [edge for edge in edges if edge[1] in entity_graph_ways]
+            for node, edges in graph_adjacency.items()
+            if any(edge[1] in entity_graph_ways for edge in edges)
+        }
+        seed_ids = road_seed_ways.get(entity_code, set()) & set(entity_graph_ways)
         if not seed_ids:
             gap_results.append({"entity_code": entity_code, "components_before": 0, "gaps_before": 0,
                                 "components_after": 0, "gaps_after": 0, "gaps_closed": 0, "km_closed": 0.0,
@@ -580,12 +604,14 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
                                 "entity_name_en": by_code[entity_code].get("name_en", ""),
                                 "note": "no matching motorway/trunk/primary seed ways"})
             continue
-        entity_names = names(by_code[entity_code])
+        entity_names = names(by_code[entity_code]) | configured_road_aliases.get(entity_code, set())
         entity_graph = filter_graph_for_entity(
-            graph_ways, graph_adjacency, entity_names, entity_refs[entity_code], relation_member_ids.get(entity_code, set())
+            entity_graph_ways, entity_graph_adjacency, entity_names, entity_refs[entity_code],
+            relation_member_ids.get(entity_code, set()), allow_interchange_links=True,
         )
-        result = connect_seed_components(entity_code=entity_code, seed_way_ids=seed_ids, ways=graph_ways,
-                                         adjacency=entity_graph, max_km=max_km)
+        result = connect_seed_components(entity_code=entity_code, seed_way_ids=seed_ids, ways=entity_graph_ways,
+                                         adjacency=entity_graph, max_km=max_km,
+                                         topology_gap_threshold_km=topology_gap_threshold_km)
         result["max_path_km"] = max_km
         result["entity_name_ar"] = by_code[entity_code].get("name_ar", "")
         result["entity_name_en"] = by_code[entity_code].get("name_en", "")
@@ -613,6 +639,7 @@ def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], d
 
     report["road_gap_fill_by_entity"] = gap_results
     report["road_gaps"] = [gap for result in gap_results for gap in result.get("unresolved_gaps", [])]
+    report["road_topology_gaps"] = [gap for gap in report["road_gaps"] if gap.get("gap_type") == "osm_topology_gap"]
     report["road_route_relations"] = matched_road_relations
     report["road_route_entities"] = sorted(route_primary_entities)
     report.setdefault("rejected_road_segments", []).extend(unmatched_road_segments)
@@ -932,6 +959,8 @@ def main():
         "gaps_before": sum(item.get("gaps_before", 0) for item in report["road_gap_fill_by_entity"]),
         "gaps_after": sum(item.get("gaps_after", 0) for item in report["road_gap_fill_by_entity"]),
         "gaps_closed": sum(item.get("gaps_closed", 0) for item in report["road_gap_fill_by_entity"]),
+        "topology_gaps": len(report["road_topology_gaps"]),
+        "network_gaps": len(report["road_gaps"]) - len(report["road_topology_gaps"]),
         "km_closed": round(sum(item.get("km_closed", 0.0) for item in report["road_gap_fill_by_entity"]), 3),
     }
     report["road_network_context"] = road_network_manifest
@@ -965,17 +994,17 @@ def main():
         f"تاريخ التشغيل: {date}. المصدر: مستخلصات OpenStreetMap المخزنة (الأول وextract2 وroads-full)، بترخيص ODbL-1.0. لم تُنشأ وصلات هندسية اصطناعية.",
         "",
         f"- إجمالي ميزات الكيانات بعد التحديث: **{feature_count}** (شبكة السياق غير محتسبة ضمنها).",
-        f"- إجمالي الفجوات: **{report['road_gap_fill_totals']['gaps_before']}** قبل، **{report['road_gap_fill_totals']['gaps_after']}** بعد؛ أُغلقت **{report['road_gap_fill_totals']['gaps_closed']}**، بطول مسارات حقيقية **{report['road_gap_fill_totals']['km_closed']:.3f} كم**.",
+        f"- إجمالي الفجوات: **{report['road_gap_fill_totals']['gaps_before']}** قبل، **{report['road_gap_fill_totals']['gaps_after']}** بعد؛ أُغلقت **{report['road_gap_fill_totals']['gaps_closed']}** بمسارات OSM حقيقية بطول **{report['road_gap_fill_totals']['km_closed']:.3f} كم**. من المتبقي **{report['road_gap_fill_totals']['topology_gaps']}** فجوة طوبولوجية (`osm_topology_gap`, أقل من 25 م ولا تُملأ) و**{report['road_gap_fill_totals']['network_gaps']}** فجوات شبكة.",
         f"- ميزات شبكة السياق المنفصلة: {road_network_manifest.get('feature_count', 0)} مبسطة للمستويات المنخفضة و{road_network_manifest.get('detail_feature_count', 0)} للتكبير العالي.",
         "",
         "## نتيجة كل طريق",
         "",
-        "| الطريق | الفجوات قبل | الفجوات بعد | أُغلقت | كم مغلقة | فجوات متبقية |",
-        "|---|---:|---:|---:|---:|---:|",
+        "| الطريق | قبل | بعد | أُغلقت | كم مغلقة | طوبولوجية <25م | شبكة |",
+        "|---|---:|---:|---:|---:|---:|---:|",
     ]
     for item in report["road_gap_fill_by_entity"]:
         arabic_lines.append(
-            f"| {item.get('entity_name_ar') or item['entity_code']} (`{item['entity_code']}`) | {item.get('gaps_before', 0)} | {item.get('gaps_after', 0)} | {item.get('gaps_closed', 0)} | {item.get('km_closed', 0.0):.3f} | {len(item.get('unresolved_gaps', []))} |"
+            f"| {item.get('entity_name_ar') or item['entity_code']} (`{item['entity_code']}`) | {item.get('gaps_before', 0)} | {item.get('gaps_after', 0)} | {item.get('gaps_closed', 0)} | {item.get('km_closed', 0.0):.3f} | {sum(gap.get('gap_type') == 'osm_topology_gap' for gap in item.get('unresolved_gaps', []))} | {sum(gap.get('gap_type') != 'osm_topology_gap' for gap in item.get('unresolved_gaps', []))} |"
         )
     arabic_lines.extend(["", "## الكيانات التي استخدمت علاقات OSM من النوع route=road", ""])
     if report["road_route_relations"]:
@@ -991,7 +1020,8 @@ def main():
         for item, gap in remaining:
             a = gap.get("endpoint_a", {}).get("coordinates")
             b = gap.get("endpoint_b", {}).get("coordinates")
-            arabic_lines.append(f"- `{item['entity_code']}`: `{a}` ↔ `{b}`؛ أقصر مسافة مستقيمة {gap.get('straight_line_km', 0):.3f} كم، والسبب: لا يوجد مسار طرق مسموح ضمن حد {gap.get('max_graph_path_km', 0):.3f} كم.")
+            reason = "فجوة طوبولوجية بين نهايتي طريق بلا عقدة OSM مشتركة؛ لم تُملأ" if gap.get("gap_type") == "osm_topology_gap" else f"لا يوجد مسار طرق مسموح ضمن حد {gap.get('max_graph_path_km', 0):.3f} كم"
+            arabic_lines.append(f"- `{item['entity_code']}` ({gap.get('gap_type', 'network_gap')}): `{a}` ↔ `{b}`؛ المسافة المستقيمة {gap.get('straight_line_km', 0):.3f} كم؛ {reason}.")
     else:
         arabic_lines.append("- لا توجد فجوات متبقية بين مكونات الطرق المطابقة.")
     arabic_report_path = outdir / "phase-05-5-road-gap-report.ar.md"
@@ -1009,7 +1039,7 @@ def main():
         "sources": source_results, "source_failures": failures,
         "attribution": {"osm": OSM_ATTRIBUTION, "tfc": TFC_ATTRIBUTION},
         "license_policy": "OSM=ODbL-1.0; TfC GTFS accepted only when independently verified CC-BY-4.0. CC-BY-NC data is prohibited.",
-        "matching": "Exact Unicode-normalized entity names and aliases; road route relations are the primary alignment source where exact name/ref matches exist. Gaps are filled only with real motorway/trunk/primary ways and their links connected by shared OSM node IDs, constrained to unnamed ways or the same entity name/alias/ref and the configured graph-path distance. No synthetic connectors or entity creation.",
+        "matching": "Exact Unicode-normalized entity names, seed aliases, and explicit match-rule aliases; entity-specific WGS84 bboxes constrain ambiguous names. Road route relations are primary where exact name/ref matches exist. Gaps use real motorway/trunk/primary/secondary ways. Real *_link ways may be used only as shared-node paths joining components of the same entity within the configured distance; other named ways still require the same entity name/alias/ref. Sub-25 m endpoint pairs without a shared OSM node are reported as osm_topology_gap and are never snapped or filled. No synthetic connectors or entity creation.",
         "road_gap_fill": {"max_path_km_default": (rules or {}).get("road_gap_fill", {}).get("max_path_km", 3.0),
                           "summary": report["road_gap_fill_totals"], "by_entity": report["road_gap_fill_by_entity"],
                           "route_relation_entities": report["road_route_entities"], "route_relations": report["road_route_relations"]},
