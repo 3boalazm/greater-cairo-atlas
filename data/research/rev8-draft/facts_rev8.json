@@ -12849,7 +12849,7 @@
     "evidence_ref": "EV-349"
   },
   {
-    "entity_code": "STOP-OSM-3755981998",
+    "entity_code": "STOP-M1-HELWAN",
     "attribute_key": "line_order",
     "value": 1,
     "unit": "stop position in OSM relation 421705",
@@ -12858,7 +12858,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316637584",
+    "entity_code": "STOP-M1-AIN-HELWAN",
     "attribute_key": "line_order",
     "value": 2,
     "unit": "stop position in OSM relation 421705",
@@ -12867,7 +12867,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316637586",
+    "entity_code": "STOP-M1-HELWAN-UNIVERSITY",
     "attribute_key": "line_order",
     "value": 3,
     "unit": "stop position in OSM relation 421705",
@@ -12876,7 +12876,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316637588",
+    "entity_code": "STOP-M1-WADI-HOF",
     "attribute_key": "line_order",
     "value": 4,
     "unit": "stop position in OSM relation 421705",
@@ -12885,7 +12885,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316638393",
+    "entity_code": "STOP-M1-HADAYEQ-HELWAN",
     "attribute_key": "line_order",
     "value": 5,
     "unit": "stop position in OSM relation 421705",
@@ -12894,7 +12894,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316638531",
+    "entity_code": "STOP-M1-AL-MAASARA",
     "attribute_key": "line_order",
     "value": 6,
     "unit": "stop position in OSM relation 421705",
@@ -12903,7 +12903,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5344953917",
+    "entity_code": "STOP-M1-TORA-EL-ASMANT",
     "attribute_key": "line_order",
     "value": 7,
     "unit": "stop position in OSM relation 421705",
@@ -12912,7 +12912,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5194246943",
+    "entity_code": "STOP-M1-KOZZIKA",
     "attribute_key": "line_order",
     "value": 8,
     "unit": "stop position in OSM relation 421705",
@@ -12921,7 +12921,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316638638",
+    "entity_code": "STOP-M1-TORA-EL-BALAD",
     "attribute_key": "line_order",
     "value": 9,
     "unit": "stop position in OSM relation 421705",
@@ -12930,7 +12930,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-2208367177",
+    "entity_code": "STOP-M1-THAKANAT-EL-MAADI",
     "attribute_key": "line_order",
     "value": 10,
     "unit": "stop position in OSM relation 421705",
@@ -12939,7 +12939,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-2208367184",
+    "entity_code": "STOP-M1-MAADI",
     "attribute_key": "line_order",
     "value": 11,
     "unit": "stop position in OSM relation 421705",
@@ -12948,7 +12948,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5348846066",
+    "entity_code": "STOP-M1-HADAYEK-EL-MAADI",
     "attribute_key": "line_order",
     "value": 12,
     "unit": "stop position in OSM relation 421705",
@@ -12957,7 +12957,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316388053",
+    "entity_code": "STOP-M1-DAR-AL-SALAM",
     "attribute_key": "line_order",
     "value": 13,
     "unit": "stop position in OSM relation 421705",
@@ -12966,7 +12966,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-493207780",
+    "entity_code": "STOP-M1-AL-ZAHRAA",
     "attribute_key": "line_order",
     "value": 14,
     "unit": "stop position in OSM relation 421705",
@@ -12975,7 +12975,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316388031",
+    "entity_code": "STOP-M1-MAR-GIRGIS",
     "attribute_key": "line_order",
     "value": 15,
     "unit": "stop position in OSM relation 421705",
@@ -12984,7 +12984,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-2460595904",
+    "entity_code": "STOP-M1-AL-MALEK-AL-SALEH",
     "attribute_key": "line_order",
     "value": 16,
     "unit": "stop position in OSM relation 421705",
@@ -12993,7 +12993,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316639686",
+    "entity_code": "STOP-M1-SAYYEDA-ZEINAB",
     "attribute_key": "line_order",
     "value": 17,
     "unit": "stop position in OSM relation 421705",
@@ -13002,7 +13002,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5349031084",
+    "entity_code": "STOP-M1-SAAD-ZAGHLOUL",
     "attribute_key": "line_order",
     "value": 18,
     "unit": "stop position in OSM relation 421705",
@@ -13020,7 +13020,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "line_order",
     "value": 20,
     "unit": "stop position in OSM relation 421705",
@@ -13029,7 +13029,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5353485468",
+    "entity_code": "STOP-M1-ORABI",
     "attribute_key": "line_order",
     "value": 21,
     "unit": "stop position in OSM relation 421705",
@@ -13047,7 +13047,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316642043",
+    "entity_code": "STOP-M1-GHAMRA",
     "attribute_key": "line_order",
     "value": 23,
     "unit": "stop position in OSM relation 421705",
@@ -13065,7 +13065,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316642888",
+    "entity_code": "STOP-M1-MANSHIET-AL-SADR",
     "attribute_key": "line_order",
     "value": 25,
     "unit": "stop position in OSM relation 421705",
@@ -13074,7 +13074,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643067",
+    "entity_code": "STOP-M1-KOBRI-AL-QOBBA",
     "attribute_key": "line_order",
     "value": 26,
     "unit": "stop position in OSM relation 421705",
@@ -13083,7 +13083,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643069",
+    "entity_code": "STOP-M1-HAMMAMAT-AL-QOBBA",
     "attribute_key": "line_order",
     "value": 27,
     "unit": "stop position in OSM relation 421705",
@@ -13092,7 +13092,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643073",
+    "entity_code": "STOP-M1-SARAY-AL-QOBBA",
     "attribute_key": "line_order",
     "value": 28,
     "unit": "stop position in OSM relation 421705",
@@ -13101,7 +13101,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643077",
+    "entity_code": "STOP-M1-HADAYEQ-AL-ZAITOUN",
     "attribute_key": "line_order",
     "value": 29,
     "unit": "stop position in OSM relation 421705",
@@ -13110,7 +13110,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5349031071",
+    "entity_code": "STOP-M1-HELMEYET-AL-ZAITOUN",
     "attribute_key": "line_order",
     "value": 30,
     "unit": "stop position in OSM relation 421705",
@@ -13119,7 +13119,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643099",
+    "entity_code": "STOP-M1-EL-MATAREYYA",
     "attribute_key": "line_order",
     "value": 31,
     "unit": "stop position in OSM relation 421705",
@@ -13128,7 +13128,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-1642286403",
+    "entity_code": "STOP-M1-AIN-SHAMS",
     "attribute_key": "line_order",
     "value": 32,
     "unit": "stop position in OSM relation 421705",
@@ -13137,7 +13137,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643111",
+    "entity_code": "STOP-M1-EZBET-EN-NAKHL",
     "attribute_key": "line_order",
     "value": 33,
     "unit": "stop position in OSM relation 421705",
@@ -13146,7 +13146,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643120",
+    "entity_code": "STOP-M1-EL-MARG",
     "attribute_key": "line_order",
     "value": 34,
     "unit": "stop position in OSM relation 421705",
@@ -13164,7 +13164,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-1131555201",
+    "entity_code": "STOP-M2-AL-MOUNIB",
     "attribute_key": "line_order",
     "value": 1,
     "unit": "stop position in OSM relation 421706",
@@ -13173,7 +13173,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-9076904698",
+    "entity_code": "STOP-M2-SAKIAT-MEKKI",
     "attribute_key": "line_order",
     "value": 2,
     "unit": "stop position in OSM relation 421706",
@@ -13182,7 +13182,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4979416433",
+    "entity_code": "STOP-M2-OMM-EL-MISRYEEN",
     "attribute_key": "line_order",
     "value": 3,
     "unit": "stop position in OSM relation 421706",
@@ -13191,7 +13191,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-316631600",
+    "entity_code": "STOP-M2-GIZA",
     "attribute_key": "line_order",
     "value": 4,
     "unit": "stop position in OSM relation 421706",
@@ -13200,7 +13200,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-316631596",
+    "entity_code": "STOP-M2-FAISAL",
     "attribute_key": "line_order",
     "value": 5,
     "unit": "stop position in OSM relation 421706",
@@ -13209,7 +13209,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "line_order",
     "value": 6,
     "unit": "stop position in OSM relation 421706",
@@ -13218,7 +13218,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-5355866946",
+    "entity_code": "STOP-M2-BEHOOTH",
     "attribute_key": "line_order",
     "value": 7,
     "unit": "stop position in OSM relation 421706",
@@ -13227,7 +13227,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-9076904709",
+    "entity_code": "STOP-M2-DOKKI",
     "attribute_key": "line_order",
     "value": 8,
     "unit": "stop position in OSM relation 421706",
@@ -13236,7 +13236,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4979414360",
+    "entity_code": "STOP-M2-OPERA",
     "attribute_key": "line_order",
     "value": 9,
     "unit": "stop position in OSM relation 421706",
@@ -13263,7 +13263,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-317755256",
+    "entity_code": "STOP-M2-ATTABA",
     "attribute_key": "line_order",
     "value": 12,
     "unit": "stop position in OSM relation 421706",
@@ -13281,7 +13281,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4978060988",
+    "entity_code": "STOP-M2-MASSARA",
     "attribute_key": "line_order",
     "value": 14,
     "unit": "stop position in OSM relation 421706",
@@ -13290,7 +13290,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4978060979",
+    "entity_code": "STOP-M2-RAWD-EL-FARAG",
     "attribute_key": "line_order",
     "value": 15,
     "unit": "stop position in OSM relation 421706",
@@ -13299,7 +13299,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4978060976",
+    "entity_code": "STOP-M2-SAINTE-TERESA",
     "attribute_key": "line_order",
     "value": 16,
     "unit": "stop position in OSM relation 421706",
@@ -13317,7 +13317,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-6288254841",
+    "entity_code": "STOP-M2-AL-MEZALLAT",
     "attribute_key": "line_order",
     "value": 18,
     "unit": "stop position in OSM relation 421706",
@@ -13326,7 +13326,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-1641694429",
+    "entity_code": "STOP-M2-KOLIET-EL-ZERAA",
     "attribute_key": "line_order",
     "value": 19,
     "unit": "stop position in OSM relation 421706",
@@ -13335,7 +13335,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-1641694433",
+    "entity_code": "STOP-M2-SHUBRA-ELKHEIMA",
     "attribute_key": "line_order",
     "value": 20,
     "unit": "stop position in OSM relation 421706",
@@ -13353,7 +13353,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-7559190660",
+    "entity_code": "STOP-M3-EL-HAYKESTEP",
     "attribute_key": "line_order",
     "value": 2,
     "unit": "stop position in OSM relation 2063304",
@@ -13362,7 +13362,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-7559190666",
+    "entity_code": "STOP-M3-OMAR-EBN-ELKHATAB",
     "attribute_key": "line_order",
     "value": 3,
     "unit": "stop position in OSM relation 2063304",
@@ -13371,7 +13371,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-7559190674",
+    "entity_code": "STOP-M3-QUBAA",
     "attribute_key": "line_order",
     "value": 4,
     "unit": "stop position in OSM relation 2063304",
@@ -13380,7 +13380,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-7559190677",
+    "entity_code": "STOP-M3-HESHAM-BARAKAT",
     "attribute_key": "line_order",
     "value": 5,
     "unit": "stop position in OSM relation 2063304",
@@ -13389,7 +13389,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-7559205785",
+    "entity_code": "STOP-M3-EL-NOZHA",
     "attribute_key": "line_order",
     "value": 6,
     "unit": "stop position in OSM relation 2063304",
@@ -13398,7 +13398,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-7302135245",
+    "entity_code": "STOP-M3-EL-SHAMS-CLUB",
     "attribute_key": "line_order",
     "value": 7,
     "unit": "stop position in OSM relation 2063304",
@@ -13407,7 +13407,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-7153641095",
+    "entity_code": "STOP-M3-ALF-MASKAN-SUBWAY",
     "attribute_key": "line_order",
     "value": 8,
     "unit": "stop position in OSM relation 2063304",
@@ -13416,7 +13416,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-7302135248",
+    "entity_code": "STOP-M3-HELIOPOLIS-SUBWAY",
     "attribute_key": "line_order",
     "value": 9,
     "unit": "stop position in OSM relation 2063304",
@@ -13425,7 +13425,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-7308408910",
+    "entity_code": "STOP-M3-HAROUN",
     "attribute_key": "line_order",
     "value": 10,
     "unit": "stop position in OSM relation 2063304",
@@ -13434,7 +13434,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-2400937187",
+    "entity_code": "STOP-M3-AL-AHRAM",
     "attribute_key": "line_order",
     "value": 11,
     "unit": "stop position in OSM relation 2063304",
@@ -13443,7 +13443,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-1654764997",
+    "entity_code": "STOP-M3-KOLEYET-EL-BANAT",
     "attribute_key": "line_order",
     "value": 12,
     "unit": "stop position in OSM relation 2063304",
@@ -13461,7 +13461,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-1654760303",
+    "entity_code": "STOP-M3-CAIRO-FAIRGROUND",
     "attribute_key": "line_order",
     "value": 14,
     "unit": "stop position in OSM relation 2063304",
@@ -13479,7 +13479,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-1235803732",
+    "entity_code": "STOP-M3-ABDOU-PASHA",
     "attribute_key": "line_order",
     "value": 16,
     "unit": "stop position in OSM relation 2063304",
@@ -13488,7 +13488,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-1235803723",
+    "entity_code": "STOP-M3-EL-GEISH",
     "attribute_key": "line_order",
     "value": 17,
     "unit": "stop position in OSM relation 2063304",
@@ -13497,7 +13497,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-1235803722",
+    "entity_code": "STOP-M3-BAB-EL-SHAARIA",
     "attribute_key": "line_order",
     "value": 18,
     "unit": "stop position in OSM relation 2063304",
@@ -13506,7 +13506,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-5194348150",
+    "entity_code": "STOP-M3-ATTABA-SUBWAY",
     "attribute_key": "line_order",
     "value": 19,
     "unit": "stop position in OSM relation 2063304",
@@ -13515,7 +13515,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "line_order",
     "value": 20,
     "unit": "stop position in OSM relation 2063304",
@@ -13524,7 +13524,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077161247",
+    "entity_code": "STOP-M3-MASBERO",
     "attribute_key": "line_order",
     "value": 21,
     "unit": "stop position in OSM relation 2063304",
@@ -13533,7 +13533,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077189601",
+    "entity_code": "STOP-M3-SAFAA-HEGAZY",
     "attribute_key": "line_order",
     "value": 22,
     "unit": "stop position in OSM relation 2063304",
@@ -13542,7 +13542,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077189602",
+    "entity_code": "STOP-KIT-KAT",
     "attribute_key": "line_order",
     "value": 23,
     "unit": "stop position in OSM relation 2063304",
@@ -13551,7 +13551,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077161277",
+    "entity_code": "STOP-M3-SUDAN",
     "attribute_key": "line_order",
     "value": 24,
     "unit": "stop position in OSM relation 2063304",
@@ -13560,7 +13560,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077189581",
+    "entity_code": "STOP-M3-IMBABA",
     "attribute_key": "line_order",
     "value": 25,
     "unit": "stop position in OSM relation 2063304",
@@ -13569,7 +13569,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077189570",
+    "entity_code": "STOP-M3-AL-BOHY",
     "attribute_key": "line_order",
     "value": 26,
     "unit": "stop position in OSM relation 2063304",
@@ -13578,7 +13578,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077391794",
+    "entity_code": "STOP-M3-AL-KAWMEIAH",
     "attribute_key": "line_order",
     "value": 27,
     "unit": "stop position in OSM relation 2063304",
@@ -13587,7 +13587,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077274203",
+    "entity_code": "STOP-M3-RING-ROAD",
     "attribute_key": "line_order",
     "value": 28,
     "unit": "stop position in OSM relation 2063304",
@@ -13605,7 +13605,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643120",
+    "entity_code": "STOP-M1-EL-MARG",
     "attribute_key": "line_order",
     "value": 2,
     "unit": "stop position in OSM relation 2826217",
@@ -13614,7 +13614,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643111",
+    "entity_code": "STOP-M1-EZBET-EN-NAKHL",
     "attribute_key": "line_order",
     "value": 3,
     "unit": "stop position in OSM relation 2826217",
@@ -13623,7 +13623,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-1642286403",
+    "entity_code": "STOP-M1-AIN-SHAMS",
     "attribute_key": "line_order",
     "value": 4,
     "unit": "stop position in OSM relation 2826217",
@@ -13632,7 +13632,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643099",
+    "entity_code": "STOP-M1-EL-MATAREYYA",
     "attribute_key": "line_order",
     "value": 5,
     "unit": "stop position in OSM relation 2826217",
@@ -13641,7 +13641,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5349031071",
+    "entity_code": "STOP-M1-HELMEYET-AL-ZAITOUN",
     "attribute_key": "line_order",
     "value": 6,
     "unit": "stop position in OSM relation 2826217",
@@ -13650,7 +13650,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643077",
+    "entity_code": "STOP-M1-HADAYEQ-AL-ZAITOUN",
     "attribute_key": "line_order",
     "value": 7,
     "unit": "stop position in OSM relation 2826217",
@@ -13659,7 +13659,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643073",
+    "entity_code": "STOP-M1-SARAY-AL-QOBBA",
     "attribute_key": "line_order",
     "value": 8,
     "unit": "stop position in OSM relation 2826217",
@@ -13668,7 +13668,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643069",
+    "entity_code": "STOP-M1-HAMMAMAT-AL-QOBBA",
     "attribute_key": "line_order",
     "value": 9,
     "unit": "stop position in OSM relation 2826217",
@@ -13677,7 +13677,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643067",
+    "entity_code": "STOP-M1-KOBRI-AL-QOBBA",
     "attribute_key": "line_order",
     "value": 10,
     "unit": "stop position in OSM relation 2826217",
@@ -13686,7 +13686,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316642888",
+    "entity_code": "STOP-M1-MANSHIET-AL-SADR",
     "attribute_key": "line_order",
     "value": 11,
     "unit": "stop position in OSM relation 2826217",
@@ -13704,7 +13704,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316642043",
+    "entity_code": "STOP-M1-GHAMRA",
     "attribute_key": "line_order",
     "value": 13,
     "unit": "stop position in OSM relation 2826217",
@@ -13722,7 +13722,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5353485468",
+    "entity_code": "STOP-M1-ORABI",
     "attribute_key": "line_order",
     "value": 15,
     "unit": "stop position in OSM relation 2826217",
@@ -13731,7 +13731,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "line_order",
     "value": 16,
     "unit": "stop position in OSM relation 2826217",
@@ -13749,7 +13749,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5349031084",
+    "entity_code": "STOP-M1-SAAD-ZAGHLOUL",
     "attribute_key": "line_order",
     "value": 18,
     "unit": "stop position in OSM relation 2826217",
@@ -13758,7 +13758,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316639686",
+    "entity_code": "STOP-M1-SAYYEDA-ZEINAB",
     "attribute_key": "line_order",
     "value": 19,
     "unit": "stop position in OSM relation 2826217",
@@ -13767,7 +13767,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-2460595904",
+    "entity_code": "STOP-M1-AL-MALEK-AL-SALEH",
     "attribute_key": "line_order",
     "value": 20,
     "unit": "stop position in OSM relation 2826217",
@@ -13776,7 +13776,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316388031",
+    "entity_code": "STOP-M1-MAR-GIRGIS",
     "attribute_key": "line_order",
     "value": 21,
     "unit": "stop position in OSM relation 2826217",
@@ -13785,7 +13785,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-493207780",
+    "entity_code": "STOP-M1-AL-ZAHRAA",
     "attribute_key": "line_order",
     "value": 22,
     "unit": "stop position in OSM relation 2826217",
@@ -13794,7 +13794,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316388053",
+    "entity_code": "STOP-M1-DAR-AL-SALAM",
     "attribute_key": "line_order",
     "value": 23,
     "unit": "stop position in OSM relation 2826217",
@@ -13803,7 +13803,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5348846066",
+    "entity_code": "STOP-M1-HADAYEK-EL-MAADI",
     "attribute_key": "line_order",
     "value": 24,
     "unit": "stop position in OSM relation 2826217",
@@ -13812,7 +13812,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-2208367184",
+    "entity_code": "STOP-M1-MAADI",
     "attribute_key": "line_order",
     "value": 25,
     "unit": "stop position in OSM relation 2826217",
@@ -13821,7 +13821,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-2208367177",
+    "entity_code": "STOP-M1-THAKANAT-EL-MAADI",
     "attribute_key": "line_order",
     "value": 26,
     "unit": "stop position in OSM relation 2826217",
@@ -13830,7 +13830,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316638638",
+    "entity_code": "STOP-M1-TORA-EL-BALAD",
     "attribute_key": "line_order",
     "value": 27,
     "unit": "stop position in OSM relation 2826217",
@@ -13839,7 +13839,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5194246943",
+    "entity_code": "STOP-M1-KOZZIKA",
     "attribute_key": "line_order",
     "value": 28,
     "unit": "stop position in OSM relation 2826217",
@@ -13848,7 +13848,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5344953917",
+    "entity_code": "STOP-M1-TORA-EL-ASMANT",
     "attribute_key": "line_order",
     "value": 29,
     "unit": "stop position in OSM relation 2826217",
@@ -13857,7 +13857,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316638531",
+    "entity_code": "STOP-M1-AL-MAASARA",
     "attribute_key": "line_order",
     "value": 30,
     "unit": "stop position in OSM relation 2826217",
@@ -13866,7 +13866,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316638393",
+    "entity_code": "STOP-M1-HADAYEQ-HELWAN",
     "attribute_key": "line_order",
     "value": 31,
     "unit": "stop position in OSM relation 2826217",
@@ -13875,7 +13875,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316637588",
+    "entity_code": "STOP-M1-WADI-HOF",
     "attribute_key": "line_order",
     "value": 32,
     "unit": "stop position in OSM relation 2826217",
@@ -13884,7 +13884,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316637586",
+    "entity_code": "STOP-M1-HELWAN-UNIVERSITY",
     "attribute_key": "line_order",
     "value": 33,
     "unit": "stop position in OSM relation 2826217",
@@ -13893,7 +13893,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316637584",
+    "entity_code": "STOP-M1-AIN-HELWAN",
     "attribute_key": "line_order",
     "value": 34,
     "unit": "stop position in OSM relation 2826217",
@@ -13902,7 +13902,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-3755981998",
+    "entity_code": "STOP-M1-HELWAN",
     "attribute_key": "line_order",
     "value": 35,
     "unit": "stop position in OSM relation 2826217",
@@ -13911,7 +13911,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-9077274203",
+    "entity_code": "STOP-M3-RING-ROAD",
     "attribute_key": "line_order",
     "value": 1,
     "unit": "stop position in OSM relation 7686561",
@@ -13920,7 +13920,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077391794",
+    "entity_code": "STOP-M3-AL-KAWMEIAH",
     "attribute_key": "line_order",
     "value": 2,
     "unit": "stop position in OSM relation 7686561",
@@ -13929,7 +13929,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077189570",
+    "entity_code": "STOP-M3-AL-BOHY",
     "attribute_key": "line_order",
     "value": 3,
     "unit": "stop position in OSM relation 7686561",
@@ -13938,7 +13938,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077189581",
+    "entity_code": "STOP-M3-IMBABA",
     "attribute_key": "line_order",
     "value": 4,
     "unit": "stop position in OSM relation 7686561",
@@ -13947,7 +13947,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077161277",
+    "entity_code": "STOP-M3-SUDAN",
     "attribute_key": "line_order",
     "value": 5,
     "unit": "stop position in OSM relation 7686561",
@@ -13956,7 +13956,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077189602",
+    "entity_code": "STOP-KIT-KAT",
     "attribute_key": "line_order",
     "value": 6,
     "unit": "stop position in OSM relation 7686561",
@@ -13965,7 +13965,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077189601",
+    "entity_code": "STOP-M3-SAFAA-HEGAZY",
     "attribute_key": "line_order",
     "value": 7,
     "unit": "stop position in OSM relation 7686561",
@@ -13974,7 +13974,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077161247",
+    "entity_code": "STOP-M3-MASBERO",
     "attribute_key": "line_order",
     "value": 8,
     "unit": "stop position in OSM relation 7686561",
@@ -13983,7 +13983,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "line_order",
     "value": 9,
     "unit": "stop position in OSM relation 7686561",
@@ -13992,7 +13992,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-5194348150",
+    "entity_code": "STOP-M3-ATTABA-SUBWAY",
     "attribute_key": "line_order",
     "value": 10,
     "unit": "stop position in OSM relation 7686561",
@@ -14001,7 +14001,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-1235803722",
+    "entity_code": "STOP-M3-BAB-EL-SHAARIA",
     "attribute_key": "line_order",
     "value": 11,
     "unit": "stop position in OSM relation 7686561",
@@ -14010,7 +14010,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-1235803723",
+    "entity_code": "STOP-M3-EL-GEISH",
     "attribute_key": "line_order",
     "value": 12,
     "unit": "stop position in OSM relation 7686561",
@@ -14019,7 +14019,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-1235803732",
+    "entity_code": "STOP-M3-ABDOU-PASHA",
     "attribute_key": "line_order",
     "value": 13,
     "unit": "stop position in OSM relation 7686561",
@@ -14037,7 +14037,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-1654760303",
+    "entity_code": "STOP-M3-CAIRO-FAIRGROUND",
     "attribute_key": "line_order",
     "value": 15,
     "unit": "stop position in OSM relation 7686561",
@@ -14055,7 +14055,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-1654764997",
+    "entity_code": "STOP-M3-KOLEYET-EL-BANAT",
     "attribute_key": "line_order",
     "value": 17,
     "unit": "stop position in OSM relation 7686561",
@@ -14064,7 +14064,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-2400937187",
+    "entity_code": "STOP-M3-AL-AHRAM",
     "attribute_key": "line_order",
     "value": 18,
     "unit": "stop position in OSM relation 7686561",
@@ -14073,7 +14073,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-7308408910",
+    "entity_code": "STOP-M3-HAROUN",
     "attribute_key": "line_order",
     "value": 19,
     "unit": "stop position in OSM relation 7686561",
@@ -14082,7 +14082,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-7302135248",
+    "entity_code": "STOP-M3-HELIOPOLIS-SUBWAY",
     "attribute_key": "line_order",
     "value": 20,
     "unit": "stop position in OSM relation 7686561",
@@ -14091,7 +14091,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-7153641095",
+    "entity_code": "STOP-M3-ALF-MASKAN-SUBWAY",
     "attribute_key": "line_order",
     "value": 21,
     "unit": "stop position in OSM relation 7686561",
@@ -14100,7 +14100,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-7302135245",
+    "entity_code": "STOP-M3-EL-SHAMS-CLUB",
     "attribute_key": "line_order",
     "value": 22,
     "unit": "stop position in OSM relation 7686561",
@@ -14109,7 +14109,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-7926259279",
+    "entity_code": "STOP-M3-EL-NOZHA",
     "attribute_key": "line_order",
     "value": 23,
     "unit": "stop position in OSM relation 7686561",
@@ -14118,7 +14118,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-7559190677",
+    "entity_code": "STOP-M3-HESHAM-BARAKAT",
     "attribute_key": "line_order",
     "value": 24,
     "unit": "stop position in OSM relation 7686561",
@@ -14127,7 +14127,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-7559190674",
+    "entity_code": "STOP-M3-QUBAA",
     "attribute_key": "line_order",
     "value": 25,
     "unit": "stop position in OSM relation 7686561",
@@ -14136,7 +14136,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-7559190666",
+    "entity_code": "STOP-M3-OMAR-EBN-ELKHATAB",
     "attribute_key": "line_order",
     "value": 26,
     "unit": "stop position in OSM relation 7686561",
@@ -14145,7 +14145,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-7559190660",
+    "entity_code": "STOP-M3-EL-HAYKESTEP",
     "attribute_key": "line_order",
     "value": 27,
     "unit": "stop position in OSM relation 7686561",
@@ -14163,7 +14163,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-1641694433",
+    "entity_code": "STOP-M2-SHUBRA-ELKHEIMA",
     "attribute_key": "line_order",
     "value": 1,
     "unit": "stop position in OSM relation 7927231",
@@ -14172,7 +14172,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-1641694429",
+    "entity_code": "STOP-M2-KOLIET-EL-ZERAA",
     "attribute_key": "line_order",
     "value": 2,
     "unit": "stop position in OSM relation 7927231",
@@ -14181,7 +14181,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-6288254841",
+    "entity_code": "STOP-M2-AL-MEZALLAT",
     "attribute_key": "line_order",
     "value": 3,
     "unit": "stop position in OSM relation 7927231",
@@ -14199,7 +14199,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4978060976",
+    "entity_code": "STOP-M2-SAINTE-TERESA",
     "attribute_key": "line_order",
     "value": 5,
     "unit": "stop position in OSM relation 7927231",
@@ -14208,7 +14208,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4978060979",
+    "entity_code": "STOP-M2-RAWD-EL-FARAG",
     "attribute_key": "line_order",
     "value": 6,
     "unit": "stop position in OSM relation 7927231",
@@ -14217,7 +14217,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4978060988",
+    "entity_code": "STOP-M2-MASSARA",
     "attribute_key": "line_order",
     "value": 7,
     "unit": "stop position in OSM relation 7927231",
@@ -14235,7 +14235,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-317755256",
+    "entity_code": "STOP-M2-ATTABA",
     "attribute_key": "line_order",
     "value": 9,
     "unit": "stop position in OSM relation 7927231",
@@ -14262,7 +14262,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4979414360",
+    "entity_code": "STOP-M2-OPERA",
     "attribute_key": "line_order",
     "value": 12,
     "unit": "stop position in OSM relation 7927231",
@@ -14271,7 +14271,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-9076904709",
+    "entity_code": "STOP-M2-DOKKI",
     "attribute_key": "line_order",
     "value": 13,
     "unit": "stop position in OSM relation 7927231",
@@ -14280,7 +14280,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-5355866946",
+    "entity_code": "STOP-M2-BEHOOTH",
     "attribute_key": "line_order",
     "value": 14,
     "unit": "stop position in OSM relation 7927231",
@@ -14289,7 +14289,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "line_order",
     "value": 15,
     "unit": "stop position in OSM relation 7927231",
@@ -14298,7 +14298,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-316631596",
+    "entity_code": "STOP-M2-FAISAL",
     "attribute_key": "line_order",
     "value": 16,
     "unit": "stop position in OSM relation 7927231",
@@ -14307,7 +14307,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-316631600",
+    "entity_code": "STOP-M2-GIZA",
     "attribute_key": "line_order",
     "value": 17,
     "unit": "stop position in OSM relation 7927231",
@@ -14316,7 +14316,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4979416433",
+    "entity_code": "STOP-M2-OMM-EL-MISRYEEN",
     "attribute_key": "line_order",
     "value": 18,
     "unit": "stop position in OSM relation 7927231",
@@ -14325,7 +14325,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-9076904698",
+    "entity_code": "STOP-M2-SAKIAT-MEKKI",
     "attribute_key": "line_order",
     "value": 19,
     "unit": "stop position in OSM relation 7927231",
@@ -14334,7 +14334,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-1131555201",
+    "entity_code": "STOP-M2-AL-MOUNIB",
     "attribute_key": "line_order",
     "value": 20,
     "unit": "stop position in OSM relation 7927231",
@@ -14343,7 +14343,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-8153781067",
+    "entity_code": "STOP-MRE-CAIRO-STADIUM-MONORAIL",
     "attribute_key": "line_order",
     "value": 1,
     "unit": "stop position in OSM relation 13186211",
@@ -14865,7 +14865,7 @@
     "evidence_ref": "EV-364"
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "line_order",
     "value": 1,
     "unit": "stop position in OSM relation 17625744",
@@ -14874,7 +14874,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-11923472302",
+    "entity_code": "STOP-M3-BULAQ-AL-DAKROUR",
     "attribute_key": "line_order",
     "value": 2,
     "unit": "stop position in OSM relation 17625744",
@@ -14883,7 +14883,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-11923472281",
+    "entity_code": "STOP-M3-GAMET-EL-DOWEL",
     "attribute_key": "line_order",
     "value": 3,
     "unit": "stop position in OSM relation 17625744",
@@ -14892,7 +14892,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-11923457958",
+    "entity_code": "STOP-M3-WADI-EL-NILE",
     "attribute_key": "line_order",
     "value": 4,
     "unit": "stop position in OSM relation 17625744",
@@ -14901,7 +14901,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-11926766472",
+    "entity_code": "STOP-M3-AL-TAWFIKIA",
     "attribute_key": "line_order",
     "value": 5,
     "unit": "stop position in OSM relation 17625744",
@@ -14910,7 +14910,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-9077189602",
+    "entity_code": "STOP-KIT-KAT",
     "attribute_key": "line_order",
     "value": 6,
     "unit": "stop position in OSM relation 17625744",
@@ -14919,7 +14919,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-9077189601",
+    "entity_code": "STOP-M3-SAFAA-HEGAZY",
     "attribute_key": "line_order",
     "value": 7,
     "unit": "stop position in OSM relation 17625744",
@@ -14928,7 +14928,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-9077161247",
+    "entity_code": "STOP-M3-MASBERO",
     "attribute_key": "line_order",
     "value": 8,
     "unit": "stop position in OSM relation 17625744",
@@ -14937,7 +14937,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "line_order",
     "value": 9,
     "unit": "stop position in OSM relation 17625744",
@@ -14946,7 +14946,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-5194348150",
+    "entity_code": "STOP-M3-ATTABA-SUBWAY",
     "attribute_key": "line_order",
     "value": 10,
     "unit": "stop position in OSM relation 17625744",
@@ -14955,7 +14955,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-1235803722",
+    "entity_code": "STOP-M3-BAB-EL-SHAARIA",
     "attribute_key": "line_order",
     "value": 11,
     "unit": "stop position in OSM relation 17625744",
@@ -14964,7 +14964,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-1235803723",
+    "entity_code": "STOP-M3-EL-GEISH",
     "attribute_key": "line_order",
     "value": 12,
     "unit": "stop position in OSM relation 17625744",
@@ -14973,7 +14973,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-1235803732",
+    "entity_code": "STOP-M3-ABDOU-PASHA",
     "attribute_key": "line_order",
     "value": 13,
     "unit": "stop position in OSM relation 17625744",
@@ -14991,7 +14991,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-1654760303",
+    "entity_code": "STOP-M3-CAIRO-FAIRGROUND",
     "attribute_key": "line_order",
     "value": 15,
     "unit": "stop position in OSM relation 17625744",
@@ -15009,7 +15009,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-1654764997",
+    "entity_code": "STOP-M3-KOLEYET-EL-BANAT",
     "attribute_key": "line_order",
     "value": 17,
     "unit": "stop position in OSM relation 17625744",
@@ -15018,7 +15018,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-2400937187",
+    "entity_code": "STOP-M3-AL-AHRAM",
     "attribute_key": "line_order",
     "value": 18,
     "unit": "stop position in OSM relation 17625744",
@@ -15027,7 +15027,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-7308408910",
+    "entity_code": "STOP-M3-HAROUN",
     "attribute_key": "line_order",
     "value": 19,
     "unit": "stop position in OSM relation 17625744",
@@ -15036,7 +15036,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-7302135248",
+    "entity_code": "STOP-M3-HELIOPOLIS-SUBWAY",
     "attribute_key": "line_order",
     "value": 20,
     "unit": "stop position in OSM relation 17625744",
@@ -15045,7 +15045,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-7153641095",
+    "entity_code": "STOP-M3-ALF-MASKAN-SUBWAY",
     "attribute_key": "line_order",
     "value": 21,
     "unit": "stop position in OSM relation 17625744",
@@ -15054,7 +15054,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-7302135245",
+    "entity_code": "STOP-M3-EL-SHAMS-CLUB",
     "attribute_key": "line_order",
     "value": 22,
     "unit": "stop position in OSM relation 17625744",
@@ -15063,7 +15063,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-7926259279",
+    "entity_code": "STOP-M3-EL-NOZHA",
     "attribute_key": "line_order",
     "value": 23,
     "unit": "stop position in OSM relation 17625744",
@@ -15072,7 +15072,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-7559190677",
+    "entity_code": "STOP-M3-HESHAM-BARAKAT",
     "attribute_key": "line_order",
     "value": 24,
     "unit": "stop position in OSM relation 17625744",
@@ -15081,7 +15081,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-7559190674",
+    "entity_code": "STOP-M3-QUBAA",
     "attribute_key": "line_order",
     "value": 25,
     "unit": "stop position in OSM relation 17625744",
@@ -15090,7 +15090,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-7559190666",
+    "entity_code": "STOP-M3-OMAR-EBN-ELKHATAB",
     "attribute_key": "line_order",
     "value": 26,
     "unit": "stop position in OSM relation 17625744",
@@ -15099,7 +15099,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-7559190660",
+    "entity_code": "STOP-M3-EL-HAYKESTEP",
     "attribute_key": "line_order",
     "value": 27,
     "unit": "stop position in OSM relation 17625744",
@@ -15126,7 +15126,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-7559190660",
+    "entity_code": "STOP-M3-EL-HAYKESTEP",
     "attribute_key": "line_order",
     "value": 2,
     "unit": "stop position in OSM relation 17625746",
@@ -15135,7 +15135,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-7559190666",
+    "entity_code": "STOP-M3-OMAR-EBN-ELKHATAB",
     "attribute_key": "line_order",
     "value": 3,
     "unit": "stop position in OSM relation 17625746",
@@ -15144,7 +15144,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-7559190674",
+    "entity_code": "STOP-M3-QUBAA",
     "attribute_key": "line_order",
     "value": 4,
     "unit": "stop position in OSM relation 17625746",
@@ -15153,7 +15153,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-7559190677",
+    "entity_code": "STOP-M3-HESHAM-BARAKAT",
     "attribute_key": "line_order",
     "value": 5,
     "unit": "stop position in OSM relation 17625746",
@@ -15162,7 +15162,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-7559205785",
+    "entity_code": "STOP-M3-EL-NOZHA",
     "attribute_key": "line_order",
     "value": 6,
     "unit": "stop position in OSM relation 17625746",
@@ -15171,7 +15171,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-7302135245",
+    "entity_code": "STOP-M3-EL-SHAMS-CLUB",
     "attribute_key": "line_order",
     "value": 7,
     "unit": "stop position in OSM relation 17625746",
@@ -15180,7 +15180,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-7153641095",
+    "entity_code": "STOP-M3-ALF-MASKAN-SUBWAY",
     "attribute_key": "line_order",
     "value": 8,
     "unit": "stop position in OSM relation 17625746",
@@ -15189,7 +15189,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-7302135248",
+    "entity_code": "STOP-M3-HELIOPOLIS-SUBWAY",
     "attribute_key": "line_order",
     "value": 9,
     "unit": "stop position in OSM relation 17625746",
@@ -15198,7 +15198,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-7308408910",
+    "entity_code": "STOP-M3-HAROUN",
     "attribute_key": "line_order",
     "value": 10,
     "unit": "stop position in OSM relation 17625746",
@@ -15207,7 +15207,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-2400937187",
+    "entity_code": "STOP-M3-AL-AHRAM",
     "attribute_key": "line_order",
     "value": 11,
     "unit": "stop position in OSM relation 17625746",
@@ -15216,7 +15216,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-1654764997",
+    "entity_code": "STOP-M3-KOLEYET-EL-BANAT",
     "attribute_key": "line_order",
     "value": 12,
     "unit": "stop position in OSM relation 17625746",
@@ -15234,7 +15234,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-1654760303",
+    "entity_code": "STOP-M3-CAIRO-FAIRGROUND",
     "attribute_key": "line_order",
     "value": 14,
     "unit": "stop position in OSM relation 17625746",
@@ -15252,7 +15252,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-1235803732",
+    "entity_code": "STOP-M3-ABDOU-PASHA",
     "attribute_key": "line_order",
     "value": 16,
     "unit": "stop position in OSM relation 17625746",
@@ -15261,7 +15261,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-1235803723",
+    "entity_code": "STOP-M3-EL-GEISH",
     "attribute_key": "line_order",
     "value": 17,
     "unit": "stop position in OSM relation 17625746",
@@ -15270,7 +15270,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-1235803722",
+    "entity_code": "STOP-M3-BAB-EL-SHAARIA",
     "attribute_key": "line_order",
     "value": 18,
     "unit": "stop position in OSM relation 17625746",
@@ -15279,7 +15279,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-5194348150",
+    "entity_code": "STOP-M3-ATTABA-SUBWAY",
     "attribute_key": "line_order",
     "value": 19,
     "unit": "stop position in OSM relation 17625746",
@@ -15288,7 +15288,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "line_order",
     "value": 20,
     "unit": "stop position in OSM relation 17625746",
@@ -15297,7 +15297,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-9077161247",
+    "entity_code": "STOP-M3-MASBERO",
     "attribute_key": "line_order",
     "value": 21,
     "unit": "stop position in OSM relation 17625746",
@@ -15306,7 +15306,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-9077189601",
+    "entity_code": "STOP-M3-SAFAA-HEGAZY",
     "attribute_key": "line_order",
     "value": 22,
     "unit": "stop position in OSM relation 17625746",
@@ -15315,7 +15315,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-9077189602",
+    "entity_code": "STOP-KIT-KAT",
     "attribute_key": "line_order",
     "value": 23,
     "unit": "stop position in OSM relation 17625746",
@@ -15324,7 +15324,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-11926766472",
+    "entity_code": "STOP-M3-AL-TAWFIKIA",
     "attribute_key": "line_order",
     "value": 24,
     "unit": "stop position in OSM relation 17625746",
@@ -15333,7 +15333,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-11923457958",
+    "entity_code": "STOP-M3-WADI-EL-NILE",
     "attribute_key": "line_order",
     "value": 25,
     "unit": "stop position in OSM relation 17625746",
@@ -15342,7 +15342,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-11923472281",
+    "entity_code": "STOP-M3-GAMET-EL-DOWEL",
     "attribute_key": "line_order",
     "value": 26,
     "unit": "stop position in OSM relation 17625746",
@@ -15351,7 +15351,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-11923472302",
+    "entity_code": "STOP-M3-BULAQ-AL-DAKROUR",
     "attribute_key": "line_order",
     "value": 27,
     "unit": "stop position in OSM relation 17625746",
@@ -15360,7 +15360,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "line_order",
     "value": 28,
     "unit": "stop position in OSM relation 17625746",
@@ -15558,7 +15558,7 @@
     "evidence_ref": "EV-367"
   },
   {
-    "entity_code": "STOP-OSM-8153781067",
+    "entity_code": "STOP-MRE-CAIRO-STADIUM-MONORAIL",
     "attribute_key": "line_order",
     "value": 22,
     "unit": "stop position in OSM relation 20384125",
@@ -16025,7 +16025,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316388031",
+    "entity_code": "STOP-M1-MAR-GIRGIS",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16037,7 +16037,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316388031",
+    "entity_code": "STOP-M1-MAR-GIRGIS",
     "attribute_key": "osm_node_id",
     "value": 316388031,
     "unit": "OSM node ID",
@@ -16046,7 +16046,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316388031",
+    "entity_code": "STOP-M1-MAR-GIRGIS",
     "attribute_key": "osm_node_id",
     "value": 5348846064,
     "unit": "OSM node ID",
@@ -16055,7 +16055,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316388053",
+    "entity_code": "STOP-M1-DAR-AL-SALAM",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16067,7 +16067,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316388053",
+    "entity_code": "STOP-M1-DAR-AL-SALAM",
     "attribute_key": "osm_node_id",
     "value": 316388053,
     "unit": "OSM node ID",
@@ -16076,7 +16076,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316388053",
+    "entity_code": "STOP-M1-DAR-AL-SALAM",
     "attribute_key": "osm_node_id",
     "value": 5194246948,
     "unit": "OSM node ID",
@@ -16085,7 +16085,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316637584",
+    "entity_code": "STOP-M1-AIN-HELWAN",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16097,7 +16097,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316637584",
+    "entity_code": "STOP-M1-AIN-HELWAN",
     "attribute_key": "osm_node_id",
     "value": 316637584,
     "unit": "OSM node ID",
@@ -16106,7 +16106,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316637584",
+    "entity_code": "STOP-M1-AIN-HELWAN",
     "attribute_key": "osm_node_id",
     "value": 5344953910,
     "unit": "OSM node ID",
@@ -16115,7 +16115,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316637586",
+    "entity_code": "STOP-M1-HELWAN-UNIVERSITY",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16127,7 +16127,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316637586",
+    "entity_code": "STOP-M1-HELWAN-UNIVERSITY",
     "attribute_key": "osm_node_id",
     "value": 316637586,
     "unit": "OSM node ID",
@@ -16136,7 +16136,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316637586",
+    "entity_code": "STOP-M1-HELWAN-UNIVERSITY",
     "attribute_key": "osm_node_id",
     "value": 5349031094,
     "unit": "OSM node ID",
@@ -16145,7 +16145,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316637588",
+    "entity_code": "STOP-M1-WADI-HOF",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16157,7 +16157,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316637588",
+    "entity_code": "STOP-M1-WADI-HOF",
     "attribute_key": "osm_node_id",
     "value": 316637588,
     "unit": "OSM node ID",
@@ -16166,7 +16166,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316637588",
+    "entity_code": "STOP-M1-WADI-HOF",
     "attribute_key": "osm_node_id",
     "value": 4978062099,
     "unit": "OSM node ID",
@@ -16175,7 +16175,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316638393",
+    "entity_code": "STOP-M1-HADAYEQ-HELWAN",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16187,7 +16187,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316638393",
+    "entity_code": "STOP-M1-HADAYEQ-HELWAN",
     "attribute_key": "osm_node_id",
     "value": 316638393,
     "unit": "OSM node ID",
@@ -16196,7 +16196,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316638393",
+    "entity_code": "STOP-M1-HADAYEQ-HELWAN",
     "attribute_key": "osm_node_id",
     "value": 5344953907,
     "unit": "OSM node ID",
@@ -16205,7 +16205,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316638531",
+    "entity_code": "STOP-M1-AL-MAASARA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16217,7 +16217,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316638531",
+    "entity_code": "STOP-M1-AL-MAASARA",
     "attribute_key": "osm_node_id",
     "value": 316638531,
     "unit": "OSM node ID",
@@ -16226,7 +16226,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316638531",
+    "entity_code": "STOP-M1-AL-MAASARA",
     "attribute_key": "osm_node_id",
     "value": 5348846069,
     "unit": "OSM node ID",
@@ -16235,7 +16235,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316638638",
+    "entity_code": "STOP-M1-TORA-EL-BALAD",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16247,7 +16247,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316638638",
+    "entity_code": "STOP-M1-TORA-EL-BALAD",
     "attribute_key": "osm_node_id",
     "value": 316638638,
     "unit": "OSM node ID",
@@ -16256,7 +16256,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316638638",
+    "entity_code": "STOP-M1-TORA-EL-BALAD",
     "attribute_key": "osm_node_id",
     "value": 5349031095,
     "unit": "OSM node ID",
@@ -16265,7 +16265,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316639686",
+    "entity_code": "STOP-M1-SAYYEDA-ZEINAB",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16277,7 +16277,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316639686",
+    "entity_code": "STOP-M1-SAYYEDA-ZEINAB",
     "attribute_key": "osm_node_id",
     "value": 316639686,
     "unit": "OSM node ID",
@@ -16286,7 +16286,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316639686",
+    "entity_code": "STOP-M1-SAYYEDA-ZEINAB",
     "attribute_key": "osm_node_id",
     "value": 5349031089,
     "unit": "OSM node ID",
@@ -16295,7 +16295,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316642043",
+    "entity_code": "STOP-M1-GHAMRA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16307,7 +16307,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316642043",
+    "entity_code": "STOP-M1-GHAMRA",
     "attribute_key": "osm_node_id",
     "value": 316642043,
     "unit": "OSM node ID",
@@ -16316,7 +16316,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316642043",
+    "entity_code": "STOP-M1-GHAMRA",
     "attribute_key": "osm_node_id",
     "value": 5349031079,
     "unit": "OSM node ID",
@@ -16325,7 +16325,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316642888",
+    "entity_code": "STOP-M1-MANSHIET-AL-SADR",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16337,7 +16337,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316642888",
+    "entity_code": "STOP-M1-MANSHIET-AL-SADR",
     "attribute_key": "osm_node_id",
     "value": 316642888,
     "unit": "OSM node ID",
@@ -16346,7 +16346,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316642888",
+    "entity_code": "STOP-M1-MANSHIET-AL-SADR",
     "attribute_key": "osm_node_id",
     "value": 4979331196,
     "unit": "OSM node ID",
@@ -16355,7 +16355,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643067",
+    "entity_code": "STOP-M1-KOBRI-AL-QOBBA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16367,7 +16367,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316643067",
+    "entity_code": "STOP-M1-KOBRI-AL-QOBBA",
     "attribute_key": "osm_node_id",
     "value": 316643067,
     "unit": "OSM node ID",
@@ -16376,7 +16376,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643067",
+    "entity_code": "STOP-M1-KOBRI-AL-QOBBA",
     "attribute_key": "osm_node_id",
     "value": 4979331198,
     "unit": "OSM node ID",
@@ -16385,7 +16385,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643069",
+    "entity_code": "STOP-M1-HAMMAMAT-AL-QOBBA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16397,7 +16397,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316643069",
+    "entity_code": "STOP-M1-HAMMAMAT-AL-QOBBA",
     "attribute_key": "osm_node_id",
     "value": 316643069,
     "unit": "OSM node ID",
@@ -16406,7 +16406,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643069",
+    "entity_code": "STOP-M1-HAMMAMAT-AL-QOBBA",
     "attribute_key": "osm_node_id",
     "value": 4979331199,
     "unit": "OSM node ID",
@@ -16415,7 +16415,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643073",
+    "entity_code": "STOP-M1-SARAY-AL-QOBBA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16427,7 +16427,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316643073",
+    "entity_code": "STOP-M1-SARAY-AL-QOBBA",
     "attribute_key": "osm_node_id",
     "value": 316643073,
     "unit": "OSM node ID",
@@ -16436,7 +16436,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643073",
+    "entity_code": "STOP-M1-SARAY-AL-QOBBA",
     "attribute_key": "osm_node_id",
     "value": 4979331202,
     "unit": "OSM node ID",
@@ -16445,7 +16445,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643077",
+    "entity_code": "STOP-M1-HADAYEQ-AL-ZAITOUN",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16457,7 +16457,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316643077",
+    "entity_code": "STOP-M1-HADAYEQ-AL-ZAITOUN",
     "attribute_key": "osm_node_id",
     "value": 316643077,
     "unit": "OSM node ID",
@@ -16466,7 +16466,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643077",
+    "entity_code": "STOP-M1-HADAYEQ-AL-ZAITOUN",
     "attribute_key": "osm_node_id",
     "value": 4979331206,
     "unit": "OSM node ID",
@@ -16475,7 +16475,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643099",
+    "entity_code": "STOP-M1-EL-MATAREYYA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16487,7 +16487,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316643099",
+    "entity_code": "STOP-M1-EL-MATAREYYA",
     "attribute_key": "osm_node_id",
     "value": 316643099,
     "unit": "OSM node ID",
@@ -16496,7 +16496,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643099",
+    "entity_code": "STOP-M1-EL-MATAREYYA",
     "attribute_key": "osm_node_id",
     "value": 4979331216,
     "unit": "OSM node ID",
@@ -16505,7 +16505,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643111",
+    "entity_code": "STOP-M1-EZBET-EN-NAKHL",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16517,7 +16517,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316643111",
+    "entity_code": "STOP-M1-EZBET-EN-NAKHL",
     "attribute_key": "osm_node_id",
     "value": 316643111,
     "unit": "OSM node ID",
@@ -16526,7 +16526,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643111",
+    "entity_code": "STOP-M1-EZBET-EN-NAKHL",
     "attribute_key": "osm_node_id",
     "value": 4979331220,
     "unit": "OSM node ID",
@@ -16535,7 +16535,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316643120",
+    "entity_code": "STOP-M1-EL-MARG",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16547,7 +16547,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316643120",
+    "entity_code": "STOP-M1-EL-MARG",
     "attribute_key": "osm_node_id",
     "value": 316643120,
     "unit": "OSM node ID",
@@ -16556,7 +16556,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316643120",
+    "entity_code": "STOP-M1-EL-MARG",
     "attribute_key": "osm_node_id",
     "value": 4979331528,
     "unit": "OSM node ID",
@@ -16595,7 +16595,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-493207780",
+    "entity_code": "STOP-M1-AL-ZAHRAA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16607,7 +16607,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-493207780",
+    "entity_code": "STOP-M1-AL-ZAHRAA",
     "attribute_key": "osm_node_id",
     "value": 493207780,
     "unit": "OSM node ID",
@@ -16616,7 +16616,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-493207780",
+    "entity_code": "STOP-M1-AL-ZAHRAA",
     "attribute_key": "osm_node_id",
     "value": 5194246949,
     "unit": "OSM node ID",
@@ -16625,7 +16625,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-1642286403",
+    "entity_code": "STOP-M1-AIN-SHAMS",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16637,7 +16637,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1642286403",
+    "entity_code": "STOP-M1-AIN-SHAMS",
     "attribute_key": "osm_node_id",
     "value": 1642286403,
     "unit": "OSM node ID",
@@ -16646,7 +16646,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-1642286403",
+    "entity_code": "STOP-M1-AIN-SHAMS",
     "attribute_key": "osm_node_id",
     "value": 4979331217,
     "unit": "OSM node ID",
@@ -16685,7 +16685,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-2208367177",
+    "entity_code": "STOP-M1-THAKANAT-EL-MAADI",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16697,7 +16697,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-2208367177",
+    "entity_code": "STOP-M1-THAKANAT-EL-MAADI",
     "attribute_key": "osm_node_id",
     "value": 2208367177,
     "unit": "OSM node ID",
@@ -16706,7 +16706,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-2208367177",
+    "entity_code": "STOP-M1-THAKANAT-EL-MAADI",
     "attribute_key": "osm_node_id",
     "value": 5348846063,
     "unit": "OSM node ID",
@@ -16715,7 +16715,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-2208367184",
+    "entity_code": "STOP-M1-MAADI",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16727,7 +16727,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-2208367184",
+    "entity_code": "STOP-M1-MAADI",
     "attribute_key": "osm_node_id",
     "value": 2208367184,
     "unit": "OSM node ID",
@@ -16736,7 +16736,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-2208367184",
+    "entity_code": "STOP-M1-MAADI",
     "attribute_key": "osm_node_id",
     "value": 5348846065,
     "unit": "OSM node ID",
@@ -16745,7 +16745,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-2460595904",
+    "entity_code": "STOP-M1-AL-MALEK-AL-SALEH",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16757,7 +16757,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-2460595904",
+    "entity_code": "STOP-M1-AL-MALEK-AL-SALEH",
     "attribute_key": "osm_node_id",
     "value": 2460595904,
     "unit": "OSM node ID",
@@ -16766,7 +16766,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-2460595904",
+    "entity_code": "STOP-M1-AL-MALEK-AL-SALEH",
     "attribute_key": "osm_node_id",
     "value": 5349031091,
     "unit": "OSM node ID",
@@ -16775,7 +16775,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-3755981998",
+    "entity_code": "STOP-M1-HELWAN",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16787,7 +16787,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-3755981998",
+    "entity_code": "STOP-M1-HELWAN",
     "attribute_key": "osm_node_id",
     "value": 3755981998,
     "unit": "OSM node ID",
@@ -16796,7 +16796,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-3755981998",
+    "entity_code": "STOP-M1-HELWAN",
     "attribute_key": "osm_node_id",
     "value": 5344953912,
     "unit": "OSM node ID",
@@ -16805,7 +16805,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5194246943",
+    "entity_code": "STOP-M1-KOZZIKA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16817,7 +16817,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5194246943",
+    "entity_code": "STOP-M1-KOZZIKA",
     "attribute_key": "osm_node_id",
     "value": 5194246943,
     "unit": "OSM node ID",
@@ -16826,7 +16826,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5194246943",
+    "entity_code": "STOP-M1-KOZZIKA",
     "attribute_key": "osm_node_id",
     "value": 5194246944,
     "unit": "OSM node ID",
@@ -16835,7 +16835,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5344953917",
+    "entity_code": "STOP-M1-TORA-EL-ASMANT",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16847,7 +16847,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5344953917",
+    "entity_code": "STOP-M1-TORA-EL-ASMANT",
     "attribute_key": "osm_node_id",
     "value": 5344953917,
     "unit": "OSM node ID",
@@ -16856,7 +16856,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5344953917",
+    "entity_code": "STOP-M1-TORA-EL-ASMANT",
     "attribute_key": "osm_node_id",
     "value": 5344953918,
     "unit": "OSM node ID",
@@ -16865,7 +16865,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5348846066",
+    "entity_code": "STOP-M1-HADAYEK-EL-MAADI",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16877,7 +16877,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5348846066",
+    "entity_code": "STOP-M1-HADAYEK-EL-MAADI",
     "attribute_key": "osm_node_id",
     "value": 5348846066,
     "unit": "OSM node ID",
@@ -16886,7 +16886,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5348846066",
+    "entity_code": "STOP-M1-HADAYEK-EL-MAADI",
     "attribute_key": "osm_node_id",
     "value": 5348846067,
     "unit": "OSM node ID",
@@ -16895,7 +16895,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5349031071",
+    "entity_code": "STOP-M1-HELMEYET-AL-ZAITOUN",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16907,7 +16907,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5349031071",
+    "entity_code": "STOP-M1-HELMEYET-AL-ZAITOUN",
     "attribute_key": "osm_node_id",
     "value": 5349031071,
     "unit": "OSM node ID",
@@ -16916,7 +16916,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5349031071",
+    "entity_code": "STOP-M1-HELMEYET-AL-ZAITOUN",
     "attribute_key": "osm_node_id",
     "value": 5349031072,
     "unit": "OSM node ID",
@@ -16925,7 +16925,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5349031084",
+    "entity_code": "STOP-M1-SAAD-ZAGHLOUL",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16937,7 +16937,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5349031084",
+    "entity_code": "STOP-M1-SAAD-ZAGHLOUL",
     "attribute_key": "osm_node_id",
     "value": 5349031084,
     "unit": "OSM node ID",
@@ -16946,7 +16946,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-5349031084",
+    "entity_code": "STOP-M1-SAAD-ZAGHLOUL",
     "attribute_key": "osm_node_id",
     "value": 5349031085,
     "unit": "OSM node ID",
@@ -16955,7 +16955,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5353485468",
+    "entity_code": "STOP-M1-ORABI",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -16967,7 +16967,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5353485468",
+    "entity_code": "STOP-M1-ORABI",
     "attribute_key": "osm_node_id",
     "value": 5353485468,
     "unit": "OSM node ID",
@@ -16976,7 +16976,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-5353485468",
+    "entity_code": "STOP-M1-ORABI",
     "attribute_key": "osm_node_id",
     "value": 5353485469,
     "unit": "OSM node ID",
@@ -17105,7 +17105,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L1",
     "unit": null,
@@ -17117,7 +17117,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -17131,7 +17131,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "osm_node_id",
     "value": 316641712,
     "unit": "OSM node ID",
@@ -17140,7 +17140,7 @@
     "evidence_ref": "EV-352"
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "osm_node_id",
     "value": 4978062181,
     "unit": "OSM node ID",
@@ -17149,7 +17149,7 @@
     "evidence_ref": "EV-355"
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "osm_node_id",
     "value": 10099279467,
     "unit": "OSM node ID",
@@ -17161,7 +17161,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316641712",
+    "entity_code": "STOP-M1-NASSER",
     "attribute_key": "osm_node_id",
     "value": 10099279469,
     "unit": "OSM node ID",
@@ -17173,7 +17173,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316631596",
+    "entity_code": "STOP-M2-FAISAL",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17185,7 +17185,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316631596",
+    "entity_code": "STOP-M2-FAISAL",
     "attribute_key": "osm_node_id",
     "value": 316631596,
     "unit": "OSM node ID",
@@ -17194,7 +17194,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-316631596",
+    "entity_code": "STOP-M2-FAISAL",
     "attribute_key": "osm_node_id",
     "value": 9076904701,
     "unit": "OSM node ID",
@@ -17203,7 +17203,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-316631600",
+    "entity_code": "STOP-M2-GIZA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17215,7 +17215,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316631600",
+    "entity_code": "STOP-M2-GIZA",
     "attribute_key": "osm_node_id",
     "value": 316631600,
     "unit": "OSM node ID",
@@ -17224,7 +17224,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-316631600",
+    "entity_code": "STOP-M2-GIZA",
     "attribute_key": "osm_node_id",
     "value": 3759917281,
     "unit": "OSM node ID",
@@ -17263,7 +17263,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-317755256",
+    "entity_code": "STOP-M2-ATTABA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17275,7 +17275,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-317755256",
+    "entity_code": "STOP-M2-ATTABA",
     "attribute_key": "osm_node_id",
     "value": 317755256,
     "unit": "OSM node ID",
@@ -17284,7 +17284,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-317755256",
+    "entity_code": "STOP-M2-ATTABA",
     "attribute_key": "osm_node_id",
     "value": 4979414356,
     "unit": "OSM node ID",
@@ -17293,7 +17293,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-1131555201",
+    "entity_code": "STOP-M2-AL-MOUNIB",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17305,7 +17305,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1131555201",
+    "entity_code": "STOP-M2-AL-MOUNIB",
     "attribute_key": "osm_node_id",
     "value": 1131555201,
     "unit": "OSM node ID",
@@ -17314,7 +17314,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-1131555201",
+    "entity_code": "STOP-M2-AL-MOUNIB",
     "attribute_key": "osm_node_id",
     "value": 5355860835,
     "unit": "OSM node ID",
@@ -17323,7 +17323,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-1641694429",
+    "entity_code": "STOP-M2-KOLIET-EL-ZERAA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17335,7 +17335,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1641694429",
+    "entity_code": "STOP-M2-KOLIET-EL-ZERAA",
     "attribute_key": "osm_node_id",
     "value": 1641694429,
     "unit": "OSM node ID",
@@ -17344,7 +17344,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-1641694429",
+    "entity_code": "STOP-M2-KOLIET-EL-ZERAA",
     "attribute_key": "osm_node_id",
     "value": 4978060958,
     "unit": "OSM node ID",
@@ -17353,7 +17353,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-1641694433",
+    "entity_code": "STOP-M2-SHUBRA-ELKHEIMA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17365,7 +17365,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1641694433",
+    "entity_code": "STOP-M2-SHUBRA-ELKHEIMA",
     "attribute_key": "osm_node_id",
     "value": 1641694433,
     "unit": "OSM node ID",
@@ -17374,7 +17374,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-1641694433",
+    "entity_code": "STOP-M2-SHUBRA-ELKHEIMA",
     "attribute_key": "osm_node_id",
     "value": 9076939068,
     "unit": "OSM node ID",
@@ -17383,7 +17383,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4978060976",
+    "entity_code": "STOP-M2-SAINTE-TERESA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17395,7 +17395,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-4978060976",
+    "entity_code": "STOP-M2-SAINTE-TERESA",
     "attribute_key": "osm_node_id",
     "value": 4978060976,
     "unit": "OSM node ID",
@@ -17404,7 +17404,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4978060976",
+    "entity_code": "STOP-M2-SAINTE-TERESA",
     "attribute_key": "osm_node_id",
     "value": 9076939031,
     "unit": "OSM node ID",
@@ -17413,7 +17413,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4978060979",
+    "entity_code": "STOP-M2-RAWD-EL-FARAG",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17425,7 +17425,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-4978060979",
+    "entity_code": "STOP-M2-RAWD-EL-FARAG",
     "attribute_key": "osm_node_id",
     "value": 4978060979,
     "unit": "OSM node ID",
@@ -17434,7 +17434,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4978060979",
+    "entity_code": "STOP-M2-RAWD-EL-FARAG",
     "attribute_key": "osm_node_id",
     "value": 9076939029,
     "unit": "OSM node ID",
@@ -17443,7 +17443,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4978060988",
+    "entity_code": "STOP-M2-MASSARA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17455,7 +17455,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-4978060988",
+    "entity_code": "STOP-M2-MASSARA",
     "attribute_key": "osm_node_id",
     "value": 4978060988,
     "unit": "OSM node ID",
@@ -17464,7 +17464,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4978060988",
+    "entity_code": "STOP-M2-MASSARA",
     "attribute_key": "osm_node_id",
     "value": 9076939028,
     "unit": "OSM node ID",
@@ -17473,7 +17473,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4979414360",
+    "entity_code": "STOP-M2-OPERA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17485,7 +17485,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-4979414360",
+    "entity_code": "STOP-M2-OPERA",
     "attribute_key": "osm_node_id",
     "value": 4979414360,
     "unit": "OSM node ID",
@@ -17494,7 +17494,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4979414360",
+    "entity_code": "STOP-M2-OPERA",
     "attribute_key": "osm_node_id",
     "value": 9076904711,
     "unit": "OSM node ID",
@@ -17503,7 +17503,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-4979416433",
+    "entity_code": "STOP-M2-OMM-EL-MISRYEEN",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17515,7 +17515,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-4979416433",
+    "entity_code": "STOP-M2-OMM-EL-MISRYEEN",
     "attribute_key": "osm_node_id",
     "value": 4979416433,
     "unit": "OSM node ID",
@@ -17524,7 +17524,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-4979416433",
+    "entity_code": "STOP-M2-OMM-EL-MISRYEEN",
     "attribute_key": "osm_node_id",
     "value": 9076904700,
     "unit": "OSM node ID",
@@ -17533,7 +17533,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-5355866946",
+    "entity_code": "STOP-M2-BEHOOTH",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17545,7 +17545,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5355866946",
+    "entity_code": "STOP-M2-BEHOOTH",
     "attribute_key": "osm_node_id",
     "value": 5355866946,
     "unit": "OSM node ID",
@@ -17554,7 +17554,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-5355866946",
+    "entity_code": "STOP-M2-BEHOOTH",
     "attribute_key": "osm_node_id",
     "value": 5355866947,
     "unit": "OSM node ID",
@@ -17563,7 +17563,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-6288254841",
+    "entity_code": "STOP-M2-AL-MEZALLAT",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17575,7 +17575,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-6288254841",
+    "entity_code": "STOP-M2-AL-MEZALLAT",
     "attribute_key": "osm_node_id",
     "value": 6288254841,
     "unit": "OSM node ID",
@@ -17584,7 +17584,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-6288254841",
+    "entity_code": "STOP-M2-AL-MEZALLAT",
     "attribute_key": "osm_node_id",
     "value": 9076939045,
     "unit": "OSM node ID",
@@ -17593,7 +17593,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-9076904698",
+    "entity_code": "STOP-M2-SAKIAT-MEKKI",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17605,7 +17605,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9076904698",
+    "entity_code": "STOP-M2-SAKIAT-MEKKI",
     "attribute_key": "osm_node_id",
     "value": 9076904698,
     "unit": "OSM node ID",
@@ -17614,7 +17614,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-9076904698",
+    "entity_code": "STOP-M2-SAKIAT-MEKKI",
     "attribute_key": "osm_node_id",
     "value": 9076904699,
     "unit": "OSM node ID",
@@ -17623,7 +17623,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-9076904709",
+    "entity_code": "STOP-M2-DOKKI",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17635,7 +17635,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9076904709",
+    "entity_code": "STOP-M2-DOKKI",
     "attribute_key": "osm_node_id",
     "value": 9076904709,
     "unit": "OSM node ID",
@@ -17644,7 +17644,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-9076904709",
+    "entity_code": "STOP-M2-DOKKI",
     "attribute_key": "osm_node_id",
     "value": 9076904710,
     "unit": "OSM node ID",
@@ -17683,7 +17683,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17695,7 +17695,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -17707,7 +17707,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "osm_node_id",
     "value": 316632489,
     "unit": "OSM node ID",
@@ -17716,7 +17716,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "osm_node_id",
     "value": 9076904702,
     "unit": "OSM node ID",
@@ -17725,7 +17725,7 @@
     "evidence_ref": "EV-353"
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "osm_node_id",
     "value": 11926706152,
     "unit": "OSM node ID",
@@ -17734,7 +17734,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-316632489",
+    "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
     "attribute_key": "osm_node_id",
     "value": 11926706153,
     "unit": "OSM node ID",
@@ -17743,7 +17743,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-1235803722",
+    "entity_code": "STOP-M3-BAB-EL-SHAARIA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -17757,7 +17757,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1235803722",
+    "entity_code": "STOP-M3-BAB-EL-SHAARIA",
     "attribute_key": "osm_node_id",
     "value": 1235803722,
     "unit": "OSM node ID",
@@ -17769,7 +17769,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1235803722",
+    "entity_code": "STOP-M3-BAB-EL-SHAARIA",
     "attribute_key": "osm_node_id",
     "value": 4979483234,
     "unit": "OSM node ID",
@@ -17781,7 +17781,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1235803723",
+    "entity_code": "STOP-M3-EL-GEISH",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -17795,7 +17795,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1235803723",
+    "entity_code": "STOP-M3-EL-GEISH",
     "attribute_key": "osm_node_id",
     "value": 1235803723,
     "unit": "OSM node ID",
@@ -17807,7 +17807,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1235803723",
+    "entity_code": "STOP-M3-EL-GEISH",
     "attribute_key": "osm_node_id",
     "value": 4979483237,
     "unit": "OSM node ID",
@@ -17819,7 +17819,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1235803732",
+    "entity_code": "STOP-M3-ABDOU-PASHA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -17833,7 +17833,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1235803732",
+    "entity_code": "STOP-M3-ABDOU-PASHA",
     "attribute_key": "osm_node_id",
     "value": 1235803732,
     "unit": "OSM node ID",
@@ -17845,7 +17845,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1235803732",
+    "entity_code": "STOP-M3-ABDOU-PASHA",
     "attribute_key": "osm_node_id",
     "value": 4979483239,
     "unit": "OSM node ID",
@@ -17933,7 +17933,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1654760303",
+    "entity_code": "STOP-M3-CAIRO-FAIRGROUND",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -17947,7 +17947,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1654760303",
+    "entity_code": "STOP-M3-CAIRO-FAIRGROUND",
     "attribute_key": "osm_node_id",
     "value": 1654760303,
     "unit": "OSM node ID",
@@ -17959,7 +17959,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1654760303",
+    "entity_code": "STOP-M3-CAIRO-FAIRGROUND",
     "attribute_key": "osm_node_id",
     "value": 4979483255,
     "unit": "OSM node ID",
@@ -17971,7 +17971,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1654764997",
+    "entity_code": "STOP-M3-KOLEYET-EL-BANAT",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -17985,7 +17985,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1654764997",
+    "entity_code": "STOP-M3-KOLEYET-EL-BANAT",
     "attribute_key": "osm_node_id",
     "value": 1654764997,
     "unit": "OSM node ID",
@@ -17997,7 +17997,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-1654764997",
+    "entity_code": "STOP-M3-KOLEYET-EL-BANAT",
     "attribute_key": "osm_node_id",
     "value": 4979511774,
     "unit": "OSM node ID",
@@ -18009,7 +18009,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-2400937187",
+    "entity_code": "STOP-M3-AL-AHRAM",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18023,7 +18023,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-2400937187",
+    "entity_code": "STOP-M3-AL-AHRAM",
     "attribute_key": "osm_node_id",
     "value": 2400937187,
     "unit": "OSM node ID",
@@ -18035,7 +18035,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-2400937187",
+    "entity_code": "STOP-M3-AL-AHRAM",
     "attribute_key": "osm_node_id",
     "value": 4979511781,
     "unit": "OSM node ID",
@@ -18047,7 +18047,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5194348150",
+    "entity_code": "STOP-M3-ATTABA-SUBWAY",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18061,7 +18061,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5194348150",
+    "entity_code": "STOP-M3-ATTABA-SUBWAY",
     "attribute_key": "osm_node_id",
     "value": 5194348150,
     "unit": "OSM node ID",
@@ -18073,7 +18073,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-5194348150",
+    "entity_code": "STOP-M3-ATTABA-SUBWAY",
     "attribute_key": "osm_node_id",
     "value": 5194348151,
     "unit": "OSM node ID",
@@ -18085,7 +18085,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7153641095",
+    "entity_code": "STOP-M3-ALF-MASKAN-SUBWAY",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18099,7 +18099,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7153641095",
+    "entity_code": "STOP-M3-ALF-MASKAN-SUBWAY",
     "attribute_key": "osm_node_id",
     "value": 7153641095,
     "unit": "OSM node ID",
@@ -18111,7 +18111,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7153641095",
+    "entity_code": "STOP-M3-ALF-MASKAN-SUBWAY",
     "attribute_key": "osm_node_id",
     "value": 7302135247,
     "unit": "OSM node ID",
@@ -18123,7 +18123,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7302135245",
+    "entity_code": "STOP-M3-EL-SHAMS-CLUB",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18137,7 +18137,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7302135245",
+    "entity_code": "STOP-M3-EL-SHAMS-CLUB",
     "attribute_key": "osm_node_id",
     "value": 7302135245,
     "unit": "OSM node ID",
@@ -18149,7 +18149,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7302135245",
+    "entity_code": "STOP-M3-EL-SHAMS-CLUB",
     "attribute_key": "osm_node_id",
     "value": 7302135246,
     "unit": "OSM node ID",
@@ -18161,7 +18161,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7302135248",
+    "entity_code": "STOP-M3-HELIOPOLIS-SUBWAY",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18175,7 +18175,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7302135248",
+    "entity_code": "STOP-M3-HELIOPOLIS-SUBWAY",
     "attribute_key": "osm_node_id",
     "value": 7302135248,
     "unit": "OSM node ID",
@@ -18187,7 +18187,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7302135248",
+    "entity_code": "STOP-M3-HELIOPOLIS-SUBWAY",
     "attribute_key": "osm_node_id",
     "value": 7302135249,
     "unit": "OSM node ID",
@@ -18199,7 +18199,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7308408910",
+    "entity_code": "STOP-M3-HAROUN",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18213,7 +18213,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7308408910",
+    "entity_code": "STOP-M3-HAROUN",
     "attribute_key": "osm_node_id",
     "value": 7308408910,
     "unit": "OSM node ID",
@@ -18225,7 +18225,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7308408910",
+    "entity_code": "STOP-M3-HAROUN",
     "attribute_key": "osm_node_id",
     "value": 7308408911,
     "unit": "OSM node ID",
@@ -18237,7 +18237,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190660",
+    "entity_code": "STOP-M3-EL-HAYKESTEP",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18251,7 +18251,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190660",
+    "entity_code": "STOP-M3-EL-HAYKESTEP",
     "attribute_key": "osm_node_id",
     "value": 7559190660,
     "unit": "OSM node ID",
@@ -18263,7 +18263,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190660",
+    "entity_code": "STOP-M3-EL-HAYKESTEP",
     "attribute_key": "osm_node_id",
     "value": 9076234501,
     "unit": "OSM node ID",
@@ -18275,7 +18275,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190666",
+    "entity_code": "STOP-M3-OMAR-EBN-ELKHATAB",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18289,7 +18289,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190666",
+    "entity_code": "STOP-M3-OMAR-EBN-ELKHATAB",
     "attribute_key": "osm_node_id",
     "value": 7559190666,
     "unit": "OSM node ID",
@@ -18301,7 +18301,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190666",
+    "entity_code": "STOP-M3-OMAR-EBN-ELKHATAB",
     "attribute_key": "osm_node_id",
     "value": 9076234491,
     "unit": "OSM node ID",
@@ -18313,7 +18313,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190674",
+    "entity_code": "STOP-M3-QUBAA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18327,7 +18327,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190674",
+    "entity_code": "STOP-M3-QUBAA",
     "attribute_key": "osm_node_id",
     "value": 7559190674,
     "unit": "OSM node ID",
@@ -18339,7 +18339,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190674",
+    "entity_code": "STOP-M3-QUBAA",
     "attribute_key": "osm_node_id",
     "value": 9076234476,
     "unit": "OSM node ID",
@@ -18351,7 +18351,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190677",
+    "entity_code": "STOP-M3-HESHAM-BARAKAT",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18365,7 +18365,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190677",
+    "entity_code": "STOP-M3-HESHAM-BARAKAT",
     "attribute_key": "osm_node_id",
     "value": 7559190677,
     "unit": "OSM node ID",
@@ -18377,7 +18377,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559190677",
+    "entity_code": "STOP-M3-HESHAM-BARAKAT",
     "attribute_key": "osm_node_id",
     "value": 7926259258,
     "unit": "OSM node ID",
@@ -18389,7 +18389,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559205785",
+    "entity_code": "STOP-M3-EL-NOZHA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18401,7 +18401,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7559205785",
+    "entity_code": "STOP-M3-EL-NOZHA",
     "attribute_key": "osm_node_id",
     "value": 7559205785,
     "unit": "OSM node ID",
@@ -18413,7 +18413,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7926259279",
+    "entity_code": "STOP-M3-EL-NOZHA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18425,7 +18425,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-7926259279",
+    "entity_code": "STOP-M3-EL-NOZHA",
     "attribute_key": "osm_node_id",
     "value": 7926259279,
     "unit": "OSM node ID",
@@ -18437,7 +18437,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077161247",
+    "entity_code": "STOP-M3-MASBERO",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18451,7 +18451,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077161247",
+    "entity_code": "STOP-M3-MASBERO",
     "attribute_key": "osm_node_id",
     "value": 9077161247,
     "unit": "OSM node ID",
@@ -18463,7 +18463,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077161247",
+    "entity_code": "STOP-M3-MASBERO",
     "attribute_key": "osm_node_id",
     "value": 10099279471,
     "unit": "OSM node ID",
@@ -18475,7 +18475,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077161277",
+    "entity_code": "STOP-M3-SUDAN",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18487,7 +18487,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077161277",
+    "entity_code": "STOP-M3-SUDAN",
     "attribute_key": "osm_node_id",
     "value": 9077161277,
     "unit": "OSM node ID",
@@ -18496,7 +18496,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077161277",
+    "entity_code": "STOP-M3-SUDAN",
     "attribute_key": "osm_node_id",
     "value": 11495611080,
     "unit": "OSM node ID",
@@ -18505,7 +18505,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077189570",
+    "entity_code": "STOP-M3-AL-BOHY",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18517,7 +18517,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077189570",
+    "entity_code": "STOP-M3-AL-BOHY",
     "attribute_key": "osm_node_id",
     "value": 9077189570,
     "unit": "OSM node ID",
@@ -18526,7 +18526,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077189570",
+    "entity_code": "STOP-M3-AL-BOHY",
     "attribute_key": "osm_node_id",
     "value": 11495591843,
     "unit": "OSM node ID",
@@ -18535,7 +18535,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077189581",
+    "entity_code": "STOP-M3-IMBABA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18547,7 +18547,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077189581",
+    "entity_code": "STOP-M3-IMBABA",
     "attribute_key": "osm_node_id",
     "value": 9077189581,
     "unit": "OSM node ID",
@@ -18556,7 +18556,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077189581",
+    "entity_code": "STOP-M3-IMBABA",
     "attribute_key": "osm_node_id",
     "value": 11495591856,
     "unit": "OSM node ID",
@@ -18565,7 +18565,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077189601",
+    "entity_code": "STOP-M3-SAFAA-HEGAZY",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18579,7 +18579,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077189601",
+    "entity_code": "STOP-M3-SAFAA-HEGAZY",
     "attribute_key": "osm_node_id",
     "value": 9077189601,
     "unit": "OSM node ID",
@@ -18591,7 +18591,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077189601",
+    "entity_code": "STOP-M3-SAFAA-HEGAZY",
     "attribute_key": "osm_node_id",
     "value": 10099279483,
     "unit": "OSM node ID",
@@ -18603,7 +18603,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077189602",
+    "entity_code": "STOP-KIT-KAT",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18617,7 +18617,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077189602",
+    "entity_code": "STOP-KIT-KAT",
     "attribute_key": "osm_node_id",
     "value": 9077189602,
     "unit": "OSM node ID",
@@ -18629,7 +18629,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077189602",
+    "entity_code": "STOP-KIT-KAT",
     "attribute_key": "osm_node_id",
     "value": 10099279486,
     "unit": "OSM node ID",
@@ -18641,7 +18641,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077274203",
+    "entity_code": "STOP-M3-RING-ROAD",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18653,7 +18653,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077274203",
+    "entity_code": "STOP-M3-RING-ROAD",
     "attribute_key": "osm_node_id",
     "value": 9077274203,
     "unit": "OSM node ID",
@@ -18662,7 +18662,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077274203",
+    "entity_code": "STOP-M3-RING-ROAD",
     "attribute_key": "osm_node_id",
     "value": 11495591821,
     "unit": "OSM node ID",
@@ -18671,7 +18671,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-9077391794",
+    "entity_code": "STOP-M3-AL-KAWMEIAH",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18683,7 +18683,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-9077391794",
+    "entity_code": "STOP-M3-AL-KAWMEIAH",
     "attribute_key": "osm_node_id",
     "value": 9077391794,
     "unit": "OSM node ID",
@@ -18692,7 +18692,7 @@
     "evidence_ref": "EV-354"
   },
   {
-    "entity_code": "STOP-OSM-9077391794",
+    "entity_code": "STOP-M3-AL-KAWMEIAH",
     "attribute_key": "osm_node_id",
     "value": 11495591840,
     "unit": "OSM node ID",
@@ -18701,7 +18701,7 @@
     "evidence_ref": "EV-358"
   },
   {
-    "entity_code": "STOP-OSM-11923457958",
+    "entity_code": "STOP-M3-WADI-EL-NILE",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18713,7 +18713,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-11923457958",
+    "entity_code": "STOP-M3-WADI-EL-NILE",
     "attribute_key": "osm_node_id",
     "value": 11923457958,
     "unit": "OSM node ID",
@@ -18722,7 +18722,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-11923457958",
+    "entity_code": "STOP-M3-WADI-EL-NILE",
     "attribute_key": "osm_node_id",
     "value": 11923457959,
     "unit": "OSM node ID",
@@ -18731,7 +18731,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-11923472281",
+    "entity_code": "STOP-M3-GAMET-EL-DOWEL",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18743,7 +18743,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-11923472281",
+    "entity_code": "STOP-M3-GAMET-EL-DOWEL",
     "attribute_key": "osm_node_id",
     "value": 11923472281,
     "unit": "OSM node ID",
@@ -18752,7 +18752,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-11923472281",
+    "entity_code": "STOP-M3-GAMET-EL-DOWEL",
     "attribute_key": "osm_node_id",
     "value": 11923472282,
     "unit": "OSM node ID",
@@ -18761,7 +18761,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-11923472302",
+    "entity_code": "STOP-M3-BULAQ-AL-DAKROUR",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18773,7 +18773,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-11923472302",
+    "entity_code": "STOP-M3-BULAQ-AL-DAKROUR",
     "attribute_key": "osm_node_id",
     "value": 11923472302,
     "unit": "OSM node ID",
@@ -18782,7 +18782,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-11923472302",
+    "entity_code": "STOP-M3-BULAQ-AL-DAKROUR",
     "attribute_key": "osm_node_id",
     "value": 11923472312,
     "unit": "OSM node ID",
@@ -18791,7 +18791,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-11926766472",
+    "entity_code": "STOP-M3-AL-TAWFIKIA",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L3",
     "unit": null,
@@ -18803,7 +18803,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-11926766472",
+    "entity_code": "STOP-M3-AL-TAWFIKIA",
     "attribute_key": "osm_node_id",
     "value": 11926766472,
     "unit": "OSM node ID",
@@ -18812,7 +18812,7 @@
     "evidence_ref": "EV-366"
   },
   {
-    "entity_code": "STOP-OSM-11926766472",
+    "entity_code": "STOP-M3-AL-TAWFIKIA",
     "attribute_key": "osm_node_id",
     "value": 11926766473,
     "unit": "OSM node ID",
@@ -18821,7 +18821,7 @@
     "evidence_ref": "EV-365"
   },
   {
-    "entity_code": "STOP-OSM-8153781067",
+    "entity_code": "STOP-MRE-CAIRO-STADIUM-MONORAIL",
     "attribute_key": "line_membership",
     "value": "TRANSIT-MONORAIL-EAST",
     "unit": null,
@@ -18833,7 +18833,7 @@
     ]
   },
   {
-    "entity_code": "STOP-OSM-8153781067",
+    "entity_code": "STOP-MRE-CAIRO-STADIUM-MONORAIL",
     "attribute_key": "osm_node_id",
     "value": 8153781067,
     "unit": "OSM node ID",
@@ -18842,7 +18842,7 @@
     "evidence_ref": "EV-360"
   },
   {
-    "entity_code": "STOP-OSM-8153781067",
+    "entity_code": "STOP-MRE-CAIRO-STADIUM-MONORAIL",
     "attribute_key": "osm_node_id",
     "value": 12206899290,
     "unit": "OSM node ID",
@@ -19567,7 +19567,7 @@
     ]
   },
   {
-    "entity_code": "RAIL-OSM-5217365043",
+    "entity_code": "RAIL-GIZA-SUBURBS",
     "attribute_key": "line_membership",
     "value": "Alexandria-Aswan line",
     "unit": "OSM route=train relation 280689",
@@ -19576,7 +19576,7 @@
     "evidence_ref": "EV-351"
   },
   {
-    "entity_code": "RAIL-OSM-5217365043",
+    "entity_code": "RAIL-GIZA-SUBURBS",
     "attribute_key": "line_order",
     "value": 2,
     "unit": "stop position in OSM relation 280689",
@@ -19585,12 +19585,21 @@
     "evidence_ref": "EV-351"
   },
   {
-    "entity_code": "RAIL-OSM-5217365043",
+    "entity_code": "RAIL-GIZA-SUBURBS",
     "attribute_key": "osm_node_id",
     "value": 5217365043,
     "unit": "OSM node ID",
     "status_as_of": "2026-11-14",
     "verification_state": "candidate",
     "evidence_ref": "EV-351"
+  },
+  {
+    "entity_code": "STOP-M3-WADI-EL-NILE",
+    "attribute_key": "interchange_with",
+    "value": "STOP-MRW-WADI-EL-NIL",
+    "unit": null,
+    "status_as_of": "2026-11-14",
+    "verification_state": "candidate",
+    "evidence_ref": "EV-365"
   }
 ]

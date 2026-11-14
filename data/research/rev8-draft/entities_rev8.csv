@@ -20,8 +20,8 @@ AUTH-OBOUR-AGENCY,authority,جهاز العبور,Obour City Authority,,EAST,ope
 AUTH-QALYUBIA-GOVERNORATE,authority,محافظة القليوبية,Qalyubia Governorate,القليوبية|Qalyubia|Al Qalyubia Governorate|محافظة القليوبيه,NORTH,operational,
 AUTH-SHEIKH-ZAYED-AGENCY,authority,جهاز تنمية مدينة الشيخ زايد,Sheikh Zayed City Development Authority,,WEST,operational,
 AUTH-SHOROUK-AGENCY,authority,جهاز تنمية مدينة الشروق,El Shorouk City Development Authority,,EAST,operational,
-BRIDGE-15-MAY,bridge,كوبري 15 مايو,15th of May Bridge,,CENTRAL,operational,
-BRIDGE-6-OCTOBER,bridge,كوبري 6 أكتوبر,6th of October Bridge,,CENTRAL,operational,
+BRIDGE-15-MAY,bridge,كوبري 15 مايو,15th of May Bridge,كوبرى 15 مايو|15th May Bridge|15th Mayo Bridge,CENTRAL,operational,
+BRIDGE-6-OCTOBER,bridge,كوبري 6 أكتوبر,6th of October Bridge,كوبري السادس من أكتوبر|6th October Bridge,CENTRAL,operational,
 BRIDGE-ABBAS,bridge,كوبري عباس,Abbas Bridge,,CENTRAL,operational,
 BRIDGE-BENHA-FLYOVER,bridge,كوبري بنها العلوي,Benha Flyover Bridge,,REGIONAL,operational,
 BRIDGE-BENHA-NILE,bridge,كوبري بنها على النيل,Banha Nile Bridge (Regional Ring Road),كوبري بنها على النيل بالدائري الإقليمي|Banha Nile Bridge,NORTH,operational,
@@ -177,54 +177,54 @@ PROJ-METRO-L1-UPGRADE,project,تطوير الخط الأول للمترو,Metro 
 PROJ-RING-WIDENING-2798,project,توسعة الدائري من المنصورية لوصلة الواحات,Ring Road Widening (Mansouriya–Wahat Link),القرار 2798 لسنة 2026,WEST,approved_planned,
 PROJ-SHOROUK-INDUSTRIAL-ABU-ZAABAL,project,منطقة الشروق الصناعية بأبو زعبل,El Shorouk Industrial Zone (Abu Zaabal),المنطقة الصناعية بأبو زعبل,NORTH,operational,
 RAIL-BASHTIL,rail_station,محطة قطارات الصعيد في بشتيل,Bashtil Upper Egypt Rail Station,بشتيل,WEST,operational,
-RAIL-OSM-5217365043,rail_station,ضواحي الجيزة,Giza Suburbs,,CENTRAL,operational,OSM-derived ENR route station research draft; not promoted to seed; official verification pending.
+RAIL-GIZA-SUBURBS,rail_station,ضواحي الجيزة,Giza Suburbs,,WEST,operational,OSM-derived ENR station; official verification pending.
 RAIL-RAMSES,rail_station,رمسيس,Ramses Station,الشهداء,CENTRAL,operational,
-ROAD-26-JULY,road,محور 26 يوليو,26th of July Axis,26 يوليو,WEST,operational,
+ROAD-26-JULY,road,محور 26 يوليو,26th of July Axis,26 يوليو|شارع 26 يوليو|26th July Street,WEST,operational,
 ROAD-30-JUNE,road,محور 30 يونيو,30 June Axis,,EAST,partial,
-ROAD-90-NORTH,road,التسعين الشمالي,North 90th Street,التسعين,EAST,operational,
-ROAD-90-SOUTH,road,التسعين الجنوبي,South 90th Street,التسعين,EAST,operational,
-ROAD-ADLY-MANSOUR-AXIS,road,محور المستشار عدلي منصور,Adly Mansour Axis (East Cairo),محور عدلي منصور,NORTH,operational,
+ROAD-90-NORTH,road,التسعين الشمالي,North 90th Street,التسعين|شارع التسعين الشمالي|شارع التسعين الشمالى|شارع التسعين|Al Teseen Northern Street,EAST,operational,
+ROAD-90-SOUTH,road,التسعين الجنوبي,South 90th Street,التسعين|شارع التسعين الجنوبي|شارع التسعين الجنوبى|شارع التسعين|Al Tesein Southern Street,EAST,operational,
+ROAD-ADLY-MANSOUR-AXIS,road,محور المستشار عدلي منصور,Adly Mansour Axis (East Cairo),محور عدلي منصور|Adly Mansour Axis,NORTH,operational,
 ROAD-AHMED-ORABI,road,محور أحمد عرابي,Ahmed Orabi Axis,,WEST,operational,
 ROAD-AIN-SOKHNA,road,العين السخنة,Ain Sokhna Road,طريق العين السخنة|طريق السخنة,EAST,operational,
 ROAD-AMR-IBN-ALAS,road,محور عمرو بن العاص,Amr Ibn Al-Aas Axis,,WEST,unknown,
 ROAD-ASSAR-AXIS,road,محور الفريق العصار,Al-Fariq Al-Assar Axis,العصار|محور الفريق محمد العصار|محور أبو بكر الصديق,NORTH,operational,
-ROAD-AUTOSTRAD,road,الأوتوستراد,Autostrad,,SOUTH,operational,
-ROAD-BENHA-MANSOURA,road,بنها–المنصورة,Benha–Mansoura Road,طريق بنها–المنصورة القديم,REGIONAL,operational,
-ROAD-BILBEIS-DESERT,road,بلبيس الصحراوي,Bilbeis Desert Road,,EAST,operational,
+ROAD-AUTOSTRAD,road,الأوتوستراد,Autostrad,طريق الاوتوستراد|طريق الأوتوستراد|Al Autostrad Road,SOUTH,operational,
+ROAD-BENHA-MANSOURA,road,بنها–المنصورة,Benha–Mansoura Road,طريق بنها–المنصورة القديم|طريق بنها ميت غمر|طريق ميت غمر بنها|طريق المنصورة ميت غمر|طريق بنها المنصورة|Banha Mit Ghamr Road|Al Mansoura Mit Ghamr Road,REGIONAL,operational,
+ROAD-BILBEIS-DESERT,road,بلبيس الصحراوي,Bilbeis Desert Road,طريق القاهرة بلبيس الصحراوي|طريق بلبيس الصحراوي|Cairo Belbes Desert Road,EAST,operational,
 ROAD-CAIRO-ALEX-AGRI,road,القاهرة–الإسكندرية الزراعي,Cairo–Alexandria Agricultural Road,الزراعي|الإسكندرية الزراعي,NORTH,operational,
 ROAD-CAIRO-ALEX-DESERT,road,إسكندرية الصحراوي,Cairo–Alexandria Desert Road,,WEST,operational,
-ROAD-CAIRO-ASSIUT-AGRI,road,القاهرة–أسيوط الزراعي,Cairo–Assiut Agricultural Road,,WEST,unknown,
-ROAD-CAIRO-FAYOUM,road,القاهرة–الفيوم,Cairo–Fayoum Road,طريق الفيوم,WEST,operational,
+ROAD-CAIRO-ASSIUT-AGRI,road,القاهرة–أسيوط الزراعي,Cairo–Assiut Agricultural Road,طريق القاهرة أسيوط الزراعي|القاهرة أسيوط الزراعي|Cairo Asyout Agricultural Road,WEST,unknown,
+ROAD-CAIRO-FAYOUM,road,القاهرة–الفيوم,Cairo–Fayoum Road,طريق الفيوم|طريق القاهرة الفيوم الصحراوي|Cairo Al Fayoum Desert Road,WEST,operational,
 ROAD-CAIRO-ISMAILIA-DESERT,road,القاهرة–الإسماعيلية الصحراوي,Cairo–Ismailia Desert Road,الإسماعيلية الصحراوي|طريق الإسماعيلية,EAST,operational,
 ROAD-CAIRO-SUEZ,road,القاهرة–السويس,Cairo–Suez Road,السويس,EAST,operational,
-ROAD-CORNICHE,road,الكورنيش,Corniche,,SOUTH,operational,
+ROAD-CORNICHE,road,الكورنيش,Corniche,كورنيش النيل|كورنيش القاهرة|كورنيش المعادي|Cairo Corniche,SOUTH,operational,
 ROAD-DABAA-AXIS,road,محور الضبعة,Dabaa Axis,الضبعة,WEST,operational,
-ROAD-DAHSHUR-LINK,road,وصلة دهشور,Dahshur Link,,WEST,unknown,
+ROAD-DAHSHUR-LINK,road,وصلة دهشور,Dahshur Link,طريق وصلة دهشور|طريق وصلة دهشور الجنوبية|Waslet Dahshur Road,WEST,unknown,
 ROAD-EAST-RAYAH-TAWFIKI,road,طريق حر شرق الرياح التوفيقي,East Rayah Tawfiki Free Road,,REGIONAL,under_construction,
-ROAD-EASTERN-DESERT,road,الصحراوي الشرقي,Eastern Desert Road,,SOUTH,unknown,
-ROAD-GAMET-EL-DOWAL,road,جامعة الدول,Gameat El Dowal Street,,WEST,operational,
-ROAD-HARAM,road,الهرم,Haram Street,,WEST,operational,
+ROAD-EASTERN-DESERT,road,الصحراوي الشرقي,Eastern Desert Road,طريق القاهرة السويس الصحراوي|الطريق الصحراوي الشرقي,SOUTH,unknown,
+ROAD-GAMET-EL-DOWAL,road,جامعة الدول,Gameat El Dowal Street,شارع جامعة الدول العربية|جامعة الدول العربية,WEST,operational,
+ROAD-HARAM,road,الهرم,Haram Street,شارع الهرم|شارع الأهرام|Al Haram Street|Al Ahram Street,WEST,operational,
 ROAD-IBRAHIM-ORABI-AXIS,road,محور الفريق إبراهيم العرابي,El Fereeq Ibrahim El Orabi Axis,محور إبراهيم العرابي|محور ترعة الطوارئ|محور الفريق ابراهيم العرابي,NORTH,operational,
-ROAD-ISMAILIA-AGRI,road,الإسماعيلية الزراعي,Ismailia Agricultural Road,,NORTH,operational,
+ROAD-ISMAILIA-AGRI,road,الإسماعيلية الزراعي,Ismailia Agricultural Road,طريق القاهرة الإسماعيلية الزراعي|طريق الاسماعيلية الزراعي|Cairo Ismailia Agricultural Road,NORTH,operational,
 ROAD-KAMAL-AMER,road,محور الفريق كمال عامر,Al-Fariq Kamal Amer Axis,كمال عامر,WEST,operational,
 ROAD-MARG-AXIS,road,محور المرج,El Marg Axis,محور المرج – الخانكة|محور المرج الخانكة,NORTH,planned,
-ROAD-MARYUTEYA,road,المريوطية,Maryuteya Road,,WEST,unknown,
+ROAD-MARYUTEYA,road,المريوطية,Maryuteya Road,طريق المريوطية|شارع ترعة المريوطية|طريق ترعة المريوطية|Al Maryouteya Road,WEST,unknown,
 ROAD-MBZ-NORTH,road,محمد بن زايد الشمالي,Mohamed Bin Zayed North Axis,محور الشيخ محمد بن زايد الشمالى|محور الشيخ محمد بن زايد الشمالي|Sheikh Mohamed Bin Zayed North Axis,EAST,unknown,
 ROAD-MBZ-SOUTH,road,محمد بن زايد الجنوبي,Mohamed Bin Zayed South Axis,محور الشيخ محمد بن زايد الجنوبي|Sheikh Mohamed Bin Zayed South Axis,EAST,operational,
 ROAD-MIDDLE-RING,road,الأوسطي,Middle Ring Road,الدائري الأوسطي|الطريق الدائري الأوسطي|Central Ring Road,REGIONAL,operational,
 ROAD-MOHAMED-NAGUIB,road,محور محمد نجيب,Mohamed Naguib Axis,محمد نجيب,EAST,operational,
-ROAD-MOKATTAM-AXIS,road,محور المقطم,Mokattam Axis,,SOUTH,unknown,
-ROAD-MOSHIR-TANTAWY,road,المشير طنطاوي,El-Moshir Tantawy Axis,,EAST,operational,
+ROAD-MOKATTAM-AXIS,road,محور المقطم,Mokattam Axis,محور ياسر رزق|طريق المقطم|Al Mokattam Road|Yaser Rezq Axis,SOUTH,unknown,
+ROAD-MOSHIR-TANTAWY,road,المشير طنطاوي,El-Moshir Tantawy Axis,محور المشير طنطاوي|محور المشير|El Moshir Tantawy Axis,EAST,operational,
 ROAD-MOSTOROD-AXIS,road,محور مسطرد,Mostorod Axis,محور مسطرد الجديد|Mostorod Axis,NORTH,operational,
-ROAD-NASR,road,طريق النصر,Al-Nasr Road,,EAST,operational,
+ROAD-NASR,road,طريق النصر,Al-Nasr Road,Al Nasr Road,EAST,operational,
 ROAD-OBOUR-AXIS-NEW-CAIRO,road,محور العبور (القاهرة الجديدة),El Obour Axis (New Cairo),محور العبور|El Obour Axis,EAST,under_construction,
-ROAD-REGIONAL-NW-ARC,road,القوس الشمالي الغربي للإقليمي,Regional Ring Road North-West Arc,,REGIONAL,unknown,
+ROAD-REGIONAL-NW-ARC,road,القوس الشمالي الغربي للإقليمي,Regional Ring Road North-West Arc,القوس الشمالي الغربي للطريق الدائري الإقليمي,REGIONAL,unknown,
 ROAD-REGIONAL-RING,road,الإقليمي,Regional Ring Road,الطريق الدائري الإقليمي|الدائري الإقليمي,REGIONAL,partial,
 ROAD-RING-ROAD,road,الدائري,Ring Road,الدائري القديم|الطريق الدائري|The Ring Road,CENTRAL,operational,
 ROAD-ROD-ELFARAG-DABAA,road,محور روض الفرج–الضبعة,Rod El Farag–Dabaa Axis,محور تحيا مصر|تحيا مصر|محور روض الفرج,NORTH,operational,
 ROAD-SHUBRA-BENHA-FREE,road,شبرا–بنها الحر,Shubra–Benha Free Road,محور شبرا–بنها الحر|طريق شبرا بنها الحر|طريق شبرا / بنها الحر|Shubra Banha Free Road,NORTH,operational,
-ROAD-WAHAT,road,الواحات,Wahat Road,وصلة الواحات,WEST,operational,
-ROAD-WESTERN-DESERT,road,الصحراوي الغربي,Western Desert Road,,WEST,unknown,
+ROAD-WAHAT,road,الواحات,Wahat Road,وصلة الواحات|طريق الواحات|طريق الجيزة الواحات البحرية|Al Wahat Road,WEST,operational,
+ROAD-WESTERN-DESERT,road,الصحراوي الغربي,Western Desert Road,طريق القاهرة أسيوط الصحراوي الغربي|القاهرة أسيوط الصحراوي الغربي|Cairo Asyout Western Desert Road,WEST,unknown,
 STOP-6-OCTOBER-INTERCHANGE,transit_stop,6 أكتوبر,6th of October Interchange,,WEST,under_construction,
 STOP-ABBASSIA,transit_stop,العباسية,Abbassia Station,,CENTRAL,operational,
 STOP-ADALA-CITY,transit_stop,مدينة العدالة,Justice City Station,,EAST,operational,
@@ -265,7 +265,7 @@ STOP-DEMERDASH,transit_stop,الدمرداش,Demerdash Station,,CENTRAL,operatio
 STOP-HADAEK-OCTOBER,transit_stop,حدائق أكتوبر,Hadaek October Interchange,,WEST,under_construction,
 STOP-HSR-GIZA,transit_stop,الجيزة (القطار السريع),Giza HSR Station,,WEST,under_construction,
 STOP-HSR-SPHINX,transit_stop,سفنكس (القطار السريع),Sphinx HSR Station,,WEST,under_construction,
-STOP-KIT-KAT,transit_stop,الكيت كات,Kit Kat Station,,WEST,operational,
+STOP-KIT-KAT,transit_stop,الكيت كات,Kit Kat Station,Kit-kat,WEST,operational,
 STOP-LRT-10TH-CITY-CENTER,transit_stop,مركز المدينة (العاشر),10th of Ramadan City Center LRT Station,,EAST,under_construction,
 STOP-LRT-10TH-RAMADAN-1,transit_stop,العاشر من رمضان 1,10th of Ramadan 1 LRT Station,العاشر 1,EAST,operational,
 STOP-LRT-BADR,transit_stop,بدر,Badr LRT Station,,EAST,operational,
@@ -284,12 +284,12 @@ STOP-LRT-SHOROUK,transit_stop,الشروق,Shorouk LRT Station,,EAST,operational
 STOP-LRT-SPORTS-CITY,transit_stop,المدينة الرياضية الدولية,International Sports City LRT Station,,EAST,under_construction,
 STOP-LRT-STRATEGIC-COMMAND,transit_stop,القيادة الإستراتيجية,Strategic Command LRT Station,,EAST,under_construction,
 STOP-LRT-TECH-INSTITUTE,transit_stop,المعهد التكنولوجي,Technological Institute LRT Station,,EAST,under_construction,
-STOP-M1-EL-MARG,transit_stop,المرج (الخط الأول),El Marg Metro Station (Line 1),محطة مترو المرج|El Marg,NORTH,operational,
+STOP-M1-EL-MARG,transit_stop,المرج (الخط الأول),El Marg Metro Station (Line 1),محطة مترو المرج|El Marg|Al Marj,NORTH,operational,
 STOP-M1-NEW-EL-MARG,transit_stop,المرج الجديدة,New El Marg Metro Station (Line 1),محطة المرج الجديدة|New El-Marg|El Marg El Gedida,NORTH,operational,
-STOP-M2-KHALAFAWY,transit_stop,الخلفاوي,El Khalafawy Metro Station (Line 2),محطة الخلفاوي|Khalafawy,NORTH,operational,
-STOP-M2-SHUBRA-ELKHEIMA,transit_stop,شبرا الخيمة (الخط الثاني),Shubra El Kheima Metro Station (Line 2),محطة مترو شبرا الخيمة|Shubra El-Kheima,NORTH,operational,
+STOP-M2-KHALAFAWY,transit_stop,الخلفاوي,El Khalafawy Metro Station (Line 2),محطة الخلفاوي|Khalafawy,CENTRAL,operational,
+STOP-M2-SHUBRA-ELKHEIMA,transit_stop,شبرا الخيمة (الخط الثاني),Shubra El Kheima Metro Station (Line 2),محطة مترو شبرا الخيمة|Shubra El-Kheima|Shobra Al-Kheima,NORTH,operational,
 STOP-M2-ST-TERESA,transit_stop,سانت تريزا,St. Teresa Metro Station (Line 2),محطة سانت تريزا|Saint Teresa,NORTH,operational,
-STOP-M3-RING-ROAD,transit_stop,الطريق الدائري (الخط الثالث),Ring Road Metro Station (Line 3),محطة الطريق الدائري (مترو)|Ring Road (Metro),NORTH,operational,
+STOP-M3-RING-ROAD,transit_stop,الطريق الدائري (الخط الثالث),Ring Road Metro Station (Line 3),محطة الطريق الدائري (مترو)|Ring Road (Metro),WEST,operational,
 STOP-M3-ROD-ELFARAG-AXIS,transit_stop,محور روض الفرج (الخط الثالث),Rod El Farag Axis Metro Station (Line 3),محطة محور روض الفرج|Rod El Farag Corridor,NORTH,operational,
 STOP-MONORAIL-MOSHIR-TANTAWY,transit_stop,المشير طنطاوي,El Moshir Tantawy Monorail Station,,EAST,operational,
 STOP-MRE-7TH-DISTRICT,transit_stop,الحي السابع,Seventh District (Monorail),,EAST,operational,
@@ -323,83 +323,78 @@ STOP-MRW-RING-ROAD,transit_stop,الطريق الدائري (مونوريل),Rin
 STOP-MRW-SADAT,transit_stop,السادات (مونوريل غرب),El Sadat (West Monorail),,WEST,under_construction,
 STOP-MRW-SHEIKH-ZAYED,transit_stop,مدينة الشيخ زايد (مونوريل),Sheikh Zayed City (West Monorail),,WEST,under_construction,
 STOP-MRW-WADI-EL-NIL,transit_stop,وادي النيل,Wadi El Nil (West Monorail / Metro L3),,WEST,under_construction,
-STOP-OSM-1131555201,transit_stop,المنيب,Al-Mounib,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-11923457958,transit_stop,وادي النيل,Wadi El Nile,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-11923472281,transit_stop,جامعة الدول,Gamet El Dowel,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-11923472302,transit_stop,محطة مترو بولاق الدكرور,Bulaq Al-Dakrour,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-11926766472,transit_stop,التوفيقية,Al-Tawfikia,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-1235803722,transit_stop,باب الشعرية,Bab el Shaaria,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-1235803723,transit_stop,الجيش,El Geish,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-1235803732,transit_stop,عبده باشا,Abdou Pasha,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-1641694429,transit_stop,كلية الزراعة,Koliet El-Zeraa,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-1641694433,transit_stop,شبرا الخيمة,Shobra Al-Kheima,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-1642286403,transit_stop,عين شمس,Ain Shams,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-1654760303,transit_stop,أرض المعارض,Cairo Fairground,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-1654764997,transit_stop,كلية البنات,Koleyet El Banat,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-2208367177,transit_stop,ثكنات المعادي,Thakanat El-Maadi,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-2208367184,transit_stop,المعادى,Maadi,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-2400937187,transit_stop,الاهرام,Al Ahram,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-2460595904,transit_stop,الملك الصالح,Al-Malek Al-Saleh,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316388031,transit_stop,مار جرجس,Mar Girgis,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316388053,transit_stop,دار السلام,Dar Al-Salam,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316631596,transit_stop,فيصل,Faisal,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316631600,transit_stop,جيزة,Giza,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316632489,transit_stop,جامعة القاهرة,Cairo University,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316637584,transit_stop,عين حلوان,Ain Helwan,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316637586,transit_stop,جامعة حلوان,Helwan University,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316637588,transit_stop,وادي حوف,Wadi Hof,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316638393,transit_stop,حدائق حلوان,Hadayeq Helwan,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316638531,transit_stop,المعصرة,Al-Maasara,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316638638,transit_stop,طرة البلد,Tora El-Balad,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316639686,transit_stop,السيدة زينب,Sayyeda Zeinab,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316641712,transit_stop,ناصر,Nasser,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316642043,transit_stop,الغمرة,Ghamra,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316642888,transit_stop,منشية الصدر,Manshiet Al-Sadr,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316643067,transit_stop,كوبري القبة,Kobri Al-Qobba,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316643069,transit_stop,حمامات القبة,Hammamat Al-Qobba,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316643073,transit_stop,سراي القبة,Saray Al-Qobba,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316643077,transit_stop,حدائق الزيتون,Hadayeq Al-Zaitoun,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316643099,transit_stop,المطرية,El-Matareyya,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316643111,transit_stop,محطة عزبة النخل,Ezbet en Nakhl,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-316643120,transit_stop,المرج,Al Marj,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-317755256,transit_stop,العتبة,Attaba,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-3755981998,transit_stop,حلوان,Helwan,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-493207780,transit_stop,الزهراء,Al-Zahraa,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-4978060976,transit_stop,سانت تيريزا,Sainte Teresa,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-4978060979,transit_stop,روض الفرج,Rawd El-Farag,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-4978060988,transit_stop,مسره,Massara,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-4979414360,transit_stop,الأوبرا,Opera,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-4979416433,transit_stop,أم المصريين,Omm El Misryeen,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-5194246943,transit_stop,كوتسكا,Kozzika,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-5194348150,transit_stop,محطة مترو العتبة,Attaba subway station,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-5344953917,transit_stop,طرا الأسمنت,Tora El-Asmant,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-5348846066,transit_stop,مترو حدائق المعادى,Hadayek El Maadi,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-5349031071,transit_stop,حلمية الزيتون,Helmeyet Al-Zaitoun,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-5349031084,transit_stop,سعد زغلول,Saad Zaghloul,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-5353485468,transit_stop,عرابي,Orabi,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-5355866946,transit_stop,البحوث,Behooth,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-6288254841,transit_stop,المظلات,Al-Mezallat,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7153641095,transit_stop,محطة مترو ألف مسكن,Alf Maskan subway station,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7302135245,transit_stop,نادي الشمس‎,El Shams Club,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7302135248,transit_stop,محطة مترو هليوبوليس,Heliopolis subway station,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7308408910,transit_stop,هارون,Haroun,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7559190660,transit_stop,محطة مترو الهايكستب ‎,El Haykestep,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7559190666,transit_stop,عمر بن الخطاب‎,Omar Ebn Elkhatab,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7559190674,transit_stop,مترو قباء‎,Qubaa,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7559190677,transit_stop,هشام بركات‎,Hesham Barakat,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7559205785,transit_stop,مترو النزهة,,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-7926259279,transit_stop,النزهة‎,El Nozha,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-8153781067,transit_stop,محطة مونوريل استاد القاهرة,Cairo Stadium Monorail Station,,EAST,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9076904698,transit_stop,ساقية مكي,Sakiat Mekki,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9076904709,transit_stop,الدقى,Dokki,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9077161247,transit_stop,ماسبيرو,Masbero,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9077161277,transit_stop,,Sudan,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9077189570,transit_stop,,Al-Bohy,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9077189581,transit_stop,,Imbaba,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9077189601,transit_stop,صفاء حجازي,Safaa Hegazy,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9077189602,transit_stop,الکيت کات,Kit-kat,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9077274203,transit_stop,,Ring Road,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
-STOP-OSM-9077391794,transit_stop,,Al-Kawmeiah,,CENTRAL,operational,OSM-derived research draft; not promoted to seed; official verification pending.
+STOP-M2-AL-MOUNIB,transit_stop,المنيب,Al-Mounib,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-WADI-EL-NILE,transit_stop,وادي النيل,Wadi El Nile,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-GAMET-EL-DOWEL,transit_stop,جامعة الدول,Gamet El Dowel,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-BULAQ-AL-DAKROUR,transit_stop,محطة مترو بولاق الدكرور,Bulaq Al-Dakrour,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-AL-TAWFIKIA,transit_stop,التوفيقية,Al-Tawfikia,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-BAB-EL-SHAARIA,transit_stop,باب الشعرية,Bab el Shaaria,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M3-EL-GEISH,transit_stop,الجيش,El Geish,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M3-ABDOU-PASHA,transit_stop,عبده باشا,Abdou Pasha,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M2-KOLIET-EL-ZERAA,transit_stop,كلية الزراعة,Koliet El-Zeraa,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-AIN-SHAMS,transit_stop,عين شمس,Ain Shams,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M3-CAIRO-FAIRGROUND,transit_stop,أرض المعارض,Cairo Fairground,,EAST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-KOLEYET-EL-BANAT,transit_stop,كلية البنات,Koleyet El Banat,,EAST,operational,OSM-derived transit station; official verification pending.
+STOP-M1-THAKANAT-EL-MAADI,transit_stop,ثكنات المعادي,Thakanat El-Maadi,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-MAADI,transit_stop,المعادى,Maadi,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M3-AL-AHRAM,transit_stop,الاهرام,Al Ahram,,EAST,operational,OSM-derived transit station; official verification pending.
+STOP-M1-AL-MALEK-AL-SALEH,transit_stop,الملك الصالح,Al-Malek Al-Saleh,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-MAR-GIRGIS,transit_stop,مار جرجس,Mar Girgis,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-DAR-AL-SALAM,transit_stop,دار السلام,Dar Al-Salam,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M2-FAISAL,transit_stop,فيصل,Faisal,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M2-GIZA,transit_stop,جيزة,Giza,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M2-CAIRO-UNIVERSITY,transit_stop,جامعة القاهرة,Cairo University,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M1-AIN-HELWAN,transit_stop,عين حلوان,Ain Helwan,,SOUTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-HELWAN-UNIVERSITY,transit_stop,جامعة حلوان,Helwan University,,SOUTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-WADI-HOF,transit_stop,وادي حوف,Wadi Hof,,SOUTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-HADAYEQ-HELWAN,transit_stop,حدائق حلوان,Hadayeq Helwan,,SOUTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-AL-MAASARA,transit_stop,المعصرة,Al-Maasara,,SOUTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-TORA-EL-BALAD,transit_stop,طرة البلد,Tora El-Balad,,SOUTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-SAYYEDA-ZEINAB,transit_stop,السيدة زينب,Sayyeda Zeinab,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-NASSER,transit_stop,ناصر,Nasser,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-GHAMRA,transit_stop,الغمرة,Ghamra,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-MANSHIET-AL-SADR,transit_stop,منشية الصدر,Manshiet Al-Sadr,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-KOBRI-AL-QOBBA,transit_stop,كوبري القبة,Kobri Al-Qobba,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-HAMMAMAT-AL-QOBBA,transit_stop,حمامات القبة,Hammamat Al-Qobba,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-SARAY-AL-QOBBA,transit_stop,سراي القبة,Saray Al-Qobba,,EAST,operational,OSM-derived transit station; official verification pending.
+STOP-M1-HADAYEQ-AL-ZAITOUN,transit_stop,حدائق الزيتون,Hadayeq Al-Zaitoun,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-EL-MATAREYYA,transit_stop,المطرية,El-Matareyya,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-EZBET-EN-NAKHL,transit_stop,محطة عزبة النخل,Ezbet en Nakhl,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M2-ATTABA,transit_stop,العتبة,Attaba,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-HELWAN,transit_stop,حلوان,Helwan,,SOUTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-AL-ZAHRAA,transit_stop,الزهراء,Al-Zahraa,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M2-SAINTE-TERESA,transit_stop,سانت تيريزا,Sainte Teresa,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M2-RAWD-EL-FARAG,transit_stop,روض الفرج,Rawd El-Farag,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M2-MASSARA,transit_stop,مسره,Massara,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M2-OPERA,transit_stop,الأوبرا,Opera,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M2-OMM-EL-MISRYEEN,transit_stop,أم المصريين,Omm El Misryeen,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M1-KOZZIKA,transit_stop,كوتسكا,Kozzika,,SOUTH,operational,OSM-derived transit station; official verification pending.
+STOP-M3-ATTABA-SUBWAY,transit_stop,محطة مترو العتبة,Attaba subway station,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-TORA-EL-ASMANT,transit_stop,طرا الأسمنت,Tora El-Asmant,,SOUTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-HADAYEK-EL-MAADI,transit_stop,مترو حدائق المعادى,Hadayek El Maadi,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-HELMEYET-AL-ZAITOUN,transit_stop,حلمية الزيتون,Helmeyet Al-Zaitoun,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M1-SAAD-ZAGHLOUL,transit_stop,سعد زغلول,Saad Zaghloul,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M1-ORABI,transit_stop,عرابي,Orabi,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M2-BEHOOTH,transit_stop,البحوث,Behooth,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M2-AL-MEZALLAT,transit_stop,المظلات,Al-Mezallat,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M3-ALF-MASKAN-SUBWAY,transit_stop,محطة مترو ألف مسكن,Alf Maskan subway station,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M3-EL-SHAMS-CLUB,transit_stop,نادي الشمس‎,El Shams Club,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M3-HELIOPOLIS-SUBWAY,transit_stop,محطة مترو هليوبوليس,Heliopolis subway station,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M3-HAROUN,transit_stop,هارون,Haroun,,EAST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-EL-HAYKESTEP,transit_stop,محطة مترو الهايكستب ‎,El Haykestep,,EAST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-OMAR-EBN-ELKHATAB,transit_stop,عمر بن الخطاب‎,Omar Ebn Elkhatab,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M3-QUBAA,transit_stop,مترو قباء‎,Qubaa,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M3-HESHAM-BARAKAT,transit_stop,هشام بركات‎,Hesham Barakat,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-M3-EL-NOZHA,transit_stop,النزهة‎,El Nozha,,NORTH,operational,OSM-derived transit station; official verification pending.
+STOP-MRE-CAIRO-STADIUM-MONORAIL,transit_stop,محطة مونوريل استاد القاهرة,Cairo Stadium Monorail Station,,EAST,operational,OSM-derived transit station; official verification pending.
+STOP-M2-SAKIAT-MEKKI,transit_stop,ساقية مكي,Sakiat Mekki,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M2-DOKKI,transit_stop,الدقى,Dokki,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-MASBERO,transit_stop,ماسبيرو,Masbero,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M3-SUDAN,transit_stop,Sudan,Sudan,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-AL-BOHY,transit_stop,Al-Bohy,Al-Bohy,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-IMBABA,transit_stop,Imbaba,Imbaba,,WEST,operational,OSM-derived transit station; official verification pending.
+STOP-M3-SAFAA-HEGAZY,transit_stop,صفاء حجازي,Safaa Hegazy,,CENTRAL,operational,OSM-derived transit station; official verification pending.
+STOP-M3-AL-KAWMEIAH,transit_stop,Al-Kawmeiah,Al-Kawmeiah,,WEST,operational,OSM-derived transit station; official verification pending.
 STOP-SADAT,transit_stop,السادات,Sadat Station,,CENTRAL,operational,
 STOP-SAYEDA-AISHA,transit_stop,السيدة عائشة,Sayeda Aisha Station,,CENTRAL,planned,
 STOP-SUN-CAPITAL,transit_stop,صن كابيتال,Sun Capital Hub,,WEST,operational,

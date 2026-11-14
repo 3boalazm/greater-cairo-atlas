@@ -107,10 +107,10 @@ describe("real PostGIS features SQL regression", () => {
       }),
     });
     expect(importSummary.dryRun).toBe(false);
-    expect(importSummary.entitiesCount).toBe(342);
-    expect(importSummary.evidenceCount).toBe(350);
-    expect(importSummary.factsCount).toBe(1391);
-    expect(importSummary.factEvidenceLinksCount).toBe(1505);
+    expect(importSummary.entitiesCount).toBe(415);
+    expect(importSummary.evidenceCount).toBe(368);
+    expect(importSummary.factsCount).toBe(2075);
+    expect(importSummary.factEvidenceLinksCount).toBe(2427);
     featureCount = importSummary.featuresCount;
     const boundaryCollection = JSON.parse(await readFile(path.resolve(process.cwd(), "data/features/boundaries.geojson"), "utf8")) as {
       features: Array<{ geometry: unknown; properties: { code: string; entity_code: string } }>;
@@ -150,7 +150,7 @@ describe("real PostGIS features SQL regression", () => {
     expect(constraint.rows).toHaveLength(1);
   }, 120_000);
 
-  it("imports the full rev7 seed and every current boundary geometry into PostGIS", async () => {
+  it("imports the full rev8 seed and every current boundary geometry into PostGIS", async () => {
     const counts = await db.query<{ entities: string; evidence: string; facts: string; links: string; features: string; boundaries: string }>(`
       SELECT
         (SELECT COUNT(*) FROM entities)::text AS entities,
@@ -160,7 +160,7 @@ describe("real PostGIS features SQL regression", () => {
         (SELECT COUNT(*) FROM features)::text AS features,
         (SELECT COUNT(*) FROM boundaries)::text AS boundaries
     `);
-    expect(counts.rows[0]).toEqual({ entities: "342", evidence: "350", facts: "1391", links: "1505", features: "2863", boundaries: "19" });
+    expect(counts.rows[0]).toEqual({ entities: "415", evidence: "368", facts: "2075", links: "2427", features: "2863", boundaries: "19" });
     const validBoundaries = await db.query<{ count: string }>("SELECT COUNT(*)::text AS count FROM boundaries WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)");
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
   }, 120_000);

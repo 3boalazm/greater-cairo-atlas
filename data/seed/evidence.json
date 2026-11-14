@@ -3848,5 +3848,203 @@
     "published_date_precision": "day",
     "accessed_date": "2026-11-14",
     "notes": "rev7 (handoff، الرابط اتفتح واتراجع بواسطة المدير/Perplexity): «وجود المدينة/أعمال تنمية (حجر أساس لمشروعات جديدة)»"
+  },
+  {
+    "code": "EV-351",
+    "title": "OpenStreetMap route relation 280689: Alexandria-Aswan line",
+    "url": "https://www.openstreetmap.org/relation/280689",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for ENR."
+  },
+  {
+    "code": "EV-352",
+    "title": "OpenStreetMap route relation 421705: Line 1: Helwan → New El-Marg",
+    "url": "https://www.openstreetmap.org/relation/421705",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-METRO-L1."
+  },
+  {
+    "code": "EV-353",
+    "title": "OpenStreetMap route relation 421706: Line 2: El Mounib → Shubra El-Kheima",
+    "url": "https://www.openstreetmap.org/relation/421706",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-METRO-L2."
+  },
+  {
+    "code": "EV-354",
+    "title": "OpenStreetMap route relation 2063304: Line 3: Adly Mansour → Kit-kat",
+    "url": "https://www.openstreetmap.org/relation/2063304",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-METRO-L3."
+  },
+  {
+    "code": "EV-355",
+    "title": "OpenStreetMap route relation 2826217: Line 1: New El-Marg → Helwan",
+    "url": "https://www.openstreetmap.org/relation/2826217",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-METRO-L1."
+  },
+  {
+    "code": "EV-356",
+    "title": "OpenStreetMap route relation 5300628: Ismailia-Cairo line",
+    "url": "https://www.openstreetmap.org/relation/5300628",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for ENR."
+  },
+  {
+    "code": "EV-357",
+    "title": "OpenStreetMap route relation 5300629: Mansoura-Cairo line",
+    "url": "https://www.openstreetmap.org/relation/5300629",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for ENR."
+  },
+  {
+    "code": "EV-358",
+    "title": "OpenStreetMap route relation 7686561: Line 3: Kit-kat → Adly Mansour",
+    "url": "https://www.openstreetmap.org/relation/7686561",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-METRO-L3."
+  },
+  {
+    "code": "EV-359",
+    "title": "OpenStreetMap route relation 7927231: Line 2: Shubra El-Kheima → El Mounib",
+    "url": "https://www.openstreetmap.org/relation/7927231",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-METRO-L2."
+  },
+  {
+    "code": "EV-360",
+    "title": "OpenStreetMap route relation 13186211: East Nile line: Stadium → New Capital",
+    "url": "https://www.openstreetmap.org/relation/13186211",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-MONORAIL-EAST."
+  },
+  {
+    "code": "EV-361",
+    "title": "OpenStreetMap route relation 14350100: Cairo Light Rail Transit: Adly Mansour → Knowledge City",
+    "url": "https://www.openstreetmap.org/relation/14350100",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-LRT."
+  },
+  {
+    "code": "EV-362",
+    "title": "OpenStreetMap route relation 14350101: Cairo Light Rail Transit: Knowledge City → Adly Mansour",
+    "url": "https://www.openstreetmap.org/relation/14350101",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-LRT."
+  },
+  {
+    "code": "EV-363",
+    "title": "OpenStreetMap route relation 14350102: Cairo Light Rail Transit",
+    "url": "https://www.openstreetmap.org/relation/14350102",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-LRT."
+  },
+  {
+    "code": "EV-364",
+    "title": "OpenStreetMap route relation 14350112: Cairo Light Rail Transit",
+    "url": "https://www.openstreetmap.org/relation/14350112",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-LRT."
+  },
+  {
+    "code": "EV-365",
+    "title": "OpenStreetMap route relation 17625744: Line 3: Cairo University → Adly Mansour",
+    "url": "https://www.openstreetmap.org/relation/17625744",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-METRO-L3."
+  },
+  {
+    "code": "EV-366",
+    "title": "OpenStreetMap route relation 17625746: Line 3: Adly Mansour → Cairo University",
+    "url": "https://www.openstreetmap.org/relation/17625746",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-METRO-L3."
+  },
+  {
+    "code": "EV-367",
+    "title": "OpenStreetMap route relation 20384125: East Nile line: New Capital → Stadium",
+    "url": "https://www.openstreetmap.org/relation/20384125",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for TRANSIT-MONORAIL-EAST."
+  },
+  {
+    "code": "EV-368",
+    "title": "OpenStreetMap route relation 20675797: Mansoura-Cairo line",
+    "url": "https://www.openstreetmap.org/relation/20675797",
+    "publisher": "OpenStreetMap contributors",
+    "source_type": "dataset",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-14",
+    "notes": "Stored OSM route relation; route membership/order source for ENR."
   }
 ]
