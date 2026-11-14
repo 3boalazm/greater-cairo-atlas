@@ -204,10 +204,23 @@ def station_name_keys(station: dict[str, Any]) -> set[str]:
     return {norm(station.get(field)) for field in ("name", "name_ar", "name_en", "int_name", "alt_name") if norm(station.get(field))}
 
 
+def station_representative_quality(station: dict[str, Any]) -> int:
+    tags = station.get("osm_tags", {}) or {}
+    construction = any("construction" in key.casefold() or value.casefold() in {"construction", "under_construction"}
+                       for key, value in tags.items())
+    if construction:
+        return 3
+    if tags.get("railway") == "station" or tags.get("public_transport") == "station":
+        return 0
+    if station.get("member_role") in {"stop", "platform"}:
+        return 1
+    return 2
+
+
 def canonical_station_groups(stations: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Collapse reverse-relation copies, retaining every contributing OSM node reference."""
     groups: list[dict[str, Any]] = []
-    for station in sorted(stations, key=lambda item: (item["primary_mode"], item["osm_node_id"])):
+    for station in sorted(stations, key=lambda item: (item["primary_mode"], station_representative_quality(item), item["osm_node_id"])):
         names = station_name_keys(station)
         target = None
         for group in groups:
@@ -349,6 +362,29 @@ def create_station_outputs() -> tuple[dict[str, Any], dict[str, Any]]:
         })
         route_sequences.append({"line_code": line_code, "relation_id": relation_id, "ordered_node_ids": [s["osm_node_id"] for s in stops]})
 
+    # Supplement route stop-positions with the nearby operational station object when OSM
+    # exposes one separately (e.g. Kit Kat: the route members are construction-tagged stop
+    # positions, while node/10099279487 is the operational railway=station object).
+    for node_id, node in node_elements.items():
+        tags = node.get("tags", {}) or {}
+        if tags.get("railway") != "station" or tags.get("subway") != "yes" or is_under_construction(tags):
+            continue
+        station = station_from_node(node_id, node, "station")
+        if station is None or node_id in all_stations:
+            continue
+        names = station_name_keys(station)
+        nearby_lines: set[str] = set()
+        for route_station in all_stations.values():
+            if not route_station.get("line_codes") or not names.intersection(station_name_keys(route_station)):
+                continue
+            if distance_meters(station, route_station) <= 100:
+                nearby_lines.update(route_station["line_codes"])
+        if not nearby_lines:
+            continue
+        station.update({"line_codes": sorted(nearby_lines), "source_relation_ids": [], "existing_entities": [],
+                        "station_location_method": "nearby operational railway=station node matched by exact station name and <=100m to route stop-position"})
+        all_stations[node_id] = station
+
     # Keep unassigned railway station/halt nodes as research context only; only
     # route=train relation membership establishes an ENR route assignment.
     rail_nodes = []
@@ -459,6 +495,7 @@ def station_feature(station: dict[str, Any]) -> dict[str, Any]:
             "entity_codes": entity_codes, "license": "ODbL-1.0",
             "attribution": "© OpenStreetMap contributors, ODbL 1.0",
             "source_relation_ids": station["source_relation_ids"],
+            "station_location_method": station.get("station_location_method", "OSM route-relation station node"),
         },
     }
 

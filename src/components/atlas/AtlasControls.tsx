@@ -3,7 +3,7 @@
 import { SlidersHorizontal } from "lucide-react";
 import type { CSSProperties } from "react";
 import type { AtlasLanguage } from "./atlas-client";
-import { TRANSIT_MODE_LABELS, TRANSIT_MODE_ORDER, TRANSIT_LINE_COLORS } from "@/lib/atlas/transit-modes";
+import { TRANSIT_LINE_COLORS, transitLineLabel } from "@/lib/atlas/transit-modes";
 import { ENTITY_TYPE_LABELS, SECTOR_LABELS, STATUS_LABELS, translateLabel } from "@/lib/atlas/labels";
 
 export interface AtlasFilters {
@@ -69,24 +69,10 @@ export function LayerGroupToggles({ enabled, onChange, language }: { enabled: At
 
 export function TransitLineToggles({ visibleLines, onChange, language }: { visibleLines: string[]; onChange: (lineCode: string, visible: boolean) => void; language: AtlasLanguage }) {
   const ar = language === "ar";
-  const label = (code: string) => {
-    if (code.startsWith("TRANSIT-METRO-L")) return `${ar ? "مترو · الخط " : "Metro · Line "}${code.slice(-1)}`;
-    const names: Record<string, { ar: string; en: string }> = {
-      "TRANSIT-LRT": { ar: "القطار الكهربائي الخفيف", en: "Light Rail Transit" },
-      "TRANSIT-MONORAIL-EAST": { ar: "المونوريل الشرقي", en: "East Monorail" },
-      "TRANSIT-MONORAIL-WEST": { ar: "المونوريل الغربي", en: "West Monorail" },
-      "TRANSIT-BRT": { ar: "الأتوبيس الترددي", en: "BRT" },
-      "TRANSIT-ENR": { ar: "سكك حديد مصر", en: "Egyptian National Railways" },
-      "TRANSIT-HSR-L1": { ar: "القطار السريع · الخط الأول", en: "High-Speed Rail · Line 1" },
-      "TRANSIT-HSR-L2": { ar: "القطار السريع · الخط الثاني", en: "High-Speed Rail · Line 2" },
-      "TRANSIT-HSR-L3": { ar: "القطار السريع · الخط الثالث", en: "High-Speed Rail · Line 3" },
-    };
-    return names[code]?.[language] ?? code;
-  };
   return <fieldset className="transit-line-toggles"><legend>{ar ? "خطوط النقل" : "Transit lines"}</legend>
     {Object.entries(TRANSIT_LINE_COLORS).map(([code, color]) => <label key={code} title={code}>
       <input type="checkbox" checked={visibleLines.includes(code)} onChange={(event) => onChange(code, event.target.checked)} />
-      <i style={{ "--line-toggle-color": color } as CSSProperties} />{label(code)}
+      <i className={code === "TRANSIT-METRO-L4" ? "line-swatch is-dashed" : "line-swatch"} style={{ "--line-toggle-color": color } as CSSProperties} />{transitLineLabel(code, language)}
     </label>)}
   </fieldset>;
 }
@@ -117,12 +103,14 @@ export function Legend({ language, boundaryActive = false, boundaryLabel }: { la
     {rows.map(([status, style]) => <div className="legend-row" key={status}><i className={`legend-line ${style} status-${status}`} /><span title={status}>{translateLabel(STATUS_LABELS, status, language)}</span></div>)}
     <strong className="legend-type-heading">{ar ? "نوع الهندسة" : "Geometry type"}</strong>
     <div className="legend-row"><i className="legend-line type-road" />{ar ? "الطرق" : "Roads"}</div>
-    <div className="legend-row"><i className="legend-line type-transit" />{ar ? "خطوط النقل" : "Transit lines"}</div>
     <div className="legend-row"><i className="legend-polygon" />{ar ? "مضلعات الكيانات والحدود" : "Entity polygons and boundaries"}</div>
-    <strong className="legend-type-heading">{ar ? "النقل حسب الوسيلة" : "Transit modes"}</strong>
-    {(["TRANSIT-METRO-L1", "TRANSIT-METRO-L2", "TRANSIT-METRO-L3", "TRANSIT-METRO-L4"] as const).map((code, index) => <div className="legend-row transit-legend-row" key={code}><i className={`legend-line ${index === 3 ? "dot" : "solid"}`} style={{ borderColor: TRANSIT_LINE_COLORS[code] }} /><span>{ar ? `مترو · خط ${index + 1}${index === 3 ? " (إنشاء)" : ""}` : `Metro · Line ${index + 1}${index === 3 ? " (construction)" : ""}`}</span></div>)}
-    {TRANSIT_MODE_ORDER.filter((mode) => mode !== "metro" && mode !== "metro_l4" && mode !== "unclassified").map((mode) => <div className="legend-row transit-legend-row" key={mode}><i className={`transit-shape transit-shape-${TRANSIT_MODE_LABELS[mode].shape}`} style={{ "--transit-mode-color": TRANSIT_MODE_LABELS[mode].color } as CSSProperties} /><span>{TRANSIT_MODE_LABELS[mode][language]}</span></div>)}
-    <div className="legend-row transit-legend-row"><i className="transit-interchange-symbol" />{ar ? "محطة تبادلية" : "Interchange station"}</div>
+    <strong className="legend-type-heading">{ar ? "خطوط النقل وألوانها" : "Transit lines and colors"}</strong>
+    {Object.entries(TRANSIT_LINE_COLORS).map(([code, color]) => <div className="legend-row transit-legend-row" key={code}>
+      <i className={`legend-line ${code === "TRANSIT-METRO-L4" ? "dash" : "solid"}`} style={{ borderColor: color }} />
+      <span title={code}>{transitLineLabel(code, language)}</span>
+    </div>)}
+    <div className="legend-row transit-legend-row"><i className="transit-shape transit-shape-hexagon" style={{ "--transit-mode-color": "#6c7475" } as CSSProperties} />{ar ? "محطة — الخط غير موثق" : "Station — line undocumented"}</div>
+    <div className="legend-row transit-legend-row"><i className="transit-interchange-symbol" />{ar ? "تبادل؛ مرّر المؤشر لمعرفة الخطوط" : "Interchange; hover to list lines"}</div>
     {boundaryActive && <div className="legend-row"><i className="legend-boundary" />{boundaryLabel || (ar ? "حدود إدارية من OSM" : "OSM area boundary")}</div>}
     <small>{ar ? "الخطوط والحدود من هندسة موثقة فقط." : "Lines and boundaries are source geometries only."}</small>
   </aside>;

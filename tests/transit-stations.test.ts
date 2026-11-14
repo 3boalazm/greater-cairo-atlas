@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import {
   TRANSIT_LINE_COLORS,
   TRANSIT_MODE_ORDER,
+  isTransitInterchangeEntityCode,
   transitModeLabel,
   transitModesForEntityCode,
 } from "@/lib/atlas/transit-modes";
@@ -56,6 +57,11 @@ describe("OSM-derived transit stations and mode styles", () => {
     expect(TRANSIT_LINE_COLORS["TRANSIT-METRO-L1"]).toBe("#c8202f");
     expect(TRANSIT_LINE_COLORS["TRANSIT-METRO-L2"]).toBe("#e2b527");
     expect(TRANSIT_LINE_COLORS["TRANSIT-METRO-L3"]).toBe("#08783e");
+    expect(TRANSIT_LINE_COLORS["TRANSIT-METRO-L4"]).toBe("#85799b");
+    expect(transitModesForEntityCode("STOP-SHUHADA", ["TRANSIT-METRO-L1", "TRANSIT-METRO-L2"])).toEqual(["metro"]);
+    expect(transitModesForEntityCode("STOP-CENTRAL-CAPITAL", ["TRANSIT-LRT"])).toEqual(["lrt", "hsr"]);
+    expect(isTransitInterchangeEntityCode("STOP-SHUHADA")).toBe(true);
+    expect(transitModeLabel("STOP-6-OCTOBER-INTERCHANGE", "ar")).toBe("محطة — الخط غير موثق");
   });
 
   it("publishes attributed, status-classified and generalized rail context with a separate lazy detail payload", async () => {

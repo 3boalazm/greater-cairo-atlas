@@ -11,13 +11,13 @@
       "ambiguous": 0
     },
     "transit_stop": {
-      "matched": 132,
-      "unmatched": 217,
+      "matched": 134,
+      "unmatched": 221,
       "ambiguous": 9
     },
     "rail_station": {
       "matched": 2,
-      "unmatched": 6,
+      "unmatched": 0,
       "ambiguous": 2
     },
     "city": {
@@ -32270,16 +32270,6 @@
       "reason": "nearby lower-quality stop-position/platform duplicate"
     },
     {
-      "source_id": "node:329978615",
-      "source_name": "mohamednaguib | محمدنجيب | نجيب",
-      "entity_type": "transit_stop",
-      "candidate_entity_codes": [
-        "STOP-AHMED-OMAR-HASHEM",
-        "STOP-MRE-MOSTATHMERIN"
-      ],
-      "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags; planned/construction entity has no explicit OSM construction tag"
-    },
-    {
       "source_id": "node:493207780",
       "source_name": "alzahraa | الزهراء",
       "entity_type": "transit_stop",
@@ -32291,11 +32281,11 @@
     {
       "source_id": "node:1039314336",
       "source_name": "alshuhada | الشهداء",
-      "entity_type": "rail_station",
+      "entity_type": "transit_stop",
       "candidate_entity_codes": [
-        "RAIL-RAMSES"
+        "STOP-SHUHADA"
       ],
-      "reason": "lower-confidence alias candidate; a stronger canonical-name match exists"
+      "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
     },
     {
       "source_id": "node:1111399394",
@@ -32777,47 +32767,38 @@
     {
       "source_id": "node:5194295698",
       "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-      "entity_type": "rail_station",
+      "entity_type": "transit_stop",
       "candidate_entity_codes": [
-        "RAIL-RAMSES"
+        "STOP-SHUHADA"
       ],
-      "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+      "reason": "nearby lower-quality stop-position/platform duplicate"
     },
     {
       "source_id": "node:5194295699",
       "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-      "entity_type": "rail_station",
+      "entity_type": "transit_stop",
       "candidate_entity_codes": [
-        "RAIL-RAMSES"
+        "STOP-SHUHADA"
       ],
-      "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+      "reason": "nearby lower-quality stop-position/platform duplicate"
     },
     {
       "source_id": "node:5194295700",
       "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-      "entity_type": "rail_station",
+      "entity_type": "transit_stop",
       "candidate_entity_codes": [
-        "RAIL-RAMSES"
+        "STOP-SHUHADA"
       ],
-      "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+      "reason": "nearby lower-quality stop-position/platform duplicate"
     },
     {
       "source_id": "node:5194295701",
       "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-      "entity_type": "rail_station",
+      "entity_type": "transit_stop",
       "candidate_entity_codes": [
-        "RAIL-RAMSES"
+        "STOP-SHUHADA"
       ],
-      "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
-    },
-    {
-      "source_id": "node:5194295702",
-      "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-      "entity_type": "rail_station",
-      "candidate_entity_codes": [
-        "RAIL-RAMSES"
-      ],
-      "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+      "reason": "nearby lower-quality stop-position/platform duplicate"
     },
     {
       "source_id": "node:5194295704",
@@ -33490,20 +33471,18 @@
       "source_name": "mohamednaguib | محمدنجيب | نجيب",
       "entity_type": "transit_stop",
       "candidate_entity_codes": [
-        "STOP-AHMED-OMAR-HASHEM",
-        "STOP-MRE-MOSTATHMERIN"
+        "STOP-M2-MOHAMED-NAGUIB"
       ],
-      "reason": "OSM route-relation membership identifies a different line; planned/construction entity has no explicit OSM construction tag"
+      "reason": "nearby lower-quality stop-position/platform duplicate"
     },
     {
       "source_id": "node:9076939019",
       "source_name": "mohamednaguib | محمدنجيب | نجيب",
       "entity_type": "transit_stop",
       "candidate_entity_codes": [
-        "STOP-AHMED-OMAR-HASHEM",
-        "STOP-MRE-MOSTATHMERIN"
+        "STOP-M2-MOHAMED-NAGUIB"
       ],
-      "reason": "OSM route-relation membership identifies a different line; planned/construction entity has no explicit OSM construction tag"
+      "reason": "nearby lower-quality stop-position/platform duplicate"
     },
     {
       "source_id": "node:9076939028",
@@ -48447,9 +48426,9 @@
   "station_matching": {
     "source_station_nodes_examined": 769,
     "source_nodes_with_seed_name_candidates": 368,
-    "matched_source_nodes": 134,
+    "matched_source_nodes": 136,
     "ambiguous_source_nodes": 11,
-    "rejected_source_nodes": 223,
+    "rejected_source_nodes": 221,
     "entity_level_ambiguous_entities": 3,
     "entity_level_conflicts": {
       "STOP-LRT-ROBEIKI": {
@@ -48611,9 +48590,7 @@
         "entity_type": "rail_station",
         "status": "operational",
         "station_line": null,
-        "matched_line_codes": [
-          "Alexandria-Aswan line"
-        ],
+        "matched_line_codes": [],
         "matched_osm_node_ids": [
           5217365043
         ],
@@ -48627,20 +48604,14 @@
         "entity_type": "rail_station",
         "status": "operational",
         "station_line": null,
-        "matched_line_codes": [
-          "Alexandria-Aswan line",
-          "Ismailia-Cairo line",
-          "Mansoura-Cairo line",
-          "TRANSIT-METRO-L1",
-          "TRANSIT-METRO-L2"
-        ],
+        "matched_line_codes": [],
         "matched_osm_node_ids": [
-          5194295698
+          271864421
         ],
         "matched_count": 1,
         "outcome": "matched",
         "rejected_candidates": [],
-        "feature_count_before": 0,
+        "feature_count_before": 1,
         "feature_count_after": 1
       },
       "STOP-6-OCTOBER-INTERCHANGE": {
@@ -48718,16 +48689,13 @@
         "entity_type": "transit_stop",
         "status": "approved_planned",
         "station_line": null,
-        "matched_line_codes": [
-          "TRANSIT-METRO-L2"
-        ],
+        "matched_line_codes": [],
         "matched_osm_node_ids": [],
         "matched_count": 0,
         "outcome": "unmatched",
         "rejected_candidates": [
           {
-            "osm_id": 9076939018,
-            "reason": "seed lifecycle is planned/under-construction but this exact OSM node has no construction tag"
+            "reason": "no exact normalized name/alias match in the supplied OSM station nodes, or no source point passed the line/lifecycle guards"
           }
         ],
         "feature_count_before": 0,
@@ -49412,17 +49380,14 @@
         "matched_line_codes": [
           "TRANSIT-METRO-L3"
         ],
-        "matched_osm_node_ids": [],
-        "matched_count": 0,
-        "outcome": "unmatched",
-        "rejected_candidates": [
-          {
-            "osm_id": 9077189602,
-            "reason": "OSM marks this exact node as construction while the seed entity is operational/unknown"
-          }
+        "matched_osm_node_ids": [
+          10099279487
         ],
-        "feature_count_before": 0,
-        "feature_count_after": 0
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 1,
+        "feature_count_after": 1
       },
       "STOP-LRT-10TH-CITY-CENTER": {
         "entity_type": "transit_stop",
@@ -51373,7 +51338,7 @@
           "TRANSIT-METRO-L1"
         ],
         "matched_osm_node_ids": [
-          5349031071
+          5349031072
         ],
         "matched_count": 1,
         "outcome": "matched",
@@ -51391,7 +51356,7 @@
           "TRANSIT-METRO-L1"
         ],
         "matched_osm_node_ids": [
-          5349031084
+          5349031085
         ],
         "matched_count": 1,
         "outcome": "matched",
@@ -51427,7 +51392,7 @@
           "TRANSIT-METRO-L2"
         ],
         "matched_osm_node_ids": [
-          5355866946
+          5355866947
         ],
         "matched_count": 1,
         "outcome": "matched",
@@ -51481,7 +51446,7 @@
           "TRANSIT-METRO-L3"
         ],
         "matched_osm_node_ids": [
-          7302135245
+          7302135246
         ],
         "matched_count": 1,
         "outcome": "matched",
@@ -51607,14 +51572,13 @@
           "TRANSIT-METRO-L3"
         ],
         "matched_osm_node_ids": [
-          7559205785,
-          7926259279
+          7559205785
         ],
-        "matched_count": 2,
+        "matched_count": 1,
         "outcome": "matched",
         "rejected_candidates": [],
-        "feature_count_before": 2,
-        "feature_count_after": 2
+        "feature_count_before": 1,
+        "feature_count_after": 1
       },
       "STOP-MRE-CAIRO-STADIUM-MONORAIL": {
         "entity_type": "transit_stop",
@@ -51829,6 +51793,41 @@
         ],
         "feature_count_before": 0,
         "feature_count_after": 0
+      },
+      "STOP-M2-MOHAMED-NAGUIB": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": [
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_line_codes": [
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_osm_node_ids": [
+          329978615
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 1,
+        "feature_count_after": 1
+      },
+      "STOP-SHUHADA": {
+        "entity_type": "transit_stop",
+        "status": "operational",
+        "station_line": null,
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1",
+          "TRANSIT-METRO-L2"
+        ],
+        "matched_osm_node_ids": [
+          5194295702
+        ],
+        "matched_count": 1,
+        "outcome": "matched",
+        "rejected_candidates": [],
+        "feature_count_before": 1,
+        "feature_count_after": 1
       }
     },
     "by_line": {
@@ -51843,7 +51842,7 @@
           "RAIL-BASHTIL"
         ],
         "matched_osm_nodes": 2,
-        "station_feature_count_before": 1,
+        "station_feature_count_before": 2,
         "station_feature_count_after": 2
       },
       "MODE-RESOLVED": {
@@ -51864,11 +51863,12 @@
       },
       "TRANSIT-METRO-L3": {
         "station_entities": 33,
-        "matched_entities": 32,
+        "matched_entities": 33,
         "matched_entity_codes": [
           "STOP-ABBASSIA",
           "STOP-ADLY-MANSOUR",
           "STOP-CAIRO-STADIUM",
+          "STOP-KIT-KAT",
           "STOP-M1-NASSER",
           "STOP-M2-CAIRO-UNIVERSITY",
           "STOP-M3-ABDOU-PASHA",
@@ -51899,13 +51899,11 @@
           "STOP-M3-SUDAN",
           "STOP-M3-WADI-EL-NILE"
         ],
-        "unmatched_entities": [
-          "STOP-KIT-KAT"
-        ],
+        "unmatched_entities": [],
         "matched_osm_nodes": 34,
         "station_feature_count_before": 31,
         "station_feature_count_after": 33,
-        "station_group_count": 34,
+        "station_group_count": 33,
         "station_groups_with_geometry": 33
       },
       "TRANSIT-MONORAIL-EAST": {
@@ -52009,7 +52007,6 @@
         "station_entities": 35,
         "matched_entities": 35,
         "matched_entity_codes": [
-          "RAIL-RAMSES",
           "STOP-DEMERDASH",
           "STOP-M1-AIN-HELWAN",
           "STOP-M1-AIN-SHAMS",
@@ -52043,11 +52040,12 @@
           "STOP-M1-TORA-EL-ASMANT",
           "STOP-M1-TORA-EL-BALAD",
           "STOP-M1-WADI-HOF",
-          "STOP-SADAT"
+          "STOP-SADAT",
+          "STOP-SHUHADA"
         ],
         "unmatched_entities": [],
-        "matched_osm_nodes": 34,
-        "station_feature_count_before": 34,
+        "matched_osm_nodes": 35,
+        "station_feature_count_before": 35,
         "station_feature_count_after": 35,
         "station_group_count": 35,
         "station_groups_with_geometry": 35
@@ -52068,17 +52066,18 @@
         "matched_entities": 0,
         "matched_entity_codes": [],
         "unmatched_entities": [
-          "STOP-HSR-SPHINX"
+          "STOP-AHMED-OMAR-HASHEM"
         ],
         "matched_osm_nodes": 0,
         "station_feature_count_before": 0,
-        "station_feature_count_after": 0
+        "station_feature_count_after": 0,
+        "station_group_count": 0,
+        "station_groups_with_geometry": 0
       },
       "TRANSIT-METRO-L2": {
         "station_entities": 20,
-        "matched_entities": 19,
+        "matched_entities": 20,
         "matched_entity_codes": [
-          "RAIL-RAMSES",
           "STOP-M2-AL-MEZALLAT",
           "STOP-M2-AL-MOUNIB",
           "STOP-M2-ATTABA",
@@ -52090,22 +52089,22 @@
           "STOP-M2-KHALAFAWY",
           "STOP-M2-KOLIET-EL-ZERAA",
           "STOP-M2-MASSARA",
+          "STOP-M2-MOHAMED-NAGUIB",
           "STOP-M2-OMM-EL-MISRYEEN",
           "STOP-M2-OPERA",
           "STOP-M2-RAWD-EL-FARAG",
           "STOP-M2-SAINTE-TERESA",
           "STOP-M2-SAKIAT-MEKKI",
           "STOP-M2-SHUBRA-ELKHEIMA",
-          "STOP-SADAT"
+          "STOP-SADAT",
+          "STOP-SHUHADA"
         ],
-        "unmatched_entities": [
-          "STOP-AHMED-OMAR-HASHEM"
-        ],
-        "matched_osm_nodes": 21,
-        "station_feature_count_before": 18,
-        "station_feature_count_after": 19,
+        "unmatched_entities": [],
+        "matched_osm_nodes": 23,
+        "station_feature_count_before": 20,
+        "station_feature_count_after": 20,
         "station_group_count": 20,
-        "station_groups_with_geometry": 19
+        "station_groups_with_geometry": 20
       },
       "TRANSIT-MONORAIL-WEST": {
         "station_entities": 13,
@@ -52891,10 +52890,9 @@
       },
       {
         "osm_id": 329978615,
-        "outcome": "unmatched",
+        "outcome": "matched",
         "candidate_entity_codes": [
-          "STOP-AHMED-OMAR-HASHEM",
-          "STOP-MRE-MOSTATHMERIN"
+          "STOP-M2-MOHAMED-NAGUIB"
         ],
         "source_labels": [
           "mohamednaguib",
@@ -52904,10 +52902,9 @@
         "station_modes": [
           "subway"
         ],
-        "rejections": {
-          "STOP-AHMED-OMAR-HASHEM": "planned/construction entity has no explicit OSM construction tag",
-          "STOP-MRE-MOSTATHMERIN": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
-        }
+        "matched_line_codes": [
+          "TRANSIT-METRO-L2"
+        ]
       },
       {
         "osm_id": 493207780,
@@ -52949,7 +52946,7 @@
         "osm_id": 1039314336,
         "outcome": "unmatched",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
         "source_labels": [
           "alshuhada",
@@ -52958,8 +52955,9 @@
         "station_modes": [
           "train"
         ],
-        "matched_line_codes": [],
-        "reason": "lower-confidence alias candidate; a stronger canonical-name match exists"
+        "rejections": {
+          "STOP-SHUHADA": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        }
       },
       {
         "osm_id": 1111399394,
@@ -54067,7 +54065,7 @@
         "osm_id": 5194295698,
         "outcome": "unmatched",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
         "source_labels": [
           "shuhada",
@@ -54078,15 +54076,17 @@
         "station_modes": [
           "subway"
         ],
-        "rejections": {
-          "RAIL-RAMSES": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
-        }
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1",
+          "TRANSIT-METRO-L2"
+        ],
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "osm_id": 5194295699,
         "outcome": "unmatched",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
         "source_labels": [
           "shuhada",
@@ -54097,15 +54097,17 @@
         "station_modes": [
           "subway"
         ],
-        "rejections": {
-          "RAIL-RAMSES": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
-        }
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1",
+          "TRANSIT-METRO-L2"
+        ],
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "osm_id": 5194295700,
         "outcome": "unmatched",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
         "source_labels": [
           "shuhada",
@@ -54116,15 +54118,17 @@
         "station_modes": [
           "subway"
         ],
-        "rejections": {
-          "RAIL-RAMSES": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
-        }
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1",
+          "TRANSIT-METRO-L2"
+        ],
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "osm_id": 5194295701,
         "outcome": "unmatched",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
         "source_labels": [
           "shuhada",
@@ -54135,15 +54139,17 @@
         "station_modes": [
           "subway"
         ],
-        "rejections": {
-          "RAIL-RAMSES": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
-        }
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1",
+          "TRANSIT-METRO-L2"
+        ],
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "osm_id": 5194295702,
-        "outcome": "unmatched",
+        "outcome": "matched",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
         "source_labels": [
           "shuhada",
@@ -54154,9 +54160,10 @@
         "station_modes": [
           "subway"
         ],
-        "rejections": {
-          "RAIL-RAMSES": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
-        }
+        "matched_line_codes": [
+          "TRANSIT-METRO-L1",
+          "TRANSIT-METRO-L2"
+        ]
       },
       {
         "osm_id": 5194295704,
@@ -56152,8 +56159,7 @@
         "osm_id": 9076939018,
         "outcome": "unmatched",
         "candidate_entity_codes": [
-          "STOP-AHMED-OMAR-HASHEM",
-          "STOP-MRE-MOSTATHMERIN"
+          "STOP-M2-MOHAMED-NAGUIB"
         ],
         "source_labels": [
           "mohamednaguib",
@@ -56163,17 +56169,16 @@
         "station_modes": [
           "subway"
         ],
-        "rejections": {
-          "STOP-AHMED-OMAR-HASHEM": "planned/construction entity has no explicit OSM construction tag",
-          "STOP-MRE-MOSTATHMERIN": "OSM route-relation membership identifies a different line"
-        }
+        "matched_line_codes": [
+          "TRANSIT-METRO-L2"
+        ],
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "osm_id": 9076939019,
         "outcome": "unmatched",
         "candidate_entity_codes": [
-          "STOP-AHMED-OMAR-HASHEM",
-          "STOP-MRE-MOSTATHMERIN"
+          "STOP-M2-MOHAMED-NAGUIB"
         ],
         "source_labels": [
           "mohamednaguib",
@@ -56183,10 +56188,10 @@
         "station_modes": [
           "subway"
         ],
-        "rejections": {
-          "STOP-AHMED-OMAR-HASHEM": "planned/construction entity has no explicit OSM construction tag",
-          "STOP-MRE-MOSTATHMERIN": "OSM route-relation membership identifies a different line"
-        }
+        "matched_line_codes": [
+          "TRANSIT-METRO-L2"
+        ],
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "osm_id": 9076939028,
@@ -58621,19 +58626,30 @@
     ],
     "attribution": "© OpenStreetMap contributors, ODbL 1.0",
     "license": "ODbL-1.0",
-    "seed_station_entity_count": 176,
+    "seed_station_entity_count": 178,
     "seed_status_counts": {
       "approved_planned": 1,
-      "operational": 146,
+      "operational": 148,
       "planned": 4,
       "under_construction": 25
     },
-    "station_features_before": 117,
-    "station_features_after": 118,
-    "station_entities_with_geometry_before": 115,
-    "station_entities_with_geometry_after": 116,
-    "station_entities_matched": 116,
+    "station_features_before": 120,
+    "station_features_after": 120,
+    "station_entities_with_geometry_before": 119,
+    "station_entities_with_geometry_after": 119,
+    "station_entities_matched": 119,
     "station_entities_with_geometry_by_line": {
+      "TRANSIT-HSR-L1": {
+        "station_entities": 1,
+        "station_entities_with_geometry": 0,
+        "station_entities_without_geometry": [
+          "STOP-AHMED-OMAR-HASHEM"
+        ],
+        "point_feature_count": 0,
+        "osm_station_groups": 0,
+        "osm_station_groups_with_geometry": 0,
+        "lifecycle_or_geometry_rejected_groups": []
+      },
       "TRANSIT-LRT": {
         "station_entities": 12,
         "station_entities_with_geometry": 12,
@@ -58654,35 +58670,21 @@
       },
       "TRANSIT-METRO-L2": {
         "station_entities": 20,
-        "station_entities_with_geometry": 19,
-        "station_entities_without_geometry": [
-          "STOP-AHMED-OMAR-HASHEM"
-        ],
-        "point_feature_count": 19,
+        "station_entities_with_geometry": 20,
+        "station_entities_without_geometry": [],
+        "point_feature_count": 20,
         "osm_station_groups": 20,
-        "osm_station_groups_with_geometry": 19,
-        "lifecycle_or_geometry_rejected_groups": [
-          {
-            "entity_code": "STOP-AHMED-OMAR-HASHEM",
-            "osm_node_id": 9076939018
-          }
-        ]
+        "osm_station_groups_with_geometry": 20,
+        "lifecycle_or_geometry_rejected_groups": []
       },
       "TRANSIT-METRO-L3": {
         "station_entities": 33,
-        "station_entities_with_geometry": 32,
-        "station_entities_without_geometry": [
-          "STOP-KIT-KAT"
-        ],
+        "station_entities_with_geometry": 33,
+        "station_entities_without_geometry": [],
         "point_feature_count": 33,
-        "osm_station_groups": 34,
+        "osm_station_groups": 33,
         "osm_station_groups_with_geometry": 33,
-        "lifecycle_or_geometry_rejected_groups": [
-          {
-            "entity_code": "STOP-KIT-KAT",
-            "osm_node_id": 9077189602
-          }
-        ]
+        "lifecycle_or_geometry_rejected_groups": []
       },
       "TRANSIT-MONORAIL-EAST": {
         "station_entities": 22,
@@ -58699,53 +58701,19 @@
     "method": "exact osm_node_id fact to exact stored OSM node; group primary IDs from the stored station report; no fuzzy fallback",
     "stations_with_undetermined_mode": [
       "STOP-6-OCTOBER-INTERCHANGE",
-      "STOP-CENTRAL-CAPITAL",
       "STOP-HADAEK-OCTOBER",
       "STOP-SAYEDA-AISHA",
       "STOP-SUN-CAPITAL"
     ],
-    "source_station_entities_with_node_facts": 117,
-    "source_node_ids_in_facts": 248,
+    "source_station_entities_with_node_facts": 118,
+    "source_node_ids_in_facts": 243,
     "station_groups_requested": 119,
-    "station_groups_matched": 117,
-    "station_entities_with_geometry": 115,
-    "matched_features": 117,
-    "lifecycle_or_geometry_rejections": {
-      "STOP-AHMED-OMAR-HASHEM": [
-        {
-          "osm_id": 9076939018,
-          "reason": "seed lifecycle is planned/under-construction but this exact OSM node has no construction tag"
-        }
-      ],
-      "STOP-KIT-KAT": [
-        {
-          "osm_id": 9077189602,
-          "reason": "OSM marks this exact node as construction while the seed entity is operational/unknown"
-        }
-      ]
-    },
+    "station_groups_matched": 119,
+    "station_entities_with_geometry": 118,
+    "matched_features": 119,
+    "lifecycle_or_geometry_rejections": {},
     "missing_source_nodes": [],
     "unrepresented_alternate_node_ids": [
-      {
-        "entity_code": "RAIL-RAMSES",
-        "osm_node_id": 271864421,
-        "reason": "not selected as a station-group primary node; retained as an alternate node fact"
-      },
-      {
-        "entity_code": "RAIL-RAMSES",
-        "osm_node_id": 5194295699,
-        "reason": "not selected as a station-group primary node; retained as an alternate node fact"
-      },
-      {
-        "entity_code": "RAIL-RAMSES",
-        "osm_node_id": 5194295700,
-        "reason": "not selected as a station-group primary node; retained as an alternate node fact"
-      },
-      {
-        "entity_code": "RAIL-RAMSES",
-        "osm_node_id": 5194295701,
-        "reason": "not selected as a station-group primary node; retained as an alternate node fact"
-      },
       {
         "entity_code": "STOP-ABBASSIA",
         "osm_node_id": 4979483242,
@@ -58772,11 +58740,6 @@
         "reason": "not selected as a station-group primary node; retained as an alternate node fact"
       },
       {
-        "entity_code": "STOP-AHMED-OMAR-HASHEM",
-        "osm_node_id": 9076939019,
-        "reason": "not selected as a station-group primary node; retained as an alternate node fact"
-      },
-      {
         "entity_code": "STOP-ARTS-CULTURE-CITY",
         "osm_node_id": 11925996681,
         "reason": "not selected as a station-group primary node; retained as an alternate node fact"
@@ -58794,11 +58757,6 @@
       {
         "entity_code": "STOP-DEMERDASH",
         "osm_node_id": 4979331190,
-        "reason": "not selected as a station-group primary node; retained as an alternate node fact"
-      },
-      {
-        "entity_code": "STOP-KIT-KAT",
-        "osm_node_id": 10099279486,
         "reason": "not selected as a station-group primary node; retained as an alternate node fact"
       },
       {
@@ -59248,12 +59206,12 @@
       },
       {
         "entity_code": "STOP-M1-HELMEYET-AL-ZAITOUN",
-        "osm_node_id": 5349031072,
+        "osm_node_id": 5349031071,
         "reason": "not selected as a station-group primary node; retained as an alternate node fact"
       },
       {
         "entity_code": "STOP-M1-SAAD-ZAGHLOUL",
-        "osm_node_id": 5349031085,
+        "osm_node_id": 5349031084,
         "reason": "not selected as a station-group primary node; retained as an alternate node fact"
       },
       {
@@ -59263,7 +59221,7 @@
       },
       {
         "entity_code": "STOP-M2-BEHOOTH",
-        "osm_node_id": 5355866947,
+        "osm_node_id": 5355866946,
         "reason": "not selected as a station-group primary node; retained as an alternate node fact"
       },
       {
@@ -59278,7 +59236,7 @@
       },
       {
         "entity_code": "STOP-M3-EL-SHAMS-CLUB",
-        "osm_node_id": 7302135246,
+        "osm_node_id": 7302135245,
         "reason": "not selected as a station-group primary node; retained as an alternate node fact"
       },
       {
@@ -59309,6 +59267,11 @@
       {
         "entity_code": "STOP-M3-HESHAM-BARAKAT",
         "osm_node_id": 7926259258,
+        "reason": "not selected as a station-group primary node; retained as an alternate node fact"
+      },
+      {
+        "entity_code": "STOP-M3-EL-NOZHA",
+        "osm_node_id": 7926259279,
         "reason": "not selected as a station-group primary node; retained as an alternate node fact"
       },
       {
@@ -59380,9 +59343,7 @@
             "osm_id": 5217365043,
             "osm_version": 4,
             "group_id": "OSM-NODE-5217365043",
-            "line_codes": [
-              "Alexandria-Aswan line"
-            ],
+            "line_codes": [],
             "coordinates": [
               31.2082513,
               30.0052451
@@ -59398,22 +59359,19 @@
       "RAIL-RAMSES": {
         "matched_osm_nodes": [
           {
-            "osm_id": 5194295698,
-            "osm_version": 7,
-            "group_id": "OSM-NODE-5194295698",
-            "line_codes": [
-              "TRANSIT-METRO-L1",
-              "TRANSIT-METRO-L2"
-            ],
+            "osm_id": 271864421,
+            "osm_version": 19,
+            "group_id": "OSM-NODE-271864421",
+            "line_codes": [],
             "coordinates": [
-              31.2465521,
-              30.0617735
+              31.2460533,
+              30.0629785
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
-          5194295698
+          271864421
         ],
         "status": "operational"
       },
@@ -59430,7 +59388,7 @@
               31.284107,
               30.0727635
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59529,7 +59487,7 @@
               31.3174037,
               30.0729378
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59555,6 +59513,27 @@
         ],
         "matched_osm_node_ids": [
           1642383282
+        ],
+        "status": "operational"
+      },
+      "STOP-KIT-KAT": {
+        "matched_osm_nodes": [
+          {
+            "osm_id": 10099279487,
+            "osm_version": 3,
+            "group_id": "OSM-NODE-10099279487",
+            "line_codes": [
+              "TRANSIT-METRO-L3"
+            ],
+            "coordinates": [
+              31.2129901,
+              30.0667936
+            ],
+            "request_kind": "station_group_primary"
+          }
+        ],
+        "matched_osm_node_ids": [
+          10099279487
         ],
         "status": "operational"
       },
@@ -59781,7 +59760,7 @@
               31.3249899,
               29.8626458
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59802,7 +59781,7 @@
               31.319109,
               30.1310105
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59823,7 +59802,7 @@
               31.2996691,
               29.9060831
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59844,7 +59823,7 @@
               31.2311646,
               30.0176858
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59865,7 +59844,7 @@
               31.2313392,
               29.9954263
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59907,7 +59886,7 @@
               31.3357913,
               30.1520732
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59928,7 +59907,7 @@
               31.3139785,
               30.1213759
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59949,7 +59928,7 @@
               31.3245258,
               30.1392468
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -59970,7 +59949,7 @@
               31.264684,
               30.0689464
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60012,7 +59991,7 @@
               31.309954,
               30.1051939
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60033,7 +60012,7 @@
               31.3040386,
               29.8971768
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60054,7 +60033,7 @@
               31.2981183,
               30.0903238
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60065,21 +60044,21 @@
       "STOP-M1-HELMEYET-AL-ZAITOUN": {
         "matched_osm_nodes": [
           {
-            "osm_id": 5349031071,
-            "osm_version": 7,
-            "group_id": "OSM-NODE-5349031071",
+            "osm_id": 5349031072,
+            "osm_version": 8,
+            "group_id": "OSM-NODE-5349031072",
             "line_codes": [
               "TRANSIT-METRO-L1"
             ],
             "coordinates": [
-              31.3138798,
-              30.1143443
+              31.3139117,
+              30.1143456
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
-          5349031071
+          5349031072
         ],
         "status": "operational"
       },
@@ -60117,7 +60096,7 @@
               31.320377,
               29.8690253
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60138,7 +60117,7 @@
               31.2938354,
               30.0869499
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60159,7 +60138,7 @@
               31.2816895,
               29.9361426
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60180,7 +60159,7 @@
               31.2580577,
               29.959836
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60201,7 +60180,7 @@
               31.287851,
               30.0821976
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60222,7 +60201,7 @@
               31.2294978,
               30.0058512
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60244,7 +60223,7 @@
               31.2387916,
               30.0535654
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60265,7 +60244,7 @@
               31.3383759,
               30.1635067
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60286,7 +60265,7 @@
               31.242693,
               30.0573777
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60297,21 +60276,21 @@
       "STOP-M1-SAAD-ZAGHLOUL": {
         "matched_osm_nodes": [
           {
-            "osm_id": 5349031084,
-            "osm_version": 4,
-            "group_id": "OSM-NODE-5349031084",
+            "osm_id": 5349031085,
+            "osm_version": 5,
+            "group_id": "OSM-NODE-5349031085",
             "line_codes": [
               "TRANSIT-METRO-L1"
             ],
             "coordinates": [
-              31.2381056,
-              30.0365602
+              31.2380539,
+              30.0365735
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
-          5349031084
+          5349031085
         ],
         "status": "operational"
       },
@@ -60328,7 +60307,7 @@
               31.3047806,
               30.0980536
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60349,7 +60328,7 @@
               31.2353264,
               30.0292919
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60370,7 +60349,7 @@
               31.2634489,
               29.9528287
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60391,7 +60370,7 @@
               31.2877081,
               29.9258553
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60412,7 +60391,7 @@
               31.2735537,
               29.9462853
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60433,7 +60412,7 @@
               31.3133885,
               29.8794305
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60454,7 +60433,7 @@
               31.2461636,
               30.1040835
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60475,7 +60454,7 @@
               31.2119042,
               29.9811114
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60496,7 +60475,7 @@
               31.246878,
               30.0524072
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60507,21 +60486,21 @@
       "STOP-M2-BEHOOTH": {
         "matched_osm_nodes": [
           {
-            "osm_id": 5355866946,
-            "osm_version": 4,
-            "group_id": "OSM-NODE-5355866946",
+            "osm_id": 5355866947,
+            "osm_version": 5,
+            "group_id": "OSM-NODE-5355866947",
             "line_codes": [
               "TRANSIT-METRO-L2"
             ],
             "coordinates": [
-              31.200307,
-              30.0357856
+              31.2003246,
+              30.0357431
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
-          5355866946
+          5355866947
         ],
         "status": "operational"
       },
@@ -60539,7 +60518,7 @@
               31.2011889,
               30.0259912
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60560,7 +60539,7 @@
               31.2120231,
               30.0381895
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60581,7 +60560,7 @@
               31.2040068,
               30.0172901
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60602,7 +60581,7 @@
               31.2071014,
               30.0105673
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60623,7 +60602,7 @@
               31.2454766,
               30.0977857
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60644,7 +60623,7 @@
               31.2487214,
               30.1137699
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60665,11 +60644,32 @@
               31.2449826,
               30.0710389
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
           4978060988
+        ],
+        "status": "operational"
+      },
+      "STOP-M2-MOHAMED-NAGUIB": {
+        "matched_osm_nodes": [
+          {
+            "osm_id": 329978615,
+            "osm_version": 9,
+            "group_id": "OSM-NODE-329978615",
+            "line_codes": [
+              "TRANSIT-METRO-L2"
+            ],
+            "coordinates": [
+              31.244276,
+              30.0453923
+            ],
+            "request_kind": "station_group_primary"
+          }
+        ],
+        "matched_osm_node_ids": [
+          329978615
         ],
         "status": "operational"
       },
@@ -60686,7 +60686,7 @@
               31.2079888,
               30.0051374
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60707,7 +60707,7 @@
               31.2251976,
               30.0419889
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60728,7 +60728,7 @@
               31.2452966,
               30.0805735
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60749,7 +60749,7 @@
               31.2453432,
               30.0883471
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60770,7 +60770,7 @@
               31.2086404,
               29.9954876
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60791,7 +60791,7 @@
               31.2435209,
               30.1241026
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60812,7 +60812,7 @@
               31.2765054,
               30.0653563
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60833,7 +60833,7 @@
               31.3265175,
               30.0913265
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60854,7 +60854,7 @@
               31.2105089,
               30.0821107
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60875,7 +60875,7 @@
               31.2088939,
               30.0932302
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60896,7 +60896,7 @@
               31.2021241,
               30.0650897
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60917,7 +60917,7 @@
               31.3398748,
               30.1180545
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60959,7 +60959,7 @@
               31.2558868,
               30.0537014
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -60980,7 +60980,7 @@
               31.1954864,
               30.0375352
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61001,7 +61001,7 @@
               31.3011546,
               30.0733161
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61022,7 +61022,7 @@
               31.2679812,
               30.0622519
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61043,7 +61043,7 @@
               31.4048415,
               30.1439091
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61065,45 +61065,31 @@
               30.1281362
             ],
             "request_kind": "station_group_primary"
-          },
-          {
-            "osm_id": 7926259279,
-            "osm_version": 4,
-            "group_id": "OSM-NODE-7926259279",
-            "line_codes": [
-              "TRANSIT-METRO-L3"
-            ],
-            "coordinates": [
-              31.3605236,
-              30.1280974
-            ],
-            "request_kind": "station_group_primary"
           }
         ],
         "matched_osm_node_ids": [
-          7559205785,
-          7926259279
+          7559205785
         ],
         "status": "operational"
       },
       "STOP-M3-EL-SHAMS-CLUB": {
         "matched_osm_nodes": [
           {
-            "osm_id": 7302135245,
-            "osm_version": 5,
-            "group_id": "OSM-NODE-7302135245",
+            "osm_id": 7302135246,
+            "osm_version": 6,
+            "group_id": "OSM-NODE-7302135246",
             "line_codes": [
               "TRANSIT-METRO-L3"
             ],
             "coordinates": [
-              31.3439452,
-              30.1223389
+              31.3439972,
+              30.1222697
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
-          7302135245
+          7302135246
         ],
         "status": "operational"
       },
@@ -61120,7 +61106,7 @@
               31.199704,
               30.0509454
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61141,7 +61127,7 @@
               31.3327178,
               30.1011332
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61183,7 +61169,7 @@
               31.373079,
               30.1309896
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61204,7 +61190,7 @@
               31.2075704,
               30.0759374
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61246,7 +61232,7 @@
               31.2322399,
               30.0555439
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61267,7 +61253,7 @@
               31.3944754,
               30.1404326
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61288,7 +61274,7 @@
               31.3840519,
               30.1347813
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61309,7 +61295,7 @@
               31.1995925,
               30.0964429
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61330,7 +61316,7 @@
               31.222531,
               30.0624379
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61351,7 +61337,7 @@
               31.2053458,
               30.0697981
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61372,7 +61358,7 @@
               31.2009903,
               30.0584594
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
@@ -61814,11 +61800,33 @@
               31.235563,
               30.0443604
             ],
-            "request_kind": "station_group_primary"
+            "request_kind": "fact_node_fallback"
           }
         ],
         "matched_osm_node_ids": [
           5194295704
+        ],
+        "status": "operational"
+      },
+      "STOP-SHUHADA": {
+        "matched_osm_nodes": [
+          {
+            "osm_id": 5194295702,
+            "osm_version": 8,
+            "group_id": "OSM-NODE-5194295702",
+            "line_codes": [
+              "TRANSIT-METRO-L1",
+              "TRANSIT-METRO-L2"
+            ],
+            "coordinates": [
+              31.2460174,
+              30.061851
+            ],
+            "request_kind": "station_group_primary"
+          }
+        ],
+        "matched_osm_node_ids": [
+          5194295702
         ],
         "status": "operational"
       }
@@ -61846,12 +61854,13 @@
         "matched_entity_count": 12
       },
       "TRANSIT-METRO-L3": {
-        "station_group_count": 34,
+        "station_group_count": 33,
         "matched_group_count": 33,
         "matched_entity_codes": [
           "STOP-ABBASSIA",
           "STOP-ADLY-MANSOUR",
           "STOP-CAIRO-STADIUM",
+          "STOP-KIT-KAT",
           "STOP-M1-NASSER",
           "STOP-M2-CAIRO-UNIVERSITY",
           "STOP-M3-ABDOU-PASHA",
@@ -61883,19 +61892,13 @@
           "STOP-M3-WADI-EL-NILE"
         ],
         "matched_feature_count": 33,
-        "rejected_groups": [
-          {
-            "entity_code": "STOP-KIT-KAT",
-            "osm_node_id": 9077189602
-          }
-        ],
-        "matched_entity_count": 32
+        "rejected_groups": [],
+        "matched_entity_count": 33
       },
       "TRANSIT-METRO-L1": {
         "station_group_count": 35,
         "matched_group_count": 35,
         "matched_entity_codes": [
-          "RAIL-RAMSES",
           "STOP-DEMERDASH",
           "STOP-M1-AIN-HELWAN",
           "STOP-M1-AIN-SHAMS",
@@ -61929,7 +61932,8 @@
           "STOP-M1-TORA-EL-ASMANT",
           "STOP-M1-TORA-EL-BALAD",
           "STOP-M1-WADI-HOF",
-          "STOP-SADAT"
+          "STOP-SADAT",
+          "STOP-SHUHADA"
         ],
         "matched_feature_count": 35,
         "rejected_groups": [],
@@ -61937,9 +61941,8 @@
       },
       "TRANSIT-METRO-L2": {
         "station_group_count": 20,
-        "matched_group_count": 19,
+        "matched_group_count": 20,
         "matched_entity_codes": [
-          "RAIL-RAMSES",
           "STOP-M2-AL-MEZALLAT",
           "STOP-M2-AL-MOUNIB",
           "STOP-M2-ATTABA",
@@ -61951,22 +61954,19 @@
           "STOP-M2-KHALAFAWY",
           "STOP-M2-KOLIET-EL-ZERAA",
           "STOP-M2-MASSARA",
+          "STOP-M2-MOHAMED-NAGUIB",
           "STOP-M2-OMM-EL-MISRYEEN",
           "STOP-M2-OPERA",
           "STOP-M2-RAWD-EL-FARAG",
           "STOP-M2-SAINTE-TERESA",
           "STOP-M2-SAKIAT-MEKKI",
           "STOP-M2-SHUBRA-ELKHEIMA",
-          "STOP-SADAT"
+          "STOP-SADAT",
+          "STOP-SHUHADA"
         ],
-        "matched_feature_count": 19,
-        "rejected_groups": [
-          {
-            "entity_code": "STOP-AHMED-OMAR-HASHEM",
-            "osm_node_id": 9076939018
-          }
-        ],
-        "matched_entity_count": 19
+        "matched_feature_count": 20,
+        "rejected_groups": [],
+        "matched_entity_count": 20
       },
       "TRANSIT-MONORAIL-EAST": {
         "station_group_count": 22,
@@ -61998,16 +61998,6 @@
         "matched_feature_count": 22,
         "rejected_groups": [],
         "matched_entity_count": 22
-      },
-      "Alexandria-Aswan line": {
-        "station_group_count": 1,
-        "matched_group_count": 1,
-        "matched_entity_codes": [
-          "RAIL-GIZA-SUBURBS"
-        ],
-        "matched_feature_count": 1,
-        "rejected_groups": [],
-        "matched_entity_count": 1
       }
     }
   },
@@ -65782,7 +65772,7 @@
   "candidate_entities": {
     "road": 46,
     "transit_line": 16,
-    "transit_stop": 173,
+    "transit_stop": 175,
     "rail_station": 3,
     "city": 42,
     "district": 83,
@@ -69738,6 +69728,17 @@
     }
   },
   "station_entities_with_geometry_by_line": {
+    "TRANSIT-HSR-L1": {
+      "station_entities": 1,
+      "station_entities_with_geometry": 0,
+      "station_entities_without_geometry": [
+        "STOP-AHMED-OMAR-HASHEM"
+      ],
+      "point_feature_count": 0,
+      "osm_station_groups": 0,
+      "osm_station_groups_with_geometry": 0,
+      "lifecycle_or_geometry_rejected_groups": []
+    },
     "TRANSIT-LRT": {
       "station_entities": 12,
       "station_entities_with_geometry": 12,
@@ -69758,35 +69759,21 @@
     },
     "TRANSIT-METRO-L2": {
       "station_entities": 20,
-      "station_entities_with_geometry": 19,
-      "station_entities_without_geometry": [
-        "STOP-AHMED-OMAR-HASHEM"
-      ],
-      "point_feature_count": 19,
+      "station_entities_with_geometry": 20,
+      "station_entities_without_geometry": [],
+      "point_feature_count": 20,
       "osm_station_groups": 20,
-      "osm_station_groups_with_geometry": 19,
-      "lifecycle_or_geometry_rejected_groups": [
-        {
-          "entity_code": "STOP-AHMED-OMAR-HASHEM",
-          "osm_node_id": 9076939018
-        }
-      ]
+      "osm_station_groups_with_geometry": 20,
+      "lifecycle_or_geometry_rejected_groups": []
     },
     "TRANSIT-METRO-L3": {
       "station_entities": 33,
-      "station_entities_with_geometry": 32,
-      "station_entities_without_geometry": [
-        "STOP-KIT-KAT"
-      ],
+      "station_entities_with_geometry": 33,
+      "station_entities_without_geometry": [],
       "point_feature_count": 33,
-      "osm_station_groups": 34,
+      "osm_station_groups": 33,
       "osm_station_groups_with_geometry": 33,
-      "lifecycle_or_geometry_rejected_groups": [
-        {
-          "entity_code": "STOP-KIT-KAT",
-          "osm_node_id": 9077189602
-        }
-      ]
+      "lifecycle_or_geometry_rejected_groups": []
     },
     "TRANSIT-MONORAIL-EAST": {
       "station_entities": 22,
@@ -70516,7 +70503,7 @@
       "after": 1
     },
     "RAIL-RAMSES": {
-      "before": 0,
+      "before": 1,
       "after": 1
     },
     "ROAD-26-JULY": {
@@ -70864,8 +70851,8 @@
       "after": 0
     },
     "STOP-KIT-KAT": {
-      "before": 0,
-      "after": 0
+      "before": 1,
+      "after": 1
     },
     "STOP-LRT-10TH-CITY-CENTER": {
       "before": 0,
@@ -71344,8 +71331,8 @@
       "after": 1
     },
     "STOP-M3-EL-NOZHA": {
-      "before": 2,
-      "after": 2
+      "before": 1,
+      "after": 1
     },
     "STOP-MRE-CAIRO-STADIUM-MONORAIL": {
       "before": 1,
@@ -71458,11 +71445,19 @@
     "TRANSIT-SUPERJET": {
       "before": 0,
       "after": 0
+    },
+    "STOP-M2-MOHAMED-NAGUIB": {
+      "before": 1,
+      "after": 1
+    },
+    "STOP-SHUHADA": {
+      "before": 1,
+      "after": 1
     }
   },
   "entities_with_geometry": {
-    "count": 222,
-    "total_entities": 415,
+    "count": 225,
+    "total_entities": 417,
     "entity_codes": [
       "AIRPORT-CAIRO",
       "AIRPORT-CAPITAL",
@@ -71792,6 +71787,7 @@
       "STOP-M2-KHALAFAWY",
       "STOP-M2-KOLIET-EL-ZERAA",
       "STOP-M2-MASSARA",
+      "STOP-M2-MOHAMED-NAGUIB",
       "STOP-M2-OMM-EL-MISRYEEN",
       "STOP-M2-OPERA",
       "STOP-M2-RAWD-EL-FARAG",
@@ -71862,6 +71858,7 @@
       "STOP-MRW-WADI-EL-NIL",
       "STOP-SADAT",
       "STOP-SAYEDA-AISHA",
+      "STOP-SHUHADA",
       "STOP-SUN-CAPITAL",
       "TRANSIT-BRT",
       "TRANSIT-HSR-L1",
@@ -74998,7 +74995,7 @@
     },
     "dropped_fragments_under_300m": 16
   },
-  "features_written": 2926,
+  "features_written": 2928,
   "features_by_entity": {
     "AIRPORT-CAIRO": 1,
     "AIRPORT-CAPITAL": 1,
@@ -75110,6 +75107,7 @@
     "STOP-BRT-MOSHIR-TANTAWY": 1,
     "STOP-CAIRO-STADIUM": 1,
     "STOP-DEMERDASH": 1,
+    "STOP-KIT-KAT": 1,
     "STOP-LRT-BADR": 1,
     "STOP-LRT-CAPITAL-AIRPORT": 1,
     "STOP-LRT-CAPITAL-GARDENS": 1,
@@ -75163,6 +75161,7 @@
     "STOP-M2-KHALAFAWY": 1,
     "STOP-M2-KOLIET-EL-ZERAA": 1,
     "STOP-M2-MASSARA": 1,
+    "STOP-M2-MOHAMED-NAGUIB": 1,
     "STOP-M2-OMM-EL-MISRYEEN": 1,
     "STOP-M2-OPERA": 1,
     "STOP-M2-RAWD-EL-FARAG": 1,
@@ -75181,7 +75180,7 @@
     "STOP-M3-CAIRO-FAIRGROUND": 1,
     "STOP-M3-EL-GEISH": 1,
     "STOP-M3-EL-HAYKESTEP": 1,
-    "STOP-M3-EL-NOZHA": 2,
+    "STOP-M3-EL-NOZHA": 1,
     "STOP-M3-EL-SHAMS-CLUB": 1,
     "STOP-M3-GAMET-EL-DOWEL": 1,
     "STOP-M3-HAROUN": 1,
@@ -75217,6 +75216,7 @@
     "STOP-MRE-R1": 1,
     "STOP-MRE-R2": 1,
     "STOP-SADAT": 1,
+    "STOP-SHUHADA": 1,
     "TRANSIT-LRT": 180,
     "TRANSIT-METRO-L1": 13,
     "TRANSIT-METRO-L2": 2,
@@ -75251,7 +75251,7 @@
   },
   "entity_page_map_geometries": {
     "path": "data/derived/entity-map-geometries.json",
-    "entities_with_geometry": 222,
+    "entities_with_geometry": 225,
     "simplification_tolerance_degrees": 0.0002,
     "merge": "shapely.unary_union; no synthetic segments",
     "preserved_metadata": [
@@ -78243,7 +78243,7 @@
         ]
       }
     ],
-    "إجمالي_ميزات_الكيانات_بعد_التحديث": 2926,
+    "إجمالي_ميزات_الكيانات_بعد_التحديث": 2928,
     "الكيانات_المطابقة_بعلاقات_طريق_OSM": [
       "ROAD-30-JUNE",
       "ROAD-CAIRO-ALEX-DESERT",
@@ -78973,7 +78973,7 @@
         "after": 1
       },
       "RAIL-RAMSES": {
-        "before": 0,
+        "before": 1,
         "after": 1
       },
       "ROAD-26-JULY": {
@@ -79321,8 +79321,8 @@
         "after": 0
       },
       "STOP-KIT-KAT": {
-        "before": 0,
-        "after": 0
+        "before": 1,
+        "after": 1
       },
       "STOP-LRT-10TH-CITY-CENTER": {
         "before": 0,
@@ -79801,8 +79801,8 @@
         "after": 1
       },
       "STOP-M3-EL-NOZHA": {
-        "before": 2,
-        "after": 2
+        "before": 1,
+        "after": 1
       },
       "STOP-MRE-CAIRO-STADIUM-MONORAIL": {
         "before": 1,
@@ -79915,11 +79915,19 @@
       "TRANSIT-SUPERJET": {
         "before": 0,
         "after": 0
+      },
+      "STOP-M2-MOHAMED-NAGUIB": {
+        "before": 1,
+        "after": 1
+      },
+      "STOP-SHUHADA": {
+        "before": 1,
+        "after": 1
       }
     },
     "الكيانات_ذات_الهندسة_من_إجمالي_342": {
-      "العدد": 222,
-      "الإجمالي": 415
+      "العدد": 225,
+      "الإجمالي": 417
     },
     "فجوات_الطرق_المتبقية_مع_نقاط_النهاية": [
       {
@@ -118249,16 +118257,6 @@
         "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
-        "source_id": "node:329978615",
-        "source_name": "mohamednaguib | محمدنجيب | نجيب",
-        "entity_type": "transit_stop",
-        "candidate_entity_codes": [
-          "STOP-AHMED-OMAR-HASHEM",
-          "STOP-MRE-MOSTATHMERIN"
-        ],
-        "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags; planned/construction entity has no explicit OSM construction tag"
-      },
-      {
         "source_id": "node:493207780",
         "source_name": "alzahraa | الزهراء",
         "entity_type": "transit_stop",
@@ -118270,11 +118268,11 @@
       {
         "source_id": "node:1039314336",
         "source_name": "alshuhada | الشهداء",
-        "entity_type": "rail_station",
+        "entity_type": "transit_stop",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
-        "reason": "lower-confidence alias candidate; a stronger canonical-name match exists"
+        "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
       },
       {
         "source_id": "node:1111399394",
@@ -118756,47 +118754,38 @@
       {
         "source_id": "node:5194295698",
         "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-        "entity_type": "rail_station",
+        "entity_type": "transit_stop",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
-        "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "source_id": "node:5194295699",
         "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-        "entity_type": "rail_station",
+        "entity_type": "transit_stop",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
-        "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "source_id": "node:5194295700",
         "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-        "entity_type": "rail_station",
+        "entity_type": "transit_stop",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
-        "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "source_id": "node:5194295701",
         "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-        "entity_type": "rail_station",
+        "entity_type": "transit_stop",
         "candidate_entity_codes": [
-          "RAIL-RAMSES"
+          "STOP-SHUHADA"
         ],
-        "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
-      },
-      {
-        "source_id": "node:5194295702",
-        "source_name": "shuhada | الشهداء | رمسيس | مبارك",
-        "entity_type": "rail_station",
-        "candidate_entity_codes": [
-          "RAIL-RAMSES"
-        ],
-        "reason": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "source_id": "node:5194295704",
@@ -119469,20 +119458,18 @@
         "source_name": "mohamednaguib | محمدنجيب | نجيب",
         "entity_type": "transit_stop",
         "candidate_entity_codes": [
-          "STOP-AHMED-OMAR-HASHEM",
-          "STOP-MRE-MOSTATHMERIN"
+          "STOP-M2-MOHAMED-NAGUIB"
         ],
-        "reason": "OSM route-relation membership identifies a different line; planned/construction entity has no explicit OSM construction tag"
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "source_id": "node:9076939019",
         "source_name": "mohamednaguib | محمدنجيب | نجيب",
         "entity_type": "transit_stop",
         "candidate_entity_codes": [
-          "STOP-AHMED-OMAR-HASHEM",
-          "STOP-MRE-MOSTATHMERIN"
+          "STOP-M2-MOHAMED-NAGUIB"
         ],
-        "reason": "OSM route-relation membership identifies a different line; planned/construction entity has no explicit OSM construction tag"
+        "reason": "nearby lower-quality stop-position/platform duplicate"
       },
       {
         "source_id": "node:9076939028",

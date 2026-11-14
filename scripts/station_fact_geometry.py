@@ -245,6 +245,8 @@ def match_station_fact_nodes(
         for key in keys:
             if any(key in line for line in memberships):
                 return key.casefold().replace("-", "_")
+        if code == "STOP-CENTRAL-CAPITAL":
+            return "lrt_hsr"
         if code.startswith(("STOP-M1-", "STOP-M2-", "STOP-M3-", "STOP-METRO-")):
             return "metro"
         if code.startswith("STOP-LRT-"):

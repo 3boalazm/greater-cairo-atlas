@@ -108,10 +108,10 @@ describe("real PostGIS features SQL regression", () => {
       }),
     });
     expect(importSummary.dryRun).toBe(false);
-    expect(importSummary.entitiesCount).toBe(415);
-    expect(importSummary.evidenceCount).toBe(368);
-    expect(importSummary.factsCount).toBe(2075);
-    expect(importSummary.factEvidenceLinksCount).toBe(2427);
+    expect(importSummary.entitiesCount).toBe(417);
+    expect(importSummary.evidenceCount).toBe(371);
+    expect(importSummary.factsCount).toBe(2083);
+    expect(importSummary.factEvidenceLinksCount).toBe(2436);
     featureCount = importSummary.featuresCount;
     const boundaryCollection = JSON.parse(await readFile(path.resolve(process.cwd(), "data/features/boundaries.geojson"), "utf8")) as {
       features: Array<{ geometry: unknown; properties: { code: string; entity_code: string } }>;
@@ -142,7 +142,7 @@ describe("real PostGIS features SQL regression", () => {
       WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)
     `);
     expect(Number(result.rows[0]?.valid_count)).toBe(featureCount);
-    expect(featureCount).toBe(2926);
+    expect(featureCount).toBe(2928);
     const constraint = await db.query<{ constraint_name: string }>(`
       SELECT conname AS constraint_name
       FROM pg_constraint
@@ -161,7 +161,7 @@ describe("real PostGIS features SQL regression", () => {
         (SELECT COUNT(*) FROM features)::text AS features,
         (SELECT COUNT(*) FROM boundaries)::text AS boundaries
     `);
-    expect(counts.rows[0]).toEqual({ entities: "415", evidence: "368", facts: "2075", links: "2427", features: "2926", boundaries: "19" });
+    expect(counts.rows[0]).toEqual({ entities: "417", evidence: "371", facts: "2083", links: "2436", features: "2928", boundaries: "19" });
     const validBoundaries = await db.query<{ count: string }>("SELECT COUNT(*)::text AS count FROM boundaries WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)");
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
   }, 120_000);
@@ -220,7 +220,7 @@ describe("real PostGIS features SQL regression", () => {
     expect(rows.rows).toHaveLength(featureCount);
     expect(rows.rows.every((row) => row.code && row.entity_code && row.geometry.type)).toBe(true);
     expect(rows.rows.every((row) => row.attribution && row.source_ids.length > 0)).toBe(true);
-    expect(rows.rows.filter((row) => row.geometry.type === "Point")).toHaveLength(173);
+    expect(rows.rows.filter((row) => row.geometry.type === "Point")).toHaveLength(175);
     expect(rows.rows.some((row) => row.geometry.type === "GeometryCollection")).toBe(false);
   }, 120_000);
 

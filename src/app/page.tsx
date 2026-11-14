@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import AtlasApp from "@/components/atlas/AtlasApp";
 import { getSiteUrl, resolveLanguage } from "@/components/site/SiteChrome";
-import { transitModesForEntityCode, isTransitInterchangeEntityCode } from "@/lib/atlas/transit-modes";
+import { transitModesForEntityCode, isTransitInterchangeEntityCode, type TransitMode } from "@/lib/atlas/transit-modes";
 import { stationDisplayName } from "@/lib/atlas/labels";
 import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
 import type { AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse } from "@/components/atlas/atlas-client";
@@ -47,9 +47,11 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
       if (!entity) return [];
       const properties = (feature.properties?.properties ?? {}) as Record<string, unknown>;
       const lineCodes = Array.isArray(properties.matched_line_codes)
-        ? properties.matched_line_codes.filter((item): item is string => typeof item === "string")
-        : dataset.facts.filter((fact) => fact.entity_code === entity.code && fact.attribute === "line_membership").map((fact) => fact.value);
-      const modes = transitModesForEntityCode(entity.code, lineCodes);
+        ? [...new Set(properties.matched_line_codes.filter((item): item is string => typeof item === "string"))]
+        : [...new Set(dataset.facts.filter((fact) => fact.entity_code === entity.code && ["line_membership", "served_by"].includes(fact.attribute) && fact.verification_state !== "superseded").flatMap((fact) => fact.value.match(/TRANSIT-[A-Z0-9-]+/g) ?? []))];
+      const inferredModes = transitModesForEntityCode(entity.code, lineCodes);
+      const isStation = entity.entity_type === "transit_stop" || entity.entity_type === "rail_station";
+      const modes: TransitMode[] = inferredModes.length ? inferredModes : isStation ? ["unclassified"] : [];
       return [{
         type: "Feature" as const, id: feature.code, geometry: feature.geometry,
         properties: {
@@ -57,7 +59,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           type: entity.entity_type, status: entity.status, license: feature.license,
           attribution: feature.license === "ODbL-1.0" ? "© OpenStreetMap contributors, ODbL 1.0" : String(properties.attribution ?? ""),
           source: String(properties.source ?? ""), retrieval_date: String(properties.retrieval_date ?? ""),
-          source_ids: properties.source_ids ?? [], line_codes: lineCodes.length ? lineCodes : entity.code.startsWith("TRANSIT-") ? [entity.code] : [], modes,
+          source_ids: properties.source_ids ?? [], line_codes: lineCodes.length ? lineCodes : entity.code.startsWith("TRANSIT-") ? [entity.code] : [],
+          primary_line_code: lineCodes[0] ?? (entity.code.startsWith("TRANSIT-") ? entity.code : null), modes,
           interchange: modes.length > 1 || isTransitInterchangeEntityCode(entity.code),
         },
       }];

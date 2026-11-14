@@ -33,10 +33,10 @@
 | 16 | الملك الصالح | الملك الصالح | Al-Malek Al-Saleh | 2460595904 | 7 | 31.231165, 30.017686 | لا |
 | 17 | السيدة زينب | السيدة زينب | Sayyeda Zeinab | 316639686 | 14 | 31.235326, 30.029292 | لا |
 | 18 | سعد زغلول | سعد زغلول | Saad Zaghloul | 5349031085 | 5 | 31.238054, 30.036573 | لا |
-| 19 | السادات | السادات | Sadat | 5194295704 | 7 | 31.235563, 30.044360 | نعم |
-| 20 | ناصر | ناصر | Nasser | 316641712 | 11 | 31.238792, 30.053565 | نعم |
+| 19 | السادات | السادات | Sadat | 5194295704 | 7 | 31.235563, 30.044360 | لا |
+| 20 | ناصر | ناصر | Nasser | 316641712 | 11 | 31.238792, 30.053565 | لا |
 | 21 | عرابي | عرابي | Orabi | 5353485468 | 3 | 31.242693, 30.057378 | لا |
-| 22 | الشهداء | الشهداء | Shuhada | 5194295698 | 7 | 31.246552, 30.061774 | نعم |
+| 22 | الشهداء | الشهداء | Shuhada | 5194295698 | 7 | 31.246552, 30.061774 | لا |
 | 23 | الغمرة | الغمرة | Ghamra | 5349031079 | 5 | 31.264665, 30.068980 | لا |
 | 24 | الدمرداش | الدمرداش | Al-Demerdash | 4979331190 | 6 | 31.277807, 30.077271 | لا |
 | 25 | منشية الصدر | منشية الصدر | Manshiet Al-Sadr | 4979331196 | 6 | 31.287825, 30.082221 | لا |
@@ -138,7 +138,7 @@
 | 12 | الأوبرا | الأوبرا | Opera | 9076904711 | 4 | 31.225172, 30.042058 | لا |
 | 13 | الدقى | الدقى | Dokki | 9076904710 | 3 | 31.212005, 30.038238 | لا |
 | 14 | البحوث | البحوث | Behooth | 5355866946 | 4 | 31.200307, 30.035786 | لا |
-| 15 | جامعة القاهرة | جامعة القاهرة | Cairo University | 316632489 | 18 | 31.201189, 30.025991 | نعم |
+| 15 | جامعة القاهرة | جامعة القاهرة | Cairo University | 316632489 | 18 | 31.201189, 30.025991 | لا |
 | 16 | فيصل | فيصل | Faisal | 316631596 | 23 | 31.204007, 30.017290 | لا |
 | 17 | جيزة | جيزة | Giza | 316631600 | 24 | 31.207101, 30.010567 | لا |
 | 18 | أم المصريين | أم المصريين | Omm El Misryeen | 9076904700 | 3 | 31.207934, 30.005138 | لا |
@@ -401,18 +401,17 @@
 
 ## مطابقة كيانات المحطات الموجودة في seed
 
-طابقت القائمة المستخرجة 40 كيانًا قائمًا من كيانات `STOP-*` و`RAIL-*` بالاسم المطابق أو بمعرّف عقدة OSM. لا تُنشأ كيانات بديلة.
+طابقت القائمة المستخرجة 116 كيانًا قائمًا من كيانات `STOP-*` و`RAIL-*` بالاسم المطابق أو بمعرّف عقدة OSM. لا تُنشأ كيانات بديلة.
 
 | كود الكيان القائم |
 |---|
-| `RAIL-RAMSES` |
 | `STOP-ABBASSIA` |
 | `STOP-ADALA-CITY` |
 | `STOP-ADLY-MANSOUR` |
-| `STOP-AHMED-OMAR-HASHEM` |
 | `STOP-ARTS-CULTURE-CITY` |
 | `STOP-CAIRO-STADIUM` |
 | `STOP-DEMERDASH` |
+| `STOP-KIT-KAT` |
 | `STOP-LRT-BADR` |
 | `STOP-LRT-CAPITAL-AIRPORT` |
 | `STOP-LRT-CAPITAL-GARDENS` |
@@ -423,14 +422,90 @@
 | `STOP-LRT-OBOUR` |
 | `STOP-LRT-ROBEIKI` |
 | `STOP-LRT-SHOROUK` |
+| `STOP-M1-AIN-HELWAN` |
+| `STOP-M1-AIN-SHAMS` |
+| `STOP-M1-AL-MAASARA` |
+| `STOP-M1-AL-MALEK-AL-SALEH` |
+| `STOP-M1-AL-ZAHRAA` |
+| `STOP-M1-DAR-AL-SALAM` |
+| `STOP-M1-EL-MARG` |
+| `STOP-M1-EL-MATAREYYA` |
+| `STOP-M1-EZBET-EN-NAKHL` |
+| `STOP-M1-GHAMRA` |
+| `STOP-M1-HADAYEK-EL-MAADI` |
+| `STOP-M1-HADAYEQ-AL-ZAITOUN` |
+| `STOP-M1-HADAYEQ-HELWAN` |
+| `STOP-M1-HAMMAMAT-AL-QOBBA` |
+| `STOP-M1-HELMEYET-AL-ZAITOUN` |
+| `STOP-M1-HELWAN` |
+| `STOP-M1-HELWAN-UNIVERSITY` |
+| `STOP-M1-KOBRI-AL-QOBBA` |
+| `STOP-M1-KOZZIKA` |
+| `STOP-M1-MAADI` |
+| `STOP-M1-MANSHIET-AL-SADR` |
+| `STOP-M1-MAR-GIRGIS` |
+| `STOP-M1-NASSER` |
 | `STOP-M1-NEW-EL-MARG` |
+| `STOP-M1-ORABI` |
+| `STOP-M1-SAAD-ZAGHLOUL` |
+| `STOP-M1-SARAY-AL-QOBBA` |
+| `STOP-M1-SAYYEDA-ZEINAB` |
+| `STOP-M1-THAKANAT-EL-MAADI` |
+| `STOP-M1-TORA-EL-ASMANT` |
+| `STOP-M1-TORA-EL-BALAD` |
+| `STOP-M1-WADI-HOF` |
+| `STOP-M2-AL-MEZALLAT` |
+| `STOP-M2-AL-MOUNIB` |
+| `STOP-M2-ATTABA` |
+| `STOP-M2-BEHOOTH` |
+| `STOP-M2-CAIRO-UNIVERSITY` |
+| `STOP-M2-DOKKI` |
+| `STOP-M2-FAISAL` |
+| `STOP-M2-GIZA` |
 | `STOP-M2-KHALAFAWY` |
+| `STOP-M2-KOLIET-EL-ZERAA` |
+| `STOP-M2-MASSARA` |
+| `STOP-M2-MOHAMED-NAGUIB` |
+| `STOP-M2-OMM-EL-MISRYEEN` |
+| `STOP-M2-OPERA` |
+| `STOP-M2-RAWD-EL-FARAG` |
+| `STOP-M2-SAINTE-TERESA` |
+| `STOP-M2-SAKIAT-MEKKI` |
+| `STOP-M2-SHUBRA-ELKHEIMA` |
+| `STOP-M3-ABDOU-PASHA` |
+| `STOP-M3-AL-AHRAM` |
+| `STOP-M3-AL-BOHY` |
+| `STOP-M3-AL-KAWMEIAH` |
+| `STOP-M3-AL-TAWFIKIA` |
+| `STOP-M3-ALF-MASKAN-SUBWAY` |
+| `STOP-M3-ATTABA-SUBWAY` |
+| `STOP-M3-BAB-EL-SHAARIA` |
+| `STOP-M3-BULAQ-AL-DAKROUR` |
+| `STOP-M3-CAIRO-FAIRGROUND` |
+| `STOP-M3-EL-GEISH` |
+| `STOP-M3-EL-HAYKESTEP` |
+| `STOP-M3-EL-NOZHA` |
+| `STOP-M3-EL-SHAMS-CLUB` |
+| `STOP-M3-GAMET-EL-DOWEL` |
+| `STOP-M3-HAROUN` |
+| `STOP-M3-HELIOPOLIS-SUBWAY` |
+| `STOP-M3-HESHAM-BARAKAT` |
+| `STOP-M3-IMBABA` |
+| `STOP-M3-KOLEYET-EL-BANAT` |
+| `STOP-M3-MASBERO` |
+| `STOP-M3-OMAR-EBN-ELKHATAB` |
+| `STOP-M3-QUBAA` |
+| `STOP-M3-RING-ROAD` |
+| `STOP-M3-SAFAA-HEGAZY` |
+| `STOP-M3-SUDAN` |
+| `STOP-M3-WADI-EL-NILE` |
 | `STOP-MONORAIL-MOSHIR-TANTAWY` |
 | `STOP-MRE-7TH-DISTRICT` |
 | `STOP-MRE-AHMED-ISMAIL` |
 | `STOP-MRE-AIR-HOSPITAL` |
 | `STOP-MRE-AZHAR-UNIV` |
 | `STOP-MRE-BEIT-EL-WATAN` |
+| `STOP-MRE-CAIRO-STADIUM-MONORAIL` |
 | `STOP-MRE-CBD` |
 | `STOP-MRE-FATTAH-ALIM` |
 | `STOP-MRE-GOLDEN-SQUARE` |
@@ -445,11 +520,15 @@
 | `STOP-MRE-R1` |
 | `STOP-MRE-R2` |
 | `STOP-SADAT` |
+| `STOP-SHUHADA` |
 
 ### كيانات seed غير المطابقة
 
 - `RAIL-BASHTIL`
+- `RAIL-GIZA-SUBURBS`
+- `RAIL-RAMSES`
 - `STOP-6-OCTOBER-INTERCHANGE`
+- `STOP-AHMED-OMAR-HASHEM`
 - `STOP-BRT-AIN-SOKHNA-RD`
 - `STOP-BRT-ALEX-AGRI`
 - `STOP-BRT-ALGERIA-ST`
@@ -482,7 +561,6 @@
 - `STOP-HADAEK-OCTOBER`
 - `STOP-HSR-GIZA`
 - `STOP-HSR-SPHINX`
-- `STOP-KIT-KAT`
 - `STOP-LRT-10TH-CITY-CENTER`
 - `STOP-LRT-10TH-RAMADAN-1`
 - `STOP-LRT-HADAEK-10TH`
@@ -491,10 +569,7 @@
 - `STOP-LRT-SPORTS-CITY`
 - `STOP-LRT-STRATEGIC-COMMAND`
 - `STOP-LRT-TECH-INSTITUTE`
-- `STOP-M1-EL-MARG`
-- `STOP-M2-SHUBRA-ELKHEIMA`
 - `STOP-M2-ST-TERESA`
-- `STOP-M3-RING-ROAD`
 - `STOP-M3-ROD-ELFARAG-AXIS`
 - `STOP-MRW-ACU`
 - `STOP-MRW-ALEX-ROAD`

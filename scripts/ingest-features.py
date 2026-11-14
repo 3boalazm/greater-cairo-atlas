@@ -62,14 +62,14 @@ def load_entities() -> list[dict[str, str]]:
 
 
 def load_station_node_facts() -> tuple[dict[str, set[int]], dict[str, set[str]]]:
-    """Read canonical OSM station-node lineage without inferring IDs from names."""
+    """Read exact OSM node identity and explicit line-membership facts, excluding superseded claims."""
     facts_path = ROOT / "data/seed/facts.json"
     facts = json.loads(facts_path.read_text(encoding="utf-8"))
     node_ids: dict[str, set[int]] = defaultdict(set)
     line_memberships: dict[str, set[str]] = defaultdict(set)
     for fact in facts:
         code = fact.get("entity_code")
-        if not isinstance(code, str):
+        if not isinstance(code, str) or fact.get("verification_state") == "superseded":
             continue
         if fact.get("attribute") == "osm_node_id":
             try:
@@ -77,7 +77,7 @@ def load_station_node_facts() -> tuple[dict[str, set[int]], dict[str, set[str]]]
             except (TypeError, ValueError):
                 continue
         elif fact.get("attribute") == "line_membership" and isinstance(fact.get("value"), str):
-            line_memberships[code].add(fact["value"])
+            line_memberships[code].update(re.findall(r"TRANSIT-[A-Z0-9-]+", fact["value"]))
     return dict(node_ids), dict(line_memberships)
 
 

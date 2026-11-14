@@ -29,15 +29,15 @@ class Rev8TransitDraftTests(unittest.TestCase):
         new_codes = set(self.entity_by_code) - self.rev7_codes
         new_stops = [self.entity_by_code[code] for code in new_codes if self.entity_by_code[code]["entity_type"] == "transit_stop"]
         new_rail = [self.entity_by_code[code] for code in new_codes if self.entity_by_code[code]["entity_type"] == "rail_station"]
-        self.assertEqual(len(self.entities), 415)
-        self.assertEqual(len(new_stops), 72)
+        self.assertEqual(len(self.entities), 417)
+        self.assertEqual(len(new_stops), 74)
         self.assertEqual(len(new_rail), 1)
         prefixes = ("STOP-M1-", "STOP-M2-", "STOP-M3-", "STOP-LRT-", "STOP-MRE-")
-        self.assertTrue(all(row["entity_code"].startswith(prefixes) for row in new_stops))
+        self.assertTrue(all(row["entity_code"].startswith(prefixes) or row["entity_code"] == "STOP-SHUHADA" for row in new_stops))
         self.assertEqual([row["entity_code"] for row in new_rail], ["RAIL-GIZA-SUBURBS"])
         self.assertFalse(any("-OSM-" in row["entity_code"] for row in self.entities))
         self.assertTrue((DRAFT / "CHANGELOG_rev8.md").is_file())
-        self.assertIn("415 entities", (DRAFT / "CHANGELOG_rev8.md").read_text(encoding="utf-8"))
+        self.assertIn("417 entities", (DRAFT / "CHANGELOG_rev8.md").read_text(encoding="utf-8"))
 
     def test_duplicate_station_positions_are_folded_into_canonical_entities(self):
         node_ids = {}
@@ -81,10 +81,11 @@ class Rev8TransitDraftTests(unittest.TestCase):
 
     def test_new_relation_evidence_starts_at_ev351_and_is_osm_dataset_evidence(self):
         codes = sorted(self.new_fact_refs, key=lambda code: int(code.removeprefix("EV-")))
-        self.assertEqual(codes[0], "EV-351")
-        self.assertEqual(codes[-1], "EV-368")
-        self.assertEqual(len(codes), 18)
-        for code in codes:
+        relation_codes = [code for code in codes if 351 <= int(code.removeprefix("EV-")) <= 368]
+        self.assertEqual(relation_codes[0], "EV-351")
+        self.assertEqual(relation_codes[-1], "EV-368")
+        self.assertEqual(len(relation_codes), 18)
+        for code in relation_codes:
             row = self.evidence_by_code[code]
             self.assertEqual(row["source_type"], "dataset")
             self.assertEqual(row["publisher"], "OpenStreetMap contributors")
@@ -97,8 +98,8 @@ class Rev8TransitDraftTests(unittest.TestCase):
             if (set(fact["evidence_ref"]) if isinstance(fact["evidence_ref"], list) else {fact["evidence_ref"]}) & self.new_fact_refs
         ]
         self.assertGreater(len(new_facts), 600)
-        self.assertTrue(all(fact["verification_state"] == "candidate" for fact in new_facts))
-        self.assertTrue(all(fact["attribute_key"] in {"line_membership", "line_order", "osm_node_id", "interchange_with"} for fact in new_facts))
+        self.assertTrue(all(fact["verification_state"] in {"candidate", "superseded"} for fact in new_facts))
+        self.assertTrue(all(fact["attribute_key"] in {"line_membership", "line_order", "osm_node_id", "interchange_with", "operational_status"} for fact in new_facts))
         self.assertTrue(all(
             (fact["evidence_ref"] in self.new_fact_refs if isinstance(fact["evidence_ref"], str)
              else set(fact["evidence_ref"]).issubset(self.new_fact_refs))
@@ -106,11 +107,14 @@ class Rev8TransitDraftTests(unittest.TestCase):
         ))
         self.assertTrue(any(fact["attribute_key"] == "line_order" for fact in new_facts))
         self.assertTrue(any(fact["attribute_key"] == "osm_node_id" for fact in new_facts))
-        rail_ramses_memberships = {
-            fact["value"] for fact in new_facts
-            if fact["entity_code"] == "RAIL-RAMSES" and fact["attribute_key"] == "line_membership"
-        }
-        self.assertTrue({"TRANSIT-METRO-L1", "TRANSIT-METRO-L2"}.issubset(rail_ramses_memberships))
+        shuhada = [fact for fact in self.facts if fact["entity_code"] == "STOP-SHUHADA"]
+        self.assertTrue(any(fact["attribute_key"] == "osm_node_id" and fact["value"] == 5194295702 for fact in shuhada))
+        shuhada_memberships = {fact["value"] for fact in shuhada if fact["attribute_key"] == "line_membership"}
+        self.assertEqual(shuhada_memberships, {"TRANSIT-METRO-L1", "TRANSIT-METRO-L2"})
+        ramses_metro = [fact for fact in self.facts if fact["entity_code"] == "RAIL-RAMSES"
+                        and fact["attribute_key"] == "line_membership" and str(fact["value"]).startswith("TRANSIT-METRO-")]
+        self.assertTrue(ramses_metro)
+        self.assertTrue(all(fact["verification_state"] == "superseded" for fact in ramses_metro))
 
 
 if __name__ == "__main__":

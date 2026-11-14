@@ -74,6 +74,7 @@ export interface AtlasFeature {
     source_ids: unknown;
     modes?: string[];
     line_codes?: string[];
+    primary_line_code?: string | null;
     interchange?: boolean;
   };
 }

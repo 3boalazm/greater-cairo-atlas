@@ -178,7 +178,7 @@ PROJ-RING-WIDENING-2798,project,توسعة الدائري من المنصوري�
 PROJ-SHOROUK-INDUSTRIAL-ABU-ZAABAL,project,منطقة الشروق الصناعية بأبو زعبل,El Shorouk Industrial Zone (Abu Zaabal),المنطقة الصناعية بأبو زعبل,NORTH,operational,
 RAIL-BASHTIL,rail_station,محطة قطارات الصعيد في بشتيل,Bashtil Upper Egypt Rail Station,بشتيل,WEST,operational,
 RAIL-GIZA-SUBURBS,rail_station,ضواحي الجيزة,Giza Suburbs,,WEST,operational,OSM-derived ENR station; official verification pending.
-RAIL-RAMSES,rail_station,رمسيس,Ramses Station,الشهداء,CENTRAL,operational,
+RAIL-RAMSES,rail_station,رمسيس,Ramses Station,محطة مصر; Misr Station; Ramses; Ramses Station,CENTRAL,operational,
 ROAD-26-JULY,road,محور 26 يوليو,26th of July Axis,26 يوليو|شارع 26 يوليو|26th July Street,WEST,operational,
 ROAD-30-JUNE,road,محور 30 يونيو,30 June Axis,,EAST,partial,
 ROAD-90-NORTH,road,التسعين الشمالي,North 90th Street,التسعين|شارع التسعين الشمالي|شارع التسعين الشمالى|شارع التسعين|Al Teseen Northern Street,EAST,operational,
@@ -229,7 +229,7 @@ STOP-6-OCTOBER-INTERCHANGE,transit_stop,6 أكتوبر,6th of October Interchang
 STOP-ABBASSIA,transit_stop,العباسية,Abbassia Station,,CENTRAL,operational,
 STOP-ADALA-CITY,transit_stop,مدينة العدالة,Justice City Station,,EAST,operational,
 STOP-ADLY-MANSOUR,transit_stop,عدلي منصور,Adly Mansour Interchange,السلام|محطة عدلي منصور المركزية التبادلية|Adly Mansour,EAST,operational,
-STOP-AHMED-OMAR-HASHEM,transit_stop,محطة أحمد عمر هاشم,Ahmed Omar Hashem Station,محطة محمد نجيب|محطة أحمد عمر هاشم للقطار الكهربائي السريع|Ahmed Omar Hashem High-Speed Rail Station|محطة محمد أحمد عمر هاشم,EAST,approved_planned,محطة القطار الكهربائي السريع (الخط الأول) في نهاية الطريق اللي بيربط القاهرة الجديدة بالدائري الأوسطي؛ اسمها القديم في الأخبار «محطة محمد نجيب». مش محطة مترو؛ عليها تبادل مخطط مع الخط السادس
+STOP-AHMED-OMAR-HASHEM,transit_stop,محطة أحمد عمر هاشم,Ahmed Omar Hashem Station,محطة أحمد عمر هاشم للقطار الكهربائي السريع|Ahmed Omar Hashem High-Speed Rail Station|محطة محمد أحمد عمر هاشم,EAST,approved_planned,محطة القطار الكهربائي السريع (الخط الأول) في نهاية الطريق اللي بيربط القاهرة الجديدة بالدائري الأوسطي؛ اسمها القديم في الأخبار «محطة محمد نجيب». مش محطة مترو؛ عليها تبادل مخطط مع الخط السادس
 STOP-ARTS-CULTURE-CITY,transit_stop,مدينة الفنون والثقافة,City of Arts and Culture Station,,EAST,operational,
 STOP-BRT-AIN-SOKHNA-RD,transit_stop,محطة طريق العين السخنة,Ain Sokhna Road BRT Station,,SOUTH,operational,
 STOP-BRT-ALEX-AGRI,transit_stop,محطة الإسكندرية الزراعي (BRT),Alexandria Agricultural Rd BRT Station,محطة إسكندرية الزراعي|الإسكندرية الزراعي,NORTH,operational,
@@ -414,3 +414,5 @@ TRANSIT-MONORAIL-EAST,transit_line,مونوريل شرق النيل,East Nile Mo
 TRANSIT-MONORAIL-WEST,transit_line,مونوريل غرب النيل,West Nile Monorail,المونوريل الغربي,WEST,under_construction,
 TRANSIT-SUEZ-TRAIN,transit_line,قطار السويس,Suez Train,,EAST,operational,
 TRANSIT-SUPERJET,transit_line,سوبر جيت,Super Jet,,EAST,unknown,
+STOP-M2-MOHAMED-NAGUIB,transit_stop,محمد نجيب,Mohamed Naguib Metro Station,محطة محمد نجيب|Mohammed Naguib Station|Mohamed Naguib Station,CENTRAL,operational,محطة الخط الثاني للمترو في وسط القاهرة؛ منفصلة عن محطة أحمد عمر هاشم المخططة للقطار السريع.
+STOP-SHUHADA,transit_stop,الشهداء,Al-Shohadaa Metro Station,Shuhada; Al Shohadaa; الشهداء,CENTRAL,operational,Operational metro station serving Lines 1 and 2; distinct from nearby Ramses railway station.

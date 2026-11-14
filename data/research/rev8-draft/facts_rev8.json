@@ -13043,8 +13043,9 @@
     "value": 22,
     "unit": "stop position in OSM relation 421705",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-352"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-352",
+    "note": "Superseded identity conflation; metro ordering belongs to the separate Al-Shohadaa station entity."
   },
   {
     "entity_code": "STOP-M1-GHAMRA",
@@ -13277,8 +13278,9 @@
     "value": 13,
     "unit": "stop position in OSM relation 421706",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-353"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-353",
+    "note": "Superseded identity conflation; metro ordering belongs to the separate Al-Shohadaa station entity."
   },
   {
     "entity_code": "STOP-M2-MASSARA",
@@ -13718,8 +13720,9 @@
     "value": 14,
     "unit": "stop position in OSM relation 2826217",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-355"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-355",
+    "note": "Superseded identity conflation; metro ordering belongs to the separate Al-Shohadaa station entity."
   },
   {
     "entity_code": "STOP-M1-ORABI",
@@ -14231,8 +14234,9 @@
     "value": 8,
     "unit": "stop position in OSM relation 7927231",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-359"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-359",
+    "note": "Superseded identity conflation; metro ordering belongs to the separate Al-Shohadaa station entity."
   },
   {
     "entity_code": "STOP-M2-ATTABA",
@@ -16990,11 +16994,12 @@
     "value": "TRANSIT-METRO-L1",
     "unit": null,
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
+    "verification_state": "superseded",
     "evidence_ref": [
       "EV-352",
       "EV-355"
-    ]
+    ],
+    "note": "Superseded identity conflation: metro line station is the separate operational Al-Shohadaa station (OSM node 5194295702), not Ramses railway station."
   },
   {
     "entity_code": "RAIL-RAMSES",
@@ -17002,11 +17007,12 @@
     "value": "TRANSIT-METRO-L2",
     "unit": null,
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
+    "verification_state": "superseded",
     "evidence_ref": [
       "EV-353",
       "EV-359"
-    ]
+    ],
+    "note": "Superseded identity conflation: metro line station is the separate operational Al-Shohadaa station (OSM node 5194295702), not Ramses railway station."
   },
   {
     "entity_code": "RAIL-RAMSES",
@@ -17014,8 +17020,9 @@
     "value": 5194295698,
     "unit": "OSM node ID",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-352"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-352",
+    "note": "Superseded identity conflation: this OSM node is a Shuhada metro stop position, not the Ramses railway station."
   },
   {
     "entity_code": "RAIL-RAMSES",
@@ -17023,8 +17030,9 @@
     "value": 5194295699,
     "unit": "OSM node ID",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-355"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-355",
+    "note": "Superseded identity conflation: this OSM node is a Shuhada metro stop position, not the Ramses railway station."
   },
   {
     "entity_code": "RAIL-RAMSES",
@@ -17032,8 +17040,9 @@
     "value": 5194295700,
     "unit": "OSM node ID",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-359"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-359",
+    "note": "Superseded identity conflation: this OSM node is a Shuhada metro stop position, not the Ramses railway station."
   },
   {
     "entity_code": "RAIL-RAMSES",
@@ -17041,8 +17050,9 @@
     "value": 5194295701,
     "unit": "OSM node ID",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-353"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-353",
+    "note": "Superseded identity conflation: this OSM node is a Shuhada metro stop position, not the Ramses railway station."
   },
   {
     "entity_code": "STOP-SADAT",
@@ -17653,7 +17663,7 @@
     "evidence_ref": "EV-359"
   },
   {
-    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "entity_code": "STOP-M2-MOHAMED-NAGUIB",
     "attribute_key": "line_membership",
     "value": "TRANSIT-METRO-L2",
     "unit": null,
@@ -17665,22 +17675,24 @@
     ]
   },
   {
-    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "entity_code": "STOP-M2-MOHAMED-NAGUIB",
     "attribute_key": "osm_node_id",
     "value": 9076939018,
     "unit": "OSM node ID",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-353"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-353",
+    "note": "Superseded as stop-position lineage; the operational station object is node 329978615."
   },
   {
-    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "entity_code": "STOP-M2-MOHAMED-NAGUIB",
     "attribute_key": "osm_node_id",
     "value": 9076939019,
     "unit": "OSM node ID",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
-    "evidence_ref": "EV-359"
+    "verification_state": "superseded",
+    "evidence_ref": "EV-359",
+    "note": "Superseded as stop-position lineage; the operational station object is node 329978615."
   },
   {
     "entity_code": "STOP-M2-CAIRO-UNIVERSITY",
@@ -18622,11 +18634,12 @@
     "value": 9077189602,
     "unit": "OSM node ID",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
+    "verification_state": "superseded",
     "evidence_ref": [
       "EV-354",
       "EV-366"
-    ]
+    ],
+    "notes": "Superseded: this relation stop-position is tagged construction=station; use the operational railway=station node 10099279487 for entity point geometry."
   },
   {
     "entity_code": "STOP-KIT-KAT",
@@ -18634,11 +18647,12 @@
     "value": 10099279486,
     "unit": "OSM node ID",
     "status_as_of": "2026-11-14",
-    "verification_state": "candidate",
+    "verification_state": "superseded",
     "evidence_ref": [
       "EV-358",
       "EV-365"
-    ]
+    ],
+    "notes": "Superseded: this relation stop-position is tagged construction=station; use the operational railway=station node 10099279487 for entity point geometry."
   },
   {
     "entity_code": "STOP-M3-RING-ROAD",
@@ -19601,5 +19615,80 @@
     "status_as_of": "2026-11-14",
     "verification_state": "candidate",
     "evidence_ref": "EV-365"
+  },
+  {
+    "entity_code": "STOP-AHMED-OMAR-HASHEM",
+    "attribute_key": "line_membership",
+    "value": "TRANSIT-HSR-L1",
+    "unit": null,
+    "status_as_of": "2026-11-14",
+    "verification_state": "candidate",
+    "evidence_ref": "EV-316"
+  },
+  {
+    "entity_code": "STOP-KIT-KAT",
+    "attribute_key": "osm_node_id",
+    "value": 10099279487,
+    "unit": "OSM node ID",
+    "status_as_of": "2026-11-14",
+    "verification_state": "candidate",
+    "evidence_ref": "EV-369"
+  },
+  {
+    "entity_code": "STOP-M2-MOHAMED-NAGUIB",
+    "attribute_key": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "status_as_of": "2026-11-14",
+    "verification_state": "candidate",
+    "evidence_ref": [
+      "EV-353",
+      "EV-359"
+    ]
+  },
+  {
+    "entity_code": "STOP-M2-MOHAMED-NAGUIB",
+    "attribute_key": "osm_node_id",
+    "value": 329978615,
+    "unit": "OSM node ID",
+    "status_as_of": "2026-11-14",
+    "verification_state": "candidate",
+    "evidence_ref": "EV-370"
+  },
+  {
+    "entity_code": "STOP-SHUHADA",
+    "attribute_key": "line_membership",
+    "value": "TRANSIT-METRO-L1",
+    "unit": null,
+    "status_as_of": "2026-11-14",
+    "verification_state": "candidate",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "entity_code": "STOP-SHUHADA",
+    "attribute_key": "line_membership",
+    "value": "TRANSIT-METRO-L2",
+    "unit": null,
+    "status_as_of": "2026-11-14",
+    "verification_state": "candidate",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "entity_code": "STOP-SHUHADA",
+    "attribute_key": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "status_as_of": "2026-11-14",
+    "verification_state": "candidate",
+    "evidence_ref": "EV-371"
+  },
+  {
+    "entity_code": "STOP-SHUHADA",
+    "attribute_key": "osm_node_id",
+    "value": 5194295702,
+    "unit": "OSM node ID",
+    "status_as_of": "2026-11-14",
+    "verification_state": "candidate",
+    "evidence_ref": "EV-371"
   }
 ]
