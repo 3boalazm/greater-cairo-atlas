@@ -40,7 +40,26 @@
   "license_policy": "OSM=ODbL-1.0; TfC GTFS accepted only when independently verified CC-BY-4.0. CC-BY-NC data is prohibited.",
   "matching": "Exact Unicode-normalized rev5 entity names and aliases only; roads additionally use exact name/name:ar/name:en/ref/old_name/alt_name and named road relations; generic names are not inferred. No entity creation.",
   "lifecycle_policy": "Only operational/partial entities are matched from OSM/GTFS. Planned/under-construction geometry requires official_alignment provenance and is not inferred from OSM/GTFS.",
-  "geometry_policy": "WGS84 / SRID 4326; geometries must lie wholly within the declared Greater Cairo bbox.",
+  "geometry_policy": "WGS84 / SRID 4326; non-empty, GEOS-valid geometries must lie wholly within the declared Greater Cairo bbox. Every output geometry is checked with Shapely is_valid/explain_validity; invalid polygonal features are passed through make_valid and only polygonal components are retained. Degenerate lines and unrepaired/otherwise invalid geometries are dropped.",
+  "geometry_validation": {
+    "validator": "Shapely 2.1.2",
+    "db_constraint": "ST_SRID(geometry)=4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)",
+    "features_repaired_count": 1,
+    "features_dropped_count": 0,
+    "repairs": [
+      {
+        "feature_code": "OSM-RELATION-15072032",
+        "entity_code": "LANDMARK-CAIRO-UNIV",
+        "osm_type": "relation",
+        "osm_id": 15072032,
+        "geometry_type_before": "MultiPolygon",
+        "geometry_type_after": "MultiPolygon",
+        "validity_reason_before": "Self-intersection[31.2123645 30.0275328]",
+        "repair": "shapely.make_valid; retained polygonal components only"
+      }
+    ],
+    "dropped": []
+  },
   "osm_query_coverage": "Two user-supplied Overpass extracts from https://overpass-api.de/api/interpreter (2026-11-14), both bbox query envelope [29.2,30.5,30.8,32.1] as south,west,north,east. The roads-full extract supplies full road-way geometry and route road relations; extract2 supplies administrative/place/aerodrome/bridge/landmark objects and other OSM candidates. Matching remains limited to explicit rev5 names/aliases. New extracts do not replace preserved previously accepted transit geometries where no replacement transit source was submitted. Geometry acceptance bbox is WGS84 [30.5,29.2,32.1,30.8].",
   "match_rules_file": "match-rules.json",
   "raw_extracts": [

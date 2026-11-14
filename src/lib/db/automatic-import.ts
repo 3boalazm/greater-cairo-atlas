@@ -35,11 +35,13 @@ export async function computeAtlasDatasetChecksum(
 /** Validate all source data before opening the atomic import transaction. */
 export async function runAutomaticAtlasImport(
   root = process.cwd(),
+  options: { dryRun?: boolean } = {},
 ): Promise<SeedImportSummary> {
   const checksum = await computeAtlasDatasetChecksum(root);
   return runSeedImport({
     seedDir: path.join(root, "data/seed"),
     featuresPath: path.join(root, "data/features/features.geojson"),
-    importRun: { datasetKey: "atlas-seed-features", checksum },
+    importRun: options.dryRun ? undefined : { datasetKey: "atlas-seed-features", checksum },
+    dryRun: options.dryRun ?? false,
   });
 }
