@@ -5,6 +5,7 @@ import { MapPinOff, MapPinned, X } from "lucide-react";
 import { useEffect, useMemo, useRef } from "react";
 import type { AtlasEntityDetail, AtlasEntityFact, AtlasLanguage } from "./atlas-client";
 import { transitModeLabel } from "@/lib/atlas/transit-modes";
+import { EntityTimeline } from "./EntityTimeline";
 import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, SECTOR_LABELS, SOURCE_TYPE_LABELS, STATUS_LABELS, VERIFICATION_LABELS, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
 const areaEntityTypes = new Set(["city", "district", "neighborhood", "authority"]);
@@ -128,6 +129,7 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
               <div className={facts.length > 1 ? "fact-grid conflicting-facts" : "fact-grid"}>{facts.map((fact) => <FactCard key={fact.code} fact={fact} language={language} />)}</div>
             </div>) : <p className="panel-state">{ar ? "لا توجد حقائق مسجلة لهذا الكيان." : "No facts are recorded for this entity."}</p>}
           </section>
+          <EntityTimeline facts={entity.facts} language={language}/>
         </>}
       </div>
       <footer className="entity-panel-footer">{ar ? "المصادر تُعرض كما سُجلت؛ المصدر الثانوي وحده لا يثبت الادعاء." : "Sources are shown as recorded; a secondary source alone is not proof."}</footer>

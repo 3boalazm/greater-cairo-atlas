@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
   },
   outputFileTracingIncludes: {
     "/api/admin/import-seed": ["./data/seed/**/*", "./data/features/**/*"],
+    "/api/exports/geopackage": ["./node_modules/sql.js/dist/sql-wasm.wasm"],
     "/entity/[code]": ["./data/seed/**/*", "./data/features/features.geojson", "./data/features/boundaries.geojson", "./data/derived/entity-map-geometries.json"],
     "/api/atlas/entities/[code]/boundary": ["./data/features/boundaries.geojson"],
     "/api/atlas/entities": ["./data/features/boundaries.geojson"],
