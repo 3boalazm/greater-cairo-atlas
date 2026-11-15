@@ -115,3 +115,47 @@ export function Legend({ language, boundaryActive = false, boundaryLabel }: { la
     <small>{ar ? "الخطوط والحدود من هندسة موثقة فقط." : "Lines and boundaries are source geometries only."}</small>
   </aside>;
 }
+
+const opacityGroupNames: Record<AtlasLayerGroup, { ar: string; en: string }> = {
+  infrastructure: { ar: "البنية التحتية", en: "Infrastructure" },
+  transport: { ar: "النقل العام", en: "Public transport" },
+  areas: { ar: "المناطق والحدود", en: "Areas & boundaries" },
+  projects: { ar: "المشروعات", en: "Projects" },
+  reference: { ar: "المرجع", en: "Reference network" },
+};
+
+/**
+ * BATCH 14.2 — opacity sliders, one per layer group.
+ *
+ * Kept inside «تفاصيل أكتر» so the simple panel stays simple: someone who only wants to see the map should
+ * not have to parse five sliders to find the layer toggles. The percentage is shown because a slider
+ * position is not a number a reader can quote or compare.
+ */
+export function LayerOpacityControls({ opacity, onChange, onReset, isDefault, language }: {
+  opacity: Record<AtlasLayerGroup, number>;
+  onChange: (group: AtlasLayerGroup, value: number) => void;
+  onReset: () => void;
+  isDefault: boolean;
+  language: AtlasLanguage;
+}) {
+  const ar = language === "ar";
+  return <fieldset className="layer-opacity-controls">
+    <legend>{ar ? "شفافية الطبقات" : "Layer opacity"}</legend>
+    {(Object.keys(opacityGroupNames) as AtlasLayerGroup[]).map((group) => (
+      <label key={group} className="layer-opacity-row">
+        <span className="layer-opacity-name">{opacityGroupNames[group][language]}</span>
+        <input type="range" min={10} max={100} step={5} value={Math.round(opacity[group] * 100)}
+          aria-label={`${opacityGroupNames[group][language]} · ${ar ? "الشفافية" : "opacity"}`}
+          aria-valuetext={`${Math.round(opacity[group] * 100)}%`}
+          onChange={(event) => onChange(group, Number(event.target.value) / 100)} />
+        <output>{Math.round(opacity[group] * 100)}%</output>
+      </label>
+    ))}
+    <button type="button" className="quiet-button layer-opacity-reset" onClick={onReset} disabled={isDefault}>
+      {ar ? "إعادة الضبط" : "Reset display"}
+    </button>
+    <small>{ar
+      ? "تُحفظ إعدادات العرض في هذا المتصفح فقط. الرابط المشترك يتقدّم على المحفوظ."
+      : "Display settings are saved in this browser only. A shared link overrides what is saved."}</small>
+  </fieldset>;
+}

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { exportResponseHeaders } from "@/lib/atlas/export-api";
 import { getExportMetadata, getStaticAtlasDataset, joinedFeatureCollection } from "@/lib/atlas/static-dataset";
 import { parseGeoPackageFilters } from "@/lib/atlas/geopackage";
-import { statusesAtYear } from "@/lib/atlas/status-timeline";
+import { resolveStatusByYear } from "@/lib/atlas/status-timeline";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export async function GET(request: Request): Promise<NextResponse> {
@@ -10,7 +10,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   try { filters = parseGeoPackageFilters(new URL(request.url).searchParams); }
   catch (error) { return NextResponse.json({ error: { message: error instanceof Error ? error.message : "Invalid filter." } }, { status: 400 }); }
   const [dataset, metadata] = await Promise.all([getStaticAtlasDataset(), getExportMetadata()]);
-  const timeline = filters.year ? statusesAtYear(dataset.facts.filter((fact) => fact.valid_as_of).map((fact) => ({
+  const timeline = filters.year ? resolveStatusByYear(dataset.facts.filter((fact) => fact.valid_as_of).map((fact) => ({
     entity_code: fact.entity_code, attribute: fact.attribute, value: fact.value, valid_as_of: fact.valid_as_of!, valid_as_of_precision: fact.valid_as_of_precision,
     verification_state: fact.verification_state, fact_code: fact.code,
   })), filters.year) : null;

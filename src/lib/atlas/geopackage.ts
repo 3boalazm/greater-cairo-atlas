@@ -2,7 +2,7 @@ import initSqlJs from "sql.js";
 import path from "node:path";
 import { ENTITY_SECTORS, ENTITY_STATUSES, ENTITY_TYPES, type EntitySeed, type EntityStatus, type EntityType, type EntitySector } from "@/lib/atlas/schema";
 import type { StaticAtlasDataset } from "@/lib/atlas/static-dataset";
-import { statusesAtYear } from "@/lib/atlas/status-timeline";
+import { resolveStatusByYear } from "@/lib/atlas/status-timeline";
 
 export interface GeoPackageFilters { type?: EntityType | "transport"; sector?: EntitySector; status?: EntityStatus; year?: number; }
 let sqlPromise: ReturnType<typeof initSqlJs> | null = null;
@@ -62,7 +62,7 @@ function gpkgGeometry(geometry: { type: string; coordinates?: unknown; geometrie
 const entityRows = (entities: readonly EntitySeed[]) => entities.map((entity) => [entity.code, entity.name_ar, entity.name_en, entity.entity_type, entity.sector, entity.status, entity.description, JSON.stringify(entity.aliases)]);
 
 export async function generateGeoPackage(dataset: StaticAtlasDataset, filters: GeoPackageFilters = {}): Promise<Uint8Array> {
-  const timeline = filters.year ? statusesAtYear(dataset.facts.filter((fact) => fact.valid_as_of).map((fact) => ({
+  const timeline = filters.year ? resolveStatusByYear(dataset.facts.filter((fact) => fact.valid_as_of).map((fact) => ({
     entity_code: fact.entity_code, attribute: fact.attribute, value: fact.value, valid_as_of: fact.valid_as_of!,
     valid_as_of_precision: fact.valid_as_of_precision, verification_state: fact.verification_state, fact_code: fact.code,
   })), filters.year) : null;
