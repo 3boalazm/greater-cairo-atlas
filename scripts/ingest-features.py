@@ -445,6 +445,180 @@ def process_osm(data: dict[str, Any], entities: list[dict[str, str]], date: str,
     return out
 
 
+BRT_LINE_CODE = "TRANSIT-BRT"
+BRT_BUSWAY_NAME_TOKENS = ("brt", "ترددي")
+BRT_MAX_STATION_LINE_DISTANCE_M = 600.0
+
+
+def _is_brt_busway(tags: dict[str, Any]) -> bool:
+    """A way is BRT alignment only when the source explicitly tags highway=busway and names it BRT."""
+    if str(tags.get("highway", "")).casefold() != "busway":
+        return False
+    if str(tags.get("construction", "")).casefold() or str(tags.get("proposed", "")).casefold():
+        return False
+    names = " ".join(str(tags.get(key, "")) for key in ("name", "name:ar", "name:en", "ref"))
+    folded = names.casefold()
+    return any(token in folded for token in BRT_BUSWAY_NAME_TOKENS)
+
+
+def _busway_linestring(element: dict[str, Any]):
+    geometry = element.get("geometry") or []
+    coordinates = [[float(point["lon"]), float(point["lat"])] for point in geometry
+                   if isinstance(point, dict) and "lon" in point and "lat" in point]
+    if len(coordinates) < 2 or len({(lon, lat) for lon, lat in coordinates}) < 2:
+        return None, coordinates
+    return shapely.geometry.LineString(coordinates), coordinates
+
+
+def process_brt_osm(data: dict[str, Any], entities: list[dict[str, str]], date: str,
+                    report: dict[str, Any], rules: dict[str, Any] | None = None) -> list[dict[str, Any]]:
+    """Attach OSM ``highway=busway`` BRT alignment to the existing ``TRANSIT-BRT`` entity only.
+
+    The source is explicitly partial: only ways that carry the BRT name token become line geometry,
+    every accepted way keeps its own OSM type/id/version and ODbL attribution, and no connector,
+    simplification or station position is invented. Stations are never created here; stations whose
+    OSM node name matches a seeded STOP-BRT-* entity are handled by the station matcher.
+    """
+    by_code = {entity["code"]: entity for entity in entities}
+    entity = by_code.get(BRT_LINE_CODE)
+    audit: dict[str, Any] = {
+        "entity_code": BRT_LINE_CODE,
+        "source_policy": ("OSM highway=busway ways whose name carries a BRT/ترددي token; "
+                          "no synthesized connectors, no name-only station inference"),
+        "accepted_osm_way_ids": [],
+        "rejected": [],
+        "geometry_status": "absent",
+        "geometry_completeness_note": ("BRT geometry is partial (OSM): only mapped busway ways are "
+                                       "drawn. Unmapped sections stay without geometry until a cited "
+                                       "source exists."),
+    }
+    report["brt_osm_geometry"] = audit
+    if entity is None:
+        audit["rejected"].append({"reason": "TRANSIT-BRT entity is not present in the seed"})
+        return []
+    if entity.get("status") in {"planned", "approved_planned", "under_construction"}:
+        audit["rejected"].append({"reason": f"entity status {entity.get('status')} requires official alignment evidence"})
+        return []
+
+    matched_features: list[dict[str, Any]] = []
+    for element in data.get("elements", []):
+        if element.get("type") != "way":
+            continue
+        tags = element.get("tags") or {}
+        if str(tags.get("highway", "")).casefold() != "busway":
+            continue
+        osm_id = int(element.get("id", 0) or 0)
+        version = int(element.get("version", 0) or 0)
+        if not _is_brt_busway(tags):
+            audit["rejected"].append({"osm_type": "way", "osm_id": osm_id,
+                                      "reason": "busway way carries no BRT/ترددي name token"})
+            continue
+        if version < 1:
+            audit["rejected"].append({"osm_type": "way", "osm_id": osm_id,
+                                      "reason": "OSM version metadata is missing"})
+            continue
+        line, coordinates = _busway_linestring(element)
+        if line is None:
+            audit["rejected"].append({"osm_type": "way", "osm_id": osm_id,
+                                      "reason": "busway way has fewer than two distinct positions"})
+            continue
+        if not in_bbox({"type": "LineString", "coordinates": coordinates}):
+            audit["rejected"].append({"osm_type": "way", "osm_id": osm_id,
+                                      "reason": "busway geometry falls outside the Greater Cairo bbox"})
+            continue
+        code = f"OSM-WAY-{osm_id}"
+        matched_features.append(feature(
+            code, entity, {"type": "LineString", "coordinates": coordinates}, "ODbL-1.0",
+            OSM_ATTRIBUTION, "OpenStreetMap", {"osm_type": "way", "osm_id": osm_id, "osm_version": version},
+            date, {"entity_type": "transit_line", "osm_tags": tags,
+                   "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+                   "geometry_completeness": "partial_source_geometry"},
+        ))
+        audit["accepted_osm_way_ids"].append(osm_id)
+        add_candidate(report, "transit_line", f"way:{osm_id}", " | ".join(
+            str(tags.get(key)) for key in ("name", "name:ar", "name:en") if tags.get(key)),
+            "matched", [BRT_LINE_CODE], "OSM highway=busway BRT alignment")
+
+    audit["accepted_way_count"] = len(matched_features)
+    if matched_features:
+        audit["geometry_status"] = "partial_from_osm"
+        merged = unary_union([shape(item["geometry"]) for item in matched_features])
+        audit["geometry_type"] = merged.geom_type
+        audit["line_length_km_osm"] = round(sum(haversine_km(a, b)
+                                                for part in lineal_parts(merged)
+                                                for a, b in zip(list(part.coords), list(part.coords)[1:])), 3)
+        audit["accepted_osm_way_ids"].sort()
+    return matched_features
+
+
+def brt_station_candidate_audit(osm_data: dict[str, Any], entities: list[dict[str, str]],
+                                station_features: list[dict[str, Any]],
+                                station_node_ids_by_entity: dict[str, set[int]],
+                                source_node_audit: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    """Report which STOP-BRT-* entities are matched to OSM BRT station nodes and why the rest are not.
+
+    Nothing is inferred: a station node becomes geometry only through the general station matcher
+    (exact normalised name or configured alias plus compatible mode), never from a BRT look-alike name.
+    """
+    by_code = {entity["code"]: entity for entity in entities}
+    brt_codes = sorted(code for code in by_code if code.startswith("STOP-BRT-"))
+    matched = sorted({str(item.get("properties", {}).get("entity_code")) for item in station_features
+                      if str(item.get("properties", {}).get("entity_code", "")).startswith("STOP-BRT-")})
+    audit_by_node = {int(item.get("osm_id", 0) or 0): item for item in (source_node_audit or [])
+                     if isinstance(item, dict) and item.get("osm_id")}
+    named_brt_nodes = []
+    for element in osm_data.get("elements", []):
+        if element.get("type") != "node":
+            continue
+        tags = element.get("tags") or {}
+        names = " ".join(str(tags.get(key, "")) for key in ("name", "name:ar", "name:en"))
+        if not names or ("brt" not in names.casefold() and "ترددي" not in names):
+            continue
+        node_id = int(element.get("id", 0) or 0)
+        audit_row = audit_by_node.get(node_id, {})
+        named_brt_nodes.append({"osm_id": node_id, "name": tags.get("name"),
+                                "public_transport": tags.get("public_transport"), "bus": tags.get("bus"),
+                                "matcher_outcome": audit_row.get("outcome"),
+                                "matcher_rejections": audit_row.get("rejections")})
+    return {
+        "seed_brt_station_entities": len(brt_codes),
+        "matched_brt_station_entities": len(matched),
+        "matched_entity_codes": matched,
+        "unmatched_entity_codes": sorted(set(brt_codes) - set(matched)),
+        "named_brt_source_nodes": sorted(named_brt_nodes, key=lambda row: row["osm_id"]),
+        "policy": ("A STOP-BRT-* entity receives geometry only when the station matcher accepts an exact "
+                   "normalised name/alias match with a compatible bus mode. Seed entities that already hold "
+                   "exact osm_node_id facts are satisfied from those facts and never re-pointed by name."),
+        "exact_node_fact_entities": sorted(code for code in brt_codes if station_node_ids_by_entity.get(code)),
+    }
+
+
+def brt_station_line_proximity(station_features: list[dict[str, Any]],
+                               line_features: list[dict[str, Any]]) -> dict[str, Any]:
+    """Report each accepted BRT station's distance to the partial OSM BRT alignment, without editing it."""
+    brt_lines = [shape(item["geometry"]) for item in line_features
+                 if item.get("properties", {}).get("entity_code") == BRT_LINE_CODE and item.get("geometry")]
+    if not brt_lines:
+        return {"available": False, "stations": []}
+    alignment = unary_union(brt_lines)
+    stations: list[dict[str, Any]] = []
+    for item in station_features:
+        props = item.get("properties", {})
+        if not str(props.get("entity_code", "")).startswith("STOP-BRT-"):
+            continue
+        coordinates = (item.get("geometry") or {}).get("coordinates")
+        if not isinstance(coordinates, list) or len(coordinates) < 2:
+            continue
+        lon, lat = float(coordinates[0]), float(coordinates[1])
+        distance_m = float(Point(lon, lat).distance(alignment)) * 111320.0 * max(0.01, abs(math.cos(math.radians(lat))))
+        stations.append({"entity_code": props.get("entity_code"), "osm_node_id": props.get("osm_id"),
+                         "distance_to_osm_brt_alignment_m": round(distance_m, 1),
+                         "within_600m": distance_m <= BRT_MAX_STATION_LINE_DISTANCE_M})
+    stations.sort(key=lambda row: str(row["entity_code"]))
+    return {"available": True, "max_distance_m": BRT_MAX_STATION_LINE_DISTANCE_M,
+            "stations_with_geometry": len(stations), "stations": stations}
+
+
 def process_advanced_osm(data: dict[str, Any], entities: list[dict[str, str]], date: str,
                          report: dict[str, Any], rules: dict[str, Any] | None = None) -> list[dict[str, Any]]:
     """Conservative geometry matching for roads, admin/place, aerodromes and named landmarks."""
@@ -1431,6 +1605,8 @@ def main():
             combined_osm = merge_osm_documents(osm_documents)
             features.extend(process_osm(combined_osm, entities, osm_date, report, rules))
             features.extend(process_advanced_osm(combined_osm, entities, osm_date, report, rules))
+            brt_line_features = process_brt_osm(combined_osm, entities, osm_date, report, rules)
+            features.extend(brt_line_features)
             station_line_features = list(features)
             if not args.gtfs_zip and (Path(args.out) / "features.geojson").exists():
                 prior_collection = json.loads((Path(args.out) / "features.geojson").read_text(encoding="utf-8"))
@@ -1486,6 +1662,10 @@ def main():
                 add_candidate(report, kind, f"node:{item['osm_id']}", " | ".join(item.get("source_labels", [])),
                               item["outcome"], candidate_codes, item.get("reason") or
                               ("; ".join(sorted(set(item.get("rejections", {}).values()))) if item.get("rejections") else None))
+            report["brt_station_proximity"] = brt_station_line_proximity(station_features, brt_line_features)
+            report["brt_station_candidates"] = brt_station_candidate_audit(
+                combined_osm, entities, station_features, station_node_ids_by_entity,
+                station_audit.get("source_node_audit", []))
             road_network_manifest = build_road_network(combined_osm, Path(args.road_network_out), Path(args.road_network_detail_out))
     if boundary_source_path.exists():
         try:

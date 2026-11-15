@@ -1,6 +1,6 @@
 {
   "title": "Greater Cairo Atlas geometry ingestion manifest",
-  "retrieval_date": "2026-11-14",
+  "retrieval_date": "2026-11-15",
   "bbox_wgs84": [
     30.5,
     29.2,
@@ -13,26 +13,15 @@
     32.35,
     30.9
   ],
-  "feature_count": 2928,
+  "feature_count": 2942,
   "sources": [
     {
       "source": "OpenStreetMap",
       "url": "https://overpass-api.de/api/interpreter",
       "retrieval_date": "2026-11-14",
       "retrieved_at": null,
-      "input_file": "osm-overpass-2026-11-14.json.gz",
-      "input_sha256": "397ad10cc68aa394d7811ee4aca2dd0051a92b709f56a911286601e1de774655",
-      "license": "ODbL-1.0",
-      "elements_received": 4201,
-      "timestamp_osm_base": "2026-11-13T23:44:50Z"
-    },
-    {
-      "source": "OpenStreetMap",
-      "url": "https://overpass-api.de/api/interpreter",
-      "retrieval_date": "2026-11-14",
-      "retrieved_at": null,
-      "input_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
-      "input_sha256": "e99b9001ffae0d7256e69aa30b47b25192e44649b83e68e658e49adac21ff850",
+      "input_file": "extract2.json",
+      "input_sha256": "da39b664330ade56a51449eff96b9513ad670d8e7a2ade4a2e88c9018ee46d0b",
       "license": "ODbL-1.0",
       "elements_received": 8517,
       "timestamp_osm_base": "2026-11-14T04:08:33Z"
@@ -42,8 +31,8 @@
       "url": "https://overpass-api.de/api/interpreter",
       "retrieval_date": "2026-11-14",
       "retrieved_at": null,
-      "input_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
-      "input_sha256": "2d2c3eb6caabaed467a2ae0fffb6edeea08f33660b46d13b7a5d3b0b6cc83ea4",
+      "input_file": "roads-full.json",
+      "input_sha256": "d02595a0a92ca252b2e1a8f8e8727403921f102852d4e2ad2b8ce838dcadc12c",
       "license": "ODbL-1.0",
       "elements_received": 7322,
       "timestamp_osm_base": "2026-11-14T04:16:34Z"
@@ -53,11 +42,22 @@
       "url": "https://overpass-api.de/api/interpreter",
       "retrieval_date": "2026-11-14",
       "retrieved_at": null,
-      "input_file": "cairo-osm-rail-2026-11-14.json.gz",
-      "input_sha256": "24e458266d40003a7d27676eecadc92cf67fa876a77230af75bfeb80bb2741ae",
+      "input_file": "rail.json",
+      "input_sha256": "61edc008933c560262b64f43ebb4581534499ecb063a577174241475d7c530ae",
       "license": "ODbL-1.0",
       "elements_received": 3154,
       "timestamp_osm_base": "2026-11-14T20:16:43Z"
+    },
+    {
+      "source": "OpenStreetMap",
+      "url": "https://overpass-api.de/api/interpreter",
+      "retrieval_date": "2026-11-14",
+      "retrieved_at": null,
+      "input_file": "bnd.json",
+      "input_sha256": "a2248392e255a9310e04c949ebb53f349cbca4eb0275da7d710fe379e98fe0aa",
+      "license": "ODbL-1.0",
+      "elements_received": 6851,
+      "timestamp_osm_base": "2026-11-14T15:42:20Z"
     },
     {
       "source": "OpenStreetMap area boundaries",
@@ -5610,7 +5610,7 @@
   },
   "area_boundaries": {
     "available": true,
-    "source_file": "data/raw/cairo-osm-boundaries-2026-11-14.json.gz",
+    "source_file": "/tmp/work5/data/raw/cairo-osm-boundaries-2026-11-14.json.gz",
     "sha256_gzip": "a8ce40dc409c8d5061a3089888f4e134474e4288e66d88a63d14a479095e1a81",
     "sha256_original_json": "a2248392e255a9310e04c949ebb53f349cbca4eb0275da7d710fe379e98fe0aa",
     "timestamp_osm_base": "2026-11-14T15:42:20Z",
@@ -8508,11 +8508,11 @@
     "candidate_report_path": "data/features/phase-07-5-boundary-candidates.ar.md"
   },
   "station_matching": {
-    "source_station_nodes_examined": 769,
-    "source_nodes_with_seed_name_candidates": 368,
+    "source_station_nodes_examined": 777,
+    "source_nodes_with_seed_name_candidates": 369,
     "matched_source_nodes": 136,
     "ambiguous_source_nodes": 11,
-    "rejected_source_nodes": 221,
+    "rejected_source_nodes": 222,
     "entity_level_ambiguous_entities": 3,
     "entity_level_conflicts": {
       "STOP-LRT-ROBEIKI": {
@@ -8620,6 +8620,13 @@
         "STOP-BRT-ZAKAT"
       ],
       "source_named_bus_yes_brt_nodes": [
+        {
+          "osm_id": 13236416087,
+          "name": "Adly Mansour BRT Stop (westbound)",
+          "name_ar": "عدلى منصور BRT",
+          "name_en": null,
+          "public_transport": "platform"
+        },
         {
           "osm_id": 13764358788,
           "name": "Adly Mansour BRT (eastbound)",
@@ -18590,6 +18597,23 @@
         ]
       },
       {
+        "osm_id": 13236416087,
+        "outcome": "unmatched",
+        "candidate_entity_codes": [
+          "STOP-ADLY-MANSOUR"
+        ],
+        "source_labels": [
+          "adlymansourwestbound",
+          "عدليمنصور"
+        ],
+        "station_modes": [
+          "bus"
+        ],
+        "rejections": {
+          "STOP-ADLY-MANSOUR": "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
+        }
+      },
+      {
         "osm_id": 13481565286,
         "outcome": "unmatched",
         "candidate_entity_codes": [
@@ -18818,7 +18842,7 @@
   },
   "entity_page_map_geometries": {
     "path": "data/derived/entity-map-geometries.json",
-    "entities_with_geometry": 225,
+    "entities_with_geometry": 226,
     "simplification_tolerance_degrees": 0.0002,
     "merge": "shapely.unary_union; no synthetic segments",
     "preserved_metadata": [
