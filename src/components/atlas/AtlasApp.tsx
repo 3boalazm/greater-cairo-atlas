@@ -366,6 +366,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   const geometryAlternatives = useMemo(() => findGeometryAlternatives(initialFeatures.features), [initialFeatures.features]);
   const useTimeline = researcherMode && timelineEnabled;
   const timelineStatusByCode = useMemo(() => useTimeline ? statusesAtYear(statusTimeline, timelineYear) : null, [useTimeline, statusTimeline, timelineYear]);
+  const regionalSet = useMemo(() => new Set(regionalCodes), [regionalCodes]);
   const visibleFeatureCollection = useMemo(() => {
     const visibleFeatures = features.features.flatMap((feature) => {
       const timelineStatus = useTimeline ? timelineStatusByCode?.get(feature.properties.entity_code) : undefined;
@@ -381,6 +382,10 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         if (quickLayer === "road" && featureType !== "road") return [];
         if (quickLayer === "transport" && !["transit_line", "transit_stop", "rail_station", "transit_station"].includes(featureType)) return [];
         if (quickLayer === "city" && !["city", "district", "neighborhood"].includes(featureType)) return [];
+        // BATCH 12.2 — the «المدن» layer is a Greater Cairo layer: a regional link (Alexandria, Abu
+        // Simbel, or anything whose geometry sits outside the region) must never appear in it, so it
+        // cannot be mistaken for a city inside the atlas. It stays reachable by search and relations.
+        if (quickLayer === "city" && regionalSet.has(feature.properties.entity_code)) return [];
         if (isTransitFeatureType(featureType)) {
           // FIX D: stations and lines share one mode/line filter, and an unresolved mode can never
           // make a station immune to it (the previous `modes.length &&` guard did exactly that).
@@ -406,7 +411,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         properties: { ...selectedStation.properties, code: `SERVICE-AREA-${selectedCode}-${serviceRadiusMeters}`, entity_code: selectedCode!, type: "service_area", status: "service_area", name_ar: `${serviceRadiusMeters} متر حول المحطة`, name_en: `${serviceRadiusMeters} m radius around station`, service_area: true, modes: [], line_codes: [], primary_line_code: null, interchange: false } });
     }
     return { ...features, features: visibleFeatures };
-  }, [features, visibleTransitModes, visibleTransitLines, selectedCode, detail?.entity_type, layerGroups, quickLayer, filters.status, useTimeline, timelineStatusByCode, serviceRadiusMeters, researcherMode, geometryAlternatives, adminUnitFeatures, showAdminBoundaries, zoom]);
+  }, [features, visibleTransitModes, visibleTransitLines, selectedCode, detail?.entity_type, layerGroups, quickLayer, filters.status, useTimeline, timelineStatusByCode, serviceRadiusMeters, researcherMode, geometryAlternatives, adminUnitFeatures, showAdminBoundaries, zoom, regionalSet]);
   const ar = language === "ar";
   /**
    * FIX F — the selected line's geometry completeness comes from the features actually drawn, so the
