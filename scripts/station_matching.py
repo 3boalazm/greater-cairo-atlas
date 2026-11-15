@@ -199,6 +199,11 @@ def match_osm_station_nodes(
         for name in names:
             name_index[name].add(entity["code"])
 
+    partial_source_line_codes = {
+        str(feature.get("properties", {}).get("entity_code"))
+        for feature in line_features
+        if feature.get("properties", {}).get("properties", {}).get("geometry_completeness") == "partial_source_geometry"
+    }
     lines: dict[str, list[Any]] = defaultdict(list)
     relation_line_codes: dict[int, str] = {}
     for feature in line_features:
@@ -206,6 +211,10 @@ def match_osm_station_nodes(
         metadata = properties.get("properties", {})
         line_code = properties.get("entity_code")
         if metadata.get("entity_type") != "transit_line" or not isinstance(line_code, str):
+            continue
+        # A partial source alignment (e.g. the mapped-only OSM BRT busway) cannot prove a station is
+        # off-line: it must not be used to reject a station that is otherwise name/mode matched.
+        if metadata.get("geometry_completeness") == "partial_source_geometry":
             continue
         try:
             lines[line_code].append(shape(feature["geometry"]))
@@ -308,12 +317,15 @@ def match_osm_station_nodes(
             distances = {line: _point_line_distance_m(float(coords[0]), float(coords[1]), line_unions[line])
                          for line in check_lines}
             near_lines = [line for line, distance in distances.items() if distance <= 600.0]
-            inferred_modes = {line_mode(line) for line in near_lines if line_mode(line) in allowed_modes}
+            # Stations on a partial source alignment inherit that line's mode but never a line-distance verdict.
+            partial_candidate_lines = [line for line in candidate_lines if line in partial_source_line_codes]
+            inferred_modes = {line_mode(line) for line in (near_lines or partial_candidate_lines)
+                              if line_mode(line) in allowed_modes}
             mode_fit = (bool(inferred_modes) or allowed_modes == {"train"}) if generic_station else bool(modes & allowed_modes)
             if not mode_fit:
                 rejected[code] = "OSM station type does not fit the seeded line; no compatible matched-line geometry supports the generic railway-station tags"
                 continue
-            if check_lines and not near_lines:
+            if check_lines and not near_lines and not (set(candidate_lines) & partial_source_line_codes):
                 nearest_distance = min(distances.values())
                 rejected[code] = f"station is {nearest_distance:.1f} m from the matched line geometry (limit 600 m)"
                 continue

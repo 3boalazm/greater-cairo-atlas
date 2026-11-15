@@ -149,7 +149,7 @@ describe("real PostGIS features SQL regression", () => {
       WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)
     `);
     expect(Number(result.rows[0]?.valid_count)).toBe(featureCount);
-    expect(featureCount).toBe(2928);
+    expect(featureCount).toBe(2942);
     const constraint = await db.query<{ constraint_name: string }>(`
       SELECT conname AS constraint_name
       FROM pg_constraint
@@ -168,7 +168,7 @@ describe("real PostGIS features SQL regression", () => {
         (SELECT COUNT(*) FROM features)::text AS features,
         (SELECT COUNT(*) FROM boundaries)::text AS boundaries
     `);
-    expect(counts.rows[0]).toEqual({ entities: "417", evidence: "378", facts: "2092", links: "2445", features: "2928", boundaries: "19" });
+    expect(counts.rows[0]).toEqual({ entities: "417", evidence: "378", facts: "2092", links: "2445", features: "2942", boundaries: "19" });
     const validBoundaries = await db.query<{ count: string }>("SELECT COUNT(*)::text AS count FROM boundaries WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)");
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
   }, 120_000);

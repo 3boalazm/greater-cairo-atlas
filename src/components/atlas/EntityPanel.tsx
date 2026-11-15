@@ -7,6 +7,7 @@ import { CalendarClock, CircleAlert, CircleCheck, Construction } from "lucide-re
 import { useResearchMode } from "@/components/site/ResearchMode";
 import type { AtlasEntityDetail, AtlasEntityFact, AtlasLanguage } from "./atlas-client";
 import { transitModeLabel } from "@/lib/atlas/transit-modes";
+import { partialGeometryNote } from "@/lib/atlas/map-fit";
 import { EntityTimeline } from "./EntityTimeline";
 import type { GeometryAlternative } from "@/lib/atlas/geometry-comparisons";
 import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, hasDisplayableQuickFactValue, SECTOR_LABELS, showOnMapLabel, SOURCE_TYPE_LABELS, STATUS_LABELS, VERIFICATION_LABELS, quickFactSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
@@ -51,12 +52,16 @@ function simpleStatus(status: string) {
   return translations[status] ?? translations.unknown!;
 }
 
-export function EntityPanel({ entity, loading, error, onClose, language, onToggleBoundary, boundaryActive, boundaryLoading, onSelectRelated, geometryAlternatives = [] }: {
+export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geometryCompleteness = null, language, onToggleBoundary, boundaryActive, boundaryLoading, onSelectRelated, geometryAlternatives = [] }: {
   entity: AtlasEntityDetail | null;
   geometryAlternatives?: GeometryAlternative[];
   loading: boolean;
   error: string | null;
   onClose: () => void;
+  /** «اعرض على الخريطة» — refit the camera to the selected entity's whole area. */
+  onShowOnMap: () => void;
+  /** FIX F: `partial_source_geometry` when the drawn line is only a source fragment. */
+  geometryCompleteness?: string | null;
   language: AtlasLanguage;
   onToggleBoundary: (code: string) => void;
   boundaryActive: boolean;
@@ -67,6 +72,7 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
   const panelRef = useRef<HTMLElement>(null);
   const ar = language === "ar";
   const { researcherMode } = useResearchMode();
+  const partialNote = partialGeometryNote(entity?.code, geometryCompleteness, language);
   useEffect(() => { closeRef.current?.focus(); }, []);
   useEffect(() => {
     const panel = panelRef.current;
@@ -126,12 +132,13 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
           {!researcherMode && <section className="simple-entity-summary" aria-label={ar ? "ملخص الكيان" : "Entity summary"}>
             <p className="simple-entity-type">{translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language)}</p>
             {simpleFacts.length ? <ul>{simpleFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <span className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</span>}{quickFactSourceCountLabel(sourceCount, language) && <small>{quickFactSourceCountLabel(sourceCount, language)}</small>}</li>)}</ul> : <p className="simple-no-facts">{ar ? "لا توجد معلومات موجزة مسجلة بعد." : "No short facts have been recorded yet."}</p>}
-            <button type="button" className="show-on-map-button" aria-label={showOnMapLabel(language)} onClick={onClose}><span>{showOnMapLabel(language)}</span></button>
+            <button type="button" className="show-on-map-button" aria-label={showOnMapLabel(language)} onClick={onShowOnMap}><span>{showOnMapLabel(language)}</span></button>
           </section>}
           <details className={`entity-panel-details ${researcherMode ? "is-researcher-details" : ""}`} open={researcherMode}>
             <summary>{researcherMode ? (ar ? "بيانات الباحث" : "Research details") : (ar ? "تفاصيل أكتر" : "More details")}</summary>
             <div className="entity-panel-research-content">
           <Link className="entity-profile-link" href={`/${language}/entity/${encodeURIComponent(entity.code)}`}>{ar ? "فتح صفحة الكيان الكاملة ←" : "Open full entity page →"}</Link>
+          {researcherMode && partialNote && <aside className="geometry-source-comparison" aria-label={ar ? "اكتمال الهندسة" : "Geometry completeness"}><strong>{ar ? "الهندسة جزئية" : "Partial geometry"}</strong><p>{partialNote}</p></aside>}
           {researcherMode && geometryAlternatives.length > 1 && <aside className="geometry-source-comparison"><strong>{entity.entity_type === "transit_line" ? (ar ? "مسارات مختلفة من المصدرين" : "Different routes from two sources") : (ar ? "حدود مختلفة من المصدرين" : "Different boundaries from two sources")}</strong><p>{ar ? "يعرض الأطلس المسارين كما وردا؛ لم يختر أحدهما بدلًا من الآخر." : "Both source routes are shown; neither is chosen as the winner."}</p><ul>{geometryAlternatives.map((item) => <li key={item.feature_code}><a href={`https://www.openstreetmap.org/${item.source_label.toLowerCase().includes("relation") ? "relation" : "way"}/${item.source_label.split(" ").at(-1)}`} target="_blank" rel="noreferrer">{item.source_label}</a> · {item.retrieval_date}</li>)}</ul></aside>}
           {entity.has_boundary && <button className="boundary-toggle" type="button" aria-pressed={boundaryActive} onClick={() => onToggleBoundary(entity.code)} disabled={boundaryLoading}>
             <MapPinned aria-hidden="true" />{boundaryLoading

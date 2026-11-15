@@ -104369,6 +104369,53 @@
     },
     {
       "type": "Feature",
+      "id": "OSM-WAY-1512910048",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3367158,
+            30.1631444
+          ],
+          [
+            31.3370917,
+            30.1631701
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1512910048",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1512910048,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1512910048,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-WAY-1512938233",
       "geometry": {
         "type": "LineString",
@@ -105296,6 +105343,288 @@
     },
     {
       "type": "Feature",
+      "id": "OSM-WAY-1529169065",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3023861,
+            30.1638682
+          ],
+          [
+            31.3047609,
+            30.1630135
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1529169065",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1529169065,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1529169065,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1529169067",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3232315,
+            30.1632924
+          ],
+          [
+            31.3242586,
+            30.163238
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1529169067",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1529169067,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1529169067,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1529169069",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3278221,
+            30.1630753
+          ],
+          [
+            31.3281106,
+            30.1630648
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1529169069",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1529169069,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1529169069,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1529169071",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3165105,
+            30.163469
+          ],
+          [
+            31.3172312,
+            30.1635081
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1529169071",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1529169071,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1529169071,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1539669313",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2623643,
+            30.1497556
+          ],
+          [
+            31.2628218,
+            30.1498038
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1539669313",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1539669313,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1539669313,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1539669595",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2735674,
+            30.1538572
+          ],
+          [
+            31.2741628,
+            30.1541541
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1539669595",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1539669595,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1539669595,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
       "id": "OSM-WAY-1540055863",
       "geometry": {
         "type": "LineString",
@@ -105349,6 +105678,249 @@
           },
           "match_method": "exact_name",
           "road_geometry_match": "exact road name/ref"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1542883781",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.280729,
+            30.1573659
+          ],
+          [
+            31.2817951,
+            30.1578865
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1542883781",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1542883781,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1542883781,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1542884701",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2906574,
+            30.1641752
+          ],
+          [
+            31.290995,
+            30.164393
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1542884701",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1542884701,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1542884701,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1543144349",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2392954,
+            30.1498351
+          ],
+          [
+            31.2401336,
+            30.1498244
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1543144349",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1543144349,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1543144349,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1543146212",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2345842,
+            30.1496141
+          ],
+          [
+            31.2352788,
+            30.1496686
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1543146212",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1543146212,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1543146212,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1543146213",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2298973,
+            30.1491863
+          ],
+          [
+            31.2316664,
+            30.1493537
+          ],
+          [
+            31.2339194,
+            30.1495621
+          ],
+          [
+            31.2345842,
+            30.1496141
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1543146213",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1543146213,
+        "osm_version": 4,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1543146213,
+            "osm_version": 4
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار الاتوبيس الترددي BRT",
+            "operator": "وزارة النقل"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
         }
       }
     },
@@ -122172,6 +122744,100 @@
           },
           "match_method": "route_relation",
           "road_geometry_match": "OSM route=road relation member"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1569285364",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2297651,
+            30.1492055
+          ],
+          [
+            31.2296771,
+            30.1491989
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1569285364",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1569285364,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1569285364,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "مسار(رجوع) الاتوبيس التردديBRT محطه الاولي طريق اسكندريه الزراعي (شبرا الخيمة)",
+            "oneway": "yes"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "OSM-WAY-1569285458",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2296881,
+            30.149116
+          ],
+          [
+            31.2297759,
+            30.1491238
+          ]
+        ]
+      },
+      "properties": {
+        "code": "OSM-WAY-1569285458",
+        "entity_code": "TRANSIT-BRT",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1569285458,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1569285458,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "transit_line",
+          "osm_tags": {
+            "bridge": "yes",
+            "highway": "busway",
+            "layer": "1",
+            "name": "محطه طريق اسكندريه الزراعي  شبرا الخيمه المحطه الأولي BRT الاتوبيس الترددي",
+            "oneway": "yes"
+          },
+          "match_method": "OSM highway=busway with an explicit BRT name token; no name-only inference",
+          "geometry_completeness": "partial_source_geometry"
         }
       }
     },
