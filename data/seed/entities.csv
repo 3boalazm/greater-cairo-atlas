@@ -186,7 +186,7 @@ ROAD-90-SOUTH,التسعين الجنوبي,South 90th Street,road,EAST,operatio
 ROAD-ADLY-MANSOUR-AXIS,محور المستشار عدلي منصور,Adly Mansour Axis (East Cairo),road,NORTH,operational,محور عدلي منصور|Adly Mansour Axis,
 ROAD-AHMED-ORABI,محور أحمد عرابي,Ahmed Orabi Axis,road,WEST,operational,,
 ROAD-AIN-SOKHNA,العين السخنة,Ain Sokhna Road,road,EAST,operational,طريق العين السخنة|طريق السخنة,
-ROAD-AMR-IBN-ALAS,محور عمرو بن العاص,Amr Ibn Al-Aas Axis,road,WEST,unknown,,
+ROAD-AMR-IBN-ALAS,محور عمرو بن العاص,Amr Ibn Al-Aas Axis,road,WEST,operational,,
 ROAD-ASSAR-AXIS,محور الفريق العصار,Al-Fariq Al-Assar Axis,road,NORTH,operational,العصار|محور الفريق محمد العصار|محور أبو بكر الصديق,
 ROAD-AUTOSTRAD,الأوتوستراد,Autostrad,road,SOUTH,operational,طريق الاوتوستراد|طريق الأوتوستراد|Al Autostrad Road,
 ROAD-BENHA-MANSOURA,بنها–المنصورة,Benha–Mansoura Road,road,REGIONAL,operational,طريق بنها–المنصورة القديم|طريق بنها ميت غمر|طريق ميت غمر بنها|طريق المنصورة ميت غمر|طريق بنها المنصورة|Banha Mit Ghamr Road|Al Mansoura Mit Ghamr Road,
@@ -218,7 +218,7 @@ ROAD-MOSHIR-TANTAWY,المشير طنطاوي,El-Moshir Tantawy Axis,road,EAST,o
 ROAD-MOSTOROD-AXIS,محور مسطرد,Mostorod Axis,road,NORTH,operational,محور مسطرد الجديد|Mostorod Axis,
 ROAD-NASR,طريق النصر,Al-Nasr Road,road,EAST,operational,Al Nasr Road,
 ROAD-OBOUR-AXIS-NEW-CAIRO,محور العبور (القاهرة الجديدة),El Obour Axis (New Cairo),road,EAST,under_construction,محور العبور|El Obour Axis,
-ROAD-REGIONAL-NW-ARC,القوس الشمالي الغربي للإقليمي,Regional Ring Road North-West Arc,road,REGIONAL,unknown,القوس الشمالي الغربي للطريق الدائري الإقليمي,
+ROAD-REGIONAL-NW-ARC,القوس الشمالي الغربي للإقليمي,Regional Ring Road North-West Arc,road,REGIONAL,operational,القوس الشمالي الغربي للطريق الدائري الإقليمي,
 ROAD-REGIONAL-RING,الإقليمي,Regional Ring Road,road,REGIONAL,partial,الطريق الدائري الإقليمي|الدائري الإقليمي,
 ROAD-RING-ROAD,الدائري,Ring Road,road,CENTRAL,operational,الدائري القديم|الطريق الدائري|The Ring Road,
 ROAD-ROD-ELFARAG-DABAA,محور روض الفرج–الضبعة,Rod El Farag–Dabaa Axis,road,NORTH,operational,محور تحيا مصر|تحيا مصر|محور روض الفرج,
@@ -413,6 +413,6 @@ TRANSIT-METRO-L6,الخط السادس,Cairo Metro Line 6,transit_line,CENTRAL,p
 TRANSIT-MONORAIL-EAST,مونوريل شرق النيل,East Nile Monorail,transit_line,EAST,operational,المونوريل|المونوريل الشرقي,
 TRANSIT-MONORAIL-WEST,مونوريل غرب النيل,West Nile Monorail,transit_line,WEST,under_construction,المونوريل الغربي,
 TRANSIT-SUEZ-TRAIN,قطار السويس,Suez Train,transit_line,EAST,operational,,
-TRANSIT-SUPERJET,سوبر جيت,Super Jet,transit_line,EAST,unknown,,
+TRANSIT-SUPERJET,سوبر جيت,Super Jet,transit_line,EAST,operational,,
 STOP-M2-MOHAMED-NAGUIB,محمد نجيب,Mohamed Naguib Metro Station,transit_stop,CENTRAL,operational,محطة محمد نجيب|Mohammed Naguib Station|Mohamed Naguib Station,محطة الخط الثاني للمترو في وسط القاهرة؛ منفصلة عن محطة أحمد عمر هاشم المخططة للقطار السريع.
 STOP-SHUHADA,الشهداء,Al-Shohadaa Metro Station,transit_stop,CENTRAL,operational,Shuhada; Al Shohadaa; الشهداء,Operational metro station serving Lines 1 and 2; distinct from nearby Ramses railway station.

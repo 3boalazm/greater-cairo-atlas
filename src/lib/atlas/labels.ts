@@ -56,6 +56,37 @@ export function quickFactSourceCountLabel(count: number, language: LabelLanguage
   return count <= 10 ? `${count} مصادر` : `${count} مصدرًا`;
 }
 
+export interface StatusFactSourceSummary {
+  attribute: string;
+  value: string;
+  valid_as_of: string | null;
+  verification_state: string;
+  evidence: Array<{ code: string; source_type: string }>;
+}
+
+/** Counts distinct news sources attached to the latest claim matching the current entity status. */
+export function currentStatusNewsSourceCount(
+  facts: readonly StatusFactSourceSummary[],
+  status: string,
+): number {
+  const candidates = facts.filter((fact) =>
+    fact.attribute === "operational_status" &&
+    fact.value === status &&
+    !["rejected", "superseded"].includes(fact.verification_state),
+  );
+  if (candidates.length === 0) return 0;
+  const latestDate = candidates.reduce((latest, fact) => fact.valid_as_of && fact.valid_as_of > latest ? fact.valid_as_of : latest, "");
+  const latestClaims = candidates.filter((fact) => (fact.valid_as_of ?? "") === latestDate);
+  return new Set(latestClaims.flatMap((fact) => fact.evidence.filter((source) => source.source_type === "news").map((source) => source.code))).size;
+}
+
+export function statusNewsSourceCountLabel(count: number, language: LabelLanguage): string | null {
+  if (!Number.isInteger(count) || count <= 1) return null;
+  if (language === "en") return `${count} news sources`;
+  if (count === 2) return "مصدران إخباريان";
+  return count <= 10 ? `${count} مصادر إخبارية` : `${count} مصدرًا إخباريًا`;
+}
+
 export function stationDisplayName(code: string, name: string): string {
   return code === "STOP-6-OCTOBER-INTERCHANGE" ? "محطة 6 أكتوبر (مونوريل غرب النيل)" : name;
 }

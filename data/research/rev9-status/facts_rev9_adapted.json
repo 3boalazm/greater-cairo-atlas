@@ -1,0 +1,128 @@
+[
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-CONNECTS-1",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "connects",
+    "value": "الطريق الدائري الجنوبي ↔ الطريق الدائري الشمالي (موازٍ لمحور كمال عامر)",
+    "unit": null,
+    "valid_as_of": "2026-05-23",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-R9-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-COST-1",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "cost",
+    "value": "8.95",
+    "unit": "billion EGP",
+    "valid_as_of": "2026-05-23",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-R9-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-OPERATIONAL-STATUS-4",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-05-23",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-R9-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AMR-IBN-ALAS-OPERATIONAL-STATUS-5",
+    "entity_code": "ROAD-AMR-IBN-ALAS",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-05-23",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-R9-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-NW-ARC-MAINTENANCE-CLOSURE-1",
+    "entity_code": "ROAD-REGIONAL-NW-ARC",
+    "attribute": "maintenance_closure",
+    "value": "غلق مؤقت لاتجاه واحد أثناء رفع الكفاءة (سبتمبر 2025)؛ الوضع الحالي يحتاج تحديث",
+    "unit": null,
+    "valid_as_of": "2025-09-19",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-R9-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-NW-ARC-OPENING-DATE-1",
+    "entity_code": "ROAD-REGIONAL-NW-ARC",
+    "attribute": "opening_date",
+    "value": "2018-09-09",
+    "unit": null,
+    "valid_as_of": "2018-09-09",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-R9-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-NW-ARC-OPERATIONAL-STATUS-2",
+    "entity_code": "ROAD-REGIONAL-NW-ARC",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2018-09-09",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-R9-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-SUPERJET-OPERATIONAL-STATUS-2",
+    "entity_code": "TRANSIT-SUPERJET",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-07-07",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-R9-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-SUPERJET-OPERATIONAL-STATUS-3",
+    "entity_code": "TRANSIT-SUPERJET",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-11-04",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-R9-006"
+    ],
+    "notes": null
+  }
+]

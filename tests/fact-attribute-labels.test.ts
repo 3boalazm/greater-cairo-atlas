@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { FACT_ATTRIBUTE_LABELS, quickFactSourceCountLabel } from "@/lib/atlas/labels";
+import { currentStatusNewsSourceCount, FACT_ATTRIBUTE_LABELS, quickFactSourceCountLabel, statusNewsSourceCountLabel } from "@/lib/atlas/labels";
 
 describe("fact attribute translations", () => {
   it("uses correct Arabic plural forms for quick-fact source counts and hides a single source", () => {
@@ -11,6 +11,18 @@ describe("fact attribute translations", () => {
     expect(quickFactSourceCountLabel(10, "ar")).toBe("10 مصادر");
     expect(quickFactSourceCountLabel(11, "ar")).toBe("11 مصدرًا");
     expect(quickFactSourceCountLabel(3, "en")).toBe("3 sources");
+  });
+  it("counts news sources on the latest claim matching the entity's current status", () => {
+    const facts = [
+      { attribute: "operational_status", value: "operational", valid_as_of: "2025-09-01", verification_state: "candidate", evidence: [{ code: "EV-OLD", source_type: "news" }] },
+      { attribute: "operational_status", value: "operational", valid_as_of: "2026-05-23", verification_state: "corroborated", evidence: [{ code: "EV-R9-001", source_type: "news" }] },
+      { attribute: "operational_status", value: "operational", valid_as_of: "2026-05-23", verification_state: "corroborated", evidence: [{ code: "EV-R9-002", source_type: "news" }] },
+      { attribute: "operational_status", value: "unknown", valid_as_of: "2026-11-13", verification_state: "candidate", evidence: [{ code: "EV-000", source_type: "secondary" }] },
+    ];
+    expect(currentStatusNewsSourceCount(facts, "operational")).toBe(2);
+    expect(statusNewsSourceCountLabel(2, "ar")).toBe("مصدران إخباريان");
+    expect(statusNewsSourceCountLabel(2, "en")).toBe("2 news sources");
+    expect(statusNewsSourceCountLabel(1, "ar")).toBeNull();
   });
   it("has readable Arabic and English labels for every key in the canonical fact data", async () => {
     const facts = JSON.parse(await readFile(path.join(process.cwd(), "data/seed/facts.json"), "utf8")) as Array<{ attribute: string }>;
