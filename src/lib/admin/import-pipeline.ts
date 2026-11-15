@@ -71,6 +71,12 @@ export interface ExistingState {
   fact_values: ReadonlyMap<string, string>;
   /** evidence code → url, so a newly-added URL is visible in the diff. */
   evidence_urls: ReadonlyMap<string, string | null>;
+  /**
+   * evidence code → source_type for evidence already in the database. Without this the planner cannot
+   * tell an official source from a blog, and would have to reject every `verified` row that cites stored
+   * evidence — which is exactly what a legitimate curated import does.
+   */
+  evidence_source_types?: ReadonlyMap<string, string>;
   /** entity code → existing attribute→value, for conflict detection. */
   fact_attributes_by_entity: ReadonlyMap<string, ReadonlyMap<string, string>>;
 }
@@ -126,16 +132,35 @@ export function verifiedRowRejection(
   fact: ImportFactRow,
   evidenceByCode: ReadonlyMap<string, ImportEvidenceRow | { code: string; source_type: string; url?: string | null }>,
   knownEvidenceCodes: ReadonlySet<string>,
+  storedEvidence?: {
+    urls?: ReadonlyMap<string, string | null>;
+    sourceTypes?: ReadonlyMap<string, string>;
+  },
 ): string | null {
   if (fact.verification_state !== "verified") return null;
   if (fact.evidence_codes.length === 0) return "marked verified but cites no evidence";
+
+  let sawUnknownSource = false;
   for (const code of fact.evidence_codes) {
     if (!knownEvidenceCodes.has(code)) continue;
+    // Evidence in the payload describes itself; stored evidence is described by the caller's lookup.
     const row = evidenceByCode.get(code);
-    if (!row) continue;
-    if (row.source_type === "official" && isUsableUrl(row.url)) return null;
+    if (row) {
+      if (row.source_type === "official" && isUsableUrl(row.url)) return null;
+      continue;
+    }
+    const sourceType = storedEvidence?.sourceTypes?.get(code);
+    if (sourceType === undefined) {
+      // The caller could not tell us what this source is. Refuse rather than assume it is official.
+      sawUnknownSource = true;
+      continue;
+    }
+    const url = storedEvidence?.urls?.get(code) ?? null;
+    if (sourceType === "official" && isUsableUrl(url)) return null;
   }
-  return "marked verified but no cited evidence is an official source with a usable URL";
+  return sawUnknownSource && fact.evidence_codes.every((code) => !evidenceByCode.has(code))
+    ? "marked verified but the cited evidence's source type could not be checked"
+    : "marked verified but no cited evidence is an official source with a usable URL";
 }
 
 export function hashPayload(payloadText: string): string {
@@ -229,7 +254,10 @@ export function planImport(
       rejected.push({ section: "facts", code: fact.code, reason: `cites evidence that does not exist: ${missingEvidence.join(", ")}` });
       return;
     }
-    const rejection = verifiedRowRejection(fact, incomingEvidence, knownEvidence);
+    const rejection = verifiedRowRejection(fact, incomingEvidence, knownEvidence, {
+      urls: existing.evidence_urls,
+      sourceTypes: existing.evidence_source_types,
+    });
     if (rejection) {
       rejected.push({ section: "facts", code: fact.code, reason: rejection });
       return;

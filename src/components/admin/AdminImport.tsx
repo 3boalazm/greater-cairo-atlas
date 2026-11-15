@@ -4,7 +4,12 @@ import { useState } from "react";
 import { AdminNav, AdminTokenGate, useAdminToken, type AdminLanguage } from "./AdminShell";
 
 interface ImportIssue { section: string; index: number; path: string; message: string; }
-interface ImportCounts { entities: number; facts: number; evidence: number; unchanged: number; duplicates: number; rejected: number; conflicts: number; changed: number; }
+type SectionCounts = { new: number; changed: number; unchanged: number; rejected: number };
+interface ImportCounts {
+  entities: SectionCounts;
+  facts: SectionCounts & { conflict: number };
+  evidence: SectionCounts;
+}
 interface ImportPlan {
   ok: boolean; checksum: string; issues: ImportIssue[]; counts: ImportCounts;
   duplicates: Array<{ kind: string; value: string; existing_code: string }>;
@@ -98,15 +103,36 @@ export function AdminImport({ language }: { language: AdminLanguage }) {
     {plan && <section aria-label={ar ? "نتيجة المعاينة" : "Preview result"} className="admin-import-plan">
       <h2>{ar ? "نتيجة المعاينة" : "Preview result"}</h2>
       <p><small>{ar ? "بصمة المحتوى" : "Payload checksum"}: <code>{plan.checksum}</code></small></p>
-      <ul className="admin-plan-counts">
-        <li>{ar ? "كيانات" : "Entities"}: {plan.counts.entities}</li>
-        <li>{ar ? "حقائق" : "Facts"}: {plan.counts.facts}</li>
-        <li>{ar ? "أدلة" : "Evidence"}: {plan.counts.evidence}</li>
-        <li>{ar ? "موجودة سابقًا" : "Unchanged"}: {plan.counts.unchanged}</li>
-        <li>{ar ? "مكررة" : "Duplicates"}: {plan.counts.duplicates}</li>
-        <li>{ar ? "مرفوضة" : "Rejected"}: {plan.counts.rejected}</li>
-        <li>{ar ? "متعارضة" : "Conflicts"}: {plan.counts.conflicts}</li>
-      </ul>
+      {/* Each section is broken out by what would happen to it; a single total would hide
+          the difference between "new", "unchanged" and "rejected", which is the whole point of a preview. */}
+      <table className="admin-table">
+        <caption>{ar ? "ما سيحدث لكل قسم" : "What would happen to each section"}</caption>
+        <thead><tr>
+          <th scope="col">{ar ? "القسم" : "Section"}</th>
+          <th scope="col">{ar ? "جديد" : "New"}</th>
+          <th scope="col">{ar ? "موجود سابقًا" : "Unchanged"}</th>
+          <th scope="col">{ar ? "مختلف" : "Changed"}</th>
+          <th scope="col">{ar ? "متعارض" : "Conflict"}</th>
+          <th scope="col">{ar ? "مرفوض" : "Rejected"}</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <th scope="row">{ar ? "كيانات" : "Entities"}</th>
+            <td>{plan.counts.entities.new}</td><td>{plan.counts.entities.unchanged}</td>
+            <td>{plan.counts.entities.changed}</td><td>—</td><td>{plan.counts.entities.rejected}</td>
+          </tr>
+          <tr>
+            <th scope="row">{ar ? "حقائق" : "Facts"}</th>
+            <td>{plan.counts.facts.new}</td><td>{plan.counts.facts.unchanged}</td>
+            <td>{plan.counts.facts.changed}</td><td>{plan.counts.facts.conflict}</td><td>{plan.counts.facts.rejected}</td>
+          </tr>
+          <tr>
+            <th scope="row">{ar ? "أدلة" : "Evidence"}</th>
+            <td>{plan.counts.evidence.new}</td><td>{plan.counts.evidence.unchanged}</td>
+            <td>{plan.counts.evidence.changed}</td><td>—</td><td>{plan.counts.evidence.rejected}</td>
+          </tr>
+        </tbody>
+      </table>
       {plan.rejected_rows.length > 0 && <>
         <h3>{ar ? "صفوف مرفوضة" : "Rejected rows"}</h3>
         <table className="admin-table"><thead><tr>

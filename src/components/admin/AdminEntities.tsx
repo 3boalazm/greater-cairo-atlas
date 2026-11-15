@@ -10,10 +10,6 @@ interface EntityRow {
   has_geometry: boolean; has_boundary: boolean;
 }
 
-const TYPES = ["city", "district", "neighborhood", "road", "bridge", "interchange", "transit_line", "transit_stop", "rail_station", "airport", "project", "authority", "landmark"];
-const SECTORS = ["NORTH", "EAST", "SOUTH", "WEST", "CENTRAL", "REGIONAL"];
-const STATUSES = ["operational", "under_construction", "planned", "unknown", "disused"];
-
 /**
  * BATCH 13 — entity table. Filtering and paging happen on the server; the page never holds the whole
  * table in memory, and the Arabic search runs against the database, not a client-side copy.
@@ -28,6 +24,19 @@ export function AdminEntities({ language }: { language: AdminLanguage }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({ q: "", type: "", sector: "", status: "", geometry: "", boundary: "" });
+  // Filter values come from the API, which reads them from the table. A hardcoded list would offer
+  // statuses that do not exist and hide the ones that do.
+  const [options, setOptions] = useState<{ types: string[]; sectors: string[]; statuses: string[] }>({ types: [], sectors: [], statuses: [] });
+
+  useEffect(() => {
+    if (!token) return;
+    let active = true;
+    fetch("/api/admin/entities?options=1", { headers: { Authorization: `Bearer ${token}` } })
+      .then((response) => response.json() as Promise<{ types?: string[]; sectors?: string[]; statuses?: string[] }>)
+      .then((payload) => { if (active) setOptions({ types: payload.types ?? [], sectors: payload.sectors ?? [], statuses: payload.statuses ?? [] }); })
+      .catch(() => { /* the table still works without the dropdown values */ });
+    return () => { active = false; };
+  }, [token]);
 
   // The first statement is the request itself, so this effect never sets state during render.
   const load = useCallback(async () => {
@@ -60,15 +69,15 @@ export function AdminEntities({ language }: { language: AdminLanguage }) {
         placeholder={ar ? "ابحث بالاسم العربي أو الإنجليزي أو بالرمز" : "Search Arabic/English name or code"} aria-label={ar ? "بحث" : "Search"} />
       <select value={filters.type} onChange={(event) => update({ type: event.target.value })} aria-label={ar ? "النوع" : "Type"}>
         <option value="">{ar ? "كل الأنواع" : "All types"}</option>
-        {TYPES.map((type) => <option key={type} value={type}>{type}</option>)}
+        {options.types.map((type) => <option key={type} value={type}>{type}</option>)}
       </select>
       <select value={filters.sector} onChange={(event) => update({ sector: event.target.value })} aria-label={ar ? "القطاع" : "Sector"}>
         <option value="">{ar ? "كل القطاعات" : "All sectors"}</option>
-        {SECTORS.map((sector) => <option key={sector} value={sector}>{sector}</option>)}
+        {options.sectors.map((sector) => <option key={sector} value={sector}>{sector}</option>)}
       </select>
       <select value={filters.status} onChange={(event) => update({ status: event.target.value })} aria-label={ar ? "الحالة" : "Status"}>
         <option value="">{ar ? "كل الحالات" : "All statuses"}</option>
-        {STATUSES.map((status) => <option key={status} value={status}>{status}</option>)}
+        {options.statuses.map((status) => <option key={status} value={status}>{status}</option>)}
       </select>
       <select value={filters.geometry} onChange={(event) => update({ geometry: event.target.value })} aria-label={ar ? "هندسة" : "Geometry"}>
         <option value="">{ar ? "الهندسة: الكل" : "Geometry: any"}</option>

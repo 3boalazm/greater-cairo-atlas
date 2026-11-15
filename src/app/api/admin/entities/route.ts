@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { resolveAdminIdentity } from "@/lib/admin/auth";
-import { listEntities, listFactsForReview } from "@/lib/admin/queries";
+import { getEntityFilterOptions, listEntities, listFactsForReview } from "@/lib/admin/queries";
 import { getAreaBoundaryCodes } from "@/lib/atlas/area-boundaries";
 import { toApiErrorResponse } from "@/lib/errors";
 
@@ -28,6 +28,11 @@ export async function GET(request: Request) {
         page_size: Number.isFinite(pageSize) ? pageSize : 25,
       });
       return NextResponse.json({ ok: true, ...result }, { headers: { "Cache-Control": "no-store, max-age=0" } });
+    }
+
+    if (params.get("options") === "1") {
+      const options = await getEntityFilterOptions();
+      return NextResponse.json({ ok: true, ...options }, { headers: { "Cache-Control": "no-store, max-age=0" } });
     }
 
     const booleanParam = (value: string | null): boolean | undefined => (value === "true" ? true : value === "false" ? false : undefined);

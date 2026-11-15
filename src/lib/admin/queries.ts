@@ -244,3 +244,22 @@ export async function listFactsForReview(
 
   return { rows: rows as unknown as FactReviewRow[], total, page, page_size: pageSize };
 }
+
+/**
+ * The filter options, read from the data rather than hardcoded.
+ *
+ * A hardcoded list drifts: it offers values that no longer exist (nothing to filter) and hides new ones
+ * (`partial`, `approved_planned`), which makes a real status look absent. Distinct values from the table
+ * are always exactly the values someone can filter by.
+ */
+export async function getEntityFilterOptions(execute: SqlExecutor = defaultExecutor): Promise<{
+  types: string[]; sectors: string[]; statuses: string[];
+}> {
+  const rows = await execute.query<{ kind: string; value: string }>(
+    `SELECT 'type' AS kind, entity_type AS value FROM entities
+     UNION SELECT 'sector', sector FROM entities
+     UNION SELECT 'status', status FROM entities`,
+  );
+  const collect = (kind: string) => rows.filter((row) => row.kind === kind).map((row) => row.value).sort();
+  return { types: collect("type"), sectors: collect("sector"), statuses: collect("status") };
+}

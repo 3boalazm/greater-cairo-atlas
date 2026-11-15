@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { enforceAdminWriteRateLimit, resolveAdminIdentity } from "@/lib/admin/auth";
 import { csvToImportPayload, planImport, type ExistingState } from "@/lib/admin/import-pipeline";
+import { commitImportPlan } from "@/lib/admin/import-commit";
+import { defaultExecutor } from "@/lib/admin/queries";
 import { getSql } from "@/lib/db/client";
 import { RequestValidationError, toApiErrorResponse } from "@/lib/errors";
 
@@ -76,47 +78,17 @@ export async function POST(request: Request) {
       })));
     }
 
-    // Insert evidence first (facts reference it), then entities, then facts — all as candidates.
-    for (const row of plan.actionable.evidence) {
-      await sql.query(
-        `INSERT INTO evidence (code, title, url, publisher, source_type, published_date, accessed_date, notes)
-         VALUES ($1,$2,$3,$4,$5,$6,COALESCE($7, CURRENT_DATE),$8)
-         ON CONFLICT (code) DO NOTHING`,
-        [row.code, row.title, row.url ?? null, row.publisher ?? null, row.source_type,
-          row.published_date ?? null, row.accessed_date ?? null, row.notes ?? null]);
-    }
-    for (const row of plan.actionable.entities) {
-      await sql.query(
-        `INSERT INTO entities (code, name_ar, name_en, entity_type, sector, status, description)
-         VALUES ($1,$2,$3,$4,$5,$6,$7) ON CONFLICT (code) DO NOTHING`,
-        [row.code, row.name_ar, row.name_en, row.entity_type, row.sector, row.status, row.description || null]);
-    }
-    for (const row of plan.actionable.facts) {
-      // An imported fact is always a candidate: the importer never asserts human review.
-      await sql.query(
-        `INSERT INTO facts (code, entity_id, attribute, value, unit, valid_as_of, verification_state, notes)
-         SELECT $1, e.id, $3, $4, $5, $6::date, 'candidate', $7 FROM entities e WHERE e.code = $2
-         ON CONFLICT (code) DO NOTHING`,
-        [row.code, row.entity_code, row.attribute, row.value, row.unit ?? null, row.valid_as_of ?? null, row.notes ?? null]);
-      for (const evidenceCode of row.evidence_codes) {
-        await sql.query(
-          `INSERT INTO fact_evidence (fact_id, evidence_id)
-           SELECT f.id, ev.id FROM facts f, evidence ev WHERE f.code = $1 AND ev.code = $2
-           ON CONFLICT DO NOTHING`, [row.code, evidenceCode]);
-      }
-    }
+    const committed = await commitImportPlan(defaultExecutor, plan);
 
     await sql.query(
       `INSERT INTO admin_audit_log (actor, action, reason, before_state, after_state, request_fingerprint)
        VALUES ($1, 'import.commit', $2, $3::jsonb, $4::jsonb, $5)`,
       [identity.actor, `commit of preview ${plan.checksum.slice(0, 12)}`,
         JSON.stringify({ preview_checksum: plan.checksum }),
-        JSON.stringify({ inserted: { entities: plan.actionable.entities.length, facts: plan.actionable.facts.length, evidence: plan.actionable.evidence.length } }),
+        JSON.stringify({ inserted: committed }),
         identity.token_fingerprint]);
 
-    return NextResponse.json({ ok: true, mode, committed: {
-      entities: plan.actionable.entities.length, facts: plan.actionable.facts.length, evidence: plan.actionable.evidence.length,
-    } }, { headers: { "Cache-Control": "no-store, max-age=0" } });
+    return NextResponse.json({ ok: true, mode, committed }, { headers: { "Cache-Control": "no-store, max-age=0" } });
   } catch (error) {
     return toApiErrorResponse(error);
   }
@@ -126,7 +98,7 @@ async function loadExistingState(sql: ReturnType<typeof getSql>): Promise<Existi
   const entities = await sql.query(
     `SELECT code, name_ar, name_en, aliases FROM entities ORDER BY code`) as Array<{ code: string; name_ar: string; name_en: string; aliases: string[] | null }>;
   const facts = await sql.query(`SELECT code, value FROM facts`) as Array<{ code: string; value: string }>;
-  const evidence = await sql.query(`SELECT code, url FROM evidence`) as Array<{ code: string; url: string | null }>;
+  const evidence = await sql.query(`SELECT code, url, source_type FROM evidence`) as Array<{ code: string; url: string | null; source_type: string }>;
   const attributes = await sql.query(
     `SELECT e.code AS entity_code, f.attribute, f.value FROM facts f JOIN entities e ON e.id = f.entity_id`) as Array<{ entity_code: string; attribute: string; value: string }>;
 
@@ -144,6 +116,7 @@ async function loadExistingState(sql: ReturnType<typeof getSql>): Promise<Existi
     entities: entities.map((row) => ({ code: row.code, name_ar: row.name_ar, name_en: row.name_en, aliases: row.aliases ?? [] })),
     fact_values: new Map(facts.map((row) => [row.code, row.value])),
     evidence_urls: new Map(evidence.map((row) => [row.code, row.url])),
+    evidence_source_types: new Map(evidence.map((row) => [row.code, row.source_type])),
     fact_attributes_by_entity: attributesByEntity,
   };
 }

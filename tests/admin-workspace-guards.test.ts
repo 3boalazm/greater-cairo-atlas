@@ -94,8 +94,10 @@ describe("BATCH 13 — the import route refuses to commit unreviewed bytes", () 
   });
 
   it("inserts every imported fact as a candidate", async () => {
-    const route = await read("src/app/api/admin/import/route.ts");
-    const factInsert = route.slice(route.indexOf("for (const row of plan.actionable.facts)"));
+    // The insert lives in the commit module (tested against the real schema in
+    // admin-import-commit.test.ts); this guard is about the SQL literal itself.
+    const commit = await read("src/lib/admin/import-commit.ts");
+    const factInsert = commit.slice(commit.indexOf("INSERT INTO facts"));
     expect(factInsert).toContain("'candidate'");
     expect(factInsert).not.toContain("'verified'");
   });
@@ -104,5 +106,22 @@ describe("BATCH 13 — the import route refuses to commit unreviewed bytes", () 
     const route = await read("src/app/api/admin/import/route.ts");
     expect(route).toContain("admin_audit_log");
     expect(route).toContain("import.commit");
+  });
+});
+
+describe("BATCH 13 — filter options are read from the data, not invented", () => {
+  it("offers only values that exist in the table", async () => {
+    const queries = await read("src/lib/admin/queries.ts");
+    expect(queries).toContain("getEntityFilterOptions");
+    expect(queries).toMatch(/SELECT 'type' AS kind, entity_type AS value FROM entities/u);
+  });
+
+  it("does not hardcode a status or type list in the entities screen", async () => {
+    const source = await read("src/components/admin/AdminEntities.tsx");
+    // A frozen list drifts from the schema: it offers what no longer exists and hides what does
+    // (`partial` and `approved_planned` are real statuses that a hand-written list had omitted).
+    expect(source).not.toMatch(/const (TYPES|SECTORS|STATUSES)\s*=/u);
+    expect(source).toContain("options.types.map");
+    expect(source).toContain("options.statuses.map");
   });
 });

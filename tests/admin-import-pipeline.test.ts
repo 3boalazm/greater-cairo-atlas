@@ -51,6 +51,59 @@ describe("BATCH 13 — import dry-run is the default and writes nothing", () => 
 });
 
 describe("BATCH 13 — the verified rule is enforced at import, not just in review", () => {
+  it("rejects a verified fact whose only source is a blog in the same payload", () => {
+    const plan = planImport(JSON.stringify({
+      entities: [],
+      evidence: [{ code: "EV-BLOG-9", title: "A blog", url: "https://blog.example.org/p", source_type: "secondary" }],
+      facts: [{ code: "F-9", entity_code: "CITY-OBOUR", attribute: "bus_provider", value: "Private", verification_state: "verified", evidence_codes: ["EV-BLOG-9"] }],
+    }), existing);
+    expect(plan.rejected_rows.find((row) => row.code === "F-9")!.reason).toContain("official source with a usable URL");
+    expect(plan.actionable.facts).toHaveLength(0);
+  });
+
+  it("accepts a verified fact citing an official URL already stored in the database", () => {
+    // A curated import legitimately marks claims verified when the database already holds the source.
+    // Judging those needs the stored source type, not just the URL.
+    const state = {
+      ...existing,
+      evidence_codes: new Set(["EV-STORED-1"]),
+      evidence_urls: new Map([["EV-STORED-1", "https://example.gov.eg/stored"]]),
+      evidence_source_types: new Map([["EV-STORED-1", "official"]]),
+    };
+    const plan = planImport(JSON.stringify({
+      entities: [],
+      evidence: [],
+      facts: [{ code: "F-10", entity_code: "CITY-OBOUR", attribute: "bus_provider", value: "CTA", verification_state: "verified", evidence_codes: ["EV-STORED-1"] }],
+    }), state);
+    expect(plan.rejected_rows).toHaveLength(0);
+    expect(plan.actionable.facts).toHaveLength(1);
+  });
+
+  it("still refuses a verified fact when the stored source is not official", () => {
+    const state = {
+      ...existing,
+      evidence_codes: new Set(["EV-STORED-2"]),
+      evidence_urls: new Map([["EV-STORED-2", "https://blog.example.org/x"]]),
+      evidence_source_types: new Map([["EV-STORED-2", "secondary"]]),
+    };
+    const plan = planImport(JSON.stringify({
+      entities: [],
+      evidence: [],
+      facts: [{ code: "F-11", entity_code: "CITY-OBOUR", attribute: "bus_provider", value: "CTA", verification_state: "verified", evidence_codes: ["EV-STORED-2"] }],
+    }), state);
+    expect(plan.rejected_rows.find((row) => row.code === "F-11")).toBeDefined();
+  });
+
+  it("fails closed when the source type of stored evidence cannot be checked", () => {
+    const state = { ...existing, evidence_codes: new Set(["EV-UNKNOWN-1"]), evidence_urls: new Map([["EV-UNKNOWN-1", "https://example.gov.eg/x"]]) };
+    const plan = planImport(JSON.stringify({
+      entities: [],
+      evidence: [],
+      facts: [{ code: "F-12", entity_code: "CITY-OBOUR", attribute: "bus_provider", value: "CTA", verification_state: "verified", evidence_codes: ["EV-UNKNOWN-1"] }],
+    }), state);
+    expect(plan.rejected_rows.find((row) => row.code === "F-12")!.reason).toContain("could not be checked");
+  });
+
   it("rejects a fact marked verified whose only evidence has no URL", () => {
     const plan = planImport(payload({
       evidence: [noUrlEvidence],
