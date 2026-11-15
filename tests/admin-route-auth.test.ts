@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { FixedWindowRateLimiter, resolveAdminIdentity } from "@/lib/admin/auth";
 
 const TOKEN = "a-very-long-test-token-value-0123456789";
-const env = { ADMIN_IMPORT_TOKEN: TOKEN } as NodeJS.ProcessEnv;
+const env = { ADMIN_IMPORT_TOKEN: TOKEN } as unknown as NodeJS.ProcessEnv;
 
 const request = (init: { token?: string; query?: string; header?: string } = {}) => {
   const url = `https://atlas.example.org/api/admin/entities${init.query ?? ""}`;
@@ -37,14 +37,14 @@ describe("BATCH 13 — every admin route requires the token, server-side only", 
   });
 
   it("fails closed when no admin token is configured", () => {
-    expect(() => resolveAdminIdentity(request({ token: TOKEN }), {} as NodeJS.ProcessEnv)).toThrow(/not configured/i);
+    expect(() => resolveAdminIdentity(request({ token: TOKEN }), {} as unknown as NodeJS.ProcessEnv)).toThrow(/not configured/i);
   });
 
   it("produces the same actor for the same token and a different one for another", () => {
     const a = resolveAdminIdentity(request({ token: TOKEN }), env);
     const b = resolveAdminIdentity(request({ token: TOKEN }), env);
     const c = resolveAdminIdentity(request({ token: "another-long-test-token-abcdefghij" }),
-      { ADMIN_IMPORT_TOKEN: "another-long-test-token-abcdefghij" } as NodeJS.ProcessEnv);
+      { ADMIN_IMPORT_TOKEN: "another-long-test-token-abcdefghij" } as unknown as NodeJS.ProcessEnv);
     expect(a.actor).toBe(b.actor);
     expect(a.actor).not.toBe(c.actor);
   });
