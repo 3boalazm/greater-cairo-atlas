@@ -1,0 +1,33 @@
+{
+  "input_features": 858,
+  "excluded_features": 4,
+  "out_of_extent_features": 16,
+  "clipped_features": 4,
+  "imported_features": 838,
+  "entity_union_boundaries": 65,
+  "located_within_relations": 7,
+  "excluded_pcodes": [
+    "EG0100",
+    "EG1400",
+    "EG2100",
+    "EG2114"
+  ],
+  "out_of_extent_pcodes": [
+    "EG211401",
+    "EG211402",
+    "EG211403",
+    "EG211404",
+    "EG211405",
+    "EG211406",
+    "EG211407",
+    "EG211408",
+    "EG211409",
+    "EG211410",
+    "EG211411",
+    "EG211412",
+    "EG211413",
+    "EG211414",
+    "EG211415",
+    "EG211416"
+  ]
+}

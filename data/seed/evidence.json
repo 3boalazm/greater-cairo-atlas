@@ -4079,5 +4079,16 @@
     "published_date_precision": "day",
     "accessed_date": "2026-11-14",
     "notes": "Stored OSM extract tags this exact node public_transport=station, railway=station, station=subway, subway=yes; separate from nearby Ramses railway station node 271864421."
+  },
+  {
+    "code": "EV-CODAB-ADMIN-2026",
+    "title": "Egypt – Subnational Administrative Boundaries (COD-AB)",
+    "url": "https://data.humdata.org/dataset/cod-ab-egy",
+    "publisher": "CAPMAS / OCHA HDX",
+    "source_type": "official",
+    "published_date": null,
+    "published_date_precision": "day",
+    "accessed_date": "2026-11-15",
+    "notes": "License: CC BY-IGO. Administrative boundaries © CAPMAS, via OCHA/HDX (CC BY-IGO). Source created 2017 and reviewed 2024."
   }
 ]

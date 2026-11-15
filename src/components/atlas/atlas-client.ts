@@ -98,6 +98,11 @@ export interface AtlasFeature {
     service_area?: boolean;
     geometry_conflict?: boolean;
     geometry_sources?: string[];
+    level?: number;
+    pcode?: string;
+    parent_pcodes?: string[];
+    parent_name_ar?: string;
+    area_sqkm?: number;
   };
 }
 

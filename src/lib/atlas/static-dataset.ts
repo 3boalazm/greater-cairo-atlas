@@ -13,6 +13,7 @@ export interface StaticAtlasDataset {
   relations: EntityRelationSeed[];
   factEvidence: Array<{ fact_code: string; evidence_code: string }>;
   features: FeatureSeed[];
+  adminUnits: Array<{ id: string; geometry: FeatureSeed["geometry"]; properties: Record<string, unknown> }>;
 }
 
 let datasetPromise: Promise<StaticAtlasDataset> | null = null;
@@ -53,6 +54,14 @@ async function loadStaticAtlasDataset(root: string): Promise<StaticAtlasDataset>
   const featurePath = path.join(root, "data/features/features.geojson");
   const bundle = await loadAndValidateSeedDir(seedDir);
   const features = await loadAndValidateFeatureCollection(featurePath, bundle.entities, bundle.evidence);
+  let adminUnits: StaticAtlasDataset["adminUnits"] = [];
+  try {
+    const source = JSON.parse(await readFile(path.join(root, "data/features/codab-admin-units.geojson"), "utf8")) as { features?: Array<{ id?: unknown; geometry?: unknown; properties?: unknown }> };
+    adminUnits = (source.features ?? []).flatMap((feature) => feature.geometry && feature.properties && typeof feature.properties === "object"
+      ? [{ id: String(feature.id ?? ""), geometry: feature.geometry as FeatureSeed["geometry"], properties: feature.properties as Record<string, unknown> }] : []);
+  } catch (error) {
+    if (!(error && typeof error === "object" && "code" in error && error.code === "ENOENT")) throw error;
+  }
   return {
     ...bundle,
     factEvidence: bundle.facts.flatMap((fact) => fact.evidence_codes.map((evidence_code) => ({
@@ -60,6 +69,7 @@ async function loadStaticAtlasDataset(root: string): Promise<StaticAtlasDataset>
       evidence_code,
     }))),
     features,
+    adminUnits,
   };
 }
 
@@ -148,6 +158,17 @@ export async function getStaticEntityRelations(code?: string, root = process.cwd
   return staticRelationRows(await getStaticAtlasDataset(root), code);
 }
 
+export async function getCodabLocatedWithin(code: string, root = process.cwd()): Promise<{ relation: "located_within"; pcodes: string[]; names_ar: string[]; evidence_code: string; source: string; license: string } | null> {
+  try {
+    const file = path.join(root, "data/features/codab-relations.json");
+    const relations = JSON.parse(await readFile(file, "utf8")) as Array<{ entity_code: string; relation: "located_within"; pcodes: string[]; names_ar: string[]; evidence_code: string; source: string; license: string }>;
+    return relations.find((item) => item.entity_code === code) ?? null;
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") return null;
+    throw error;
+  }
+}
+
 export function staticEntityNeighbors(dataset: StaticAtlasDataset, code: string): StaticEntityNeighbor[] {
   const relations = staticRelationRows(dataset);
   const stationRelations = relations.filter((relation) => relation.predicate === "has_station" && relation.object_code === code && relation.ordinal !== null);
@@ -231,6 +252,7 @@ export async function getExportMetadata(root = process.cwd()): Promise<{
   counts: { entities: number; facts: number; evidence: number; fact_evidence: number; features: number };
   licenses: {
     geometry: string;
+    administrative_boundaries: string;
     research_data: string;
     code: string;
     contact: string;
@@ -258,10 +280,11 @@ export async function getExportMetadata(root = process.cwd()): Promise<{
       facts: dataset.facts.length,
       evidence: dataset.evidence.length,
       fact_evidence: dataset.factEvidence.length,
-      features: dataset.features.length,
+      features: dataset.features.length + dataset.adminUnits.length,
     },
     licenses: {
       geometry: "© OpenStreetMap contributors, ODbL 1.0. Derived geometry exports must retain this ODbL attribution notice.",
+      administrative_boundaries: "© CAPMAS (الجهاز المركزي للتعبئة العامة والإحصاء) via OCHA/HDX, CC BY-IGO. Source: https://data.humdata.org/dataset/cod-ab-egy",
       research_data: "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0",
       code: "No code license has been specified by the owner; code licensing remains for the owner to decide.",
       contact: "01092500454 · 3boalazm@gmail.com",
@@ -288,7 +311,7 @@ export function joinedFeatureCollection(dataset: StaticAtlasDataset, metadata: A
     type: "FeatureCollection" as const,
     name: "Greater Cairo Atlas geometry export",
     metadata,
-    features: dataset.features.map((feature) => {
+    features: [...dataset.features.map((feature) => {
       const entity = entities.get(feature.entity_code)!;
       const props = (feature.properties.properties && typeof feature.properties.properties === "object"
         ? feature.properties.properties
@@ -318,7 +341,18 @@ export function joinedFeatureCollection(dataset: StaticAtlasDataset, metadata: A
           osm_version: feature.osm_version,
         },
       };
-    }),
+    }), ...dataset.adminUnits.map((feature) => ({
+      type: "Feature" as const, id: feature.id, geometry: feature.geometry,
+      properties: {
+        ...feature.properties, code: feature.properties.code, entity_code: feature.properties.pcode,
+        level: feature.properties.level, name_ar: feature.properties.name_ar, name_en: feature.properties.name_en ?? "",
+        entity_type: "admin_unit", status: "unknown", sector: null, aliases: [],
+        license: "CC BY-IGO", attribution: feature.properties.attribution,
+        source: feature.properties.source, retrieval_date: "2026-11-15",
+        source_ids: { pcode: feature.properties.pcode, level: feature.properties.level,
+          parent_pcodes: feature.properties.parent_pcodes, area_sqkm: feature.properties.area_sqkm },
+      },
+    }))],
   };
 }
 

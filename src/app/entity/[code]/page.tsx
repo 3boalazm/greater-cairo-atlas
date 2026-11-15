@@ -5,7 +5,7 @@ import { EntityMap } from "@/components/atlas/EntityMap";
 import { AreaBoundaryToggle } from "@/components/atlas/AreaBoundaryToggle";
 import { SiteFooter, SiteHeader, getSiteUrl, localizedPath, resolveLanguage } from "@/components/site/SiteChrome";
 import { ResearcherOnly } from "@/components/site/ResearchMode";
-import { getStaticEntityPageData } from "@/lib/atlas/static-dataset";
+import { getCodabLocatedWithin, getStaticEntityPageData } from "@/lib/atlas/static-dataset";
 import type { AtlasFeatureCollection } from "@/components/atlas/atlas-client";
 import { transitModeLabel, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
 import { SuggestionForm } from "@/components/atlas/SuggestionForm";
@@ -66,12 +66,22 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
   const text=labels[language];
   const entity=await getStaticEntityPageData(code);
   if (!entity) notFound();
+  const codabLocation = await getCodabLocatedWithin(entity.code);
   const entityLineCodes = entity.facts.filter((fact) => fact.attribute === "line_membership").map((fact) => fact.value);
   const entityModes = transitModesForEntityCode(entity.code, entityLineCodes);
   const transitLabel = transitModeLabel(entity.code, language, entityLineCodes);
   const factsSectionIndex = 2 + Number(entity.relations.length > 0) + Number(entity.neighbors.length > 0);
-  const simpleKeyFacts = entity.facts.filter((fact) => fact.attribute in simpleFactLabels && !["rejected", "superseded"].includes(fact.verification_state))
-    .sort((a, b) => Object.keys(simpleFactLabels).indexOf(a.attribute) - Object.keys(simpleFactLabels).indexOf(b.attribute) || a.code.localeCompare(b.code)).slice(0, 3);
+  const quickFactGroups = new Map<string, typeof entity.facts>();
+  for (const fact of entity.facts.filter((item) => item.attribute in simpleFactLabels && !["rejected", "superseded"].includes(item.verification_state))) {
+    quickFactGroups.set(fact.attribute, [...(quickFactGroups.get(fact.attribute) ?? []), fact]);
+  }
+  const simpleKeyFacts = [...quickFactGroups.entries()].map(([attribute, claims]) => {
+    const ordered = [...claims].sort((a, b) => {
+      const official = (fact: typeof a) => fact.verification_state === "verified" && fact.evidence.some((source) => source.source_type === "official") ? 1 : 0;
+      return official(b) - official(a) || String(b.valid_as_of ?? "").localeCompare(String(a.valid_as_of ?? "")) || a.code.localeCompare(b.code);
+    });
+    return { fact: ordered[0]!, sourceCount: new Set(ordered.flatMap((item) => item.evidence.map((source) => source.code))).size, attribute };
+  }).sort((a, b) => Object.keys(simpleFactLabels).indexOf(a.attribute) - Object.keys(simpleFactLabels).indexOf(b.attribute)).slice(0, 3);
 
   const groups=new Map<string,typeof entity.facts>();
   for (const fact of entity.facts) groups.set(fact.attribute,[...(groups.get(fact.attribute) ?? []),fact]);
@@ -111,13 +121,14 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
       </section>
       <section className="entity-section" aria-labelledby="entity-map-heading">
         <div className="section-title"><span>01</span><div><h2 id="entity-map-heading">{text.map}</h2><ResearcherOnly><p>{ar?"الموقع كما ورد في المصدر؛ لا تُضاف وصلات غير موثقة.":"Recorded source geometry; undocumented connectors are not added."}</p></ResearcherOnly></div></div>
-        <ResearcherOnly>{entity.has_boundary && <AreaBoundaryToggle code={entity.code} name={stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)} language={language} />}</ResearcherOnly>
-        <ResearcherOnly>{!entity.has_boundary && ["city", "district", "neighborhood", "authority"].includes(entity.entity_type) && <p className="boundary-unavailable-note">{ar ? "الحدود غير متاحة في المصدر" : "Boundary unavailable in source"}</p>}</ResearcherOnly>
+        {entity.has_boundary && <AreaBoundaryToggle code={entity.code} name={stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)} language={language} />}
+        {!entity.has_boundary && codabLocation && <p className="boundary-unavailable-note">{ar ? `يقع داخل ${codabLocation.names_ar.join(" و")}` : `Located within ${codabLocation.names_ar.join(", ")}`}</p>}
+        <ResearcherOnly>{!entity.has_boundary && !codabLocation && ["city", "district", "neighborhood", "authority"].includes(entity.entity_type) && <p className="boundary-unavailable-note">{ar ? "الحدود غير متاحة في المصدر" : "Boundary unavailable in source"}</p>}</ResearcherOnly>
         {entity.mapGeometry ? <><EntityMap features={mapFeatures} language={language} attribution={entity.mapAttribution}/><ResearcherOnly><p className="map-data-attribution">{entity.mapAttribution} · OpenFreeMap</p></ResearcherOnly></> : <p className="not-mapped-note">{text.notMapped}</p>}
       </section>
       <section className="entity-section simple-key-facts" aria-labelledby="entity-key-facts-heading">
         <div className="section-title"><span>02</span><div><h2 id="entity-key-facts-heading">{ar ? "معلومات سريعة" : "Key facts"}</h2></div></div>
-        {simpleKeyFacts.length ? <ul>{simpleKeyFacts.map((fact) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <small className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</small>}</li>)}</ul> : <p className="quiet-note">{ar ? "لا توجد معلومات موجزة مسجلة." : "No short facts are recorded."}</p>}
+        {simpleKeyFacts.length ? <ul>{simpleKeyFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <small className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</small>}<small>{ar ? `${sourceCount} مصادر` : `${sourceCount} sources`}</small></li>)}</ul> : <p className="quiet-note">{ar ? "لا توجد معلومات موجزة مسجلة." : "No short facts are recorded."}</p>}
       </section>
       <ResearcherOnly><section className="entity-section" aria-labelledby="entity-sources-heading">
         <div className="section-title"><span>{String(factsSectionIndex + 2).padStart(2,"0")}</span><div><h2 id="entity-sources-heading">{text.sources}</h2><p>{ar?"بيانات الناشر والنوع والتواريخ والرابط كما وردت في سجل المصدر.":"Publisher, source type, dates, and link as recorded."}</p></div></div>

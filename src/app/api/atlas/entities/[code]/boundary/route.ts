@@ -24,13 +24,14 @@ export async function GET(
         code: "BOUNDARY_NOT_AVAILABLE", message: "No source boundary is available for this entity.",
       } }, { status: 404, headers: { "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300" } });
     }
+    const attribution = feature.properties.properties.attribution;
     return NextResponse.json({ type: "FeatureCollection", metadata: {
-      geometry_license: "© OpenStreetMap contributors, ODbL 1.0",
-      attribution: "© OpenStreetMap contributors, ODbL 1.0",
+      geometry_license: feature.properties.license,
+      attribution,
     }, features: [feature] }, {
       headers: {
         "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-        "X-Atlas-Geometry-Attribution": "© OpenStreetMap contributors, ODbL 1.0",
+        "X-Atlas-Geometry-Attribution": attribution,
         "Content-Type": "application/geo+json; charset=utf-8",
       },
     });

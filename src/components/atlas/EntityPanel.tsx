@@ -93,8 +93,17 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
     total_length: { ar: "الطول الإجمالي", en: "Total length" }, stations_count: { ar: "عدد المحطات", en: "Stations" }, total_stations: { ar: "عدد المحطات", en: "Stations" },
     stations: { ar: "المحطات", en: "Stations" }, capacity_per_day: { ar: "السعة اليومية", en: "Daily capacity" }, population: { ar: "عدد السكان", en: "Population" }, opening_date: { ar: "موعد الافتتاح", en: "Opening date" },
   };
-  const simpleFacts = (entity?.facts ?? []).filter((fact) => fact.attribute in simpleFactLabels && !["rejected", "superseded"].includes(fact.verification_state))
-    .sort((a, b) => Object.keys(simpleFactLabels).indexOf(a.attribute) - Object.keys(simpleFactLabels).indexOf(b.attribute) || a.code.localeCompare(b.code)).slice(0, 3);
+  const simpleFactGroups = new Map<string, NonNullable<typeof entity>["facts"]>();
+  for (const fact of (entity?.facts ?? []).filter((item) => item.attribute in simpleFactLabels && !["rejected", "superseded"].includes(item.verification_state))) {
+    simpleFactGroups.set(fact.attribute, [...(simpleFactGroups.get(fact.attribute) ?? []), fact]);
+  }
+  const simpleFacts = [...simpleFactGroups.entries()].map(([attribute, claims]) => {
+    const ordered = [...claims].sort((a, b) => {
+      const official = (fact: typeof a) => fact.verification_state === "verified" && fact.evidence.some((item) => item.source_type === "official") ? 1 : 0;
+      return official(b) - official(a) || String(b.valid_as_of ?? "").localeCompare(String(a.valid_as_of ?? "")) || a.code.localeCompare(b.code);
+    });
+    return { fact: ordered[0]!, sourceCount: new Set(ordered.flatMap((item) => item.evidence.map((source) => source.code))).size, attribute };
+  }).sort((a, b) => Object.keys(simpleFactLabels).indexOf(a.attribute) - Object.keys(simpleFactLabels).indexOf(b.attribute)).slice(0, 3);
   const entityLineCodes = entity?.facts.filter((fact) => fact.attribute === "line_membership").map((fact) => fact.value) ?? [];
   const entityModeLabel = entity ? transitModeLabel(entity.code, language, entityLineCodes) : null;
   return <>
@@ -116,7 +125,7 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
         {!loading && entity && <>
           {!researcherMode && <section className="simple-entity-summary" aria-label={ar ? "ملخص الكيان" : "Entity summary"}>
             <p className="simple-entity-type">{translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language)}</p>
-            {simpleFacts.length ? <ul>{simpleFacts.map((fact) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <span className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</span>}</li>)}</ul> : <p className="simple-no-facts">{ar ? "لا توجد معلومات موجزة مسجلة بعد." : "No short facts have been recorded yet."}</p>}
+            {simpleFacts.length ? <ul>{simpleFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <span className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</span>}<small>{ar ? `${sourceCount} مصادر` : `${sourceCount} sources`}</small></li>)}</ul> : <p className="simple-no-facts">{ar ? "لا توجد معلومات موجزة مسجلة بعد." : "No short facts have been recorded yet."}</p>}
             <button type="button" className="show-on-map-button" onClick={onClose}>{ar ? "اعرض على الخريطة" : "Show on map"}</button>
           </section>}
           <details className={`entity-panel-details ${researcherMode ? "is-researcher-details" : ""}`} open={researcherMode}>

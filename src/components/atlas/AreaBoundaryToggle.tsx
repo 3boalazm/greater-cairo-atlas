@@ -51,7 +51,7 @@ export function AreaBoundaryToggle({ code, name, language }: { code: string; nam
       <div className="area-boundary-map">
         <LazyMapView theme={theme} features={EMPTY_FEATURES} highlightBoundary={boundary} onSelect={noop} onZoomChange={noop} onStyleStatus={noop} language={language} compact />
       </div>
-      <p className="map-data-attribution">© OpenStreetMap contributors, ODbL 1.0 · OpenFreeMap</p>
+      <p className="map-data-attribution">{boundary.properties.properties.attribution} · OpenFreeMap</p>
       <p className="area-boundary-name">{displayName}</p>
     </div>}
   </div>;

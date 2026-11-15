@@ -18,11 +18,18 @@ const nextConfig: NextConfig = {
   },
   outputFileTracingIncludes: {
     "/api/admin/import-seed": ["./data/seed/**/*", "./data/features/**/*"],
-    "/api/exports/geopackage": ["./node_modules/sql.js/dist/sql-wasm.wasm"],
-    "/entity/[code]": ["./data/seed/**/*", "./data/features/features.geojson", "./data/features/boundaries.geojson", "./data/derived/entity-map-geometries.json"],
-    "/api/atlas/entities/[code]/boundary": ["./data/features/boundaries.geojson"],
-    "/api/atlas/entities": ["./data/features/boundaries.geojson"],
-    "/api/atlas/entities/[code]": ["./data/features/boundaries.geojson"],
+    "/api/exports/geopackage": ["./data/seed/**/*", "./data/features/**/*", "./node_modules/sql.js/dist/sql-wasm.wasm"],
+    "/api/exports/geojson": ["./data/seed/**/*", "./data/features/**/*"],
+    "/api/exports/json": ["./data/seed/**/*", "./data/features/**/*"],
+    "/api/exports/csv": ["./data/seed/**/*", "./data/features/**/*"],
+    "/": ["./data/seed/**/*", "./data/features/features.geojson", "./data/features/codab-admin-units.geojson", "./data/features/boundaries.geojson"],
+    "/entity/[code]": ["./data/seed/**/*", "./data/features/features.geojson", "./data/features/boundaries.geojson", "./data/features/codab-entity-boundaries.geojson", "./data/features/codab-relations.json", "./data/features/codab-admin-units.geojson", "./data/derived/entity-map-geometries.json"],
+    "/api/atlas/features": ["./data/features/codab-admin-units.geojson"],
+    "/api/atlas/stats": ["./data/features/codab-admin-units.geojson"],
+    "/api/atlas/relations": ["./data/seed/**/*", "./data/features/features.geojson", "./data/features/codab-relations.json"],
+    "/api/atlas/entities/[code]/boundary": ["./data/features/boundaries.geojson", "./data/features/codab-entity-boundaries.geojson"],
+    "/api/atlas/entities": ["./data/features/boundaries.geojson", "./data/features/codab-entity-boundaries.geojson"],
+    "/api/atlas/entities/[code]": ["./data/features/boundaries.geojson", "./data/features/codab-entity-boundaries.geojson"],
   },
 };
 
