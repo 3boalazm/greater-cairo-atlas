@@ -68,7 +68,7 @@ describe("revision 8 seed + OSM geometry delivery", () => {
     expect(report).toMatchObject({
       entitiesCount: 417,
       entitiesWithAliasesCount: 253,
-      evidenceCount: 371,
+      evidenceCount: 372,
       evidenceMissingUrlCount: 71,
       factsCount: 2083,
       factEvidenceLinksCount: 2436,

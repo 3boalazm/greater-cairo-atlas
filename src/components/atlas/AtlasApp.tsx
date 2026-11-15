@@ -56,7 +56,10 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   const [entities, setEntities] = useState<AtlasEntitySummary[]>(initialEntities);
   const [entitiesLoading, setEntitiesLoading] = useState(false);
   const [entitiesError, setEntitiesError] = useState<string | null>(null);
+  const [adminUnitFeatures, setAdminUnitFeatures] = useState<AtlasFeatureCollection["features"]>([]);
   const [features, setFeatures] = useState<AtlasFeatureCollection>(initialFeatures);
+  const [showAdminBoundaries, setShowAdminBoundaries] = useState(false);
+  const [selectedAdminUnit, setSelectedAdminUnit] = useState<AtlasFeatureCollection["features"][number] | null>(null);
   const [featuresLoading, setFeaturesLoading] = useState(false);
   const [featuresError, setFeaturesError] = useState<string | null>(null);
   const [zoom, setZoom] = useState(9);
@@ -185,6 +188,20 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   }, [filters.type, filters.sector, filters.status, filters.mappedOnly, language]);
 
   useEffect(() => {
+    if (!showAdminBoundaries) { setAdminUnitFeatures([]); return; }
+    const controller = new AbortController();
+    const levels: Array<"2" | "3"> = researcherMode ? ["2", "3"] : ["2"];
+    Promise.all(levels.map(async (level) => {
+      const response = await fetch(`/api/atlas/features?type=admin_unit&level=${level}`, { signal: controller.signal });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const payload = await response.json() as AtlasFeatureCollection;
+      return payload.features;
+    })).then((collections) => setAdminUnitFeatures(collections.flat()))
+      .catch((error: unknown) => { if (!(error instanceof DOMException && error.name === "AbortError")) setFeaturesError(messageFrom(error, language)); });
+    return () => controller.abort();
+  }, [showAdminBoundaries, researcherMode, language]);
+
+  useEffect(() => {
     const controller = new AbortController();
     setFeaturesLoading(true);
     setFeaturesError(null);
@@ -272,10 +289,11 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     setBoundaryLoadingCode(code);
     setBoundaryError(null);
     try {
-      const response = await fetch(`/api/atlas/area-boundaries/${encodeURIComponent(code)}`);
-      const payload = await response.json() as { feature?: AreaBoundaryFeature; error?: { message?: string } };
-      if (!response.ok || !payload.feature) throw new Error(payload.error?.message ?? `HTTP ${response.status}`);
-      setHighlightBoundary(payload.feature);
+      const response = await fetch(`/api/atlas/entities/${encodeURIComponent(code)}/boundary`);
+      const payload = await response.json() as { features?: AreaBoundaryFeature[]; feature?: AreaBoundaryFeature; error?: { message?: string } };
+      const feature = payload.feature ?? payload.features?.find((item) => item.properties.entity_code === code);
+      if (!response.ok || !feature) throw new Error(payload.error?.message ?? `HTTP ${response.status}`);
+      setHighlightBoundary(feature);
     } catch (error) {
       setBoundaryError(messageFrom(error, language));
     } finally {
@@ -332,6 +350,10 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         ...(useTimeline ? { timeline_dated: timelineStatus?.dated ?? false, timeline_verification: timelineStatus?.verification_state ?? null, timeline_valid_as_of: timelineStatus?.valid_as_of ?? null } : {}),
         ...(alternatives ? { geometry_conflict: true, geometry_sources: alternatives.map((item) => item.source_label) } : {}) } }];
     });
+    if (showAdminBoundaries) {
+      visibleFeatures.push(...adminUnitFeatures.filter((feature) => feature.properties.level === 2 ||
+        (feature.properties.level === 3 && researcherMode && zoom >= 13)));
+    }
     const stationTypes = ["transit_stop", "rail_station", "transit_station"];
     const selectedStation = serviceRadiusMeters && researcherMode && stationTypes.includes(detail?.entity_type ?? "")
       ? features.features.find((feature) => feature.properties.entity_code === selectedCode && feature.geometry && typeof feature.geometry === "object" && "type" in feature.geometry && feature.geometry.type === "Point") : undefined;
@@ -341,9 +363,9 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         properties: { ...selectedStation.properties, code: `SERVICE-AREA-${selectedCode}-${serviceRadiusMeters}`, entity_code: selectedCode!, type: "service_area", status: "service_area", name_ar: `${serviceRadiusMeters} متر حول المحطة`, name_en: `${serviceRadiusMeters} m radius around station`, service_area: true, modes: [], line_codes: [], primary_line_code: null, interchange: false } });
     }
     return { ...features, features: visibleFeatures };
-  }, [features, visibleTransitModes, visibleTransitLines, selectedCode, detail?.entity_type, layerGroups, quickLayer, filters.status, useTimeline, timelineStatusByCode, serviceRadiusMeters, researcherMode, geometryAlternatives]);
+  }, [features, visibleTransitModes, visibleTransitLines, selectedCode, detail?.entity_type, layerGroups, quickLayer, filters.status, useTimeline, timelineStatusByCode, serviceRadiusMeters, researcherMode, geometryAlternatives, adminUnitFeatures, showAdminBoundaries, zoom]);
   const ar = language === "ar";
-  const totalFeatures = features.features.length;
+  const totalFeatures = visibleFeatureCollection.features.length;
   const mapTransitModes = !filters.type || ["transit_line", "transit_stop", "rail_station", "transit_station"].includes(filters.type)
     ? visibleTransitModes
     : [];
@@ -376,10 +398,19 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         {statsError && <span className="stats-retry"><AlertTriangle aria-hidden="true" />{statsError}</span>}
       </section></ResearcherOnly>
       <section className="map-stage" aria-label={ar ? "مساحة الخريطة" : "Map workspace"}>
-        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} selectedCode={selectedCode} showRoadNetwork={showRoadNetwork} showRailNetwork={showRailNetwork && railNetworkAvailable} showDisusedRail={showDisusedRail} showAreaBoundaries={layerGroups.areas} highlightBoundary={highlightBoundary} visibleTransitModes={mapTransitModes} showInterchanges={showInterchanges} />
+        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onSelectAdminUnit={setSelectedAdminUnit} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} selectedCode={selectedCode} showRoadNetwork={showRoadNetwork} showRailNetwork={showRailNetwork && railNetworkAvailable} showDisusedRail={showDisusedRail} showAreaBoundaries={layerGroups.areas} highlightBoundary={highlightBoundary} visibleTransitModes={mapTransitModes} showInterchanges={showInterchanges} />
+        {selectedAdminUnit && <aside className="admin-unit-map-card" dir={ar ? "rtl" : "ltr"} aria-label={ar ? "تفاصيل الوحدة الإدارية" : "Administrative unit details"}>
+          <button type="button" aria-label={ar ? "إغلاق" : "Close"} onClick={() => setSelectedAdminUnit(null)}>×</button>
+          <strong>{ar ? selectedAdminUnit.properties.name_ar : selectedAdminUnit.properties.name_en || selectedAdminUnit.properties.name_ar}</strong>
+          <span>{ar ? (selectedAdminUnit.properties.level === 2 ? "قسم / وحدة إدارية" : "شياخة") : (selectedAdminUnit.properties.level === 2 ? "Qism / administrative unit" : "Shiakha")}</span>
+          <span>{ar ? `يتبع ${selectedAdminUnit.properties.parent_name_ar ?? ""}` : `Within ${selectedAdminUnit.properties.parent_name_ar ?? ""}`}</span>
+          <span>{Number(selectedAdminUnit.properties.area_sqkm ?? 0).toLocaleString(language, { maximumFractionDigits: 2 })} km²</span>
+          <small>{selectedAdminUnit.properties.source}</small>
+        </aside>}
         <div className="map-header-card"><div className="map-title-icon"><MapPinned aria-hidden="true" /></div><div><span>{ar ? "القاهرة الكبرى" : "Greater Cairo"}</span><h1>{ar ? "خريطة القاهرة الكبرى" : "Greater Cairo map"}</h1><ResearcherOnly><p>{ar ? "المصادر المختلفة تبقى ظاهرة؛ لا تخمين للهندسة أو الحالة." : "Conflicting sources remain visible. No inferred geometry or status."}</p></ResearcherOnly></div></div>
         <div className="map-toolbar"><LayerChips type={quickLayer} onTypeChange={setQuickLayer} language={language} />
           {!researcherMode && <div className="simple-map-status-key" aria-label={ar ? "دليل ألوان الحالة" : "Status colour key"}><span><i className="map-key-dot is-operational"/>✓ {ar ? "يعمل" : "Operating"}</span><span><i className="map-key-dot is-partial"/>◐ {ar ? "يعمل جزئيًا" : "Partly operating"}</span><span><i className="map-key-dot is-building"/>⚒ {ar ? "تحت الإنشاء" : "Building"}</span><span><i className="map-key-dot is-planned"/>◷ {ar ? "مخطط" : "Planned"}</span></div>}
+          <label className="admin-boundary-toggle"><input type="checkbox" checked={showAdminBoundaries} onChange={(event) => { setShowAdminBoundaries(event.target.checked); setSelectedAdminUnit(null); }} /><span>{ar ? "الأحياء والأقسام" : "Districts & qisms"}</span></label>
           <ResearcherOnly><div className="timeline-map-filter">
             <label><input type="checkbox" checked={timelineEnabled} onChange={(event) => setTimelineEnabled(event.target.checked)} /><span>{ar ? "الحالة في تاريخ" : "Status as of date"}</span></label>
             {timelineEnabled && <><strong>{timelineYear}</strong><input aria-label={ar ? "سنة الحالة على الخريطة" : "Map status year"} type="range" min={minTimelineYear} max={maxTimelineYear} step={1} value={timelineYear} onChange={(event) => setTimelineYear(Number(event.target.value))} />
@@ -423,8 +454,8 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         {mapStyleStatus === "error" && <div className="map-error map-style-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{ar ? "تعذّر تحميل خريطة OpenFreeMap." : "Could not load the OpenFreeMap basemap."}</span><button type="button" onClick={() => { setMapStyleStatus("loading"); setMapGeneration((value) => value + 1); }}>{ar ? "إعادة المحاولة" : "Retry"}</button></div>}
         {!featuresLoading && !featuresError && totalFeatures === 0 && <div className="map-empty">{ar ? "لا توجد هندسة تطابق هذه الفلاتر. الكيانات تظل متاحة في القائمة والبحث." : "No geometries match these filters. Entities remain available in the list and search."}</div>}
         {researcherMode && serviceRadiusMeters > 0 && <div className="service-area-map-label" role="status">{ar ? `نصف قطر تقريبي ${serviceRadiusMeters} م · ليس نطاق تغطية فعليًا` : `Approximate ${serviceRadiusMeters} m radius · not an actual catchment`}</div>}
-        <div className="map-attribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors, ODbL 1.0</a><span>·</span><a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a></div>
-        <nav className="atlas-site-footer" aria-label={ar ? "إسناد بيانات الأطلس" : "Atlas data attribution"}><span>{ar ? "حقائق البحث والأدلة وكل البيانات غير المشتقة من OSM: © Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0 | الهندسة المشتقة من OpenStreetMap: © OpenStreetMap contributors, ODbL 1.0" : "Research facts, evidence, and all data not derived from OpenStreetMap: © Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0 | OpenStreetMap-derived geometry: © OpenStreetMap contributors, ODbL 1.0"}</span></nav>
+        <div className="map-attribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors, ODbL 1.0</a><span>·</span><span>© CAPMAS (الجهاز المركزي للتعبئة العامة والإحصاء) عبر OCHA/HDX، CC BY-IGO</span><span>·</span><a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a></div>
+        <nav className="atlas-site-footer" aria-label={ar ? "إسناد بيانات الأطلس" : "Atlas data attribution"}><span>{ar ? "حقائق البحث والأدلة: © Mustafa Aboalazm (مصطفى أبوالعزم)، CC BY 4.0 | حدود CAPMAS عبر OCHA/HDX، CC BY-IGO | هندسة OpenStreetMap، ODbL 1.0" : "Research facts and evidence: © Mustafa Aboalazm (مصطفى أبوالعزم), CC BY 4.0 | CAPMAS boundaries via OCHA/HDX, CC BY-IGO | OpenStreetMap geometry, ODbL 1.0"}</span></nav>
         <ResearcherOnly><nav className="atlas-site-footer atlas-research-footer" aria-label={ar ? "روابط الباحث" : "Research links"}><Link href={`/${language}/directory`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/${language}/data`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/${language}/methodology`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/${language}/sources`}>{ar ? "المصادر" : "Sources"}</Link><Link href={`/${language}/api-docs`}>{ar ? "توثيق API" : "API docs"}</Link></nav></ResearcherOnly>
       </section>
     </section>

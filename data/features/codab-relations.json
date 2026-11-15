@@ -1,0 +1,99 @@
+[
+  {
+    "entity_code": "CITY-CAIRO",
+    "relation": "located_within",
+    "pcodes": [
+      "EG01"
+    ],
+    "names_ar": [
+      "محافظة القاهرة"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-GIZA",
+    "relation": "located_within",
+    "pcodes": [
+      "EG2104",
+      "EG2109"
+    ],
+    "names_ar": [
+      "قسم الجيزة",
+      "مركز الجيزة"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-QANATER",
+    "relation": "located_within",
+    "pcodes": [
+      "EG1404"
+    ],
+    "names_ar": [
+      "مركز القناطر الخيرية"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-EAST-SHUBRA-ELKHEIMA",
+    "relation": "located_within",
+    "pcodes": [
+      "EG1406",
+      "EG1407"
+    ],
+    "names_ar": [
+      "قسم أول شبرا الخيمة",
+      "قسم ثان شبرا الخيمة"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-SALAM-1",
+    "relation": "located_within",
+    "pcodes": [
+      "EG0132"
+    ],
+    "names_ar": [
+      "قسم السلام"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-SALAM-2",
+    "relation": "located_within",
+    "pcodes": [
+      "EG0132"
+    ],
+    "names_ar": [
+      "قسم السلام"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-WEST-SHUBRA-ELKHEIMA",
+    "relation": "located_within",
+    "pcodes": [
+      "EG1406",
+      "EG1407"
+    ],
+    "names_ar": [
+      "قسم أول شبرا الخيمة",
+      "قسم ثان شبرا الخيمة"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  }
+]

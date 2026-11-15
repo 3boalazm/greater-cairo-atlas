@@ -32,6 +32,7 @@ export function exportResponseHeaders(metadata: {
     "X-Atlas-Import-Checksum": metadata.import_checksum,
     "X-Atlas-Generated-At": metadata.generated_at,
     "X-Atlas-Geometry-Attribution": OSM_DATA_LICENSE,
+    "X-Atlas-Admin-Boundary-Attribution": "CAPMAS via OCHA/HDX, CC BY-IGO; https://data.humdata.org/dataset/cod-ab-egy",
     // HTTP Headers are ByteString-only; keep these metadata headers ASCII/Latin-1 safe.
     "X-Atlas-Research-Data-License": "CC BY 4.0",
     "X-Atlas-Research-Data-Copyright": "Mustafa Aboalazm",

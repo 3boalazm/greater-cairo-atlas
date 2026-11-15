@@ -21,7 +21,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   const filteredDataset = { ...dataset, entities, features: dataset.features.filter((feature) => entityByCode.has(feature.entity_code)) };
   const collection = joinedFeatureCollection(filteredDataset, metadata);
   const output = timeline ? { ...collection, features: collection.features.map((feature) => {
-    const state = timeline.get(feature.properties.entity_code);
+    const state = timeline.get(String(feature.properties.entity_code));
     return { ...feature, properties: { ...feature.properties, status: state?.status ?? "unknown",
       timeline_dated: state?.dated ?? false, timeline_verification: state?.verification_state ?? null, timeline_valid_as_of: state?.valid_as_of ?? null } };
   }) } : collection;

@@ -3,7 +3,8 @@ import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { entitySeedSchema } from "@/lib/atlas/schema";
-import { getAreaBoundary, getAreaBoundaryCodes, isAreaBoundaryFeature, isBoundaryEligibleEntity, matchOsmBoundaryElement } from "@/lib/atlas/area-boundaries";
+import { getCodabLocatedWithin } from "@/lib/atlas/static-dataset";
+import { getAreaBoundary, getAreaBoundaryCodes, getOsmAreaBoundary, isAreaBoundaryFeature, isBoundaryEligibleEntity, matchOsmBoundaryElement } from "@/lib/atlas/area-boundaries";
 
 const district = entitySeedSchema.parse({
   code: "DIST-TEST", name_ar: "حي الاختبار", name_en: "Test District",
@@ -66,6 +67,23 @@ describe("OSM area boundary provenance and matching", () => {
     });
     expect(report.boundary_candidate_review.entities["DIST-AGOUZA"]).toMatchObject({
       status: "unmatched", top_candidates: [expect.objectContaining({ osm_id: 723745381, decision: expect.stringContaining("below entity-specific minimum 2 km²") })],
+    });
+  });
+
+  it("prefers the curated CAPMAS entity union while preserving the existing OSM geometry as an alternate", async () => {
+    const [official, osm, codes] = await Promise.all([
+      getAreaBoundary("DIST-DOKKI"), getOsmAreaBoundary("CITY-NEW-CAIRO"), getAreaBoundaryCodes(),
+    ]);
+    expect(official).toMatchObject({ properties: { entity_code: "DIST-DOKKI", license: "CC BY-IGO", properties: { source: "CAPMAS COD-AB 2017 (reviewed 2024)" } } });
+    expect(osm).toMatchObject({ properties: { entity_code: "CITY-NEW-CAIRO", license: "ODbL-1.0" } });
+    expect(codes.has("DIST-DOKKI")).toBe(true);
+    const newCairo = await getAreaBoundary("CITY-NEW-CAIRO");
+    expect(newCairo?.properties.properties.name_ar).toBe("القاهرة الجديدة");
+    const union = JSON.parse(await readFile(path.join(process.cwd(), "data/features/codab-entity-boundaries.geojson"), "utf8")) as { features: Array<{ properties: { entity_code: string; pcodes: string[] } }> };
+    expect(union.features.find((feature) => feature.properties.entity_code === "CITY-NEW-CAIRO")?.properties.pcodes).toEqual(["EG0137", "EG0138", "EG0139"]);
+    expect(union.features.some((feature) => feature.properties.entity_code === "DIST-SALAM-1")).toBe(false);
+    await expect(getCodabLocatedWithin("DIST-SALAM-1")).resolves.toMatchObject({
+      pcodes: ["EG0132"], names_ar: ["قسم السلام"], evidence_code: "EV-CODAB-ADMIN-2026",
     });
   });
 

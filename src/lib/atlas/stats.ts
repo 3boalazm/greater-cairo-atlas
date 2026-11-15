@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { ATLAS_PHASE } from "@/lib/atlas/constants";
 import { getSql } from "@/lib/db/client";
 import {
@@ -43,6 +45,7 @@ export type AtlasStatsResponseBody =
       phase: typeof ATLAS_PHASE;
       timestamp: string;
       counts: AtlasTableCounts;
+      boundary_counts: { source: string; license: string; total: number; adm2: number; adm3: number };
     }
   | {
       ok: false;
@@ -87,6 +90,18 @@ function toNonNegativeInt(val: number | string | undefined): number | null {
     return null;
   }
   return num;
+}
+
+async function getCodabBoundaryCounts(): Promise<{ source: string; license: string; total: number; adm2: number; adm3: number }> {
+  const file = path.join(process.cwd(), "data/features/codab-admin-units.geojson");
+  try {
+    const data = JSON.parse(await readFile(file, "utf8")) as { features?: Array<{ properties?: { level?: number } }> };
+    const levels = (data.features ?? []).map((feature) => feature.properties?.level);
+    return { source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC BY-IGO", total: levels.length,
+      adm2: levels.filter((level) => level === 2).length, adm3: levels.filter((level) => level === 3).length };
+  } catch {
+    return { source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC BY-IGO", total: 0, adm2: 0, adm3: 0 };
+  }
 }
 
 export async function getAtlasTableStats(
@@ -146,6 +161,7 @@ export async function getAtlasTableStats(
           features,
           fact_evidence: factEvidence,
         },
+        boundary_counts: await getCodabBoundaryCounts(),
       },
     };
   } catch (error) {

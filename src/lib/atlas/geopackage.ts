@@ -84,11 +84,14 @@ export async function generateGeoPackage(dataset: StaticAtlasDataset, filters: G
       INSERT INTO gpkg_spatial_ref_sys VALUES ('WGS 84 geodetic',4326,'EPSG',4326,'GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433]]','longitude/latitude coordinates in decimal degrees');
       CREATE TABLE entities (code TEXT PRIMARY KEY, name_ar TEXT NOT NULL, name_en TEXT NOT NULL, entity_type TEXT NOT NULL, sector TEXT NOT NULL, status TEXT NOT NULL, description TEXT, aliases_json TEXT NOT NULL);
       CREATE TABLE features (fid INTEGER PRIMARY KEY AUTOINCREMENT, geom BLOB NOT NULL, feature_code TEXT NOT NULL UNIQUE, entity_code TEXT NOT NULL, name_ar TEXT NOT NULL, name_en TEXT NOT NULL, entity_type TEXT NOT NULL, status TEXT NOT NULL, license TEXT NOT NULL, attribution TEXT NOT NULL, source TEXT NOT NULL, retrieval_date TEXT NOT NULL, source_ids_json TEXT NOT NULL);
+      CREATE TABLE admin_units (fid INTEGER PRIMARY KEY AUTOINCREMENT, geom BLOB NOT NULL, pcode TEXT NOT NULL UNIQUE, level INTEGER NOT NULL, name_ar TEXT NOT NULL, name_en TEXT, parent_pcode TEXT, parent_name_ar TEXT, area_sqkm REAL NOT NULL, license TEXT NOT NULL, attribution TEXT NOT NULL, source TEXT NOT NULL, evidence_code TEXT NOT NULL);
       CREATE TABLE license_attribution (kind TEXT NOT NULL, license TEXT NOT NULL, attribution TEXT NOT NULL, note TEXT NOT NULL);
       INSERT INTO gpkg_contents (table_name,data_type,identifier,description,srs_id) VALUES ('entities','attributes','Greater Cairo Atlas entities','Entity records matched to the selected GeoPackage feature filter.',NULL);
       INSERT INTO gpkg_contents (table_name,data_type,identifier,description,srs_id) VALUES ('features','features','Greater Cairo Atlas features','WGS 84 source geometries; see license_attribution table.',4326);
+      INSERT INTO gpkg_contents (table_name,data_type,identifier,description,srs_id) VALUES ('admin_units','features','CAPMAS COD-AB administrative units','WGS 84 official administrative units; see license_attribution table.',4326);
       INSERT INTO gpkg_contents (table_name,data_type,identifier,description,srs_id) VALUES ('license_attribution','attributes','License and attribution','Preserve these attributions when redistributing this GeoPackage.',NULL);
       INSERT INTO gpkg_geometry_columns VALUES ('features','geom','GEOMETRY',4326,0,0);
+      INSERT INTO gpkg_geometry_columns VALUES ('admin_units','geom','GEOMETRY',4326,0,0);
     `);
     const entityInsert = db.prepare("INSERT INTO entities VALUES (?,?,?,?,?,?,?,?)");
     for (const row of entityRows(entities)) entityInsert.run(row);
@@ -104,9 +107,22 @@ export async function generateGeoPackage(dataset: StaticAtlasDataset, filters: G
         entity.entity_type, status, feature.license, attribution, String(props.source ?? ""), String(props.retrieval_date ?? ""), JSON.stringify(props.source_ids ?? [])]);
     }
     featureInsert.free();
+    const adminUnitInsert = db.prepare("INSERT INTO admin_units (geom,pcode,level,name_ar,name_en,parent_pcode,parent_name_ar,area_sqkm,license,attribution,source,evidence_code) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+    for (const feature of dataset.adminUnits) {
+      const props = feature.properties;
+      const parents = Array.isArray(props.parent_pcodes) ? props.parent_pcodes : [];
+      adminUnitInsert.run([
+        gpkgGeometry(feature.geometry as { type: string; coordinates?: unknown; geometries?: unknown[] }),
+        String(props.pcode), Number(props.level), String(props.name_ar), props.name_en == null ? null : String(props.name_en),
+        parents.length ? String(parents[0]) : null, String(props.parent_name_ar ?? ""), Number(props.area_sqkm ?? 0),
+        "CC BY-IGO", String(props.attribution ?? ""), String(props.source ?? "CAPMAS COD-AB 2017 (reviewed 2024)"), String(props.evidence_code ?? "EV-CODAB-ADMIN-2026"),
+      ]);
+    }
+    adminUnitInsert.free();
     const attrInsert = db.prepare("INSERT INTO license_attribution VALUES (?,?,?,?)");
     attrInsert.run(["Research data and evidence", "CC BY 4.0", "© Mustafa Aboalazm (مصطفى أبوالعزم)", "Attribution required."]);
     attrInsert.run(["OpenStreetMap geometry", "ODbL 1.0", "© OpenStreetMap contributors", "Keep ODbL attribution and comply with the ODbL when sharing derived databases."]);
+    attrInsert.run(["Official administrative boundaries", "CC BY-IGO", "© CAPMAS (الجهاز المركزي للتعبئة العامة والإحصاء) via OCHA/HDX", "Source: https://data.humdata.org/dataset/cod-ab-egy. Preserve this attribution."]);
     attrInsert.run(["Basemap", "OpenFreeMap", "OpenFreeMap", "Basemap tiles are not embedded in this export."]);
     attrInsert.free();
     db.run("CREATE INDEX features_entity_code_idx ON features(entity_code); CREATE INDEX features_type_sector_idx ON features(entity_type,status);");

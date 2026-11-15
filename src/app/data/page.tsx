@@ -62,6 +62,7 @@ export default async function DataPage({ searchParams }: { searchParams: Promise
       </section>
       <section className="license-block" aria-labelledby="license-title">
         <h2 id="license-title">{ar?"الإسناد والترخيص":"Attribution & licensing"}</h2>
+        <p><strong>{ar?"الحدود الإدارية الرسمية":"Official administrative boundaries"}:</strong> {metadata.licenses.administrative_boundaries}</p>
         <p><strong>{ar?"الهندسة":"Geometry"}:</strong> {metadata.licenses.geometry}</p>
         <p><strong>{ar?"الخرائط الأساسية":"Basemap"}:</strong> {metadata.licenses.basemap}</p>
         <p><strong>{ar?"الحقائق والأدلة والبيانات غير المشتقة من OSM":"Facts, evidence & non-OSM data"}:</strong> {metadata.licenses.research_data}</p>

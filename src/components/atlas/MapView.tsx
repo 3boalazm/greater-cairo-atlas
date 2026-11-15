@@ -32,7 +32,7 @@ const boundaryOutlineLayerId = "atlas-area-boundary-outline";
 const stationIconLayers = ["atlas-station-entity-icons", "atlas-transit-station-icons"];
 const stationLabelLayers = ["atlas-transit-station-labels", "atlas-station-entity-labels"];
 const stationRingLayers = ["atlas-station-entity-interchange-ring", "atlas-transit-interchange-ring"];
-const lineLayers = ["atlas-polygons-fill", "atlas-polygons-outline", "atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
+const lineLayers = ["atlas-admin-unit-outline", "atlas-polygons-fill", "atlas-polygons-outline", "atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
 
 type MapExpression = import("maplibre-gl").ExpressionSpecification;
 
@@ -145,10 +145,11 @@ function boundaryCollection(boundary: AreaBoundaryFeature | null): FeatureCollec
   return { type: "FeatureCollection", features: boundary ? [boundary as unknown as FeatureCollection["features"][number]] : [] };
 }
 
-export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, selectedCode = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false, showAreaBoundaries = true }: {
+export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, selectedCode = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false, showAreaBoundaries = true }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
   onSelect: (entityCode: string) => void;
+  onSelectAdminUnit?: (feature: AtlasFeatureCollection["features"][number]) => void;
   onZoomChange: (zoom: number) => void;
   onStyleStatus: (status: MapStyleStatus) => void;
   language: "ar" | "en";
@@ -177,6 +178,7 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
   const visibleModesRef = useRef<readonly TransitMode[]>(visibleTransitModes);
   const showInterchangesRef = useRef(showInterchanges);
   const onSelectRef = useRef(onSelect);
+  const onSelectAdminUnitRef = useRef(onSelectAdminUnit);
   const onZoomRef = useRef(onZoomChange);
   const onStyleStatusRef = useRef(onStyleStatus);
   useEffect(() => {
@@ -187,9 +189,10 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
     visibleModesRef.current = visibleTransitModes;
     showInterchangesRef.current = showInterchanges;
     onSelectRef.current = onSelect;
+    onSelectAdminUnitRef.current = onSelectAdminUnit;
     onZoomRef.current = onZoomChange;
     onStyleStatusRef.current = onStyleStatus;
-  }, [features, highlightBoundary, selectedCode, showAreaBoundaries, visibleTransitModes, showInterchanges, onSelect, onZoomChange, onStyleStatus]);
+  }, [features, highlightBoundary, selectedCode, showAreaBoundaries, visibleTransitModes, showInterchanges, onSelect, onSelectAdminUnit, onZoomChange, onStyleStatus]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -275,13 +278,30 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       });
       map.addLayer({
         id: "atlas-polygons-fill", type: "fill", source: sourceId,
-        filter: ["all", ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]], ["!=", ["get", "service_area"], true], ["!=", ["get", "geometry_conflict"], true]],
+        filter: ["all", ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]], ["!=", ["get", "type"], "admin_unit"], ["!=", ["get", "service_area"], true], ["!=", ["get", "geometry_conflict"], true]],
         paint: { "fill-color": theme === "day" ? "#278d78" : "#55d7ba", "fill-opacity": 0.11 },
       });
       map.addLayer({
         id: "atlas-polygons-outline", type: "line", source: sourceId,
-        filter: ["all", ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]], ["!=", ["get", "service_area"], true], ["!=", ["get", "geometry_conflict"], true]],
+        filter: ["all", ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]], ["!=", ["get", "type"], "admin_unit"], ["!=", ["get", "service_area"], true], ["!=", ["get", "geometry_conflict"], true]],
         paint: { "line-color": theme === "day" ? "#147364" : "#43bfa5", "line-width": 1.3, "line-opacity": 0.82 },
+      });
+      map.addLayer({
+        id: "atlas-admin-unit-outline", type: "line", source: sourceId,
+        filter: ["==", ["get", "type"], "admin_unit"],
+        paint: { "line-color": theme === "day" ? "#667b77" : "#82928d", "line-width": ["interpolate", ["linear"], ["zoom"], 7, 0.35, 12, 0.8, 16, 1.1], "line-opacity": 0.72 },
+      });
+      map.addLayer({
+        id: "atlas-admin-unit-labels-adm2", type: "symbol", source: sourceId, minzoom: 12,
+        filter: ["all", ["==", ["get", "type"], "admin_unit"], ["==", ["get", "level"], 2]],
+        layout: { "text-field": ["get", language === "ar" ? "name_ar" : "name_en"], "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"], "text-size": 10, "text-max-width": 9, "text-allow-overlap": false },
+        paint: { "text-color": theme === "day" ? "#465652" : "#c2cbc7", "text-halo-color": theme === "day" ? "#fff" : "#111715", "text-halo-width": 1 },
+      });
+      map.addLayer({
+        id: "atlas-admin-unit-labels-adm3", type: "symbol", source: sourceId, minzoom: 13,
+        filter: ["all", ["==", ["get", "type"], "admin_unit"], ["==", ["get", "level"], 3]],
+        layout: { "text-field": ["get", language === "ar" ? "name_ar" : "name_en"], "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"], "text-size": 9, "text-max-width": 8, "text-allow-overlap": false },
+        paint: { "text-color": theme === "day" ? "#596a66" : "#adbab5", "text-halo-color": theme === "day" ? "#fff" : "#111715", "text-halo-width": 0.9 },
       });
       map.addLayer({ id: "atlas-service-area-fill", type: "fill", source: sourceId, filter: ["==", ["get", "service_area"], true], paint: { "fill-color": "#198f9d", "fill-opacity": 0.11 } });
       map.addLayer({ id: "atlas-service-area-outline", type: "line", source: sourceId, filter: ["==", ["get", "service_area"], true], paint: { "line-color": "#137d88", "line-width": 2.3, "line-dasharray": [1, 1] } });
@@ -412,6 +432,11 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       map.on("click", (event: MapLayerMouseEvent) => {
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers.filter((layerId) => map.getLayer(layerId)) });
         const properties = found[0]?.properties;
+        if (properties?.type === "admin_unit") {
+          const unit = dataRef.current.features.find((feature) => feature.properties.code === properties.code && feature.properties.type === "admin_unit");
+          if (unit) onSelectAdminUnitRef.current?.(unit);
+          return;
+        }
         const code = properties?.entity_code ?? (Array.isArray(properties?.entity_codes) ? properties.entity_codes.find((value): value is string => typeof value === "string") : undefined);
         if (typeof code === "string") onSelectRef.current(code);
       });

@@ -13,11 +13,12 @@ describe("atlas data exports", () => {
       facts: dataset.facts.length,
       evidence: dataset.evidence.length,
       fact_evidence: dataset.factEvidence.length,
-      features: dataset.features.length,
+      features: dataset.features.length + dataset.adminUnits.length,
     });
     await expect(metadata.import_checksum).toBe(await computeAtlasDatasetChecksum(root));
     expect(metadata.licenses.research_data).toBe("© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0");
     expect(metadata.licenses.geometry).toContain("© OpenStreetMap contributors, ODbL 1.0");
+    expect(metadata.licenses.administrative_boundaries).toContain("CAPMAS");
     expect(metadata.licenses.contact).toBe("01092500454 · 3boalazm@gmail.com");
     expect(metadata.licenses.code).toContain("No code license has been specified");
     const headers = new Headers(exportResponseHeaders(metadata, "application/json; charset=utf-8"));
@@ -45,7 +46,8 @@ describe("atlas data exports", () => {
       expect(feature.geometry).toBeTruthy();
       expect(feature.properties.entity_code).toBeTruthy();
       expect(feature.properties.name_ar).toBeTruthy();
-      expect(feature.properties.name_en).toBeTruthy();
+      if (feature.properties.entity_type === "admin_unit" && feature.properties.level === 3) expect(feature.properties.name_en).toBe("");
+      else expect(feature.properties.name_en).toBeTruthy();
       expect(feature.properties.entity_type).toBeTruthy();
       expect(feature.properties.status).toBeTruthy();
     }

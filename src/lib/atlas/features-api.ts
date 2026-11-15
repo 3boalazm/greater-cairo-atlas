@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { z } from "zod";
 import { getSql } from "@/lib/db/client";
 import { RequestValidationError } from "@/lib/errors";
@@ -6,7 +8,8 @@ import { isTransitInterchangeEntityCode, transitModesForEntityCode, type Transit
 import { stationDisplayName } from "@/lib/atlas/labels";
 
 const featureQuerySchema = z.strictObject({
-  type: z.enum(ENTITY_TYPES).optional(),
+  type: z.union([z.enum(ENTITY_TYPES), z.literal("admin_unit")]).optional(),
+  level: z.enum(["2", "3"]).optional(),
   sector: z.enum(ENTITY_SECTORS).optional(),
   status: z.enum(ENTITY_STATUSES).optional(),
   zoom: z.coerce.number().int().min(4).max(20).default(12),
@@ -14,6 +17,7 @@ const featureQuerySchema = z.strictObject({
 
 export interface AtlasFeatureQuery {
   type?: string;
+  level?: "2" | "3";
   sector?: string;
   status?: string;
   zoom: number;
@@ -68,7 +72,7 @@ export type FeatureRowsExecutor = (filters: AtlasFeatureQuery) => Promise<Featur
 
 export function parseAtlasFeatureQuery(params: URLSearchParams): AtlasFeatureQuery {
   const input: Record<string, string> = {};
-  for (const key of ["type", "sector", "status", "zoom"] as const) {
+  for (const key of ["type", "level", "sector", "status", "zoom"] as const) {
     const value = params.get(key);
     if (value !== null) input[key] = value;
   }
@@ -123,6 +127,34 @@ export async function getAtlasFeatures(
   filters: AtlasFeatureQuery,
   executeRows: FeatureRowsExecutor = defaultFeatureRowsExecutor,
 ): Promise<AtlasFeatureCollection> {
+  if (filters.type === "admin_unit") {
+    const file = path.join(process.cwd(), "data/features/codab-admin-units.geojson");
+    const collection = JSON.parse(await readFile(file, "utf8")) as { features: Array<{ id: string; geometry: unknown; properties: Record<string, unknown> }> };
+    const features = collection.features.filter((feature) => !filters.level || String(feature.properties.level) === filters.level);
+    return {
+      type: "FeatureCollection",
+      metadata: {
+        data_license: "CAPMAS COD-AB 2017 (reviewed 2024), CC BY-IGO",
+        geometry_license: "CC BY-IGO",
+        contact: "CAPMAS / OCHA HDX",
+      },
+      features: features.map((feature) => ({
+        type: "Feature", id: feature.id, geometry: feature.geometry,
+        properties: {
+          code: String(feature.properties.code), entity_code: String(feature.properties.pcode),
+          name_ar: String(feature.properties.name_ar), name_en: String(feature.properties.name_en ?? ""),
+          pcode: String(feature.properties.pcode), level: Number(feature.properties.level),
+          parent_pcodes: Array.isArray(feature.properties.parent_pcodes) ? feature.properties.parent_pcodes.map(String) : [],
+          parent_name_ar: String(feature.properties.parent_name_ar ?? ""), area_sqkm: Number(feature.properties.area_sqkm),
+          type: "admin_unit", status: "unknown", license: "CC BY-IGO",
+          attribution: String(feature.properties.attribution), source: String(feature.properties.source),
+          retrieval_date: "2026-11-15", source_ids: { pcode: feature.properties.pcode, level: feature.properties.level,
+            parent_pcodes: feature.properties.parent_pcodes, area_sqkm: feature.properties.area_sqkm },
+          modes: [], interchange: false,
+        },
+      })),
+    };
+  }
   const rows = await executeRows(filters);
   return {
     type: "FeatureCollection",

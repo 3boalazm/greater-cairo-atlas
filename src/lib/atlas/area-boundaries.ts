@@ -9,10 +9,10 @@ export interface AreaBoundaryFeature {
   properties: {
     code: string;
     entity_code: string;
-    osm_type: "way" | "relation";
-    osm_id: number;
-    osm_version: number;
-    license: "ODbL-1.0";
+    osm_type?: "way" | "relation";
+    osm_id?: number;
+    osm_version?: number;
+    license: "ODbL-1.0" | "CC BY-IGO";
     properties: {
       role: "boundary";
       entity_type: string;
@@ -25,18 +25,20 @@ export interface AreaBoundaryFeature {
       name: string | null;
       name_ar: string | null;
       name_en: string | null;
-      osm_tags: Record<string, unknown>;
-      source_ids: { osm_type: string; osm_id: number; osm_version: number };
-      source: "OpenStreetMap";
-      attribution: "© OpenStreetMap contributors, ODbL 1.0";
-      license: "ODbL-1.0";
+      osm_tags?: Record<string, unknown>;
+      source_ids?: { osm_type: string; osm_id: number; osm_version: number };
+      source: string;
+      attribution: string;
+      license: "ODbL-1.0" | "CC BY-IGO";
       retrieval_date: string;
     };
   };
 }
 
 const boundaryFile = (root: string) => path.join(root, "data/features/boundaries.geojson");
+const officialBoundaryFile = (root: string) => path.join(root, "data/features/codab-entity-boundaries.geojson");
 const cache = new Map<string, Promise<AreaBoundaryFeature[]>>();
+const officialCache = new Map<string, Promise<AreaBoundaryFeature[]>>();
 
 function isFinitePosition(value: unknown): value is number[] {
   return Array.isArray(value) && value.length >= 2 && typeof value[0] === "number" && Number.isFinite(value[0]) &&
@@ -100,14 +102,59 @@ function getCachedBoundaries(root: string): Promise<AreaBoundaryFeature[]> {
   return pending;
 }
 
+async function loadOfficialBoundaries(root: string): Promise<AreaBoundaryFeature[]> {
+  try {
+    const parsed = JSON.parse(await readFile(officialBoundaryFile(root), "utf8")) as { features?: Array<Record<string, unknown>> };
+    if (!Array.isArray(parsed.features)) return [];
+    return parsed.features.flatMap((raw) => {
+      const props = raw.properties as Record<string, unknown> | undefined;
+      const geometry = raw.geometry as AreaBoundaryFeature["geometry"] | undefined;
+      if (!props || !geometry || typeof props.entity_code !== "string" || typeof props.code !== "string") return [];
+      const feature = {
+        type: "Feature" as const, id: String(raw.id ?? props.code), geometry,
+        properties: {
+          code: props.code, entity_code: props.entity_code, license: "CC BY-IGO" as const,
+          properties: {
+            role: "boundary" as const, entity_type: "administrative_unit", boundary_kind: "administrative" as const,
+            source_kind: "administrative" as const, area_km2: Number(props.area_sqkm) || 0,
+            display_label_ar: typeof props.name_ar === "string" ? props.name_ar : null,
+            display_label_en: typeof props.name_en === "string" ? props.name_en : null,
+            admin_level: String(props.level ?? "2"), name: null,
+            name_ar: typeof props.name_ar === "string" ? props.name_ar : null,
+            name_en: typeof props.name_en === "string" ? props.name_en : null,
+            source: String(props.source ?? "CAPMAS COD-AB 2017 (reviewed 2024)"),
+            attribution: String(props.attribution ?? "حدود إدارية © الجهاز المركزي للتعبئة العامة والإحصاء عبر OCHA/HDX (CC BY-IGO)"),
+            license: "CC BY-IGO" as const, retrieval_date: "2026-11-15",
+          },
+        },
+      };
+      return [feature as AreaBoundaryFeature];
+    });
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") return [];
+    throw error;
+  }
+}
+
+function getCachedOfficialBoundaries(root: string): Promise<AreaBoundaryFeature[]> {
+  let pending = officialCache.get(root);
+  if (!pending) { pending = loadOfficialBoundaries(root); officialCache.set(root, pending); }
+  return pending;
+}
+
 export async function getAreaBoundaryCodes(root = process.cwd()): Promise<Set<string>> {
-  const features = await getCachedBoundaries(root);
-  return new Set(features.map((feature) => feature.properties.entity_code));
+  const [official, osm] = await Promise.all([getCachedOfficialBoundaries(root), getCachedBoundaries(root)]);
+  return new Set([...official, ...osm].map((feature) => feature.properties.entity_code));
 }
 
 export async function getAreaBoundary(entityCode: string, root = process.cwd()): Promise<AreaBoundaryFeature | null> {
-  const features = await getCachedBoundaries(root);
-  return features.find((feature) => feature.properties.entity_code === entityCode) ?? null;
+  const official = await getCachedOfficialBoundaries(root);
+  return official.find((feature) => feature.properties.entity_code === entityCode) ??
+    (await getCachedBoundaries(root)).find((feature) => feature.properties.entity_code === entityCode) ?? null;
+}
+
+export async function getOsmAreaBoundary(entityCode: string, root = process.cwd()): Promise<AreaBoundaryFeature | null> {
+  return (await getCachedBoundaries(root)).find((feature) => feature.properties.entity_code === entityCode) ?? null;
 }
 
 export function isBoundaryEligibleEntity(entity: Pick<EntitySeed, "entity_type">): boolean {
