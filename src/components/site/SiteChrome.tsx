@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteThemeToggle } from "@/components/site/SiteThemeToggle";
 
 export type SiteLanguage = "ar" | "en";
 
@@ -20,7 +21,7 @@ export function SiteHeader({ language = "ar" }: { language?: SiteLanguage }) {
       <Link href={`/methodology?lang=${language}`}>{text.methodology}</Link>
       <Link href={`/sources?lang=${language}`}>{text.sources}</Link>
     </nav>
-    <Link className="site-language" href={`?lang=${other}`} hrefLang={other}>{text.lang}</Link>
+    <div className="site-header-actions"><SiteThemeToggle language={language}/><Link className="site-language" href={`?lang=${other}`} hrefLang={other}>{text.lang}</Link></div>
   </header>;
 }
 

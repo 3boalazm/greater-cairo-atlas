@@ -61,6 +61,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
   const entityLineCodes = entity.facts.filter((fact) => fact.attribute === "line_membership").map((fact) => fact.value);
   const entityModes = transitModesForEntityCode(entity.code, entityLineCodes);
   const transitLabel = transitModeLabel(entity.code, language, entityLineCodes);
+  const factsSectionIndex = 2 + Number(entity.relations.length > 0) + Number(entity.neighbors.length > 0);
 
   const groups=new Map<string,typeof entity.facts>();
   for (const fact of entity.facts) groups.set(fact.attribute,[...(groups.get(fact.attribute) ?? []),fact]);
@@ -107,23 +108,44 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
         {!entity.has_boundary && ["city", "district", "neighborhood", "authority"].includes(entity.entity_type) && <p className="boundary-unavailable-note">{ar ? "الحدود غير متاحة في المصدر" : "Boundary unavailable in source"}</p>}
         {entity.mapGeometry ? <><EntityMap features={mapFeatures} language={language} attribution={entity.mapAttribution}/><p className="map-data-attribution">{entity.mapAttribution} · OpenFreeMap</p></> : <p className="not-mapped-note">{text.notMapped}</p>}
       </section>
+      {entity.relations.length > 0 && <section className="entity-section entity-relations-section" aria-labelledby="entity-relations-heading">
+        <div className="section-title"><span>02</span><div><h2 id="entity-relations-heading">{ar ? "العلاقات" : "Relations"}</h2><p>{ar ? "علاقات صريحة مسندة إلى أدلة؛ لا تُستنتج من القرب الجغرافي." : "Explicit evidence-backed links; none are inferred from proximity."}</p></div></div>
+        <ul className="entity-relations-list">{[...entity.relations].sort((a,b) => (a.ordinal ?? Number.MAX_SAFE_INTEGER) - (b.ordinal ?? Number.MAX_SAFE_INTEGER)).map((relation) => {
+          const target = relation.subject_code === entity.code ? relation.object : relation.subject;
+          const relationLabels: Record<string,{ar:string;en:string}> = {has_station:{ar:"محطة على الخط",en:"Station on line"},interchange_with:{ar:"تبادل مع",en:"Interchanges with"},part_of:{ar:"جزء من",en:"Part of"},crosses:{ar:"يعبر",en:"Crosses"},connects:{ar:"يربط",en:"Connects"},located_in:{ar:"يقع في",en:"Located in"},operated_by:{ar:"تشغّله",en:"Operated by"},developed_by:{ar:"تطوره",en:"Developed by"}};
+          return <li key={`${relation.subject_code}:${relation.predicate}:${relation.object_code}`}>
+            {relation.ordinal && <span className="relation-ordinal">{relation.ordinal}</span>}<span>{relationLabels[relation.predicate]?.[language] ?? relation.predicate}</span>
+            <Link href={`/entity/${encodeURIComponent(target.code)}#entity-map-heading`} title={ar ? "فتح الكيان على صفحته وخريطته" : "Open entity profile and map"}>{ar ? target.name_ar : target.name_en}</Link>
+            {relation.predicate === "interchange_with" && <span className="transit-mode-pill">{ar ? "تبادل" : "Interchange"}</span>}
+            {relation.evidence_ref && <Link className="relation-evidence-link" href={`/sources/${encodeURIComponent(relation.evidence_ref)}?lang=${language}`}>{relation.evidence_ref}</Link>}
+          </li>;
+        })}</ul>
+      </section>}
+      {entity.neighbors.length > 0 && <section className="entity-section" aria-labelledby="entity-neighbors-heading">
+        <div className="section-title"><span>03</span><div><h2 id="entity-neighbors-heading">{ar ? "المحطات المجاورة على الخط" : "Neighboring stations on line"}</h2><p>{ar ? "المجاورة مشتقة فقط من ترتيب المحطات المسند إلى أدلة أو مسار OSM مطابق." : "Adjacency follows only evidence-backed station order or an exactly matched OSM route."}</p></div></div>
+        <ul className="entity-relations-list">{entity.neighbors.map((neighbor) => <li key={`${neighbor.subject_code}:${neighbor.object_code}`}>
+          <span className="relation-ordinal">{neighbor.ordinal}</span><span>{neighbor.direction === "previous" ? (ar ? "المحطة السابقة" : "Previous station") : (ar ? "المحطة التالية" : "Next station")}</span>
+          <Link href={`/entity/${encodeURIComponent(neighbor.object_code)}#entity-map-heading`}>{ar ? neighbor.object.name_ar : neighbor.object.name_en}</Link>
+          {neighbor.evidence_ref && <Link className="relation-evidence-link" href={`/sources/${encodeURIComponent(neighbor.evidence_ref)}?lang=${language}`}>{neighbor.evidence_ref}</Link>}
+        </li>)}</ul>
+      </section>}
       <section className="entity-section" aria-labelledby="entity-facts-heading">
-        <div className="section-title"><span>02</span><div><h2 id="entity-facts-heading">{text.facts}</h2><p>{text.conflicts}</p></div></div>
+        <div className="section-title"><span>{String(factsSectionIndex).padStart(2,"0")}</span><div><h2 id="entity-facts-heading">{text.facts}</h2><p>{text.conflicts}</p></div></div>
         {groups.size ? <div className="entity-fact-groups">{[...groups.entries()].map(([attribute,facts])=><section className="entity-fact-group" key={attribute}>
           <h3 title={attribute}>{translateLabel(FACT_ATTRIBUTE_LABELS, attribute, language)}{facts.length>1&&<small>{ar?`${facts.length} ادعاءات`: `${facts.length} claims`}</small>}</h3>
           <div className={`entity-claim-grid ${facts.length>1?"has-conflicts":""}`}>{facts.map((fact)=><article key={fact.code} className={`entity-claim ${fact.verification_state==="superseded"||fact.verification_state==="rejected"?"is-deemphasized":""}`}>
             <div className="claim-value"><strong>{fact.value}</strong>{fact.unit&&<span>{fact.unit}</span>}<span className={`verification-badge verification-${fact.verification_state}`}>{translateLabel(VERIFICATION_LABELS, fact.verification_state, language)}</span></div>
             {fact.valid_as_of&&<p className="claim-asof">{ar?"صالح بتاريخ":"Valid as of"} <time dateTime={fact.valid_as_of}>{fact.valid_as_of.slice(0,fact.valid_as_of_precision==="day"?10:fact.valid_as_of_precision==="month"?7:4)}</time>{fact.valid_as_of_precision!=="day"&&<small> · {fact.valid_as_of_precision}</small>}</p>}
             {fact.notes&&<p className="claim-notes">{fact.notes}</p>}
-            <div className="claim-sources">{fact.evidence.length?fact.evidence.map((source)=><a href={`#source-${source.code}`} key={source.code}>{source.code}</a>):<span>—</span>}</div>
+            <div className="claim-sources">{fact.evidence.length?fact.evidence.map((source)=><Link href={`/sources/${encodeURIComponent(source.code)}?lang=${language}`} key={source.code}>{source.code}</Link>):<span>—</span>}</div>
           </article>)}</div>
         </section>)}</div>:<p className="quiet-note">{text.noFacts}</p>}
       </section>
       <section className="entity-section" aria-labelledby="entity-sources-heading">
-        <div className="section-title"><span>03</span><div><h2 id="entity-sources-heading">{text.sources}</h2><p>{ar?"بيانات الناشر والنوع والتواريخ والرابط كما وردت في سجل المصدر.":"Publisher, source type, dates, and link as recorded."}</p></div></div>
+        <div className="section-title"><span>{String(factsSectionIndex + 1).padStart(2,"0")}</span><div><h2 id="entity-sources-heading">{text.sources}</h2><p>{ar?"بيانات الناشر والنوع والتواريخ والرابط كما وردت في سجل المصدر.":"Publisher, source type, dates, and link as recorded."}</p></div></div>
         {sources.size?<ul className="entity-source-list">{[...sources.values()].sort((a,b)=>a.code.localeCompare(b.code)).map((source)=><li id={`source-${source.code}`} key={source.code}>
           <span title={source.source_type} className={`source-type-pill source-${source.source_type}`}>{translateLabel(SOURCE_TYPE_LABELS, source.source_type, language)}</span>
-          <div className="source-detail"><strong>{source.title??source.code}</strong><span>{source.publisher}{source.source_type==="secondary"?` · ${text.secondary}`:""}</span>
+          <div className="source-detail"><strong><Link href={`/sources/${encodeURIComponent(source.code)}?lang=${language}`}>{source.title??source.code}</Link></strong><span>{source.publisher}{source.source_type==="secondary"?` · ${text.secondary}`:""}</span>
             <small>{source.published_date?`${text.published}: ${source.published_date}`:(ar?"لا يوجد تاريخ نشر مسجل":"Publication date not recorded")} · {text.accessed}: {source.accessed_date}</small>
             {source.url?<a href={source.url} target="_blank" rel="noreferrer">{source.url}</a>:<span className="source-no-link">{ar?"لا يوجد رابط محفوظ":"No URL recorded"}</span>}
           </div>

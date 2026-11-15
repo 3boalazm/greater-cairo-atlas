@@ -219,6 +219,14 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     url.searchParams.set("entity", code);
     window.history.pushState({}, "", url);
   }, []);
+  const selectRelatedEntity = useCallback((code: string) => {
+    setFilters(emptyFilters);
+    setQuickLayer("");
+    setLayerGroups(defaultLayerGroups);
+    setVisibleTransitModes([...TRANSIT_MODE_ORDER]);
+    setVisibleTransitLines(Object.keys(TRANSIT_LINE_COLORS));
+    selectEntity(code);
+  }, [selectEntity]);
   const toggleAreaBoundary = useCallback(async (code: string) => {
     if (highlightBoundary?.properties.entity_code === code) {
       setHighlightBoundary(null);
@@ -346,7 +354,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     </section>
     {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} language={language}
       onToggleBoundary={toggleAreaBoundary} boundaryActive={highlightBoundary?.properties.entity_code === detail?.code}
-      boundaryLoading={boundaryLoadingCode === detail?.code} />}
+      boundaryLoading={boundaryLoadingCode === detail?.code} onSelectRelated={selectRelatedEntity} />}
   </main>;
 }
 

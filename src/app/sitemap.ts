@@ -10,7 +10,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {url:`${base}/directory`,lastModified:new Date(),changeFrequency:"weekly",priority:0.9},
     {url:`${base}/data`,lastModified:new Date(),changeFrequency:"monthly",priority:0.7},
     {url:`${base}/methodology`,lastModified:new Date(),changeFrequency:"monthly",priority:0.6},
-    {url:`${base}/sources`,lastModified:new Date(),changeFrequency:"monthly",priority:0.6},
+    {url:`${base}/sources`,lastModified:new Date(),changeFrequency:"weekly",priority:0.7},
   ];
-  return [...pages,...dataset.entities.map((entity)=>({url:`${base}/entity/${encodeURIComponent(entity.code)}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:0.7}))];
+  return [...pages,
+    ...dataset.evidence.map((source)=>({url:`${base}/sources/${encodeURIComponent(source.code)}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:0.5})),
+    ...dataset.entities.map((entity)=>({url:`${base}/entity/${encodeURIComponent(entity.code)}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:0.7}))];
 }

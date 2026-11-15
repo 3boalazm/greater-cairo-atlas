@@ -32,9 +32,25 @@ export interface AtlasEntityFact {
   evidence: AtlasEvidenceItem[];
 }
 
+export interface AtlasEntityRelation {
+  subject_code: string;
+  predicate: string;
+  object_code: string;
+  ordinal: number | null;
+  evidence_ref: string | null;
+  subject: Pick<AtlasEntitySummary, "code" | "name_ar" | "name_en" | "entity_type" | "status">;
+  object: Pick<AtlasEntitySummary, "code" | "name_ar" | "name_en" | "entity_type" | "status">;
+}
+
+export interface AtlasEntityNeighbor extends AtlasEntityRelation {
+  direction: "previous" | "next";
+}
+
 export interface AtlasEntityDetail extends AtlasEntitySummary {
   description: string | null;
   facts: AtlasEntityFact[];
+  relations?: AtlasEntityRelation[];
+  neighbors?: AtlasEntityNeighbor[];
 }
 
 export interface EntityListResponse {

@@ -3,13 +3,14 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
 import { loadAndValidateSeedDir } from "@/lib/atlas/seed";
-import type { EntitySeed, EvidenceSeed, FactSeed, FeatureSeed } from "@/lib/atlas/schema";
+import type { EntityRelationSeed, EntitySeed, EvidenceSeed, FactSeed, FeatureSeed } from "@/lib/atlas/schema";
 import { getAreaBoundaryCodes } from "@/lib/atlas/area-boundaries";
 
 export interface StaticAtlasDataset {
   entities: EntitySeed[];
   evidence: EvidenceSeed[];
   facts: FactSeed[];
+  relations: EntityRelationSeed[];
   factEvidence: Array<{ fact_code: string; evidence_code: string }>;
   features: FeatureSeed[];
 }
@@ -70,9 +71,43 @@ interface EntityMapGeometryRecord {
   retrieval_dates: string[];
 }
 
+export interface StaticEvidenceCatalogItem extends EvidenceSeed {
+  linked_facts_count: number;
+  linked_entities_count: number;
+}
+
+export interface StaticEvidenceFact extends FactSeed {
+  entity_name_ar: string;
+  entity_name_en: string;
+  is_contradicted: boolean;
+}
+
+export interface StaticEvidenceDetail {
+  evidence: StaticEvidenceCatalogItem;
+  facts: StaticEvidenceFact[];
+}
+
+export interface StaticEntityRelation {
+  subject_code: string;
+  predicate: EntityRelationSeed["predicate"];
+  object_code: string;
+  ordinal: number | null;
+  valid_as_of: string | null;
+  evidence_ref: string | null;
+  subject: Pick<EntitySeed, "code" | "name_ar" | "name_en" | "entity_type" | "status">;
+  object: Pick<EntitySeed, "code" | "name_ar" | "name_en" | "entity_type" | "status">;
+  evidence: EvidenceSeed | null;
+}
+
+export interface StaticEntityNeighbor extends StaticEntityRelation {
+  direction: "previous" | "next";
+}
+
 export interface StaticEntityPageData extends EntitySeed {
   has_boundary: boolean;
   facts: Array<FactSeed & { evidence: EvidenceSeed[] }>;
+  relations: StaticEntityRelation[];
+  neighbors: StaticEntityNeighbor[];
   mapGeometry: FeatureSeed["geometry"] | null;
   mapLicense: string;
   mapAttribution: string;
@@ -89,6 +124,78 @@ async function loadEntityMapGeometries(root: string): Promise<Record<string, Ent
     entityMapGeometryPromises.set(root, pending);
   }
   return pending;
+}
+
+function staticRelationRows(dataset: StaticAtlasDataset, code?: string): StaticEntityRelation[] {
+  const entities = new Map(dataset.entities.map((entity) => [entity.code, entity]));
+  const evidence = new Map(dataset.evidence.map((item) => [item.code, item]));
+  return dataset.relations.flatMap((relation) => {
+    if (code && relation.subject_code !== code && relation.object_code !== code) return [];
+    const subject = entities.get(relation.subject_code);
+    const object = entities.get(relation.object_code);
+    if (!subject || !object) return [];
+    const source = relation.evidence_ref ? evidence.get(relation.evidence_ref) ?? null : null;
+    return [{
+      ...relation,
+      subject: { code: subject.code, name_ar: subject.name_ar, name_en: subject.name_en, entity_type: subject.entity_type, status: subject.status },
+      object: { code: object.code, name_ar: object.name_ar, name_en: object.name_en, entity_type: object.entity_type, status: object.status },
+      evidence: source,
+    }];
+  });
+}
+
+export async function getStaticEntityRelations(code?: string, root = process.cwd()): Promise<StaticEntityRelation[]> {
+  return staticRelationRows(await getStaticAtlasDataset(root), code);
+}
+
+export function staticEntityNeighbors(dataset: StaticAtlasDataset, code: string): StaticEntityNeighbor[] {
+  const relations = staticRelationRows(dataset);
+  const stationRelations = relations.filter((relation) => relation.predicate === "has_station" && relation.object_code === code && relation.ordinal !== null);
+  const neighbors = new Map<string, StaticEntityNeighbor>();
+  for (const stationRelation of stationRelations) {
+    for (const direction of ["previous", "next"] as const) {
+      const ordinal = stationRelation.ordinal! + (direction === "previous" ? -1 : 1);
+      const neighbor = relations.find((relation) => relation.predicate === "has_station" &&
+        relation.subject_code === stationRelation.subject_code && relation.ordinal === ordinal);
+      if (!neighbor || neighbor.object_code === code) continue;
+      neighbors.set(`${neighbor.subject_code}:${neighbor.object_code}`, { ...neighbor, direction });
+    }
+  }
+  return [...neighbors.values()].sort((a, b) => a.subject_code.localeCompare(b.subject_code) || a.ordinal! - b.ordinal!);
+}
+
+export async function getStaticEntityNeighbors(code: string, root = process.cwd()): Promise<StaticEntityNeighbor[]> {
+  return staticEntityNeighbors(await getStaticAtlasDataset(root), code);
+}
+
+export async function getStaticEvidenceCatalog(root = process.cwd()): Promise<StaticEvidenceCatalogItem[]> {
+  const dataset = await getStaticAtlasDataset(root);
+  const factsByEvidence = new Map<string, FactSeed[]>();
+  for (const fact of dataset.facts) for (const evidenceCode of fact.evidence_codes) {
+    factsByEvidence.set(evidenceCode, [...(factsByEvidence.get(evidenceCode) ?? []), fact]);
+  }
+  return dataset.evidence.map((evidence) => {
+    const facts = factsByEvidence.get(evidence.code) ?? [];
+    return { ...evidence, linked_facts_count: facts.length, linked_entities_count: new Set(facts.map((fact) => fact.entity_code)).size };
+  });
+}
+
+export async function getStaticEvidenceDetail(code: string, root = process.cwd()): Promise<StaticEvidenceDetail | null> {
+  const dataset = await getStaticAtlasDataset(root);
+  const evidence = await getStaticEvidenceCatalog(root).then((items) => items.find((item) => item.code === code));
+  if (!evidence) return null;
+  const entities = new Map(dataset.entities.map((entity) => [entity.code, entity]));
+  const facts = dataset.facts.filter((fact) => fact.evidence_codes.includes(code));
+  return {
+    evidence,
+    facts: facts.map((fact) => {
+      const entity = entities.get(fact.entity_code)!;
+      const contradictingClaim = fact.verification_state === "disputed" || dataset.facts.some((other) =>
+        other.entity_code === fact.entity_code && other.attribute === fact.attribute && other.value !== fact.value &&
+        !["superseded", "rejected"].includes(other.verification_state) && !["superseded", "rejected"].includes(fact.verification_state));
+      return { ...fact, entity_name_ar: entity.name_ar, entity_name_en: entity.name_en, is_contradicted: contradictingClaim };
+    }),
+  };
 }
 
 export async function getStaticEntityPageData(code: string, root = process.cwd()): Promise<StaticEntityPageData | null> {
@@ -108,6 +215,8 @@ export async function getStaticEntityPageData(code: string, root = process.cwd()
         return source ? [source] : [];
       }),
     })),
+    relations: staticRelationRows(dataset, code),
+    neighbors: staticEntityNeighbors(dataset, code),
     mapGeometry: mapGeometries[code]?.geometry ?? null,
     mapLicense: (mapGeometries[code]?.license ?? []).join(" + "),
     mapAttribution: (mapGeometries[code]?.attribution ?? []).join(" · "),

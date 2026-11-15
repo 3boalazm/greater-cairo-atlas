@@ -107,10 +107,12 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
       entitiesCount: 417,
       evidenceCount: 371,
       factsCount: 2083,
+      relationsCount: 129,
       factEvidenceLinksCount: 2436,
       featuresCount: 2928,
       importSync: {
         featuresDeletedCount: null,
+        entityRelationsDeletedCount: null,
         factEvidenceLinksDeletedCount: null,
         entitiesNotInSeedCount: null,
         factsNotInSeedCount: null,
@@ -157,6 +159,7 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
     });
     expect(response.report.importSync).toEqual({
       featuresDeletedCount: null,
+      entityRelationsDeletedCount: 4,
       factEvidenceLinksDeletedCount: 4,
       entitiesNotInSeedCount: 2,
       factsNotInSeedCount: 3,
@@ -241,10 +244,12 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
       entitiesCount: 5,
       evidenceCount: 4,
       factsCount: 5,
+      relationsCount: 0,
       factEvidenceLinksCount: 7,
       featuresCount: 0,
       importSync: {
         featuresDeletedCount: null,
+        entityRelationsDeletedCount: 0,
         factEvidenceLinksDeletedCount: 0,
         entitiesNotInSeedCount: 0,
         factsNotInSeedCount: 0,

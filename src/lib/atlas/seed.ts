@@ -4,11 +4,13 @@ import type { z } from "zod";
 import {
   canVerifyFactWithSources,
   entitySeedSchema,
+  entityRelationSeedSchema,
   evidenceSeedSchema,
   factSeedSchema,
   type DatePrecision,
   type EntitySector,
   type EntitySeed,
+  type EntityRelationSeed,
   type EntityStatus,
   type EntityType,
   type EvidenceSeed,
@@ -55,12 +57,14 @@ export interface ValidatedSeedBundle {
   entities: EntitySeed[];
   evidence: EvidenceSeed[];
   facts: FactSeed[];
+  relations: EntityRelationSeed[];
 }
 
 export interface RawSeedSources {
   entitiesCsv: string;
   evidenceJsonText: string;
   factsJsonText: string;
+  relationsJsonText?: string;
 }
 
 export interface SeedBundleWarning {
@@ -71,6 +75,7 @@ export interface SeedBundleWarning {
 
 export interface ImportSyncReport {
   featuresDeletedCount: number | null;
+  entityRelationsDeletedCount: number | null;
   factEvidenceLinksDeletedCount: number | null;
   entitiesNotInSeedCount: number | null;
   factsNotInSeedCount: number | null;
@@ -86,6 +91,7 @@ export interface SeedBundleReport {
   unresolvedOfficialEvidenceCount: number;
   unresolvedOfficialEvidenceCodes: string[];
   factsCount: number;
+  relationsCount: number;
   factEvidenceLinksCount: number;
   breakdowns: {
     entitiesByStatus: Partial<Record<EntityStatus, number>>;
@@ -127,6 +133,7 @@ export interface SeedImportSummary {
   entitiesCount: number;
   evidenceCount: number;
   factsCount: number;
+  relationsCount: number;
   factEvidenceLinksCount: number;
   featuresCount: number;
   importSync: ImportSyncReport;
@@ -593,6 +600,7 @@ export function summarizeValidatedSeedBundle(
     unresolvedOfficialEvidenceCount: unresolvedOfficialEvidenceCodes.length,
     unresolvedOfficialEvidenceCodes,
     factsCount: bundle.facts.length,
+    relationsCount: bundle.relations.length,
     factEvidenceLinksCount,
     breakdowns: {
       entitiesByStatus,
@@ -628,6 +636,13 @@ export function validateSeedSources(
     "facts.json",
     factSeedSchema,
     (item) => item.code,
+    issues,
+  );
+  const relations = parseJsonArrayFile(
+    sources.relationsJsonText ?? "[]",
+    "relations.json",
+    entityRelationSeedSchema,
+    (item) => `${item.subject_code}:${item.predicate}:${item.object_code}`,
     issues,
   );
 
@@ -680,6 +695,36 @@ export function validateSeedSources(
     }
   }
 
+  const entityByCode = new Map(entities.map((entity) => [entity.code, entity]));
+  const relationTriplets = new Set<string>();
+  for (let idx = 0; idx < relations.length; idx++) {
+    const relation = relations[idx];
+    if (!relation) continue;
+    const triplet = `${relation.subject_code}\\u0000${relation.predicate}\\u0000${relation.object_code}`;
+    if (relationTriplets.has(triplet)) issues.push({ path: `relations.json[${idx}]`, message: "Duplicate subject-predicate-object relation." });
+    relationTriplets.add(triplet);
+    const subject = entityByCode.get(relation.subject_code);
+    const object = entityByCode.get(relation.object_code);
+    if (!subject) issues.push({ path: `relations.json[${idx}].subject_code`, message: `Unknown relation subject "${relation.subject_code}".` });
+    if (!object) issues.push({ path: `relations.json[${idx}].object_code`, message: `Unknown relation object "${relation.object_code}".` });
+    if (relation.evidence_ref && !evidenceByCode.has(relation.evidence_ref)) {
+      issues.push({ path: `relations.json[${idx}].evidence_ref`, message: `Unknown evidence_ref "${relation.evidence_ref}".` });
+    }
+    const isSupportedByFact = relation.evidence_ref !== null && facts.some((fact) => {
+      const direct = fact.entity_code === relation.subject_code && fact.attribute === relation.predicate && fact.value === relation.object_code;
+      const membership = relation.predicate === "has_station" && fact.attribute === "line_membership" &&
+        fact.entity_code === relation.object_code && fact.value === relation.subject_code;
+      return (direct || membership) && fact.evidence_codes.includes(relation.evidence_ref!);
+    });
+    if (!relation.evidence_ref || !isSupportedByFact) {
+      issues.push({ path: `relations.json[${idx}].evidence_ref`, message: "Every seeded relation must cite evidence linked to a supporting fact." });
+    }
+    if (relation.predicate === "has_station" && subject && object &&
+        (subject.entity_type !== "transit_line" || !["transit_stop", "rail_station", "transit_station"].includes(object.entity_type))) {
+      issues.push({ path: `relations.json[${idx}].predicate`, message: "has_station must connect a transit line to a station entity." });
+    }
+  }
+
   if (issues.length > 0) {
     throw new SeedValidationError(
       `Seed validation failed with ${issues.length} error(s):\n` +
@@ -692,6 +737,7 @@ export function validateSeedSources(
     entities,
     evidence,
     facts,
+    relations,
   };
 }
 
@@ -701,6 +747,7 @@ export async function loadAndValidateSeedDir(
   const entitiesPath = path.join(seedDir, "entities.csv");
   const evidencePath = path.join(seedDir, "evidence.json");
   const factsPath = path.join(seedDir, "facts.json");
+  const relationsPath = path.join(seedDir, "relations.json");
 
   const fileReadIssues: ValidationIssueDetail[] = [];
 
@@ -719,10 +766,20 @@ export async function loadAndValidateSeedDir(
     }
   };
 
-  const [entitiesCsv, evidenceJsonText, factsJsonText] = await Promise.all([
+  const readOptionalRelations = async (): Promise<string> => {
+    try {
+      return await readFile(relationsPath, "utf8");
+    } catch (error) {
+      if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") return "[]";
+      fileReadIssues.push({ path: "relations.json", message: `Cannot read relation seed at ${relationsPath}: ${error instanceof Error ? error.message : String(error)}` });
+      return "[]";
+    }
+  };
+  const [entitiesCsv, evidenceJsonText, factsJsonText, relationsJsonText] = await Promise.all([
     readRequired(entitiesPath, "entities.csv"),
     readRequired(evidencePath, "evidence.json"),
     readRequired(factsPath, "facts.json"),
+    readOptionalRelations(),
   ]);
 
   if (
@@ -742,6 +799,7 @@ export async function loadAndValidateSeedDir(
     entitiesCsv,
     evidenceJsonText,
     factsJsonText,
+    relationsJsonText,
   });
 }
 
@@ -816,8 +874,17 @@ async function readImportSyncCounts(
      )`,
     [pairFactCodes, pairEvidenceCodes],
   );
+  const relationCount = await session.query<{ count: number | string }>(
+    `SELECT COUNT(*)::int AS count FROM entity_relations er
+     WHERE NOT EXISTS (
+       SELECT 1 FROM unnest($1::text[], $2::text[], $3::text[]) AS desired(subject_code, predicate, object_code)
+       WHERE desired.subject_code = er.subject_code AND desired.predicate = er.predicate AND desired.object_code = er.object_code
+     )`,
+    [bundle.relations.map((relation) => relation.subject_code), bundle.relations.map((relation) => relation.predicate), bundle.relations.map((relation) => relation.object_code)],
+  );
   return {
     featuresDeletedCount: syncFeatures ? await count("features", features.map((feature) => feature.code)) : null,
+    entityRelationsDeletedCount: Number(relationCount.rows[0]?.count ?? 0),
     factEvidenceLinksDeletedCount: Number(linkCount.rows[0]?.count ?? 0),
     entitiesNotInSeedCount: await count("entities", bundle.entities.map((item) => item.code)),
     factsNotInSeedCount: await count("facts", factCodes),
@@ -840,6 +907,7 @@ export async function upsertValidatedSeedBundle(
   entitiesCount: number;
   evidenceCount: number;
   factsCount: number;
+  relationsCount: number;
   factEvidenceLinksCount: number;
   featuresCount: number;
   importSync: ImportSyncReport;
@@ -867,6 +935,7 @@ export async function upsertValidatedSeedBundle(
       if (
         previous.rows[0]?.checksum === importRun.checksum &&
         importSyncCounts.featuresDeletedCount === 0 &&
+        importSyncCounts.entityRelationsDeletedCount === 0 &&
         importSyncCounts.factEvidenceLinksDeletedCount === 0
       ) {
         await session.query("COMMIT");
@@ -874,6 +943,7 @@ export async function upsertValidatedSeedBundle(
           entitiesCount: bundle.entities.length,
           evidenceCount: bundle.evidence.length,
           factsCount: bundle.facts.length,
+          relationsCount: bundle.relations.length,
           factEvidenceLinksCount: bundle.facts.reduce((count, fact) => count + fact.evidence_codes.length, 0),
           featuresCount: features.length,
           importSync: { ...importSyncCounts, databasePreviewAvailable: true },
@@ -951,6 +1021,28 @@ export async function upsertValidatedSeedBundle(
       }
       evidenceIdByCode.set(ev.code, row.id);
     }
+
+    for (const relation of bundle.relations) {
+      await session.query(
+        `INSERT INTO entity_relations (subject_code, predicate, object_code, ordinal, valid_as_of, evidence_ref)
+         VALUES ($1, $2, $3, $4, $5, $6)
+         ON CONFLICT (subject_code, predicate, object_code) DO UPDATE SET
+           ordinal = EXCLUDED.ordinal,
+           valid_as_of = EXCLUDED.valid_as_of,
+           evidence_ref = EXCLUDED.evidence_ref,
+           updated_at = NOW()`,
+        [relation.subject_code, relation.predicate, relation.object_code, relation.ordinal, relation.valid_as_of, relation.evidence_ref],
+      );
+    }
+    const staleRelations = await session.query<{ id: string }>(
+      `DELETE FROM entity_relations er
+       WHERE NOT EXISTS (
+         SELECT 1 FROM unnest($1::text[], $2::text[], $3::text[]) AS desired(subject_code, predicate, object_code)
+         WHERE desired.subject_code = er.subject_code AND desired.predicate = er.predicate AND desired.object_code = er.object_code
+       ) RETURNING id`,
+      [bundle.relations.map((relation) => relation.subject_code), bundle.relations.map((relation) => relation.predicate), bundle.relations.map((relation) => relation.object_code)],
+    );
+    const entityRelationsDeletedCount = staleRelations.rows.length;
 
     let factEvidenceLinksCount = 0;
     let factEvidenceLinksDeletedCount = 0;
@@ -1105,10 +1197,12 @@ export async function upsertValidatedSeedBundle(
       entitiesCount: bundle.entities.length,
       evidenceCount: bundle.evidence.length,
       factsCount: bundle.facts.length,
+      relationsCount: bundle.relations.length,
       factEvidenceLinksCount,
       featuresCount: features.length,
       importSync: {
         featuresDeletedCount: syncFeatures ? featuresDeletedCount : null,
+        entityRelationsDeletedCount,
         factEvidenceLinksDeletedCount,
         entitiesNotInSeedCount: importSyncCounts.entitiesNotInSeedCount,
         factsNotInSeedCount: importSyncCounts.factsNotInSeedCount,
@@ -1145,8 +1239,9 @@ export async function runSeedImport(
     const previewSessionFactory = options.sessionFactory ?? (hasDatabaseConfig ? defaultSessionFactory : null);
     const importSync: ImportSyncReport = previewSessionFactory
       ? { ...(await getImportSyncPreview(bundle, features, previewSessionFactory, syncFeatures)), databasePreviewAvailable: true }
-      : {
+        : {
           featuresDeletedCount: null,
+          entityRelationsDeletedCount: null,
           factEvidenceLinksDeletedCount: null,
           entitiesNotInSeedCount: null,
           factsNotInSeedCount: null,
@@ -1159,6 +1254,7 @@ export async function runSeedImport(
       entitiesCount: report.entitiesCount,
       evidenceCount: report.evidenceCount,
       factsCount: report.factsCount,
+      relationsCount: report.relationsCount,
       factEvidenceLinksCount: report.factEvidenceLinksCount,
       featuresCount: features.length,
       ...importSync,
@@ -1170,6 +1266,7 @@ export async function runSeedImport(
       entitiesCount: report.entitiesCount,
       evidenceCount: report.evidenceCount,
       factsCount: report.factsCount,
+      relationsCount: report.relationsCount,
       factEvidenceLinksCount: report.factEvidenceLinksCount,
       featuresCount: features.length,
       importSync,

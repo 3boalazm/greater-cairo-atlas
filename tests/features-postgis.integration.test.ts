@@ -94,6 +94,7 @@ describe("real PostGIS features SQL regression", () => {
     await db.exec(await readFile(path.resolve(process.cwd(), "db/migrations/006_road_only_bbox_extension.sql"), "utf8"));
     await db.exec(await readFile(path.resolve(process.cwd(), "db/migrations/007_regional_ring_west_bbox.sql"), "utf8"));
     await db.exec(await readFile(path.resolve(process.cwd(), "db/migrations/008_verified_facts_require_official_url.sql"), "utf8"));
+    await db.exec(await readFile(path.resolve(process.cwd(), "db/migrations/009_entity_relations.sql"), "utf8"));
 
     const importSummary = await runSeedImport({
       seedDir: path.resolve(process.cwd(), "data/seed"),
@@ -111,7 +112,13 @@ describe("real PostGIS features SQL regression", () => {
     expect(importSummary.entitiesCount).toBe(417);
     expect(importSummary.evidenceCount).toBe(371);
     expect(importSummary.factsCount).toBe(2083);
+    expect(importSummary.relationsCount).toBeGreaterThan(0);
+    expect(importSummary.importSync.entityRelationsDeletedCount).toBe(0);
     expect(importSummary.factEvidenceLinksCount).toBe(2436);
+    const relations = await db.query<{ count: number }>("SELECT COUNT(*)::int AS count FROM entity_relations");
+    expect(relations.rows[0]?.count).toBe(importSummary.relationsCount);
+    const relationEvidence = await db.query<{ count: number }>("SELECT COUNT(*)::int AS count FROM entity_relations WHERE evidence_ref IS NOT NULL");
+    expect(relationEvidence.rows[0]?.count).toBe(importSummary.relationsCount);
     featureCount = importSummary.featuresCount;
     const boundaryCollection = JSON.parse(await readFile(path.resolve(process.cwd(), "data/features/boundaries.geojson"), "utf8")) as {
       features: Array<{ geometry: unknown; properties: { code: string; entity_code: string } }>;

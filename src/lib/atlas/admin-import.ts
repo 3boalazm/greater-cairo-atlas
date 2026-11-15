@@ -25,6 +25,7 @@ export interface AdminSeedImportResponseBody {
     entitiesCount: number;
     evidenceCount: number;
     factsCount: number;
+    relationsCount: number;
     factEvidenceLinksCount: number;
     featuresCount: number;
     importSync: ImportSyncReport;
@@ -180,6 +181,7 @@ export async function executeAdminSeedImport(
       entitiesCount: result.entitiesCount,
       evidenceCount: result.evidenceCount,
       factsCount: result.factsCount,
+      relationsCount: result.relationsCount,
       factEvidenceLinksCount: result.factEvidenceLinksCount,
       featuresCount: result.featuresCount,
       importSync: result.importSync,

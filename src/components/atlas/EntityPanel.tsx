@@ -37,7 +37,7 @@ function FactCard({ fact, language }: { fact: AtlasEntityFact; language: AtlasLa
   </article>;
 }
 
-export function EntityPanel({ entity, loading, error, onClose, language, onToggleBoundary, boundaryActive, boundaryLoading }: {
+export function EntityPanel({ entity, loading, error, onClose, language, onToggleBoundary, boundaryActive, boundaryLoading, onSelectRelated }: {
   entity: AtlasEntityDetail | null;
   loading: boolean;
   error: string | null;
@@ -46,6 +46,7 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
   onToggleBoundary: (code: string) => void;
   boundaryActive: boolean;
   boundaryLoading: boolean;
+  onSelectRelated: (code: string) => void;
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
@@ -100,8 +101,28 @@ export function EntityPanel({ entity, loading, error, onClose, language, onToggl
           {!entity.has_boundary && areaEntityTypes.has(entity.entity_type) && <p className="boundary-unavailable-note">{ar ? "الحدود غير متاحة في المصدر" : "Boundary unavailable in source"}</p>}
           {!entity.has_geometry && <p className="entity-unmapped-note"><MapPinOff aria-hidden="true" />{ar ? "لا توجد هندسة مسجلة لهذا الكيان" : "No geometry is recorded for this entity"}</p>}
           {entity.description && <p className="entity-description">{entity.description}</p>}
+          {(entity.relations?.length ?? 0) > 0 && <section aria-labelledby="relations-heading" className="entity-relations-panel">
+            <div className="panel-section-heading"><span className="section-index">01</span><div><h3 id="relations-heading">{ar ? "العلاقات" : "Relations"}</h3><small>{ar ? "روابط مسندة إلى سجل دليل" : "Evidence-backed entity links"}</small></div></div>
+            <ul>{[...(entity.relations ?? [])].sort((a,b) => (a.ordinal ?? Number.MAX_SAFE_INTEGER) - (b.ordinal ?? Number.MAX_SAFE_INTEGER)).map((relation) => {
+              const target = relation.subject_code === entity.code ? relation.object : relation.subject;
+              const predicateLabels: Record<string, {ar:string;en:string}> = {has_station:{ar:"يضم محطة",en:"has station"},interchange_with:{ar:"تبادل مع",en:"interchanges with"},part_of:{ar:"جزء من",en:"part of"},crosses:{ar:"يعبر",en:"crosses"},connects:{ar:"يربط",en:"connects"},located_in:{ar:"يقع في",en:"located in"},operated_by:{ar:"تشغّله",en:"operated by"},developed_by:{ar:"تطوره",en:"developed by"}};
+              return <li key={`${relation.subject_code}:${relation.predicate}:${relation.object_code}`}>
+                {relation.ordinal && <span className="relation-ordinal">{relation.ordinal}</span>}<span>{predicateLabels[relation.predicate]?.[language] ?? relation.predicate}</span>
+                <button className="relation-select-button" type="button" onClick={() => onSelectRelated(target.code)} title={ar ? "الانتقال إلى الكيان على الخريطة" : "Fly to this entity on the map"}>{ar ? target.name_ar : target.name_en}</button>
+                {relation.predicate === "interchange_with" && <span className="transit-mode-pill">{ar ? "تبادل" : "Interchange"}</span>}
+                {relation.evidence_ref && <Link className="relation-evidence-link" href={`/sources/${encodeURIComponent(relation.evidence_ref)}?lang=${language}`} title={ar ? "فتح سجل الدليل" : "Open evidence record"}>{relation.evidence_ref}</Link>}
+              </li>;
+            })}</ul>
+          </section>}
+          {(entity.neighbors?.length ?? 0) > 0 && <section aria-labelledby="neighbors-heading" className="entity-relations-panel">
+            <div className="panel-section-heading"><span className="section-index">02</span><div><h3 id="neighbors-heading">{ar ? "المحطات المجاورة" : "Neighboring stations"}</h3><small>{ar ? "حسب ترتيب المحطات الموثق" : "By documented station order"}</small></div></div>
+            <ul>{entity.neighbors?.map((neighbor) => <li key={`${neighbor.subject_code}:${neighbor.object_code}`}>
+              <span className="relation-ordinal">{neighbor.ordinal}</span><span>{neighbor.direction === "previous" ? (ar ? "سابقة" : "Previous") : (ar ? "تالية" : "Next")}</span>
+              <button className="relation-select-button" type="button" onClick={() => onSelectRelated(neighbor.object_code)}>{ar ? neighbor.object.name_ar : neighbor.object.name_en}</button>
+            </li>)}</ul>
+          </section>}
           <section aria-labelledby="facts-heading">
-            <div className="panel-section-heading"><span className="section-index">01</span><div><h3 id="facts-heading">{ar ? "الحقائق والمصادر" : "Facts & evidence"}</h3><small>{ar ? "التعارضات معروضة جنبًا إلى جنب دون ترجيح آلي" : "Conflicting claims stay side by side; no automatic winner."}</small></div></div>
+            <div className="panel-section-heading"><span className="section-index">{(entity.relations?.length ?? 0) > 0 ? ((entity.neighbors?.length ?? 0) > 0 ? "03" : "02") : "01"}</span><div><h3 id="facts-heading">{ar ? "الحقائق والمصادر" : "Facts & evidence"}</h3><small>{ar ? "التعارضات معروضة جنبًا إلى جنب دون ترجيح آلي" : "Conflicting claims stay side by side; no automatic winner."}</small></div></div>
             {groups.length ? groups.map(([attribute, facts]) => <div className="fact-group" key={attribute}>
               <h4 title={attribute}>{translateLabel(FACT_ATTRIBUTE_LABELS, attribute, language)}{facts.length > 1 && <span>{ar ? `${facts.length} قيم متعارضة/متعددة` : `${facts.length} claims`}</span>}</h4>
               <div className={facts.length > 1 ? "fact-grid conflicting-facts" : "fact-grid"}>{facts.map((fact) => <FactCard key={fact.code} fact={fact} language={language} />)}</div>
