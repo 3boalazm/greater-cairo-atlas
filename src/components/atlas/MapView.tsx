@@ -18,6 +18,13 @@ maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
 
 export type MapStyleStatus = "loading" | "ready" | "error";
 
+/**
+ * BATCH 14.2 — the four groups the opacity sliders control, mapped to the layer ids each one paints.
+ * Keeping the mapping here (rather than in the panel) means the panel cannot drift from what is drawn.
+ */
+export type MapLayerOpacity = { infrastructure: number; transport: number; areas: number; projects: number; reference: number };
+export const DEFAULT_MAP_OPACITY: MapLayerOpacity = { infrastructure: 1, transport: 1, areas: 1, projects: 1, reference: 1 };
+
 const sourceId = "atlas-features";
 const roadNetworkSourceId = "atlas-road-network";
 const roadNetworkDetailSourceId = "atlas-road-network-detail";
@@ -104,6 +111,90 @@ function syncRailLayers(
   });
 }
 
+/**
+ * BATCH 14.2 — which layer ids each opacity group owns.
+ *
+ * Declared as data and applied in one pass after the layers are added, rather than by editing fifteen
+ * paint literals: a layer added later is covered by adding its id here, and a typo in one paint property
+ * cannot leave a single layer stuck at full opacity.
+ */
+const OPACITY_GROUP_LAYERS: Record<keyof MapLayerOpacity, Array<{ id: string; property: "line-opacity" | "circle-opacity" | "fill-opacity" }>> = {
+  infrastructure: [
+    { id: "atlas-roads-casing", property: "line-opacity" },
+    { id: "atlas-lines-operational", property: "line-opacity" },
+    { id: "atlas-lines-partial", property: "line-opacity" },
+    { id: "atlas-lines-construction", property: "line-opacity" },
+    { id: "atlas-lines-planned", property: "line-opacity" },
+    { id: "atlas-lines-unknown", property: "line-opacity" },
+    { id: "atlas-lines-geometry-conflict", property: "line-opacity" },
+  ],
+  // Station and stop symbology, plus the shared line styling they inherit from the transport group.
+  transport: [
+    { id: "atlas-points", property: "circle-opacity" },
+    { id: "atlas-station-entity-icons", property: "circle-opacity" },
+    { id: "atlas-station-entity-interchange-ring", property: "circle-opacity" },
+    { id: "atlas-transit-station-icons", property: "circle-opacity" },
+    { id: "atlas-transit-interchange-ring", property: "circle-opacity" },
+    { id: "atlas-rail-stations", property: "circle-opacity" },
+  ],
+  areas: [
+    { id: "atlas-polygons-fill", property: "fill-opacity" },
+    { id: "atlas-polygons-outline", property: "line-opacity" },
+    { id: "atlas-area-boundary-fill", property: "fill-opacity" },
+    { id: "atlas-admin-unit-outline", property: "line-opacity" },
+  ],
+  projects: [
+    // Project geometry is drawn by the status layers above; the group slider reuses those ids at a
+    // second factor, so turning projects down dims planned/construction work without dimming roads.
+    { id: "atlas-lines-planned", property: "line-opacity" },
+    { id: "atlas-lines-construction", property: "line-opacity" },
+  ],
+  reference: [
+    { id: roadNetworkLayerId, property: "line-opacity" },
+    { id: roadNetworkDetailLayerId, property: "line-opacity" },
+  ],
+};
+
+/**
+ * Read the opacity a layer was authored with, so the group factor scales it instead of replacing it.
+ * Returns null when the layer has no paint of that kind, which means the layer does not participate.
+ */
+function applyGroupOpacity(map: maplibregl.Map, opacity: MapLayerOpacity, authoredCache: Map<string, number>): void {
+  if (!map.isStyleLoaded()) return;
+  for (const [group, layers] of Object.entries(OPACITY_GROUP_LAYERS) as Array<[keyof MapLayerOpacity, (typeof OPACITY_GROUP_LAYERS)[keyof MapLayerOpacity]]>) {
+    const factor = opacity[group];
+    for (const layer of layers) {
+      if (!map.getLayer(layer.id)) continue;
+      const key = `${layer.id}:${layer.property}`;
+      /**
+       * The authored ("100%") opacity is captured the first time this layer is seen and reused after that.
+       * Reading it back from the style on every pass would compound the factor — drag the slider to 50%
+       * twice and the layer would end up at 25%. The cache is cleared whenever the style is rebuilt, which
+       * is the only time the authored values change (theme switch).
+       */
+      let base = authoredCache.get(key);
+      if (base === undefined) {
+        const current = map.getPaintProperty(layer.id, layer.property);
+        base = typeof current === "number" ? current : layer.property === "fill-opacity" ? 0.11 : 0.9;
+        authoredCache.set(key, base);
+      }
+      map.setPaintProperty(layer.id, layer.property, scaledOpacity(base, factor === undefined ? 1 : factor));
+    }
+  }
+}
+
+/**
+ * Scale a layer's authored opacity by its group's factor.
+ *
+ * Multiplication, not replacement: the layers carry a deliberate hierarchy (a casing behind a road, a
+ * fainter reference network), and setting the group to 100% must reproduce that hierarchy unchanged. A
+ * replacement would flatten it, so "100%" would look different from the map as it shipped.
+ */
+function scaledOpacity(base: number, factor: number | undefined): number {
+  if (factor === undefined || factor === 1) return base;
+  return Math.max(0, Math.min(1, Math.round(base * factor * 1000) / 1000));
+}
+
 function entityLineColor(theme: AtlasTheme): MapExpression {
   const colors = Object.entries(TRANSIT_LINE_COLORS).flatMap(([code, color]) => [code, color]);
   const lineCode = ["coalesce", ["get", "primary_line_code"], ["at", 0, ["get", "line_codes"]], ["get", "entity_code"]];
@@ -187,7 +278,7 @@ function cameraPadding(map: MapLibreMap, margin: number) {
   );
 }
 
-export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, selectedCode = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false, showAreaBoundaries = true, fitRequest = 0 }: {
+export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, selectedCode = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false, showAreaBoundaries = true, fitRequest = 0, opacity = DEFAULT_MAP_OPACITY }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
   onSelect: (entityCode: string) => void;
@@ -207,6 +298,11 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
   showInterchanges?: boolean;
   /** Incremented by «اعرض على الخريطة» and by a new selection to refit the camera (FIX E). */
   fitRequest?: number;
+  /**
+   * BATCH 14.2 — per-group opacity, 0.1–1. Defaults are all 1 so a map with no saved settings draws
+   * exactly as it did before this feature existed.
+   */
+  opacity?: MapLayerOpacity;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -218,6 +314,8 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
   const showDisusedRailRef = useRef(false);
   const showAreaBoundariesRef = useRef(showAreaBoundaries);
   const boundaryRef = useRef<AreaBoundaryFeature | null>(highlightBoundary);
+  /** BATCH 14.2 — authored opacities, so repeated slider changes scale from 100%, never compound. */
+  const authoredOpacity = useRef(new Map<string, number>());
   const selectedCodeRef = useRef<string | null>(selectedCode);
   const lastSelectedCodeRef = useRef<string | null>(null);
   const visibleModesRef = useRef<readonly TransitMode[]>(visibleTransitModes);
@@ -285,7 +383,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
           paint: {
             "line-color": theme === "day" ? "#60756a" : "#7f9185",
             "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.35, 9, 0.75, 11, 0.95],
-            "line-opacity": 0.34,
+            "line-opacity": scaledOpacity(0.34, opacity.reference),
           },
           layout: {
             "line-cap": "round", "line-join": "round",
@@ -297,7 +395,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
           paint: {
             "line-color": theme === "day" ? "#60756a" : "#7f9185",
             "line-width": ["interpolate", ["linear"], ["zoom"], 11, 0.9, 14, 1.25],
-            "line-opacity": 0.34,
+            "line-opacity": scaledOpacity(0.34, opacity.reference),
           },
           layout: {
             "line-cap": "round", "line-join": "round",
@@ -308,7 +406,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
       const addRailLineLayer = (id: string, source: string, status: string, color: string, dasharray?: number[], maxzoom?: number, minzoom?: number) => map.addLayer({
         id, type: "line", source, filter: ["==", ["get", "rail_status"], status],
         ...(maxzoom === undefined ? {} : { maxzoom }), ...(minzoom === undefined ? {} : { minzoom }),
-        paint: { "line-color": color, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.45, 9, 0.95, 14, 1.5], "line-opacity": status === "operational" ? 0.78 : 0.62, ...(dasharray ? { "line-dasharray": dasharray } : {}) },
+        paint: { "line-color": color, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.45, 9, 0.95, 14, 1.5], "line-opacity": scaledOpacity(status === "operational" ? 0.78 : 0.62, opacity.reference), ...(dasharray ? { "line-dasharray": dasharray } : {}) },
         layout: { "line-cap": "round", "line-join": "round", visibility: "none" },
       });
       for (const [source, suffix, maxzoom, minzoom] of [[railNetworkSourceId, "low", 12, undefined], [railNetworkDetailSourceId, "detail", undefined, 12]] as const) {
@@ -487,6 +585,10 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
         filter: ["all", ["==", ["get", "entity_code"], "__none__"], ["==", ["geometry-type"], "Point"]],
         paint: { "circle-radius": 15, "circle-color": "#fff36d", "circle-opacity": 0.4, "circle-stroke-color": "#fff36d", "circle-stroke-width": 3 },
       });
+      // BATCH 14.2 — scale the authored opacities by the saved group factors, before first paint, so a
+      // restored view never flashes at full opacity.
+      authoredOpacity.current.clear();
+      applyGroupOpacity(map, opacity, authoredOpacity.current);
       // FIX D: apply the shared station-layer state before the map is reported ready, so the
       // first paint already respects the «النقل»/mode filters and the interchange toggle.
       const initialRailStatuses = applyStationLayerVisibility(map, {
@@ -564,12 +666,26 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
     });
     map.on("zoomend", () => onZoomRef.current(Math.round(map.getZoom())));
     return () => { transitTooltipRef.current?.remove(); transitTooltipRef.current = null; map.remove(); mapRef.current = null; };
+    // `opacity` is read once at creation to avoid a full-opacity first paint; later changes go through the
+    // dedicated effect above, so it is intentionally not a dependency here (it would rebuild the map).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme, compact, fitToFeatures, language]);
 
   useEffect(() => {
     const source = mapRef.current?.getSource(sourceId) as GeoJSONSource | undefined;
     source?.setData(features as unknown as FeatureCollection);
   }, [features]);
+
+  /**
+   * BATCH 14.2 — apply opacity changes without rebuilding the map. Rebuilding on every slider tick would
+   * throw away the camera and every loaded source, so the slider feels like a page reload instead of a
+   * dimmer.
+   */
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !mapReady) return;
+    applyGroupOpacity(map, opacity, authoredOpacity.current);
+  }, [mapReady, opacity]);
 
   useEffect(() => {
     const map = mapRef.current;

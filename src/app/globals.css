@@ -878,3 +878,19 @@ a { color: inherit; }
 .timeline-fact-link { padding: 0; font: inherit; font-size: .78rem; color: var(--operational); background: none; border: 0; border-bottom: 1px dotted currentColor; cursor: pointer; }
 .timeline-precision { color: var(--muted); }
 .timeline-candidates { margin: .2rem 0 0; padding-inline-start: 1.1rem; font-size: .75rem; color: var(--muted); }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   BATCH 14.2 — layer opacity, inside «تفاصيل أكتر»
+   The slider row puts the name, the slider and the percentage on one line so five
+   groups fit without scrolling; the percentage is shown because a slider position
+   is not something a reader can quote.
+   ─────────────────────────────────────────────────────────────────────────── */
+.layer-opacity-details > summary { cursor: pointer; font-size: .8rem; color: var(--muted); }
+.layer-opacity-controls { display: grid; gap: .3rem; margin: .4rem 0 0; padding: .5rem .6rem; border: 1px solid var(--border); border-radius: 10px; }
+.layer-opacity-controls legend { padding: 0 .3rem; font-size: .75rem; color: var(--muted); }
+.layer-opacity-row { display: grid; grid-template-columns: 1fr 7rem 2.6rem; align-items: center; gap: .45rem; font-size: .78rem; }
+.layer-opacity-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.layer-opacity-row input[type="range"] { width: 100%; accent-color: var(--accent); }
+.layer-opacity-row output { font-variant-numeric: tabular-nums; text-align: end; color: var(--muted); font-size: .74rem; }
+.layer-opacity-reset { justify-self: start; margin-top: .25rem; }
+.layer-opacity-controls small { font-size: .7rem; line-height: 1.5; color: var(--muted); }

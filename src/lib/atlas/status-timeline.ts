@@ -243,3 +243,35 @@ export function timelineDisagreementNote(language: "ar" | "en"): string {
     ? "الحالة المعروضة تتغير حسب السنة المختارة، وقد تختلف عن الحالة المنشورة لأن آخر ادعاء مؤرخ لا يطابق العمود المنقح. الاثنان ظاهران ولم يُرجَّح أحدهما آليًا."
     : "The status shown changes with the selected year and may differ from the published status because the latest dated claim does not match the curated column. Both remain visible; neither is resolved automatically.";
 }
+
+/**
+ * BATCH 14.1 — decide the timeline state a URL asks for.
+ *
+ * This exists as a pure function because the bug it fixes was in exactly this glue: a shared
+ * `?year=2019` link applied the year but left the control collapsed, so the recipient saw a map that
+ * looked wrong with no way to tell why or to return to today. The rule is simple and worth pinning:
+ *
+ * - a valid year in the URL opens the control and selects that year;
+ * - `today` in the URL, or no year at all, closes the control and returns to the range's maximum;
+ * - a year outside the range is ignored rather than clamped, because silently showing 2015 for `?year=1800`
+ *   would misrepresent what the sender asked for. The control stays closed, at today.
+ */
+export interface TimelineUrlState {
+  year: number;
+  enabled: boolean;
+}
+
+export function resolveTimelineUrlState(yearParam: string | null, range: { min: number; max: number }): TimelineUrlState {
+  if (yearParam === null || yearParam.trim() === "") return { year: range.max, enabled: false };
+  const parsed = Number.parseInt(yearParam, 10);
+  if (!Number.isFinite(parsed) || String(parsed) !== yearParam.trim()) return { year: range.max, enabled: false };
+  if (parsed < range.min || parsed > range.max) return { year: range.max, enabled: false };
+  // Today's own year is the same state the control calls "closed", so treat it as closed to keep URLs clean.
+  return { year: parsed, enabled: parsed !== range.max };
+}
+
+/** The query-string value for the current state: omitted when the map is showing today. */
+export function timelineYearParam(state: TimelineUrlState, max: number): string | null {
+  if (!state.enabled || state.year >= max) return null;
+  return String(state.year);
+}

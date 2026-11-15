@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
-  factYear, isAdmissibleStatusFact, resolveStatusByYear, timelineSummary, timelineYearRange,
-  type TimelineStatusFact,
+  factYear, isAdmissibleStatusFact, resolveStatusByYear, resolveTimelineUrlState, timelineSummary,
+  timelineYearParam, timelineYearRange, type TimelineStatusFact,
 } from "@/lib/atlas/status-timeline";
 import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
 
@@ -295,4 +295,49 @@ describe("BATCH 14.1 — the default (today) must render exactly the current map
     // The seed currently has none; if that changes, the loop above covers them rather than failing here.
     expect(future.length).toBeGreaterThanOrEqual(0);
   }, 120000);
+});
+
+describe("BATCH 14.1 — a shared ?year= link shows what the sender saw", () => {
+  const range = { min: 2015, max: 2026 };
+
+  it("opens the control when the URL carries a past year", () => {
+    // The bug this pins: applying the year while leaving the control collapsed left the recipient with a
+    // map that looked wrong and no way to see why or to return to today.
+    expect(resolveTimelineUrlState("2019", range)).toEqual({ year: 2019, enabled: true });
+  });
+
+  it("treats the current year as closed, so a normal URL stays clean", () => {
+    expect(resolveTimelineUrlState("2026", range)).toEqual({ year: 2026, enabled: false });
+  });
+
+  it("closes the control when there is no year in the URL", () => {
+    expect(resolveTimelineUrlState(null, range)).toEqual({ year: 2026, enabled: false });
+    expect(resolveTimelineUrlState("", range)).toEqual({ year: 2026, enabled: false });
+  });
+
+  it("ignores an out-of-range year rather than clamping it", () => {
+    // Silently showing 2015 for ?year=1800 would misrepresent what the sender asked for.
+    expect(resolveTimelineUrlState("1800", range)).toEqual({ year: 2026, enabled: false });
+    expect(resolveTimelineUrlState("2099", range)).toEqual({ year: 2026, enabled: false });
+  });
+
+  it("rejects a malformed year", () => {
+    expect(resolveTimelineUrlState("abc", range)).toEqual({ year: 2026, enabled: false });
+    expect(resolveTimelineUrlState("2019.5", range)).toEqual({ year: 2026, enabled: false });
+    expect(resolveTimelineUrlState("2019abc", range)).toEqual({ year: 2026, enabled: false });
+  });
+
+  it("writes the year back only when it differs from today", () => {
+    expect(timelineYearParam({ year: 2019, enabled: true }, 2026)).toBe("2019");
+    expect(timelineYearParam({ year: 2026, enabled: true }, 2026)).toBeNull();
+    expect(timelineYearParam({ year: 2019, enabled: false }, 2026)).toBeNull();
+  });
+
+  it("round-trips through the URL", () => {
+    for (const year of [2015, 2019, 2025]) {
+      expect(resolveTimelineUrlState(timelineYearParam({ year, enabled: true }, range.max), range)).toEqual({ year, enabled: true });
+    }
+    // And "today" survives the round trip as today.
+    expect(resolveTimelineUrlState(timelineYearParam({ year: 2026, enabled: true }, range.max), range)).toEqual({ year: 2026, enabled: false });
+  });
 });
