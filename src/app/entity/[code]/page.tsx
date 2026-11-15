@@ -10,7 +10,7 @@ import type { AtlasFeatureCollection } from "@/components/atlas/atlas-client";
 import { transitModeLabel, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
 import { SuggestionForm } from "@/components/atlas/SuggestionForm";
 import { EntityTimeline } from "@/components/atlas/EntityTimeline";
-import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, SECTOR_LABELS, SIMPLE_STATUS_LABELS, SOURCE_TYPE_LABELS, VERIFICATION_LABELS, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
+import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, SECTOR_LABELS, SIMPLE_STATUS_LABELS, SOURCE_TYPE_LABELS, VERIFICATION_LABELS, quickFactSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
 interface EntityPageProps {
   params: Promise<{ code: string }>;
@@ -128,7 +128,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
       </section>
       <section className="entity-section simple-key-facts" aria-labelledby="entity-key-facts-heading">
         <div className="section-title"><span>02</span><div><h2 id="entity-key-facts-heading">{ar ? "معلومات سريعة" : "Key facts"}</h2></div></div>
-        {simpleKeyFacts.length ? <ul>{simpleKeyFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <small className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</small>}<small>{ar ? `${sourceCount} مصادر` : `${sourceCount} sources`}</small></li>)}</ul> : <p className="quiet-note">{ar ? "لا توجد معلومات موجزة مسجلة." : "No short facts are recorded."}</p>}
+        {simpleKeyFacts.length ? <ul>{simpleKeyFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <small className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</small>}{quickFactSourceCountLabel(sourceCount, language) && <small>{quickFactSourceCountLabel(sourceCount, language)}</small>}</li>)}</ul> : <p className="quiet-note">{ar ? "لا توجد معلومات موجزة مسجلة." : "No short facts are recorded."}</p>}
       </section>
       <ResearcherOnly><section className="entity-section" aria-labelledby="entity-sources-heading">
         <div className="section-title"><span>{String(factsSectionIndex + 2).padStart(2,"0")}</span><div><h2 id="entity-sources-heading">{text.sources}</h2><p>{ar?"بيانات الناشر والنوع والتواريخ والرابط كما وردت في سجل المصدر.":"Publisher, source type, dates, and link as recorded."}</p></div></div>
