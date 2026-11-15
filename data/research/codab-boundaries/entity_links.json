@@ -1,0 +1,776 @@
+{
+ "source": {
+  "dataset": "Egypt - Subnational Administrative Boundaries (cod-ab-egy)",
+  "url": "https://data.humdata.org/dataset/cod-ab-egy",
+  "publisher": "CAPMAS; contributed by OCHA ROMENA; published by OCHA FIS / HDX",
+  "license": "CC BY-IGO",
+  "boundaries_created": "2017-08-14",
+  "reviewed": "2024-12-19",
+  "accessed": "2026-11-15"
+ },
+ "exclude_pcodes": {
+  "EG0100": "Zemam Out",
+  "EG1400": "Zemam Out",
+  "EG2100": "Zemam Out (35k km2 desert)",
+  "EG2114": "Bahariya Oasis, outside Greater Cairo"
+ },
+ "adm2_display_name_fixes": {
+  "EG0106": "قسم مصر القديمة",
+  "EG0120": "قسم روض الفرج",
+  "EG0123": "قسم حدائق القبة",
+  "EG0127": "قسم ثان مدينة نصر",
+  "EG0128": "قسم مصر الجديدة",
+  "EG0130": "قسم عين شمس",
+  "EG0131": "قسم الزاوية الحمراء",
+  "EG0134": "قسم منشأة ناصر",
+  "EG2114": "قسم الواحات البحرية"
+ },
+ "links": [
+  {
+   "entity_code": "CITY-15-MAY",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0103"
+   ],
+   "names_ar": [
+    "قسم 15 مايو"
+   ]
+  },
+  {
+   "entity_code": "CITY-6-OCTOBER",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG2107",
+    "EG2121"
+   ],
+   "names_ar": [
+    "قسم أول 6 أكتوبر",
+    "قسم ثان 6 أكتوبر"
+   ]
+  },
+  {
+   "entity_code": "CITY-BADR",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0141"
+   ],
+   "names_ar": [
+    "قسم بدر"
+   ]
+  },
+  {
+   "entity_code": "CITY-NEW-CAIRO",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0137",
+    "EG0138",
+    "EG0139"
+   ],
+   "names_ar": [
+    "قسم أول القاهرة الجديدة",
+    "قسم ثان القاهرة الجديدة",
+    "قسم ثالث القاهرة الجديدة"
+   ]
+  },
+  {
+   "entity_code": "CITY-SHOROUK",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0140"
+   ],
+   "names_ar": [
+    "قسم الشروق"
+   ]
+  },
+  {
+   "entity_code": "CITY-OBOUR",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG1413"
+   ],
+   "names_ar": [
+    "قسم العبور"
+   ]
+  },
+  {
+   "entity_code": "CITY-SHEIKH-ZAYED",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG2119"
+   ],
+   "names_ar": [
+    "قسم الشيخ زايد"
+   ]
+  },
+  {
+   "entity_code": "CITY-SHUBRA-ELKHEIMA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG1406",
+    "EG1407"
+   ],
+   "names_ar": [
+    "قسم أول شبرا الخيمة",
+    "قسم ثان شبرا الخيمة"
+   ]
+  },
+  {
+   "entity_code": "CITY-BENHA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG1401"
+   ],
+   "names_ar": [
+    "قسم بنها"
+   ]
+  },
+  {
+   "entity_code": "CITY-QALYUB",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG1409"
+   ],
+   "names_ar": [
+    "قسم قليوب"
+   ]
+  },
+  {
+   "entity_code": "CITY-QAHA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG1414"
+   ],
+   "names_ar": [
+    "قسم قها"
+   ]
+  },
+  {
+   "entity_code": "CITY-KHANKA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG140301"
+   ],
+   "names_ar": [
+    "مدينة الخانكة"
+   ]
+  },
+  {
+   "entity_code": "CITY-KERDASA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG212001"
+   ],
+   "names_ar": [
+    "كرداسة"
+   ]
+  },
+  {
+   "entity_code": "CITY-TOUKH",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG140801"
+   ],
+   "names_ar": [
+    "مدينة طوخ"
+   ]
+  },
+  {
+   "entity_code": "CITY-AUSIM",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG211601"
+   ],
+   "names_ar": [
+    "مدينة أوسيم"
+   ]
+  },
+  {
+   "entity_code": "CITY-KAFR-SHUKR",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG141101"
+   ],
+   "names_ar": [
+    "مدينة كفر شكر"
+   ]
+  },
+  {
+   "entity_code": "CITY-SHIBIN-ELQANATER",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG140501"
+   ],
+   "names_ar": [
+    "مدينة شبين القناطر"
+   ]
+  },
+  {
+   "entity_code": "DIST-ABDEEN",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0109"
+   ],
+   "names_ar": [
+    "قسم عابدين"
+   ]
+  },
+  {
+   "entity_code": "DIST-AGOUZA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG2102"
+   ],
+   "names_ar": [
+    "قسم العجوزة"
+   ]
+  },
+  {
+   "entity_code": "DIST-AIN-SHAMS",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0130"
+   ],
+   "names_ar": [
+    "قسم عينشمس"
+   ]
+  },
+  {
+   "entity_code": "DIST-AZBAKEYA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0113"
+   ],
+   "names_ar": [
+    "قسم الأزبكية"
+   ]
+  },
+  {
+   "entity_code": "DIST-BAB-SHAREYA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0116"
+   ],
+   "names_ar": [
+    "قسم باب الشعرية"
+   ]
+  },
+  {
+   "entity_code": "DIST-BASATIN",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0135"
+   ],
+   "names_ar": [
+    "قسم البساتين"
+   ]
+  },
+  {
+   "entity_code": "DIST-BULAQ",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0112"
+   ],
+   "names_ar": [
+    "قسم بولاق"
+   ]
+  },
+  {
+   "entity_code": "DIST-BULAQ-DAKROUR",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG2105"
+   ],
+   "names_ar": [
+    "قسم بولاق الدكرور"
+   ]
+  },
+  {
+   "entity_code": "DIST-DOKKI",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG2103"
+   ],
+   "names_ar": [
+    "قسم الدقي"
+   ]
+  },
+  {
+   "entity_code": "DIST-HADAYEK-QOBBA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0123"
+   ],
+   "names_ar": [
+    "قسم حدائقالقبة"
+   ]
+  },
+  {
+   "entity_code": "DIST-HELIOPOLIS",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0128"
+   ],
+   "names_ar": [
+    "قسم مصرالجديدة"
+   ]
+  },
+  {
+   "entity_code": "DIST-HELWAN",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0102"
+   ],
+   "names_ar": [
+    "قسم حلوان"
+   ]
+  },
+  {
+   "entity_code": "DIST-IMBABA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG2101"
+   ],
+   "names_ar": [
+    "قسم امبابه"
+   ]
+  },
+  {
+   "entity_code": "DIST-KHALIFA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0108"
+   ],
+   "names_ar": [
+    "قسم الخليفة"
+   ]
+  },
+  {
+   "entity_code": "DIST-KHOSOUS",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG1412"
+   ],
+   "names_ar": [
+    "قسم الخصوص"
+   ]
+  },
+  {
+   "entity_code": "DIST-MAADI",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0104"
+   ],
+   "names_ar": [
+    "قسم المعادي"
+   ]
+  },
+  {
+   "entity_code": "DIST-MANSHIYAT-NASSER",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0134"
+   ],
+   "names_ar": [
+    "منشأةناصر"
+   ]
+  },
+  {
+   "entity_code": "DIST-MARG",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0136"
+   ],
+   "names_ar": [
+    "قسم المرج"
+   ]
+  },
+  {
+   "entity_code": "DIST-MATARIYA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0125"
+   ],
+   "names_ar": [
+    "قسم المطرية"
+   ]
+  },
+  {
+   "entity_code": "DIST-MOUSKY",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0110"
+   ],
+   "names_ar": [
+    "قسم الموسكي"
+   ]
+  },
+  {
+   "entity_code": "DIST-NASR-CITY",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0126",
+    "EG0127"
+   ],
+   "names_ar": [
+    "قسم أول مدينة نصر",
+    "قسم ثانمدينةنصر"
+   ]
+  },
+  {
+   "entity_code": "DIST-NOZHA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0129"
+   ],
+   "names_ar": [
+    "قسم النزهة"
+   ]
+  },
+  {
+   "entity_code": "DIST-OLD-CAIRO",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0106"
+   ],
+   "names_ar": [
+    "مصرالقديمة"
+   ]
+  },
+  {
+   "entity_code": "DIST-OMRANIYA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG2118"
+   ],
+   "names_ar": [
+    "قسم العمرانية"
+   ]
+  },
+  {
+   "entity_code": "DIST-ROD-ELFARAG",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0120"
+   ],
+   "names_ar": [
+    "قسم روضالفرج"
+   ]
+  },
+  {
+   "entity_code": "DIST-SAHEL",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0121"
+   ],
+   "names_ar": [
+    "قسم الساحل"
+   ]
+  },
+  {
+   "entity_code": "DIST-SAYEDA-ZEINAB",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0107"
+   ],
+   "names_ar": [
+    "قسم السيدة زينب"
+   ]
+  },
+  {
+   "entity_code": "DIST-SHARABIYA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0118"
+   ],
+   "names_ar": [
+    "قسم الشرابية"
+   ]
+  },
+  {
+   "entity_code": "DIST-SHUBRA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0119"
+   ],
+   "names_ar": [
+    "قسم شبرا"
+   ]
+  },
+  {
+   "entity_code": "DIST-TEBBIN",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0101"
+   ],
+   "names_ar": [
+    "قسم التبين"
+   ]
+  },
+  {
+   "entity_code": "DIST-TORA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0105"
+   ],
+   "names_ar": [
+    "قسم طره"
+   ]
+  },
+  {
+   "entity_code": "DIST-WAILY",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0122"
+   ],
+   "names_ar": [
+    "قسم الوايلي"
+   ]
+  },
+  {
+   "entity_code": "DIST-WARRAQ",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG2117"
+   ],
+   "names_ar": [
+    "قسم الوراق"
+   ]
+  },
+  {
+   "entity_code": "DIST-ZAMALEK",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0133"
+   ],
+   "names_ar": [
+    "قسم الزمالك"
+   ]
+  },
+  {
+   "entity_code": "DIST-ZAWYA-HAMRA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0131"
+   ],
+   "names_ar": [
+    "قسم الزاويةالحمراء"
+   ]
+  },
+  {
+   "entity_code": "DIST-ZEITOUN",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG0124"
+   ],
+   "names_ar": [
+    "قسم الزيتون"
+   ]
+  },
+  {
+   "entity_code": "DIST-ABU-RAWASH",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG212006"
+   ],
+   "names_ar": [
+    "أبورواش"
+   ]
+  },
+  {
+   "entity_code": "DIST-ABU-ZAABAL",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG140302"
+   ],
+   "names_ar": [
+    "أبوزعبل"
+   ]
+  },
+  {
+   "entity_code": "DIST-AMIRIYA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG013102"
+   ],
+   "names_ar": [
+    "الأميرية"
+   ]
+  },
+  {
+   "entity_code": "DIST-BAHTIM",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG140701"
+   ],
+   "names_ar": [
+    "بهتيم"
+   ]
+  },
+  {
+   "entity_code": "DIST-DAR-ELSALAM",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG013504"
+   ],
+   "names_ar": [
+    "دارالسلام"
+   ]
+  },
+  {
+   "entity_code": "DIST-GARDEN-CITY",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG011102"
+   ],
+   "names_ar": [
+    "جاردنسيتي"
+   ]
+  },
+  {
+   "entity_code": "DIST-KATAMEYA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG013901"
+   ],
+   "names_ar": [
+    "القطاميه"
+   ]
+  },
+  {
+   "entity_code": "DIST-MANSHEYET-BAKARY",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG210601"
+   ],
+   "names_ar": [
+    "منشأةالبكاري"
+   ]
+  },
+  {
+   "entity_code": "DIST-MANSOURIYA",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG211312"
+   ],
+   "names_ar": [
+    "المنصورية"
+   ]
+  },
+  {
+   "entity_code": "DIST-MOSTOROD",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG140702"
+   ],
+   "names_ar": [
+    "مسطرد"
+   ]
+  },
+  {
+   "entity_code": "DIST-SAFT-ELLABAN",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG212005"
+   ],
+   "names_ar": [
+    "صفطاللبن"
+   ]
+  },
+  {
+   "entity_code": "DIST-TAHRIR",
+   "relation": "boundary_equals_union",
+   "pcodes": [
+    "EG210107"
+   ],
+   "names_ar": [
+    "مدينة التحرير"
+   ]
+  },
+  {
+   "entity_code": "DIST-SALAM-1",
+   "relation": "located_within",
+   "pcodes": [
+    "EG0132"
+   ],
+   "names_ar": [
+    "قسم السلام"
+   ]
+  },
+  {
+   "entity_code": "DIST-SALAM-2",
+   "relation": "located_within",
+   "pcodes": [
+    "EG0132"
+   ],
+   "names_ar": [
+    "قسم السلام"
+   ]
+  },
+  {
+   "entity_code": "DIST-EAST-SHUBRA-ELKHEIMA",
+   "relation": "located_within",
+   "pcodes": [
+    "EG1406",
+    "EG1407"
+   ],
+   "names_ar": [
+    "قسم أول شبرا الخيمة",
+    "قسم ثان شبرا الخيمة"
+   ]
+  },
+  {
+   "entity_code": "DIST-WEST-SHUBRA-ELKHEIMA",
+   "relation": "located_within",
+   "pcodes": [
+    "EG1406",
+    "EG1407"
+   ],
+   "names_ar": [
+    "قسم أول شبرا الخيمة",
+    "قسم ثان شبرا الخيمة"
+   ]
+  },
+  {
+   "entity_code": "CITY-GIZA",
+   "relation": "located_within",
+   "pcodes": [
+    "EG2104",
+    "EG2109"
+   ],
+   "names_ar": [
+    "قسم الجيزة",
+    "مركز الجيزة"
+   ]
+  },
+  {
+   "entity_code": "CITY-CAIRO",
+   "relation": "located_within",
+   "pcodes": [
+    "EG01"
+   ],
+   "names_ar": [
+    "محافظة القاهرة"
+   ]
+  },
+  {
+   "entity_code": "CITY-QANATER",
+   "relation": "located_within",
+   "pcodes": [
+    "EG1404"
+   ],
+   "names_ar": [
+    "مركز القناطر الخيرية"
+   ]
+  }
+ ],
+ "rejected_false_matches": {
+  "CITY-GIZA->EG010815": "same-name shiakha inside Khalifa (Cairo), not Giza city",
+  "CITY-QENA->EG1404/EG1405": "substring false match; Qena is not in Greater Cairo",
+  "DIST-NASR-CITY->EG011606": "shiakha النصر in Bab El Shaareya, unrelated",
+  "DIST-MANSOURIYA->EG011512": "same-name shiakha in Gamaliya; the atlas entity is the west-Giza Mansouriya (EG211312)",
+  "DIST-SAHEL->EG140241": "same-name village in Benha markaz",
+  "DIST-MANSHIYAT-NASSER->EG010210": "same-name shiakha in Helwan",
+  "DIST-BULAQ->EG2105": "substring of Bulaq al-Dakrour"
+ },
+ "unmatched_entities_note": "No CAPMAS unit with the same name: e.g. Abbassia, Downtown, Faisal, Haram, Mohandessin, Mokattam, Hadayek El Ahram, Rehab, Madinaty, new cities (New Capital, Mostakbal, New Zayed ...). Keep their OSM boundary or none; never force-match."
+}
