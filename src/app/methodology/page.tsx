@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiteFooter, SiteHeader, getSiteUrl, resolveLanguage } from "@/components/site/SiteChrome";
+import { SiteFooter, SiteHeader, getSiteUrl, localizedPath, resolveLanguage } from "@/components/site/SiteChrome";
 
-export async function generateMetadata({searchParams}:{searchParams:Promise<{lang?:string|string[]}>}):Promise<Metadata>{const language=resolveLanguage((await searchParams).lang);const canonical=`${getSiteUrl()}/methodology`;return {title:language==="ar"?"المنهجية | أطلس القاهرة الكبرى":"Methodology | Greater Cairo Atlas",description:"How atlas entities, statuses, evidence verification, conflicts, and OpenStreetMap geometry are collected and maintained.",alternates:{canonical,languages:{ar:canonical,en:`${canonical}?lang=en`}}};}
+export async function generateMetadata({searchParams}:{searchParams:Promise<{lang?:string|string[]}>}):Promise<Metadata>{const language=resolveLanguage((await searchParams).lang);const canonical=`${getSiteUrl()}${localizedPath(language, "/methodology")}`;return {title:language==="ar"?"المنهجية | أطلس القاهرة الكبرى":"Methodology | Greater Cairo Atlas",description:"How atlas entities, statuses, evidence verification, conflicts, and OpenStreetMap geometry are collected and maintained.",alternates:{canonical,languages:{ar:`${getSiteUrl()}/ar/methodology`,en:`${getSiteUrl()}/en/methodology`}}};}
 
 const content={
   ar:{eyebrow:"كيف بُني الأطلس",title:"المنهجية",lead:"سجل توثيقي قابل للمراجعة، وليس خريطة وعود أو تقديرات. كل حالة وحقيقة وهندسة تحتفظ بأثر مصدرها وبحدود ما نعرفه.",sections:[
@@ -29,6 +29,6 @@ export default async function MethodologyPage({searchParams}:{searchParams:Promi
  <div className="methodology-sections">{text.sections.map(([heading,body],index)=><section className="methodology-section" key={heading}><span>{String(index+1).padStart(2,"0")}</span><div><h2>{heading}</h2><p>{body}</p></div></section>)}</div>
  <section className="status-glossary"><h2>{text.statusHeading}</h2><dl>{text.statuses.map(([key,value])=><div key={key}><dt><code>{key}</code></dt><dd>{value}</dd></div>)}</dl></section>
  <section className="revision-history"><h2>{text.historyHeading}</h2><ol>{text.history.map(item=><li key={item}>{item}</li>)}</ol><p>{ar?"المستودع يسجل تطور البيانات؛ مراجعات rev2 وrev3 لا تملك سجل تغييرات مستقلًا ضمن ملفات البحث الحالية.":"The repository tracks data evolution; rev2 and rev3 do not have standalone changelog files in the current research directory."}</p><p className="revision-links"><a href="https://github.com/3boalazm/greater-cairo-atlas/blob/main/data/research/rev5/CHANGELOG_rev5.md" target="_blank" rel="noreferrer">{ar?"سجل rev5 ↗":"rev5 changelog ↗"}</a><a href="https://github.com/3boalazm/greater-cairo-atlas/blob/main/data/research/rev6_1/CHANGELOG_rev6.md" target="_blank" rel="noreferrer">{ar?"سجل rev6 ↗":"rev6 changelog ↗"}</a><a href="https://github.com/3boalazm/greater-cairo-atlas/blob/main/data/research/rev6_1/CHANGELOG_rev6_1.md" target="_blank" rel="noreferrer">{ar?"سجل rev6.1 ↗":"rev6.1 changelog ↗"}</a></p></section>
- <section className="license-block"><h2>{ar?"المصادر والإسناد":"Sources & attribution"}</h2><p>{text.credits}</p><p><Link href={`/sources?lang=${language}`}>{ar?"فهرس المصادر ←":"Browse the sources index →"}</Link></p></section>
+ <section className="license-block"><h2>{ar?"المصادر والإسناد":"Sources & attribution"}</h2><p>{text.credits}</p><p><Link href={`/${language}/sources`}>{ar?"فهرس المصادر ←":"Browse the sources index →"}</Link></p></section>
  <a className="issue-link" href={text.issuesUrl} target="_blank" rel="noreferrer">{text.issue} ↗</a></main><SiteFooter language={language}/></div>;
 }

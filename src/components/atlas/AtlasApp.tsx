@@ -17,10 +17,15 @@ const MapView = dynamic(
   () => import("./MapView").then((module) => module.MapView),
   { ssr: false, loading: () => <div className="map-canvas map-canvas-loading" role="status">Loading interactive map…</div> },
 );
-import { LanguageToggle, ThemeToggle, useAtlasPreferences } from "./Preferences";
+import { ThemeToggle, useAtlasPreferences } from "./Preferences";
+import { SiteLanguageSwitch } from "@/components/site/SiteLanguageSwitch";
 import { SearchCommand } from "./SearchCommand";
+import { ResearchModeToggle, ResearcherOnly, useResearchMode } from "@/components/site/ResearchMode";
+import { FirstVisitGuide } from "./FirstVisitGuide";
 import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact, EntityListResponse } from "./atlas-client";
 import { statusesAtYear } from "@/lib/atlas/status-timeline";
+import { approximateRadiusPolygon } from "@/lib/atlas/service-area";
+import { findGeometryAlternatives } from "@/lib/atlas/geometry-comparisons";
 import { STATUSES } from "./atlas-client";
 
 const emptyFilters: AtlasFilters = { type: "", sector: "", status: "", mappedOnly: false };
@@ -38,10 +43,12 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   regionalCodes: string[];
   statusTimeline: AtlasTimelineStatusFact[];
 }) {
-  const { theme, setTheme, language, setLanguage } = useAtlasPreferences(initialLanguage);
+  const { theme, setTheme, language } = useAtlasPreferences(initialLanguage);
+  const { researcherMode } = useResearchMode();
   const [filters, setFilters] = useState<AtlasFilters>(emptyFilters);
   const [quickLayer, setQuickLayer] = useState("");
   const [timelineEnabled, setTimelineEnabled] = useState(false);
+  const [serviceRadiusMeters, setServiceRadiusMeters] = useState<0 | 500 | 1000>(0);
   const minTimelineYear = statusTimeline.length ? Math.min(...statusTimeline.map((fact) => Number(fact.valid_as_of.slice(0, 4)))) : 2000;
   const maxTimelineYear = statusTimeline.length ? Math.max(...statusTimeline.map((fact) => Number(fact.valid_as_of.slice(0, 4)))) : new Date().getUTCFullYear();
   const [timelineYear, setTimelineYear] = useState(maxTimelineYear);
@@ -72,40 +79,46 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   const [boundaryLoadingCode, setBoundaryLoadingCode] = useState<string | null>(null);
   const [boundaryError, setBoundaryError] = useState<string | null>(null);
   const preferencesHydrated = useRef(false);
+  const previousResearcherMode = useRef<boolean | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const fromUrl = params.get("entity");
     if (fromUrl) setSelectedCode(fromUrl);
+    let canRestoreResearchState = false;
+    try { canRestoreResearchState = localStorage.getItem("gca-researcher-mode") === "true"; } catch { /* Simple defaults are safest when storage is unavailable. */ }
     const hasUrlState = ["type", "sector", "status", "mapped", "quick", "layers"].some((key) => params.has(key));
     let saved: { filters?: AtlasFilters; quickLayer?: string; layerGroups?: AtlasLayerGroupState; visibleTransitModes?: TransitMode[]; visibleTransitLines?: string[]; showRoadNetwork?: boolean; showRailNetwork?: boolean; showDisusedRail?: boolean; showInterchanges?: boolean } = {};
-    if (!hasUrlState) {
+    if (canRestoreResearchState && !hasUrlState) {
       try { saved = JSON.parse(window.localStorage.getItem("gca-map-state") ?? "{}"); } catch { saved = {}; }
     }
-    setFilters({
-      type: params.get("type") ?? saved.filters?.type ?? "",
-      sector: params.get("sector") ?? saved.filters?.sector ?? "",
-      status: params.get("status") ?? saved.filters?.status ?? "",
-      mappedOnly: params.has("mapped") ? params.get("mapped") === "true" : saved.filters?.mappedOnly ?? false,
-    });
-    setQuickLayer(params.get("quick") ?? saved.quickLayer ?? "");
-    const requestedGroups = params.get("layers")?.split(",");
-    if (requestedGroups) setLayerGroups(Object.fromEntries(Object.keys(defaultLayerGroups).map((key) => [key, requestedGroups.includes(key)])) as AtlasLayerGroupState);
-    else if (saved.layerGroups) setLayerGroups({ ...defaultLayerGroups, ...saved.layerGroups });
-    const modes = params.get("modes")?.split(",").filter((mode): mode is TransitMode => TRANSIT_MODE_ORDER.includes(mode as TransitMode));
-    if (modes) setVisibleTransitModes(modes);
-    else if (saved.visibleTransitModes) setVisibleTransitModes(saved.visibleTransitModes.filter((mode) => TRANSIT_MODE_ORDER.includes(mode)));
-    const lineCodes = params.get("lines")?.split(",");
-    if (lineCodes) setVisibleTransitLines(lineCodes.filter((code) => code in TRANSIT_LINE_COLORS));
-    else if (saved.visibleTransitLines) setVisibleTransitLines(saved.visibleTransitLines.filter((code) => code in TRANSIT_LINE_COLORS));
-    const reference = params.get("reference")?.split(",") ?? [];
-    if (params.has("reference")) { setShowRoadNetwork(reference.includes("roads")); setShowRailNetwork(reference.includes("rail")); setShowDisusedRail(reference.includes("disused")); }
-    else { if (typeof saved.showRoadNetwork === "boolean") setShowRoadNetwork(saved.showRoadNetwork); if (typeof saved.showRailNetwork === "boolean") setShowRailNetwork(saved.showRailNetwork); if (typeof saved.showDisusedRail === "boolean") setShowDisusedRail(saved.showDisusedRail); }
-    if (typeof saved.showInterchanges === "boolean") setShowInterchanges(saved.showInterchanges);
+    if (canRestoreResearchState) {
+      setFilters({
+        type: params.get("type") ?? saved.filters?.type ?? "",
+        sector: params.get("sector") ?? saved.filters?.sector ?? "",
+        status: params.get("status") ?? saved.filters?.status ?? "",
+        mappedOnly: params.has("mapped") ? params.get("mapped") === "true" : saved.filters?.mappedOnly ?? false,
+      });
+      setQuickLayer(params.get("quick") ?? saved.quickLayer ?? "");
+      const requestedGroups = params.get("layers")?.split(",");
+      if (requestedGroups) setLayerGroups(Object.fromEntries(Object.keys(defaultLayerGroups).map((key) => [key, requestedGroups.includes(key)])) as AtlasLayerGroupState);
+      else if (saved.layerGroups) setLayerGroups({ ...defaultLayerGroups, ...saved.layerGroups });
+      const modes = params.get("modes")?.split(",").filter((mode): mode is TransitMode => TRANSIT_MODE_ORDER.includes(mode as TransitMode));
+      if (modes) setVisibleTransitModes(modes);
+      else if (saved.visibleTransitModes) setVisibleTransitModes(saved.visibleTransitModes.filter((mode) => TRANSIT_MODE_ORDER.includes(mode)));
+      const lineCodes = params.get("lines")?.split(",");
+      if (lineCodes) setVisibleTransitLines(lineCodes.filter((code) => code in TRANSIT_LINE_COLORS));
+      else if (saved.visibleTransitLines) setVisibleTransitLines(saved.visibleTransitLines.filter((code) => code in TRANSIT_LINE_COLORS));
+      const reference = params.get("reference")?.split(",") ?? [];
+      if (params.has("reference")) { setShowRoadNetwork(reference.includes("roads")); setShowRailNetwork(reference.includes("rail")); setShowDisusedRail(reference.includes("disused")); }
+      else { if (typeof saved.showRoadNetwork === "boolean") setShowRoadNetwork(saved.showRoadNetwork); if (typeof saved.showRailNetwork === "boolean") setShowRailNetwork(saved.showRailNetwork); if (typeof saved.showDisusedRail === "boolean") setShowDisusedRail(saved.showDisusedRail); }
+      if (typeof saved.showInterchanges === "boolean") setShowInterchanges(saved.showInterchanges);
+    }
     preferencesHydrated.current = true;
     const onPopState = () => {
       const next = new URLSearchParams(window.location.search);
       setSelectedCode(next.get("entity"));
+      try { if (localStorage.getItem("gca-researcher-mode") !== "true") return; } catch { return; }
       setFilters({ type: next.get("type") ?? "", sector: next.get("sector") ?? "", status: next.get("status") ?? "", mappedOnly: next.get("mapped") === "true" });
       setQuickLayer(next.get("quick") ?? "");
       const groups = next.get("layers")?.split(",");
@@ -123,6 +136,12 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
 
   useEffect(() => {
     if (!preferencesHydrated.current) return;
+    if (!researcherMode) {
+      const url = new URL(window.location.href);
+      ["type", "sector", "status", "mapped", "quick", "layers", "modes", "lines", "reference"].forEach((key) => url.searchParams.delete(key));
+      window.history.replaceState({}, "", url);
+      return;
+    }
     try { window.localStorage.setItem("gca-map-state", JSON.stringify({ filters, quickLayer, layerGroups, showRoadNetwork, showRailNetwork, showDisusedRail, visibleTransitModes, visibleTransitLines, showInterchanges })); } catch { /* Map preferences are optional. */ }
     const url = new URL(window.location.href);
     const setParam = (key: string, value: string) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key);
@@ -133,7 +152,17 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     setParam("lines", visibleTransitLines.join(","));
     setParam("reference", [showRoadNetwork ? "roads" : "", showRailNetwork ? "rail" : "", showDisusedRail ? "disused" : ""].filter(Boolean).join(","));
     window.history.replaceState({}, "", url);
-  }, [filters, quickLayer, layerGroups, showRoadNetwork, showRailNetwork, showDisusedRail, visibleTransitModes, visibleTransitLines, showInterchanges]);
+  }, [researcherMode, filters, quickLayer, layerGroups, showRoadNetwork, showRailNetwork, showDisusedRail, visibleTransitModes, visibleTransitLines, showInterchanges]);
+
+  useEffect(() => {
+    if (previousResearcherMode.current === null) { previousResearcherMode.current = researcherMode; return; }
+    if (previousResearcherMode.current && !researcherMode) {
+      setFilters(emptyFilters); setQuickLayer(""); setTimelineEnabled(false); setServiceRadiusMeters(0);
+      setLayerGroups(defaultLayerGroups); setShowRoadNetwork(true); setShowRailNetwork(false); setShowDisusedRail(false);
+      setVisibleTransitModes([...TRANSIT_MODE_ORDER]); setVisibleTransitLines(Object.keys(TRANSIT_LINE_COLORS)); setShowInterchanges(true);
+    }
+    previousResearcherMode.current = researcherMode;
+  }, [researcherMode]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -162,7 +191,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     const params = new URLSearchParams({ zoom: String(Math.max(4, Math.min(20, zoom))) });
     if (filters.type) params.set("type", filters.type);
     if (filters.sector) params.set("sector", filters.sector);
-    if (filters.status && !timelineEnabled) params.set("status", filters.status);
+    if (filters.status && !(researcherMode && timelineEnabled)) params.set("status", filters.status);
     fetch(`/api/atlas/features?${params}`, { signal: controller.signal })
       .then(async (response) => {
         if (!response.ok) throw new Error((await response.json()).error?.message ?? `HTTP ${response.status}`);
@@ -172,7 +201,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       .catch((error: unknown) => { if (!(error instanceof DOMException && error.name === "AbortError")) setFeaturesError(messageFrom(error, language)); })
       .finally(() => setFeaturesLoading(false));
     return () => controller.abort();
-  }, [filters.type, filters.sector, filters.status, zoom, language, timelineEnabled]);
+  }, [filters.type, filters.sector, filters.status, zoom, language, timelineEnabled, researcherMode]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -219,6 +248,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
 
   const selectEntity = useCallback((code: string) => {
     setSelectedCode(code);
+    setServiceRadiusMeters(0);
     setHighlightBoundary(null);
     setBoundaryError(null);
     const url = new URL(window.location.href);
@@ -239,31 +269,28 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       setBoundaryError(null);
       return;
     }
-    selectEntity(code);
-    setHighlightBoundary(null);
-    setBoundaryError(null);
     setBoundaryLoadingCode(code);
+    setBoundaryError(null);
     try {
-      const response = await fetch(`/api/atlas/entities/${encodeURIComponent(code)}/boundary`);
-      const payload = await response.json() as { features?: AreaBoundaryFeature[]; error?: { message?: string } };
-      if (!response.ok) throw new Error(payload.error?.message ?? `HTTP ${response.status}`);
-      const boundary = payload.features?.find((feature) => feature.properties.entity_code === code);
-      if (!boundary) throw new Error(language === "ar" ? "الحدود غير متاحة في المصدر." : "No source boundary is available.");
-      setHighlightBoundary(boundary);
+      const response = await fetch(`/api/atlas/area-boundaries/${encodeURIComponent(code)}`);
+      const payload = await response.json() as { feature?: AreaBoundaryFeature; error?: { message?: string } };
+      if (!response.ok || !payload.feature) throw new Error(payload.error?.message ?? `HTTP ${response.status}`);
+      setHighlightBoundary(payload.feature);
     } catch (error) {
       setBoundaryError(messageFrom(error, language));
     } finally {
       setBoundaryLoadingCode(null);
     }
-  }, [highlightBoundary, language, selectEntity]);
+  }, [highlightBoundary?.properties.entity_code, language]);
   const closeEntity = useCallback(() => {
     setSelectedCode(null);
+    setDetail(null);
     setHighlightBoundary(null);
     setBoundaryError(null);
+    setServiceRadiusMeters(0);
     const url = new URL(window.location.href);
     url.searchParams.delete("entity");
     window.history.pushState({}, "", url);
-    requestAnimationFrame(() => document.querySelector<HTMLElement>(".map-canvas")?.focus());
   }, []);
 
   useEffect(() => {
@@ -275,34 +302,46 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [selectedCode, closeEntity]);
 
-  const timelineStatusByCode = useMemo(() => timelineEnabled ? statusesAtYear(statusTimeline, timelineYear) : null, [timelineEnabled, statusTimeline, timelineYear]);
-  const visibleFeatureCollection = useMemo(() => ({
-    ...features,
-    features: features.features.flatMap((feature) => {
-      const timelineStatus = timelineEnabled ? timelineStatusByCode?.get(feature.properties.entity_code) : undefined;
-      const status = timelineEnabled ? timelineStatus?.status ?? "unknown" : feature.properties.status;
+  const geometryAlternatives = useMemo(() => findGeometryAlternatives(initialFeatures.features), [initialFeatures.features]);
+  const useTimeline = researcherMode && timelineEnabled;
+  const timelineStatusByCode = useMemo(() => useTimeline ? statusesAtYear(statusTimeline, timelineYear) : null, [useTimeline, statusTimeline, timelineYear]);
+  const visibleFeatureCollection = useMemo(() => {
+    const visibleFeatures = features.features.flatMap((feature) => {
+      const timelineStatus = useTimeline ? timelineStatusByCode?.get(feature.properties.entity_code) : undefined;
+      const status = useTimeline ? timelineStatus?.status ?? "unknown" : feature.properties.status;
       if (!STATUSES.includes(status as (typeof STATUSES)[number])) return [];
       if (filters.status && status !== filters.status) return [];
       const featureType = feature.properties.type;
       if (selectedCode !== feature.properties.entity_code) {
         if (!layerGroups.infrastructure && ["road", "bridge", "interchange", "tunnel"].includes(featureType)) return [];
-        if (!layerGroups.transport && ["transit_line", "transit_stop", "rail_station"].includes(featureType)) return [];
+        if (!layerGroups.transport && ["transit_line", "transit_stop", "rail_station", "transit_station"].includes(featureType)) return [];
         if (!layerGroups.areas && ["city", "district", "neighborhood", "governorate"].includes(featureType)) return [];
         if (!layerGroups.projects && (featureType === "project" || ["under_construction", "planned", "approved_planned"].includes(status))) return [];
         if (quickLayer === "road" && featureType !== "road") return [];
-        if (quickLayer === "transport" && !["transit_line", "transit_stop", "rail_station"].includes(featureType)) return [];
+        if (quickLayer === "transport" && !["transit_line", "transit_stop", "rail_station", "transit_station"].includes(featureType)) return [];
         if (quickLayer === "city" && !["city", "district", "neighborhood"].includes(featureType)) return [];
-        if (featureType === "transit_line" || featureType === "transit_stop" || featureType === "rail_station") {
+        if (featureType === "transit_line" || featureType === "transit_stop" || featureType === "rail_station" || featureType === "transit_station") {
           const modes = feature.properties.modes?.length ? feature.properties.modes : transitModesForEntityCode(feature.properties.entity_code);
           if (modes.length && !modes.some((mode) => visibleTransitModes.includes(mode as TransitMode))) return [];
           const lineCodes = feature.properties.line_codes?.length ? feature.properties.line_codes : feature.properties.entity_code.startsWith("TRANSIT-") ? [feature.properties.entity_code] : [];
           if (lineCodes.length && !lineCodes.some((line) => visibleTransitLines.includes(line))) return [];
         }
       }
+      const alternatives = researcherMode ? geometryAlternatives.get(feature.properties.entity_code) : undefined;
       return [{ ...feature, properties: { ...feature.properties, status,
-        ...(timelineEnabled ? { timeline_dated: timelineStatus?.dated ?? false, timeline_verification: timelineStatus?.verification_state ?? null, timeline_valid_as_of: timelineStatus?.valid_as_of ?? null } : {}) } }];
-    }),
-  }), [features, visibleTransitModes, visibleTransitLines, selectedCode, layerGroups, quickLayer, filters.status, timelineEnabled, timelineStatusByCode]);
+        ...(useTimeline ? { timeline_dated: timelineStatus?.dated ?? false, timeline_verification: timelineStatus?.verification_state ?? null, timeline_valid_as_of: timelineStatus?.valid_as_of ?? null } : {}),
+        ...(alternatives ? { geometry_conflict: true, geometry_sources: alternatives.map((item) => item.source_label) } : {}) } }];
+    });
+    const stationTypes = ["transit_stop", "rail_station", "transit_station"];
+    const selectedStation = serviceRadiusMeters && researcherMode && stationTypes.includes(detail?.entity_type ?? "")
+      ? features.features.find((feature) => feature.properties.entity_code === selectedCode && feature.geometry && typeof feature.geometry === "object" && "type" in feature.geometry && feature.geometry.type === "Point") : undefined;
+    const coordinates = selectedStation?.geometry && typeof selectedStation.geometry === "object" && "coordinates" in selectedStation.geometry ? selectedStation.geometry.coordinates : null;
+    if (selectedStation && Array.isArray(coordinates) && coordinates.length >= 2 && typeof coordinates[0] === "number" && typeof coordinates[1] === "number") {
+      visibleFeatures.push({ type: "Feature", id: `SERVICE-AREA-${selectedCode}-${serviceRadiusMeters}`, geometry: approximateRadiusPolygon(coordinates[0], coordinates[1], serviceRadiusMeters),
+        properties: { ...selectedStation.properties, code: `SERVICE-AREA-${selectedCode}-${serviceRadiusMeters}`, entity_code: selectedCode!, type: "service_area", status: "service_area", name_ar: `${serviceRadiusMeters} متر حول المحطة`, name_en: `${serviceRadiusMeters} m radius around station`, service_area: true, modes: [], line_codes: [], primary_line_code: null, interchange: false } });
+    }
+    return { ...features, features: visibleFeatures };
+  }, [features, visibleTransitModes, visibleTransitLines, selectedCode, detail?.entity_type, layerGroups, quickLayer, filters.status, useTimeline, timelineStatusByCode, serviceRadiusMeters, researcherMode, geometryAlternatives]);
   const ar = language === "ar";
   const totalFeatures = features.features.length;
   const mapTransitModes = !filters.type || ["transit_line", "transit_stop", "rail_station", "transit_station"].includes(filters.type)
@@ -318,15 +357,15 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
 
   return <main className={`atlas-shell theme-${theme}`} data-theme={theme} dir={ar ? "rtl" : "ltr"} id="main-content">
     <a className="skip-link" href="#main-content">{ar ? "تجاوز إلى المحتوى" : "Skip to content"}</a>
-    <AppSidebar entities={entities} loading={entitiesLoading} selectedCode={selectedCode} onSelect={selectEntity} language={language} regionalCodes={regionalCodes} />
+    <ResearcherOnly><AppSidebar entities={entities} loading={entitiesLoading} selectedCode={selectedCode} onSelect={selectEntity} language={language} regionalCodes={regionalCodes} /></ResearcherOnly>
     <section className="atlas-workspace">
       <header className="atlas-topbar">
         <div className="topbar-heading"><span className="eyebrow">{ar ? "مصر · دلتا النيل" : "EGYPT · NILE DELTA"}</span><strong>{ar ? "الخريطة التفاعلية" : "Interactive map"}</strong></div>
         <SearchCommand language={language} onSelect={selectEntity} onShowBoundary={toggleAreaBoundary} />
-        <nav className="atlas-info-nav" aria-label={ar ? "روابط الأطلس" : "Atlas information links"}><Link href={`/directory?lang=${language}`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link><Link href={`/api-docs?lang=${language}`}>{ar ? "توثيق API" : "API docs"}</Link></nav>
-        <div className="topbar-actions"><ThemeToggle theme={theme} onChange={setTheme} language={language} /><LanguageToggle language={language} onChange={setLanguage} /></div>
+        <ResearcherOnly><nav className="atlas-info-nav" aria-label={ar ? "روابط الباحث" : "Research links"}><Link href={`/${language}/directory`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/${language}/data`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/${language}/methodology`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/${language}/sources`}>{ar ? "المصادر" : "Sources"}</Link><Link href={`/${language}/api-docs`}>{ar ? "توثيق API" : "API docs"}</Link></nav></ResearcherOnly>
+        <div className="topbar-actions"><ResearchModeToggle language={language} compact/><FirstVisitGuide language={language}/><ThemeToggle theme={theme} onChange={setTheme} language={language} /><SiteLanguageSwitch language={language} label={ar ? "English" : "العربية"} /></div>
       </header>
-      <section className="stats-strip" aria-label={ar ? "إحصاءات قاعدة البيانات" : "Database statistics"} aria-live="polite">
+      <ResearcherOnly><section className="stats-strip" aria-label={ar ? "إحصاءات قاعدة البيانات" : "Database statistics"} aria-live="polite">
         <div className="stats-label"><Database aria-hidden="true" /><span>{ar ? "سجل الأطلس" : "Atlas records"}</span></div>
         {stats?.counts ? <>
           <Stat label={ar ? "كيان" : "Entities"} value={stats.counts.entities} />
@@ -335,18 +374,19 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
           <Stat label={ar ? "هندسة" : "Geometries"} value={stats.counts.features} />
         </> : <span className={`stats-unavailable ${statsError ? "has-error" : ""}`}>{statsError ? (ar ? "تعذّر تحميل الإحصاءات" : "Stats unavailable") : (ar ? "جارٍ تحميل الإحصاءات…" : "Loading statistics…")}</span>}
         {statsError && <span className="stats-retry"><AlertTriangle aria-hidden="true" />{statsError}</span>}
-      </section>
+      </section></ResearcherOnly>
       <section className="map-stage" aria-label={ar ? "مساحة الخريطة" : "Map workspace"}>
         <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} selectedCode={selectedCode} showRoadNetwork={showRoadNetwork} showRailNetwork={showRailNetwork && railNetworkAvailable} showDisusedRail={showDisusedRail} showAreaBoundaries={layerGroups.areas} highlightBoundary={highlightBoundary} visibleTransitModes={mapTransitModes} showInterchanges={showInterchanges} />
-        <div className="map-header-card"><div className="map-title-icon"><MapPinned aria-hidden="true" /></div><div><span>{ar ? "القاهرة الكبرى" : "Greater Cairo"}</span><h1>{ar ? "المكان كما توثّقه المصادر" : "Place, as documented"}</h1><p>{ar ? "الحقائق المتعارضة تبقى ظاهرة؛ لا تخمين للهندسة أو الحالة." : "Conflicting claims remain visible. No inferred geometry or status."}</p></div></div>
+        <div className="map-header-card"><div className="map-title-icon"><MapPinned aria-hidden="true" /></div><div><span>{ar ? "القاهرة الكبرى" : "Greater Cairo"}</span><h1>{ar ? "خريطة القاهرة الكبرى" : "Greater Cairo map"}</h1><ResearcherOnly><p>{ar ? "المصادر المختلفة تبقى ظاهرة؛ لا تخمين للهندسة أو الحالة." : "Conflicting sources remain visible. No inferred geometry or status."}</p></ResearcherOnly></div></div>
         <div className="map-toolbar"><LayerChips type={quickLayer} onTypeChange={setQuickLayer} language={language} />
-          <div className="timeline-map-filter">
+          {!researcherMode && <div className="simple-map-status-key" aria-label={ar ? "دليل ألوان الحالة" : "Status colour key"}><span><i className="map-key-dot is-operational"/>✓ {ar ? "يعمل" : "Operating"}</span><span><i className="map-key-dot is-partial"/>◐ {ar ? "يعمل جزئيًا" : "Partly operating"}</span><span><i className="map-key-dot is-building"/>⚒ {ar ? "تحت الإنشاء" : "Building"}</span><span><i className="map-key-dot is-planned"/>◷ {ar ? "مخطط" : "Planned"}</span></div>}
+          <ResearcherOnly><div className="timeline-map-filter">
             <label><input type="checkbox" checked={timelineEnabled} onChange={(event) => setTimelineEnabled(event.target.checked)} /><span>{ar ? "الحالة في تاريخ" : "Status as of date"}</span></label>
             {timelineEnabled && <><strong>{timelineYear}</strong><input aria-label={ar ? "سنة الحالة على الخريطة" : "Map status year"} type="range" min={minTimelineYear} max={maxTimelineYear} step={1} value={timelineYear} onChange={(event) => setTimelineYear(Number(event.target.value))} />
               <small>{new Set(visibleFeatureCollection.features.filter((feature) => !feature.properties.timeline_dated).map((feature) => feature.properties.entity_code)).size.toLocaleString()} {ar ? "كيان غير مؤرخ" : "entities undated"}</small>
-              <small>{ar ? "المتنازع عليه يبقى موسومًا؛ لا يُرجّح آليًا." : "Disputed claims remain marked; none are auto-resolved."}</small></>}
+              <small>{ar ? "المصادر المتنازع عليها تبقى ظاهرة دون ترجيح آلي." : "Disputed sources remain visible without automatic resolution."}</small></>}
           </div>
-          <nav className="map-export-links" aria-label={ar ? "تصدير مرشحات الخريطة" : "Export map filters"}><a href={filteredExportUrl}>{ar ? "GeoPackage" : "GeoPackage"}</a><a href={`/api/exports/geojson?${exportParams.toString()}`}>GeoJSON</a></nav>
+          <nav className="map-export-links" aria-label={ar ? "تصدير مرشحات الخريطة" : "Export map filters"}><a href={filteredExportUrl}>GeoPackage</a><a href={`/api/exports/geojson?${exportParams.toString()}`}>GeoJSON</a></nav>
           <ActiveFilterChips filters={filters} quickLayer={quickLayer} language={language} onClearQuick={() => setQuickLayer("")} onClearFilter={(key) => setFilters((current) => ({ ...current, [key]: key === "mappedOnly" ? false : "" }))} onClearAll={() => { setQuickLayer(""); setFilters(emptyFilters); setLayerGroups(defaultLayerGroups); }} />
           <details className="layers-panel"><summary>{ar ? "الطبقات" : "Layers"}</summary>
           <LayerGroupToggles enabled={layerGroups} language={language} onChange={(group: AtlasLayerGroup, enabled: boolean) => { setLayerGroups((current) => ({ ...current, [group]: enabled })); if (group === "reference") { setShowRoadNetwork(enabled); setShowRailNetwork(enabled); } }} />
@@ -364,23 +404,33 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
               showInterchanges={showInterchanges} onInterchangesChange={setShowInterchanges} language={language} />
           </details>
           <TransitLineToggles visibleLines={visibleTransitLines} onChange={(code, visible) => setVisibleTransitLines((current) => visible ? [...new Set([...current, code])] : current.filter((item) => item !== code))} language={language} />
+          <fieldset className="service-area-control"><legend>{ar ? "نطاق مسافة حول محطة" : "Distance radius around a station"}</legend>
+            {detail && ["transit_stop", "rail_station", "transit_station"].includes(detail.entity_type) ? <div className="service-area-options">
+              <button type="button" aria-pressed={serviceRadiusMeters === 500} onClick={() => setServiceRadiusMeters(serviceRadiusMeters === 500 ? 0 : 500)}>{ar ? "٥٠٠ متر" : "500 m"}</button>
+              <button type="button" aria-pressed={serviceRadiusMeters === 1000} onClick={() => setServiceRadiusMeters(serviceRadiusMeters === 1000 ? 0 : 1000)}>{ar ? "١ كم" : "1 km"}</button>
+              {serviceRadiusMeters > 0 && <button type="button" className="quiet-button" onClick={() => setServiceRadiusMeters(0)}>{ar ? "إخفاء" : "Hide"}</button>}
+            </div> : <p>{ar ? "اختر محطة أولًا من الخريطة أو البحث." : "Choose a station from the map or search first."}</p>}
+            <small>{ar ? "دائرة مسافة تقريبية، وليست نطاق تغطية أو زمن وصول." : "Approximate distance radius only, not a catchment or travel-time area."}</small>
+          </fieldset>
           <Legend language={language} boundaryActive={Boolean(highlightBoundary)} boundaryLabel={language === "ar"
             ? highlightBoundary?.properties.properties.display_label_ar
             : highlightBoundary?.properties.properties.display_label_en} />
           </details>
-          <span className="map-feature-count" aria-live="polite">{featuresLoading ? "…" : totalFeatures} {ar ? "ميزة هندسية" : "features"}</span>
+          <span className="map-feature-count" aria-live="polite">{featuresLoading ? "…" : totalFeatures} {ar ? "ميزة هندسية" : "features"}</span></ResearcherOnly>
         </div>
         {((featuresLoading && features.features.length === 0) || (entitiesLoading && entities.length === 0)) && <div className="map-loading" role="status"><RefreshCw aria-hidden="true" />{ar ? "جارٍ تحميل بيانات الأطلس…" : "Loading atlas data…"}</div>}
         {(featuresError || entitiesError || boundaryError) && <div className="map-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{boundaryError ?? featuresError ?? entitiesError}</span></div>}
         {mapStyleStatus === "error" && <div className="map-error map-style-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{ar ? "تعذّر تحميل خريطة OpenFreeMap." : "Could not load the OpenFreeMap basemap."}</span><button type="button" onClick={() => { setMapStyleStatus("loading"); setMapGeneration((value) => value + 1); }}>{ar ? "إعادة المحاولة" : "Retry"}</button></div>}
         {!featuresLoading && !featuresError && totalFeatures === 0 && <div className="map-empty">{ar ? "لا توجد هندسة تطابق هذه الفلاتر. الكيانات تظل متاحة في القائمة والبحث." : "No geometries match these filters. Entities remain available in the list and search."}</div>}
+        {researcherMode && serviceRadiusMeters > 0 && <div className="service-area-map-label" role="status">{ar ? `نصف قطر تقريبي ${serviceRadiusMeters} م · ليس نطاق تغطية فعليًا` : `Approximate ${serviceRadiusMeters} m radius · not an actual catchment`}</div>}
         <div className="map-attribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors, ODbL 1.0</a><span>·</span><a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a></div>
-        <nav className="atlas-site-footer" aria-label={ar ? "روابط الأطلس وإسناد البيانات" : "Atlas links and data attribution"}><Link href={`/directory?lang=${language}`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link><span>{ar ? "حقائق البحث والأدلة وكل البيانات غير المشتقة من OSM: © Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0 | الهندسة المشتقة من OpenStreetMap: © OpenStreetMap contributors, ODbL 1.0" : "Research facts, evidence, and all data not derived from OpenStreetMap: © Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0 | OpenStreetMap-derived geometry: © OpenStreetMap contributors, ODbL 1.0"}</span></nav>
+        <nav className="atlas-site-footer" aria-label={ar ? "إسناد بيانات الأطلس" : "Atlas data attribution"}><span>{ar ? "حقائق البحث والأدلة وكل البيانات غير المشتقة من OSM: © Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0 | الهندسة المشتقة من OpenStreetMap: © OpenStreetMap contributors, ODbL 1.0" : "Research facts, evidence, and all data not derived from OpenStreetMap: © Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0 | OpenStreetMap-derived geometry: © OpenStreetMap contributors, ODbL 1.0"}</span></nav>
+        <ResearcherOnly><nav className="atlas-site-footer atlas-research-footer" aria-label={ar ? "روابط الباحث" : "Research links"}><Link href={`/${language}/directory`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/${language}/data`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/${language}/methodology`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/${language}/sources`}>{ar ? "المصادر" : "Sources"}</Link><Link href={`/${language}/api-docs`}>{ar ? "توثيق API" : "API docs"}</Link></nav></ResearcherOnly>
       </section>
     </section>
     {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} language={language}
       onToggleBoundary={toggleAreaBoundary} boundaryActive={highlightBoundary?.properties.entity_code === detail?.code}
-      boundaryLoading={boundaryLoadingCode === detail?.code} onSelectRelated={selectRelatedEntity} />}
+      boundaryLoading={boundaryLoadingCode === detail?.code} onSelectRelated={selectRelatedEntity} geometryAlternatives={selectedCode ? geometryAlternatives.get(selectedCode) ?? [] : []} />}
   </main>;
 }
 

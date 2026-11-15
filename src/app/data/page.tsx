@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getSiteUrl, SiteFooter, SiteHeader, resolveLanguage } from "@/components/site/SiteChrome";
+import { getSiteUrl, SiteFooter, SiteHeader, localizedPath, resolveLanguage } from "@/components/site/SiteChrome";
 import { getExportMetadata } from "@/lib/atlas/static-dataset";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const canonical = `${getSiteUrl()}/data`;
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ lang?: string | string[] }> }): Promise<Metadata> {
+  const language = resolveLanguage((await searchParams).lang);
+  const canonical = `${getSiteUrl()}${localizedPath(language, "/data")}`;
   return {
     title: "Data exports",
     description: "Download the Greater Cairo Atlas data as CSV, JSON, and GeoJSON, with provenance, version, and licensing notes.",
-    alternates: { canonical, languages: { ar: canonical, en: `${canonical}?lang=en` } },
+    alternates: { canonical, languages: { ar: `${getSiteUrl()}/ar/data`, en: `${getSiteUrl()}/en/data` } },
   };
 }
 
@@ -69,7 +70,7 @@ export default async function DataPage({ searchParams }: { searchParams: Promise
         <p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">{ar?"تفاصيل رخصة المشاع الإبداعي CC BY 4.0":"CC BY 4.0 license terms"}</a></p>
       </section>
       <aside className="future-format-note"><strong>{ar?"GeoPackage لاحقًا":"GeoPackage later"}</strong><p>{ar?"يمكن إنشاء حزمة GeoPackage محليًا في إصدار لاحق باستخدام Python وGeoPandas من ملف GeoJSON المنزّل؛ لن يعتمد التصدير على قاعدة بيانات إنتاجية.":"A future release can create an offline GeoPackage with Python and GeoPandas from the downloaded GeoJSON; no production database access is needed."}</p></aside>
-      <p className="site-backlink"><Link href={`/methodology?lang=${language}`}>{ar?"اقرأ المنهجية وملاحظات الترخيص ←":"Read methodology and licensing notes →"}</Link></p>
+      <p className="site-backlink"><Link href={`/${language}/methodology`}>{ar?"اقرأ المنهجية وملاحظات الترخيص ←":"Read methodology and licensing notes →"}</Link></p>
     </main>
     <SiteFooter language={language}/>
   </div>;

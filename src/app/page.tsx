@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import AtlasApp from "@/components/atlas/AtlasApp";
-import { getSiteUrl, resolveLanguage } from "@/components/site/SiteChrome";
+import { getSiteUrl, localizedPath, resolveLanguage } from "@/components/site/SiteChrome";
 import { transitModesForEntityCode, isTransitInterchangeEntityCode, type TransitMode } from "@/lib/atlas/transit-modes";
 import { stationDisplayName } from "@/lib/atlas/labels";
 import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
@@ -20,13 +20,13 @@ function hasOutOfRegionCoordinates(geometry: unknown): boolean {
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ lang?: string | string[] }> }): Promise<Metadata> {
   const language = resolveLanguage((await searchParams).lang);
-  const canonical = getSiteUrl();
+  const canonical = `${getSiteUrl()}${localizedPath(language)}`;
   return {
     title: language === "ar" ? "أطلس القاهرة الكبرى" : "Greater Cairo Atlas",
     description: language === "ar"
       ? "أطلس جغرافي موثق للقاهرة الكبرى، يحفظ مصادر الحقائق ويعرض التعارضات دون استنتاج الهندسة أو الحالة."
       : "A source-backed geospatial atlas of Greater Cairo that preserves provenance and conflicting claims without inferring geometry or status.",
-    alternates: { canonical, languages: { ar: canonical, en: `${canonical}?lang=en` } },
+    alternates: { canonical, languages: { ar: `${getSiteUrl()}/ar`, en: `${getSiteUrl()}/en` } },
   };
 }
 

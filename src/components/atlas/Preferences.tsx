@@ -14,10 +14,10 @@ export function useAtlasPreferences(initialLanguage: AtlasLanguage = "ar") {
     try {
       const savedTheme = window.localStorage.getItem("gca-theme");
       if (savedTheme === "day" || savedTheme === "night") setTheme(savedTheme);
-      const savedLanguage = window.localStorage.getItem("gca-language");
-      if (savedLanguage === "ar" || savedLanguage === "en") setLanguage(savedLanguage);
     } catch { /* Storage can be disabled; server-selected defaults remain usable. */ }
   }, []);
+
+  useEffect(() => { setLanguage(initialLanguage); }, [initialLanguage]);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;

@@ -69,8 +69,9 @@ function syncRailLayers(map: MapLibreMap, enabled: boolean, showDisused: boolean
 function entityLineColor(theme: AtlasTheme): MapExpression {
   const colors = Object.entries(TRANSIT_LINE_COLORS).flatMap(([code, color]) => [code, color]);
   const lineCode = ["coalesce", ["get", "primary_line_code"], ["at", 0, ["get", "line_codes"]], ["get", "entity_code"]];
-  const fallback = ["case", ["==", ["get", "type"], "road"], theme === "day" ? "#854a0a" : "#f0ad58", theme === "day" ? "#145e63" : "#53d8d2"];
-  return ["match", lineCode, ...colors, fallback] as unknown as MapExpression;
+  const transitLineColor = ["match", lineCode, ...colors, theme === "day" ? "#0072b2" : "#56b4e9"];
+  const statusColors = ["match", ["get", "status"], "operational", theme === "day" ? "#0072b2" : "#56b4e9", "partial", theme === "day" ? "#8a6d00" : "#f0e442", "under_construction", theme === "day" ? "#d55e00" : "#e69f00", "planned", theme === "day" ? "#9b4f86" : "#cc79a7", "approved_planned", theme === "day" ? "#9b4f86" : "#cc79a7", theme === "day" ? "#67746d" : "#96a19c"];
+  return ["case", ["==", ["get", "type"], "transit_line"], transitLineColor, statusColors] as unknown as MapExpression;
 }
 
 function stationModeFilter(modes: readonly TransitMode[]): MapExpression {
@@ -274,14 +275,16 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       });
       map.addLayer({
         id: "atlas-polygons-fill", type: "fill", source: sourceId,
-        filter: ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]],
+        filter: ["all", ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]], ["!=", ["get", "service_area"], true], ["!=", ["get", "geometry_conflict"], true]],
         paint: { "fill-color": theme === "day" ? "#278d78" : "#55d7ba", "fill-opacity": 0.11 },
       });
       map.addLayer({
         id: "atlas-polygons-outline", type: "line", source: sourceId,
-        filter: ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]],
+        filter: ["all", ["in", ["geometry-type"], ["literal", ["Polygon", "MultiPolygon"]]], ["!=", ["get", "service_area"], true], ["!=", ["get", "geometry_conflict"], true]],
         paint: { "line-color": theme === "day" ? "#147364" : "#43bfa5", "line-width": 1.3, "line-opacity": 0.82 },
       });
+      map.addLayer({ id: "atlas-service-area-fill", type: "fill", source: sourceId, filter: ["==", ["get", "service_area"], true], paint: { "fill-color": "#198f9d", "fill-opacity": 0.11 } });
+      map.addLayer({ id: "atlas-service-area-outline", type: "line", source: sourceId, filter: ["==", ["get", "service_area"], true], paint: { "line-color": "#137d88", "line-width": 2.3, "line-dasharray": [1, 1] } });
       map.addLayer({
         id: "atlas-roads-casing", type: "line", source: sourceId,
         filter: ["==", ["get", "type"], "road"],
@@ -290,38 +293,44 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       });
       map.addLayer({
         id: "atlas-lines-operational", type: "line", source: sourceId,
-        filter: ["==", ["get", "status"], "operational"],
+        filter: ["all", ["==", ["get", "status"], "operational"], ["!=", ["get", "geometry_conflict"], true]],
         paint: { "line-color": entityLineColor(theme), "line-width": ["interpolate", ["linear"], ["zoom"], 6, ["match", ["get", "type"], "road", 2.1, 1.6], 12, ["match", ["get", "type"], "road", 5.2, 3.7], 16, ["match", ["get", "type"], "road", 8, 5.5]], "line-opacity": 0.96 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-partial", type: "line", source: sourceId,
-        filter: ["==", ["get", "status"], "partial"],
+        filter: ["all", ["==", ["get", "status"], "partial"], ["!=", ["get", "geometry_conflict"], true]],
         paint: { "line-color": entityLineColor(theme), "line-width": 3.2, "line-dasharray": [2, 1], "line-opacity": 0.95 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-construction", type: "line", source: sourceId,
-        filter: ["==", ["get", "status"], "under_construction"],
+        filter: ["all", ["==", ["get", "status"], "under_construction"], ["!=", ["get", "geometry_conflict"], true]],
         paint: { "line-color": entityLineColor(theme), "line-width": 3, "line-dasharray": [1.5, 1.5], "line-opacity": 0.82 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-planned", type: "line", source: sourceId,
-        filter: ["in", ["get", "status"], ["literal", ["planned", "approved_planned"]]],
+        filter: ["all", ["in", ["get", "status"], ["literal", ["planned", "approved_planned"]]], ["!=", ["get", "geometry_conflict"], true]],
         paint: { "line-color": entityLineColor(theme), "line-width": 2.8, "line-dasharray": [0.6, 2.3], "line-opacity": 0.88 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-lines-unknown", type: "line", source: sourceId,
-        filter: ["==", ["get", "status"], "unknown"],
+        filter: ["all", ["==", ["get", "status"], "unknown"], ["!=", ["get", "geometry_conflict"], true]],
         paint: { "line-color": entityLineColor(theme), "line-width": ["match", ["get", "type"], "road", 3.2, 1.8], "line-opacity": 0.82 },
+        layout: { "line-cap": "round", "line-join": "round" },
+      });
+      map.addLayer({
+        id: "atlas-lines-geometry-conflict", type: "line", source: sourceId,
+        filter: ["==", ["get", "geometry_conflict"], true],
+        paint: { "line-color": theme === "day" ? "#493c82" : "#d3a9ff", "line-width": ["interpolate", ["linear"], ["zoom"], 6, 2.8, 14, 5], "line-dasharray": [0.8, 1.5], "line-opacity": 0.96 },
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
         id: "atlas-points", type: "circle", source: sourceId,
         filter: ["all", ["==", ["geometry-type"], "Point"], ["!", ["in", ["get", "type"], ["literal", ["transit_stop", "rail_station"]]]]],
-        paint: { "circle-color": theme === "day" ? "#815c00" : "#f7d46a", "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, 2.5, 12, 5], "circle-stroke-color": theme === "day" ? "#fff" : "#111715", "circle-stroke-width": 1.5 },
+        paint: { "circle-color": ["match", ["get", "status"], "operational", theme === "day" ? "#0072b2" : "#56b4e9", "partial", theme === "day" ? "#8a6d00" : "#f0e442", "under_construction", theme === "day" ? "#d55e00" : "#e69f00", "planned", theme === "day" ? "#9b4f86" : "#cc79a7", "approved_planned", theme === "day" ? "#9b4f86" : "#cc79a7", theme === "day" ? "#67746d" : "#96a19c"] as unknown as MapExpression, "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, 2.5, 12, 5], "circle-stroke-color": theme === "day" ? "#fff" : "#111715", "circle-stroke-width": 1.5 },
       });
       if (!compact) {
         map.addLayer({

@@ -3,16 +3,21 @@ import { getSiteUrl } from "@/components/site/SiteChrome";
 import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base=getSiteUrl();
-  const dataset=await getStaticAtlasDataset();
-  const pages:MetadataRoute.Sitemap=[
-    {url:base,lastModified:new Date(),changeFrequency:"weekly",priority:1},
-    {url:`${base}/directory`,lastModified:new Date(),changeFrequency:"weekly",priority:0.9},
-    {url:`${base}/data`,lastModified:new Date(),changeFrequency:"monthly",priority:0.7},
-    {url:`${base}/methodology`,lastModified:new Date(),changeFrequency:"monthly",priority:0.6},
-    {url:`${base}/sources`,lastModified:new Date(),changeFrequency:"weekly",priority:0.7},
+  const base = getSiteUrl();
+  const dataset = await getStaticAtlasDataset();
+  const localized = (path: string): MetadataRoute.Sitemap => {
+    const ar = `${base}/ar${path}`;
+    const en = `${base}/en${path}`;
+    const languages = { ar, en };
+    return [
+      { url: ar, lastModified: new Date(), alternates: { languages } },
+      { url: en, lastModified: new Date(), alternates: { languages } },
+    ];
+  };
+  const paths = ["", "/directory", "/data", "/methodology", "/sources", "/api-docs"];
+  return [
+    ...paths.flatMap((path) => localized(path)),
+    ...dataset.evidence.flatMap((source) => localized(`/sources/${encodeURIComponent(source.code)}`)),
+    ...dataset.entities.flatMap((entity) => localized(`/entity/${encodeURIComponent(entity.code)}`)),
   ];
-  return [...pages,
-    ...dataset.evidence.map((source)=>({url:`${base}/sources/${encodeURIComponent(source.code)}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:0.5})),
-    ...dataset.entities.map((entity)=>({url:`${base}/entity/${encodeURIComponent(entity.code)}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:0.7}))];
 }
