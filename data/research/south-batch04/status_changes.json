@@ -1,0 +1,31 @@
+[
+ {
+  "entity_code": "BRIDGE-MONIB",
+  "from": "unknown",
+  "to": "operational",
+  "basis": [
+   "EV-S4-011",
+   "EV-S4-012"
+  ],
+  "caveat": "latest explicit official mention is construction-era; 8-lane operation from news"
+ },
+ {
+  "entity_code": "ROAD-EASTERN-DESERT",
+  "from": "unknown",
+  "to": "operational",
+  "basis": [
+   "EV-S4-014",
+   "EV-S4-019"
+  ]
+ },
+ {
+  "entity_code": "ROAD-MOKATTAM-AXIS",
+  "from": "unknown",
+  "to": "operational",
+  "basis": [
+   "EV-S4-023",
+   "EV-S4-024"
+  ],
+  "caveat": "informal umbrella name; official axes are Yasser Rizk / Kafrawy / Samira Moussa"
+ }
+]
