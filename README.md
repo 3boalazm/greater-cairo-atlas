@@ -38,9 +38,11 @@ Greater Cairo Atlas is an **open-evidence urban documentation project**, not a r
 4. **Automatic Production Data Import**: Only when `VERCEL=1` and `VERCEL_ENV=production`, after migrations and before `next build`, the build validates `data/seed/` and `data/features/features.geojson`, then performs the same idempotent entity/evidence/fact/link/feature upsert as the protected manual endpoint. Preview deployments do not import data. A production build without database configuration fails closed.
 5. **All-or-Nothing Checksum Gate**: A SHA-256 over every file under `data/seed/` and `data/features/` is compared with `import_runs`. The upserts and checksum row are written in one PostgreSQL transaction under an advisory transaction lock; an unchanged checksum skips all writes. Any validation or SQL failure rolls back and fails the production build, preventing deployment of half-imported data. Logs contain counts and status only, never connection URLs or tokens.
 
-### Manual GitHub Workflows (`workflow_dispatch` only)
+### GitHub Workflows
 
-`.github/workflows/ci.yml` and `.github/workflows/migrate.yml` are configured with `on: workflow_dispatch` only. The owner has no GitHub Actions minutes available; do not enable push/PR-triggered workflows.
+**`ci.yml` runs automatically on every pull request into `main` and every push to `main`** (BATCH 12.1), and can still be started by hand with `workflow_dispatch`. It runs ESLint, the strict TypeScript typecheck, the full Vitest suite, the production build, the offline migration dry-run, the offline seed check, and the committed-GeoJSON geometry validation. No secrets are used and no database is required, so it is safe on forks.
+
+The PostGIS integration tests (`tests/features-postgis.integration.test.ts`, and the other `*.integration.test.ts` files) are **already part of `npm test`** and therefore run in CI: they use in-process PGlite with the PostGIS WASM extension rather than an external service, so no `services:` container or database secret is needed. They are not skipped and not left manual. The only workflow still limited to manual dispatch is `migrate.yml`, because it applies migrations to a real database and requires credentials.
 
 ## Research-Seed Adapter & Protected Import
 

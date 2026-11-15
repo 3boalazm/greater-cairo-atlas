@@ -33,7 +33,7 @@ Across the fact-backed station set, 117 station entities reference 248 OSM node 
 
 Canonical research inputs are in `data/research/`; adaptation produces `data/seed/{entities.csv,evidence.json,facts.json}`. OSM outputs and exact-match audits are in `data/features/`. Validate with `npm run seed:check`; regenerate licensed geometry from stored source extracts using `scripts/ingest-features.py`; then run the full checks, including `tests/features-postgis.integration.test.ts`, which imports the current full seed and all features into PGlite/PostGIS and validates the production geometry rules. Live database reconciliation must not be claimed until a production import succeeds.
 
-GitHub Actions workflows must remain `workflow_dispatch` only. The owner has no Actions minutes available; do not enable automatic push or pull-request workflows.
+`ci.yml` now runs on every pull request into `main` and every push to `main` (BATCH 12.1), plus manual dispatch. It needs no secrets and no database: the PostGIS integration tests run on in-process PGlite + PostGIS WASM inside `npm test`, not against a service container. `migrate.yml` stays manual-only because it needs real database credentials.
 
 ## Revision and phase history
 
