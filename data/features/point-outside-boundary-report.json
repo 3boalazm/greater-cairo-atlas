@@ -1,0 +1,155 @@
+{
+  "generated_on": "2026-11-15",
+  "description": "Entities whose recorded point falls outside the official (CAPMAS COD-AB) boundary of the same entity. Points are NOT moved: each row records what the source says so a human can review it. A row with inside_osm_boundary=true means the point is consistent with the OSM boundary but not with the official one, i.e. a source disagreement rather than a bad coordinate.",
+  "method": {
+    "boundary_source": "data/features/codab-entity-boundaries.geojson",
+    "osm_boundary_source": "data/features/boundaries.geojson",
+    "point_source": "data/derived/entity-map-geometries.json (falls back to data/features/features.geojson)",
+    "edge_tolerance_degrees": 1e-06,
+    "point_in_polygon": "shapely contains() against the union of the entity's official units"
+  },
+  "license": "boundaries © CAPMAS via OCHA/HDX CC BY-IGO; points © OpenStreetMap contributors ODbL where OSM-derived",
+  "counts": {
+    "entities_with_official_boundary": 65,
+    "entities_checked": 35,
+    "entities_with_findings": 6,
+    "point_findings": 7,
+    "round_coordinate_findings": 1,
+    "explained_by_osm_boundary": 1
+  },
+  "findings": [
+    {
+      "entity_code": "CITY-OBOUR",
+      "name_ar": "العبور",
+      "name_en": "El Obour",
+      "pcodes": [
+        "EG1413"
+      ],
+      "evidence_code": "EV-CODAB-ADMIN-2026",
+      "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+      "license": "CC BY-IGO",
+      "point": [
+        31.450548,
+        30.1914
+      ],
+      "state": "outside",
+      "distance_outside_m": 139.2,
+      "inside_osm_boundary": null,
+      "round_coordinate": false
+    },
+    {
+      "entity_code": "DIST-AIN-SHAMS",
+      "name_ar": "عين شمس",
+      "name_en": "Ain Shams",
+      "pcodes": [
+        "EG0130"
+      ],
+      "evidence_code": "EV-CODAB-ADMIN-2026",
+      "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+      "license": "CC BY-IGO",
+      "point": [
+        31.3167491,
+        30.1304761
+      ],
+      "state": "outside",
+      "distance_outside_m": 277.4,
+      "inside_osm_boundary": null,
+      "round_coordinate": false
+    },
+    {
+      "entity_code": "DIST-AMIRIYA",
+      "name_ar": "حي الأميرية",
+      "name_en": "El Amiriya District",
+      "pcodes": [
+        "EG013102"
+      ],
+      "evidence_code": "EV-CODAB-ADMIN-2026",
+      "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+      "license": "CC BY-IGO",
+      "point": [
+        31.283333,
+        30.1
+      ],
+      "state": "outside",
+      "distance_outside_m": 579.8,
+      "inside_osm_boundary": null,
+      "round_coordinate": false
+    },
+    {
+      "entity_code": "DIST-AMIRIYA",
+      "name_ar": "حي الأميرية",
+      "name_en": "El Amiriya District",
+      "pcodes": [
+        "EG013102"
+      ],
+      "evidence_code": "EV-CODAB-ADMIN-2026",
+      "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+      "license": "CC BY-IGO",
+      "point": [
+        31.283333,
+        30.1000001
+      ],
+      "state": "outside",
+      "distance_outside_m": 579.8,
+      "inside_osm_boundary": null,
+      "round_coordinate": false
+    },
+    {
+      "entity_code": "DIST-BAB-SHAREYA",
+      "name_ar": "حي باب الشعرية",
+      "name_en": "Bab El Shaareya District",
+      "pcodes": [
+        "EG0116"
+      ],
+      "evidence_code": "EV-CODAB-ADMIN-2026",
+      "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+      "license": "CC BY-IGO",
+      "point": [
+        31.25,
+        30.05
+      ],
+      "state": "outside",
+      "distance_outside_m": 680.9,
+      "inside_osm_boundary": null,
+      "round_coordinate": true
+    },
+    {
+      "entity_code": "DIST-BAHTIM",
+      "name_ar": "بهتيم",
+      "name_en": "Bahtim",
+      "pcodes": [
+        "EG140701"
+      ],
+      "evidence_code": "EV-CODAB-ADMIN-2026",
+      "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+      "license": "CC BY-IGO",
+      "point": [
+        31.2655197,
+        30.1389642
+      ],
+      "state": "outside",
+      "distance_outside_m": 77.3,
+      "inside_osm_boundary": true,
+      "round_coordinate": false
+    },
+    {
+      "entity_code": "DIST-HELIOPOLIS",
+      "name_ar": "مصر الجديدة",
+      "name_en": "Heliopolis",
+      "pcodes": [
+        "EG0128"
+      ],
+      "evidence_code": "EV-CODAB-ADMIN-2026",
+      "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+      "license": "CC BY-IGO",
+      "point": [
+        31.3323044,
+        30.1177224
+      ],
+      "state": "outside",
+      "distance_outside_m": 1464.3,
+      "inside_osm_boundary": false,
+      "round_coordinate": false
+    }
+  ]
+}

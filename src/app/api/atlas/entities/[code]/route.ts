@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAtlasEntityDetail } from "@/lib/atlas/entities-api";
 import { toApiErrorResponse, type ApiErrorBody } from "@/lib/errors";
-import { getAreaBoundaryCodes } from "@/lib/atlas/area-boundaries";
+import { getAreaBoundaryCodes, getPointOutsideBoundaryFindings } from "@/lib/atlas/area-boundaries";
 import { getStaticEntityNeighbors, getStaticEntityRelations } from "@/lib/atlas/static-dataset";
 
 export const runtime = "nodejs";
@@ -20,8 +20,23 @@ export async function GET(
         headers: { "Cache-Control": "public, s-maxage=30, stale-while-revalidate=120" },
       });
     }
-    const [boundaryCodes, relations, neighbors] = await Promise.all([getAreaBoundaryCodes(), getStaticEntityRelations(entity.code), getStaticEntityNeighbors(entity.code)]);
-    return NextResponse.json({ ...entity, has_boundary: boundaryCodes.has(entity.code), relations, neighbors }, {
+    const [boundaryCodes, relations, neighbors, pointOutside] = await Promise.all([
+      getAreaBoundaryCodes(), getStaticEntityRelations(entity.code), getStaticEntityNeighbors(entity.code),
+      getPointOutsideBoundaryFindings(),
+    ]);
+    // BATCH 12.5 — a recorded point that falls outside the entity's own official boundary. The point is
+    // reported, never moved, so the researcher view can flag it for human review.
+    const outsideFinding = pointOutside.get(entity.code) ?? null;
+    return NextResponse.json({
+      ...entity,
+      has_boundary: boundaryCodes.has(entity.code),
+      point_outside_boundary: outsideFinding ? {
+        distance_outside_m: outsideFinding.distance_outside_m,
+        inside_osm_boundary: outsideFinding.inside_osm_boundary,
+        round_coordinate: outsideFinding.round_coordinate,
+      } : null,
+      relations, neighbors,
+    }, {
       headers: { "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300" },
     });
   } catch (error) {
