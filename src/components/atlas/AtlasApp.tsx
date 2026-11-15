@@ -24,7 +24,7 @@ import { SearchCommand } from "./SearchCommand";
 import { ResearchModeToggle, ResearcherOnly, useResearchMode } from "@/components/site/ResearchMode";
 import { FirstVisitGuide } from "./FirstVisitGuide";
 import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact, EntityListResponse } from "./atlas-client";
-import { statusesAtYear } from "@/lib/atlas/status-timeline";
+import { resolveStatusByYear } from "@/lib/atlas/status-timeline";
 import { approximateRadiusPolygon } from "@/lib/atlas/service-area";
 import { findGeometryAlternatives } from "@/lib/atlas/geometry-comparisons";
 import { STATUSES } from "./atlas-client";
@@ -365,7 +365,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
 
   const geometryAlternatives = useMemo(() => findGeometryAlternatives(initialFeatures.features), [initialFeatures.features]);
   const useTimeline = researcherMode && timelineEnabled;
-  const timelineStatusByCode = useMemo(() => useTimeline ? statusesAtYear(statusTimeline, timelineYear) : null, [useTimeline, statusTimeline, timelineYear]);
+  const timelineStatusByCode = useMemo(() => useTimeline ? resolveStatusByYear(statusTimeline, timelineYear) : null, [useTimeline, statusTimeline, timelineYear]);
   const regionalSet = useMemo(() => new Set(regionalCodes), [regionalCodes]);
   const visibleFeatureCollection = useMemo(() => {
     const visibleFeatures = features.features.flatMap((feature) => {
