@@ -73,7 +73,7 @@ The canonical bundle has **213 entities, 59 evidence records, 278 facts, and 304
 
 ### Historical revision 3 expectations (before rev5)
 
-Current canonical seed validation (`npm run seed:check`) reports 417 entities, 2,157 facts, 378 evidence records, and 2,510 fact-evidence links. The current feature collection contains 2,942 geometries, including 14 partially mapped OSM `highway=busway` ways that carry the visible share of the BRT (الأتوبيس الترددي) line. There are 71 evidence records without URLs, all retained as documented records (the current schema and database guard require verified facts to cite official evidence with a URL); all 331 currently verified facts satisfy that rule. No rev4 entity code was removed, renamed, or retyped; all rev4 facts are retained.
+Current canonical seed validation (`npm run seed:check`) reports 448 entities, 2,252 facts, 448 evidence records, and 2,605 fact-evidence links. The current feature collection contains 2,942 geometries, including 14 partially mapped OSM `highway=busway` ways that carry the visible share of the BRT (الأتوبيس الترددي) line. There are 71 evidence records without URLs, all retained as documented records (the current schema and database guard require verified facts to cite official evidence with a URL); all 379 currently verified facts satisfy that rule. No rev4 entity code was removed, renamed, or retyped; all rev4 facts are retained. The 31 entities added by south batch 04 carry no geometry — no confident OSM match existed for them, so none was invented — and still resolve in search and the entity panel.
 
 To reproduce the revision 5 outputs after placing the Drive bundle in `data/research/rev5/`:
 

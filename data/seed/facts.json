@@ -30549,5 +30549,1335 @@
       "EV-R9-006"
     ],
     "notes": null
+  },
+  {
+    "code": "F-AUTH-CAIRO-SOUTH-ZONE-CONSTITUENT-DISTRICTS-1",
+    "entity_code": "AUTH-CAIRO-SOUTH-ZONE",
+    "attribute": "constituent_districts",
+    "value": "طرة، المعصرة، حلوان، 15 مايو، التبين، المعادي، البساتين، المقطم، مصر القديمة، دار السلام، الخليفة، السيدة زينب",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-CAIRO-SOUTH-ZONE-DISTRICT-COUNT-1",
+    "entity_code": "AUTH-CAIRO-SOUTH-ZONE",
+    "attribute": "district_count",
+    "value": "12",
+    "unit": "حي",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NUCA-15-MAY-PARENT-AGENCY-1",
+    "entity_code": "AUTH-NUCA-15-MAY",
+    "attribute": "parent_agency",
+    "value": "هيئة المجتمعات العمرانية الجديدة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-HASABALLAH-EL-KAFRAWY-LANES-PER-DIRECTION-1",
+    "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+    "attribute": "lanes_per_direction",
+    "value": "4-7",
+    "unit": "حارة/اتجاه",
+    "valid_as_of": "2022-11-22",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-HASABALLAH-EL-KAFRAWY-LANES-PER-DIRECTION-2",
+    "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+    "attribute": "lanes_per_direction",
+    "value": "4-8",
+    "unit": "حارة/اتجاه",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-HASABALLAH-EL-KAFRAWY-LENGTH-1",
+    "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+    "attribute": "length",
+    "value": "17",
+    "unit": "كم",
+    "valid_as_of": "2022-11-22",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-HASABALLAH-EL-KAFRAWY-ROUTE-1",
+    "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+    "attribute": "route",
+    "value": "يربط جنوب القاهرة (المعادي) بأحياء شرق القاهرة",
+    "unit": null,
+    "valid_as_of": "2022-02-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-HASABALLAH-EL-KAFRAWY-WESTERN-EXTENSION-1",
+    "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+    "attribute": "western_extension",
+    "value": "محور 3 يوليو امتداد محور حسب الله الكفراوي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-035"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-YASSER-RIZK-HADARAT-CONNECTION-1",
+    "entity_code": "ROAD-YASSER-RIZK",
+    "attribute": "hadarat_connection",
+    "value": "يتصل بمحور ومتحف الحضارات عبر كوبري طه حسين",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-YASSER-RIZK-LANES-PER-DIRECTION-1",
+    "entity_code": "ROAD-YASSER-RIZK",
+    "attribute": "lanes_per_direction",
+    "value": "5",
+    "unit": "حارة/اتجاه",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-102"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-YASSER-RIZK-LENGTH-1",
+    "entity_code": "ROAD-YASSER-RIZK",
+    "attribute": "length",
+    "value": "7",
+    "unit": "كم",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-YASSER-RIZK-LENGTH-2",
+    "entity_code": "ROAD-YASSER-RIZK",
+    "attribute": "length",
+    "value": "9",
+    "unit": "كم",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-102"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-YASSER-RIZK-ROUTE-1",
+    "entity_code": "ROAD-YASSER-RIZK",
+    "attribute": "route",
+    "value": "من تقاطعه مع محور سميرة موسى حتى شارع صلاح سالم والأوتوستراد",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-102"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SAMIRA-MOUSSA-LANES-PER-DIRECTION-1",
+    "entity_code": "ROAD-SAMIRA-MOUSSA",
+    "attribute": "lanes_per_direction",
+    "value": "5",
+    "unit": "حارة/اتجاه",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-109"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SAMIRA-MOUSSA-LENGTH-1",
+    "entity_code": "ROAD-SAMIRA-MOUSSA",
+    "attribute": "length",
+    "value": "10",
+    "unit": "كم",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-109"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SAMIRA-MOUSSA-ROUTE-1",
+    "entity_code": "ROAD-SAMIRA-MOUSSA",
+    "attribute": "route",
+    "value": "يربط أرض المعارض والعاشر بالتجمع ويمر بمدخل الأسمرات",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-108"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-HADARAT-AXIS-CORNICHE-SEGMENT-1",
+    "entity_code": "ROAD-HADARAT-AXIS",
+    "attribute": "corniche_segment",
+    "value": "يتصل بكورنيش النيل عند قرية الفواخير بمصر القديمة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-HADARAT-AXIS-ROUTE-1",
+    "entity_code": "ROAD-HADARAT-AXIS",
+    "attribute": "route",
+    "value": "يربط هضبة المقطم بكورنيش النيل ويسهل وصول المعادي وحلوان والمقطم",
+    "unit": null,
+    "valid_as_of": "2022-10-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SALAH-SALEM-ALT-OPERATIONAL-STATUS-1",
+    "entity_code": "ROAD-SALAH-SALEM-ALT",
+    "attribute": "operational_status",
+    "value": "partial",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-036"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SALAH-SALEM-ALT-STATUS-NOTE-1",
+    "entity_code": "ROAD-SALAH-SALEM-ALT",
+    "attribute": "status_note",
+    "value": "بدء التشغيل التجريبي وربطه بمحور الحضارات ومصر القديمة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-036"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-HELWAN-KORIMAT-ALT-NAME-1",
+    "entity_code": "ROAD-HELWAN-KORIMAT",
+    "attribute": "alt_name",
+    "value": "طريق الأوتوستراد القاهرة / الصف",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-HELWAN-KORIMAT-SOUTH-CAIRO-CONNECTION-1",
+    "entity_code": "ROAD-HELWAN-KORIMAT",
+    "attribute": "south_cairo_connection",
+    "value": "يربط التبين وطريق الصعيد الحر بحلوان والمعادي عبر الأوتوستراد",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-SOUTH-HELWAN-CONSTRUCTION-COMPLETED-ANNOUNCED-1",
+    "entity_code": "BRIDGE-SOUTH-HELWAN",
+    "attribute": "construction_completed_announced",
+    "value": "2025-08-17",
+    "unit": null,
+    "valid_as_of": "2025-08-17",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-041"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-SOUTH-HELWAN-LENGTH-1",
+    "entity_code": "BRIDGE-SOUTH-HELWAN",
+    "attribute": "length",
+    "value": "2.520",
+    "unit": "كم",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-SOUTH-HELWAN-LENGTH-2",
+    "entity_code": "BRIDGE-SOUTH-HELWAN",
+    "attribute": "length",
+    "value": "9.100",
+    "unit": "كم",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-040"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-SOUTH-HELWAN-ROUTE-1",
+    "entity_code": "BRIDGE-SOUTH-HELWAN",
+    "attribute": "route",
+    "value": "من طريق التبين إلى طريق القاهرة/أسوان الزراعي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-HELWAN-HSR-MINISTERIAL-INSPECTION-1",
+    "entity_code": "RAIL-HELWAN-HSR",
+    "attribute": "ministerial_inspection",
+    "value": "تفقد وزير النقل محطة القاهرة بحلوان",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-053"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-HELWAN-HSR-SERVICE-AREA-1",
+    "entity_code": "RAIL-HELWAN-HSR",
+    "attribute": "service_area",
+    "value": "حلوان و15 مايو وجنوب القاهرة شرق النيل",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-052"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-METRO-CONVERSION-YEAR-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "metro_conversion_year",
+    "value": "1987",
+    "unit": "سنة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-057"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-OPENING-YEAR-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "opening_year",
+    "value": "1872",
+    "unit": "سنة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-057"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NMEC-ADDRESS-1",
+    "entity_code": "LANDMARK-NMEC",
+    "attribute": "address",
+    "value": "طريق الفسطاط، عين الصيرة، القاهرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NMEC-LOCATION-CONTEXT-1",
+    "entity_code": "LANDMARK-NMEC",
+    "attribute": "location_context",
+    "value": "قرب حصن بابليون ويطل على بحيرة عين الصيرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-062"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NMEC-ROYAL-MUMMIES-PARADE-DATE-1",
+    "entity_code": "LANDMARK-NMEC",
+    "attribute": "royal_mummies_parade_date",
+    "value": "2021-04-03",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EIN-EL-SIRA-REDEVELOPMENT-STATUS-1",
+    "entity_code": "LANDMARK-EIN-EL-SIRA",
+    "attribute": "redevelopment_status",
+    "value": "بحيرة مطورة ومتنزه حضاري بمحيط حدائق الفسطاط وسور مجرى العيون",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-063"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MAGRA-EL-OYOUN-HERITAGE-CONTEXT-1",
+    "entity_code": "LANDMARK-MAGRA-EL-OYOUN",
+    "attribute": "heritage_context",
+    "value": "سور أثري تحيط به منطقة تطوير بعد إزالة المدابغ",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-063"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-JAPANESE-GARDEN-HELWAN-AREA-FEDDANS-1",
+    "entity_code": "LANDMARK-JAPANESE-GARDEN-HELWAN",
+    "attribute": "area_feddans",
+    "value": "10",
+    "unit": "فدان",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-065"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-JAPANESE-GARDEN-HELWAN-ESTABLISHED-YEAR-1",
+    "entity_code": "LANDMARK-JAPANESE-GARDEN-HELWAN",
+    "attribute": "established_year",
+    "value": "1919",
+    "unit": "سنة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-065"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-JAPANESE-GARDEN-HELWAN-MANAGING-BODY-1",
+    "entity_code": "LANDMARK-JAPANESE-GARDEN-HELWAN",
+    "attribute": "managing_body",
+    "value": "الحدائق المتخصصة بمحافظة القاهرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-066"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ROKN-FAROUK-AREA-SQM-1",
+    "entity_code": "LANDMARK-ROKN-FAROUK",
+    "attribute": "area_sqm",
+    "value": "11600",
+    "unit": "م2",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-065"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ROKN-FAROUK-OPENED-DATE-1",
+    "entity_code": "LANDMARK-ROKN-FAROUK",
+    "attribute": "opened_date",
+    "value": "1942-09-05",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-065"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-WADI-DEGLA-OFFICIAL-RECOGNITION-1",
+    "entity_code": "LANDMARK-WADI-DEGLA",
+    "attribute": "official_recognition",
+    "value": "محمية طبيعية مذكورة في ملف حصاد 2025",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-FAWAKHIR-VILLAGE-LOCATION-1",
+    "entity_code": "LANDMARK-FAWAKHIR-VILLAGE",
+    "attribute": "location",
+    "value": "مصر القديمة على محور الحضارة بكورنيش النيل",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-RELIGIOUS-COMPLEX-NEAREST-METRO-STATION-1",
+    "entity_code": "LANDMARK-RELIGIOUS-COMPLEX",
+    "attribute": "nearest_metro_station",
+    "value": "مار جرجس",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-070"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EL-TONSY-MARKET-LOCATION-1",
+    "entity_code": "LANDMARK-EL-TONSY-MARKET",
+    "attribute": "location",
+    "value": "عزبة النصر بحي البساتين",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-071"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-15-MAY-SLAUGHTERHOUSE-SERVICE-SCOPE-1",
+    "entity_code": "LANDMARK-15-MAY-SLAUGHTERHOUSE",
+    "attribute": "service_scope",
+    "value": "يخدم أحياء المنطقة الجنوبية لمحافظة القاهرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LAND-REUSE-PLAN-2021-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "land_reuse_plan_2021",
+    "value": "تحويل أراضي المصنع إلى نشاط عقاري وفق تصريح وزير قطاع الأعمال",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-075"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LIQUIDATION-STATUS-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "liquidation_status",
+    "value": "الشركة تحت التصفية (ميزانية 30 يونيو 2026)",
+    "unit": null,
+    "valid_as_of": "2026-06-30",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-077"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-PARTIAL-RESTART-STUDY-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "partial_restart_study",
+    "value": "دراسة حكومية لإعادة تشغيل جزئي وإقامة مصنع حديد على 300 فدان",
+    "unit": null,
+    "valid_as_of": "2025-08-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-076"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SHAQ-EL-THOABAN-DEVELOPMENT-MODEL-1",
+    "entity_code": "DIST-SHAQ-EL-THOABAN",
+    "attribute": "development_model",
+    "value": "تطوير وطرح بنظام BOOT",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-079"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SHAQ-EL-THOABAN-OFFICIAL-DESIGNATION-1",
+    "entity_code": "DIST-SHAQ-EL-THOABAN",
+    "attribute": "official_designation",
+    "value": "المنطقة الصناعية شق الثعبان وبدر الليثي والشيماء بحي طره",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-078"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-TEBBIN-INDUSTRIAL-OFFICIAL-DESIGNATION-1",
+    "entity_code": "DIST-TEBBIN-INDUSTRIAL",
+    "attribute": "official_designation",
+    "value": "المنطقة الصناعية التبين (أرض البودرة/كفر العلو)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-080"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-15-MAY-INDUSTRIAL-AREA-FEDDANS-1",
+    "entity_code": "DIST-15-MAY-INDUSTRIAL",
+    "attribute": "area_feddans",
+    "value": "376",
+    "unit": "فدان",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-15-MAY-INDUSTRIAL-EXISTING-FACTORIES-TOTAL-1",
+    "entity_code": "DIST-15-MAY-INDUSTRIAL",
+    "attribute": "existing_factories_total",
+    "value": "211",
+    "unit": "مصنع",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-FUSTAT-HILLS-AREA-FEDDANS-1",
+    "entity_code": "PROJ-FUSTAT-HILLS",
+    "attribute": "area_feddans",
+    "value": "500",
+    "unit": "فدان",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-084"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-FUSTAT-HILLS-LATEST-FOLLOWUP-DATE-1",
+    "entity_code": "PROJ-FUSTAT-HILLS",
+    "attribute": "latest_followup_date",
+    "value": "2026-08-26",
+    "unit": null,
+    "valid_as_of": "2026-08-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-087"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-FUSTAT-HILLS-PM-INSPECTION-DATE-1",
+    "entity_code": "PROJ-FUSTAT-HILLS",
+    "attribute": "pm_inspection_date",
+    "value": "2026-06-21",
+    "unit": null,
+    "valid_as_of": "2026-06-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-085"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MAGRA-EL-OYOUN-CLEARED-AREA-FEDDANS-1",
+    "entity_code": "PROJ-MAGRA-EL-OYOUN",
+    "attribute": "cleared_area_feddans",
+    "value": "95",
+    "unit": "فدان",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-089"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MAGRA-EL-OYOUN-LATEST-FOLLOWUP-DATE-1",
+    "entity_code": "PROJ-MAGRA-EL-OYOUN",
+    "attribute": "latest_followup_date",
+    "value": "2026-03-24",
+    "unit": null,
+    "valid_as_of": "2026-03-24",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-090"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MAGRA-EL-OYOUN-PHASE2-INSPECTION-DATE-1",
+    "entity_code": "PROJ-MAGRA-EL-OYOUN",
+    "attribute": "phase2_inspection_date",
+    "value": "2023-03-12",
+    "unit": null,
+    "valid_as_of": "2023-03-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-088"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RAWDAT-EL-SAYEDA-PHASE1-RESIDENTIAL-UNITS-1",
+    "entity_code": "PROJ-RAWDAT-EL-SAYEDA",
+    "attribute": "phase1_residential_units",
+    "value": "816",
+    "unit": "وحدة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-091"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RAWDAT-EL-SAYEDA-PHASE2-TARGET-FAMILIES-1",
+    "entity_code": "PROJ-RAWDAT-EL-SAYEDA",
+    "attribute": "phase2_target_families",
+    "value": "386",
+    "unit": "أسرة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-092"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ASMARAT-PHASE3-RESIDENTIAL-UNITS-1",
+    "entity_code": "PROJ-ASMARAT",
+    "attribute": "phase3_residential_units",
+    "value": "7298",
+    "unit": "وحدة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-094"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ASMARAT-SERVICES-FOLLOWUP-1",
+    "entity_code": "PROJ-ASMARAT",
+    "attribute": "services_followup",
+    "value": "متابعة توافر الخدمات بمدينة الأسمرات",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-096"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-EL-KHAYALA-BUILDINGS-COUNT-1",
+    "entity_code": "PROJ-EL-KHAYALA",
+    "attribute": "buildings_count",
+    "value": "42",
+    "unit": "عمارة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-097"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-EL-KHAYALA-GOVERNOR-INSPECTION-1",
+    "entity_code": "PROJ-EL-KHAYALA",
+    "attribute": "governor_inspection",
+    "value": "جولة محافظ القاهرة بمشروع إسكان أرض الخيالة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-098"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ZOHOUR-15-MAY-BUILDINGS-COUNT-1",
+    "entity_code": "PROJ-ZOHOUR-15-MAY",
+    "attribute": "buildings_count",
+    "value": "42",
+    "unit": "عمارة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-099"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ZOHOUR-15-MAY-RESIDENTIAL-UNITS-1",
+    "entity_code": "PROJ-ZOHOUR-15-MAY",
+    "attribute": "residential_units",
+    "value": "1008",
+    "unit": "وحدة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-099"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MONIB-ADJACENT-HUB-1",
+    "entity_code": "BRIDGE-MONIB",
+    "attribute": "adjacent_hub",
+    "value": "موقف المنيب ونزلات المعادي والمريوطية أسفل الكوبري",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MONIB-LANES-PER-DIRECTION-1",
+    "entity_code": "BRIDGE-MONIB",
+    "attribute": "lanes_per_direction",
+    "value": "8",
+    "unit": "حارة/اتجاه",
+    "valid_as_of": "2026-01-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MONIB-OPERATIONAL-STATUS-2",
+    "entity_code": "BRIDGE-MONIB",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2026-01-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MONIB-PREVIOUS-LANES-PER-DIRECTION-1",
+    "entity_code": "BRIDGE-MONIB",
+    "attribute": "previous_lanes_per_direction",
+    "value": "4",
+    "unit": "حارة/اتجاه",
+    "valid_as_of": "2021-06-04",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-009"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MONIB-RING-ROAD-PHASE1-CONTEXT-1",
+    "entity_code": "BRIDGE-MONIB",
+    "attribute": "ring_road_phase1_context",
+    "value": "ضمن المرحلة الأولى لتوسعة الطريق الدائري (المريوطية/المنيب/الأوتوستراد)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EASTERN-DESERT-OFFICIAL-CORRIDOR-IDENTITY-1",
+    "entity_code": "ROAD-EASTERN-DESERT",
+    "attribute": "official_corridor_identity",
+    "value": "محور الصعيد شرق النيل (طريق بني سويف الكريمات الحر) وليس طريق السويس أو العين السخنة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-014"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EASTERN-DESERT-OPERATIONAL-STATUS-2",
+    "entity_code": "ROAD-EASTERN-DESERT",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EASTERN-DESERT-PARALLEL-CORRIDOR-NOTE-1",
+    "entity_code": "ROAD-EASTERN-DESERT",
+    "attribute": "parallel_corridor_note",
+    "value": "تمييز رسمي بين طريق الجيش والطريق الصحراوي الشرقي القديم",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-EASTERN-DESERT-SOUTHERN-GATEWAY-1",
+    "entity_code": "ROAD-EASTERN-DESERT",
+    "attribute": "southern_gateway",
+    "value": "بوابات الكريمات بدائرة الصف",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MOKATTAM-AXIS-OFFICIAL-NAMING-RESOLUTION-1",
+    "entity_code": "ROAD-MOKATTAM-AXIS",
+    "attribute": "official_naming_resolution",
+    "value": "تسمية شائعة لمنظومة محاور المقطم؛ أبرزها رسميًا محور ياسر رزق مع محوري حسب الله الكفراوي وسميرة موسى",
+    "unit": null,
+    "valid_as_of": "2022-09-09",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MOKATTAM-AXIS-OPERATIONAL-STATUS-2",
+    "entity_code": "ROAD-MOKATTAM-AXIS",
+    "attribute": "operational_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": "2022-10-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-OLD-CAIRO-CONTAINED-AREAS-1",
+    "entity_code": "DIST-OLD-CAIRO",
+    "attribute": "contained_areas",
+    "value": "قرية الفواخير ومحور الحضارة بكورنيش النيل",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-OLD-CAIRO-CONTAINED-AREAS-REDEVELOPMENT-1",
+    "entity_code": "DIST-OLD-CAIRO",
+    "attribute": "contained_areas_redevelopment",
+    "value": "منطقتا الجيارة والجباسة ومحيط سور مجرى العيون",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-089"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SAYEDA-ZEINAB-ADMINISTRATIVE-ZONE-1",
+    "entity_code": "DIST-SAYEDA-ZEINAB",
+    "attribute": "administrative_zone",
+    "value": "المنطقة الجنوبية لمحافظة القاهرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AIN-SOKHNA-INTERSECTION-1",
+    "entity_code": "ROAD-AIN-SOKHNA",
+    "attribute": "intersection",
+    "value": "يتقاطع مع وصلة أم القمر بكوبري علوي",
+    "unit": null,
+    "valid_as_of": "2021-10-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-METRO-LINE1-INTERCHANGE-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "metro_line1_interchange",
+    "value": "الزهراء والمرج",
+    "unit": null,
+    "valid_as_of": "2026-09-24",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-043"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-MOKATTAM-EXTENSION-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "mokattam_extension",
+    "value": "مد مسار الإسكندرية الزراعي إلى محطة المقطم",
+    "unit": null,
+    "valid_as_of": "2026-11-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-048"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-OPERATING-HOURS-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "operating_hours",
+    "value": "05:00-01:00",
+    "unit": null,
+    "valid_as_of": "2026-11-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-048"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE1-TRIAL-START-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase1_trial_start",
+    "value": "2025-06-02",
+    "unit": null,
+    "valid_as_of": "2025-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-044"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-LAUNCH-DATE-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_launch_date",
+    "value": "2026-09-26",
+    "unit": null,
+    "valid_as_of": "2026-09-24",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-043"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-SCOPE-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_scope",
+    "value": "يمتد بمرحلتيه من تقاطع الإسكندرية الزراعي حتى محطة صن كابيتال",
+    "unit": null,
+    "valid_as_of": "2026-09-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-STATIONS-COUNT-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_stations_count",
+    "value": "16",
+    "unit": "محطة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-045"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-STATIONS-PENDING-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_stations_pending",
+    "value": "3 محطات مؤجلة: زهراء المعادي والأوتوستراد والمنصورية",
+    "unit": null,
+    "valid_as_of": "2026-09-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-046"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-TOTAL-LENGTH-PHASES-1-2-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "total_length_phases_1_2",
+    "value": "75",
+    "unit": "كم",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-049"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-TOTAL-STATIONS-PHASES-1-2-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "total_stations_phases_1_2",
+    "value": "30",
+    "unit": "محطة",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-049"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-SOUTH-CAIRO-ALIGNMENT-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "south_cairo_alignment",
+    "value": "يتقاطع مع الأوتوستراد بجوار مطار حلوان الحربي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-PLANNING-STATUS-1",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "planning_status",
+    "value": "جارٍ دراسته بالهيئة القومية للأنفاق",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-S4-054"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L6-ROUTE-2",
+    "entity_code": "TRANSIT-METRO-L6",
+    "attribute": "route",
+    "value": "من الخصوص إلى المعادي الجديدة ثم القاهرة الجديدة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-S4-055"
+    ],
+    "notes": null
   }
 ]

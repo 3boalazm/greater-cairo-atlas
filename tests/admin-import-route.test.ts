@@ -104,11 +104,11 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
     expect(payload.mode).toBe("dry_run");
     expect(payload.dryRun).toBe(true);
     expect(payload.summary).toEqual({
-      entitiesCount: 417,
-      evidenceCount: 378,
-      factsCount: 2157,
+      entitiesCount: 448,
+      evidenceCount: 448,
+      factsCount: 2252,
       relationsCount: 194,
-      factEvidenceLinksCount: 2510,
+      factEvidenceLinksCount: 2605,
       featuresCount: 2942,
       importSync: {
         featuresDeletedCount: null,
@@ -126,7 +126,7 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
     expect(payload.report.warnings).toHaveLength(71);
     expect(payload.report.warnings.filter((warning: { code: string }) => warning.code === "OFFICIAL_SOURCE_MISSING_URL")).toEqual([]);
     expect(payload.report.breakdowns.entitiesBySector.REGIONAL).toBe(28);
-    expect(payload.report.breakdowns.factsByVerificationState.verified).toBe(331);
+    expect(payload.report.breakdowns.factsByVerificationState.verified).toBe(379);
     expect(JSON.stringify(payload)).not.toContain(validToken);
   });
 

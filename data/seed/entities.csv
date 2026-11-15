@@ -29,7 +29,7 @@ BRIDGE-GALAA,كوبري الجلاء,El Galaa Bridge,bridge,CENTRAL,operational,
 BRIDGE-GIZA,كوبري الجيزة,Giza Bridge,bridge,CENTRAL,operational,,
 BRIDGE-IMBABA,كوبري إمبابة,Imbaba Bridge,bridge,CENTRAL,operational,,
 BRIDGE-MIDDLE-RING-ISMAILIA,كوبري تقاطع الدائري الأوسطي مع طريق الإسماعيلية الصحراوي,Middle Ring – Ismailia Desert Road Interchange Bridge,bridge,EAST,operational,,
-BRIDGE-MONIB,كوبري المنيب,El Monib Bridge,bridge,SOUTH,unknown,الدائري الجنوبي|دائري المنيب,
+BRIDGE-MONIB,كوبري المنيب,El Monib Bridge,bridge,SOUTH,operational,الدائري الجنوبي|دائري المنيب,
 BRIDGE-QALYUB-FLYOVER,كوبري قليوب العلوي,Qalyub Overpass Bridge,bridge,NORTH,operational,كوبري قليوب|Qalyub Flyover,
 BRIDGE-QASR-EL-NIL,كوبري قصر النيل,Qasr El Nil Bridge,bridge,CENTRAL,operational,,
 BRIDGE-RING-NORTH-WARRAQ,كوبري الدائري الشمالي (الوراق),Ring Road North Bridge (Warraq),bridge,NORTH,unknown,,
@@ -201,7 +201,7 @@ ROAD-CORNICHE,الكورنيش,Corniche,road,SOUTH,operational,كورنيش ال
 ROAD-DABAA-AXIS,محور الضبعة,Dabaa Axis,road,WEST,operational,الضبعة,
 ROAD-DAHSHUR-LINK,وصلة دهشور,Dahshur Link,road,WEST,unknown,طريق وصلة دهشور|طريق وصلة دهشور الجنوبية|Waslet Dahshur Road,
 ROAD-EAST-RAYAH-TAWFIKI,طريق حر شرق الرياح التوفيقي,East Rayah Tawfiki Free Road,road,REGIONAL,under_construction,,
-ROAD-EASTERN-DESERT,الصحراوي الشرقي,Eastern Desert Road,road,SOUTH,unknown,طريق القاهرة السويس الصحراوي|الطريق الصحراوي الشرقي,
+ROAD-EASTERN-DESERT,الصحراوي الشرقي,Eastern Desert Road,road,SOUTH,operational,طريق القاهرة السويس الصحراوي|الطريق الصحراوي الشرقي,
 ROAD-GAMET-EL-DOWAL,جامعة الدول,Gameat El Dowal Street,road,WEST,operational,شارع جامعة الدول العربية|جامعة الدول العربية,
 ROAD-HARAM,الهرم,Haram Street,road,WEST,operational,شارع الهرم|شارع الأهرام|Al Haram Street|Al Ahram Street,
 ROAD-IBRAHIM-ORABI-AXIS,محور الفريق إبراهيم العرابي,El Fereeq Ibrahim El Orabi Axis,road,NORTH,operational,محور إبراهيم العرابي|محور ترعة الطوارئ|محور الفريق ابراهيم العرابي,
@@ -213,7 +213,7 @@ ROAD-MBZ-NORTH,محمد بن زايد الشمالي,Mohamed Bin Zayed North Axi
 ROAD-MBZ-SOUTH,محمد بن زايد الجنوبي,Mohamed Bin Zayed South Axis,road,EAST,operational,محور الشيخ محمد بن زايد الجنوبي|Sheikh Mohamed Bin Zayed South Axis,
 ROAD-MIDDLE-RING,الأوسطي,Middle Ring Road,road,REGIONAL,operational,الدائري الأوسطي|الطريق الدائري الأوسطي|Central Ring Road,
 ROAD-MOHAMED-NAGUIB,محور محمد نجيب,Mohamed Naguib Axis,road,EAST,operational,محمد نجيب,
-ROAD-MOKATTAM-AXIS,محور المقطم,Mokattam Axis,road,SOUTH,unknown,محور ياسر رزق|طريق المقطم|Al Mokattam Road|Yaser Rezq Axis,
+ROAD-MOKATTAM-AXIS,محور المقطم,Mokattam Axis,road,SOUTH,operational,محور ياسر رزق|طريق المقطم|Al Mokattam Road|Yaser Rezq Axis,
 ROAD-MOSHIR-TANTAWY,المشير طنطاوي,El-Moshir Tantawy Axis,road,EAST,operational,محور المشير طنطاوي|محور المشير|El Moshir Tantawy Axis,
 ROAD-MOSTOROD-AXIS,محور مسطرد,Mostorod Axis,road,NORTH,operational,محور مسطرد الجديد|Mostorod Axis,
 ROAD-NASR,طريق النصر,Al-Nasr Road,road,EAST,operational,Al Nasr Road,
@@ -416,3 +416,34 @@ TRANSIT-SUEZ-TRAIN,قطار السويس,Suez Train,transit_line,EAST,operationa
 TRANSIT-SUPERJET,سوبر جيت,Super Jet,transit_line,EAST,operational,,
 STOP-M2-MOHAMED-NAGUIB,محمد نجيب,Mohamed Naguib Metro Station,transit_stop,CENTRAL,operational,محطة محمد نجيب|Mohammed Naguib Station|Mohamed Naguib Station,محطة الخط الثاني للمترو في وسط القاهرة؛ منفصلة عن محطة أحمد عمر هاشم المخططة للقطار السريع.
 STOP-SHUHADA,الشهداء,Al-Shohadaa Metro Station,transit_stop,CENTRAL,operational,Shuhada; Al Shohadaa; الشهداء,Operational metro station serving Lines 1 and 2; distinct from nearby Ramses railway station.
+AUTH-CAIRO-SOUTH-ZONE,المنطقة الجنوبية لمحافظة القاهرة,Cairo Governorate Southern Zone,authority,SOUTH,operational,المنطقة الجنوبية,التقسيم الإداري الجنوبي لمحافظة القاهرة ويضم 12 حيًا
+AUTH-NUCA-15-MAY,جهاز تنمية مدينة 15 مايو,15 May City Development Authority,authority,SOUTH,operational,جهاز مدينة 15 مايو,جهاز تابع لهيئة المجتمعات العمرانية الجديدة مسؤول عن تنمية مدينة 15 مايو ومناطقها الصناعية
+ROAD-HASABALLAH-EL-KAFRAWY,محور حسب الله الكفراوي,Hasaballah El Kafrawy Axis,road,SOUTH,operational,محور الكفراوي,محور يربط جنوب القاهرة (المعادي والأوتوستراد والدائري والأسمرات) بالمقطم وأحياء شرق القاهرة
+ROAD-YASSER-RIZK,محور ياسر رزق,Yasser Rizk Axis,road,SOUTH,operational,محور الهضبة,محور يبدأ من تقاطعه مع محور سميرة موسى ويمر بالأسمرات وكورنيش المقطم الجديد حتى صلاح سالم والأوتوستراد
+ROAD-SAMIRA-MOUSSA,محور د. سميرة موسى,Dr. Samira Moussa Axis,road,SOUTH,operational,محور سميرة موسى,محور يمر بمدخل الأسمرات ويربط أرض المعارض بالتجمع والقاهرة الجديدة
+ROAD-HADARAT-AXIS,محور الحضارات,El Hadarat Axis,road,SOUTH,operational,محور الحضارة,محور يربط كورنيش النيل عند قرية الفواخير بمصر القديمة وعين الصيرة بهضبة المقطم
+ROAD-SALAH-SALEM-ALT,محور صلاح سالم البديل,Alternative Salah Salem Axis,road,SOUTH,partial,محور صلاح سالم الجديد,محور بديل في نطاق مصر القديمة والخليفة بدأ تشغيله التجريبي في 2026
+ROAD-HELWAN-KORIMAT,طريق حلوان - الكريمات,Helwan-Korimat Road,road,SOUTH,operational,طريق حلوان الكريمات بني سويف الحر|طريق الأوتوستراد القاهرة الصف,الطريق الرابط بين التبين وامتداد الأوتوستراد عبر الصف حتى الكريمات وطريق الصعيد الحر
+BRIDGE-SOUTH-HELWAN,كوبري جنوب حلوان على النيل,South Helwan Nile Bridge,bridge,SOUTH,under_construction,كوبري القطار السريع جنوب حلوان,كوبري القطار الكهربائي السريع على النيل جنوب حلوان؛ أُعلن اكتمال إنشائه في 2025 والخط لم يُشغَّل بعد
+RAIL-HELWAN-HSR,محطة القاهرة بحلوان للقطار السريع,Cairo (Helwan) HSR Station,rail_station,SOUTH,under_construction,محطة القطار السريع بحلوان,محطة للقطار الكهربائي السريع بحلوان تخدم حلوان و15 مايو وجنوب القاهرة شرق النيل
+LINE-HELWAN-OLD-RAIL,خط سكة حديد القاهرة - حلوان القديم,Old Cairo-Helwan Railway Line,transit_line,SOUTH,unknown,سكة حديد حلوان القديم,خط تاريخي تحوّل مساره إلى الخط الأول للمترو عام 1987
+LANDMARK-NMEC,المتحف القومي للحضارة المصرية,National Museum of Egyptian Civilization (NMEC),landmark,SOUTH,operational,متحف الحضارة|NMEC,متحف قومي بالفسطاط يطل على بحيرة عين الصيرة ويضم قاعة المومياوات الملكية
+LANDMARK-EIN-EL-SIRA,بحيرة عين الصيرة,Ein El Sira Lake,landmark,SOUTH,operational,عين الصيرة,بحيرة ومتنزه مطور بمصر القديمة بجوار متحف الحضارة
+LANDMARK-MAGRA-EL-OYOUN,سور مجرى العيون,Magra El Oyoun Aqueduct,landmark,SOUTH,operational,مجرى العيون,سور أثري في نطاق مصر القديمة والسيدة زينب
+LANDMARK-JAPANESE-GARDEN-HELWAN,الحديقة اليابانية بحلوان,Helwan Japanese Garden,landmark,SOUTH,operational,الحديقة اليابانية,حديقة عامة على الطراز الآسيوي بحلوان أُنشئت عام 1919
+LANDMARK-ROKN-FAROUK,متحف ركن فاروق,Rokn Farouk Museum,landmark,SOUTH,operational,استراحة الملك فاروق بحلوان,استراحة ملكية تحولت لمتحف على كورنيش النيل بحلوان
+LANDMARK-WADI-DEGLA,محمية وادي دجلة,Wadi Degla Protectorate,landmark,SOUTH,operational,وادي دجلة,محمية طبيعية في جنوب القاهرة
+LANDMARK-FAWAKHIR-VILLAGE,قرية الفواخير,El Fawakhir Pottery Village,landmark,SOUTH,operational,قرية الفخار,قرية حرفية للفخار بمصر القديمة على محور الحضارة
+LANDMARK-RELIGIOUS-COMPLEX,مجمع الأديان بمصر القديمة,Religious Complex (Old Cairo),landmark,SOUTH,operational,القاهرة القبطية,منطقة أثرية تضم حصن بابليون والكنيسة المعلقة ومحيط جامع عمرو بن العاص
+LANDMARK-EL-TONSY-MARKET,سوق التونسي الحضاري,El Tonsy Market,landmark,SOUTH,operational,سوق التونسي الجديد,سوق حضاري بديل بعزبة النصر في حي البساتين
+LANDMARK-15-MAY-SLAUGHTERHOUSE,مجزر 15 مايو,15 May Slaughterhouse,landmark,SOUTH,operational,مجزر 15 مايو نصف الآلي,مجزر بمدينة 15 مايو يخدم أحياء المنطقة الجنوبية
+LANDMARK-HELWAN-IRON-STEEL,مجمع الحديد والصلب بحلوان,Helwan Iron and Steel Complex,landmark,SOUTH,unknown,شركة الحديد والصلب المصرية,أول مجمع متكامل للحديد والصلب في مصر؛ الشركة تحت التصفية مع دراسة لإعادة تشغيل جزئي
+DIST-SHAQ-EL-THOABAN,المنطقة الصناعية شق الثعبان,Shaq El Thoaban Industrial Zone,district,SOUTH,operational,شق الثعبان,منطقة صناعية للرخام والجرانيت بحي طره
+DIST-TEBBIN-INDUSTRIAL,المنطقة الصناعية بالتبين,El Tebbin Industrial Zone,district,SOUTH,operational,أرض البودرة|كفر العلو,منطقة صناعية بحي التبين
+DIST-15-MAY-INDUSTRIAL,المنطقة الصناعية بمدينة 15 مايو,15 May City Industrial Zone,district,SOUTH,operational,المنطقة الصناعية الأولى والثانية بـ15 مايو,منطقة صناعية داخل مدينة 15 مايو
+PROJ-FUSTAT-HILLS,مشروع حدائق تلال الفسطاط,Fustat Hills Park Project,project,SOUTH,under_construction,حدائق الفسطاط|تلال الفسطاط,أكبر مسطح أخضر في القاهرة التاريخية بمصر القديمة؛ في مرحلة التجهيز للتشغيل
+PROJ-MAGRA-EL-OYOUN,مشروع تطوير سور مجرى العيون,Magra El Oyoun Redevelopment Project,project,SOUTH,under_construction,تطوير منطقة المدابغ,مشروع تطوير عمراني بعد إزالة المدابغ والجيارة والجباسة
+PROJ-RAWDAT-EL-SAYEDA,مشروع روضة السيدة,Rawdat El Sayeda Project,project,SOUTH,partial,تل العقارب|روضة السيدة 2,مشروع إسكان بديل بالسيدة زينب اكتملت مرحلته الأولى وتجري المرحلة الثانية
+PROJ-ASMARAT,مشروع حي الأسمرات,El Asmarat Housing Project,project,SOUTH,operational,مدينة الأسمرات,مجتمع سكني بديل للمناطق غير الآمنة بالمقطم في ثلاث مراحل
+PROJ-EL-KHAYALA,مشروع إسكان أرض الخيالة,El Khayala Housing Project,project,SOUTH,operational,أرض الخيالة,مشروع إسكان بديل في جنوب القاهرة
+PROJ-ZOHOUR-15-MAY,مشروع زهور 15 مايو,Zohour 15 May Housing Project,project,SOUTH,under_construction,زهور مايو,مشروع سكن بديل بمدينة 15 مايو
