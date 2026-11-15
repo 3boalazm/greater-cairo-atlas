@@ -3,7 +3,7 @@ import { RequestValidationError } from "@/lib/errors";
 import {
   decideFactReview, reviewRequestSchema, type EvidenceFacts, type FactReviewState, type ReviewFactInput,
 } from "./review";
-import type { SqlExecutor } from "./queries";
+import { defaultExecutor, type SqlExecutor } from "./queries";
 
 /**
  * BATCH 13 — write operations for the admin workspace.
@@ -24,6 +24,11 @@ export interface TransactionalExecutor extends SqlExecutor {
 async function inTransaction<T>(execute: TransactionalExecutor, work: (tx: SqlExecutor) => Promise<T>): Promise<T> {
   if (execute.transaction) return execute.transaction(work);
   return work(execute);
+}
+
+/** The executor a route uses when it does not inject one (the real database). */
+export function liveExecutor(): TransactionalExecutor {
+  return defaultExecutor;
 }
 
 export interface FactStateRow {
@@ -56,7 +61,7 @@ export interface ReviewMutationResult {
  * is refused with the current state instead of silently overwriting their decision.
  */
 export async function applyFactReview(
-  execute: TransactionalExecutor,
+  execute: TransactionalExecutor = liveExecutor(),
   context: AdminWriteContext,
   factCode: string,
   rawBody: unknown,
@@ -149,7 +154,7 @@ export const attachEvidenceSchema = z.strictObject({
  * not delete or overwrite the claim, because a contradiction is a fact about the record, not a verdict.
  */
 export async function attachEvidence(
-  execute: TransactionalExecutor,
+  execute: TransactionalExecutor = liveExecutor(),
   context: AdminWriteContext,
   factCode: string,
   rawBody: unknown,
@@ -216,7 +221,7 @@ export async function attachEvidence(
  * verified fact: the source is whatever URL the submitter gave, which has not been checked officially.
  */
 export async function acceptSubmission(
-  execute: TransactionalExecutor,
+  execute: TransactionalExecutor = liveExecutor(),
   context: AdminWriteContext,
   submissionId: string,
 ): Promise<{ fact_code: string; submission_id: string; audit_id: string | number; verification_state: "candidate" }> {
@@ -268,7 +273,7 @@ export async function acceptSubmission(
 }
 
 export async function rejectSubmission(
-  execute: TransactionalExecutor,
+  execute: TransactionalExecutor = liveExecutor(),
   context: AdminWriteContext,
   submissionId: string,
   rawBody: unknown,
@@ -314,7 +319,7 @@ export interface AuditRow {
 }
 
 export async function listAuditRows(
-  execute: SqlExecutor,
+  execute: SqlExecutor = defaultExecutor,
   options: { entity_code?: string; fact_code?: string; limit?: number } = {},
 ): Promise<AuditRow[]> {
   const limit = Math.min(200, Math.max(1, Math.trunc(options.limit ?? 50)));

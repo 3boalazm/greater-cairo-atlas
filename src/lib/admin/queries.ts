@@ -11,7 +11,15 @@ export interface SqlExecutor {
   query<Row = Record<string, unknown>>(text: string, values?: unknown[]): Promise<Row[]>;
 }
 
-const defaultExecutor: SqlExecutor = {
+/**
+ * The production executor. Exported so the write layer can default to it too, instead of every caller
+ * having to thread one through (and instead of a route passing a fake one by accident).
+ *
+ * `transaction` runs the statements on a single session so a data change and its audit row commit or
+ * roll back together. Neon's HTTP client has no interactive transactions, so the session client is
+ * used for those calls; a failure to open a session surfaces as an error rather than a partial write.
+ */
+export const defaultExecutor: SqlExecutor = {
   async query<Row>(text: string, values?: unknown[]): Promise<Row[]> {
     const sql = getSql();
     return (await sql.query(text, values)) as Row[];
