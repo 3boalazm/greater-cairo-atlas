@@ -50,6 +50,7 @@ describe("SQL migrations runner and migrations 000 through 010", () => {
       "008_verified_facts_require_official_url.sql",
       "009_entity_relations.sql",
       "010_submissions.sql",
+      "011_admin_review.sql",
     ]);
 
     const m000 = migrations[0];
@@ -144,6 +145,7 @@ describe("SQL migrations runner and migrations 000 through 010", () => {
       "008_verified_facts_require_official_url.sql",
       "009_entity_relations.sql",
       "010_submissions.sql",
+      "011_admin_review.sql",
     ]);
   });
 
