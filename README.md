@@ -155,12 +155,56 @@ curl -sS 'http://localhost:3000/api/atlas/features?type=transit_line&zoom=12' -o
 ```
 - **`POST /api/admin/import-seed`**: Protected by `ADMIN_IMPORT_TOKEN` (constant-time SHA-256 `timingSafeEqual`), `dryRun: true` by default, idempotent upsert when `dryRun: false`.
 
+## Data review workspace (`/admin`)
+
+The atlas is edited through `/admin`, behind the same `ADMIN_IMPORT_TOKEN`. Configure it once
+(≥ 16 characters, e.g. `openssl rand -hex 32`) in Vercel → Environment Variables for Production and
+Preview, then open `/admin?lang=ar` and paste the token. Nothing else is needed.
+
+The token is typed into the page and held in memory. It is never written to `localStorage`, never put
+in a cookie, and never placed in a URL (a token in a query string ends up in access logs, referrers and
+history). Every request sends it as `Authorization: Bearer …`, and the server compares it in constant
+time. A wrong token is `401`; an unconfigured deployment is `503` — it fails closed rather than open.
+Write endpoints are limited to 30 writes per minute per admin.
+
+| Screen | What it answers |
+| --- | --- |
+| Dashboard | Real counts: entities, facts, evidence, features, official boundaries, plus what needs attention — unknown statuses, entities without geometry, single-source facts, facts without evidence, open conflicts, pending submissions, unreviewed facts. A count that cannot be measured renders «—», never `0`. |
+| Entities | Server-paginated table with Arabic/English search and filters for type, sector, status, geometry and boundary. |
+| Facts & evidence | Value, as-of date, verification state and every linked source with publisher, URL and dates. Approve / reject / mark disputed / attach supporting or contradicting evidence. |
+| Geometry | Entities with no geometry, entities drawn differently by two sources, and points outside their official boundary — with the source and licence of each shape. |
+| Conflicts & gaps | The questions the atlas cannot answer yet, each linking to where it can be fixed. |
+| Import | JSON or CSV upload: validation → duplicate detection → diff preview → commit. |
+| Submissions | Public suggestions, with their review queue. |
+
+Three rules the implementation enforces rather than merely documents:
+
+1. **Nothing is deleted or overwritten.** Rejections and disputes keep the fact and its evidence; they
+   change the review state. Replacing a geometry keeps the old one in `geometry_history`.
+2. **Every change is audited.** Each write and its `admin_audit_log` row are committed in one
+   transaction, recording actor, time, action, before, after and reason. The log is append-only: a
+   direct `UPDATE` is rejected by a trigger.
+3. **`verified` still means an official source with a URL** (migration 008). Approving an unsourced fact
+   succeeds as an approval but leaves the claim `candidate`, and the API returns the reason. An imported
+   fact is always a `candidate`; accepting a submission creates a `candidate` fact plus `secondary`
+   evidence, which the existing trigger already forbids from backing a verified claim.
+
+Import is a dry run until you commit, and a commit must present the SHA-256 checksum of the exact
+preview you saw — so what you approve is what you looked at, not a re-computation. Rows claiming to be
+`verified` without an official, reachable source are rejected with a reason, never quietly downgraded.
+Existing entity codes are never overwritten, and a same-attribute/different-value import row is
+reported as a conflict rather than inserted as a competing fact.
+
+Reversibility: `db/migrations/011_admin_review.sql` ends with the reverse SQL for all four new tables
+(`fact_reviews`, `admin_audit_log`, `geometry_history`, `admin_import_previews`). There is no
+down-migration runner; the reverse statements are documented in the file.
+
 ## Quality Checks
 
 ```bash
 npm run lint                # ESLint flat config
 npm run typecheck           # tsc --noEmit (strict)
-npm test                    # Vitest unit, schema, seed, adapter, admin-import & route tests
+npm test                    # Vitest unit, schema, seed, adapter, admin-import, admin-workspace & route tests
 npm run db:migrate:dry-run  # Offline SQL migration verification (000–005)
 npm run seed:check          # Offline canonical seed bundle validation
 npm run build               # DB-free production Next.js build
