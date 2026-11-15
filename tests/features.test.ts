@@ -94,7 +94,7 @@ describe("feature ingestion validation and GeoJSON API", () => {
       },
       async end() {},
     };
-    const result = await upsertValidatedSeedBundle({ entities: [roadEntity], evidence: [], facts: [] }, () => session, featureRows);
+    const result = await upsertValidatedSeedBundle({ entities: [roadEntity], evidence: [], facts: [], relations: [] }, () => session, featureRows);
     expect(result.featuresCount).toBe(1);
     expect(statements.some((sql) => sql.includes("INSERT INTO features") && sql.includes("ON CONFLICT (code) DO UPDATE"))).toBe(true);
     expect(statements.at(-1)).toBe("COMMIT");
@@ -130,12 +130,13 @@ describe("feature ingestion validation and GeoJSON API", () => {
       async end() {},
     };
     const result = await upsertValidatedSeedBundle(
-      { entities: [roadEntity], evidence: [], facts: [] },
+      { entities: [roadEntity], evidence: [], facts: [], relations: [] },
       () => session,
       featureRows,
     );
     expect(result.importSync).toEqual({
       featuresDeletedCount: 2,
+      entityRelationsDeletedCount: 0,
       factEvidenceLinksDeletedCount: 2,
       entitiesNotInSeedCount: 1,
       factsNotInSeedCount: 3,
@@ -167,7 +168,7 @@ describe("feature ingestion validation and GeoJSON API", () => {
       },
       async end() {},
     });
-    const bundle = { entities: [roadEntity], evidence: [], facts: [] };
+    const bundle = { entities: [roadEntity], evidence: [], facts: [], relations: [] };
     const first = await upsertValidatedSeedBundle(bundle, createSession, [], { datasetKey: "atlas-seed-features", checksum });
     expect(first.importSkipped).toBe(false);
     expect(statements.indexOf("BEGIN")).toBeLessThan(statements.findIndex((sql) => sql.startsWith("INSERT INTO entities")));

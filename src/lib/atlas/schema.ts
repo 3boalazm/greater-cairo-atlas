@@ -71,6 +71,10 @@ export const EVIDENCE_SOURCE_TYPES = [
 
 export const DATE_PRECISIONS = ["day", "month", "year"] as const;
 
+export const ENTITY_RELATION_PREDICATES = [
+  "has_station", "interchange_with", "part_of", "crosses", "connects", "located_in", "operated_by", "developed_by",
+] as const;
+
 export const OSM_ELEMENT_TYPES = ["node", "way", "relation"] as const;
 
 export const FEATURE_LICENSES = [
@@ -358,6 +362,19 @@ export const evidenceSeedSchema = z
     }
   });
 
+export const entityRelationSeedSchema = z.strictObject({
+  subject_code: atlasCodeSchema,
+  predicate: z.enum(ENTITY_RELATION_PREDICATES),
+  object_code: atlasCodeSchema,
+  ordinal: z.number().int().positive().nullable().default(null),
+  valid_as_of: nullableOptionalIsoDateSchema,
+  evidence_ref: atlasCodeSchema.nullable(),
+}).superRefine((relation, ctx) => {
+  if (relation.subject_code === relation.object_code) {
+    ctx.addIssue({ code: "custom", path: ["object_code"], message: "An entity relation cannot reference itself." });
+  }
+});
+
 export const factSeedSchema = z
   .strictObject({
     code: atlasCodeSchema,
@@ -546,6 +563,8 @@ export const featureRowSchema = z
 export type EntitySeed = z.infer<typeof entitySeedSchema>;
 export type EvidenceSeed = z.infer<typeof evidenceSeedSchema>;
 export type FactSeed = z.infer<typeof factSeedSchema>;
+export type EntityRelationSeed = z.infer<typeof entityRelationSeedSchema>;
+export type EntityRelationPredicate = (typeof ENTITY_RELATION_PREDICATES)[number];
 export type FeatureSeed = z.infer<typeof featureSeedSchema>;
 
 export type EntityRow = z.infer<typeof entityRowSchema>;

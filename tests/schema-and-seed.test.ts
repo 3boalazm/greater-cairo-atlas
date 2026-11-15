@@ -492,10 +492,12 @@ describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and
       entitiesCount: 5,
       evidenceCount: 4,
       factsCount: 5,
+      relationsCount: 0,
       factEvidenceLinksCount: 7,
       featuresCount: 0,
       importSync: {
         featuresDeletedCount: 0,
+        entityRelationsDeletedCount: 0,
         factEvidenceLinksDeletedCount: 0,
         entitiesNotInSeedCount: 0,
         factsNotInSeedCount: 0,

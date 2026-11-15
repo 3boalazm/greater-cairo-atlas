@@ -1,0 +1,203 @@
+{
+  "derived_at": "2026-11-15T00:21:56.459Z",
+  "relations_count": 129,
+  "by_predicate": {
+    "has_station": 123,
+    "interchange_with": 1,
+    "located_in": 2,
+    "part_of": 3
+  },
+  "without_evidence_count": 0,
+  "osm_route_relations_checked": 20,
+  "osm_route_relations_matched_to_fact_backed_lines": 6,
+  "osm_route_relation_matched_ids": [
+    13186211,
+    14350100,
+    14350101,
+    14350102,
+    14350112,
+    20384125
+  ],
+  "osm_route_relations_unmatched_count": 14,
+  "osm_route_relations_unmatched": [
+    {
+      "relation_id": 280689,
+      "route": "train",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 421705,
+      "route": "subway",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 421706,
+      "route": "subway",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 2063304,
+      "route": "subway",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 2826217,
+      "route": "subway",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 5300628,
+      "route": "train",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 5300629,
+      "route": "train",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 7686561,
+      "route": "subway",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 7927231,
+      "route": "subway",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 11728293,
+      "route": "monorail",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 11728294,
+      "route": "monorail",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 17625744,
+      "route": "subway",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 17625746,
+      "route": "subway",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    },
+    {
+      "relation_id": 20675797,
+      "route": "train",
+      "reason": "At least one stop member has no exact entity-code and fact-backed line-membership match."
+    }
+  ],
+  "relation_ordinals_filled_from_osm_route_order": 0,
+  "unresolved_count": 15,
+  "unresolved": [
+    {
+      "fact_code": "F-BRIDGE-15-MAY-CONNECTS-1",
+      "entity_code": "BRIDGE-15-MAY",
+      "attribute": "connects",
+      "value": "بولاق ← الزمالك ← العجوزة والمهندسين",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    },
+    {
+      "fact_code": "F-BRIDGE-6-OCTOBER-CONNECTS-1",
+      "entity_code": "BRIDGE-6-OCTOBER",
+      "attribute": "connects",
+      "value": "مدينة نصر ↔ المهندسين والدقي؛ أكتر نقطة اختناق في وسط البلد",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    },
+    {
+      "fact_code": "F-BRIDGE-BENHA-FLYOVER-CROSSES-1",
+      "entity_code": "BRIDGE-BENHA-FLYOVER",
+      "attribute": "crosses",
+      "value": "فرع دمياط",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    },
+    {
+      "fact_code": "F-BRIDGE-GIZA-CONNECTS-1",
+      "entity_code": "BRIDGE-GIZA",
+      "attribute": "connects",
+      "value": "المنيل ← الجيزة (مع كوبري عباس وكوبري الجامعة)",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    },
+    {
+      "fact_code": "F-BRIDGE-MONIB-CONNECTS-1",
+      "entity_code": "BRIDGE-MONIB",
+      "attribute": "connects",
+      "value": "المعادي ← الجيزة والهرم، وعليه الـ BRT",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    },
+    {
+      "fact_code": "F-BRIDGE-QASR-EL-NIL-CONNECTS-1",
+      "entity_code": "BRIDGE-QASR-EL-NIL",
+      "attribute": "connects",
+      "value": "التحرير ← الجزيرة ← الدقي (مع كوبري الجلاء)",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    },
+    {
+      "fact_code": "F-BRIDGE-RING-NORTH-WARRAQ-CONNECTS-1",
+      "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+      "attribute": "connects",
+      "value": "شبرا الخيمة ↔ الوراق وإمبابة",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    },
+    {
+      "fact_code": "F-RAIL-GIZA-SUBURBS-LINE-MEMBERSHIP-1",
+      "entity_code": "RAIL-GIZA-SUBURBS",
+      "attribute": "line_membership",
+      "value": "Alexandria-Aswan line",
+      "reason": "line_membership value is not an exact code for an existing transit_line entity"
+    },
+    {
+      "fact_code": "F-RAIL-RAMSES-LINE-MEMBERSHIP-1",
+      "entity_code": "RAIL-RAMSES",
+      "attribute": "line_membership",
+      "value": "Alexandria-Aswan line",
+      "reason": "line_membership value is not an exact code for an existing transit_line entity"
+    },
+    {
+      "fact_code": "F-RAIL-RAMSES-LINE-MEMBERSHIP-2",
+      "entity_code": "RAIL-RAMSES",
+      "attribute": "line_membership",
+      "value": "Ismailia-Cairo line",
+      "reason": "line_membership value is not an exact code for an existing transit_line entity"
+    },
+    {
+      "fact_code": "F-RAIL-RAMSES-LINE-MEMBERSHIP-3",
+      "entity_code": "RAIL-RAMSES",
+      "attribute": "line_membership",
+      "value": "Mansoura-Cairo line",
+      "reason": "line_membership value is not an exact code for an existing transit_line entity"
+    },
+    {
+      "fact_code": "F-RAIL-RAMSES-LINE-MEMBERSHIP-4",
+      "entity_code": "RAIL-RAMSES",
+      "attribute": "line_membership",
+      "value": "Mansoura-Cairo line",
+      "reason": "line_membership value is not an exact code for an existing transit_line entity"
+    },
+    {
+      "fact_code": "F-ROAD-IBRAHIM-ORABI-AXIS-CONNECTS-1",
+      "entity_code": "ROAD-IBRAHIM-ORABI-AXIS",
+      "attribute": "connects",
+      "value": "السلام وجسر السويس ↔ طريق بلبيس وطريق الجبل الأصفر (الخانكة)",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    },
+    {
+      "fact_code": "F-ROAD-KAMAL-AMER-CROSSES-1",
+      "entity_code": "ROAD-KAMAL-AMER",
+      "attribute": "crosses",
+      "value": "الهرم، فيصل، صفط اللبن، جامعة الدول، 26 يوليو",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    },
+    {
+      "fact_code": "F-ROAD-OBOUR-AXIS-NEW-CAIRO-CONNECTS-1",
+      "entity_code": "ROAD-OBOUR-AXIS-NEW-CAIRO",
+      "attribute": "connects",
+      "value": "شارع التسعين الجنوبي ↔ طريق العين السخنة القديم (القاهرة الجديدة)",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
+    }
+  ]
+}

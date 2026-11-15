@@ -21,6 +21,7 @@
     "seed:adapt": "tsx scripts/adapt-research-seed.ts",
     "seed:import": "tsx scripts/import-seed.ts",
     "seed:check": "tsx scripts/import-seed.ts --dry-run",
+    "relations:derive": "tsx scripts/derive-entity-relations.ts",
     "transit:derive": "python3 scripts/derive-transit-stations.py",
     "rev8:transit:draft": "python3 scripts/build-rev8-transit-draft.py",
     "transit:test": "python3 -m unittest discover -s tests -p 'test_derive_transit_stations.py'",
