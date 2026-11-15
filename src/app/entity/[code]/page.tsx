@@ -7,6 +7,8 @@ import { SiteFooter, SiteHeader, getSiteUrl, resolveLanguage } from "@/component
 import { getStaticEntityPageData } from "@/lib/atlas/static-dataset";
 import type { AtlasFeatureCollection } from "@/components/atlas/atlas-client";
 import { transitModeLabel, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
+import { SuggestionForm } from "@/components/atlas/SuggestionForm";
+import { EntityTimeline } from "@/components/atlas/EntityTimeline";
 import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, SECTOR_LABELS, SOURCE_TYPE_LABELS, STATUS_LABELS, VERIFICATION_LABELS, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
 interface EntityPageProps {
@@ -141,8 +143,9 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
           </article>)}</div>
         </section>)}</div>:<p className="quiet-note">{text.noFacts}</p>}
       </section>
+      <section className="entity-section"><EntityTimeline facts={entity.facts} language={language}/></section>
       <section className="entity-section" aria-labelledby="entity-sources-heading">
-        <div className="section-title"><span>{String(factsSectionIndex + 1).padStart(2,"0")}</span><div><h2 id="entity-sources-heading">{text.sources}</h2><p>{ar?"بيانات الناشر والنوع والتواريخ والرابط كما وردت في سجل المصدر.":"Publisher, source type, dates, and link as recorded."}</p></div></div>
+        <div className="section-title"><span>{String(factsSectionIndex + 2).padStart(2,"0")}</span><div><h2 id="entity-sources-heading">{text.sources}</h2><p>{ar?"بيانات الناشر والنوع والتواريخ والرابط كما وردت في سجل المصدر.":"Publisher, source type, dates, and link as recorded."}</p></div></div>
         {sources.size?<ul className="entity-source-list">{[...sources.values()].sort((a,b)=>a.code.localeCompare(b.code)).map((source)=><li id={`source-${source.code}`} key={source.code}>
           <span title={source.source_type} className={`source-type-pill source-${source.source_type}`}>{translateLabel(SOURCE_TYPE_LABELS, source.source_type, language)}</span>
           <div className="source-detail"><strong><Link href={`/sources/${encodeURIComponent(source.code)}?lang=${language}`}>{source.title??source.code}</Link></strong><span>{source.publisher}{source.source_type==="secondary"?` · ${text.secondary}`:""}</span>
@@ -150,6 +153,13 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
             {source.url?<a href={source.url} target="_blank" rel="noreferrer">{source.url}</a>:<span className="source-no-link">{ar?"لا يوجد رابط محفوظ":"No URL recorded"}</span>}
           </div>
         </li>)}</ul>:<p className="quiet-note">{text.noSources}</p>}
+      </section>
+      <section className="entity-section entity-export-section">
+        <a className="entity-export-link" href={`/api/exports/entities/${encodeURIComponent(entity.code)}`}>{ar ? "تنزيل بيانات الكيان وحقائقه وأدلته وهندسته" : "Download entity, facts, evidence & geometry"} · JSON</a>
+      </section>
+      <section className="entity-section" aria-labelledby="entity-suggestion-heading">
+        <div className="section-title"><span>{String(factsSectionIndex + 3).padStart(2,"0")}</span><div><h2 id="entity-suggestion-heading">{ar ? "اقترح تصحيحًا أو مصدرًا" : "Suggest a correction or source"}</h2><p>{ar ? "تُراجع الاقتراحات بشريًا ولا تُعدّل سجل الحقائق تلقائيًا." : "Suggestions are reviewed by a person and never update the facts automatically."}</p></div></div>
+        <SuggestionForm entityCode={entity.code} attributes={[...groups.keys()]} language={language}/>
       </section>
       <p className="page-generated-note">{text.generated} <time dateTime={now}>{now}</time></p>
       {(entity.mapGeometry || entity.facts.length > 0) && <script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJsonLd}}/>}

@@ -11,7 +11,7 @@ import {
 } from "@/lib/db/migrate";
 import { DatabaseNotConfiguredError, MigrationError } from "@/lib/errors";
 
-describe("SQL migrations runner and migrations 000 through 009", () => {
+describe("SQL migrations runner and migrations 000 through 010", () => {
   const tempDirs: string[] = [];
   const originalDatabaseUrl = process.env.DATABASE_URL;
 
@@ -36,7 +36,7 @@ describe("SQL migrations runner and migrations 000 through 009", () => {
     return dir;
   }
 
-  it("discovers migrations 000-009 in order, preserving immutable prior checksums and feature invariants", async () => {
+  it("discovers migrations 000-010 in order, preserving immutable prior checksums and feature invariants", async () => {
     const migrations = await discoverMigrations();
     expect(migrations.map((m) => m.filename)).toEqual([
       "000_enable_postgis.sql",
@@ -49,6 +49,7 @@ describe("SQL migrations runner and migrations 000 through 009", () => {
       "007_regional_ring_west_bbox.sql",
       "008_verified_facts_require_official_url.sql",
       "009_entity_relations.sql",
+      "010_submissions.sql",
     ]);
 
     const m000 = migrations[0];
@@ -142,6 +143,7 @@ describe("SQL migrations runner and migrations 000 through 009", () => {
       "007_regional_ring_west_bbox.sql",
       "008_verified_facts_require_official_url.sql",
       "009_entity_relations.sql",
+      "010_submissions.sql",
     ]);
   });
 

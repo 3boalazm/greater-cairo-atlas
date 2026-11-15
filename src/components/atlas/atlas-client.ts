@@ -14,7 +14,7 @@ export interface AtlasEvidenceItem {
   code: string;
   url: string | null;
   publisher: string;
-  title: string;
+  title: string | null;
   source_type: string;
   published_date: string | null;
   accessed_date: string | null;
@@ -92,7 +92,20 @@ export interface AtlasFeature {
     line_codes?: string[];
     primary_line_code?: string | null;
     interchange?: boolean;
+    timeline_dated?: boolean;
+    timeline_verification?: string | null;
+    timeline_valid_as_of?: string | null;
   };
+}
+
+export interface AtlasTimelineStatusFact {
+  entity_code: string;
+  attribute: string;
+  value: string;
+  valid_as_of: string;
+  valid_as_of_precision: "day" | "month" | "year";
+  verification_state: "candidate" | "single_source" | "corroborated" | "verified" | "disputed" | "rejected" | "superseded";
+  fact_code: string;
 }
 
 export interface AtlasFeatureCollection {

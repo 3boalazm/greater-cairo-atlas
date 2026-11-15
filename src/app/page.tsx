@@ -4,7 +4,7 @@ import { getSiteUrl, resolveLanguage } from "@/components/site/SiteChrome";
 import { transitModesForEntityCode, isTransitInterchangeEntityCode, type TransitMode } from "@/lib/atlas/transit-modes";
 import { stationDisplayName } from "@/lib/atlas/labels";
 import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
-import type { AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse } from "@/components/atlas/atlas-client";
+import type { AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact } from "@/components/atlas/atlas-client";
 
 function hasOutOfRegionCoordinates(geometry: unknown): boolean {
   const visit = (value: unknown): boolean => {
@@ -70,6 +70,10 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
     entities: dataset.entities.length, facts: dataset.facts.length, evidence: dataset.evidence.length,
     features: dataset.features.length, fact_evidence: dataset.factEvidence.length,
   } };
+  const statusTimeline: AtlasTimelineStatusFact[] = dataset.facts.filter((fact) => fact.attribute === "operational_status" && fact.valid_as_of).map((fact) => ({
+    entity_code: fact.entity_code, attribute: fact.attribute, value: fact.value, valid_as_of: fact.valid_as_of!,
+    valid_as_of_precision: fact.valid_as_of_precision, verification_state: fact.verification_state, fact_code: fact.code,
+  }));
   const language = resolveLanguage((await searchParams).lang);
-  return <AtlasApp initialEntities={initialEntities} initialFeatures={initialFeatures} initialStats={initialStats} initialLanguage={language} regionalCodes={regionalCodes} />;
+  return <AtlasApp initialEntities={initialEntities} initialFeatures={initialFeatures} initialStats={initialStats} initialLanguage={language} regionalCodes={regionalCodes} statusTimeline={statusTimeline} />;
 }

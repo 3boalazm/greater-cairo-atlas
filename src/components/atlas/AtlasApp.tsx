@@ -19,7 +19,8 @@ const MapView = dynamic(
 );
 import { LanguageToggle, ThemeToggle, useAtlasPreferences } from "./Preferences";
 import { SearchCommand } from "./SearchCommand";
-import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, EntityListResponse } from "./atlas-client";
+import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact, EntityListResponse } from "./atlas-client";
+import { statusesAtYear } from "@/lib/atlas/status-timeline";
 import { STATUSES } from "./atlas-client";
 
 const emptyFilters: AtlasFilters = { type: "", sector: "", status: "", mappedOnly: false };
@@ -29,16 +30,21 @@ function messageFrom(error: unknown, language: "ar" | "en") {
   return error instanceof Error ? error.message : language === "ar" ? "تعذر الاتصال بالخدمة." : "Could not connect to the service.";
 }
 
-export default function AtlasApp({ initialEntities, initialFeatures, initialStats, initialLanguage, regionalCodes }: {
+export default function AtlasApp({ initialEntities, initialFeatures, initialStats, initialLanguage, regionalCodes, statusTimeline }: {
   initialEntities: AtlasEntitySummary[];
   initialFeatures: AtlasFeatureCollection;
   initialStats: AtlasStatsResponse;
   initialLanguage: "ar" | "en";
   regionalCodes: string[];
+  statusTimeline: AtlasTimelineStatusFact[];
 }) {
   const { theme, setTheme, language, setLanguage } = useAtlasPreferences(initialLanguage);
   const [filters, setFilters] = useState<AtlasFilters>(emptyFilters);
   const [quickLayer, setQuickLayer] = useState("");
+  const [timelineEnabled, setTimelineEnabled] = useState(false);
+  const minTimelineYear = statusTimeline.length ? Math.min(...statusTimeline.map((fact) => Number(fact.valid_as_of.slice(0, 4)))) : 2000;
+  const maxTimelineYear = statusTimeline.length ? Math.max(...statusTimeline.map((fact) => Number(fact.valid_as_of.slice(0, 4)))) : new Date().getUTCFullYear();
+  const [timelineYear, setTimelineYear] = useState(maxTimelineYear);
   const [layerGroups, setLayerGroups] = useState<AtlasLayerGroupState>(defaultLayerGroups);
   const [entities, setEntities] = useState<AtlasEntitySummary[]>(initialEntities);
   const [entitiesLoading, setEntitiesLoading] = useState(false);
@@ -156,7 +162,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     const params = new URLSearchParams({ zoom: String(Math.max(4, Math.min(20, zoom))) });
     if (filters.type) params.set("type", filters.type);
     if (filters.sector) params.set("sector", filters.sector);
-    if (filters.status) params.set("status", filters.status);
+    if (filters.status && !timelineEnabled) params.set("status", filters.status);
     fetch(`/api/atlas/features?${params}`, { signal: controller.signal })
       .then(async (response) => {
         if (!response.ok) throw new Error((await response.json()).error?.message ?? `HTTP ${response.status}`);
@@ -166,7 +172,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       .catch((error: unknown) => { if (!(error instanceof DOMException && error.name === "AbortError")) setFeaturesError(messageFrom(error, language)); })
       .finally(() => setFeaturesLoading(false));
     return () => controller.abort();
-  }, [filters.type, filters.sector, filters.status, zoom, language]);
+  }, [filters.type, filters.sector, filters.status, zoom, language, timelineEnabled]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -269,33 +275,46 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [selectedCode, closeEntity]);
 
+  const timelineStatusByCode = useMemo(() => timelineEnabled ? statusesAtYear(statusTimeline, timelineYear) : null, [timelineEnabled, statusTimeline, timelineYear]);
   const visibleFeatureCollection = useMemo(() => ({
     ...features,
-    features: features.features.filter((feature) => {
-      if (!STATUSES.includes(feature.properties.status as (typeof STATUSES)[number])) return false;
+    features: features.features.flatMap((feature) => {
+      const timelineStatus = timelineEnabled ? timelineStatusByCode?.get(feature.properties.entity_code) : undefined;
+      const status = timelineEnabled ? timelineStatus?.status ?? "unknown" : feature.properties.status;
+      if (!STATUSES.includes(status as (typeof STATUSES)[number])) return [];
+      if (filters.status && status !== filters.status) return [];
       const featureType = feature.properties.type;
-      if (selectedCode === feature.properties.entity_code) return true;
-      if (!layerGroups.infrastructure && ["road", "bridge", "interchange", "tunnel"].includes(featureType)) return false;
-      if (!layerGroups.transport && ["transit_line", "transit_stop", "rail_station"].includes(featureType)) return false;
-      if (!layerGroups.areas && ["city", "district", "neighborhood", "governorate"].includes(featureType)) return false;
-      if (!layerGroups.projects && (featureType === "project" || ["under_construction", "planned", "approved_planned"].includes(feature.properties.status))) return false;
-      if (quickLayer === "road" && featureType !== "road") return false;
-      if (quickLayer === "transport" && !["transit_line", "transit_stop", "rail_station"].includes(featureType)) return false;
-      if (quickLayer === "city" && !["city", "district", "neighborhood"].includes(featureType)) return false;
-      if (featureType === "transit_line" || featureType === "transit_stop" || featureType === "rail_station") {
-        const modes = feature.properties.modes?.length ? feature.properties.modes : transitModesForEntityCode(feature.properties.entity_code);
-        if (modes.length && !modes.some((mode) => visibleTransitModes.includes(mode as TransitMode))) return false;
-        const lineCodes = feature.properties.line_codes?.length ? feature.properties.line_codes : feature.properties.entity_code.startsWith("TRANSIT-") ? [feature.properties.entity_code] : [];
-        if (lineCodes.length && !lineCodes.some((line) => visibleTransitLines.includes(line))) return false;
+      if (selectedCode !== feature.properties.entity_code) {
+        if (!layerGroups.infrastructure && ["road", "bridge", "interchange", "tunnel"].includes(featureType)) return [];
+        if (!layerGroups.transport && ["transit_line", "transit_stop", "rail_station"].includes(featureType)) return [];
+        if (!layerGroups.areas && ["city", "district", "neighborhood", "governorate"].includes(featureType)) return [];
+        if (!layerGroups.projects && (featureType === "project" || ["under_construction", "planned", "approved_planned"].includes(status))) return [];
+        if (quickLayer === "road" && featureType !== "road") return [];
+        if (quickLayer === "transport" && !["transit_line", "transit_stop", "rail_station"].includes(featureType)) return [];
+        if (quickLayer === "city" && !["city", "district", "neighborhood"].includes(featureType)) return [];
+        if (featureType === "transit_line" || featureType === "transit_stop" || featureType === "rail_station") {
+          const modes = feature.properties.modes?.length ? feature.properties.modes : transitModesForEntityCode(feature.properties.entity_code);
+          if (modes.length && !modes.some((mode) => visibleTransitModes.includes(mode as TransitMode))) return [];
+          const lineCodes = feature.properties.line_codes?.length ? feature.properties.line_codes : feature.properties.entity_code.startsWith("TRANSIT-") ? [feature.properties.entity_code] : [];
+          if (lineCodes.length && !lineCodes.some((line) => visibleTransitLines.includes(line))) return [];
+        }
       }
-      return true;
+      return [{ ...feature, properties: { ...feature.properties, status,
+        ...(timelineEnabled ? { timeline_dated: timelineStatus?.dated ?? false, timeline_verification: timelineStatus?.verification_state ?? null, timeline_valid_as_of: timelineStatus?.valid_as_of ?? null } : {}) } }];
     }),
-  }), [features, visibleTransitModes, visibleTransitLines, selectedCode, layerGroups, quickLayer]);
+  }), [features, visibleTransitModes, visibleTransitLines, selectedCode, layerGroups, quickLayer, filters.status, timelineEnabled, timelineStatusByCode]);
   const ar = language === "ar";
   const totalFeatures = features.features.length;
   const mapTransitModes = !filters.type || ["transit_line", "transit_stop", "rail_station", "transit_station"].includes(filters.type)
     ? visibleTransitModes
     : [];
+  const exportParams = new URLSearchParams();
+  const exportType = filters.type || quickLayer;
+  if (exportType) exportParams.set("type", exportType);
+  if (filters.sector) exportParams.set("sector", filters.sector);
+  if (filters.status) exportParams.set("status", filters.status);
+  if (timelineEnabled) exportParams.set("year", String(timelineYear));
+  const filteredExportUrl = `/api/exports/geopackage?${exportParams.toString()}`;
 
   return <main className={`atlas-shell theme-${theme}`} data-theme={theme} dir={ar ? "rtl" : "ltr"} id="main-content">
     <a className="skip-link" href="#main-content">{ar ? "تجاوز إلى المحتوى" : "Skip to content"}</a>
@@ -304,7 +323,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       <header className="atlas-topbar">
         <div className="topbar-heading"><span className="eyebrow">{ar ? "مصر · دلتا النيل" : "EGYPT · NILE DELTA"}</span><strong>{ar ? "الخريطة التفاعلية" : "Interactive map"}</strong></div>
         <SearchCommand language={language} onSelect={selectEntity} onShowBoundary={toggleAreaBoundary} />
-        <nav className="atlas-info-nav" aria-label={ar ? "روابط الأطلس" : "Atlas information links"}><Link href={`/directory?lang=${language}`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link></nav>
+        <nav className="atlas-info-nav" aria-label={ar ? "روابط الأطلس" : "Atlas information links"}><Link href={`/directory?lang=${language}`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/data?lang=${language}`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/methodology?lang=${language}`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/sources?lang=${language}`}>{ar ? "المصادر" : "Sources"}</Link><Link href={`/api-docs?lang=${language}`}>{ar ? "توثيق API" : "API docs"}</Link></nav>
         <div className="topbar-actions"><ThemeToggle theme={theme} onChange={setTheme} language={language} /><LanguageToggle language={language} onChange={setLanguage} /></div>
       </header>
       <section className="stats-strip" aria-label={ar ? "إحصاءات قاعدة البيانات" : "Database statistics"} aria-live="polite">
@@ -321,6 +340,13 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} selectedCode={selectedCode} showRoadNetwork={showRoadNetwork} showRailNetwork={showRailNetwork && railNetworkAvailable} showDisusedRail={showDisusedRail} showAreaBoundaries={layerGroups.areas} highlightBoundary={highlightBoundary} visibleTransitModes={mapTransitModes} showInterchanges={showInterchanges} />
         <div className="map-header-card"><div className="map-title-icon"><MapPinned aria-hidden="true" /></div><div><span>{ar ? "القاهرة الكبرى" : "Greater Cairo"}</span><h1>{ar ? "المكان كما توثّقه المصادر" : "Place, as documented"}</h1><p>{ar ? "الحقائق المتعارضة تبقى ظاهرة؛ لا تخمين للهندسة أو الحالة." : "Conflicting claims remain visible. No inferred geometry or status."}</p></div></div>
         <div className="map-toolbar"><LayerChips type={quickLayer} onTypeChange={setQuickLayer} language={language} />
+          <div className="timeline-map-filter">
+            <label><input type="checkbox" checked={timelineEnabled} onChange={(event) => setTimelineEnabled(event.target.checked)} /><span>{ar ? "الحالة في تاريخ" : "Status as of date"}</span></label>
+            {timelineEnabled && <><strong>{timelineYear}</strong><input aria-label={ar ? "سنة الحالة على الخريطة" : "Map status year"} type="range" min={minTimelineYear} max={maxTimelineYear} step={1} value={timelineYear} onChange={(event) => setTimelineYear(Number(event.target.value))} />
+              <small>{new Set(visibleFeatureCollection.features.filter((feature) => !feature.properties.timeline_dated).map((feature) => feature.properties.entity_code)).size.toLocaleString()} {ar ? "كيان غير مؤرخ" : "entities undated"}</small>
+              <small>{ar ? "المتنازع عليه يبقى موسومًا؛ لا يُرجّح آليًا." : "Disputed claims remain marked; none are auto-resolved."}</small></>}
+          </div>
+          <nav className="map-export-links" aria-label={ar ? "تصدير مرشحات الخريطة" : "Export map filters"}><a href={filteredExportUrl}>{ar ? "GeoPackage" : "GeoPackage"}</a><a href={`/api/exports/geojson?${exportParams.toString()}`}>GeoJSON</a></nav>
           <ActiveFilterChips filters={filters} quickLayer={quickLayer} language={language} onClearQuick={() => setQuickLayer("")} onClearFilter={(key) => setFilters((current) => ({ ...current, [key]: key === "mappedOnly" ? false : "" }))} onClearAll={() => { setQuickLayer(""); setFilters(emptyFilters); setLayerGroups(defaultLayerGroups); }} />
           <details className="layers-panel"><summary>{ar ? "الطبقات" : "Layers"}</summary>
           <LayerGroupToggles enabled={layerGroups} language={language} onChange={(group: AtlasLayerGroup, enabled: boolean) => { setLayerGroups((current) => ({ ...current, [group]: enabled })); if (group === "reference") { setShowRoadNetwork(enabled); setShowRailNetwork(enabled); } }} />

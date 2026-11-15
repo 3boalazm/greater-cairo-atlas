@@ -409,9 +409,9 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
       map.on("mousemove", (event: MapLayerMouseEvent) => {
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers.filter((layerId) => map.getLayer(layerId)) });
         map.getCanvas().style.cursor = found.length ? "pointer" : "";
-        const interchange = found.find((feature) => feature.properties?.interchange === true);
-        if (!interchange) { transitTooltipRef.current?.remove(); return; }
-        const properties = interchange.properties ?? {};
+        const target = found.find((feature) => feature.properties?.interchange === true || typeof feature.properties?.timeline_dated === "boolean");
+        if (!target) { transitTooltipRef.current?.remove(); return; }
+        const properties = target.properties ?? {};
         const codes = Array.isArray(properties.line_codes)
           ? (properties.line_codes as unknown[]).filter((code): code is string => typeof code === "string")
           : [];
@@ -421,9 +421,17 @@ export function MapView({ theme, features, onSelect, onZoomChange, onStyleStatus
         const title = document.createElement("strong");
         title.textContent = String(properties[language === "ar" ? "name_ar" : "name_en"] ?? properties.name ?? "");
         const lines = document.createElement("span");
-        lines.textContent = codes.length
-          ? codes.map((code) => TRANSIT_LINE_LABELS[code]?.[language] ?? code).join(" · ")
-          : TRANSIT_MODE_LABELS.unclassified[language];
+        if (properties.timeline_dated === false) {
+          lines.textContent = language === "ar" ? "غير مؤرخ" : "Undated";
+        } else if (properties.timeline_dated === true) {
+          const date = String(properties.timeline_valid_as_of ?? "");
+          const state = String(properties.timeline_verification ?? "");
+          lines.textContent = `${properties.status ?? "unknown"}${date ? ` · ${date}` : ""}${state ? ` · ${state}` : ""}${codes.length ? ` · ${codes.map((code) => TRANSIT_LINE_LABELS[code]?.[language] ?? code).join(" · ")}` : ""}`;
+        } else {
+          lines.textContent = codes.length
+            ? codes.map((code) => TRANSIT_LINE_LABELS[code]?.[language] ?? code).join(" · ")
+            : TRANSIT_MODE_LABELS.unclassified[language];
+        }
         content.append(title, lines);
         transitTooltipRef.current ??= new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 12, className: "transit-line-tooltip" });
         transitTooltipRef.current.setLngLat(event.lngLat).setDOMContent(content).addTo(map);
