@@ -105,10 +105,10 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
     expect(payload.dryRun).toBe(true);
     expect(payload.summary).toEqual({
       entitiesCount: 417,
-      evidenceCount: 372,
-      factsCount: 2083,
+      evidenceCount: 378,
+      factsCount: 2092,
       relationsCount: 129,
-      factEvidenceLinksCount: 2436,
+      factEvidenceLinksCount: 2445,
       featuresCount: 2928,
       importSync: {
         featuresDeletedCount: null,

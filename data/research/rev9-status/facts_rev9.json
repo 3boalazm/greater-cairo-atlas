@@ -1,0 +1,83 @@
+[
+ {
+  "entity_code": "ROAD-AMR-IBN-ALAS",
+  "attribute_key": "operational_status",
+  "value": "operational",
+  "unit": null,
+  "status_as_of": "2026-05-23",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-R9-001"
+ },
+ {
+  "entity_code": "ROAD-AMR-IBN-ALAS",
+  "attribute_key": "operational_status",
+  "value": "operational",
+  "unit": null,
+  "status_as_of": "2026-05-23",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-R9-002"
+ },
+ {
+  "entity_code": "ROAD-AMR-IBN-ALAS",
+  "attribute_key": "cost",
+  "value": 8.95,
+  "unit": "billion EGP",
+  "status_as_of": "2026-05-23",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-R9-001"
+ },
+ {
+  "entity_code": "ROAD-AMR-IBN-ALAS",
+  "attribute_key": "connects",
+  "value": "الطريق الدائري الجنوبي ↔ الطريق الدائري الشمالي (موازٍ لمحور كمال عامر)",
+  "unit": null,
+  "status_as_of": "2026-05-23",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-R9-001"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-NW-ARC",
+  "attribute_key": "opening_date",
+  "value": "2018-09-09",
+  "unit": null,
+  "status_as_of": "2018-09-09",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-R9-003"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-NW-ARC",
+  "attribute_key": "operational_status",
+  "value": "operational",
+  "unit": null,
+  "status_as_of": "2018-09-09",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-R9-003"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-NW-ARC",
+  "attribute_key": "maintenance_closure",
+  "value": "غلق مؤقت لاتجاه واحد أثناء رفع الكفاءة (سبتمبر 2025)؛ الوضع الحالي يحتاج تحديث",
+  "unit": null,
+  "status_as_of": "2025-09-19",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-R9-004"
+ },
+ {
+  "entity_code": "TRANSIT-SUPERJET",
+  "attribute_key": "operational_status",
+  "value": "operational",
+  "unit": null,
+  "status_as_of": "2026-11-04",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-R9-006"
+ },
+ {
+  "entity_code": "TRANSIT-SUPERJET",
+  "attribute_key": "operational_status",
+  "value": "operational",
+  "unit": null,
+  "status_as_of": "2026-07-07",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-R9-005"
+ }
+]

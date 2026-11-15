@@ -10,7 +10,7 @@ import type { AtlasFeatureCollection } from "@/components/atlas/atlas-client";
 import { transitModeLabel, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
 import { SuggestionForm } from "@/components/atlas/SuggestionForm";
 import { EntityTimeline } from "@/components/atlas/EntityTimeline";
-import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, SECTOR_LABELS, SIMPLE_STATUS_LABELS, SOURCE_TYPE_LABELS, VERIFICATION_LABELS, quickFactSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
+import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, SECTOR_LABELS, SIMPLE_STATUS_LABELS, SOURCE_TYPE_LABELS, VERIFICATION_LABELS, currentStatusNewsSourceCount, quickFactSourceCountLabel, statusNewsSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
 interface EntityPageProps {
   params: Promise<{ code: string }>;
@@ -88,6 +88,8 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
   const sources=new Map(entity.facts.flatMap((fact)=>fact.evidence.map((source)=>[source.code,source] as const)));
   const statusDates=entity.facts.filter((fact)=>/status|lifecycle/i.test(fact.attribute) && fact.valid_as_of).map((fact)=>fact.valid_as_of!).sort();
   const statusAsOf=statusDates.at(-1) ?? null;
+  const statusNewsCount = currentStatusNewsSourceCount(entity.facts, entity.status);
+  const statusNewsLabel = statusNewsSourceCountLabel(statusNewsCount, language);
   const now=new Date().toISOString().slice(0,10);
   const canonical=`${getSiteUrl()}${localizedPath(language, `/entity/${encodeURIComponent(entity.code)}`)}`;
   const placeJsonLd={
@@ -111,6 +113,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
           <p className="entity-code">{text.code}: <code>{entity.code}</code></p>
         </div>
         <div className="entity-hero-status"><span>{text.status}</span><strong className={`simple-status-word status-${entity.status}`}><span aria-hidden="true">{entity.status === "operational" ? "✓" : entity.status === "partial" ? "◐" : entity.status === "under_construction" ? "⚒" : entity.status === "planned" || entity.status === "approved_planned" ? "◷" : "?"}</span>{translateLabel(SIMPLE_STATUS_LABELS, entity.status, language)}</strong>
+          {statusNewsLabel && <small className="entity-status-source-count">{statusNewsLabel}</small>}
           <ResearcherOnly>{statusAsOf ? <small>{text.asOf}: <time dateTime={statusAsOf}>{statusAsOf}</time></small> : <small>{text.statusDateMissing}</small>}</ResearcherOnly>
         </div>
       </section>

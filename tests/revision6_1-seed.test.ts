@@ -5,7 +5,7 @@ import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
 import { adaptResearchSeedSources } from "@/lib/atlas/research-seed";
 import { loadAndValidateSeedDir, summarizeValidatedSeedBundle } from "@/lib/atlas/seed";
 
-describe("revision 8 seed + OSM geometry delivery", () => {
+describe("revision 9 seed + OSM geometry delivery", () => {
   it("preserves the rev4 entity identity and fact-code baseline", async () => {
     const root = process.cwd();
     const [baseline, bundle] = await Promise.all([
@@ -29,7 +29,7 @@ describe("revision 8 seed + OSM geometry delivery", () => {
     // Feature geometry matching is intentionally re-evaluated by later OSM-ingestion phases; entity/fact IDs remain stable.
   });
 
-  it("preserves the full rev6.2 baseline and only advances 28 unknown statuses", async () => {
+  it("preserves the full rev6.2 baseline and advances only 31 unknown statuses through rev9", async () => {
     const root = process.cwd();
     const [entitiesCsv, evidenceJsonText, factsJsonText, current] = await Promise.all([
       readFile(path.join(root, "data/research/rev6_2/entities_rev6_2_adapted.csv"), "utf8"),
@@ -56,22 +56,22 @@ describe("revision 8 seed + OSM geometry delivery", () => {
       const next = currentEntities.get(old.code)!;
       return old.status === next.status ? [] : [{ code: old.code, oldStatus: old.status, newStatus: next.status }];
     });
-    expect(changes).toHaveLength(28);
+    expect(changes).toHaveLength(31);
     expect(changes.every((change) => change.oldStatus === "unknown" && ["operational", "partial", "under_construction"].includes(change.newStatus))).toBe(true);
     expect(changes.some((change) => change.oldStatus === "planned" && change.newStatus === "operational")).toBe(false);
-    expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(17);
+    expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(14);
   });
 
-  it("validates rev8 counts and requires official URL-backed evidence for every verified fact", async () => {
+  it("validates rev9 counts and requires official URL-backed evidence for every verified fact", async () => {
     const bundle = await loadAndValidateSeedDir(path.join(process.cwd(), "data/seed"));
     const report = summarizeValidatedSeedBundle(bundle);
     expect(report).toMatchObject({
       entitiesCount: 417,
       entitiesWithAliasesCount: 253,
-      evidenceCount: 372,
+      evidenceCount: 378,
       evidenceMissingUrlCount: 71,
-      factsCount: 2083,
-      factEvidenceLinksCount: 2436,
+      factsCount: 2092,
+      factEvidenceLinksCount: 2445,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");

@@ -8,6 +8,8 @@ import type { FeatureCollection } from "geojson";
 import type { AtlasFeatureCollection, AtlasTheme } from "./atlas-client";
 import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 import { getAtlasMapStyleUrl } from "./map-styles";
+import { getMapCameraPadding } from "@/lib/atlas/map-camera";
+import { selectedAreaFilter } from "@/lib/atlas/map-selection-filters";
 import { TRANSIT_LINE_COLORS, TRANSIT_LINE_LABELS, TRANSIT_MODE_LABELS, type TransitMode } from "@/lib/atlas/transit-modes";
 
 maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
@@ -145,6 +147,15 @@ function boundaryCollection(boundary: AreaBoundaryFeature | null): FeatureCollec
   return { type: "FeatureCollection", features: boundary ? [boundary as unknown as FeatureCollection["features"][number]] : [] };
 }
 
+function cameraPadding(map: MapLibreMap, margin: number) {
+  const panel = document.querySelector<HTMLElement>(".entity-panel");
+  return getMapCameraPadding(
+    map.getContainer().getBoundingClientRect(),
+    panel?.getBoundingClientRect() ?? null,
+    margin,
+  );
+}
+
 export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, selectedCode = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false, showAreaBoundaries = true }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
@@ -175,6 +186,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
   const showAreaBoundariesRef = useRef(showAreaBoundaries);
   const boundaryRef = useRef<AreaBoundaryFeature | null>(highlightBoundary);
   const selectedCodeRef = useRef<string | null>(selectedCode);
+  const lastSelectedCodeRef = useRef<string | null>(null);
   const visibleModesRef = useRef<readonly TransitMode[]>(visibleTransitModes);
   const showInterchangesRef = useRef(showInterchanges);
   const onSelectRef = useRef(onSelect);
@@ -413,7 +425,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
       });
       map.addLayer({
         id: "atlas-selected-polygon-fill", type: "fill", source: sourceId,
-        filter: ["==", ["get", "entity_code"], "__none__"],
+        filter: selectedAreaFilter(null) as unknown as maplibregl.FilterSpecification,
         paint: { "fill-color": "#fff36d", "fill-opacity": 0.3 },
       });
       map.addLayer({
@@ -480,10 +492,9 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
           const sw = bounds.getSouthWest();
           const ne = bounds.getNorthEast();
           if (Math.abs(ne.lng - sw.lng) < 0.0005 && Math.abs(ne.lat - sw.lat) < 0.0005) {
-            map.setCenter(bounds.getCenter());
-            map.setZoom(compact ? 13 : 11);
+            map.easeTo({ center: bounds.getCenter(), zoom: compact ? 13 : 11, padding: cameraPadding(map, compact ? 28 : 54), duration: 0 });
           } else {
-            map.fitBounds(bounds, { padding: compact ? 28 : 54, maxZoom: compact ? 14 : 15, duration: 0 });
+            map.fitBounds(bounds, { padding: cameraPadding(map, compact ? 28 : 54), maxZoom: compact ? 14 : 15, duration: 0 });
           }
         }
       }
@@ -503,23 +514,49 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
     const map = mapRef.current;
     if (!map || !mapReady) return;
     const selectedFilter: maplibregl.FilterSpecification = ["==", ["get", "entity_code"], selectedCode ?? "__none__"];
-    for (const id of ["atlas-selected-polygon-fill", "atlas-selected-outline"]) {
-      if (map.getLayer(id)) map.setFilter(id, selectedFilter);
+    if (map.getLayer("atlas-selected-polygon-fill")) {
+      map.setFilter("atlas-selected-polygon-fill", selectedAreaFilter(selectedCode) as unknown as maplibregl.FilterSpecification);
     }
+    if (map.getLayer("atlas-selected-outline")) map.setFilter("atlas-selected-outline", selectedFilter);
     if (map.getLayer("atlas-selected-point-halo")) map.setFilter("atlas-selected-point-halo", ["all", selectedFilter, ["==", ["geometry-type"], "Point"]]);
-    if (!selectedCode) return;
-    const selected = features.features.filter((feature) => feature.properties.entity_code === selectedCode);
-    if (!selected.length) return;
-    const bounds = new maplibregl.LngLatBounds();
-    selected.forEach((feature) => visitPositions(feature.geometry, (point) => bounds.extend(point)));
-    if (bounds.isEmpty()) return;
-    const sw = bounds.getSouthWest();
-    const ne = bounds.getNorthEast();
-    if (Math.abs(ne.lng - sw.lng) < 0.0005 && Math.abs(ne.lat - sw.lat) < 0.0005) {
-      map.flyTo({ center: bounds.getCenter(), zoom: Math.max(map.getZoom(), compact ? 13 : 14), duration: 650 });
-    } else {
-      map.fitBounds(bounds, { padding: compact ? 28 : 90, maxZoom: compact ? 14 : 15, duration: 650 });
+
+    const fitCode = selectedCode ?? lastSelectedCodeRef.current;
+    if (selectedCode) lastSelectedCodeRef.current = selectedCode;
+    const fitEntity = (code: string, duration: number) => {
+      const selected = features.features.filter((feature) => feature.properties.entity_code === code);
+      if (!selected.length) return;
+      const bounds = new maplibregl.LngLatBounds();
+      selected.forEach((feature) => visitPositions(feature.geometry, (point) => bounds.extend(point)));
+      if (bounds.isEmpty()) return;
+      const padding = cameraPadding(map, compact ? 28 : 90);
+      const sw = bounds.getSouthWest();
+      const ne = bounds.getNorthEast();
+      if (Math.abs(ne.lng - sw.lng) < 0.0005 && Math.abs(ne.lat - sw.lat) < 0.0005) {
+        map.flyTo({ center: bounds.getCenter(), zoom: Math.max(map.getZoom(), compact ? 13 : 14), padding, duration });
+      } else {
+        map.fitBounds(bounds, { padding, maxZoom: compact ? 14 : 15, duration });
+      }
+    };
+    if (fitCode) fitEntity(fitCode, selectedCode ? 650 : 0);
+
+    const onLayoutChange = () => {
+      map.resize();
+      const activeCode = selectedCodeRef.current ?? lastSelectedCodeRef.current;
+      if (activeCode) fitEntity(activeCode, 0);
+    };
+    const resizeObserver = new ResizeObserver(onLayoutChange);
+    resizeObserver.observe(map.getContainer());
+    const panel = document.querySelector<HTMLElement>(".entity-panel");
+    if (panel) {
+      resizeObserver.observe(panel);
+      panel.addEventListener("animationend", onLayoutChange);
     }
+    window.addEventListener("resize", onLayoutChange);
+    return () => {
+      resizeObserver.disconnect();
+      panel?.removeEventListener("animationend", onLayoutChange);
+      window.removeEventListener("resize", onLayoutChange);
+    };
   }, [selectedCode, features, mapReady, compact]);
 
   useEffect(() => {
@@ -529,7 +566,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
     if (map && highlightBoundary) {
       const bounds = new maplibregl.LngLatBounds();
       visitPositions(highlightBoundary.geometry, (point) => bounds.extend(point));
-      if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: compact ? 28 : 70, maxZoom: compact ? 14 : 14, duration: 650 });
+      if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: cameraPadding(map, compact ? 28 : 70), maxZoom: compact ? 14 : 14, duration: 650 });
     }
   }, [highlightBoundary, compact]);
 
