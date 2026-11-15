@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-export const metadata: Metadata = { title: "API documentation | توثيق الواجهة البرمجية", description: "Bilingual OpenAPI documentation for the Greater Cairo Atlas." };
+import { getSiteUrl, localizedPath, resolveLanguage } from "@/components/site/SiteChrome";
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ lang?: string | string[] }> }): Promise<Metadata> {
+  const language = resolveLanguage((await searchParams).lang);
+  const canonical = `${getSiteUrl()}${localizedPath(language, "/api-docs")}`;
+  return { title: language === "ar" ? "توثيق API | أطلس القاهرة الكبرى" : "API documentation | Greater Cairo Atlas", description: "Bilingual OpenAPI documentation for the Greater Cairo Atlas.", alternates: { canonical, languages: { ar: `${getSiteUrl()}/ar/api-docs`, en: `${getSiteUrl()}/en/api-docs` } } };
+}
 const routes: Array<[string, string, string]> = [
   ["GET", "/api/atlas/stats", "إحصاءات الأطلس ومؤشرات مجموعات البيانات / Dataset statistics and source counts"],
   ["GET", "/api/atlas/entities", "قائمة الكيانات مع مرشحات النوع والقطاع والحالة / Filterable entity list"],

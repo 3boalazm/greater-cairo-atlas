@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiteFooter, SiteHeader, getSiteUrl, resolveLanguage } from "@/components/site/SiteChrome";
+import { SiteFooter, SiteHeader, getSiteUrl, localizedPath, resolveLanguage } from "@/components/site/SiteChrome";
 import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
 import { ENTITY_TYPE_LABELS, SECTOR_LABELS, STATUS_LABELS, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ lang?: string | string[] }> }): Promise<Metadata> {
   const language = resolveLanguage((await searchParams).lang);
-  const canonical = `${getSiteUrl()}/directory`;
+  const canonical = `${getSiteUrl()}${localizedPath(language, "/directory")}`;
   return {
     title: language === "ar" ? "دليل كيانات الأطلس" : "Atlas entity directory",
     description: language === "ar" ? "دليل قابل للفهرسة لكيانات أطلس القاهرة الكبرى." : "A crawlable directory of Greater Cairo Atlas entities.",
-    alternates: { canonical, languages: { ar: canonical, en: `${canonical}?lang=en` } },
+    alternates: { canonical, languages: { ar: `${getSiteUrl()}/ar/directory`, en: `${getSiteUrl()}/en/directory` } },
   };
 }
 
@@ -27,7 +27,7 @@ export default async function DirectoryPage({ searchParams }: { searchParams: Pr
       <p className="site-lede">{ar ? "قائمة كاملة قابلة للفهرسة. أسماء الكيانات كما في السجل؛ لا تُخمن الترجمات أو الحالة أو الهندسة." : "A crawlable index of every atlas entity. Names follow the register; translations, status, and geometry are not guessed."}</p>
       <p>{entities.length.toLocaleString(ar ? "ar-EG" : "en-US")} {ar ? "كيانًا" : "entities"}</p>
       <div className="directory-list">{entities.map((entity) => <article className="directory-item" key={entity.code}>
-        <div><h2><Link href={`/entity/${encodeURIComponent(entity.code)}?lang=${language}`}>{stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)}</Link></h2>
+        <div><h2><Link href={`/${language}/entity/${encodeURIComponent(entity.code)}`}>{stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)}</Link></h2>
           <p>{ar ? entity.name_en : entity.name_ar} · <code>{entity.code}</code></p></div>
         <div className="directory-meta"><span>{translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language)} <small title={entity.entity_type}>({entity.entity_type})</small></span>
           <span>{translateLabel(SECTOR_LABELS, entity.sector, language)} <small title={entity.sector}>({entity.sector})</small></span>

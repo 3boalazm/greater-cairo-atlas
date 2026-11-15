@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ResearchModeProvider } from "@/components/site/ResearchMode";
 
 const ibmPlexArabic = localFont({
   src: [
@@ -60,7 +61,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${ibmPlexArabic.variable} ${ibmPlexLatin.variable} ${ibmPlexMono.variable}`}
     >
-      <body className="min-h-screen bg-background text-foreground">{children}</body>
+      <body className="min-h-screen bg-background text-foreground"><ResearchModeProvider>{children}</ResearchModeProvider></body>
     </html>
   );
 }

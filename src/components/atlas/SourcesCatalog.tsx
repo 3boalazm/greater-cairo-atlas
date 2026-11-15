@@ -41,7 +41,7 @@ export function SourcesCatalog({ records, language }: { records: StaticEvidenceC
     </form>
     <p className="sources-result-count" aria-live="polite">{filtered.length.toLocaleString()} {ar ? "سجلًا" : "records"}</p>
     <div className="evidence-record-list">{filtered.map((record) => <article className="evidence-record-card" key={record.code}>
-      <div className="evidence-record-heading"><div><span className="source-type-pill">{typeLabel[record.source_type]?.[language] ?? record.source_type}</span><h2><Link href={`/sources/${encodeURIComponent(record.code)}?lang=${language}`}>{record.title}</Link></h2></div><code>{record.code}</code></div>
+      <div className="evidence-record-heading"><div><span className="source-type-pill">{typeLabel[record.source_type]?.[language] ?? record.source_type}</span><h2><Link href={`/${language}/sources/${encodeURIComponent(record.code)}`}>{record.title}</Link></h2></div><code>{record.code}</code></div>
       <p className="evidence-record-publisher">{record.publisher}</p>
       <dl><div><dt>{ar ? "تاريخ النشر" : "Published"}</dt><dd>{dateString(record)} {record.published_date && record.published_date_precision !== "day" ? `· ${ar ? ({month:"شهر",year:"سنة"} as const)[record.published_date_precision] : record.published_date_precision}` : ""}</dd></div>
         <div><dt>{ar ? "تاريخ الاطلاع" : "Accessed"}</dt><dd>{record.accessed_date ?? "—"}</dd></div>

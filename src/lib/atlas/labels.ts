@@ -1,3 +1,5 @@
+import { GENERATED_FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/fact-attribute-labels.generated";
+
 export type LabelLanguage = "ar" | "en";
 type Pair = { ar: string; en: string };
 
@@ -15,6 +17,7 @@ export const SECTOR_LABELS: Record<string, Pair> = {
   WEST: { ar: "الغرب", en: "West" }, CENTRAL: { ar: "الوسط", en: "Central" }, REGIONAL: { ar: "نقاط ربط إقليمية", en: "Regional connection points" },
 };
 export const FACT_ATTRIBUTE_LABELS: Record<string, Pair> = {
+  ...GENERATED_FACT_ATTRIBUTE_LABELS,
   operational_status: { ar: "حالة التشغيل", en: "Operational status" }, status: { ar: "الحالة", en: "Status" }, line_membership: { ar: "الانتماء إلى الخط", en: "Line membership" },
   line_order: { ar: "ترتيب المحطة على الخط", en: "Line order" }, osm_node_id: { ar: "معرّف عقدة OSM", en: "OSM node ID" }, osm_way_id: { ar: "معرّف طريق OSM", en: "OSM way ID" },
   length_km: { ar: "الطول (كم)", en: "Length (km)" }, cost: { ar: "التكلفة", en: "Cost" }, capacity: { ar: "السعة", en: "Capacity" }, opening_date: { ar: "تاريخ الافتتاح", en: "Opening date" },
@@ -28,6 +31,10 @@ export const SOURCE_TYPE_LABELS: Record<string, Pair> = {
 export const VERIFICATION_LABELS: Record<string, Pair> = {
   candidate: { ar: "مرشح", en: "Candidate" }, single_source: { ar: "مصدر واحد", en: "Single source" }, corroborated: { ar: "مؤيد بمصادر", en: "Corroborated" },
   verified: { ar: "موثّق", en: "Verified" }, disputed: { ar: "متنازع عليه", en: "Disputed" }, rejected: { ar: "مرفوض", en: "Rejected" }, superseded: { ar: "مستبدل", en: "Superseded" },
+};
+export const SIMPLE_STATUS_LABELS: Record<string, Pair> = {
+  operational: { ar: "يعمل", en: "Operating" }, partial: { ar: "يعمل جزئيًا", en: "Partly operating" }, under_construction: { ar: "تحت الإنشاء", en: "Under construction" },
+  planned: { ar: "مخطط", en: "Planned" }, approved_planned: { ar: "مخطط", en: "Planned" }, unknown: { ar: "غير محدد", en: "Not specified" },
 };
 export const STATUS_LABELS: Record<string, Pair> = {
   operational: { ar: "يعمل", en: "Operational" }, partial: { ar: "يعمل جزئيًا", en: "Partial" }, under_construction: { ar: "قيد الإنشاء", en: "Under construction" },

@@ -23,7 +23,7 @@ export function EntityTimeline({ facts, language }: { facts: AtlasEntityFact[]; 
         <span className={`verification-badge verification-${fact.verification_state}`}>{translateLabel(VERIFICATION_LABELS, fact.verification_state, language)}</span>
         {(fact.verification_state === "superseded" || fact.verification_state === "rejected" || fact.verification_state === "disputed") && <small>{ar ? (fact.verification_state === "superseded" ? "ادعاء مستبدل" : fact.verification_state === "rejected" ? "ادعاء مرفوض" : "ادعاء متنازع عليه") : `${fact.verification_state} claim`}</small>}
         {fact.notes && <p>{fact.notes}</p>}
-        {fact.evidence.map((evidence) => <Link key={evidence.code} href={`/sources/${encodeURIComponent(evidence.code)}?lang=${language}`}>{evidence.code}</Link>)}
+        {fact.evidence.map((evidence) => <Link key={evidence.code} href={`/${language}/sources/${encodeURIComponent(evidence.code)}`}>{evidence.code}</Link>)}
       </div>
     </li>)}</ol> : <p className="quiet-note">{ar ? "لا توجد حقائق حالة مؤرخة في السجل." : "No dated status facts are recorded."}</p>}
   </section>;

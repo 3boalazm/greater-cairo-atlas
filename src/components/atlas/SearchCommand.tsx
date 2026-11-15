@@ -4,7 +4,8 @@
 import { ArrowDown, MapPinned, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { AtlasEntitySummary, AtlasLanguage } from "./atlas-client";
-import { stationDisplayName } from "@/lib/atlas/labels";
+import { ENTITY_TYPE_LABELS, SIMPLE_STATUS_LABELS, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
+import { useResearchMode } from "@/components/site/ResearchMode";
 
 export function SearchCommand({ language, onSelect, onShowBoundary }: { language: AtlasLanguage; onSelect: (code: string) => void; onShowBoundary: (code: string) => void }) {
   const [query, setQuery] = useState("");
@@ -15,6 +16,7 @@ export function SearchCommand({ language, onSelect, onShowBoundary }: { language
   const [shortcutLabel, setShortcutLabel] = useState("Ctrl K");
   const inputRef = useRef<HTMLInputElement>(null);
   const ar = language === "ar";
+  const researcherMode = useResearchMode().researcherMode;
 
   useEffect(() => {
     const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
@@ -68,8 +70,8 @@ export function SearchCommand({ language, onSelect, onShowBoundary }: { language
       <div className="search-results" id="atlas-search-results" role="listbox" aria-label={ar ? "نتائج البحث" : "Search results"}>
         {results.map((entity, index) => <div key={entity.code} role="option" aria-selected={index === active} className={`search-result-row ${index === active ? "active-result" : ""}`} onMouseEnter={() => setActive(index)}>
           <button className="search-result-select" type="button" onClick={() => choose(entity)}>
-            <span className="result-main"><strong>{stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)}</strong><small>{ar ? entity.name_en : entity.name_ar} · {entity.code}</small></span>
-            {!entity.has_geometry && <span className="no-geometry-result">{ar ? "لا توجد هندسة" : "No geometry"}</span>}
+            <span className="result-main"><strong>{stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)}</strong><small>{researcherMode ? <>{ar ? entity.name_en : entity.name_ar} · {entity.code}</> : <>{translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language)} · {translateLabel(SIMPLE_STATUS_LABELS, entity.status, language)}</>}</small></span>
+            {researcherMode && !entity.has_geometry && <span className="no-geometry-result">{ar ? "لا توجد هندسة" : "No geometry"}</span>}
             <ArrowDown className="result-enter" aria-hidden="true" />
           </button>
           {entity.has_boundary && <button type="button" className="search-boundary-action" onClick={() => {

@@ -95,6 +95,9 @@ export interface AtlasFeature {
     timeline_dated?: boolean;
     timeline_verification?: string | null;
     timeline_valid_as_of?: string | null;
+    service_area?: boolean;
+    geometry_conflict?: boolean;
+    geometry_sources?: string[];
   };
 }
 
