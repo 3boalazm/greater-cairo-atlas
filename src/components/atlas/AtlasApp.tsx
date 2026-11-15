@@ -408,6 +408,17 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     return { ...features, features: visibleFeatures };
   }, [features, visibleTransitModes, visibleTransitLines, selectedCode, detail?.entity_type, layerGroups, quickLayer, filters.status, useTimeline, timelineStatusByCode, serviceRadiusMeters, researcherMode, geometryAlternatives, adminUnitFeatures, showAdminBoundaries, zoom]);
   const ar = language === "ar";
+  /**
+   * FIX F — the selected line's geometry completeness comes from the features actually drawn, so the
+   * researcher note describes real data rather than a hard-coded claim.
+   */
+  const selectedGeometryCompleteness = useMemo(() => {
+    if (!selectedCode) return null;
+    const drawn = initialFeatures.features.filter((feature) => feature.properties.entity_code === selectedCode);
+    const partial = drawn.find((feature) => (feature.properties as { geometry_completeness?: string }).geometry_completeness === "partial_source_geometry");
+    return partial ? "partial_source_geometry" : null;
+  }, [initialFeatures, selectedCode]);
+
   const totalFeatures = visibleFeatureCollection.features.length;
   const mapTransitModes = !filters.type || ["transit_line", "transit_stop", "rail_station", "transit_station"].includes(filters.type)
     ? visibleTransitModes
@@ -503,6 +514,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       </section>
     </section>
     {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} onShowOnMap={requestShowOnMap} language={language}
+      geometryCompleteness={selectedGeometryCompleteness}
       onToggleBoundary={toggleAreaBoundary} boundaryActive={highlightBoundary?.properties.entity_code === detail?.code}
       boundaryLoading={boundaryLoadingCode === detail?.code} onSelectRelated={selectRelatedEntity} geometryAlternatives={selectedCode ? geometryAlternatives.get(selectedCode) ?? [] : []} />}
   </main>;

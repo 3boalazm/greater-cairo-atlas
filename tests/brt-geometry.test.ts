@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { partialGeometryNote } from "@/lib/atlas/map-fit";
 import { TRANSIT_LINE_COLORS, TRANSIT_LINE_LABELS, TRANSIT_MODE_LABELS, TRANSIT_MODE_ORDER, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
 
 interface Feature {
@@ -106,5 +107,33 @@ describe("BRT styling and mode wiring", () => {
     expect(TRANSIT_LINE_LABELS["TRANSIT-BRT"]?.ar).toContain("الترددي");
     expect(transitModesForEntityCode("TRANSIT-BRT")).toEqual(["brt"]);
     expect(transitModesForEntityCode("STOP-BRT-EL-MARG")).toEqual(["brt"]);
+  });
+});
+
+describe("FIX F — the partial BRT corridor is labelled honestly in researcher mode", () => {
+  it("only shows the partial-geometry note for a line the ingest marked partial", () => {
+    expect(partialGeometryNote("TRANSIT-BRT", "partial_source_geometry", "ar")).toContain("جزئية");
+    expect(partialGeometryNote("TRANSIT-BRT", "partial_source_geometry", "ar")).toContain("OpenStreetMap");
+    expect(partialGeometryNote("TRANSIT-BRT", "partial_source_geometry", "en")).toContain("partial");
+    // Nothing invented for a complete line, an unknown line, or a missing entity.
+    expect(partialGeometryNote("TRANSIT-METRO-L1", "complete", "ar")).toBeNull();
+    expect(partialGeometryNote("TRANSIT-BRT", null, "ar")).toBeNull();
+    expect(partialGeometryNote(null, "partial_source_geometry", "ar")).toBeNull();
+    expect(partialGeometryNote("TRANSIT-OTHER", "partial_source_geometry", "en")).toContain("partial");
+  });
+
+  it("finds the completeness flag on the real drawn BRT features only", async () => {
+    const features = await loadFeatures();
+    const brt = features.filter((feature) => feature.properties.entity_code === "TRANSIT-BRT");
+    expect(brt).toHaveLength(14);
+    for (const feature of brt) {
+      expect(feature.properties.properties?.geometry_completeness).toBe("partial_source_geometry");
+      expect(feature.properties.license).toBe("ODbL-1.0");
+      expect(feature.geometry?.type).toBe("LineString");
+    }
+    // No other entity is flagged, so the note cannot appear for them by accident.
+    const others = features.filter((feature) => feature.properties.entity_code !== "TRANSIT-BRT"
+      && feature.properties.properties?.geometry_completeness === "partial_source_geometry");
+    expect(others).toHaveLength(0);
   });
 });

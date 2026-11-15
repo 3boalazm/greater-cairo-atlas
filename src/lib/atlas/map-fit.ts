@@ -117,3 +117,26 @@ export function selectionFit(input: SelectionFitInput): SelectionFit | null {
     isPointLike: Math.abs(bounds.east - bounds.west) < 0.0005 && Math.abs(bounds.north - bounds.south) < 0.0005,
   };
 }
+
+/**
+ * FIX F — researcher-mode note about how complete a drawn line's geometry is.
+ *
+ * A line assembled from a handful of mostly-unmapped OSM ways must never look like a complete
+ * corridor. Only a line the ingest marked as a partial source fragment gets a note; everything else
+ * returns null so the panel stays silent instead of inventing a completeness claim.
+ */
+export function partialGeometryNote(
+  entityCode: string | null | undefined,
+  completeness: string | null | undefined,
+  language: "ar" | "en",
+): string | null {
+  if (!entityCode || completeness !== "partial_source_geometry") return null;
+  if (entityCode === "TRANSIT-BRT") {
+    return language === "ar"
+      ? "هندسة هذا الخط جزئية: مرسومة من أجزاء طريق مسماة «مسار الاتوبيس الترددي BRT» في OpenStreetMap، ولا تمثل المسار الكامل بعد. المحطات التي لا يوجد لها موقع من مصدر موثّق لا تُرسم."
+      : "This line's geometry is partial: it is drawn from OpenStreetMap ways named «مسار الاتوبيس الترددي BRT» and does not yet represent the full corridor. Stations without a source-attested position are not drawn.";
+  }
+  return language === "ar"
+    ? "هندسة هذا الخط جزئية من المصدر المستخدم، ولا تمثل المسار الكامل."
+    : "This line's geometry is partial in the source used and does not represent the full corridor.";
+}

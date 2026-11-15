@@ -71,7 +71,7 @@ The canonical bundle has **213 entities, 59 evidence records, 278 facts, and 304
 
 ### Historical revision 3 expectations (before rev5)
 
-Current canonical rev8 seed validation reports 415 entities, 2,075 facts, 368 evidence records, and 2,427 fact-evidence links. The current feature collection contains 2,926 geometries. There are 71 evidence records without URLs, all retained as documented records (the current schema and database guard require verified facts to cite official evidence with a URL); all 331 currently verified facts satisfy that rule. No rev4 entity code was removed, renamed, or retyped; all rev4 facts are retained.
+Current canonical seed validation (`npm run seed:check`) reports 417 entities, 2,092 facts, 378 evidence records, and 2,445 fact-evidence links. The current feature collection contains 2,942 geometries, including 14 partially mapped OSM `highway=busway` ways that carry the visible share of the BRT (الأتوبيس الترددي) line. There are 71 evidence records without URLs, all retained as documented records (the current schema and database guard require verified facts to cite official evidence with a URL); all 331 currently verified facts satisfy that rule. No rev4 entity code was removed, renamed, or retyped; all rev4 facts are retained.
 
 To reproduce the revision 5 outputs after placing the Drive bundle in `data/research/rev5/`:
 
@@ -83,7 +83,7 @@ python3 scripts/ingest-features.py --osm-json /tmp/cairo-osm-overpass-2026-11-14
   --osm-source-url https://overpass-api.de/api/interpreter --osm-retrieval-date 2026-11-14
 ```
 
-That historical revision 5 OSM re-match produced 1,970 ODbL features across 25 entities. A later rev6.1 matching snapshot produced 3,615 candidates; the current checked-in PHASE 07.10 collection contains **2,926 features** after exact fact-driven station regeneration. Historical per-entity counts and unmatched candidates remain in `data/features/match-report.json`.
+That historical revision 5 OSM re-match produced 1,970 ODbL features across 25 entities. A later rev6.1 matching snapshot produced 3,615 candidates; the current checked-in PHASE 07.10 collection contains **2,942 features** after exact fact-driven station regeneration and the partial BRT busway extraction. Historical per-entity counts and unmatched candidates remain in `data/features/match-report.json`.
 
 To reproduce the rev6.1 seed adaptation and OSM rematch using the preserved source extracts:
 
@@ -135,7 +135,7 @@ Source policy:
   ```
 - If a GTFS archive is supplied without network fetching, use `--osm-json /path/to/overpass.json` instead of `--fetch-osm`.
 
-The owner-supplied Overpass extracts from 2026-11-14 are preserved in `data/raw/` and their hashes are recorded in `data/features/manifest.json`. The historical rev6.1 matching run contained 3,615 candidates; the current checked-in, validated collection contains 2,926 features. `ROAD-NASR` remains excluded via `data/features/match-rules.json` and its candidates are reported as ambiguous. `data/features/alias-suggestions.json` is research-only: none of its proposed aliases are applied; only source-provided entity aliases and the separately documented Metro source-label aliases are used. Extract coverage is limited to route relations (subway/light_rail/monorail/train), selected railway ways, station/platform/stop nodes, and named motorway/trunk roads; it does not include primary/secondary highways or bus routes. No TfC GTFS or NC data is included. Production deployments run the configured automatic import; preview builds run a dry-run validator only.
+The owner-supplied Overpass extracts from 2026-11-14 are preserved in `data/raw/` and their hashes are recorded in `data/features/manifest.json`. The historical rev6.1 matching run contained 3,615 candidates; the current checked-in, validated collection contains 2,942 features. `ROAD-NASR` remains excluded via `data/features/match-rules.json` and its candidates are reported as ambiguous. `data/features/alias-suggestions.json` is research-only: none of its proposed aliases are applied; only source-provided entity aliases and the separately documented Metro source-label aliases are used. Extract coverage is limited to route relations (subway/light_rail/monorail/train), selected railway ways, station/platform/stop nodes, named motorway/trunk roads, and named `highway=busway` ways for the BRT corridor. It does not include primary/secondary highways or other bus routes. No TfC GTFS or NC data is included. Production deployments run the configured automatic import; preview builds run a dry-run validator only.
 
 The protected import validates `data/features/features.geojson` and idempotently upserts features by code in the existing transaction. To validate locally without writing to the database, run `npm run db:migrate:dry-run` and `npm run seed:check`. Production deployments automatically import changed, validated seed/features; previews and local builds do not.
 
@@ -168,7 +168,7 @@ npm run build               # DB-free production Next.js build
 
 ### Data import reconciliation
 
-Production import reconciles `features` and the full `fact_evidence` relationship set inside the same transaction as the seed upserts and checksum record. Stale feature geometry and stale fact/evidence links are deleted; legacy entities, facts, and evidence not present in the current source seed are counted and reported, not automatically deleted. The dataset key was bumped for a one-time reconciliation even when the source checksum has not changed. `npm run seed:check` prints read-only deletion/retention counts when a database preview connection is configured; without one it clearly reports the counts as unavailable. The current checked-in feature source contains **2,926** features; this is a source count, not a claim that the live database has already reconciled.
+Production import reconciles `features` and the full `fact_evidence` relationship set inside the same transaction as the seed upserts and checksum record. Stale feature geometry and stale fact/evidence links are deleted; legacy entities, facts, and evidence not present in the current source seed are counted and reported, not automatically deleted. The dataset key was bumped for a one-time reconciliation even when the source checksum has not changed. `npm run seed:check` prints read-only deletion/retention counts when a database preview connection is configured; without one it clearly reports the counts as unavailable. The current checked-in feature source contains **2,942** features; this is a source count, not a claim that the live database has already reconciled.
 
 ### Data and code licenses
 
