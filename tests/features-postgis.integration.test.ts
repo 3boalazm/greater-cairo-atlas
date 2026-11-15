@@ -173,6 +173,36 @@ describe("real PostGIS features SQL regression", () => {
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
   }, 120_000);
 
+  it("resolves the south batch 04 entities with no geometry, exactly as the entity panel queries them", async () => {
+    // Mirrors `getAtlasEntityDetail`: the geography is only reported as a flag, never a join requirement,
+    // so an entity without a feature must still come back with its facts attached.
+    const result = await db.query<{ code: string; has_geometry: boolean; facts_count: number }>(`
+      SELECT e.code,
+             EXISTS (SELECT 1 FROM features f WHERE f.entity_id = e.id) AS has_geometry,
+             (SELECT COUNT(*)::int FROM facts fa WHERE fa.entity_id = e.id) AS facts_count
+      FROM entities e
+      WHERE e.code IN ('LANDMARK-NMEC', 'PROJ-FUSTAT-HILLS', 'LANDMARK-EIN-EL-SIRA', 'LANDMARK-JAPANESE-GARDEN-HELWAN')
+      ORDER BY e.code
+    `);
+    expect(result.rows.map((row) => row.code)).toEqual([
+      "LANDMARK-EIN-EL-SIRA",
+      "LANDMARK-JAPANESE-GARDEN-HELWAN",
+      "LANDMARK-NMEC",
+      "PROJ-FUSTAT-HILLS",
+    ]);
+    // No geometry was invented for these, and each still carries research facts.
+    expect(result.rows.every((row) => row.has_geometry === false)).toBe(true);
+    expect(result.rows.every((row) => row.facts_count > 0)).toBe(true);
+
+    // The whole batch is searchable: all 31 rows are entities, none is silently dropped for lacking a pin.
+    const batchCodes = ["LANDMARK-NMEC", "PROJ-FUSTAT-HILLS", "LINE-HELWAN-OLD-RAIL", "LANDMARK-HELWAN-IRON-STEEL"];
+    const searchable = await db.query<{ count: number }>(
+      `SELECT COUNT(*)::int AS count FROM entities WHERE code = ANY($1::text[])`,
+      [batchCodes],
+    );
+    expect(searchable.rows[0]?.count).toBe(batchCodes.length);
+  }, 120_000);
+
   it("keeps database envelopes identical to shared TypeScript geometry constants", async () => {
     const migration = await readFile(path.resolve(process.cwd(), "db/migrations/007_regional_ring_west_bbox.sql"), "utf8");
     const bounds = (bbox: { west: number; south: number; east: number; north: number }) => [bbox.west, bbox.south, bbox.east, bbox.north];
