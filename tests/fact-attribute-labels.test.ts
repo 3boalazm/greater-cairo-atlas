@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { currentStatusNewsSourceCount, FACT_ATTRIBUTE_LABELS, quickFactSourceCountLabel, statusNewsSourceCountLabel } from "@/lib/atlas/labels";
+import { currentStatusNewsSourceCount, FACT_ATTRIBUTE_LABELS, hasDisplayableQuickFactValue, quickFactSourceCountLabel, showOnMapLabel, statusNewsSourceCountLabel } from "@/lib/atlas/labels";
 
 describe("fact attribute translations", () => {
   it("uses correct Arabic plural forms for quick-fact source counts and hides a single source", () => {
@@ -11,6 +11,12 @@ describe("fact attribute translations", () => {
     expect(quickFactSourceCountLabel(10, "ar")).toBe("10 مصادر");
     expect(quickFactSourceCountLabel(11, "ar")).toBe("11 مصدرًا");
     expect(quickFactSourceCountLabel(3, "en")).toBe("3 sources");
+  });
+  it("filters empty quick-fact values and supplies explicit map-button labels in both locales", () => {
+    expect(["", "  ", null, undefined].filter(hasDisplayableQuickFactValue)).toEqual([]);
+    expect(["0", 0, 12.5].filter(hasDisplayableQuickFactValue)).toEqual(["0", 0, 12.5]);
+    expect(showOnMapLabel("ar")).toBe("اعرض على الخريطة");
+    expect(showOnMapLabel("en")).toBe("Show on map");
   });
   it("counts news sources on the latest claim matching the entity's current status", () => {
     const facts = [

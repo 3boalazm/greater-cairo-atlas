@@ -87,6 +87,14 @@ export function statusNewsSourceCountLabel(count: number, language: LabelLanguag
   return count <= 10 ? `${count} مصادر إخبارية` : `${count} مصدرًا إخباريًا`;
 }
 
+export function hasDisplayableQuickFactValue(value: unknown): boolean {
+  return (typeof value === "string" && value.trim().length > 0) || (typeof value === "number" && Number.isFinite(value));
+}
+
+export function showOnMapLabel(language: LabelLanguage): string {
+  return language === "ar" ? "اعرض على الخريطة" : "Show on map";
+}
+
 export function stationDisplayName(code: string, name: string): string {
   return code === "STOP-6-OCTOBER-INTERCHANGE" ? "محطة 6 أكتوبر (مونوريل غرب النيل)" : name;
 }
