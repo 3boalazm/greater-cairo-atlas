@@ -11,6 +11,7 @@ import { getAtlasMapStyleUrl } from "./map-styles";
 import { getMapCameraPadding } from "@/lib/atlas/map-camera";
 import { selectedAreaFilter } from "@/lib/atlas/map-selection-filters";
 import { TRANSIT_LINE_COLORS, TRANSIT_LINE_LABELS, TRANSIT_MODE_LABELS, type TransitMode } from "@/lib/atlas/transit-modes";
+import { RAIL_REFERENCE_STATION_LAYERS, railReferenceStationFilter, stationLayerVisibility, stationModeFilter, stationRingFilter } from "@/lib/atlas/station-layer-visibility";
 
 maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
 
@@ -26,14 +27,11 @@ const railNetworkDetailSourceId = "atlas-rail-network-detail";
 const railOperationalLayerIds = ["atlas-rail-operational-low", "atlas-rail-operational-detail"];
 const railConstructionLayerIds = ["atlas-rail-construction-low", "atlas-rail-construction-detail"];
 const railDisusedLayerIds = ["atlas-rail-disused-low", "atlas-rail-disused-detail", "atlas-rail-preserved-low", "atlas-rail-preserved-detail"];
-const railStationLayerIds = ["atlas-rail-stations", "atlas-rail-station-labels"];
 const transitStationSourceId = "atlas-transit-stations";
 const boundarySourceId = "atlas-area-boundary";
 const boundaryFillLayerId = "atlas-area-boundary-fill";
 const boundaryOutlineLayerId = "atlas-area-boundary-outline";
 const stationIconLayers = ["atlas-station-entity-icons", "atlas-transit-station-icons"];
-const stationLabelLayers = ["atlas-transit-station-labels", "atlas-station-entity-labels"];
-const stationRingLayers = ["atlas-station-entity-interchange-ring", "atlas-transit-interchange-ring"];
 const lineLayers = ["atlas-admin-unit-outline", "atlas-polygons-fill", "atlas-polygons-outline", "atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
 
 type MapExpression = import("maplibre-gl").ExpressionSpecification;
@@ -41,9 +39,40 @@ type MapExpression = import("maplibre-gl").ExpressionSpecification;
 interface RailLoadState { baseRequested: boolean; detailRequested: boolean }
 const railLoadStates = new WeakMap<MapLibreMap, RailLoadState>();
 const EMPTY_GEOJSON: FeatureCollection = { type: "FeatureCollection", features: [] };
-const RAIL_STATION_BASE_FILTER: unknown[] = ["all", ["==", ["geometry-type"], "Point"], ["in", ["get", "railway"], ["literal", ["station", "halt"]]]];
 
-function syncRailLayers(map: MapLibreMap, enabled: boolean, showDisused: boolean) {
+/**
+ * Applies the shared station-layer visibility state to every station symbol layer.
+ *
+ * FIX D: station layers and the «النقل»/mode filters read the same state object, so a station can
+ * never stay on the map after its line or mode is switched off, and the rail-network reference
+ * stations follow the ENR mode plus the reference group instead of their own private rule.
+ */
+function applyStationLayerVisibility(
+  map: MapLibreMap,
+  input: { visibleModes: readonly TransitMode[]; showInterchanges: boolean; showRailReference: boolean; showDisusedRail: boolean; compact: boolean },
+) {
+  const state = stationLayerVisibility(input);
+  const modeFilter = stationModeFilter(state.modes) as maplibregl.FilterSpecification;
+  for (const [layerId, visible] of Object.entries(state.layers)) {
+    if (!map.getLayer(layerId)) continue;
+    map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
+    if (layerId.endsWith("-interchange-ring")) {
+      map.setFilter(layerId, stationRingFilter(state.modes, state.showInterchangeRings) as maplibregl.FilterSpecification);
+    } else if ((RAIL_REFERENCE_STATION_LAYERS as readonly string[]).includes(layerId)) {
+      map.setFilter(layerId, railReferenceStationFilter(state.railStatuses) as maplibregl.FilterSpecification);
+    } else {
+      map.setFilter(layerId, modeFilter);
+    }
+  }
+  return state;
+}
+
+function syncRailLayers(
+  map: MapLibreMap,
+  enabled: boolean,
+  showDisused: boolean,
+  visibility?: { visibleModes: readonly TransitMode[]; showInterchanges: boolean; compact: boolean },
+) {
   const state = railLoadStates.get(map);
   const base = map.getSource(railNetworkSourceId) as GeoJSONSource | undefined;
   const detail = map.getSource(railNetworkDetailSourceId) as GeoJSONSource | undefined;
@@ -61,11 +90,15 @@ function syncRailLayers(map: MapLibreMap, enabled: boolean, showDisused: boolean
   for (const id of railDisusedLayerIds) {
     if (map.getLayer(id)) map.setLayoutProperty(id, "visibility", enabled && showDisused ? "visible" : "none");
   }
-  for (const id of railStationLayerIds) {
-    if (!map.getLayer(id)) continue;
-    map.setLayoutProperty(id, "visibility", enabled ? "visible" : "none");
-    map.setFilter(id, (showDisused ? RAIL_STATION_BASE_FILTER : ["all", ...RAIL_STATION_BASE_FILTER.slice(1), ["!", ["in", ["get", "rail_status"], ["literal", ["disused", "preserved"]]]]]) as maplibregl.FilterSpecification);
-  }
+  // Rail-network station symbols follow the reference group AND the ENR transit mode; they never
+  // bypass the shared station-layer state (FIX D).
+  applyStationLayerVisibility(map, {
+    visibleModes: visibility?.visibleModes ?? (Object.keys(TRANSIT_MODE_LABELS) as TransitMode[]),
+    showInterchanges: visibility?.showInterchanges ?? true,
+    showRailReference: enabled,
+    showDisusedRail: showDisused,
+    compact: visibility?.compact ?? false,
+  });
 }
 
 function entityLineColor(theme: AtlasTheme): MapExpression {
@@ -74,11 +107,6 @@ function entityLineColor(theme: AtlasTheme): MapExpression {
   const transitLineColor = ["match", lineCode, ...colors, theme === "day" ? "#0072b2" : "#56b4e9"];
   const statusColors = ["match", ["get", "status"], "operational", theme === "day" ? "#0072b2" : "#56b4e9", "partial", theme === "day" ? "#8a6d00" : "#f0e442", "under_construction", theme === "day" ? "#d55e00" : "#e69f00", "planned", theme === "day" ? "#9b4f86" : "#cc79a7", "approved_planned", theme === "day" ? "#9b4f86" : "#cc79a7", theme === "day" ? "#67746d" : "#96a19c"];
   return ["case", ["==", ["get", "type"], "transit_line"], transitLineColor, statusColors] as unknown as MapExpression;
-}
-
-function stationModeFilter(modes: readonly TransitMode[]): MapExpression {
-  if (!modes.length) return ["==", ["get", "osm_node_id"], -1] as unknown as MapExpression;
-  return ["any", ...modes.map((mode) => ["in", mode, ["get", "modes"]])] as unknown as MapExpression;
 }
 
 function iconImageForMode(mode: string): string {
@@ -188,6 +216,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
   const selectedCodeRef = useRef<string | null>(selectedCode);
   const lastSelectedCodeRef = useRef<string | null>(null);
   const visibleModesRef = useRef<readonly TransitMode[]>(visibleTransitModes);
+  const railStatusesRef = useRef<readonly string[] | null>(null);
   const showInterchangesRef = useRef(showInterchanges);
   const onSelectRef = useRef(onSelect);
   const onSelectAdminUnitRef = useRef(onSelectAdminUnit);
@@ -367,47 +396,47 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
       if (!compact) {
         map.addLayer({
           id: "atlas-transit-interchange-ring", type: "circle", source: transitStationSourceId,
-          filter: ["all", ["==", ["get", "interchange"], true], stationModeFilter(visibleModesRef.current)],
+          filter: ["all", ["==", ["get", "interchange"], true], stationModeFilter(visibleModesRef.current)] as unknown as maplibregl.FilterSpecification,
           paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, 6, 12, 9, 16, 13], "circle-color": "rgba(0,0,0,0)", "circle-opacity": 0, "circle-stroke-color": theme === "day" ? "#172221" : "#f1f6f4", "circle-stroke-width": 2.1 },
         });
       }
       map.addLayer({
         id: "atlas-station-entity-interchange-ring", type: "circle", source: sourceId,
-        filter: ["all", ["==", ["geometry-type"], "Point"], ["==", ["get", "interchange"], true], stationModeFilter(visibleModesRef.current)],
+        filter: ["all", ["==", ["get", "geometry-type"], "Point"], stationRingFilter(visibleModesRef.current, showInterchangesRef.current)] as unknown as maplibregl.FilterSpecification,
         paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, 5, 12, 8, 16, 11], "circle-color": "rgba(0,0,0,0)", "circle-opacity": 0, "circle-stroke-color": theme === "day" ? "#172221" : "#f1f6f4", "circle-stroke-width": 2.1 },
       });
       if (!compact) {
         map.addLayer({
           id: "atlas-transit-station-icons", type: "symbol", source: transitStationSourceId,
-          filter: stationModeFilter(visibleModesRef.current),
+          filter: stationModeFilter(visibleModesRef.current) as unknown as maplibregl.FilterSpecification,
           layout: { "icon-image": ["match", ["get", "mode"], ...Object.keys(TRANSIT_MODE_LABELS).flatMap((mode) => [mode, iconImageForMode(mode)]), "transit-enr"] as unknown as MapExpression, "icon-size": ["interpolate", ["linear"], ["zoom"], 6, 0.37, 10, 0.55, 14, 0.76], "icon-allow-overlap": true, "icon-ignore-placement": false, "icon-padding": 1 },
           paint: { "icon-color": stationIconColor(), "icon-halo-color": theme === "day" ? "#fff" : "#15201e", "icon-halo-width": 1.2 },
         });
       }
       map.addLayer({
         id: "atlas-station-entity-icons", type: "symbol", source: sourceId,
-        filter: ["all", ["==", ["geometry-type"], "Point"], ["in", ["get", "type"], ["literal", ["transit_stop", "rail_station"]]], stationModeFilter(visibleModesRef.current)],
+        filter: ["all", ["==", ["get", "geometry-type"], "Point"], ["in", ["get", "type"], ["literal", ["transit_stop", "rail_station"]]], stationModeFilter(visibleModesRef.current)] as unknown as maplibregl.FilterSpecification,
         layout: { "icon-image": ["match", ["at", 0, ["get", "modes"]], ...Object.keys(TRANSIT_MODE_LABELS).flatMap((mode) => [mode, iconImageForMode(mode)]), "transit-enr"] as unknown as MapExpression, "icon-size": ["interpolate", ["linear"], ["zoom"], 6, 0.37, 10, 0.55, 14, 0.76], "icon-allow-overlap": true, "icon-padding": 1 },
         paint: { "icon-color": stationIconColor(), "icon-halo-color": theme === "day" ? "#fff" : "#15201e", "icon-halo-width": 1.2 },
       });
       if (!compact) {
         map.addLayer({
           id: "atlas-transit-station-labels", type: "symbol", source: transitStationSourceId, minzoom: 13.5,
-          filter: stationModeFilter(visibleModesRef.current),
+          filter: stationModeFilter(visibleModesRef.current) as unknown as maplibregl.FilterSpecification,
           layout: { "text-field": ["coalesce", ["get", language === "ar" ? "name_ar" : "name_en"], ["get", "name"]], "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"], "text-size": ["interpolate", ["linear"], ["zoom"], 13.5, 9, 17, 12], "text-offset": [0, 1.1], "text-anchor": "top", "text-max-width": 9, "text-allow-overlap": false },
           paint: { "text-color": theme === "day" ? "#172322" : "#f4f7f4", "text-halo-color": theme === "day" ? "#fff" : "#111715", "text-halo-width": 1.25 },
         });
       }
       map.addLayer({
         id: "atlas-station-entity-labels", type: "symbol", source: sourceId, minzoom: 13.5,
-        filter: ["all", ["==", ["geometry-type"], "Point"], ["in", ["get", "type"], ["literal", ["transit_stop", "rail_station"]]], stationModeFilter(visibleModesRef.current)],
+        filter: ["all", ["==", ["get", "geometry-type"], "Point"], ["in", ["get", "type"], ["literal", ["transit_stop", "rail_station"]]], stationModeFilter(visibleModesRef.current)] as unknown as maplibregl.FilterSpecification,
         layout: { "text-field": ["coalesce", ["get", language === "ar" ? "name_ar" : "name_en"]], "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"], "text-size": ["interpolate", ["linear"], ["zoom"], 13.5, 9, 17, 12], "text-offset": [0, 1.1], "text-anchor": "top", "text-max-width": 9, "text-allow-overlap": false },
         paint: { "text-color": theme === "day" ? "#172322" : "#f4f7f4", "text-halo-color": theme === "day" ? "#fff" : "#111715", "text-halo-width": 1.25 },
       });
       if (!compact) {
         map.addLayer({
           id: "atlas-rail-stations", type: "symbol", source: railNetworkSourceId,
-          filter: ["all", ["==", ["geometry-type"], "Point"], ["in", ["get", "railway"], ["literal", ["station", "halt"]]]],
+          filter: railReferenceStationFilter(railStatusesRef.current) as unknown as maplibregl.FilterSpecification,
           paint: { "icon-color": theme === "day" ? "#825126" : "#d2a16e", "icon-halo-color": theme === "day" ? "#fff" : "#15201e", "icon-halo-width": 1.2 },
           layout: { visibility: "none", "icon-image": "transit-enr", "icon-size": ["interpolate", ["linear"], ["zoom"], 6, ["case", ["==", ["get", "railway"], "halt"], 0.25, 0.34], 10, ["case", ["==", ["get", "railway"], "halt"], 0.38, 0.52], 14, ["case", ["==", ["get", "railway"], "halt"], 0.55, 0.72]], "icon-allow-overlap": true, "icon-padding": 1 },
         });
@@ -438,9 +467,21 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
         filter: ["all", ["==", ["get", "entity_code"], "__none__"], ["==", ["geometry-type"], "Point"]],
         paint: { "circle-radius": 15, "circle-color": "#fff36d", "circle-opacity": 0.4, "circle-stroke-color": "#fff36d", "circle-stroke-width": 3 },
       });
+      // FIX D: apply the shared station-layer state before the map is reported ready, so the
+      // first paint already respects the «النقل»/mode filters and the interchange toggle.
+      const initialRailStatuses = applyStationLayerVisibility(map, {
+        visibleModes: visibleModesRef.current, showInterchanges: showInterchangesRef.current,
+        showRailReference: showRailNetworkRef.current, showDisusedRail: showDisusedRailRef.current, compact,
+      }).railStatuses;
+      railStatusesRef.current = initialRailStatuses;
+      for (const layerId of RAIL_REFERENCE_STATION_LAYERS) {
+        if (map.getLayer(layerId)) map.setFilter(layerId, railReferenceStationFilter(initialRailStatuses) as maplibregl.FilterSpecification);
+      }
       setMapReady(true);
-      syncRailLayers(map, showRailNetworkRef.current, showDisusedRailRef.current);
-      map.on("zoomend", () => syncRailLayers(map, showRailNetworkRef.current, showDisusedRailRef.current));
+      syncRailLayers(map, showRailNetworkRef.current, showDisusedRailRef.current,
+        { visibleModes: visibleModesRef.current, showInterchanges: showInterchangesRef.current, compact });
+      map.on("zoomend", () => syncRailLayers(map, showRailNetworkRef.current, showDisusedRailRef.current,
+        { visibleModes: visibleModesRef.current, showInterchanges: showInterchangesRef.current, compact }));
       map.on("click", (event: MapLayerMouseEvent) => {
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers.filter((layerId) => map.getLayer(layerId)) });
         const properties = found[0]?.properties;
@@ -574,15 +615,15 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
     visibleModesRef.current = visibleTransitModes;
     showInterchangesRef.current = showInterchanges;
     const map = mapRef.current;
-    for (const layerId of [...stationIconLayers, ...stationRingLayers, ...stationLabelLayers]) {
-      if (!map?.getLayer(layerId)) continue;
-      const modeFilter = stationModeFilter(visibleTransitModes);
-      const isRing = stationRingLayers.includes(layerId);
-      map.setFilter(layerId, isRing
-        ? (showInterchanges ? ["all", modeFilter, ["==", ["get", "interchange"], true]] : ["==", ["get", "osm_node_id"], -1]) as maplibregl.FilterSpecification
-        : modeFilter as maplibregl.FilterSpecification);
-    }
-  }, [visibleTransitModes, showInterchanges]);
+    if (!map || !mapReady) return;
+    // FIX D: one shared state drives line/mode filters and every station layer, so switching a mode
+    // (or the «النقل» group) removes both the line and its stations in the same pass.
+    const state = applyStationLayerVisibility(map, {
+      visibleModes: visibleTransitModes, showInterchanges,
+      showRailReference: showRailNetworkRef.current, showDisusedRail: showDisusedRailRef.current, compact,
+    });
+    railStatusesRef.current = state.railStatuses;
+  }, [visibleTransitModes, showInterchanges, compact, mapReady]);
 
   useEffect(() => {
     showAreaBoundariesRef.current = showAreaBoundaries;

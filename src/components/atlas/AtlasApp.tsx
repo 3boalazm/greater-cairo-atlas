@@ -10,7 +10,8 @@ import { EntityPanel } from "./EntityPanel";
 import dynamic from "next/dynamic";
 import type { MapStyleStatus } from "./MapView";
 import { TransitModeFilter } from "./TransitModeFilter";
-import { TRANSIT_MODE_ORDER, TRANSIT_LINE_COLORS, transitModesForEntityCode, type TransitMode } from "@/lib/atlas/transit-modes";
+import { TRANSIT_MODE_ORDER, TRANSIT_LINE_COLORS, type TransitMode } from "@/lib/atlas/transit-modes";
+import { isTransitFeatureType, transitFeatureVisible, transitLineEnabled } from "@/lib/atlas/transit-feature-filters";
 import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 
 const MapView = dynamic(
@@ -338,11 +339,11 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         if (quickLayer === "road" && featureType !== "road") return [];
         if (quickLayer === "transport" && !["transit_line", "transit_stop", "rail_station", "transit_station"].includes(featureType)) return [];
         if (quickLayer === "city" && !["city", "district", "neighborhood"].includes(featureType)) return [];
-        if (featureType === "transit_line" || featureType === "transit_stop" || featureType === "rail_station" || featureType === "transit_station") {
-          const modes = feature.properties.modes?.length ? feature.properties.modes : transitModesForEntityCode(feature.properties.entity_code);
-          if (modes.length && !modes.some((mode) => visibleTransitModes.includes(mode as TransitMode))) return [];
-          const lineCodes = feature.properties.line_codes?.length ? feature.properties.line_codes : feature.properties.entity_code.startsWith("TRANSIT-") ? [feature.properties.entity_code] : [];
-          if (lineCodes.length && !lineCodes.some((line) => visibleTransitLines.includes(line))) return [];
+        if (isTransitFeatureType(featureType)) {
+          // FIX D: stations and lines share one mode/line filter, and an unresolved mode can never
+          // make a station immune to it (the previous `modes.length &&` guard did exactly that).
+          if (!transitFeatureVisible(feature.properties.entity_code, feature.properties.modes, visibleTransitModes, feature.properties.line_codes)) return [];
+          if (!transitLineEnabled(feature.properties.entity_code, feature.properties.line_codes, visibleTransitLines)) return [];
         }
       }
       const alternatives = researcherMode ? geometryAlternatives.get(feature.properties.entity_code) : undefined;
