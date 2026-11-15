@@ -24,7 +24,8 @@ import { SearchCommand } from "./SearchCommand";
 import { ResearchModeToggle, ResearcherOnly, useResearchMode } from "@/components/site/ResearchMode";
 import { FirstVisitGuide } from "./FirstVisitGuide";
 import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact, EntityListResponse } from "./atlas-client";
-import { resolveStatusByYear } from "@/lib/atlas/status-timeline";
+import { resolveStatusByYear, timelineSummary, timelineYearRange } from "@/lib/atlas/status-timeline";
+import { TimeControl } from "./TimeControl";
 import { approximateRadiusPolygon } from "@/lib/atlas/service-area";
 import { findGeometryAlternatives } from "@/lib/atlas/geometry-comparisons";
 import { STATUSES } from "./atlas-client";
@@ -48,11 +49,15 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   const { researcherMode } = useResearchMode();
   const [filters, setFilters] = useState<AtlasFilters>(emptyFilters);
   const [quickLayer, setQuickLayer] = useState("");
+  /**
+   * BATCH 14.1 — the default year is *today*, so a visitor who never touches «الزمن» sees exactly the map
+   * they saw before this feature existed. The range comes from the resolver so the slider cannot offer a
+   * year no claim covers, nor stop before a planned opening that is still in the future.
+   */
+  const timeRange = useMemo(() => timelineYearRange(statusTimeline), [statusTimeline]);
   const [timelineEnabled, setTimelineEnabled] = useState(false);
   const [serviceRadiusMeters, setServiceRadiusMeters] = useState<0 | 500 | 1000>(0);
-  const minTimelineYear = statusTimeline.length ? Math.min(...statusTimeline.map((fact) => Number(fact.valid_as_of.slice(0, 4)))) : 2000;
-  const maxTimelineYear = statusTimeline.length ? Math.max(...statusTimeline.map((fact) => Number(fact.valid_as_of.slice(0, 4)))) : new Date().getUTCFullYear();
-  const [timelineYear, setTimelineYear] = useState(maxTimelineYear);
+  const [timelineYear, setTimelineYear] = useState(() => timeRange.max);
   const [layerGroups, setLayerGroups] = useState<AtlasLayerGroupState>(defaultLayerGroups);
   const [entities, setEntities] = useState<AtlasEntitySummary[]>(initialEntities);
   const [entitiesLoading, setEntitiesLoading] = useState(false);
@@ -94,7 +99,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     if (fromUrl) setSelectedCode(fromUrl);
     let canRestoreResearchState = false;
     try { canRestoreResearchState = localStorage.getItem("gca-researcher-mode") === "true"; } catch { /* Simple defaults are safest when storage is unavailable. */ }
-    const hasUrlState = ["type", "sector", "status", "mapped", "quick", "layers"].some((key) => params.has(key));
+    const hasUrlState = ["type", "sector", "status", "mapped", "quick", "layers", "year", "settings"].some((key) => params.has(key));
     let saved: { filters?: AtlasFilters; quickLayer?: string; layerGroups?: AtlasLayerGroupState; visibleTransitModes?: TransitMode[]; visibleTransitLines?: string[]; showRoadNetwork?: boolean; showRailNetwork?: boolean; showDisusedRail?: boolean; showInterchanges?: boolean } = {};
     if (canRestoreResearchState && !hasUrlState) {
       try { saved = JSON.parse(window.localStorage.getItem("gca-map-state") ?? "{}"); } catch { saved = {}; }
@@ -121,6 +126,9 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       else { if (typeof saved.showRoadNetwork === "boolean") setShowRoadNetwork(saved.showRoadNetwork); if (typeof saved.showRailNetwork === "boolean") setShowRailNetwork(saved.showRailNetwork); if (typeof saved.showDisusedRail === "boolean") setShowDisusedRail(saved.showDisusedRail); }
       if (typeof saved.showInterchanges === "boolean") setShowInterchanges(saved.showInterchanges);
     }
+    // BATCH 14.1 — a shared link carries its year; opening it must show that year, not today.
+    const urlYear = Number.parseInt(params.get("year") ?? "", 10);
+    if (Number.isFinite(urlYear) && urlYear >= timeRange.min && urlYear <= timeRange.max) setTimelineYear(urlYear);
     preferencesHydrated.current = true;
     const onPopState = () => {
       const next = new URLSearchParams(window.location.search);
@@ -128,6 +136,8 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       try { if (localStorage.getItem("gca-researcher-mode") !== "true") return; } catch { return; }
       setFilters({ type: next.get("type") ?? "", sector: next.get("sector") ?? "", status: next.get("status") ?? "", mappedOnly: next.get("mapped") === "true" });
       setQuickLayer(next.get("quick") ?? "");
+      const nextYear = Number.parseInt(next.get("year") ?? "", 10);
+      if (Number.isFinite(nextYear) && nextYear >= timeRange.min && nextYear <= timeRange.max) setTimelineYear(nextYear);
       const groups = next.get("layers")?.split(",");
       if (groups) setLayerGroups(Object.fromEntries(Object.keys(defaultLayerGroups).map((key) => [key, groups.includes(key)])) as AtlasLayerGroupState);
       const lines = next.get("lines")?.split(",");
@@ -139,6 +149,9 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
+    // Mount-only by design: this reads the URL once and then listens for back/forward. Re-running it on
+    // every range change would re-apply saved settings over the user's current choices.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -158,18 +171,20 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     setParam("modes", visibleTransitModes.join(","));
     setParam("lines", visibleTransitLines.join(","));
     setParam("reference", [showRoadNetwork ? "roads" : "", showRailNetwork ? "rail" : "", showDisusedRail ? "disused" : ""].filter(Boolean).join(","));
+    // BATCH 14.1 — only when it differs from today, so a normal URL stays clean and still means "now".
+    setParam("year", timelineEnabled && timelineYear !== timeRange.max ? String(timelineYear) : "");
     window.history.replaceState({}, "", url);
-  }, [researcherMode, filters, quickLayer, layerGroups, showRoadNetwork, showRailNetwork, showDisusedRail, visibleTransitModes, visibleTransitLines, showInterchanges]);
+  }, [researcherMode, filters, quickLayer, layerGroups, showRoadNetwork, showRailNetwork, showDisusedRail, visibleTransitModes, visibleTransitLines, showInterchanges, timelineEnabled, timelineYear, timeRange]);
 
   useEffect(() => {
     if (previousResearcherMode.current === null) { previousResearcherMode.current = researcherMode; return; }
     if (previousResearcherMode.current && !researcherMode) {
-      setFilters(emptyFilters); setQuickLayer(""); setTimelineEnabled(false); setServiceRadiusMeters(0);
+      setFilters(emptyFilters); setQuickLayer(""); setTimelineEnabled(false); setTimelineYear(timeRange.max); setServiceRadiusMeters(0);
       setLayerGroups(defaultLayerGroups); setShowRoadNetwork(true); setShowRailNetwork(false); setShowDisusedRail(false);
       setVisibleTransitModes([...TRANSIT_MODE_ORDER]); setVisibleTransitLines(Object.keys(TRANSIT_LINE_COLORS)); setShowInterchanges(true);
     }
     previousResearcherMode.current = researcherMode;
-  }, [researcherMode]);
+  }, [researcherMode, timeRange]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -212,7 +227,9 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     const params = new URLSearchParams({ zoom: String(Math.max(4, Math.min(20, zoom))) });
     if (filters.type) params.set("type", filters.type);
     if (filters.sector) params.set("sector", filters.sector);
-    if (filters.status && !(researcherMode && timelineEnabled)) params.set("status", filters.status);
+    // A status filter + a year would fight each other (filter by "operational" while the year says
+    // "planned"), so the year takes over when it is on.
+    if (filters.status && !timelineEnabled) params.set("status", filters.status);
     fetch(`/api/atlas/features?${params}`, { signal: controller.signal })
       .then(async (response) => {
         if (!response.ok) throw new Error((await response.json()).error?.message ?? `HTTP ${response.status}`);
@@ -222,7 +239,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       .catch((error: unknown) => { if (!(error instanceof DOMException && error.name === "AbortError")) setFeaturesError(messageFrom(error, language)); })
       .finally(() => setFeaturesLoading(false));
     return () => controller.abort();
-  }, [filters.type, filters.sector, filters.status, zoom, language, timelineEnabled, researcherMode]);
+  }, [filters.type, filters.sector, filters.status, zoom, language, timelineEnabled]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -364,8 +381,25 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   }, [selectedCode, closeEntity]);
 
   const geometryAlternatives = useMemo(() => findGeometryAlternatives(initialFeatures.features), [initialFeatures.features]);
-  const useTimeline = researcherMode && timelineEnabled;
+  // BATCH 14.1 — the timeline is available to everyone, not only researchers: "what existed in 2019" is a
+  // plain question. Researcher mode adds the deciding fact and evidence, not the control itself.
+  const useTimeline = timelineEnabled;
   const timelineStatusByCode = useMemo(() => useTimeline ? resolveStatusByYear(statusTimeline, timelineYear) : null, [useTimeline, statusTimeline, timelineYear]);
+  const timelineCounts = useMemo(() => timelineSummary(statusTimeline, timelineYear), [statusTimeline, timelineYear]);
+  /**
+   * How many entities drawn on the map the chosen year cannot speak about. Counted from the features
+   * actually rendered, so the number describes this view rather than the whole database.
+   */
+  const timelineUndatedCount = useMemo(() => {
+    if (!useTimeline) return 0;
+    const codes = new Set<string>();
+    for (const feature of features.features) {
+      const code = feature.properties.entity_code;
+      if (!timelineStatusByCode?.get(code)) codes.add(code);
+    }
+    return codes.size;
+  }, [useTimeline, features, timelineStatusByCode]);
+  const timelineWithheldCount = timelineCounts.entities_unreviewed;
   const regionalSet = useMemo(() => new Set(regionalCodes), [regionalCodes]);
   const visibleFeatureCollection = useMemo(() => {
     const visibleFeatures = features.features.flatMap((feature) => {
@@ -470,12 +504,11 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         <div className="map-toolbar"><LayerChips type={quickLayer} onTypeChange={setQuickLayer} language={language} />
           {!researcherMode && <div className="simple-map-status-key" aria-label={ar ? "دليل ألوان الحالة" : "Status colour key"}><span><i className="map-key-dot is-operational"/>✓ {ar ? "يعمل" : "Operating"}</span><span><i className="map-key-dot is-partial"/>◐ {ar ? "يعمل جزئيًا" : "Partly operating"}</span><span><i className="map-key-dot is-building"/>⚒ {ar ? "تحت الإنشاء" : "Building"}</span><span><i className="map-key-dot is-planned"/>◷ {ar ? "مخطط" : "Planned"}</span></div>}
           <label className="admin-boundary-toggle"><input type="checkbox" checked={showAdminBoundaries} onChange={(event) => { setShowAdminBoundaries(event.target.checked); setSelectedAdminUnit(null); }} /><span>{ar ? "الأحياء والأقسام" : "Districts & qisms"}</span></label>
-          <ResearcherOnly><div className="timeline-map-filter">
-            <label><input type="checkbox" checked={timelineEnabled} onChange={(event) => setTimelineEnabled(event.target.checked)} /><span>{ar ? "الحالة في تاريخ" : "Status as of date"}</span></label>
-            {timelineEnabled && <><strong>{timelineYear}</strong><input aria-label={ar ? "سنة الحالة على الخريطة" : "Map status year"} type="range" min={minTimelineYear} max={maxTimelineYear} step={1} value={timelineYear} onChange={(event) => setTimelineYear(Number(event.target.value))} />
-              <small>{new Set(visibleFeatureCollection.features.filter((feature) => !feature.properties.timeline_dated).map((feature) => feature.properties.entity_code)).size.toLocaleString()} {ar ? "كيان غير مؤرخ" : "entities undated"}</small>
-              <small>{ar ? "المصادر المتنازع عليها تبقى ظاهرة دون ترجيح آلي." : "Disputed sources remain visible without automatic resolution."}</small></>}
-          </div>
+          {/* BATCH 14.1 — one small button for everyone; the slider only appears when asked for. */}
+          <TimeControl language={language} year={timelineYear} minYear={timeRange.min} maxYear={timeRange.max}
+            enabled={timelineEnabled} onToggle={setTimelineEnabled}
+            onChange={setTimelineYear} undatedCount={timelineUndatedCount} withheldCount={timelineWithheldCount} />
+          <ResearcherOnly>
           <nav className="map-export-links" aria-label={ar ? "تصدير مرشحات الخريطة" : "Export map filters"}><a href={filteredExportUrl}>GeoPackage</a><a href={`/api/exports/geojson?${exportParams.toString()}`}>GeoJSON</a></nav>
           <ActiveFilterChips filters={filters} quickLayer={quickLayer} language={language} onClearQuick={() => setQuickLayer("")} onClearFilter={(key) => setFilters((current) => ({ ...current, [key]: key === "mappedOnly" ? false : "" }))} onClearAll={() => { setQuickLayer(""); setFilters(emptyFilters); setLayerGroups(defaultLayerGroups); }} />
           <details className="layers-panel"><summary>{ar ? "الطبقات" : "Layers"}</summary>
@@ -521,7 +554,8 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} onShowOnMap={requestShowOnMap} language={language}
       geometryCompleteness={selectedGeometryCompleteness}
       onToggleBoundary={toggleAreaBoundary} boundaryActive={highlightBoundary?.properties.entity_code === detail?.code}
-      boundaryLoading={boundaryLoadingCode === detail?.code} onSelectRelated={selectRelatedEntity} geometryAlternatives={selectedCode ? geometryAlternatives.get(selectedCode) ?? [] : []} />}
+      boundaryLoading={boundaryLoadingCode === detail?.code} onSelectRelated={selectRelatedEntity} geometryAlternatives={selectedCode ? geometryAlternatives.get(selectedCode) ?? [] : []}
+      timeline={useTimeline && detail ? { year: timelineYear, resolution: timelineStatusByCode?.get(detail.code) ?? null } : undefined} />}
   </main>;
 }
 

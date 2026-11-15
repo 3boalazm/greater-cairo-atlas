@@ -5,6 +5,8 @@ import { MapPinOff, MapPinned, X } from "lucide-react";
 import { useEffect, useMemo, useRef } from "react";
 import { CalendarClock, CircleAlert, CircleCheck, Construction } from "lucide-react";
 import { useResearchMode } from "@/components/site/ResearchMode";
+import { TimelinePanelNote } from "./TimeControl";
+import type { TimelineStatusResolution } from "@/lib/atlas/status-timeline";
 import type { AtlasEntityDetail, AtlasEntityFact, AtlasLanguage } from "./atlas-client";
 import { transitModeLabel } from "@/lib/atlas/transit-modes";
 import { partialGeometryNote } from "@/lib/atlas/map-fit";
@@ -54,7 +56,7 @@ function simpleStatus(status: string) {
   return translations[status] ?? translations.unknown!;
 }
 
-export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geometryCompleteness = null, language, onToggleBoundary, boundaryActive, boundaryLoading, onSelectRelated, geometryAlternatives = [] }: {
+export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geometryCompleteness = null, language, onToggleBoundary, boundaryActive, boundaryLoading, onSelectRelated, geometryAlternatives = [], timeline }: {
   entity: AtlasEntityDetail | null;
   geometryAlternatives?: GeometryAlternative[];
   loading: boolean;
@@ -69,6 +71,12 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
   boundaryActive: boolean;
   boundaryLoading: boolean;
   onSelectRelated: (code: string) => void;
+  /**
+   * BATCH 14.1 — present only while «الزمن» is showing a year other than today. Carries the resolver's
+   * verdict plus the fact that decided it, so researcher mode can name the evidence instead of asserting
+   * a status.
+   */
+  timeline?: { year: number; resolution: TimelineStatusResolution | null };
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
@@ -153,6 +161,11 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
           <details className={`entity-panel-details ${researcherMode ? "is-researcher-details" : ""}`} open={researcherMode}>
             <summary>{researcherMode ? (ar ? "بيانات الباحث" : "Research details") : (ar ? "تفاصيل أكتر" : "More details")}</summary>
             <div className="entity-panel-research-content">
+          {/* BATCH 14.1 — what the chosen year says about this entity, and which fact decided it.
+              Placed above the generic facts so a reader does not mistake the stored status for the
+              dated one while the timeline is active. */}
+          {timeline && <TimelinePanelNote language={language} year={timeline.year} resolution={timeline.resolution}
+            curatedStatus={entity.status} />}
           <Link className="entity-profile-link" href={`/${language}/entity/${encodeURIComponent(entity.code)}`}>{ar ? "فتح صفحة الكيان الكاملة ←" : "Open full entity page →"}</Link>
           {researcherMode && partialNote && <aside className="geometry-source-comparison" aria-label={ar ? "اكتمال الهندسة" : "Geometry completeness"}><strong>{ar ? "الهندسة جزئية" : "Partial geometry"}</strong><p>{partialNote}</p></aside>}
           {researcherMode && geometryAlternatives.length > 1 && <aside className="geometry-source-comparison"><strong>{entity.entity_type === "transit_line" ? (ar ? "مسارات مختلفة من المصدرين" : "Different routes from two sources") : (ar ? "حدود مختلفة من المصدرين" : "Different boundaries from two sources")}</strong><p>{ar ? "يعرض الأطلس المسارين كما وردا؛ لم يختر أحدهما بدلًا من الآخر." : "Both source routes are shown; neither is chosen as the winner."}</p><ul>{geometryAlternatives.map((item) => <li key={item.feature_code}><a href={`https://www.openstreetmap.org/${item.source_label.toLowerCase().includes("relation") ? "relation" : "way"}/${item.source_label.split(" ").at(-1)}`} target="_blank" rel="noreferrer">{item.source_label}</a> · {item.retrieval_date}</li>)}</ul></aside>}
