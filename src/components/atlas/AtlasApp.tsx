@@ -80,6 +80,9 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   const [detailLoading, setDetailLoading] = useState(false);
   const [detailError, setDetailError] = useState<string | null>(null);
   const [highlightBoundary, setHighlightBoundary] = useState<AreaBoundaryFeature | null>(null);
+  const [fitRequest, setFitRequest] = useState(0);
+  /** A code whose boundary the user switched off by hand; auto-load must not fight that choice. */
+  const [boundaryDismissedCode, setBoundaryDismissedCode] = useState<string | null>(null);
   const [boundaryLoadingCode, setBoundaryLoadingCode] = useState<string | null>(null);
   const [boundaryError, setBoundaryError] = useState<string | null>(null);
   const preferencesHydrated = useRef(false);
@@ -247,6 +250,36 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     return () => controller.abort();
   }, [language]);
 
+  /**
+   * FIX E — a selected city/district highlights its whole area automatically. The drawable boundary
+   * (official CAPMAS first, OSM second) is fetched once the entity detail says one exists; entities
+   * without a boundary keep the point behaviour and no request is made.
+   */
+  useEffect(() => {
+    if (!selectedCode || !detail || detail.code !== selectedCode || !detail.has_boundary) return;
+    if (highlightBoundary?.properties.entity_code === selectedCode) return;
+    if (boundaryDismissedCode === selectedCode) return;
+    const controller = new AbortController();
+    let cancelled = false;
+    setBoundaryLoadingCode(selectedCode);
+    setBoundaryError(null);
+    fetch(`/api/atlas/entities/${encodeURIComponent(selectedCode)}/boundary`, { signal: controller.signal })
+      .then(async (response) => {
+        const payload = await response.json() as { features?: AreaBoundaryFeature[]; feature?: AreaBoundaryFeature; error?: { message?: string } };
+        const feature = payload.feature ?? payload.features?.find((item) => item.properties.entity_code === selectedCode);
+        if (!response.ok || !feature) throw new Error(payload.error?.message ?? `HTTP ${response.status}`);
+        return feature;
+      })
+      .then((feature) => { if (!cancelled) setHighlightBoundary(feature); })
+      .catch((error: unknown) => {
+        if (cancelled || (error instanceof DOMException && error.name === "AbortError")) return;
+        // A missing boundary is not an error for the simple view: the point stays selected.
+        setBoundaryError(null);
+      })
+      .finally(() => { if (!cancelled) setBoundaryLoadingCode(null); });
+    return () => { cancelled = true; controller.abort(); };
+  }, [selectedCode, detail, highlightBoundary?.properties.entity_code, boundaryDismissedCode]);
+
   useEffect(() => {
     if (!selectedCode) { setDetail(null); setDetailError(null); setDetailLoading(false); return; }
     const controller = new AbortController();
@@ -269,6 +302,8 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     setServiceRadiusMeters(0);
     setHighlightBoundary(null);
     setBoundaryError(null);
+    setBoundaryDismissedCode(null);
+    setFitRequest((value) => value + 1);
     const url = new URL(window.location.href);
     url.searchParams.set("entity", code);
     window.history.pushState({}, "", url);
@@ -285,8 +320,10 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     if (highlightBoundary?.properties.entity_code === code) {
       setHighlightBoundary(null);
       setBoundaryError(null);
+      setBoundaryDismissedCode(code);
       return;
     }
+    setBoundaryDismissedCode(null);
     setBoundaryLoadingCode(code);
     setBoundaryError(null);
     try {
@@ -301,6 +338,11 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       setBoundaryLoadingCode(null);
     }
   }, [highlightBoundary?.properties.entity_code, language]);
+  /** «اعرض على الخريطة»: keep the panel open, refit the camera to the whole boundary/feature set. */
+  const requestShowOnMap = useCallback(() => {
+    if (!selectedCode) return;
+    setFitRequest((value) => value + 1);
+  }, [selectedCode]);
   const closeEntity = useCallback(() => {
     setSelectedCode(null);
     setDetail(null);
@@ -399,7 +441,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         {statsError && <span className="stats-retry"><AlertTriangle aria-hidden="true" />{statsError}</span>}
       </section></ResearcherOnly>
       <section className="map-stage" aria-label={ar ? "مساحة الخريطة" : "Map workspace"}>
-        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onSelectAdminUnit={setSelectedAdminUnit} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} selectedCode={selectedCode} showRoadNetwork={showRoadNetwork} showRailNetwork={showRailNetwork && railNetworkAvailable} showDisusedRail={showDisusedRail} showAreaBoundaries={layerGroups.areas} highlightBoundary={highlightBoundary} visibleTransitModes={mapTransitModes} showInterchanges={showInterchanges} />
+        <MapView key={mapGeneration} theme={theme} features={visibleFeatureCollection} onSelect={selectEntity} onSelectAdminUnit={setSelectedAdminUnit} onZoomChange={setZoom} onStyleStatus={setMapStyleStatus} language={language} selectedCode={selectedCode} showRoadNetwork={showRoadNetwork} showRailNetwork={showRailNetwork && railNetworkAvailable} showDisusedRail={showDisusedRail} showAreaBoundaries={layerGroups.areas} highlightBoundary={highlightBoundary} visibleTransitModes={mapTransitModes} showInterchanges={showInterchanges} fitRequest={fitRequest} />
         {selectedAdminUnit && <aside className="admin-unit-map-card" dir={ar ? "rtl" : "ltr"} aria-label={ar ? "تفاصيل الوحدة الإدارية" : "Administrative unit details"}>
           <button type="button" aria-label={ar ? "إغلاق" : "Close"} onClick={() => setSelectedAdminUnit(null)}>×</button>
           <strong>{ar ? selectedAdminUnit.properties.name_ar : selectedAdminUnit.properties.name_en || selectedAdminUnit.properties.name_ar}</strong>
@@ -460,7 +502,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         <ResearcherOnly><nav className="atlas-site-footer atlas-research-footer" aria-label={ar ? "روابط الباحث" : "Research links"}><Link href={`/${language}/directory`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/${language}/data`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/${language}/methodology`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/${language}/sources`}>{ar ? "المصادر" : "Sources"}</Link><Link href={`/${language}/api-docs`}>{ar ? "توثيق API" : "API docs"}</Link></nav></ResearcherOnly>
       </section>
     </section>
-    {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} language={language}
+    {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} onShowOnMap={requestShowOnMap} language={language}
       onToggleBoundary={toggleAreaBoundary} boundaryActive={highlightBoundary?.properties.entity_code === detail?.code}
       boundaryLoading={boundaryLoadingCode === detail?.code} onSelectRelated={selectRelatedEntity} geometryAlternatives={selectedCode ? geometryAlternatives.get(selectedCode) ?? [] : []} />}
   </main>;

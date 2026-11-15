@@ -9,7 +9,8 @@ import type { AtlasFeatureCollection, AtlasTheme } from "./atlas-client";
 import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 import { getAtlasMapStyleUrl } from "./map-styles";
 import { getMapCameraPadding } from "@/lib/atlas/map-camera";
-import { selectedAreaFilter } from "@/lib/atlas/map-selection-filters";
+import { selectedAreaFilter, selectionBoundaryFilter } from "@/lib/atlas/map-selection-filters";
+import { hasDrawableBoundary, selectionFit } from "@/lib/atlas/map-fit";
 import { TRANSIT_LINE_COLORS, TRANSIT_LINE_LABELS, TRANSIT_MODE_LABELS, type TransitMode } from "@/lib/atlas/transit-modes";
 import { RAIL_REFERENCE_STATION_LAYERS, railReferenceStationFilter, stationLayerVisibility, stationModeFilter, stationRingFilter } from "@/lib/atlas/station-layer-visibility";
 
@@ -31,6 +32,8 @@ const transitStationSourceId = "atlas-transit-stations";
 const boundarySourceId = "atlas-area-boundary";
 const boundaryFillLayerId = "atlas-area-boundary-fill";
 const boundaryOutlineLayerId = "atlas-area-boundary-outline";
+const selectionFillLayerId = "atlas-selection-boundary-fill";
+const selectionOutlineLayerId = "atlas-selection-boundary-outline";
 const stationIconLayers = ["atlas-station-entity-icons", "atlas-transit-station-icons"];
 const lineLayers = ["atlas-admin-unit-outline", "atlas-polygons-fill", "atlas-polygons-outline", "atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
 
@@ -184,7 +187,7 @@ function cameraPadding(map: MapLibreMap, margin: number) {
   );
 }
 
-export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, selectedCode = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false, showAreaBoundaries = true }: {
+export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, selectedCode = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false, showAreaBoundaries = true, fitRequest = 0 }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
   onSelect: (entityCode: string) => void;
@@ -202,6 +205,8 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
   selectedCode?: string | null;
   visibleTransitModes?: readonly TransitMode[];
   showInterchanges?: boolean;
+  /** Incremented by «اعرض على الخريطة» and by a new selection to refit the camera (FIX E). */
+  fitRequest?: number;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -452,6 +457,21 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
         paint: { "line-color": getComputedStyle(document.documentElement).getPropertyValue("--boundary-color").trim() || (theme === "day" ? "#116c62" : "#57d6c6"), "line-width": 2, "line-opacity": 0.98 },
         layout: { "line-cap": "round", "line-join": "round", visibility: showAreaBoundariesRef.current ? "visible" : "none" },
       });
+      // FIX E — soft fill + outline for the area of the *selected* entity, drawn from the boundary
+      // source so a city with only a point feature still shows its whole area. Filtered to
+      // Polygon/MultiPolygon (fill) while a boundary is attached; cleared when the panel closes.
+      map.addLayer({
+        id: selectionFillLayerId, type: "fill", source: boundarySourceId,
+        filter: selectionBoundaryFilter(hasDrawableBoundary(boundaryRef.current)) as unknown as maplibregl.FilterSpecification,
+        paint: { "fill-color": theme === "day" ? "#d8a400" : "#ffd34d", "fill-opacity": 0.22 },
+        layout: { visibility: showAreaBoundariesRef.current ? "visible" : "none" },
+      });
+      map.addLayer({
+        id: selectionOutlineLayerId, type: "line", source: boundarySourceId,
+        filter: selectionBoundaryFilter(hasDrawableBoundary(boundaryRef.current)) as unknown as maplibregl.FilterSpecification,
+        paint: { "line-color": theme === "day" ? "#b8860b" : "#ffe07a", "line-width": ["interpolate", ["linear"], ["zoom"], 6, 1.6, 12, 2.6, 16, 3.4], "line-opacity": 0.95 },
+        layout: { "line-cap": "round", "line-join": "round", visibility: showAreaBoundariesRef.current ? "visible" : "none" },
+      });
       map.addLayer({
         id: "atlas-selected-polygon-fill", type: "fill", source: sourceId,
         filter: selectedAreaFilter(null) as unknown as maplibregl.FilterSpecification,
@@ -563,19 +583,26 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
 
     const fitCode = selectedCode ?? lastSelectedCodeRef.current;
     if (selectedCode) lastSelectedCodeRef.current = selectedCode;
+    /**
+     * FIX E — frame the whole selected area. A city/district with a source boundary is fitted to
+     * that boundary (official CAPMAS first, OSM second) using the panel-aware padding from
+     * map-camera.ts, so the area is not centred under the open panel. Entities without a boundary
+     * keep the previous point/feature behaviour.
+     */
     const fitEntity = (code: string, duration: number) => {
       const selected = features.features.filter((feature) => feature.properties.entity_code === code);
-      if (!selected.length) return;
-      const bounds = new maplibregl.LngLatBounds();
-      selected.forEach((feature) => visitPositions(feature.geometry, (point) => bounds.extend(point)));
-      if (bounds.isEmpty()) return;
+      const entityBoundary = boundaryRef.current?.properties.entity_code === code ? boundaryRef.current : null;
+      const fit = selectionFit({ features: selected, boundary: entityBoundary });
+      if (!fit) return;
+      const bounds = fit.bounds;
       const padding = cameraPadding(map, compact ? 28 : 90);
-      const sw = bounds.getSouthWest();
-      const ne = bounds.getNorthEast();
-      if (Math.abs(ne.lng - sw.lng) < 0.0005 && Math.abs(ne.lat - sw.lat) < 0.0005) {
-        map.flyTo({ center: bounds.getCenter(), zoom: Math.max(map.getZoom(), compact ? 13 : 14), padding, duration });
+      const center: [number, number] = [(bounds.west + bounds.east) / 2, (bounds.south + bounds.north) / 2];
+      if (fit.isPointLike) {
+        map.flyTo({ center, zoom: Math.max(map.getZoom(), compact ? 13 : 14), padding, duration });
       } else {
-        map.fitBounds(bounds, { padding, maxZoom: compact ? 14 : 15, duration });
+        map.fitBounds([[bounds.west, bounds.south], [bounds.east, bounds.north]], {
+          padding, maxZoom: compact ? 14 : fit.target === "area" ? 14 : 15, duration,
+        });
       }
     };
     if (fitCode) fitEntity(fitCode, selectedCode ? 650 : 0);
@@ -598,16 +625,34 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
       panel?.removeEventListener("animationend", onLayoutChange);
       window.removeEventListener("resize", onLayoutChange);
     };
-  }, [selectedCode, features, mapReady, compact]);
+  }, [selectedCode, features, mapReady, compact, fitRequest, highlightBoundary]);
 
   useEffect(() => {
     const map = mapRef.current;
     const source = map?.getSource(boundarySourceId) as GeoJSONSource | undefined;
     source?.setData(boundaryCollection(highlightBoundary));
-    if (map && highlightBoundary) {
-      const bounds = new maplibregl.LngLatBounds();
-      visitPositions(highlightBoundary.geometry, (point) => bounds.extend(point));
-      if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: cameraPadding(map, compact ? 28 : 70), maxZoom: compact ? 14 : 14, duration: 650 });
+    // The selection fill/outline follow the attached boundary and disappear when it is cleared
+    // (closing the panel or selecting another feature), so no stale highlight can linger.
+    const drawable = hasDrawableBoundary(highlightBoundary);
+    for (const layerId of [selectionFillLayerId, selectionOutlineLayerId]) {
+      if (map?.getLayer(layerId)) {
+        map.setFilter(layerId, selectionBoundaryFilter(drawable) as unknown as maplibregl.FilterSpecification);
+        map.setLayoutProperty(layerId, "visibility", drawable && showAreaBoundariesRef.current ? "visible" : "none");
+      }
+    }
+    // FIX E: when the boundary belongs to the selected entity, the selection effect below already
+    // fits the whole area (with the panel-aware padding), so this path must not fly twice. It covers
+    // the other cases: the boundary toggle for a non-selected entity, the search «إظهار الحدود»
+    // action, and compact boundary-preview maps.
+    const boundaryBelongsToSelection = Boolean(selectedCodeRef.current && highlightBoundary?.properties.entity_code === selectedCodeRef.current);
+    if (map && highlightBoundary && !boundaryBelongsToSelection) {
+      const fit = selectionFit({ features: [], boundary: highlightBoundary });
+      if (fit) {
+        const bounds = fit.bounds;
+        map.fitBounds([[bounds.west, bounds.south], [bounds.east, bounds.north]], {
+          padding: cameraPadding(map, compact ? 28 : 70), maxZoom: compact ? 14 : 14, duration: 650,
+        });
+      }
     }
   }, [highlightBoundary, compact]);
 
