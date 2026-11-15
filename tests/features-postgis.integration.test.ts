@@ -109,12 +109,12 @@ describe("real PostGIS features SQL regression", () => {
       }),
     });
     expect(importSummary.dryRun).toBe(false);
-    expect(importSummary.entitiesCount).toBe(417);
-    expect(importSummary.evidenceCount).toBe(378);
-    expect(importSummary.factsCount).toBe(2157);
+    expect(importSummary.entitiesCount).toBe(448);
+    expect(importSummary.evidenceCount).toBe(448);
+    expect(importSummary.factsCount).toBe(2252);
     expect(importSummary.relationsCount).toBeGreaterThan(0);
     expect(importSummary.importSync.entityRelationsDeletedCount).toBe(0);
-    expect(importSummary.factEvidenceLinksCount).toBe(2510);
+    expect(importSummary.factEvidenceLinksCount).toBe(2605);
     const relations = await db.query<{ count: number }>("SELECT COUNT(*)::int AS count FROM entity_relations");
     expect(relations.rows[0]?.count).toBe(importSummary.relationsCount);
     const relationEvidence = await db.query<{ count: number }>("SELECT COUNT(*)::int AS count FROM entity_relations WHERE evidence_ref IS NOT NULL");
@@ -168,7 +168,7 @@ describe("real PostGIS features SQL regression", () => {
         (SELECT COUNT(*) FROM features)::text AS features,
         (SELECT COUNT(*) FROM boundaries)::text AS boundaries
     `);
-    expect(counts.rows[0]).toEqual({ entities: "417", evidence: "378", facts: "2157", links: "2510", features: "2942", boundaries: "19" });
+    expect(counts.rows[0]).toEqual({ entities: "448", evidence: "448", facts: "2252", links: "2605", features: "2942", boundaries: "19" });
     const validBoundaries = await db.query<{ count: string }>("SELECT COUNT(*)::text AS count FROM boundaries WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)");
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
   }, 120_000);
