@@ -155,6 +155,70 @@ curl -sS 'http://localhost:3000/api/atlas/features?type=transit_line&zoom=12' -o
 ```
 - **`POST /api/admin/import-seed`**: Protected by `ADMIN_IMPORT_TOKEN` (constant-time SHA-256 `timingSafeEqual`), `dryRun: true` by default, idempotent upsert when `dryRun: false`.
 
+## The map: time, opacity and saved settings
+
+### «الزمن» — the map at a chosen year
+
+One small pill in the map toolbar, for everyone (not only researchers): "what existed in 2019" is a plain
+question. Open it for a year slider, the year itself, and play/pause. Closing it returns to today, because a
+hidden control must not leave the map in a past state you cannot see.
+
+The only admissible input is a **dated status assertion**: an `operational_status` fact whose `valid_as_of`
+says when that status was true. Status at year Y = the latest such claim with year ≤ Y, honouring a
+`valid_to` when one exists. Nothing is inferred from opening dates, phase schedules, or the existence of a
+later status.
+
+Three things worth knowing if you maintain the seed:
+
+1. **`opening` facts are not a status source.** Their `valid_as_of` is when the claim was recorded (mostly
+   2026-11-14); the opening date itself sits in the free-text `value`, sometimes as prose
+   («المترو أغسطس 2020؛ LRT ومجمع النقل يوليو 2022»). Parsing that would be guessing, so the resolver
+   ignores those facts entirely and the panel shows them as research notes only.
+2. **An unreviewed claim may not colour the map.** Of 343 entities with a dated status claim, 191 of the
+   latest ones are still `candidate`. Drawing from them made the slider disagree with the published map for
+   18 entities, 16 of them on unreviewed rows. So only `verified` or `corroborated` claims are drawn —
+   the same strength bar the export API already applies. An unreviewed claim is still reported in the
+   researcher panel; it just does not repaint anything.
+3. **The default changes nothing.** At today, 115 entities are drawn and every one agrees with the curated
+   status; 228 are withheld (210 of which agree but lack review); 74 have no dated claim. Zero drawn
+   disagreements. Opening the atlas and touching nothing shows exactly the map that shipped.
+
+An entity with no dated claim by the chosen year is shown as «غير معروف في هذا التاريخ» — drawn in the
+existing `unknown` style, never assumed operational. Two contradicting claims on the same date resolve to
+`unknown`/`conflicted` rather than electing a winner, and a dispute is never erased by a better-supported
+twin that happens to agree. The researcher panel names the fact that decided the colour, or says plainly
+that nothing did.
+
+`?year=2019` in a URL opens the control at that year; `?year=2025` (this year) is treated as closed so a
+normal URL stays clean. An out-of-range or malformed year is ignored rather than clamped — silently showing
+2015 for `?year=1800` would misrepresent what the sender asked for.
+
+### Layer opacity and saved display settings
+
+Per-group opacity (infrastructure, transport, areas/boundaries, projects, reference network) lives inside its
+own «تفاصيل أكتر: شفافية الطبقات» disclosure, so the simple panel stays simple.
+
+Opacity **multiplies** each layer's authored value rather than replacing it: the layers carry a deliberate
+hierarchy (a road casing behind the road, a fainter reference network), and 100% must reproduce the map as it
+shipped. The authored value is captured once per style build — reading it back on each slider tick would
+square the factor and land at 25% after two drags to 50%. A dedicated effect applies changes so dragging the
+slider does not rebuild the map and throw away the camera.
+
+Display settings (layer groups, opacity, reference networks, interchanges, theme) are stored under
+`gca-display-settings-v2` and are:
+
+- **Versioned** — a blob from another shape is discarded, not migrated blindly.
+- **Strict** — unknown keys are dropped and a wrong-typed field falls back to its own default instead of
+  poisoning the whole object. Opacity is clamped to 0.1–1 so a corrupt value cannot hide a layer.
+- **Corrupt-safe** — every read is wrapped; private mode, disabled storage and quota failures all mean
+  "nothing saved" rather than an error.
+- **URL-first** — a shared link beats saved settings *per key*: `?layers=transport` shows transport only,
+  not your saved groups merged with it, while keys the link is silent about keep your saved value.
+
+«إعادة الضبط» clears the stored key and restores every display default in one step (and is disabled when
+you are already on the defaults). The restore is guarded so it cannot write defaults over your saved
+settings on the first render.
+
 ## Data review workspace (`/admin`)
 
 The atlas is edited through `/admin`, behind the same `ADMIN_IMPORT_TOKEN`. Configure it once
