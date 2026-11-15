@@ -1,5 +1,71 @@
 [
   {
+    "entity_code": "CITY-15-MAY",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0103"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-6-OCTOBER",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG2107",
+      "EG2121"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-AUSIM",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG211601"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-BADR",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0141"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-BENHA",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG1401"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
     "entity_code": "CITY-CAIRO",
     "relation": "located_within",
     "pcodes": [
@@ -28,6 +94,99 @@
     "license": "CC BY-IGO"
   },
   {
+    "entity_code": "CITY-KAFR-SHUKR",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG141101"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-KERDASA",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG212001"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-KHANKA",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG140301"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-NEW-CAIRO",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0137",
+      "EG0138",
+      "EG0139"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-OBOUR",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG1413"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-QAHA",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG1414"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-QALYUB",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG1409"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
     "entity_code": "CITY-QANATER",
     "relation": "located_within",
     "pcodes": [
@@ -35,6 +194,254 @@
     ],
     "names_ar": [
       "مركز القناطر الخيرية"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-SHEIKH-ZAYED",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG2119"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-SHIBIN-ELQANATER",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG140501"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-SHOROUK",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0140"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-SHUBRA-ELKHEIMA",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG1406",
+      "EG1407"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "CITY-TOUKH",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG140801"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-ABDEEN",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0109"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-ABU-RAWASH",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG212006"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-ABU-ZAABAL",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG140302"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-AGOUZA",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG2102"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-AIN-SHAMS",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0130"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-AMIRIYA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG013102"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-AZBAKEYA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0113"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-BAB-SHAREYA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0116"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-BAHTIM",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG140701"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-BASATIN",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0135"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-BULAQ",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0112"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-BULAQ-DAKROUR",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG2105"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-DAR-ELSALAM",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG013504"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-DOKKI",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG2103"
     ],
     "evidence_code": "EV-CODAB-ADMIN-2026",
     "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
@@ -50,6 +457,306 @@
     "names_ar": [
       "قسم أول شبرا الخيمة",
       "قسم ثان شبرا الخيمة"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-GARDEN-CITY",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG011102"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-HADAYEK-QOBBA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0123"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-HELIOPOLIS",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0128"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-HELWAN",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0102"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-IMBABA",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG2101"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-KATAMEYA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG013901"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-KHALIFA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0108"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-KHOSOUS",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG1412"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-MAADI",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0104"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-MANSHEYET-BAKARY",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG210601"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-MANSHIYAT-NASSER",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0134"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-MANSOURIYA",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG211312"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-MARG",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0136"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-MATARIYA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0125"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-MOSTOROD",
+    "relation": "governorate",
+    "adm1_pcode": "EG14",
+    "adm1_name_ar": "القليوبية",
+    "adm1_name_en": "Kalyoubia",
+    "pcodes": [
+      "EG140702"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-MOUSKY",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0110"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-NASR-CITY",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0126",
+      "EG0127"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-NOZHA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0129"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-OLD-CAIRO",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0106"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-OMRANIYA",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG2118"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-ROD-ELFARAG",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0120"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-SAFT-ELLABAN",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG212005"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-SAHEL",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0121"
     ],
     "evidence_code": "EV-CODAB-ADMIN-2026",
     "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
@@ -82,6 +789,110 @@
     "license": "CC BY-IGO"
   },
   {
+    "entity_code": "DIST-SAYEDA-ZEINAB",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0107"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-SHARABIYA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0118"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-SHUBRA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0119"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-TAHRIR",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG210107"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-TEBBIN",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0101"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-TORA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0105"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-WAILY",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0122"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-WARRAQ",
+    "relation": "governorate",
+    "adm1_pcode": "EG21",
+    "adm1_name_ar": "الجيزة",
+    "adm1_name_en": "Giza",
+    "pcodes": [
+      "EG2117"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
     "entity_code": "DIST-WEST-SHUBRA-ELKHEIMA",
     "relation": "located_within",
     "pcodes": [
@@ -91,6 +902,45 @@
     "names_ar": [
       "قسم أول شبرا الخيمة",
       "قسم ثان شبرا الخيمة"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-ZAMALEK",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0133"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-ZAWYA-HAMRA",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0131"
+    ],
+    "evidence_code": "EV-CODAB-ADMIN-2026",
+    "source": "CAPMAS COD-AB 2017 (reviewed 2024)",
+    "license": "CC BY-IGO"
+  },
+  {
+    "entity_code": "DIST-ZEITOUN",
+    "relation": "governorate",
+    "adm1_pcode": "EG01",
+    "adm1_name_ar": "القاهرة",
+    "adm1_name_en": "Cairo",
+    "pcodes": [
+      "EG0124"
     ],
     "evidence_code": "EV-CODAB-ADMIN-2026",
     "source": "CAPMAS COD-AB 2017 (reviewed 2024)",

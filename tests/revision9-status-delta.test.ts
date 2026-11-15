@@ -50,6 +50,6 @@ describe("rev9 additive status delta", () => {
     }
     expect(addedFacts.filter((fact) => fact.entity_code === "ROAD-REGIONAL-NW-ARC" && fact.attribute === "maintenance_closure")).toHaveLength(1);
     expect(bundle.evidence).toHaveLength(378);
-    expect(bundle.facts).toHaveLength(2092);
+    expect(bundle.facts).toHaveLength(2157);
   });
 });

@@ -8,6 +8,7 @@ import { useResearchMode } from "@/components/site/ResearchMode";
 import type { AtlasEntityDetail, AtlasEntityFact, AtlasLanguage } from "./atlas-client";
 import { transitModeLabel } from "@/lib/atlas/transit-modes";
 import { partialGeometryNote } from "@/lib/atlas/map-fit";
+import { governorateParentLabel } from "@/lib/atlas/entity-relations";
 import { EntityTimeline } from "./EntityTimeline";
 import type { GeometryAlternative } from "@/lib/atlas/geometry-comparisons";
 import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, hasDisplayableQuickFactValue, SECTOR_LABELS, showOnMapLabel, SOURCE_TYPE_LABELS, STATUS_LABELS, VERIFICATION_LABELS, quickFactSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
@@ -73,6 +74,19 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
   const ar = language === "ar";
   const { researcherMode } = useResearchMode();
   const partialNote = partialGeometryNote(entity?.code, geometryCompleteness, language);
+  /**
+   * BATCH 12.4 — one short line in the simple panel: «يتبع: محافظة الجيزة». It is read straight off the
+   * CAPMAS-derived `located_in` relation, so it only appears when that relation exists; nothing is
+   * guessed from geometry or from the name.
+   */
+  const governorateParent = useMemo(() => {
+    const relation = (entity?.relations ?? []).find((item) => item.predicate === "located_in" &&
+      (item.subject_code === entity?.code ? item.object : item.subject)?.entity_type === "authority");
+    if (!relation) return null;
+    const target = relation.subject_code === entity?.code ? relation.object : relation.subject;
+    if (!target) return null;
+    return governorateParentLabel(target.name_ar, target.name_en, language);
+  }, [entity, language]);
   useEffect(() => { closeRef.current?.focus(); }, []);
   useEffect(() => {
     const panel = panelRef.current;
@@ -131,6 +145,7 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
         {!loading && entity && <>
           {!researcherMode && <section className="simple-entity-summary" aria-label={ar ? "ملخص الكيان" : "Entity summary"}>
             <p className="simple-entity-type">{translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language)}</p>
+            {governorateParent && <p className="simple-entity-parent">{governorateParent}</p>}
             {simpleFacts.length ? <ul>{simpleFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <span className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</span>}{quickFactSourceCountLabel(sourceCount, language) && <small>{quickFactSourceCountLabel(sourceCount, language)}</small>}</li>)}</ul> : <p className="simple-no-facts">{ar ? "لا توجد معلومات موجزة مسجلة بعد." : "No short facts have been recorded yet."}</p>}
             <button type="button" className="show-on-map-button" aria-label={showOnMapLabel(language)} onClick={onShowOnMap}><span>{showOnMapLabel(language)}</span></button>
           </section>}

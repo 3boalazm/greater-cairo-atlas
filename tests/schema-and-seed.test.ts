@@ -298,9 +298,9 @@ describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and
     const canonicalBundle = await loadAndValidateSeedDir();
     expect(canonicalBundle.entities.length).toBe(417);
     expect(canonicalBundle.evidence.length).toBe(378);
-    expect(canonicalBundle.facts.length).toBe(2092);
+    expect(canonicalBundle.facts.length).toBe(2157);
     const canonicalReport = summarizeValidatedSeedBundle(canonicalBundle);
-    expect(canonicalReport.factEvidenceLinksCount).toBe(2445);
+    expect(canonicalReport.factEvidenceLinksCount).toBe(2510);
     expect(canonicalReport.evidenceMissingUrlCount).toBe(71);
     expect(canonicalReport.unresolvedOfficialEvidenceCodes).toEqual([]);
     expect(canonicalReport.warnings).toHaveLength(71);

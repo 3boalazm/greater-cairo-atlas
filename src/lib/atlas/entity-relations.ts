@@ -158,3 +158,83 @@ export function deriveEntityRelations(entities: readonly EntitySeed[], facts: re
     osmOrdinalsAdded,
   };
 }
+
+/**
+ * BATCH 12.4 — governorate parentage from CAPMAS admin codes.
+ *
+ * Every read of the COD-AB extract states the governorate each adm2 unit belongs to (`adm1_pcode`,
+ * `adm1_ar`, `adm1_en`). This maps those published codes onto the governorate entities that already
+ * exist in the seed, so a district/city gets «تابع لمحافظة …» without any geometric guessing and
+ * without inventing an entity. A code with no matching entity is reported, never silently linked.
+ */
+export interface CodabGovernorateRelation {
+  entity_code: string;
+  relation: "governorate";
+  adm1_pcode: string;
+  adm1_name_ar: string;
+  adm1_name_en: string | null;
+  pcodes: string[];
+  evidence_code: string;
+  source: string;
+  license: string;
+}
+
+export interface GovernorateDerivationResult {
+  relations: EntityRelationSeed[];
+  unresolved: Array<{ entity_code: string; adm1_pcode: string; reason: string }>;
+}
+
+export function deriveGovernorateRelations(
+  codabRelations: readonly CodabGovernorateRelation[],
+  entities: ReadonlyArray<{ code: string; entity_type: string }>,
+): GovernorateDerivationResult {
+  const known = new Set(entities.map((entity) => entity.code));
+  const governoratesByCode = new Set(
+    entities.filter((entity) => entity.entity_type === "authority" && entity.code.startsWith("AUTH-") && entity.code.endsWith("-GOVERNORATE"))
+      .map((entity) => entity.code),
+  );
+  // adm1 pcode → the seed entity that represents that governorate. Only the three whose authority
+  // entity is actually in the seed are mapped; anything else stays unresolved on purpose.
+  const expectedGovernorateEntity: Record<string, string> = {
+    EG01: "AUTH-CAIRO-GOVERNORATE",
+    EG21: "AUTH-GIZA-GOVERNORATE",
+    EG14: "AUTH-QALYUBIA-GOVERNORATE",
+  };
+
+  const relations: EntityRelationSeed[] = [];
+  const unresolved: GovernorateDerivationResult["unresolved"] = [];
+  for (const relation of codabRelations) {
+    if (relation.relation !== "governorate") continue;
+    if (!known.has(relation.entity_code)) {
+      unresolved.push({ entity_code: relation.entity_code, adm1_pcode: relation.adm1_pcode, reason: "subject entity is not in the seed" });
+      continue;
+    }
+    const objectCode = expectedGovernorateEntity[relation.adm1_pcode];
+    if (!objectCode) {
+      unresolved.push({ entity_code: relation.entity_code, adm1_pcode: relation.adm1_pcode, reason: "no governorate entity is mapped for this adm1 pcode" });
+      continue;
+    }
+    if (!governoratesByCode.has(objectCode)) {
+      unresolved.push({ entity_code: relation.entity_code, adm1_pcode: relation.adm1_pcode, reason: `governorate entity ${objectCode} is not in the seed` });
+      continue;
+    }
+    if (objectCode === relation.entity_code) {
+      unresolved.push({ entity_code: relation.entity_code, adm1_pcode: relation.adm1_pcode, reason: "entity is its own governorate" });
+      continue;
+    }
+    relations.push({
+      subject_code: relation.entity_code, predicate: "located_in", object_code: objectCode,
+      ordinal: null, valid_as_of: null, evidence_ref: relation.evidence_code,
+    });
+  }
+  return { relations, unresolved };
+}
+
+/** The one short simple-panel line: «يتبع: محافظة الجيزة» / "Part of: Giza Governorate". */
+export function governorateParentLabel(
+  objectNameAr: string,
+  objectNameEn: string,
+  language: "ar" | "en",
+): string {
+  return language === "ar" ? `يتبع: ${objectNameAr}` : `Part of: ${objectNameEn}`;
+}

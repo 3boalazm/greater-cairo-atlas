@@ -178,10 +178,33 @@ def build_outputs(geojson: dict[str, Any], links: dict[str, Any], entities: list
         })
     entity_features.sort(key=lambda f: f["properties"]["entity_code"])
 
+    # BATCH 12.4 — governorate parentage straight from the CAPMAS adm1 fields of the very units each
+    # entity boundary is built from. No geometry is consulted and nothing is inferred beyond the
+    # published adm1_pcode/adm1_ar of those units, so this is evidence-backed, not a spatial guess.
+    adm1_by_pcode = {}
+    for feature in features:
+        props = feature["properties"]
+        adm1_by_pcode[props["pcode"]] = (props["adm1_pcode"], props["adm1_name_ar"], props["adm1_name_en"])
+
     relations = []
-    for link in curated_links:
-        if link["relation"] != "located_within":
-            continue
+    for link in boundary_links:
+        parents = {adm1_by_pcode[pcode] for pcode in link["pcodes"]}
+        if len(parents) != 1:
+            raise ValueError(
+                f"Entity {link['entity_code']} spans more than one governorate in CAPMAS adm1: {sorted(parents)}; "
+                "refusing to derive a single parent governorate"
+            )
+        adm1_pcode, adm1_ar, adm1_en = parents.pop()
+        entity = entity_by_code.get(link["entity_code"])
+        relations.append({
+            "entity_code": link["entity_code"], "relation": "governorate",
+            "adm1_pcode": adm1_pcode, "adm1_name_ar": adm1_ar, "adm1_name_en": adm1_en,
+            "pcodes": link["pcodes"],
+            "evidence_code": EVIDENCE_CODE, "source": SOURCE, "license": "CC BY-IGO",
+        })
+
+    curated_located_within = [link for link in curated_links if link["relation"] == "located_within"]
+    for link in curated_located_within:
         relations.append({
             "entity_code": link["entity_code"], "relation": "located_within",
             "pcodes": link["pcodes"], "names_ar": link["names_ar"],
@@ -192,7 +215,7 @@ def build_outputs(geojson: dict[str, Any], links: dict[str, Any], entities: list
         "input_features": len(geojson["features"]), "excluded_features": len(set(excluded)),
         "out_of_extent_features": len(outside), "clipped_features": clipped_count,
         "imported_features": len(features), "entity_union_boundaries": len(entity_features),
-        "located_within_relations": len(relations), "excluded_pcodes": sorted(set(excluded)),
+        "located_within_relations": len(curated_located_within), "governorate_relations": len(relations) - len(curated_located_within), "excluded_pcodes": sorted(set(excluded)),
         "out_of_extent_pcodes": sorted(outside),
     }
 

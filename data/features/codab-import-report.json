@@ -6,6 +6,7 @@
   "imported_features": 838,
   "entity_union_boundaries": 65,
   "located_within_relations": 7,
+  "governorate_relations": 65,
   "excluded_pcodes": [
     "EG0100",
     "EG1400",
