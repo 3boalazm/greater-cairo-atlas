@@ -24,6 +24,526 @@
     "evidence_ref": "EV-114"
   },
   {
+    "subject_code": "CITY-15-MAY",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-6-OCTOBER",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-AUSIM",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-BADR",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-BENHA",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-KAFR-SHUKR",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-KERDASA",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-KHANKA",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-NEW-CAIRO",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-OBOUR",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-QAHA",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-QALYUB",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-SHEIKH-ZAYED",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-SHIBIN-ELQANATER",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-SHOROUK",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-SHUBRA-ELKHEIMA",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "CITY-TOUKH",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-ABDEEN",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-ABU-RAWASH",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-ABU-ZAABAL",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-AGOUZA",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-AIN-SHAMS",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-AMIRIYA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-AZBAKEYA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-BAB-SHAREYA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-BAHTIM",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-BASATIN",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-BULAQ",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-BULAQ-DAKROUR",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-DAR-ELSALAM",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-DOKKI",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-GARDEN-CITY",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-HADAYEK-QOBBA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-HELIOPOLIS",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-HELWAN",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-IMBABA",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-KATAMEYA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-KHALIFA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-KHOSOUS",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-MAADI",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-MANSHEYET-BAKARY",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-MANSHIYAT-NASSER",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-MANSOURIYA",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-MARG",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-MATARIYA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-MOSTOROD",
+    "predicate": "located_in",
+    "object_code": "AUTH-QALYUBIA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-MOUSKY",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-NASR-CITY",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-NOZHA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-OLD-CAIRO",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-OMRANIYA",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-ROD-ELFARAG",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-SAFT-ELLABAN",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-SAHEL",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-SAYEDA-ZEINAB",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-SHARABIYA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-SHUBRA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-TAHRIR",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-TEBBIN",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-TORA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-WAILY",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-WARRAQ",
+    "predicate": "located_in",
+    "object_code": "AUTH-GIZA-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-ZAMALEK",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-ZAWYA-HAMRA",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
+    "subject_code": "DIST-ZEITOUN",
+    "predicate": "located_in",
+    "object_code": "AUTH-CAIRO-GOVERNORATE",
+    "ordinal": null,
+    "valid_as_of": null,
+    "evidence_ref": "EV-CODAB-ADMIN-2026"
+  },
+  {
     "subject_code": "PROJ-AHALINA-1",
     "predicate": "located_in",
     "object_code": "DIST-SALAM-1",
@@ -74,18 +594,18 @@
   {
     "subject_code": "TRANSIT-LRT",
     "predicate": "has_station",
-    "object_code": "STOP-LRT-CAPITAL-AIRPORT",
-    "ordinal": 2,
+    "object_code": "STOP-LRT-BADR",
+    "ordinal": 6,
     "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-363"
+    "evidence_ref": "EV-361"
   },
   {
     "subject_code": "TRANSIT-LRT",
     "predicate": "has_station",
-    "object_code": "STOP-LRT-OBOUR",
+    "object_code": "STOP-LRT-CAPITAL-AIRPORT",
     "ordinal": 2,
     "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-361"
+    "evidence_ref": "EV-363"
   },
   {
     "subject_code": "TRANSIT-LRT",
@@ -98,8 +618,40 @@
   {
     "subject_code": "TRANSIT-LRT",
     "predicate": "has_station",
+    "object_code": "STOP-LRT-INDUSTRIAL-ZONE",
+    "ordinal": 7,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-361"
+  },
+  {
+    "subject_code": "TRANSIT-LRT",
+    "predicate": "has_station",
+    "object_code": "STOP-LRT-KNOWLEDGE-CITY",
+    "ordinal": 8,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-361"
+  },
+  {
+    "subject_code": "TRANSIT-LRT",
+    "predicate": "has_station",
     "object_code": "STOP-LRT-MOSTAKBAL",
     "ordinal": 3,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-361"
+  },
+  {
+    "subject_code": "TRANSIT-LRT",
+    "predicate": "has_station",
+    "object_code": "STOP-LRT-NEW-HELIOPOLIS",
+    "ordinal": 5,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-361"
+  },
+  {
+    "subject_code": "TRANSIT-LRT",
+    "predicate": "has_station",
+    "object_code": "STOP-LRT-OBOUR",
+    "ordinal": 2,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-361"
   },
@@ -120,42 +672,10 @@
     "evidence_ref": "EV-361"
   },
   {
-    "subject_code": "TRANSIT-LRT",
-    "predicate": "has_station",
-    "object_code": "STOP-LRT-NEW-HELIOPOLIS",
-    "ordinal": 5,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-361"
-  },
-  {
-    "subject_code": "TRANSIT-LRT",
-    "predicate": "has_station",
-    "object_code": "STOP-LRT-BADR",
-    "ordinal": 6,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-361"
-  },
-  {
-    "subject_code": "TRANSIT-LRT",
-    "predicate": "has_station",
-    "object_code": "STOP-LRT-INDUSTRIAL-ZONE",
-    "ordinal": 7,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-361"
-  },
-  {
-    "subject_code": "TRANSIT-LRT",
-    "predicate": "has_station",
-    "object_code": "STOP-LRT-KNOWLEDGE-CITY",
-    "ordinal": 8,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-361"
-  },
-  {
     "subject_code": "TRANSIT-METRO-L1",
     "predicate": "has_station",
-    "object_code": "STOP-M1-HELWAN",
-    "ordinal": 1,
+    "object_code": "STOP-DEMERDASH",
+    "ordinal": 24,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-352"
   },
@@ -170,24 +690,8 @@
   {
     "subject_code": "TRANSIT-METRO-L1",
     "predicate": "has_station",
-    "object_code": "STOP-M1-HELWAN-UNIVERSITY",
-    "ordinal": 3,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-WADI-HOF",
-    "ordinal": 4,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-HADAYEQ-HELWAN",
-    "ordinal": 5,
+    "object_code": "STOP-M1-AIN-SHAMS",
+    "ordinal": 32,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-352"
   },
@@ -202,56 +706,8 @@
   {
     "subject_code": "TRANSIT-METRO-L1",
     "predicate": "has_station",
-    "object_code": "STOP-M1-TORA-EL-ASMANT",
-    "ordinal": 7,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-KOZZIKA",
-    "ordinal": 8,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-TORA-EL-BALAD",
-    "ordinal": 9,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-THAKANAT-EL-MAADI",
-    "ordinal": 10,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-MAADI",
-    "ordinal": 11,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-HADAYEK-EL-MAADI",
-    "ordinal": 12,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-DAR-AL-SALAM",
-    "ordinal": 13,
+    "object_code": "STOP-M1-AL-MALEK-AL-SALEH",
+    "ordinal": 16,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-352"
   },
@@ -266,144 +722,8 @@
   {
     "subject_code": "TRANSIT-METRO-L1",
     "predicate": "has_station",
-    "object_code": "STOP-M1-MAR-GIRGIS",
-    "ordinal": 15,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-AL-MALEK-AL-SALEH",
-    "ordinal": 16,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-SAYYEDA-ZEINAB",
-    "ordinal": 17,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-SAAD-ZAGHLOUL",
-    "ordinal": 18,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-SADAT",
-    "ordinal": 19,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-NASSER",
-    "ordinal": 20,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-ORABI",
-    "ordinal": 21,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-GHAMRA",
-    "ordinal": 23,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-DEMERDASH",
-    "ordinal": 24,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-MANSHIET-AL-SADR",
-    "ordinal": 25,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-KOBRI-AL-QOBBA",
-    "ordinal": 26,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-HAMMAMAT-AL-QOBBA",
-    "ordinal": 27,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-SARAY-AL-QOBBA",
-    "ordinal": 28,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-HADAYEQ-AL-ZAITOUN",
-    "ordinal": 29,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-HELMEYET-AL-ZAITOUN",
-    "ordinal": 30,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-EL-MATAREYYA",
-    "ordinal": 31,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-AIN-SHAMS",
-    "ordinal": 32,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-352"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L1",
-    "predicate": "has_station",
-    "object_code": "STOP-M1-EZBET-EN-NAKHL",
-    "ordinal": 33,
+    "object_code": "STOP-M1-DAR-AL-SALAM",
+    "ordinal": 13,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-352"
   },
@@ -418,8 +738,208 @@
   {
     "subject_code": "TRANSIT-METRO-L1",
     "predicate": "has_station",
+    "object_code": "STOP-M1-EL-MATAREYYA",
+    "ordinal": 31,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-EZBET-EN-NAKHL",
+    "ordinal": 33,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-GHAMRA",
+    "ordinal": 23,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-HADAYEK-EL-MAADI",
+    "ordinal": 12,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-HADAYEQ-AL-ZAITOUN",
+    "ordinal": 29,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-HADAYEQ-HELWAN",
+    "ordinal": 5,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-HAMMAMAT-AL-QOBBA",
+    "ordinal": 27,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-HELMEYET-AL-ZAITOUN",
+    "ordinal": 30,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-HELWAN",
+    "ordinal": 1,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-HELWAN-UNIVERSITY",
+    "ordinal": 3,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-KOBRI-AL-QOBBA",
+    "ordinal": 26,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-KOZZIKA",
+    "ordinal": 8,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-MAADI",
+    "ordinal": 11,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-MANSHIET-AL-SADR",
+    "ordinal": 25,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-MAR-GIRGIS",
+    "ordinal": 15,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-NASSER",
+    "ordinal": 20,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
     "object_code": "STOP-M1-NEW-EL-MARG",
     "ordinal": 35,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-ORABI",
+    "ordinal": 21,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-SAAD-ZAGHLOUL",
+    "ordinal": 18,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-SARAY-AL-QOBBA",
+    "ordinal": 28,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-SAYYEDA-ZEINAB",
+    "ordinal": 17,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-THAKANAT-EL-MAADI",
+    "ordinal": 10,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-TORA-EL-ASMANT",
+    "ordinal": 7,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-TORA-EL-BALAD",
+    "ordinal": 9,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-M1-WADI-HOF",
+    "ordinal": 4,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-352"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L1",
+    "predicate": "has_station",
+    "object_code": "STOP-SADAT",
+    "ordinal": 19,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-352"
   },
@@ -434,80 +954,16 @@
   {
     "subject_code": "TRANSIT-METRO-L2",
     "predicate": "has_station",
+    "object_code": "STOP-M2-AL-MEZALLAT",
+    "ordinal": 18,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
     "object_code": "STOP-M2-AL-MOUNIB",
     "ordinal": 1,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-SAKIAT-MEKKI",
-    "ordinal": 2,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-OMM-EL-MISRYEEN",
-    "ordinal": 3,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-GIZA",
-    "ordinal": 4,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-FAISAL",
-    "ordinal": 5,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-CAIRO-UNIVERSITY",
-    "ordinal": 6,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-BEHOOTH",
-    "ordinal": 7,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-DOKKI",
-    "ordinal": 8,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-OPERA",
-    "ordinal": 9,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-SADAT",
-    "ordinal": 10,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-353"
   },
@@ -522,8 +978,88 @@
   {
     "subject_code": "TRANSIT-METRO-L2",
     "predicate": "has_station",
+    "object_code": "STOP-M2-BEHOOTH",
+    "ordinal": 7,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
+    "object_code": "STOP-M2-CAIRO-UNIVERSITY",
+    "ordinal": 6,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
+    "object_code": "STOP-M2-DOKKI",
+    "ordinal": 8,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
+    "object_code": "STOP-M2-FAISAL",
+    "ordinal": 5,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
+    "object_code": "STOP-M2-GIZA",
+    "ordinal": 4,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
+    "object_code": "STOP-M2-KHALAFAWY",
+    "ordinal": 17,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
+    "object_code": "STOP-M2-KOLIET-EL-ZERAA",
+    "ordinal": 19,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
     "object_code": "STOP-M2-MASSARA",
     "ordinal": 14,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
+    "object_code": "STOP-M2-MOHAMED-NAGUIB",
+    "ordinal": null,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
+    "object_code": "STOP-M2-OMM-EL-MISRYEEN",
+    "ordinal": 3,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-353"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L2",
+    "predicate": "has_station",
+    "object_code": "STOP-M2-OPERA",
+    "ordinal": 9,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-353"
   },
@@ -546,24 +1082,8 @@
   {
     "subject_code": "TRANSIT-METRO-L2",
     "predicate": "has_station",
-    "object_code": "STOP-M2-KHALAFAWY",
-    "ordinal": 17,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-AL-MEZALLAT",
-    "ordinal": 18,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-353"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L2",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-KOLIET-EL-ZERAA",
-    "ordinal": 19,
+    "object_code": "STOP-M2-SAKIAT-MEKKI",
+    "ordinal": 2,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-353"
   },
@@ -578,8 +1098,8 @@
   {
     "subject_code": "TRANSIT-METRO-L2",
     "predicate": "has_station",
-    "object_code": "STOP-M2-MOHAMED-NAGUIB",
-    "ordinal": null,
+    "object_code": "STOP-SADAT",
+    "ordinal": 10,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-353"
   },
@@ -594,136 +1114,16 @@
   {
     "subject_code": "TRANSIT-METRO-L3",
     "predicate": "has_station",
+    "object_code": "STOP-ABBASSIA",
+    "ordinal": 15,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
     "object_code": "STOP-ADLY-MANSOUR",
     "ordinal": 1,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M2-CAIRO-UNIVERSITY",
-    "ordinal": 1,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-365"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-BULAQ-AL-DAKROUR",
-    "ordinal": 2,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-365"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-EL-HAYKESTEP",
-    "ordinal": 2,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-GAMET-EL-DOWEL",
-    "ordinal": 3,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-365"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-OMAR-EBN-ELKHATAB",
-    "ordinal": 3,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-QUBAA",
-    "ordinal": 4,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-WADI-EL-NILE",
-    "ordinal": 4,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-365"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-AL-TAWFIKIA",
-    "ordinal": 5,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-365"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-HESHAM-BARAKAT",
-    "ordinal": 5,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-EL-NOZHA",
-    "ordinal": 6,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-EL-SHAMS-CLUB",
-    "ordinal": 7,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-ALF-MASKAN-SUBWAY",
-    "ordinal": 8,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-HELIOPOLIS-SUBWAY",
-    "ordinal": 9,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-HAROUN",
-    "ordinal": 10,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-AL-AHRAM",
-    "ordinal": 11,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-KOLEYET-EL-BANAT",
-    "ordinal": 12,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-354"
   },
@@ -738,48 +1138,8 @@
   {
     "subject_code": "TRANSIT-METRO-L3",
     "predicate": "has_station",
-    "object_code": "STOP-M3-CAIRO-FAIRGROUND",
-    "ordinal": 14,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-ABBASSIA",
-    "ordinal": 15,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-ABDOU-PASHA",
-    "ordinal": 16,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-EL-GEISH",
-    "ordinal": 17,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-BAB-EL-SHAARIA",
-    "ordinal": 18,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-ATTABA-SUBWAY",
-    "ordinal": 19,
+    "object_code": "STOP-KIT-KAT",
+    "ordinal": 23,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-354"
   },
@@ -794,40 +1154,24 @@
   {
     "subject_code": "TRANSIT-METRO-L3",
     "predicate": "has_station",
-    "object_code": "STOP-M3-MASBERO",
-    "ordinal": 21,
+    "object_code": "STOP-M2-CAIRO-UNIVERSITY",
+    "ordinal": 1,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-365"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-ABDOU-PASHA",
+    "ordinal": 16,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-354"
   },
   {
     "subject_code": "TRANSIT-METRO-L3",
     "predicate": "has_station",
-    "object_code": "STOP-M3-SAFAA-HEGAZY",
-    "ordinal": 22,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-KIT-KAT",
-    "ordinal": 23,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-SUDAN",
-    "ordinal": 24,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-354"
-  },
-  {
-    "subject_code": "TRANSIT-METRO-L3",
-    "predicate": "has_station",
-    "object_code": "STOP-M3-IMBABA",
-    "ordinal": 25,
+    "object_code": "STOP-M3-AL-AHRAM",
+    "ordinal": 11,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-354"
   },
@@ -850,32 +1194,208 @@
   {
     "subject_code": "TRANSIT-METRO-L3",
     "predicate": "has_station",
+    "object_code": "STOP-M3-AL-TAWFIKIA",
+    "ordinal": 5,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-365"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-ALF-MASKAN-SUBWAY",
+    "ordinal": 8,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-ATTABA-SUBWAY",
+    "ordinal": 19,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-BAB-EL-SHAARIA",
+    "ordinal": 18,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-BULAQ-AL-DAKROUR",
+    "ordinal": 2,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-365"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-CAIRO-FAIRGROUND",
+    "ordinal": 14,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-EL-GEISH",
+    "ordinal": 17,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-EL-HAYKESTEP",
+    "ordinal": 2,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-EL-NOZHA",
+    "ordinal": 6,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-EL-SHAMS-CLUB",
+    "ordinal": 7,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-GAMET-EL-DOWEL",
+    "ordinal": 3,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-365"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-HAROUN",
+    "ordinal": 10,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-HELIOPOLIS-SUBWAY",
+    "ordinal": 9,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-HESHAM-BARAKAT",
+    "ordinal": 5,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-IMBABA",
+    "ordinal": 25,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-KOLEYET-EL-BANAT",
+    "ordinal": 12,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-MASBERO",
+    "ordinal": 21,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-OMAR-EBN-ELKHATAB",
+    "ordinal": 3,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-QUBAA",
+    "ordinal": 4,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
     "object_code": "STOP-M3-RING-ROAD",
     "ordinal": 28,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-354"
   },
   {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-SAFAA-HEGAZY",
+    "ordinal": 22,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-SUDAN",
+    "ordinal": 24,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-354"
+  },
+  {
+    "subject_code": "TRANSIT-METRO-L3",
+    "predicate": "has_station",
+    "object_code": "STOP-M3-WADI-EL-NILE",
+    "ordinal": 4,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-365"
+  },
+  {
     "subject_code": "TRANSIT-MONORAIL-EAST",
     "predicate": "has_station",
-    "object_code": "STOP-MRE-CAIRO-STADIUM-MONORAIL",
-    "ordinal": 1,
+    "object_code": "STOP-ADALA-CITY",
+    "ordinal": 22,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-360"
   },
   {
     "subject_code": "TRANSIT-MONORAIL-EAST",
     "predicate": "has_station",
-    "object_code": "STOP-MRE-HISHAM-BARAKAT",
-    "ordinal": 2,
+    "object_code": "STOP-ARTS-CULTURE-CITY",
+    "ordinal": 19,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-360"
   },
   {
     "subject_code": "TRANSIT-MONORAIL-EAST",
     "predicate": "has_station",
-    "object_code": "STOP-MRE-AZHAR-UNIV",
-    "ordinal": 3,
+    "object_code": "STOP-MONORAIL-MOSHIR-TANTAWY",
+    "ordinal": 7,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-360"
   },
@@ -898,30 +1418,6 @@
   {
     "subject_code": "TRANSIT-MONORAIL-EAST",
     "predicate": "has_station",
-    "object_code": "STOP-MRE-JEHAN-SADAT",
-    "ordinal": 6,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-MONORAIL-MOSHIR-TANTAWY",
-    "ordinal": 7,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-MRE-ONE-NINETY",
-    "ordinal": 8,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
     "object_code": "STOP-MRE-AIR-HOSPITAL",
     "ordinal": 9,
     "valid_as_of": "2026-11-14",
@@ -930,32 +1426,8 @@
   {
     "subject_code": "TRANSIT-MONORAIL-EAST",
     "predicate": "has_station",
-    "object_code": "STOP-MRE-NARGES",
-    "ordinal": 10,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-MRE-MOSTATHMERIN",
-    "ordinal": 11,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-MRE-LOTUS",
-    "ordinal": 12,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-MRE-GOLDEN-SQUARE",
-    "ordinal": 13,
+    "object_code": "STOP-MRE-AZHAR-UNIV",
+    "ordinal": 3,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-360"
   },
@@ -970,8 +1442,96 @@
   {
     "subject_code": "TRANSIT-MONORAIL-EAST",
     "predicate": "has_station",
+    "object_code": "STOP-MRE-CAIRO-STADIUM-MONORAIL",
+    "ordinal": 1,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-CBD",
+    "ordinal": 18,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
     "object_code": "STOP-MRE-FATTAH-ALIM",
     "ordinal": 15,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-GOLDEN-SQUARE",
+    "ordinal": 13,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-GOV-DISTRICT",
+    "ordinal": 20,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-HISHAM-BARAKAT",
+    "ordinal": 2,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-JEHAN-SADAT",
+    "ordinal": 6,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-LOTUS",
+    "ordinal": 12,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-MISR-MOSQUE",
+    "ordinal": 21,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-MOSTATHMERIN",
+    "ordinal": 11,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-NARGES",
+    "ordinal": 10,
+    "valid_as_of": "2026-11-14",
+    "evidence_ref": "EV-360"
+  },
+  {
+    "subject_code": "TRANSIT-MONORAIL-EAST",
+    "predicate": "has_station",
+    "object_code": "STOP-MRE-ONE-NINETY",
+    "ordinal": 8,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-360"
   },
@@ -988,46 +1548,6 @@
     "predicate": "has_station",
     "object_code": "STOP-MRE-R2",
     "ordinal": 17,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-MRE-CBD",
-    "ordinal": 18,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-ARTS-CULTURE-CITY",
-    "ordinal": 19,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-MRE-GOV-DISTRICT",
-    "ordinal": 20,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-MRE-MISR-MOSQUE",
-    "ordinal": 21,
-    "valid_as_of": "2026-11-14",
-    "evidence_ref": "EV-360"
-  },
-  {
-    "subject_code": "TRANSIT-MONORAIL-EAST",
-    "predicate": "has_station",
-    "object_code": "STOP-ADALA-CITY",
-    "ordinal": 22,
     "valid_as_of": "2026-11-14",
     "evidence_ref": "EV-360"
   }

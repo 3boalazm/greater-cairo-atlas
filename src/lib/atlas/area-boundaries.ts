@@ -1,6 +1,9 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import type { EntitySeed } from "@/lib/atlas/schema";
+import type { PointOutsideBoundaryFinding } from "./point-outside-boundary";
+
+export type { PointOutsideBoundaryFinding } from "./point-outside-boundary";
 
 export interface AreaBoundaryFeature {
   type: "Feature";
@@ -227,4 +230,35 @@ export function matchOsmBoundaryElement(
       license: "ODbL-1.0", properties: props },
   };
   return isAreaBoundaryFeature(feature) ? feature : null;
+}
+
+/**
+ * BATCH 12.5 — entities whose recorded point falls outside their own official boundary.
+ *
+ * The report is produced by `scripts/point_outside_boundary_report.py` and is deliberately a *report*,
+ * not a correction: no point is moved. This loader only tells the researcher view that a finding
+ * exists, so the panel can say «النقطة خارج الحدود الرسمية» without recomputing geometry at render time.
+ */
+const pointOutsideCache = new Map<string, Promise<Map<string, PointOutsideBoundaryFinding>>>();
+
+export async function getPointOutsideBoundaryFindings(
+  root = process.cwd(),
+): Promise<Map<string, PointOutsideBoundaryFinding>> {
+  const cached = pointOutsideCache.get(root);
+  if (cached) return cached;
+  const pending = readFile(path.join(root, "data/features/point-outside-boundary-report.json"), "utf8")
+    .then((text) => {
+      const report = JSON.parse(text) as { findings?: PointOutsideBoundaryFinding[] };
+      const byCode = new Map<string, PointOutsideBoundaryFinding>();
+      // One row per entity is enough for the panel note; the report keeps every point occurrence.
+      for (const finding of report.findings ?? []) if (!byCode.has(finding.entity_code)) byCode.set(finding.entity_code, finding);
+      return byCode;
+    })
+    .catch(() => new Map<string, PointOutsideBoundaryFinding>());
+  pointOutsideCache.set(root, pending);
+  return pending;
+}
+
+export async function hasPointOutsideBoundary(entityCode: string, root = process.cwd()): Promise<boolean> {
+  return (await getPointOutsideBoundaryFindings(root)).has(entityCode);
 }

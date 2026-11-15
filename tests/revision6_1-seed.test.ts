@@ -70,8 +70,8 @@ describe("revision 9 seed + OSM geometry delivery", () => {
       entitiesWithAliasesCount: 253,
       evidenceCount: 378,
       evidenceMissingUrlCount: 71,
-      factsCount: 2092,
-      factEvidenceLinksCount: 2445,
+      factsCount: 2157,
+      factEvidenceLinksCount: 2510,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");

@@ -1,13 +1,16 @@
 {
-  "derived_at": "2026-11-15T00:21:56.459Z",
-  "relations_count": 129,
+  "derived_at": "2026-11-15T18:09:37.848Z",
+  "relations_count": 194,
   "by_predicate": {
     "has_station": 123,
     "interchange_with": 1,
-    "located_in": 2,
+    "located_in": 67,
     "part_of": 3
   },
   "without_evidence_count": 0,
+  "governorate_relations_derived": 65,
+  "governorate_relations_unresolved": [],
+  "governorate_supporting_facts_added": 65,
   "osm_route_relations_checked": 20,
   "osm_route_relations_matched_to_fact_backed_lines": 6,
   "osm_route_relation_matched_ids": [
@@ -92,7 +95,7 @@
     }
   ],
   "relation_ordinals_filled_from_osm_route_order": 0,
-  "unresolved_count": 15,
+  "unresolved_count": 16,
   "unresolved": [
     {
       "fact_code": "F-BRIDGE-15-MAY-CONNECTS-1",
@@ -177,6 +180,13 @@
       "attribute": "line_membership",
       "value": "Mansoura-Cairo line",
       "reason": "line_membership value is not an exact code for an existing transit_line entity"
+    },
+    {
+      "fact_code": "F-ROAD-AMR-IBN-ALAS-CONNECTS-1",
+      "entity_code": "ROAD-AMR-IBN-ALAS",
+      "attribute": "connects",
+      "value": "الطريق الدائري الجنوبي ↔ الطريق الدائري الشمالي (موازٍ لمحور كمال عامر)",
+      "reason": "relation value is prose or a non-entity identifier; no entity-code relationship was inferred"
     },
     {
       "fact_code": "F-ROAD-IBRAHIM-ORABI-AXIS-CONNECTS-1",

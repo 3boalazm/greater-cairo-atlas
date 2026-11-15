@@ -5,6 +5,7 @@ import { ArrowDown, MapPinned, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { AtlasEntitySummary, AtlasLanguage } from "./atlas-client";
 import { ENTITY_TYPE_LABELS, SIMPLE_STATUS_LABELS, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
+import { disambiguationNote, entityListLabel, groupByRegionalScope, isRegionalLink, regionalLinkLabel } from "@/lib/atlas/entity-presentation";
 import { useResearchMode } from "@/components/site/ResearchMode";
 
 export function SearchCommand({ language, onSelect, onShowBoundary }: { language: AtlasLanguage; onSelect: (code: string) => void; onShowBoundary: (code: string) => void }) {
@@ -50,6 +51,20 @@ export function SearchCommand({ language, onSelect, onShowBoundary }: { language
   }, [query]);
 
   const choose = (entity: AtlasEntitySummary) => { onSelect(entity.code); setOpen(false); setQuery(""); inputRef.current?.blur(); };
+
+  /**
+   * BATCH 12.3 — every row renders name + type (or mode/line for stations), so two different entities
+   * with the same name can never show the same visible label. A shared alias adds one short line.
+   */
+  const rows = results.map((entity) => {
+    const names = [entity.name_ar, entity.name_en, ...(entity.aliases ?? [])];
+    return { entity, label: entityListLabel(entity, language), names };
+  });
+  const disambiguationRows = rows.map((row) => ({
+    code: row.entity.code, displayLabel: row.label, names: row.names,
+  }));
+  // BATCH 12.2 — regional links are grouped after the Greater Cairo matches.
+  const { local: localRows, regional: regionalRows } = groupByRegionalScope(rows, (row) => row.entity.sector);
   return <div className="atlas-search">
     <Search className="search-leading" aria-hidden="true" />
     <input ref={inputRef} value={query} onFocus={() => setOpen(true)} onChange={(event) => { setQuery(event.target.value); setOpen(true); }}
@@ -68,9 +83,13 @@ export function SearchCommand({ language, onSelect, onShowBoundary }: { language
     {open && query.trim() && <>
       <button className="search-dismiss" tabIndex={-1} aria-label={ar ? "إغلاق البحث" : "Close search"} onClick={() => setOpen(false)} />
       <div className="search-results" id="atlas-search-results" role="listbox" aria-label={ar ? "نتائج البحث" : "Search results"}>
-        {results.map((entity, index) => <div key={entity.code} role="option" aria-selected={index === active} className={`search-result-row ${index === active ? "active-result" : ""}`} onMouseEnter={() => setActive(index)}>
+        {[...localRows, ...regionalRows].map(({ entity, label, names }, index) => {
+          const note = disambiguationNote({ code: entity.code, displayLabel: label, names }, disambiguationRows, language);
+          return <div key={entity.code} role="option" aria-selected={index === active} className={`search-result-row ${index === active ? "active-result" : ""}`} onMouseEnter={() => setActive(index)}>
           <button className="search-result-select" type="button" onClick={() => choose(entity)}>
-            <span className="result-main"><strong>{stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)}</strong><small>{researcherMode ? <>{ar ? entity.name_en : entity.name_ar} · {entity.code}</> : <>{translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language)} · {translateLabel(SIMPLE_STATUS_LABELS, entity.status, language)}</>}</small></span>
+            <span className="result-main"><strong>{label}</strong><small>{researcherMode ? <>{ar ? entity.name_en : entity.name_ar} · {entity.code}</> : <>{translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language)} · {translateLabel(SIMPLE_STATUS_LABELS, entity.status, language)}</>}</small>
+              {note && <small className="result-disambiguation">{note}</small>}
+              {isRegionalLink(entity) && <small className="result-regional">{regionalLinkLabel(language)}</small>}</span>
             {researcherMode && !entity.has_geometry && <span className="no-geometry-result">{ar ? "لا توجد هندسة" : "No geometry"}</span>}
             <ArrowDown className="result-enter" aria-hidden="true" />
           </button>
@@ -81,7 +100,7 @@ export function SearchCommand({ language, onSelect, onShowBoundary }: { language
             : entity.code === "CITY-CAIRO" ? "Show Cairo Governorate boundary on map" : `Show ${entity.name_en} boundary on map`}>
             <MapPinned aria-hidden="true" />{ar ? entity.code === "CITY-CAIRO" ? "حدود محافظة القاهرة" : "إظهار الحدود" : "Show boundary"}
           </button>}
-        </div>)}
+        </div>;})}
         {!loading && results.length === 0 && <p role="status">{ar ? "لا توجد نتائج مطابقة." : "No matching entities."}</p>}
         <footer><span>{ar ? "للتنقل" : "Navigate"} <kbd>↑</kbd><kbd>↓</kbd></span><span>{ar ? "للفتح" : "Open"} <kbd>↵</kbd></span></footer>
       </div>

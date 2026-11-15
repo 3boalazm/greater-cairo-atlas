@@ -15,8 +15,8 @@ describe("checksummed production dataset gate", () => {
     expect(summary.dryRun).toBe(true);
     expect(summary.entitiesCount).toBe(417);
     expect(summary.evidenceCount).toBe(378);
-    expect(summary.factsCount).toBe(2092);
-    expect(summary.factEvidenceLinksCount).toBe(2445);
+    expect(summary.factsCount).toBe(2157);
+    expect(summary.factEvidenceLinksCount).toBe(2510);
     expect(summary.featuresCount).toBe(2942);
   });
 

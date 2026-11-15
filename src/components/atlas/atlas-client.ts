@@ -51,6 +51,12 @@ export interface AtlasEntityDetail extends AtlasEntitySummary {
   facts: AtlasEntityFact[];
   relations?: AtlasEntityRelation[];
   neighbors?: AtlasEntityNeighbor[];
+  /** BATCH 12.5 — present only when the recorded point falls outside the official boundary. */
+  point_outside_boundary?: {
+    distance_outside_m: number | null;
+    inside_osm_boundary: boolean | null;
+    round_coordinate: boolean;
+  } | null;
 }
 
 export interface EntityListResponse {
