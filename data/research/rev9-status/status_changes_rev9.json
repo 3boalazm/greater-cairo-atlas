@@ -1,0 +1,29 @@
+[
+ {
+  "entity_code": "ROAD-AMR-IBN-ALAS",
+  "from": "unknown",
+  "to": "operational",
+  "basis": [
+   "EV-R9-001",
+   "EV-R9-002"
+  ]
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-NW-ARC",
+  "from": "unknown",
+  "to": "operational",
+  "basis": [
+   "EV-R9-003"
+  ],
+  "caveat": "maintenance closures reported 2025 (EV-R9-004)"
+ },
+ {
+  "entity_code": "TRANSIT-SUPERJET",
+  "from": "unknown",
+  "to": "operational",
+  "basis": [
+   "EV-R9-005",
+   "EV-R9-006"
+  ]
+ }
+]
