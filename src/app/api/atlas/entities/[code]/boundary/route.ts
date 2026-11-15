@@ -25,13 +25,16 @@ export async function GET(
       } }, { status: 404, headers: { "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300" } });
     }
     const attribution = feature.properties.properties.attribution;
+    const headerAttribution = feature.properties.license === "CC BY-IGO"
+      ? "(c) CAPMAS via OCHA/HDX, CC BY-IGO"
+      : "(c) OpenStreetMap contributors, ODbL 1.0";
     return NextResponse.json({ type: "FeatureCollection", metadata: {
       geometry_license: feature.properties.license,
       attribution,
     }, features: [feature] }, {
       headers: {
         "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-        "X-Atlas-Geometry-Attribution": attribution,
+        "X-Atlas-Geometry-Attribution": headerAttribution,
         "Content-Type": "application/geo+json; charset=utf-8",
       },
     });

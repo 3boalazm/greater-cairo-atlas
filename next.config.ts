@@ -8,11 +8,11 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/road-network.geojson",
-        headers: [{ key: "Cache-Control", value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }, { key: "X-Atlas-Geometry-Attribution", value: "© OpenStreetMap contributors, ODbL 1.0" }],
+        headers: [{ key: "Cache-Control", value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }, { key: "X-Atlas-Geometry-Attribution", value: "(c) OpenStreetMap contributors, ODbL 1.0" }],
       },
       {
         source: "/road-network-detail.geojson",
-        headers: [{ key: "Cache-Control", value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }, { key: "X-Atlas-Geometry-Attribution", value: "© OpenStreetMap contributors, ODbL 1.0" }],
+        headers: [{ key: "Cache-Control", value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }, { key: "X-Atlas-Geometry-Attribution", value: "(c) OpenStreetMap contributors, ODbL 1.0" }],
       },
     ];
   },

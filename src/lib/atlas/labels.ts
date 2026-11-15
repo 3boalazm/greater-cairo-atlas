@@ -49,6 +49,13 @@ export const STATUS_LABELS: Record<string, Pair> = {
 export function translateLabel(dictionary: Record<string, Pair>, key: string, language: LabelLanguage): string {
   return dictionary[key]?.[language] ?? key;
 }
+export function quickFactSourceCountLabel(count: number, language: LabelLanguage): string | null {
+  if (!Number.isInteger(count) || count <= 1) return null;
+  if (language === "en") return `${count} sources`;
+  if (count === 2) return "مصدران";
+  return count <= 10 ? `${count} مصادر` : `${count} مصدرًا`;
+}
+
 export function stationDisplayName(code: string, name: string): string {
   return code === "STOP-6-OCTOBER-INTERCHANGE" ? "محطة 6 أكتوبر (مونوريل غرب النيل)" : name;
 }

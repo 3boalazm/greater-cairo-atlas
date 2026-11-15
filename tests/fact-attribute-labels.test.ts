@@ -1,9 +1,17 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/labels";
+import { FACT_ATTRIBUTE_LABELS, quickFactSourceCountLabel } from "@/lib/atlas/labels";
 
 describe("fact attribute translations", () => {
+  it("uses correct Arabic plural forms for quick-fact source counts and hides a single source", () => {
+    expect(quickFactSourceCountLabel(1, "ar")).toBeNull();
+    expect(quickFactSourceCountLabel(2, "ar")).toBe("مصدران");
+    expect(quickFactSourceCountLabel(3, "ar")).toBe("3 مصادر");
+    expect(quickFactSourceCountLabel(10, "ar")).toBe("10 مصادر");
+    expect(quickFactSourceCountLabel(11, "ar")).toBe("11 مصدرًا");
+    expect(quickFactSourceCountLabel(3, "en")).toBe("3 sources");
+  });
   it("has readable Arabic and English labels for every key in the canonical fact data", async () => {
     const facts = JSON.parse(await readFile(path.join(process.cwd(), "data/seed/facts.json"), "utf8")) as Array<{ attribute: string }>;
     const humanArabic = JSON.parse(await readFile(path.join(process.cwd(), "data/research/labels/attribute_labels_ar.json"), "utf8")) as Record<string, string>;

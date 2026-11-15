@@ -14,7 +14,7 @@ export async function GET(request: Request): Promise<NextResponse | NextResponse
       status: 200,
       headers: {
         "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-        "X-Atlas-Geometry-Attribution": "© OpenStreetMap contributors, ODbL 1.0",
+        "X-Atlas-Geometry-Attribution": "(c) OpenStreetMap contributors, ODbL 1.0",
         "Content-Type": "application/geo+json; charset=utf-8",
       },
     });

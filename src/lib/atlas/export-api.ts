@@ -2,7 +2,7 @@ import type { StaticAtlasDataset } from "@/lib/atlas/static-dataset";
 import { serializeCsv } from "@/lib/atlas/static-dataset";
 
 export const OWNER_DATA_LICENSE = "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0";
-export const OSM_DATA_LICENSE = "© OpenStreetMap contributors, ODbL 1.0";
+export const OSM_DATA_LICENSE = "(c) OpenStreetMap contributors, ODbL 1.0";
 
 export const CSV_TABLES = ["entities", "facts", "evidence", "fact_evidence"] as const;
 export type CsvTable = (typeof CSV_TABLES)[number];
