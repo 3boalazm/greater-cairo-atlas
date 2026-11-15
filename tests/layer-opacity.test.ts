@@ -20,11 +20,13 @@ describe("BATCH 14.2 — opacity multiplies the authored value instead of replac
     expect(helper).toContain("Math.max(0, Math.min(1");
   });
 
-  it("is a no-op at factor 1, so the default path allocates nothing new", async () => {
+  it("is a no-op at factor 1, so the default path changes no paint property", async () => {
     const source = await read("src/components/atlas/MapView.tsx");
+    // The scaling helper returns the authored value untouched at 1...
     expect(source).toContain("if (factor === undefined || factor === 1) return base;");
-    // And the apply pass skips groups that are at full strength.
-    expect(source).toContain("if (factor === undefined || factor === 1) continue;");
+    // ...and the apply pass still writes it, because a layer changed back from 50% must return to 100%
+    // rather than being skipped and left dim.
+    expect(source).toContain("scaledOpacity(base, factor === undefined ? 1 : factor)");
   });
 
   it("covers every layer a group claims to control", async () => {
@@ -41,7 +43,7 @@ describe("BATCH 14.2 — opacity multiplies the authored value instead of replac
 
   it("applies the group opacity before the first paint, not after a flash at full strength", async () => {
     const source = await read("src/components/atlas/MapView.tsx");
-    const applyCall = source.indexOf("applyGroupOpacity(map, opacity);");
+    const applyCall = source.indexOf("applyGroupOpacity(map, opacity, authoredOpacity.current);");
     expect(applyCall).toBeGreaterThan(0);
     // It runs inside the load handler, before the map reports itself ready.
     const loadStart = source.lastIndexOf('map.on("load"', applyCall);

@@ -102,6 +102,13 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   const [boundaryLoadingCode, setBoundaryLoadingCode] = useState<string | null>(null);
   const [boundaryError, setBoundaryError] = useState<string | null>(null);
   const preferencesHydrated = useRef(false);
+  /**
+   * BATCH 14.2 — separate from `preferencesHydrated` on purpose. That flag is flipped synchronously inside
+   * the hydration effect, but the state it sets is not visible until the next render; a write effect guarded
+   * only by it could therefore persist the *defaults* over the user's saved settings on the very first
+   * commit. This flag flips in an effect that runs after the restore has been applied.
+   */
+  const displaySettingsHydrated = useRef(false);
   const previousResearcherMode = useRef<boolean | null>(null);
 
   useEffect(() => {
@@ -148,6 +155,12 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     const display = resolveDisplaySettings(storedDisplay, params.has("layers") ? { layerGroups: parseLayersParam(params.get("layers")) } : null);
     setLayerGroups((current) => ({ ...current, ...(params.has("layers") ? display.layerGroups : storedDisplay?.layerGroups ?? {}) }));
     setLayerOpacity(display.layerOpacity);
+    /**
+     * Theme is part of the same versioned store, not a second key that can drift from it. `gca-theme` is
+     * still written by <Preferences> for older builds, but this store wins when it exists so there is one
+     * authority for "what the user last chose".
+     */
+    if (storedDisplay) setTheme(storedDisplay.theme);
     setDisplayIsDefault(isDefaultSettings(display));
     if (!params.has("reference")) {
       setShowRoadNetwork(display.showRoadNetwork);
@@ -217,6 +230,8 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
    */
   useEffect(() => {
     if (!preferencesHydrated.current) return;
+    // The first run happens after the restored values have reached state; only then may we write.
+    if (!displaySettingsHydrated.current) { displaySettingsHydrated.current = true; return; }
     const settings = {
       version: 2 as const,
       layerGroups: { ...layerGroups },
