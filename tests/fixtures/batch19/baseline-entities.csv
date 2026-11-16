@@ -1,0 +1,449 @@
+code,name_ar,name_en,entity_type,sector,status,aliases,description
+AIRPORT-CAIRO,مطار القاهرة,Cairo International Airport,airport,EAST,operational,,
+AIRPORT-CAPITAL,مطار العاصمة,Capital International Airport,airport,EAST,operational,,
+AIRPORT-SPHINX,مطار سفنكس,Sphinx International Airport,airport,WEST,operational,,
+AUTH-6-OCTOBER-AGENCY,جهاز تنمية مدينة 6 أكتوبر,6th of October City Development Authority,authority,WEST,operational,,
+AUTH-ACUD,شركة العاصمة الإدارية للتنمية العمرانية,Administrative Capital for Urban Development,authority,EAST,operational,ACUD,
+AUTH-BADR-AGENCY,جهاز تنمية مدينة بدر,Badr City Development Authority,authority,EAST,operational,,
+AUTH-CAIRO-GOVERNORATE,محافظة القاهرة,Cairo Governorate,authority,CENTRAL,operational,Cairo Governorate|محافظه القاهره,
+AUTH-GIZA-GOVERNORATE,محافظة الجيزة,Giza Governorate,authority,WEST,operational,,
+AUTH-GOPP,الهيئة العامة للتخطيط العمراني,General Organization for Physical Planning,authority,REGIONAL,operational,GOPP,
+AUTH-HADAEK-OCTOBER-AGENCY,جهاز تنمية مدينة حدائق أكتوبر,Hadayek October City Development Authority,authority,WEST,operational,,
+AUTH-MOT,وزارة النقل,Ministry of Transport,authority,REGIONAL,operational,MoT|وزارة النقل المصرية,
+AUTH-NAT,الهيئة القومية للأنفاق,National Authority for Tunnels,authority,REGIONAL,operational,NAT,
+AUTH-NEW-CAIRO-AGENCY,جهاز القاهرة الجديدة,New Cairo City Authority,authority,EAST,operational,,
+AUTH-NEW-OBOUR-AGENCY,جهاز تنمية العبور الجديدة,New Obour Development Authority,authority,EAST,operational,,
+AUTH-NEW-OCTOBER-AGENCY,جهاز تنمية مدينة 6 أكتوبر الجديدة,New 6th of October City Development Authority,authority,WEST,operational,,
+AUTH-NEW-SPHINX-AGENCY,جهاز تنمية مدينة سفنكس الجديدة,New Sphinx City Development Authority,authority,WEST,operational,,
+AUTH-NUCA,هيئة المجتمعات العمرانية الجديدة,New Urban Communities Authority,authority,REGIONAL,operational,NUCA,
+AUTH-OBOUR-AGENCY,جهاز العبور,Obour City Authority,authority,EAST,operational,,
+AUTH-QALYUBIA-GOVERNORATE,محافظة القليوبية,Qalyubia Governorate,authority,NORTH,operational,القليوبية|Qalyubia|Al Qalyubia Governorate|محافظة القليوبيه,
+AUTH-SHEIKH-ZAYED-AGENCY,جهاز تنمية مدينة الشيخ زايد,Sheikh Zayed City Development Authority,authority,WEST,operational,,
+AUTH-SHOROUK-AGENCY,جهاز تنمية مدينة الشروق,El Shorouk City Development Authority,authority,EAST,operational,,
+BRIDGE-15-MAY,كوبري 15 مايو,15th of May Bridge,bridge,CENTRAL,operational,كوبرى 15 مايو|15th May Bridge|15th Mayo Bridge,
+BRIDGE-6-OCTOBER,كوبري 6 أكتوبر,6th of October Bridge,bridge,CENTRAL,operational,كوبري السادس من أكتوبر|6th October Bridge,
+BRIDGE-ABBAS,كوبري عباس,Abbas Bridge,bridge,CENTRAL,operational,,
+BRIDGE-BENHA-FLYOVER,كوبري بنها العلوي,Benha Flyover Bridge,bridge,REGIONAL,operational,,
+BRIDGE-BENHA-NILE,كوبري بنها على النيل,Banha Nile Bridge (Regional Ring Road),bridge,NORTH,operational,كوبري بنها على النيل بالدائري الإقليمي|Banha Nile Bridge,
+BRIDGE-GALAA,كوبري الجلاء,El Galaa Bridge,bridge,CENTRAL,operational,,
+BRIDGE-GIZA,كوبري الجيزة,Giza Bridge,bridge,CENTRAL,operational,,
+BRIDGE-IMBABA,كوبري إمبابة,Imbaba Bridge,bridge,CENTRAL,operational,,
+BRIDGE-MIDDLE-RING-ISMAILIA,كوبري تقاطع الدائري الأوسطي مع طريق الإسماعيلية الصحراوي,Middle Ring – Ismailia Desert Road Interchange Bridge,bridge,EAST,operational,,
+BRIDGE-MONIB,كوبري المنيب,El Monib Bridge,bridge,SOUTH,operational,الدائري الجنوبي|دائري المنيب,
+BRIDGE-QALYUB-FLYOVER,كوبري قليوب العلوي,Qalyub Overpass Bridge,bridge,NORTH,operational,كوبري قليوب|Qalyub Flyover,
+BRIDGE-QASR-EL-NIL,كوبري قصر النيل,Qasr El Nil Bridge,bridge,CENTRAL,operational,,
+BRIDGE-RING-NORTH-WARRAQ,كوبري الدائري الشمالي (الوراق),Ring Road North Bridge (Warraq),bridge,NORTH,unknown,,
+BRIDGE-SHUBRA-AXIS,كباري منطقة شبرا (محور روض الفرج),Shubra Area Bridges (Rod El Farag Axis),bridge,NORTH,operational,مطالع ومنازل كوبري تحيا مصر بمنطقة شبرا|كباري شبرا,
+BRIDGE-TAHYA-MISR,كوبري تحيا مصر,Tahya Misr Cable-Stayed Bridge,bridge,NORTH,operational,كوبري روض الفرج الملجم|كوبري النيل الشرقي|كوبري تحيا مصر بروض الفرج,
+BRIDGE-TAHYA-MISR-RING,كوبري تقاطع محور تحيا مصر مع الطريق الدائري,Tahya Misr Axis – Ring Road Interchange Bridge,bridge,NORTH,operational,تقاطع محور تحيا مصر مع الدائري,
+BRIDGE-UNIVERSITY,كوبري الجامعة,University Bridge,bridge,CENTRAL,operational,,
+CITY-10TH-RAMADAN,العاشر من رمضان,10th of Ramadan,city,EAST,operational,العاشر|مدينة العاشر من رمضان|10th of Ramadan City|Tenth of Ramadan|Al Ashir min Ramadan,
+CITY-15-MAY,15 مايو,15th of May City,city,SOUTH,operational,مدينة 15 مايو|حي 15 مايو|15 May City|Fifteenth of May,
+CITY-6-OCTOBER,6 أكتوبر,6th of October City,city,WEST,operational,أكتوبر|مدينة السادس من أكتوبر|مدينة 6 أكتوبر|Sixth of October|6 October,
+CITY-ABU-SIMBEL,أبو سمبل,Abu Simbel,city,REGIONAL,operational,مدينة أبو سمبل|أبو سمبل السياحية,
+CITY-AIN-SOKHNA,العين السخنة,Ain Sokhna,city,REGIONAL,operational,السخنة|Al Ain Al Sokhna,
+CITY-ALAMEIN,العلمين,El Alamein,city,REGIONAL,operational,مدينة العلمين|Al Alamayn,
+CITY-ALEXANDRIA,إسكندرية,Alexandria,city,REGIONAL,operational,الإسكندرية|الاسكندرية|Al Iskandariyah,
+CITY-AUSIM,أوسيم,Ausim,city,WEST,operational,مركز ومدينة أوسيم|Awsim,
+CITY-BADR,بدر,Badr City,city,EAST,operational,مدينة بدر|Badr,
+CITY-BENHA,بنها,Benha,city,NORTH,operational,مركز ومدينة بنها|مدينة بنها|Banha|Benha City,
+CITY-BILBEIS,بلبيس,Bilbeis,city,REGIONAL,operational,مدينة بلبيس|مركز بلبيس|Belbeis|Bilbays,
+CITY-CAIRO,القاهرة,Cairo,city,CENTRAL,operational,محافظة القاهرة|Al Qahirah|Cairo Governorate,
+CITY-FAYOUM,الفيوم,Fayoum,city,REGIONAL,operational,مدينة الفيوم|Faiyum|Fayoum City|Al Fayyum,
+CITY-GIZA,الجيزة,Giza,city,WEST,operational,مدينة الجيزة|الجيزه|Giza City|Al Jizah,
+CITY-HURGHADA,الغردقة,Hurghada,city,REGIONAL,operational,مدينة الغردقة|Al Ghardaqah,
+CITY-KAFR-SHUKR,كفر شكر,Kafr Shukr,city,NORTH,operational,مركز ومدينة كفر شكر|مركز كفر شكر|Kafr Shokr,
+CITY-KERDASA,كرداسة,Kerdasa,city,WEST,operational,مركز ومدينة كرداسة|Kirdasa,
+CITY-KHANKA,الخانكة,El Khanka,city,NORTH,operational,مركز ومدينة الخانكة|مركز الخانكة|مدينة الخانكة|Khanka|Al Khankah|El-Khanka,
+CITY-MADINATY,مدينتي,Madinaty,city,EAST,operational,Madinaty City|مدينتى,
+CITY-MANSOURA,المنصورة,Mansoura,city,REGIONAL,operational,مدينة المنصورة|El Mansoura|Al Mansurah,
+CITY-MARSA-MATROUH,مرسى مطروح,Marsa Matrouh,city,REGIONAL,operational,مطروح|Marsa Matruh|Mersa Matruh,
+CITY-MOSTAKBAL,المستقبل سيتي,Mostakbal City,city,EAST,unknown,المستقبل|مستقبل سيتي|Future City,
+CITY-NEW-CAIRO,القاهرة الجديدة,New Cairo,city,EAST,operational,التجمع|التجمع الأول|التجمع التالت|التجمع الخامس|التجمع السادس|مدينة القاهرة الجديدة|New Cairo City|Al Qahirah al Jadidah|قسم أول القاهرة الجديدة|قسم ثان القاهرة الجديدة|قسم ثالث القاهرة الجديدة,
+CITY-NEW-CAPITAL,العاصمة الإدارية,New Administrative Capital,city,EAST,partial,العاصمة|العاصمة الإدارية الجديدة|NAC|The New Capital,
+CITY-NEW-HELIOPOLIS,هليوبوليس الجديدة,New Heliopolis,city,EAST,partial,مدينة هليوبوليس الجديدة|هيليوبوليس الجديدة|New Heliopolis City,
+CITY-NEW-OBOUR,العبور الجديدة,New Obour,city,EAST,under_construction,مدينة العبور الجديدة|New Obour City|New El Obour,
+CITY-NEW-OCTOBER,أكتوبر الجديدة,New October,city,WEST,partial,مدينة 6 أكتوبر الجديدة|مدينة أكتوبر الجديدة|New 6th of October City|New October City,
+CITY-NEW-SPHINX,سفنكس الجديدة,New Sphinx,city,WEST,approved_planned,سفنكس|مدينة سفنكس الجديدة|New Sphinx City,
+CITY-NEW-ZAYED,زايد الجديدة,New Zayed,city,WEST,under_construction,مدينة زايد الجديدة|New Zayed City,
+CITY-OBOUR,العبور,El Obour,city,EAST,operational,مدينة العبور|Obour City|El Obour City|Al Ubur,
+CITY-QAHA,قها,Qaha,city,NORTH,operational,مدينة قها|Qaha,
+CITY-QALYUB,قليوب,Qalyub,city,NORTH,operational,مركز ومدينة قليوب|مركز قليوب|مدينة قليوب|Qalyoub|Qaliub,
+CITY-QANATER,القناطر,El Qanater,city,NORTH,operational,مركز ومدينة القناطر الخيرية|القناطر الخيرية|مدينة القناطر الخيرية|El Qanater El Khayreya|Al Qanatir al Khayriyah,
+CITY-QENA,قنا,Qena,city,REGIONAL,operational,مدينة قنا|Qina,
+CITY-REHAB,الرحاب,El Rehab,city,EAST,operational,مدينة الرحاب|Rehab City|Al Rehab,
+CITY-SAFAGA,سفاجا,Safaga,city,REGIONAL,operational,مدينة سفاجا|Bur Safaga,
+CITY-SHEIKH-ZAYED,الشيخ زايد,Sheikh Zayed,city,WEST,operational,زايد|مدينة الشيخ زايد|Sheikh Zayed City|El Sheikh Zayed,
+CITY-SHIBIN-ELQANATER,شبين القناطر,Shibin El Qanater,city,NORTH,operational,مركز ومدينة شبين القناطر|مركز شبين القناطر|Shibin al-Qanatir|Shebin El Qanater,
+CITY-SHOROUK,الشروق,El Shorouk,city,EAST,operational,مدينة الشروق|El Shorouk City|Al Shuruq|Shorouk,
+CITY-SHUBRA-ELKHEIMA,شبرا الخيمة,Shubra El Kheima,city,NORTH,operational,مدينة شبرا الخيمة|شبرا الخيمه|Shubra El-Kheima|Shubra al-Khaymah|Shoubra El Kheima,
+CITY-TANTA,طنطا,Tanta,city,REGIONAL,operational,مدينة طنطا,
+CITY-TOUKH,طوخ,Toukh,city,NORTH,operational,مركز ومدينة طوخ|مركز طوخ|Tukh|Toukh,
+DIST-ABBASSIA,العباسية,Abbassia,district,CENTRAL,operational,حي العباسية|El Abbasiya|Abbasia|Abbasiyya,
+DIST-ABDEEN,عابدين,Abdeen,district,CENTRAL,operational,حي عابدين|حى عابدين|قسم عابدين|Abdin|Abdeen District,
+DIST-ABU-RAWASH,أبو رواش,Abu Rawash,district,WEST,operational,Abu Roash,
+DIST-ABU-ZAABAL,أبو زعبل,Abu Zaabal,district,NORTH,operational,Abu Za'bal,
+DIST-AGOUZA,العجوزة,Agouza,district,WEST,operational,حي العجوزة|قسم العجوزة|El Agouza|Al Ajuzah,
+DIST-AIN-SHAMS,عين شمس,Ain Shams,district,NORTH,operational,حي عين شمس|قسم عين شمس|Ain Shams District|Ayn Shams,
+DIST-AMIRIYA,حي الأميرية,El Amiriya District,district,NORTH,operational,الأميرية|الاميرية|El Amireya|Amiriya,
+DIST-AZBAKEYA,حي الأزبكية,El Azbakeya District,district,CENTRAL,operational,الأزبكية|حى الازبكية|Azbakeya|Ezbekiya,
+DIST-BAB-SHAREYA,حي باب الشعرية,Bab El Shaareya District,district,CENTRAL,operational,باب الشعرية|حى باب الشعرية|Bab al-Shaariya|Bab El Sharia,
+DIST-BAHTIM,بهتيم,Bahtim,district,NORTH,operational,منطقة بهتيم|Bahteem,
+DIST-BASATIN,حي البساتين,El Basatin District,district,SOUTH,operational,البساتين|El Basateen|Basatin,
+DIST-BULAQ,بولاق,Bulaq,district,CENTRAL,operational,حي بولاق|حى بولاق|قسم بولاق|بولاق أبو العلا|Boulaq|Bulaq Abu al-Ila,
+DIST-BULAQ-DAKROUR,بولاق الدكرور,Bulaq al-Dakrour,district,WEST,operational,حي بولاق الدكرور|قسم بولاق الدكرور|Bulaq El Dakrour|Boulaq El Dakrour,
+DIST-CAPITAL-GARDENS,حدائق العاصمة,Capital Gardens,district,EAST,under_construction,مدينة حدائق العاصمة|Capital Gardens City,
+DIST-DAQADOS,دقادوس,Daqados,district,REGIONAL,operational,Daqadus,
+DIST-DAR-ELSALAM,حي دار السلام,Dar El Salam District,district,SOUTH,operational,دار السلام|Dar El Salam|Dar al-Salam,
+DIST-DEGLA,دجلة,Degla,district,SOUTH,operational,دجلة المعادي|Degla Maadi,
+DIST-DOKKI,الدقي,Dokki,district,WEST,operational,حي الدقي|قسم الدقي|El Doqqi|Ad Duqqi,
+DIST-DOWNTOWN,وسط البلد,Downtown Cairo,district,CENTRAL,operational,وسط القاهرة|Wust El Balad|Downtown|Wasat al-Balad,
+DIST-EAST-SHUBRA-ELKHEIMA,حي شرق شبرا الخيمة,East Shubra El Kheima District,district,NORTH,operational,قسم ثان شبرا الخيمة|قسم ثاني شبرا الخيمة|حي شرق شبرا الخيمه|Shubra El Kheima 2|Shubra El-Kheima Second,
+DIST-FAISAL,فيصل,Faisal,district,WEST,operational,شارع فيصل|King Faisal,
+DIST-FUSTAT,الفسطاط,Fustat,district,CENTRAL,operational,El Fustat,
+DIST-GARDEN-CITY,جاردن سيتي,Garden City,district,CENTRAL,operational,جاردن سيتى,
+DIST-GHARB,حي غرب,Gharb (West) District,district,CENTRAL,operational,حى غرب|حي غرب القاهرة|West District|West Cairo District,
+DIST-GREEN-SARAYA,السرايا الخضرا,Green Saraya,district,EAST,unknown,السروة الخضرا|السرايا الخضراء,
+DIST-HADAEK-ASHGAR,حدائق الأشجار,Hadaek El Ashgar,district,WEST,unknown,حدائق الاشجار,
+DIST-HADAEK-OCTOBER,حدائق أكتوبر,Hadaek October,district,WEST,operational,مدينة حدائق أكتوبر|Hadayek October|October Gardens,
+DIST-HADAYEK-AHRAM,حدائق الأهرام,Hadayek El Ahram,district,WEST,operational,حدائق الاهرام|Pyramids Gardens,
+DIST-HADAYEK-QOBBA,حدائق القبة,Hadayek El Qobba,district,NORTH,operational,حي حدائق القبة|حى حدائق القبة|قسم حدائق القبة|Hadayek El Kobba|Hadaiq al-Qubbah,
+DIST-HARAM,الهرم,Haram,district,WEST,operational,حي الهرم|قسم الهرم|El Haram|Al Haram,
+DIST-HELIOPOLIS,مصر الجديدة,Heliopolis,district,EAST,operational,حي مصر الجديدة|قسم مصر الجديدة|Misr El Gedida|Masr al-Gadida|Heliopolis District,
+DIST-HELWAN,حلوان,Helwan,district,SOUTH,operational,حي حلوان|قسم حلوان|Helwan District|Hulwan,
+DIST-HUSSEIN-AZHAR,الحسين والأزهر,El Hussein and Al Azhar,district,CENTRAL,operational,الحسين|الأزهر|El Hussein|Al Azhar|El Gamaleya,
+DIST-IMBABA,إمبابة,Imbaba,district,WEST,operational,حي إمبابة|حي امبابة|قسم إمبابة|Embaba,
+DIST-JURIAN,جريان,Jurian,district,WEST,under_construction,جوريان,
+DIST-KATAMEYA,القطامية,Katameya,district,SOUTH,operational,Al Qattamiyah,
+DIST-KHALIFA,حي الخليفة,El Khalifa District,district,SOUTH,operational,الخليفة|El Khalifa|Al Khalifa,
+DIST-KHOSOUS,الخصوص,El Khosous,district,NORTH,operational,مدينة الخصوص|Al Khusus|El Khusus,
+DIST-MAADI,المعادي,Maadi,district,SOUTH,operational,حي المعادي|قسم المعادي|El Maadi|Al Maadi|Maadi District,
+DIST-MAASARA,حي المعصرة,El Maasara District,district,SOUTH,operational,المعصرة|El Maasara|Maasara,
+DIST-MANIAL,المنيل,Manial,district,CENTRAL,operational,الروضة|Manial El Roda|El Manial|Roda Island,
+DIST-MANSHEYET-BAKARY,منشأة البكاري,Mansheyet El Bakary,district,WEST,operational,منشأة البكارى|منشية البكري,
+DIST-MANSHIYAT-NASSER,حي منشأة ناصر,Manshiyat Nasser District,district,CENTRAL,operational,منشأة ناصر|حى منشاة ناصر|Manshiyet Nasser|Manshiet Nasser,
+DIST-MANSOURIYA,المنصورية,El Mansouriya,district,WEST,unknown,Al Mansuriyah,
+DIST-MARG,المرج,El Marg,district,NORTH,operational,حي المرج|حى المرج|قسم المرج|El Marg District|Al Marj,
+DIST-MATARIYA,المطرية,El Matariya,district,NORTH,operational,حي المطرية|قسم المطرية|El Matareya|Matariyya|Al Matariyah,
+DIST-MERAJ,المعراج,El Meraj,district,SOUTH,operational,El Mearag|Al Meraj|El Me'rag,
+DIST-MIT-ELEZZ,ميت العز,Mit El Ezz,district,REGIONAL,operational,Mit al-Izz,
+DIST-MOHANDESSIN,المهندسين,Mohandessin,district,WEST,operational,El Mohandeseen|Al Muhandisin,
+DIST-MOKATTAM,المقطم,Mokattam,district,SOUTH,operational,حي المقطم|قسم المقطم|El Mokattam|Al Muqattam,
+DIST-MOSTOROD,مسطرد,Mostorod,district,NORTH,operational,منطقة مسطرد|Mostorod|Mosturod|Musturud,
+DIST-MOUSKY,حي الموسكي,El Mousky District,district,CENTRAL,operational,الموسكي|حى الموسكي|El Muski|Mousky,
+DIST-MUNIRA-GHARBIYA,المنيرة الغربية,Al-Muneera Al-Gharbiya,district,WEST,operational,حي المنيرة الغربية|Al Munirah al Gharbiyah|El Moneira El Gharbia,
+DIST-NARGES,النرجس,El Narges,district,EAST,operational,حي النرجس|Al Narges,
+DIST-NASR-CITY,مدينة نصر,Nasr City,district,EAST,operational,حي شرق مدينة نصر|حي غرب مدينة نصر|قسم أول مدينة نصر|قسم ثان مدينة نصر|Madinet Nasr|Nasr City District,
+DIST-NEW-MAADI,المعادي الجديدة,New Maadi,district,SOUTH,operational,المعادى الجديدة|Maadi El Gedida,
+DIST-NOZHA,النزهة,El Nozha,district,EAST,operational,حي النزهة|قسم النزهة|Al Nuzhah,
+DIST-OLD-CAIRO,مصر القديمة,Old Cairo,district,CENTRAL,operational,حي مصر القديمة|قسم مصر القديمة|Misr El Qadima|Misr al-Qadimah|Old Cairo District,
+DIST-OM-BAYOUMI,أم بيومي,Om Bayoumi,district,NORTH,operational,أم بيومى,
+DIST-OMRANIYA,العمرانية,Omraneya,district,WEST,operational,حي العمرانية|قسم العمرانية|El Omraneya|Al Umraniyah,
+DIST-REMAYA,الرماية,El Remaya,district,WEST,operational,Remaya Square,
+DIST-ROD-ELFARAG,روض الفرج,Rod El Farag,district,NORTH,operational,حي روض الفرج|حى روض الفرج|قسم روض الفرج|Rawd El Farag|Rod al-Farag,
+DIST-SAFT-ELLABAN,صفط اللبن,Saft El Laban,district,WEST,operational,Saft al-Laban,
+DIST-SAHEL,الساحل,El Sahel,district,NORTH,operational,حي الساحل|حى الساحل|قسم الساحل|Al Sahil,
+DIST-SALAM-1,حي السلام أول,El Salam First District,district,EAST,operational,السلام أول|حى السلام اول|قسم السلام أول|Al Salam 1|El Salam 1,
+DIST-SALAM-2,حي السلام ثان,El Salam Second District,district,EAST,operational,السلام ثاني|حى السلام ثانى|قسم السلام ثان|Al Salam 2|El Salam 2,
+DIST-SAYEDA-ZEINAB,السيدة زينب,Sayeda Zeinab,district,CENTRAL,operational,حي السيدة زينب|قسم السيدة زينب|El Sayeda Zeinab|Sayyida Zaynab,
+DIST-SHARABIYA,حي الشرابية,El Sharabiya District,district,NORTH,operational,الشرابية|حى الشرابية|El Sharabeya|Sharabiya,
+DIST-SHUBRA,شبرا,Shubra,district,NORTH,operational,حي شبرا|حى شبرا|قسم شبرا|Shoubra|Shubra District,
+DIST-SMART-VILLAGE,القرية الذكية,Smart Village,district,WEST,operational,Smart Village Egypt,
+DIST-SOUTH-GIZA,جنوب الجيزة,South Giza,district,WEST,operational,حي جنوب الجيزة|قسم الجيزة|South Giza District|Giza South,
+DIST-TAHRIR,التحرير,Tahrir,district,CENTRAL,operational,ميدان التحرير|Tahrir Square|El Tahrir,
+DIST-TALBIYA,الطالبية,Talbiya,district,WEST,operational,حي الطالبية|قسم الطالبية|El Talbia|Talbiyya,
+DIST-TEBBIN,التبين,El Tebbin,district,SOUTH,operational,حي التبين|قسم التبين|Tibbin,
+DIST-TORA,حي طره,Tora District,district,SOUTH,operational,طره|طرة|حي طرة|Tura|Tora,
+DIST-WAILY,حي الوايلي,El Waily District,district,CENTRAL,operational,الوايلي|حى الوايلي|El Wayli|Al Waili,
+DIST-WARRAQ,الوراق,El Warraq,district,WEST,operational,حي الوراق|قسم الوراق|Al Warraq,
+DIST-WASAT,حي وسط,Wasat (Central) District,district,CENTRAL,operational,حى وسط|حي وسط القاهرة|Wasat District|Central Cairo District,
+DIST-WEST-SHUBRA-ELKHEIMA,حي غرب شبرا الخيمة,West Shubra El Kheima District,district,NORTH,operational,قسم أول شبرا الخيمة|قسم اول شبرا الخيمة|حي غرب شبرا الخيمه|Shubra El Kheima 1|Shubra El-Kheima First,
+DIST-ZAHRAA-MAADI,زهراء المعادي,Zahraa El Maadi,district,SOUTH,operational,زهراء المعادى|Zahraa Al Maadi,
+DIST-ZAMALEK,الزمالك,Zamalek,district,CENTRAL,operational,حي الزمالك|قسم الزمالك|El Zamalek|Zamalek District|Gezira,
+DIST-ZAWYA-HAMRA,الزاوية الحمرا,El Zawya El Hamra,district,NORTH,operational,حي الزاوية الحمراء|حى الزاوية الحمراء|الزاوية الحمراء|قسم الزاوية الحمراء|Al Zawiyah al Hamra,
+DIST-ZEITOUN,حي الزيتون,El Zeitoun District,district,NORTH,operational,الزيتون|El Zaitoun|Zeitoun,
+LANDMARK-BUE,الجامعة البريطانية,British University in Egypt,landmark,EAST,operational,BUE,
+LANDMARK-CAIRO-UNIV,جامعة القاهرة,Cairo University,landmark,WEST,operational,,
+LANDMARK-GEM,المتحف المصري الكبير,Grand Egyptian Museum,landmark,WEST,operational,المتحف الكبير,
+LANDMARK-HELWAN-UNIV,جامعة حلوان,Helwan University,landmark,SOUTH,operational,جامعة العاصمة|جامعة العاصمة (حلوان سابقاً)|Capital University|Capital University (formerly Helwan University),
+LANDMARK-LEBANON-SQ,ميدان لبنان,Lebanon Square,landmark,WEST,operational,,
+LANDMARK-MALL-OF-ARABIA,مول العرب,Mall of Arabia,landmark,WEST,operational,,
+LANDMARK-MALL-OF-EGYPT,مول مصر,Mall of Egypt,landmark,WEST,operational,,
+LANDMARK-PYRAMIDS,الأهرام,Giza Pyramids,landmark,WEST,operational,,
+LANDMARK-SPHINX-SQ,سفنكس,Sphinx Square,landmark,WEST,operational,,
+PROJ-ADDED-LANDS-REGULARIZATION,ملف توفيق أوضاع الأراضي المضافة,Added Lands Regularization File,project,REGIONAL,unknown,الأراضي المضافة,
+PROJ-AHALINA-1,مشروع الإسكان الاجتماعي «أهالينا 1»,Ahalina 1 Social Housing (El Salam 1),project,EAST,operational,أهالينا 1|أهالينا ١,
+PROJ-METRO-L1-UPGRADE,تطوير الخط الأول للمترو,Metro Line 1 Modernization,project,CENTRAL,under_construction,تطوير الخط الأول حلوان – المرج الجديدة,
+PROJ-RING-WIDENING-2798,توسعة الدائري من المنصورية لوصلة الواحات,Ring Road Widening (Mansouriya–Wahat Link),project,WEST,approved_planned,القرار 2798 لسنة 2026,
+PROJ-SHOROUK-INDUSTRIAL-ABU-ZAABAL,منطقة الشروق الصناعية بأبو زعبل,El Shorouk Industrial Zone (Abu Zaabal),project,NORTH,operational,المنطقة الصناعية بأبو زعبل,
+RAIL-BASHTIL,محطة قطارات الصعيد في بشتيل,Bashtil Upper Egypt Rail Station,rail_station,WEST,operational,بشتيل,
+RAIL-GIZA-SUBURBS,ضواحي الجيزة,Giza Suburbs,rail_station,WEST,operational,,OSM-derived ENR station; official verification pending.
+RAIL-RAMSES,رمسيس,Ramses Station,rail_station,CENTRAL,operational,محطة مصر; Misr Station; Ramses; Ramses Station,
+ROAD-26-JULY,محور 26 يوليو,26th of July Axis,road,WEST,operational,26 يوليو|شارع 26 يوليو|26th July Street,
+ROAD-30-JUNE,محور 30 يونيو,30 June Axis,road,EAST,partial,,
+ROAD-90-NORTH,التسعين الشمالي,North 90th Street,road,EAST,operational,التسعين|شارع التسعين الشمالي|شارع التسعين الشمالى|شارع التسعين|Al Teseen Northern Street,
+ROAD-90-SOUTH,التسعين الجنوبي,South 90th Street,road,EAST,operational,التسعين|شارع التسعين الجنوبي|شارع التسعين الجنوبى|شارع التسعين|Al Tesein Southern Street,
+ROAD-ADLY-MANSOUR-AXIS,محور المستشار عدلي منصور,Adly Mansour Axis (East Cairo),road,NORTH,operational,محور عدلي منصور|Adly Mansour Axis,
+ROAD-AHMED-ORABI,محور أحمد عرابي,Ahmed Orabi Axis,road,WEST,operational,,
+ROAD-AIN-SOKHNA,العين السخنة,Ain Sokhna Road,road,EAST,operational,طريق العين السخنة|طريق السخنة,
+ROAD-AMR-IBN-ALAS,محور عمرو بن العاص,Amr Ibn Al-Aas Axis,road,WEST,operational,,
+ROAD-ASSAR-AXIS,محور الفريق العصار,Al-Fariq Al-Assar Axis,road,NORTH,operational,العصار|محور الفريق محمد العصار|محور أبو بكر الصديق,
+ROAD-AUTOSTRAD,الأوتوستراد,Autostrad,road,SOUTH,operational,طريق الاوتوستراد|طريق الأوتوستراد|Al Autostrad Road,
+ROAD-BENHA-MANSOURA,بنها–المنصورة,Benha–Mansoura Road,road,REGIONAL,operational,طريق بنها–المنصورة القديم|طريق بنها ميت غمر|طريق ميت غمر بنها|طريق المنصورة ميت غمر|طريق بنها المنصورة|Banha Mit Ghamr Road|Al Mansoura Mit Ghamr Road,
+ROAD-BILBEIS-DESERT,بلبيس الصحراوي,Bilbeis Desert Road,road,EAST,operational,طريق القاهرة بلبيس الصحراوي|طريق بلبيس الصحراوي|Cairo Belbes Desert Road,
+ROAD-CAIRO-ALEX-AGRI,القاهرة–الإسكندرية الزراعي,Cairo–Alexandria Agricultural Road,road,NORTH,operational,الزراعي|الإسكندرية الزراعي,
+ROAD-CAIRO-ALEX-DESERT,إسكندرية الصحراوي,Cairo–Alexandria Desert Road,road,WEST,operational,,
+ROAD-CAIRO-ASSIUT-AGRI,القاهرة–أسيوط الزراعي,Cairo–Assiut Agricultural Road,road,WEST,unknown,طريق القاهرة أسيوط الزراعي|القاهرة أسيوط الزراعي|Cairo Asyout Agricultural Road,
+ROAD-CAIRO-FAYOUM,القاهرة–الفيوم,Cairo–Fayoum Road,road,WEST,operational,طريق الفيوم|طريق القاهرة الفيوم الصحراوي|Cairo Al Fayoum Desert Road,
+ROAD-CAIRO-ISMAILIA-DESERT,القاهرة–الإسماعيلية الصحراوي,Cairo–Ismailia Desert Road,road,EAST,operational,الإسماعيلية الصحراوي|طريق الإسماعيلية,
+ROAD-CAIRO-SUEZ,القاهرة–السويس,Cairo–Suez Road,road,EAST,operational,السويس,
+ROAD-CORNICHE,الكورنيش,Corniche,road,SOUTH,operational,كورنيش النيل|كورنيش القاهرة|كورنيش المعادي|Cairo Corniche,
+ROAD-DABAA-AXIS,محور الضبعة,Dabaa Axis,road,WEST,operational,الضبعة,
+ROAD-DAHSHUR-LINK,وصلة دهشور,Dahshur Link,road,WEST,unknown,طريق وصلة دهشور|طريق وصلة دهشور الجنوبية|Waslet Dahshur Road,
+ROAD-EAST-RAYAH-TAWFIKI,طريق حر شرق الرياح التوفيقي,East Rayah Tawfiki Free Road,road,REGIONAL,under_construction,,
+ROAD-EASTERN-DESERT,الصحراوي الشرقي,Eastern Desert Road,road,SOUTH,operational,طريق القاهرة السويس الصحراوي|الطريق الصحراوي الشرقي,
+ROAD-GAMET-EL-DOWAL,جامعة الدول,Gameat El Dowal Street,road,WEST,operational,شارع جامعة الدول العربية|جامعة الدول العربية,
+ROAD-HARAM,الهرم,Haram Street,road,WEST,operational,شارع الهرم|شارع الأهرام|Al Haram Street|Al Ahram Street,
+ROAD-IBRAHIM-ORABI-AXIS,محور الفريق إبراهيم العرابي,El Fereeq Ibrahim El Orabi Axis,road,NORTH,operational,محور إبراهيم العرابي|محور ترعة الطوارئ|محور الفريق ابراهيم العرابي,
+ROAD-ISMAILIA-AGRI,الإسماعيلية الزراعي,Ismailia Agricultural Road,road,NORTH,operational,طريق القاهرة الإسماعيلية الزراعي|طريق الاسماعيلية الزراعي|Cairo Ismailia Agricultural Road,
+ROAD-KAMAL-AMER,محور الفريق كمال عامر,Al-Fariq Kamal Amer Axis,road,WEST,operational,كمال عامر,
+ROAD-MARG-AXIS,محور المرج,El Marg Axis,road,NORTH,planned,محور المرج – الخانكة|محور المرج الخانكة,
+ROAD-MARYUTEYA,المريوطية,Maryuteya Road,road,WEST,unknown,طريق المريوطية|شارع ترعة المريوطية|طريق ترعة المريوطية|Al Maryouteya Road,
+ROAD-MBZ-NORTH,محمد بن زايد الشمالي,Mohamed Bin Zayed North Axis,road,EAST,unknown,محور الشيخ محمد بن زايد الشمالى|محور الشيخ محمد بن زايد الشمالي|Sheikh Mohamed Bin Zayed North Axis,
+ROAD-MBZ-SOUTH,محمد بن زايد الجنوبي,Mohamed Bin Zayed South Axis,road,EAST,operational,محور الشيخ محمد بن زايد الجنوبي|Sheikh Mohamed Bin Zayed South Axis,
+ROAD-MIDDLE-RING,الأوسطي,Middle Ring Road,road,REGIONAL,operational,الدائري الأوسطي|الطريق الدائري الأوسطي|Central Ring Road,
+ROAD-MOHAMED-NAGUIB,محور محمد نجيب,Mohamed Naguib Axis,road,EAST,operational,محمد نجيب,
+ROAD-MOKATTAM-AXIS,محور المقطم,Mokattam Axis,road,SOUTH,operational,محور ياسر رزق|طريق المقطم|Al Mokattam Road|Yaser Rezq Axis,
+ROAD-MOSHIR-TANTAWY,المشير طنطاوي,El-Moshir Tantawy Axis,road,EAST,operational,محور المشير طنطاوي|محور المشير|El Moshir Tantawy Axis,
+ROAD-MOSTOROD-AXIS,محور مسطرد,Mostorod Axis,road,NORTH,operational,محور مسطرد الجديد|Mostorod Axis,
+ROAD-NASR,طريق النصر,Al-Nasr Road,road,EAST,operational,Al Nasr Road,
+ROAD-OBOUR-AXIS-NEW-CAIRO,محور العبور (القاهرة الجديدة),El Obour Axis (New Cairo),road,EAST,under_construction,محور العبور|El Obour Axis,
+ROAD-REGIONAL-NW-ARC,القوس الشمالي الغربي للإقليمي,Regional Ring Road North-West Arc,road,REGIONAL,operational,القوس الشمالي الغربي للطريق الدائري الإقليمي,
+ROAD-REGIONAL-RING,الإقليمي,Regional Ring Road,road,REGIONAL,partial,الطريق الدائري الإقليمي|الدائري الإقليمي,
+ROAD-RING-ROAD,الدائري,Ring Road,road,CENTRAL,operational,الدائري القديم|الطريق الدائري|The Ring Road,
+ROAD-ROD-ELFARAG-DABAA,محور روض الفرج–الضبعة,Rod El Farag–Dabaa Axis,road,NORTH,operational,محور تحيا مصر|تحيا مصر|محور روض الفرج,
+ROAD-SHUBRA-BENHA-FREE,شبرا–بنها الحر,Shubra–Benha Free Road,road,NORTH,operational,محور شبرا–بنها الحر|طريق شبرا بنها الحر|طريق شبرا / بنها الحر|Shubra Banha Free Road,
+ROAD-WAHAT,الواحات,Wahat Road,road,WEST,operational,وصلة الواحات|طريق الواحات|طريق الجيزة الواحات البحرية|Al Wahat Road,
+ROAD-WESTERN-DESERT,الصحراوي الغربي,Western Desert Road,road,WEST,unknown,طريق القاهرة أسيوط الصحراوي الغربي|القاهرة أسيوط الصحراوي الغربي|Cairo Asyout Western Desert Road,
+STOP-6-OCTOBER-INTERCHANGE,6 أكتوبر,6th of October Interchange,transit_stop,WEST,under_construction,,
+STOP-ABBASSIA,العباسية,Abbassia Station,transit_stop,CENTRAL,operational,,
+STOP-ADALA-CITY,مدينة العدالة,Justice City Station,transit_stop,EAST,operational,,
+STOP-ADLY-MANSOUR,عدلي منصور,Adly Mansour Interchange,transit_stop,EAST,operational,السلام|محطة عدلي منصور المركزية التبادلية|Adly Mansour,
+STOP-AHMED-OMAR-HASHEM,محطة أحمد عمر هاشم,Ahmed Omar Hashem Station,transit_stop,EAST,approved_planned,محطة أحمد عمر هاشم للقطار الكهربائي السريع|Ahmed Omar Hashem High-Speed Rail Station|محطة محمد أحمد عمر هاشم,محطة القطار الكهربائي السريع (الخط الأول) في نهاية الطريق اللي بيربط القاهرة الجديدة بالدائري الأوسطي؛ اسمها القديم في الأخبار «محطة محمد نجيب». مش محطة مترو؛ عليها تبادل مخطط مع الخط السادس
+STOP-ARTS-CULTURE-CITY,مدينة الفنون والثقافة,City of Arts and Culture Station,transit_stop,EAST,operational,,
+STOP-BRT-AIN-SOKHNA-RD,محطة طريق العين السخنة,Ain Sokhna Road BRT Station,transit_stop,SOUTH,operational,,
+STOP-BRT-ALEX-AGRI,محطة الإسكندرية الزراعي (BRT),Alexandria Agricultural Rd BRT Station,transit_stop,NORTH,operational,محطة إسكندرية الزراعي|الإسكندرية الزراعي,
+STOP-BRT-ALGERIA-ST,محطة الجزائر (BRT),El Gazayer (Algeria St) BRT Station,transit_stop,SOUTH,operational,الجزائر (BRT)|شارع الجزائر,
+STOP-BRT-AUTOSTRAD,الأوتوستراد,Autostrad BRT Station,transit_stop,SOUTH,planned,,
+STOP-BRT-BAHR-AZAM,محطة البحر الأعظم (BRT),El Bahr El Aazam BRT Station,transit_stop,WEST,operational,البحر الأعظم,
+STOP-BRT-BAHTIM,محطة بهتيم (BRT),Bahtim BRT Station,transit_stop,NORTH,operational,بهتيم (BRT),
+STOP-BRT-EL-MARG,محطة المرج (BRT),El Marg BRT Station,transit_stop,NORTH,operational,المرج (BRT),
+STOP-BRT-GOLF,محطة الجولف (BRT),Golf BRT Station,transit_stop,EAST,operational,الجولف,
+STOP-BRT-IBRAHIM-ORABI,محطة الفريق إبراهيم عرابي (BRT),El Fereeq Ibrahim Orabi BRT Station,transit_stop,NORTH,operational,الفريق إبراهيم عرابي,
+STOP-BRT-IMAMAIN,محطة الإمامين (BRT),El Imamain BRT Station,transit_stop,SOUTH,operational,الإمامين,
+STOP-BRT-KHOSOUS,محطة الخصوص (BRT),El Khosous BRT Station,transit_stop,NORTH,operational,الخصوص (BRT),
+STOP-BRT-MAADI,محطة المعادي,Maadi BRT Station,transit_stop,SOUTH,operational,,
+STOP-BRT-MANSOURIYA,المنصورية,Mansouriya BRT Station,transit_stop,WEST,planned,,
+STOP-BRT-MARYUTEYA,المريوطية,Maryuteya BRT Station,transit_stop,WEST,operational,,
+STOP-BRT-MOKATTAM,محطة المقطم,Mokattam BRT Station,transit_stop,SOUTH,operational,,
+STOP-BRT-MOSHIR-TANTAWY,محطة المشير طنطاوي (BRT),El Moshir Tantawy BRT Station,transit_stop,EAST,operational,المشير طنطاوي (BRT),
+STOP-BRT-MOSTOROD,محطة مسطرد (BRT),Mostorod BRT Station,transit_stop,NORTH,operational,مسطرد (BRT),
+STOP-BRT-OMRANIYA,العمرانية,Omraniya BRT Station,transit_stop,WEST,operational,,
+STOP-BRT-POLICE-ACADEMY,محطة أكاديمية الشرطة (BRT),Police Academy BRT Station,transit_stop,EAST,operational,أكاديمية الشرطة,
+STOP-BRT-QALG,محطة القلج (BRT),El Qalg BRT Station,transit_stop,NORTH,operational,القلج|طريق محمد نجيب (BRT),
+STOP-BRT-SALAM,محطة السلام (BRT),El Salam BRT Station,transit_stop,NORTH,operational,السلام (BRT),
+STOP-BRT-SHARQAWIYA,محطة العقيد أحمد عبد الرحيم (الشرقاوية),Col. Ahmed Abdel Rahim (El Sharqawiya) BRT Station,transit_stop,NORTH,operational,الشرقاوية|العقيد أحمد عبدالرحيم,
+STOP-BRT-SHUBRA-BENHA,محطة شبرا بنها (BRT),Shubra–Banha BRT Station,transit_stop,NORTH,operational,شبرا بنها,
+STOP-BRT-SUEZ-RD,محطة طريق السويس (BRT),Suez Road BRT Station,transit_stop,EAST,operational,طريق السويس (BRT),
+STOP-BRT-TALBIYA,الطالبية,Talbiya BRT Station,transit_stop,WEST,operational,,
+STOP-BRT-ZAHRAA,محطة الزهراء (BRT),El Zahraa BRT Station,transit_stop,SOUTH,operational,الزهراء (BRT),
+STOP-BRT-ZAHRAA-MAADI,محطة زهراء المعادي,Zahraa El Maadi BRT Station,transit_stop,SOUTH,planned,,
+STOP-BRT-ZAKAT,محطة مؤسسة الزكاة (BRT),Moassaset El Zakat BRT Station,transit_stop,NORTH,operational,مؤسسة الزكاة,
+STOP-CAIRO-STADIUM,استاد القاهرة,Cairo Stadium Station,transit_stop,EAST,operational,محطة الاستاد|الاستاد,
+STOP-CENTRAL-CAPITAL,العاصمة المركزية,Central Capital Interchange (LRT/HSR),transit_stop,EAST,under_construction,المحطة المركزية,
+STOP-DEMERDASH,الدمرداش,Demerdash Station,transit_stop,CENTRAL,operational,,
+STOP-HADAEK-OCTOBER,حدائق أكتوبر,Hadaek October Interchange,transit_stop,WEST,under_construction,,
+STOP-HSR-GIZA,الجيزة (القطار السريع),Giza HSR Station,transit_stop,WEST,under_construction,,
+STOP-HSR-SPHINX,سفنكس (القطار السريع),Sphinx HSR Station,transit_stop,WEST,under_construction,,
+STOP-KIT-KAT,الكيت كات,Kit Kat Station,transit_stop,WEST,operational,Kit-kat,
+STOP-LRT-10TH-CITY-CENTER,مركز المدينة (العاشر),10th of Ramadan City Center LRT Station,transit_stop,EAST,under_construction,,
+STOP-LRT-10TH-RAMADAN-1,العاشر من رمضان 1,10th of Ramadan 1 LRT Station,transit_stop,EAST,operational,العاشر 1,
+STOP-LRT-BADR,بدر,Badr LRT Station,transit_stop,EAST,operational,,
+STOP-LRT-CAPITAL-AIRPORT,مطار العاصمة,Capital Airport LRT Station,transit_stop,EAST,operational,,
+STOP-LRT-CAPITAL-GARDENS,حدائق العاصمة,Capital Gardens LRT Station,transit_stop,EAST,operational,,
+STOP-LRT-HADAEK-10TH,حدائق العاشر,Hadaek El Asher LRT Station,transit_stop,EAST,under_construction,,
+STOP-LRT-INDUSTRIAL-ZONE,المنطقة الصناعية,Industrial Zone LRT Station,transit_stop,EAST,operational,Industrial Zone,
+STOP-LRT-KNOWLEDGE-CITY,مدينة المعرفة,Knowledge City LRT Station,transit_stop,EAST,operational,Knowledge City,
+STOP-LRT-MOSTAKBAL,المستقبل,Al Mostakbal LRT Station,transit_stop,EAST,operational,,
+STOP-LRT-NATIVITY-CATHEDRAL,كاتدرائية الميلاد,Nativity Cathedral LRT Station,transit_stop,EAST,under_construction,,
+STOP-LRT-NEW-HELIOPOLIS,هليوبوليس الجديدة,New Heliopolis LRT Station,transit_stop,EAST,operational,,
+STOP-LRT-OBOUR,العبور,Obour LRT Station,transit_stop,EAST,operational,محطة العبور,
+STOP-LRT-OMAR-KHATTAB,عمر بن الخطاب (LRT),Omar Ibn El-Khattab LRT Station,transit_stop,EAST,under_construction,,
+STOP-LRT-ROBEIKI,الروبيكي,Robeiki LRT Station,transit_stop,EAST,operational,,
+STOP-LRT-SHOROUK,الشروق,Shorouk LRT Station,transit_stop,EAST,operational,,
+STOP-LRT-SPORTS-CITY,المدينة الرياضية الدولية,International Sports City LRT Station,transit_stop,EAST,under_construction,,
+STOP-LRT-STRATEGIC-COMMAND,القيادة الإستراتيجية,Strategic Command LRT Station,transit_stop,EAST,under_construction,,
+STOP-LRT-TECH-INSTITUTE,المعهد التكنولوجي,Technological Institute LRT Station,transit_stop,EAST,under_construction,,
+STOP-M1-EL-MARG,المرج (الخط الأول),El Marg Metro Station (Line 1),transit_stop,NORTH,operational,محطة مترو المرج|El Marg|Al Marj,
+STOP-M1-NEW-EL-MARG,المرج الجديدة,New El Marg Metro Station (Line 1),transit_stop,NORTH,operational,محطة المرج الجديدة|New El-Marg|El Marg El Gedida,
+STOP-M2-KHALAFAWY,الخلفاوي,El Khalafawy Metro Station (Line 2),transit_stop,CENTRAL,operational,محطة الخلفاوي|Khalafawy,
+STOP-M2-SHUBRA-ELKHEIMA,شبرا الخيمة (الخط الثاني),Shubra El Kheima Metro Station (Line 2),transit_stop,NORTH,operational,محطة مترو شبرا الخيمة|Shubra El-Kheima|Shobra Al-Kheima,
+STOP-M2-ST-TERESA,سانت تريزا,St. Teresa Metro Station (Line 2),transit_stop,NORTH,operational,محطة سانت تريزا|Saint Teresa,
+STOP-M3-RING-ROAD,الطريق الدائري (الخط الثالث),Ring Road Metro Station (Line 3),transit_stop,WEST,operational,محطة الطريق الدائري (مترو)|Ring Road (Metro),
+STOP-M3-ROD-ELFARAG-AXIS,محور روض الفرج (الخط الثالث),Rod El Farag Axis Metro Station (Line 3),transit_stop,NORTH,operational,محطة محور روض الفرج|Rod El Farag Corridor,
+STOP-MONORAIL-MOSHIR-TANTAWY,المشير طنطاوي,El Moshir Tantawy Monorail Station,transit_stop,EAST,operational,,
+STOP-MRE-7TH-DISTRICT,الحي السابع,Seventh District (Monorail),transit_stop,EAST,operational,,
+STOP-MRE-AHMED-ISMAIL,المشير أحمد إسماعيل,El-Moshir Ahmed Ismail (Monorail),transit_stop,EAST,operational,ذاكر حسين,
+STOP-MRE-AIR-HOSPITAL,المستشفى الجوي,Air Force Hospital (Monorail),transit_stop,EAST,operational,الشويفات,
+STOP-MRE-AZHAR-UNIV,جامعة الأزهر,Al-Azhar University (Monorail),transit_stop,EAST,operational,نوري خطاب,
+STOP-MRE-BEIT-EL-WATAN,بيت الوطن,Beit El Watan (Monorail),transit_stop,EAST,operational,البروة,
+STOP-MRE-CBD,حي المال والأعمال,Financial & Business District (Monorail),transit_stop,EAST,operational,CBD,
+STOP-MRE-FATTAH-ALIM,مسجد الفتاح العليم,Al-Fattah Al-Alim Mosque (Monorail),transit_stop,EAST,operational,,
+STOP-MRE-GOLDEN-SQUARE,جولدن سكوير,Golden Square (Monorail),transit_stop,EAST,operational,إعمار|النافورة,
+STOP-MRE-GOV-DISTRICT,الحي الحكومي,Government District (Monorail),transit_stop,EAST,operational,,
+STOP-MRE-HISHAM-BARAKAT,هشام بركات,Hisham Barakat (Monorail),transit_stop,EAST,operational,الطيران,
+STOP-MRE-JEHAN-SADAT,جيهان السادات,Jehan El-Sadat (Monorail),transit_stop,EAST,operational,المنطقة الحرة,
+STOP-MRE-LOTUS,اللوتس,El Lotus (Monorail),transit_stop,EAST,operational,الأندلس|الجامعة الأمريكية,
+STOP-MRE-MISR-MOSQUE,مسجد مصر,Misr Mosque (Monorail),transit_stop,EAST,operational,,
+STOP-MRE-MOSTATHMERIN,المستثمرين,El Mostathmerin (Monorail),transit_stop,EAST,operational,محمد نجيب,
+STOP-MRE-NARGES,النرجس,El Narges (Monorail),transit_stop,EAST,operational,,
+STOP-MRE-ONE-NINETY,وان ناينتي,One Ninety (Monorail),transit_stop,EAST,operational,كايرو فيستيفال,
+STOP-MRE-R1,حي R1,R1 District (Monorail),transit_stop,EAST,operational,R1,
+STOP-MRE-R2,حي R2,R2 District (Monorail),transit_stop,EAST,operational,R2,
+STOP-MRW-ACU,جامعة الأهرام الكندية,Ahram Canadian University (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-ALEX-ROAD,طريق الإسكندرية (مونوريل),Alexandria Road (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-BASHTIL,بشتيل (مونوريل),Bashtil (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-ENGINEERS,نقابة المهندسين,Engineers Syndicate (West Monorail),transit_stop,WEST,under_construction,نادي نقابة المهندسين,
+STOP-MRW-MALL-OF-EGYPT,مول مصر (مونوريل),Mall of Egypt (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-MANSOURIYA,المنصورية (مونوريل),El Mansouriya (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-MARYUTEYA,المريوطية (مونوريل),El Maryuteya (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-NEW-OCTOBER,أكتوبر الجديدة,New October (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-OCT-UNIV,جامعة 6 أكتوبر,6th of October University (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-RING-ROAD,الطريق الدائري (مونوريل),Ring Road (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-SADAT,السادات (مونوريل غرب),El Sadat (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-SHEIKH-ZAYED,مدينة الشيخ زايد (مونوريل),Sheikh Zayed City (West Monorail),transit_stop,WEST,under_construction,,
+STOP-MRW-WADI-EL-NIL,وادي النيل,Wadi El Nil (West Monorail / Metro L3),transit_stop,WEST,under_construction,,
+STOP-M2-AL-MOUNIB,المنيب,Al-Mounib,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-WADI-EL-NILE,وادي النيل,Wadi El Nile,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-GAMET-EL-DOWEL,جامعة الدول,Gamet El Dowel,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-BULAQ-AL-DAKROUR,محطة مترو بولاق الدكرور,Bulaq Al-Dakrour,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-AL-TAWFIKIA,التوفيقية,Al-Tawfikia,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-BAB-EL-SHAARIA,باب الشعرية,Bab el Shaaria,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-EL-GEISH,الجيش,El Geish,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-ABDOU-PASHA,عبده باشا,Abdou Pasha,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-KOLIET-EL-ZERAA,كلية الزراعة,Koliet El-Zeraa,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-AIN-SHAMS,عين شمس,Ain Shams,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-CAIRO-FAIRGROUND,أرض المعارض,Cairo Fairground,transit_stop,EAST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-KOLEYET-EL-BANAT,كلية البنات,Koleyet El Banat,transit_stop,EAST,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-THAKANAT-EL-MAADI,ثكنات المعادي,Thakanat El-Maadi,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-MAADI,المعادى,Maadi,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-AL-AHRAM,الاهرام,Al Ahram,transit_stop,EAST,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-AL-MALEK-AL-SALEH,الملك الصالح,Al-Malek Al-Saleh,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-MAR-GIRGIS,مار جرجس,Mar Girgis,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-DAR-AL-SALAM,دار السلام,Dar Al-Salam,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-FAISAL,فيصل,Faisal,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-GIZA,جيزة,Giza,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-CAIRO-UNIVERSITY,جامعة القاهرة,Cairo University,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-AIN-HELWAN,عين حلوان,Ain Helwan,transit_stop,SOUTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-HELWAN-UNIVERSITY,جامعة حلوان,Helwan University,transit_stop,SOUTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-WADI-HOF,وادي حوف,Wadi Hof,transit_stop,SOUTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-HADAYEQ-HELWAN,حدائق حلوان,Hadayeq Helwan,transit_stop,SOUTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-AL-MAASARA,المعصرة,Al-Maasara,transit_stop,SOUTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-TORA-EL-BALAD,طرة البلد,Tora El-Balad,transit_stop,SOUTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-SAYYEDA-ZEINAB,السيدة زينب,Sayyeda Zeinab,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-NASSER,ناصر,Nasser,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-GHAMRA,الغمرة,Ghamra,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-MANSHIET-AL-SADR,منشية الصدر,Manshiet Al-Sadr,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-KOBRI-AL-QOBBA,كوبري القبة,Kobri Al-Qobba,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-HAMMAMAT-AL-QOBBA,حمامات القبة,Hammamat Al-Qobba,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-SARAY-AL-QOBBA,سراي القبة,Saray Al-Qobba,transit_stop,EAST,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-HADAYEQ-AL-ZAITOUN,حدائق الزيتون,Hadayeq Al-Zaitoun,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-EL-MATAREYYA,المطرية,El-Matareyya,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-EZBET-EN-NAKHL,محطة عزبة النخل,Ezbet en Nakhl,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-ATTABA,العتبة,Attaba,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-HELWAN,حلوان,Helwan,transit_stop,SOUTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-AL-ZAHRAA,الزهراء,Al-Zahraa,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-SAINTE-TERESA,سانت تيريزا,Sainte Teresa,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-RAWD-EL-FARAG,روض الفرج,Rawd El-Farag,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-MASSARA,مسره,Massara,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-OPERA,الأوبرا,Opera,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-OMM-EL-MISRYEEN,أم المصريين,Omm El Misryeen,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-KOZZIKA,كوتسكا,Kozzika,transit_stop,SOUTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-ATTABA-SUBWAY,محطة مترو العتبة,Attaba subway station,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-TORA-EL-ASMANT,طرا الأسمنت,Tora El-Asmant,transit_stop,SOUTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-HADAYEK-EL-MAADI,مترو حدائق المعادى,Hadayek El Maadi,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-HELMEYET-AL-ZAITOUN,حلمية الزيتون,Helmeyet Al-Zaitoun,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-SAAD-ZAGHLOUL,سعد زغلول,Saad Zaghloul,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M1-ORABI,عرابي,Orabi,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-BEHOOTH,البحوث,Behooth,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-AL-MEZALLAT,المظلات,Al-Mezallat,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-ALF-MASKAN-SUBWAY,محطة مترو ألف مسكن,Alf Maskan subway station,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-EL-SHAMS-CLUB,نادي الشمس‎,El Shams Club,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-HELIOPOLIS-SUBWAY,محطة مترو هليوبوليس,Heliopolis subway station,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-HAROUN,هارون,Haroun,transit_stop,EAST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-EL-HAYKESTEP,محطة مترو الهايكستب ‎,El Haykestep,transit_stop,EAST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-OMAR-EBN-ELKHATAB,عمر بن الخطاب‎,Omar Ebn Elkhatab,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-QUBAA,مترو قباء‎,Qubaa,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-HESHAM-BARAKAT,هشام بركات‎,Hesham Barakat,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-EL-NOZHA,النزهة‎,El Nozha,transit_stop,NORTH,operational,,OSM-derived transit station; official verification pending.
+STOP-MRE-CAIRO-STADIUM-MONORAIL,محطة مونوريل استاد القاهرة,Cairo Stadium Monorail Station,transit_stop,EAST,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-SAKIAT-MEKKI,ساقية مكي,Sakiat Mekki,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M2-DOKKI,الدقى,Dokki,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-MASBERO,ماسبيرو,Masbero,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-SUDAN,Sudan,Sudan,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-AL-BOHY,Al-Bohy,Al-Bohy,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-IMBABA,Imbaba,Imbaba,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-SAFAA-HEGAZY,صفاء حجازي,Safaa Hegazy,transit_stop,CENTRAL,operational,,OSM-derived transit station; official verification pending.
+STOP-M3-AL-KAWMEIAH,Al-Kawmeiah,Al-Kawmeiah,transit_stop,WEST,operational,,OSM-derived transit station; official verification pending.
+STOP-SADAT,السادات,Sadat Station,transit_stop,CENTRAL,operational,,
+STOP-SAYEDA-AISHA,السيدة عائشة,Sayeda Aisha Station,transit_stop,CENTRAL,planned,,
+STOP-SUN-CAPITAL,صن كابيتال,Sun Capital Hub,transit_stop,WEST,operational,,
+TRANSIT-BRT,الأتوبيس الترددي,Bus Rapid Transit,transit_line,CENTRAL,operational,BRT|الأتوبيس الترددي السريع|Ring Road BRT,
+TRANSIT-HSR-L1,الخط الأول للقطار الكهربائي السريع,High-Speed Rail Line 1,transit_line,REGIONAL,under_construction,خط الساحل,
+TRANSIT-HSR-L2,الخط التاني للقطار الكهربائي السريع,High-Speed Rail Line 2,transit_line,REGIONAL,under_construction,خط الصعيد,
+TRANSIT-HSR-L3,الخط التالت للقطار الكهربائي السريع,High-Speed Rail Line 3,transit_line,REGIONAL,under_construction,,
+TRANSIT-LRT,القطار الكهربائي الخفيف,Light Rail Transit,transit_line,EAST,operational,LRT,
+TRANSIT-METRO-L1,الخط الأول,Cairo Metro Line 1,transit_line,CENTRAL,operational,حلوان–المرج|خط حلوان المرج|Helwan-ElMarg Railway,
+TRANSIT-METRO-L1-EXT,امتداد الخط الأول لشبين القناطر,Metro Line 1 Extension to Shibin El Qanater,transit_line,NORTH,planned,مد الخط الأول للمترو لشبين القناطر,
+TRANSIT-METRO-L2,الخط التاني,Cairo Metro Line 2,transit_line,CENTRAL,operational,شبرا–الجيزة|El-Mounib - Shubra El-Kheima,
+TRANSIT-METRO-L2-EXT,امتداد الخط الثاني للطريق الدائري,Metro Line 2 Extension to Ring Road,transit_line,NORTH,planned,مد الخط الثاني من شبرا الخيمة|امتداد الخط الثاني لقليوب,
+TRANSIT-METRO-L3,الخط التالت,Cairo Metro Line 3,transit_line,CENTRAL,operational,عدلي منصور–الكيت كات|Line 3|Line 3 Extension,
+TRANSIT-METRO-L4,الخط الرابع,Cairo Metro Line 4,transit_line,WEST,under_construction,,
+TRANSIT-METRO-L6,الخط السادس,Cairo Metro Line 6,transit_line,CENTRAL,planned,,
+TRANSIT-MONORAIL-EAST,مونوريل شرق النيل,East Nile Monorail,transit_line,EAST,operational,المونوريل|المونوريل الشرقي,
+TRANSIT-MONORAIL-WEST,مونوريل غرب النيل,West Nile Monorail,transit_line,WEST,under_construction,المونوريل الغربي,
+TRANSIT-SUEZ-TRAIN,قطار السويس,Suez Train,transit_line,EAST,operational,,
+TRANSIT-SUPERJET,سوبر جيت,Super Jet,transit_line,EAST,operational,,
+STOP-M2-MOHAMED-NAGUIB,محمد نجيب,Mohamed Naguib Metro Station,transit_stop,CENTRAL,operational,محطة محمد نجيب|Mohammed Naguib Station|Mohamed Naguib Station,محطة الخط الثاني للمترو في وسط القاهرة؛ منفصلة عن محطة أحمد عمر هاشم المخططة للقطار السريع.
+STOP-SHUHADA,الشهداء,Al-Shohadaa Metro Station,transit_stop,CENTRAL,operational,Shuhada; Al Shohadaa; الشهداء,Operational metro station serving Lines 1 and 2; distinct from nearby Ramses railway station.
+AUTH-CAIRO-SOUTH-ZONE,المنطقة الجنوبية لمحافظة القاهرة,Cairo Governorate Southern Zone,authority,SOUTH,operational,المنطقة الجنوبية,التقسيم الإداري الجنوبي لمحافظة القاهرة ويضم 12 حيًا
+AUTH-NUCA-15-MAY,جهاز تنمية مدينة 15 مايو,15 May City Development Authority,authority,SOUTH,operational,جهاز مدينة 15 مايو,جهاز تابع لهيئة المجتمعات العمرانية الجديدة مسؤول عن تنمية مدينة 15 مايو ومناطقها الصناعية
+ROAD-HASABALLAH-EL-KAFRAWY,محور حسب الله الكفراوي,Hasaballah El Kafrawy Axis,road,SOUTH,operational,محور الكفراوي,محور يربط جنوب القاهرة (المعادي والأوتوستراد والدائري والأسمرات) بالمقطم وأحياء شرق القاهرة
+ROAD-YASSER-RIZK,محور ياسر رزق,Yasser Rizk Axis,road,SOUTH,operational,محور الهضبة,محور يبدأ من تقاطعه مع محور سميرة موسى ويمر بالأسمرات وكورنيش المقطم الجديد حتى صلاح سالم والأوتوستراد
+ROAD-SAMIRA-MOUSSA,محور د. سميرة موسى,Dr. Samira Moussa Axis,road,SOUTH,operational,محور سميرة موسى,محور يمر بمدخل الأسمرات ويربط أرض المعارض بالتجمع والقاهرة الجديدة
+ROAD-HADARAT-AXIS,محور الحضارات,El Hadarat Axis,road,SOUTH,operational,محور الحضارة,محور يربط كورنيش النيل عند قرية الفواخير بمصر القديمة وعين الصيرة بهضبة المقطم
+ROAD-SALAH-SALEM-ALT,محور صلاح سالم البديل,Alternative Salah Salem Axis,road,SOUTH,partial,محور صلاح سالم الجديد,محور بديل في نطاق مصر القديمة والخليفة بدأ تشغيله التجريبي في 2026
+ROAD-HELWAN-KORIMAT,طريق حلوان - الكريمات,Helwan-Korimat Road,road,SOUTH,operational,طريق حلوان الكريمات بني سويف الحر|طريق الأوتوستراد القاهرة الصف,الطريق الرابط بين التبين وامتداد الأوتوستراد عبر الصف حتى الكريمات وطريق الصعيد الحر
+BRIDGE-SOUTH-HELWAN,كوبري جنوب حلوان على النيل,South Helwan Nile Bridge,bridge,SOUTH,under_construction,كوبري القطار السريع جنوب حلوان,كوبري القطار الكهربائي السريع على النيل جنوب حلوان؛ أُعلن اكتمال إنشائه في 2025 والخط لم يُشغَّل بعد
+RAIL-HELWAN-HSR,محطة القاهرة بحلوان للقطار السريع,Cairo (Helwan) HSR Station,rail_station,SOUTH,under_construction,محطة القطار السريع بحلوان,محطة للقطار الكهربائي السريع بحلوان تخدم حلوان و15 مايو وجنوب القاهرة شرق النيل
+LINE-HELWAN-OLD-RAIL,خط سكة حديد القاهرة - حلوان القديم,Old Cairo-Helwan Railway Line,transit_line,SOUTH,unknown,سكة حديد حلوان القديم,خط تاريخي تحوّل مساره إلى الخط الأول للمترو عام 1987
+LANDMARK-NMEC,المتحف القومي للحضارة المصرية,National Museum of Egyptian Civilization (NMEC),landmark,SOUTH,operational,متحف الحضارة|NMEC,متحف قومي بالفسطاط يطل على بحيرة عين الصيرة ويضم قاعة المومياوات الملكية
+LANDMARK-EIN-EL-SIRA,بحيرة عين الصيرة,Ein El Sira Lake,landmark,SOUTH,operational,عين الصيرة,بحيرة ومتنزه مطور بمصر القديمة بجوار متحف الحضارة
+LANDMARK-MAGRA-EL-OYOUN,سور مجرى العيون,Magra El Oyoun Aqueduct,landmark,SOUTH,operational,مجرى العيون,سور أثري في نطاق مصر القديمة والسيدة زينب
+LANDMARK-JAPANESE-GARDEN-HELWAN,الحديقة اليابانية بحلوان,Helwan Japanese Garden,landmark,SOUTH,operational,الحديقة اليابانية,حديقة عامة على الطراز الآسيوي بحلوان أُنشئت عام 1919
+LANDMARK-ROKN-FAROUK,متحف ركن فاروق,Rokn Farouk Museum,landmark,SOUTH,operational,استراحة الملك فاروق بحلوان,استراحة ملكية تحولت لمتحف على كورنيش النيل بحلوان
+LANDMARK-WADI-DEGLA,محمية وادي دجلة,Wadi Degla Protectorate,landmark,SOUTH,operational,وادي دجلة,محمية طبيعية في جنوب القاهرة
+LANDMARK-FAWAKHIR-VILLAGE,قرية الفواخير,El Fawakhir Pottery Village,landmark,SOUTH,operational,قرية الفخار,قرية حرفية للفخار بمصر القديمة على محور الحضارة
+LANDMARK-RELIGIOUS-COMPLEX,مجمع الأديان بمصر القديمة,Religious Complex (Old Cairo),landmark,SOUTH,operational,القاهرة القبطية,منطقة أثرية تضم حصن بابليون والكنيسة المعلقة ومحيط جامع عمرو بن العاص
+LANDMARK-EL-TONSY-MARKET,سوق التونسي الحضاري,El Tonsy Market,landmark,SOUTH,operational,سوق التونسي الجديد,سوق حضاري بديل بعزبة النصر في حي البساتين
+LANDMARK-15-MAY-SLAUGHTERHOUSE,مجزر 15 مايو,15 May Slaughterhouse,landmark,SOUTH,operational,مجزر 15 مايو نصف الآلي,مجزر بمدينة 15 مايو يخدم أحياء المنطقة الجنوبية
+LANDMARK-HELWAN-IRON-STEEL,مجمع الحديد والصلب بحلوان,Helwan Iron and Steel Complex,landmark,SOUTH,unknown,شركة الحديد والصلب المصرية,أول مجمع متكامل للحديد والصلب في مصر؛ الشركة تحت التصفية مع دراسة لإعادة تشغيل جزئي
+DIST-SHAQ-EL-THOABAN,المنطقة الصناعية شق الثعبان,Shaq El Thoaban Industrial Zone,district,SOUTH,operational,شق الثعبان,منطقة صناعية للرخام والجرانيت بحي طره
+DIST-TEBBIN-INDUSTRIAL,المنطقة الصناعية بالتبين,El Tebbin Industrial Zone,district,SOUTH,operational,أرض البودرة|كفر العلو,منطقة صناعية بحي التبين
+DIST-15-MAY-INDUSTRIAL,المنطقة الصناعية بمدينة 15 مايو,15 May City Industrial Zone,district,SOUTH,operational,المنطقة الصناعية الأولى والثانية بـ15 مايو,منطقة صناعية داخل مدينة 15 مايو
+PROJ-FUSTAT-HILLS,مشروع حدائق تلال الفسطاط,Fustat Hills Park Project,project,SOUTH,under_construction,حدائق الفسطاط|تلال الفسطاط,أكبر مسطح أخضر في القاهرة التاريخية بمصر القديمة؛ في مرحلة التجهيز للتشغيل
+PROJ-MAGRA-EL-OYOUN,مشروع تطوير سور مجرى العيون,Magra El Oyoun Redevelopment Project,project,SOUTH,under_construction,تطوير منطقة المدابغ,مشروع تطوير عمراني بعد إزالة المدابغ والجيارة والجباسة
+PROJ-RAWDAT-EL-SAYEDA,مشروع روضة السيدة,Rawdat El Sayeda Project,project,SOUTH,partial,تل العقارب|روضة السيدة 2,مشروع إسكان بديل بالسيدة زينب اكتملت مرحلته الأولى وتجري المرحلة الثانية
+PROJ-ASMARAT,مشروع حي الأسمرات,El Asmarat Housing Project,project,SOUTH,operational,مدينة الأسمرات,مجتمع سكني بديل للمناطق غير الآمنة بالمقطم في ثلاث مراحل
+PROJ-EL-KHAYALA,مشروع إسكان أرض الخيالة,El Khayala Housing Project,project,SOUTH,operational,أرض الخيالة,مشروع إسكان بديل في جنوب القاهرة
+PROJ-ZOHOUR-15-MAY,مشروع زهور 15 مايو,Zohour 15 May Housing Project,project,SOUTH,under_construction,زهور مايو,مشروع سكن بديل بمدينة 15 مايو

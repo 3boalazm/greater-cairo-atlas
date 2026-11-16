@@ -4,9 +4,9 @@ A bilingual, source-backed urban and geographic atlas of Greater Cairo. The atla
 
 ## Current state
 
-Batches 15–17 brought the South research and reviewed South OSM geometry into the atlas and refined the search and map experience. Batch 18 is an unmerged data-integrity update. See [PROJECT_STATE.md](PROJECT_STATE.md), [the phase log](docs/CHANGELOG.md), and [methodology](METHODOLOGY.md).
+Batches 15–17 brought the South research and reviewed South OSM geometry into the atlas and refined the search and map experience. Batch 18 (PR #45) is merged; Batch 19 adds Central and unknown-status research without UI changes. See [PROJECT_STATE.md](PROJECT_STATE.md), [the phase log](docs/CHANGELOG.md), and [methodology](METHODOLOGY.md).
 
-The checked-in seed validates to **448 entities, 2,252 facts, 448 evidence records, 2,605 fact-evidence links, 194 relations and 2,983 features**. These are offline snapshot counts, not a measurement of the live database. CAPMAS COD-AB supplies 838 administrative units (75 ADM2, 763 ADM3), separately from the features table.
+The checked-in seed validates to **483 entities, 2,426 facts, 580 evidence records, 2,779 fact-evidence links, 194 relations and 2,983 features**. These are offline snapshot counts, not a measurement of the live database. CAPMAS COD-AB supplies 838 administrative units (75 ADM2, 763 ADM3), separately from the features table.
 
 ## Run and verify
 

@@ -31879,5 +31879,2441 @@
       "EV-S4-055"
     ],
     "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EGYPTIAN-MUSEUM-LOCATION-1",
+    "entity_code": "LANDMARK-EGYPTIAN-MUSEUM",
+    "attribute": "location",
+    "value": "ميدان التحرير",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-036"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EGYPTIAN-MUSEUM-MUMMIES-TRANSFERRED-TO-NMEC-1",
+    "entity_code": "LANDMARK-EGYPTIAN-MUSEUM",
+    "attribute": "mummies_transferred_to_nmec",
+    "value": "22",
+    "unit": "mummies",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EGYPTIAN-MUSEUM-TUTANKHAMUN-REGISTRATION-YEAR-1",
+    "entity_code": "LANDMARK-EGYPTIAN-MUSEUM",
+    "attribute": "tutankhamun_registration_year",
+    "value": "1934",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-CITADEL-INCLUDED-MONUMENTS-AND-MUSEUMS-1",
+    "entity_code": "LANDMARK-CAIRO-CITADEL",
+    "attribute": "included_monuments_and_museums",
+    "value": "جامع محمد علي، جامع الناصر محمد بن قلاوون، جامع سليمان باشا الخادم، متحف قصر الجوهرة، متحف الشرطة القومي، المتحف الحربي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-CITADEL-TICKET-EGYPTIAN-ADULT-1",
+    "entity_code": "LANDMARK-CAIRO-CITADEL",
+    "attribute": "ticket_egyptian_adult",
+    "value": "60",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-CITADEL-TICKET-EGYPTIAN-STUDENT-1",
+    "entity_code": "LANDMARK-CAIRO-CITADEL",
+    "attribute": "ticket_egyptian_student",
+    "value": "30",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-CITADEL-TICKET-FOREIGNER-ADULT-1",
+    "entity_code": "LANDMARK-CAIRO-CITADEL",
+    "attribute": "ticket_foreigner_adult",
+    "value": "550",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-CITADEL-TICKET-FOREIGNER-STUDENT-1",
+    "entity_code": "LANDMARK-CAIRO-CITADEL",
+    "attribute": "ticket_foreigner_student",
+    "value": "275",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-CITADEL-TOWERS-PUBLIC-OPENING-DECADE-1",
+    "entity_code": "LANDMARK-CAIRO-CITADEL",
+    "attribute": "towers_public_opening_decade",
+    "value": "ثمانينيات القرن العشرين (بعد التطوير كحديقة متحفية)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MUHAMMAD-ALI-MOSQUE-BUILT-YEAR-1",
+    "entity_code": "LANDMARK-MUHAMMAD-ALI-MOSQUE",
+    "attribute": "built_year",
+    "value": "1265هـ / 1848م",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MUHAMMAD-ALI-MOSQUE-LOCATION-AND-PATRON-1",
+    "entity_code": "LANDMARK-MUHAMMAD-ALI-MOSQUE",
+    "attribute": "location_and_patron",
+    "value": "داخل قلعة صلاح الدين الأيوبي، أمر بإنشائه محمد علي باشا",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-SULTAN-HASAN-ARCHITECTURAL-LAYOUT-1",
+    "entity_code": "LANDMARK-SULTAN-HASAN",
+    "attribute": "architectural_layout",
+    "value": "صحن أوسط مكشوف تتوسطه فوارة ويحيط به أربعة إيوانات",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-SULTAN-HASAN-CONSTRUCTION-PERIOD-1",
+    "entity_code": "LANDMARK-SULTAN-HASAN",
+    "attribute": "construction_period",
+    "value": "757هـ/1356م - 764هـ/1362م",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-SULTAN-HASAN-JOINT-TICKET-FOREIGNER-ADULT-1",
+    "entity_code": "LANDMARK-SULTAN-HASAN",
+    "attribute": "joint_ticket_foreigner_adult",
+    "value": "220",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-SULTAN-HASAN-LOCATION-1",
+    "entity_code": "LANDMARK-SULTAN-HASAN",
+    "attribute": "location",
+    "value": "نهاية شارع محمد علي أمام جامع الرفاعي بميدان صلاح الدين",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-RIFAI-MOSQUE-BUILT-CENTURY-1",
+    "entity_code": "LANDMARK-AL-RIFAI-MOSQUE",
+    "attribute": "built_century",
+    "value": "القرن التاسع عشر الميلادي (مقابل السلطان حسن بميدان صلاح الدين)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-RIFAI-MOSQUE-JOINT-TICKET-FOREIGNER-ADULT-1",
+    "entity_code": "LANDMARK-AL-RIFAI-MOSQUE",
+    "attribute": "joint_ticket_foreigner_adult",
+    "value": "220",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-RIFAI-MOSQUE-JOINT-TICKET-FOREIGNER-STUDENT-1",
+    "entity_code": "LANDMARK-AL-RIFAI-MOSQUE",
+    "attribute": "joint_ticket_foreigner_student",
+    "value": "110",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-RIFAI-MOSQUE-TICKET-EGYPTIAN-1",
+    "entity_code": "LANDMARK-AL-RIFAI-MOSQUE",
+    "attribute": "ticket_egyptian",
+    "value": "0",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-SALAH-EL-DIN-SQ-SURROUNDING-MONUMENTS-AND-STREETS-1",
+    "entity_code": "LANDMARK-SALAH-EL-DIN-SQ",
+    "attribute": "surrounding_monuments_and_streets",
+    "value": "باب العزب بقلعة صلاح الدين، مسجد المحمودية، مدرسة السلطان حسن، جامع الرفاعي؛ وتتفرع منه شوارع سوق السلاح وسكة المحجر والإمام الشافعي والأقدام",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-AZHAR-PARK-REGIONAL-CLASSIFICATION-1",
+    "entity_code": "LANDMARK-AL-AZHAR-PARK",
+    "attribute": "regional_classification",
+    "value": "الأكبر من نوعها في الشرق الأوسط",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-KHAN-EL-KHALILI-FOUNDED-YEAR-1",
+    "entity_code": "LANDMARK-KHAN-EL-KHALILI",
+    "attribute": "founded_year",
+    "value": "1382",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-046"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-KHAN-EL-KHALILI-FOUNDER-1",
+    "entity_code": "LANDMARK-KHAN-EL-KHALILI",
+    "attribute": "founder",
+    "value": "الأمير جركس الخليلي (أمير آخور السلطان برقوق)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-046"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-KHAN-EL-KHALILI-NEARBY-LANDMARKS-1",
+    "entity_code": "LANDMARK-KHAN-EL-KHALILI",
+    "attribute": "nearby_landmarks",
+    "value": "مسجد الإمام الحسين والجامع الأزهر (القاهرة القديمة / حي الحسين)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-035"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-MUIZZ-MONUMENTS-COUNT-CONFLICT-A-1",
+    "entity_code": "LANDMARK-AL-MUIZZ",
+    "attribute": "monuments_count_conflict_a",
+    "value": "29",
+    "unit": "monuments",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-046"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-MUIZZ-MONUMENTS-COUNT-CONFLICT-B-1",
+    "entity_code": "LANDMARK-AL-MUIZZ",
+    "attribute": "monuments_count_conflict_b",
+    "value": "34",
+    "unit": "monuments",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-045"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-MUIZZ-NAMED-YEAR-1",
+    "entity_code": "LANDMARK-AL-MUIZZ",
+    "attribute": "named_year",
+    "value": "1937",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-046"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-MUIZZ-UNESCO-WORLD-HERITAGE-LISTING-YEAR-1",
+    "entity_code": "LANDMARK-AL-MUIZZ",
+    "attribute": "unesco_world_heritage_listing_year",
+    "value": "1979",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-014"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BAB-ZUWEILA-BUILT-YEAR-1",
+    "entity_code": "LANDMARK-BAB-ZUWEILA",
+    "attribute": "built_year",
+    "value": "485هـ / 1092م",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BAB-ZUWEILA-RESTORATION-PERIOD-1",
+    "entity_code": "LANDMARK-BAB-ZUWEILA",
+    "attribute": "restoration_period",
+    "value": "1998 - 2003",
+    "unit": "year_range",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BAB-ZUWEILA-TICKET-EGYPTIAN-ADULT-1",
+    "entity_code": "LANDMARK-BAB-ZUWEILA",
+    "attribute": "ticket_egyptian_adult",
+    "value": "10",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BAB-ZUWEILA-TICKET-FOREIGNER-ADULT-1",
+    "entity_code": "LANDMARK-BAB-ZUWEILA",
+    "attribute": "ticket_foreigner_adult",
+    "value": "100",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-IBN-TULUN-MOSQUE-CONSTRUCTION-PERIOD-1",
+    "entity_code": "LANDMARK-IBN-TULUN-MOSQUE",
+    "attribute": "construction_period",
+    "value": "263هـ/876م - 265هـ/879م",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-031"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-IBN-TULUN-MOSQUE-LOCATION-1",
+    "entity_code": "LANDMARK-IBN-TULUN-MOSQUE",
+    "attribute": "location",
+    "value": "قمة جبل يشكر، شارع الصليبة بميدان أحمد بن طولون (السيدة زينب)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-031"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ISLAMIC-ART-MUSEUM-LAST-TICKET-TIME-1",
+    "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+    "attribute": "last_ticket_time",
+    "value": "16:00 (رمضان 14:00 وساعات العمل 09:00-15:00)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ISLAMIC-ART-MUSEUM-LOCATION-1",
+    "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+    "attribute": "location",
+    "value": "باب الخلق بجوار مبنى دار الكتب القومية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ISLAMIC-ART-MUSEUM-OPENED-YEAR-1",
+    "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+    "attribute": "opened_year",
+    "value": "1903",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ISLAMIC-ART-MUSEUM-TICKET-EGYPTIAN-ADULT-1",
+    "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+    "attribute": "ticket_egyptian_adult",
+    "value": "20",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ISLAMIC-ART-MUSEUM-TICKET-FOREIGNER-ADULT-1",
+    "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+    "attribute": "ticket_foreigner_adult",
+    "value": "340",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-COPTIC-MUSEUM-LOCATION-ARCHAEOLOGICAL-AREA-1",
+    "entity_code": "LANDMARK-COPTIC-MUSEUM",
+    "attribute": "location_archaeological_area",
+    "value": "الفسطاط (مصر القديمة)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-COPTIC-MUSEUM-LOCATION-COMPLEX-1",
+    "entity_code": "LANDMARK-COPTIC-MUSEUM",
+    "attribute": "location_complex",
+    "value": "مجمع الأديان بمصر القديمة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-COPTIC-MUSEUM-OPENED-YEAR-1",
+    "entity_code": "LANDMARK-COPTIC-MUSEUM",
+    "attribute": "opened_year",
+    "value": "1910",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-COPTIC-MUSEUM-TICKET-EGYPTIAN-ADULT-1",
+    "entity_code": "LANDMARK-COPTIC-MUSEUM",
+    "attribute": "ticket_egyptian_adult",
+    "value": "20",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-COPTIC-MUSEUM-TICKET-FOREIGNER-ADULT-1",
+    "entity_code": "LANDMARK-COPTIC-MUSEUM",
+    "attribute": "ticket_foreigner_adult",
+    "value": "280",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HANGING-CHURCH-LOCATION-1",
+    "entity_code": "LANDMARK-HANGING-CHURCH",
+    "attribute": "location",
+    "value": "فوق الحصن الروماني لبابليون بمصر القديمة (الفسطاط) بجوار المتحف القبطي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HANGING-CHURCH-RELIGIOUS-COMPLEX-1",
+    "entity_code": "LANDMARK-HANGING-CHURCH",
+    "attribute": "religious_complex",
+    "value": "ضمن مجمع الأديان بمصر القديمة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AMR-IBN-AL-AS-HISTORICAL-SIGNIFICANCE-1",
+    "entity_code": "LANDMARK-AMR-IBN-AL-AS",
+    "attribute": "historical_significance",
+    "value": "أقدم مسجد أقيم في مصر وإفريقيا بمصر القديمة (تغطية صلاة الجمعة بالعيد القومي للمحافظة)",
+    "unit": null,
+    "valid_as_of": "2026-07-11",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AMR-IBN-AL-AS-LOCATION-COMPLEX-1",
+    "entity_code": "LANDMARK-AMR-IBN-AL-AS",
+    "attribute": "location_complex",
+    "value": "مجمع الأديان بمصر القديمة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MANIAL-PALACE-ADDRESS-1",
+    "entity_code": "LANDMARK-MANIAL-PALACE",
+    "attribute": "address",
+    "value": "شارع السراي، المنيل (أمام كلية طب الأسنان)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MANIAL-PALACE-TICKET-EGYPTIAN-ADULT-PORTAL-CONFLICT-A-1",
+    "entity_code": "LANDMARK-MANIAL-PALACE",
+    "attribute": "ticket_egyptian_adult_portal_conflict_a",
+    "value": "60",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MANIAL-PALACE-TICKET-EGYPTIAN-ADULT-SUBPORTAL-CONFLICT-B-1",
+    "entity_code": "LANDMARK-MANIAL-PALACE",
+    "attribute": "ticket_egyptian_adult_subportal_conflict_b",
+    "value": "20",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MANIAL-PALACE-TICKET-FOREIGNER-ADULT-PORTAL-CONFLICT-A-1",
+    "entity_code": "LANDMARK-MANIAL-PALACE",
+    "attribute": "ticket_foreigner_adult_portal_conflict_a",
+    "value": "220",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MANIAL-PALACE-TICKET-FOREIGNER-ADULT-SUBPORTAL-CONFLICT-B-1",
+    "entity_code": "LANDMARK-MANIAL-PALACE",
+    "attribute": "ticket_foreigner_adult_subportal_conflict_b",
+    "value": "100",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MANIAL-PALACE-TOTAL-AREA-1",
+    "entity_code": "LANDMARK-MANIAL-PALACE",
+    "attribute": "total_area",
+    "value": "61711",
+    "unit": "m2",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-009"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-TOWER-FLOORS-1",
+    "entity_code": "LANDMARK-CAIRO-TOWER",
+    "attribute": "floors",
+    "value": "16",
+    "unit": "floors",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-TOWER-HEIGHT-1",
+    "entity_code": "LANDMARK-CAIRO-TOWER",
+    "attribute": "height",
+    "value": "187",
+    "unit": "m",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-TOWER-RENOVATION-2006-COST-1",
+    "entity_code": "LANDMARK-CAIRO-TOWER",
+    "attribute": "renovation_2006_cost",
+    "value": "15000000",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-OPERA-FACILITY-AND-MUSEUM-UPGRADE-STATUS-1",
+    "entity_code": "LANDMARK-CAIRO-OPERA",
+    "attribute": "facility_and_museum_upgrade_status",
+    "value": "جولات تفقدية ومتابعة لخطط تطوير مرافق الأوبرا وإعداد تصور متحفي جديد لمتحف الأوبرا",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-OPERA-LOCATION-1",
+    "entity_code": "LANDMARK-CAIRO-OPERA",
+    "attribute": "location",
+    "value": "جزيرة الزمالك",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-OPERA-PREDECESSOR-KHEDIVIAL-OPERA-OPENING-YEAR-1",
+    "entity_code": "LANDMARK-CAIRO-OPERA",
+    "attribute": "predecessor_khedivial_opera_opening_year",
+    "value": "1875 (تاريخ افتتاح دار الأوبرا المصرية الخديوية التاريخية؛ بينما يقع الصرح الحالي بجزيرة الزمالك)",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-OPERA-READINESS-AND-SERVICES-1",
+    "entity_code": "LANDMARK-CAIRO-OPERA",
+    "attribute": "readiness_and_services",
+    "value": "توجيهات وزارية برفع كفاءة الخدمات والوقوف على جاهزية المرافق بالمركز الثقافي القومي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-FISH-GARDEN-LOCATION-AND-TYPE-1",
+    "entity_code": "LANDMARK-FISH-GARDEN",
+    "attribute": "location_and_type",
+    "value": "حديقة الأسماك أو حديقة جبلاية الأسماك (تصنيف حدائق بالسياحة الترفيهية)",
+    "unit": null,
+    "valid_as_of": "2023-11-22",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-FISH-GARDEN-TREE-CONSERVATION-STATUS-1",
+    "entity_code": "LANDMARK-FISH-GARDEN",
+    "attribute": "tree_conservation_status",
+    "value": "أكدت وزارة الزراعة بعد معاينة ميدانية سلامة جميع أشجار حديقة الأسماك بالزمالك والتزامها بحماية التراث النباتي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HORREYA-PARK-LOCATION-AND-DISTRICT-1",
+    "entity_code": "LANDMARK-HORREYA-PARK",
+    "attribute": "location_and_district",
+    "value": "الجزيرة - الزمالك بجوار كوبري قصر النيل (نطاق حي غرب)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-030"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ABDEEN-PALACE-ARCHITECT-AND-HISTORICAL-COST-1",
+    "entity_code": "LANDMARK-ABDEEN-PALACE",
+    "attribute": "architect_and_historical_cost",
+    "value": "تصميم دي كوريل ديل روسو بتكلفة بناء 700 ألف جنيه وفرش 2 مليون جنيه وقت الإنشاء",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ABDEEN-PALACE-SEAT-OF-GOVERNMENT-PERIOD-1",
+    "entity_code": "LANDMARK-ABDEEN-PALACE",
+    "attribute": "seat_of_government_period",
+    "value": "1874 - 1952",
+    "unit": "year_range",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ATABA-SQUARE-HISTORICAL-ORIGIN-1",
+    "entity_code": "LANDMARK-ATABA-SQUARE",
+    "attribute": "historical_origin",
+    "value": "أُنشئ ضمن تخطيط القاهرة الخديوية في عهد الخديوي إسماعيل باسم ميدان العتبة الخضراء",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ATABA-SQUARE-SURROUNDING-WORKS-2025-1",
+    "entity_code": "LANDMARK-ATABA-SQUARE",
+    "attribute": "surrounding_works_2025",
+    "value": "أعمال تطوير جارية بالمحيط تشمل ميدان وجراج الأوبرا ومجمع المسارح وجراج العتبة وميدان العتبة (خبر منشور بمسار أخبار 2025 دون يوم أو شهر)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-HUSSEIN-MOSQUE-LOCATION-1",
+    "entity_code": "LANDMARK-AL-HUSSEIN-MOSQUE",
+    "attribute": "location",
+    "value": "حي الحسين بالقاهرة القديمة بجوار خان الخليلي والجامع الأزهر",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-035"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AZBAKEYA-GARDEN-HISTORICAL-ORIGIN-1",
+    "entity_code": "LANDMARK-AZBAKEYA-GARDEN",
+    "attribute": "historical_origin",
+    "value": "أُنشئت مكان بركة الأزبكية على هيئة حديقة لوكسمبورج الباريسية قبل ردمها وتحويلها إلى دكاكين وجراجات",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AZBAKEYA-GARDEN-REVIVAL-STATUS-CONTEXT-1",
+    "entity_code": "LANDMARK-AZBAKEYA-GARDEN",
+    "attribute": "revival_status_context",
+    "value": "تنفذ وزارة الإسكان أعمال إعادة إحياء حديقة بنطاق القاهرة الخديوية ضمن مشروعات القاهرة التاريخية (الموقع الموافق للأزبكية دون ورود الاسم صراحة في المقتطف)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-043"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AZBAKEYA-GARDEN-SURROUNDING-DEVELOPMENT-CONTEXT-1",
+    "entity_code": "LANDMARK-AZBAKEYA-GARDEN",
+    "attribute": "surrounding_development_context",
+    "value": "جولة محافظ القاهرة (أخبار 2025) لتفقد أعمال تطوير جارية بميدان وجراج الأوبرا ومجمع المسارح وميدان وجراج العتبة ومحيط الحديقة المجاورة (دون ورود اسم الأزبكية صراحة في المقتطف)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MASPERO-TRIANGLE-COMPLETED-UNITS-1",
+    "entity_code": "PROJ-MASPERO-TRIANGLE",
+    "attribute": "completed_units",
+    "value": "5700",
+    "unit": "units",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-040"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MASPERO-TRIANGLE-LATEST-MINISTERIAL-REVIEW-1",
+    "entity_code": "PROJ-MASPERO-TRIANGLE",
+    "attribute": "latest_ministerial_review",
+    "value": "اجتماع وزيرة الإسكان لمتابعة الموقف التنفيذي لتطوير مثلث ماسبيرو",
+    "unit": null,
+    "valid_as_of": "2026-03-24",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MASPERO-TRIANGLE-UNDER-CONSTRUCTION-UNITS-1",
+    "entity_code": "PROJ-MASPERO-TRIANGLE",
+    "attribute": "under_construction_units",
+    "value": "510",
+    "unit": "units",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-040"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-AHL-MISR-WALKWAY-EXECUTIVE-FOLLOW-UP-1",
+    "entity_code": "PROJ-AHL-MISR-WALKWAY",
+    "attribute": "executive_follow_up",
+    "value": "استعراض رئيس الوزراء الموقف التنفيذي لممشى أهل مصر بمراحله المتعددة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-AHL-MISR-WALKWAY-PHASE-1-SCOPE-1",
+    "entity_code": "PROJ-AHL-MISR-WALKWAY",
+    "attribute": "phase_1_scope",
+    "value": "من كوبري 15 مايو حتى كوبري أكتوبر: مسار موازٍ للنيل بمتوسط عرض 6.5م، 19 مبنى (62 محلًا و5 كافتيريات و5 مطاعم)، 3 مدرجات، مسرح، و3 جراجات",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-037"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-AHL-MISR-WALKWAY-PHASE-2-SCOPE-1",
+    "entity_code": "PROJ-AHL-MISR-WALKWAY",
+    "attribute": "phase_2_scope",
+    "value": "من كوبري قصر النيل حتى كوبري إمبابة: تطوير كورنيش بطول 3.2 كم وممشى متدرج بطول 4 كم و19 مبنى و9 مدرجات ومسرحين",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-037"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-AHL-MISR-WALKWAY-PHASE-3-SCOPE-1",
+    "entity_code": "PROJ-AHL-MISR-WALKWAY",
+    "attribute": "phase_3_scope",
+    "value": "قطاعان: من كوبري تحيا مصر إلى كوبري الساحل، ومن كوبري قصر النيل إلى كوبري قصر العيني",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-037"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-HISTORIC-CAIRO-ESTIMATED-PROGRAM-COST-MIN-1",
+    "entity_code": "PROJ-HISTORIC-CAIRO",
+    "attribute": "estimated_program_cost_min",
+    "value": "22000000000",
+    "unit": "EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-044"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-HISTORIC-CAIRO-MONUMENT-ADAPTIVE-REUSE-1",
+    "entity_code": "PROJ-HISTORIC-CAIRO",
+    "attribute": "monument_adaptive_reuse",
+    "value": "إعادة النبض للمباني الأثرية الصامتة عبر إعادة توظيفها وتحويلها لمقاصد سياحية عالمية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-067"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-HISTORIC-CAIRO-REHOUSING-AND-REUSE-STRATEGY-1",
+    "entity_code": "PROJ-HISTORIC-CAIRO",
+    "attribute": "rehousing_and_reuse_strategy",
+    "value": "إنجاز نموذج إعادة تسكين الأسر في منطقة درب اللبانة بالقاهرة التاريخية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-048"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-KHEDIVIAL-CAIRO-FUNCTIONAL-TRANSFORMATION-GOAL-1",
+    "entity_code": "PROJ-KHEDIVIAL-CAIRO",
+    "attribute": "functional_transformation_goal",
+    "value": "تحويل مناطق القاهرة الخديوية إلى مناطق فنادق وجذب سياحي وعمراني",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-044"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-KHEDIVIAL-CAIRO-GEOGRAPHIC-SCOPE-1",
+    "entity_code": "PROJ-KHEDIVIAL-CAIRO",
+    "attribute": "geographic_scope",
+    "value": "يشمل منطقة وسط البلد وميدان التحرير",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-041"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-KHEDIVIAL-CAIRO-SCOPE-SQUARES-AND-FACADES-1",
+    "entity_code": "PROJ-KHEDIVIAL-CAIRO",
+    "attribute": "scope_squares_and_facades",
+    "value": "مشروع تطوير ميداني طلعت حرب ومصطفى كامل ويشمل تطوير واجهات عدد 30 (انقطع التمييز العددي بعد الرقم بالمقتطف)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-047"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ATABA-MARKET-DEVELOPMENT-PLAN-1",
+    "entity_code": "PROJ-ATABA-MARKET",
+    "attribute": "development_plan",
+    "value": "مدرج بعناوين النشر الرسمية ضمن خطة الحكومة لتحويل الأسواق التاريخية والعشوائية إلى مراكز حضارية وتجارية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-043"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MINISTRIES-RELOCATION-RELOCATION-STATUS-1",
+    "entity_code": "PROJ-MINISTRIES-RELOCATION",
+    "attribute": "relocation_status",
+    "value": "بدأت الدولة بالفعل في نقل الوزارات والهيئات الحكومية والسفارات إلى العاصمة الجديدة لتخفيف الضغط عن القاهرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-052"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MINISTRIES-RELOCATION-VACATED-BUILDINGS-REUSE-1",
+    "entity_code": "PROJ-MINISTRIES-RELOCATION",
+    "attribute": "vacated_buildings_reuse",
+    "value": "تحويل نطاق القاهرة الخديوية إلى مناطق فنادق وجذب سياحي وعمراني بالتوازي مع خطة نقل الوزارات",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-044"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MOGAMMA-REUSE-ORIGINAL-ARCHITECT-1",
+    "entity_code": "PROJ-MOGAMMA-REUSE",
+    "attribute": "original_architect",
+    "value": "د.م محمد كمال إسماعيل",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-036"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MOGAMMA-REUSE-TENDERING-AND-AWARD-STATUS-1",
+    "entity_code": "PROJ-MOGAMMA-REUSE",
+    "attribute": "tendering_and_award_status",
+    "value": "طُرح طرحًا تنافسيًا كأصل غير مستغل وتقدم له تحالف دولي من مجموعة شركات عالمية وتمت الترسية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-054"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-ABDEL-MONEIM-RIAD-CTA-BUS-OPERATIONS-1",
+    "entity_code": "TRANSIT-ABDEL-MONEIM-RIAD",
+    "attribute": "cta_bus_operations",
+    "value": "تشغيل خط جديد لهيئة النقل العام بالقاهرة من موقف عبد المنعم رياض الذي يُعد من المواقف الرئيسية (مصدر إخباري)",
+    "unit": null,
+    "valid_as_of": "2023-08-29",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-C5-056"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-ABDEL-MONEIM-RIAD-MANAGEMENT-REFORM-1",
+    "entity_code": "TRANSIT-ABDEL-MONEIM-RIAD",
+    "attribute": "management_reform",
+    "value": "إعلان محافظ القاهرة بدء تنفيذ منظومة جديدة لإدارة وتشغيل الموقف بإشراك القطاع الخاص (مصدر إخباري)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-055"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-ABDEL-MONEIM-RIAD-OPERATIONAL-STATUS-1",
+    "entity_code": "TRANSIT-ABDEL-MONEIM-RIAD",
+    "attribute": "operational_status",
+    "value": "يعمل الموقف وتفقد محافظ القاهرة تطبيق التعريفة الجديدة للركوب به (مصدر إخباري)",
+    "unit": null,
+    "valid_as_of": "2026-03-10",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-C5-058"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-ABDEL-MONEIM-RIAD-REDEVELOPMENT-PROJECT-1",
+    "entity_code": "TRANSIT-ABDEL-MONEIM-RIAD",
+    "attribute": "redevelopment_project",
+    "value": "عمل جارٍ على مشروع تطوير موقف عبد المنعم رياض بوسط البلد (مصدر إخباري)",
+    "unit": null,
+    "valid_as_of": "2026-04-19",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-057"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-TORGOMAN-TERMINAL-AREA-1",
+    "entity_code": "TRANSIT-TORGOMAN-TERMINAL",
+    "attribute": "area",
+    "value": "52000",
+    "unit": "m2",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-TORGOMAN-TERMINAL-CAPACITY-CARS-1",
+    "entity_code": "TRANSIT-TORGOMAN-TERMINAL",
+    "attribute": "capacity_cars",
+    "value": "2700",
+    "unit": "cars",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-TORGOMAN-TERMINAL-CAPACITY-PUBLIC-BUSES-1",
+    "entity_code": "TRANSIT-TORGOMAN-TERMINAL",
+    "attribute": "capacity_public_buses",
+    "value": "60",
+    "unit": "buses",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-TORGOMAN-TERMINAL-OPERATOR-AND-VENDOR-ENFORCEMENT-1",
+    "entity_code": "TRANSIT-TORGOMAN-TERMINAL",
+    "attribute": "operator_and_vendor_enforcement",
+    "value": "تعاقد محافظة القاهرة مع الترجمان جروب المنفذة لمشروع الجراج مع حملات لإزالة الباعة الجائلين حول موقف الترجمان (مصدر إخباري)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MASPERO-RIVER-PIER-HISTORICAL-RIVER-BUS-OPERATION-1",
+    "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+    "attribute": "historical_river_bus_operation",
+    "value": "تنظيم إدارة الأتوبيس النهري رحلات وإقبال كثيف على مرسى ماسبيرو في أول أيام عيد الأضحى (مصدر إخباري)",
+    "unit": null,
+    "valid_as_of": "2018-08-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MASPERO-RIVER-PIER-PRECAUTIONARY-CLOSURE-INSPECTION-1",
+    "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+    "attribute": "precautionary_closure_inspection",
+    "value": "تفقد محافظ القاهرة إجراءات غلق مرسى ماسبيرو النهري وتطبيق تدابير منع التجمعات بالتزامن مع غلق الحدائق دون مصدر أحدث لتأكيد إعادة التشغيل (مصدر إخباري)",
+    "unit": null,
+    "valid_as_of": "2020-07-31",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-063"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AL-AZHAR-TUNNEL-CONTRACTOR-ARAB-CONTRACTORS-1",
+    "entity_code": "ROAD-AL-AZHAR-TUNNEL",
+    "attribute": "contractor_arab_contractors",
+    "value": "شركة المقاولون العرب (مدرج بصفحة مشروعات الشركة المنفذة)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-C5-066"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AL-AZHAR-TUNNEL-CONTRACTOR-WITH-FRENCH-FIRMS-1",
+    "entity_code": "ROAD-AL-AZHAR-TUNNEL",
+    "attribute": "contractor_with_french_firms",
+    "value": "شركة المقاولون العرب بالتعاون مع مجموعة من الشركات الفرنسية المتخصصة (مصدر ثانوي)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-065"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AL-AZHAR-TUNNEL-LENGTH-PER-BORE-1",
+    "entity_code": "ROAD-AL-AZHAR-TUNNEL",
+    "attribute": "length_per_bore",
+    "value": "2.7",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-065"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-AL-AZHAR-TUNNEL-VENTILATION-AND-SAFETY-INFRASTRUCTURE-1",
+    "entity_code": "ROAD-AL-AZHAR-TUNNEL",
+    "attribute": "ventilation_and_safety_infrastructure",
+    "value": "نفقان متوازيان يربطان وسط القاهرة بالمناطق الجنوبية والشمالية مع محطات تهوية في صلاح سالم والحسين وبورسعيد والعتبة ومخارج طوارئ كل 100م ومبنى تحكم بجوهر القائد (مصدر ثانوي)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-065"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-TAHRIR-SURROUNDING-LANDMARKS-AND-TRANSIT-1",
+    "entity_code": "DIST-TAHRIR",
+    "attribute": "surrounding_landmarks_and_transit",
+    "value": "المتحف المصري، الجامعة الأمريكية، مجمع التحرير، جامعة الدول العربية، مسجد وجراج عمر مكرم، ومحطة مترو السادات (الخطين الأول والثاني)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-036"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-TAHRIR-URBAN-SCOPE-1",
+    "entity_code": "DIST-TAHRIR",
+    "attribute": "urban_scope",
+    "value": "أحد محاور نطاق القاهرة الخديوية ووسط البلد",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-041"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-FUSTAT-HILLS-PM-INSPECTION-STATUS-1",
+    "entity_code": "PROJ-FUSTAT-HILLS",
+    "attribute": "pm_inspection_status",
+    "value": "تفقد رئيس مجلس الوزراء معدلات الإنجاز وسير العمل بالمشروع",
+    "unit": null,
+    "valid_as_of": "2026-06-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-049"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EIN-EL-SIRA-CABINET-FOLLOW-UP-1",
+    "entity_code": "LANDMARK-EIN-EL-SIRA",
+    "attribute": "cabinet_follow_up",
+    "value": "ضمن استعراض رئيس الوزراء للموقف التنفيذي للمشروعات مع ممشى أهل مصر وحديقة الفسطاط",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EIN-EL-SIRA-PROJECT-TYPE-AND-STATUS-1",
+    "entity_code": "LANDMARK-EIN-EL-SIRA",
+    "attribute": "project_type_and_status",
+    "value": "تطوير بحيرة عين الصيرة والمتنزه الحضاري الكبير بجانب مشروعات سور مجرى العيون والمدابغ",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MAGRA-EL-OYOUN-LATEST-MINISTERIAL-REVIEW-1",
+    "entity_code": "PROJ-MAGRA-EL-OYOUN",
+    "attribute": "latest_ministerial_review",
+    "value": "اجتماع وزيرة الإسكان لمتابعة الموقف التنفيذي لمشروع سور مجرى العيون",
+    "unit": null,
+    "valid_as_of": "2026-03-24",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MAGRA-EL-OYOUN-TANNERIES-AND-AQUEDUCT-REDEVELOPMENT-1",
+    "entity_code": "PROJ-MAGRA-EL-OYOUN",
+    "attribute": "tanneries_and_aqueduct_redevelopment",
+    "value": "تطوير سور مجرى العيون ومنطقة المدابغ ضمن مشروعات تطوير القاهرة التاريخية والإسلامية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MAGRA-EL-OYOUN-TANNERIES-CONFERENCE-REFERENCE-1",
+    "entity_code": "PROJ-MAGRA-EL-OYOUN",
+    "attribute": "tanneries_conference_reference",
+    "value": "إشارة رئيس الوزراء إلى منطقة المدابغ والإنتاج بها خلال منتدى مصر 2026",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-C5-053"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-MAGRA-EL-OYOUN-UNIT-HANDOVER-MILESTONE-1",
+    "entity_code": "PROJ-MAGRA-EL-OYOUN",
+    "attribute": "unit_handover_milestone",
+    "value": "تفقد رئيس الوزراء مشروع أرابيسك بسور مجرى العيون وتسليم عقود عدد من الوحدات",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-CENTRAL-SECTOR-INTERCHANGES-AND-PHASE-2-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "central_sector_interchanges_and_phase_2",
+    "value": "تبادل الخدمة مع الخط الأول بالملك الصالح، وبدء تنفيذ المرحلة الثانية (الفسطاط - القاهرة الجديدة) بطول 26.9 كم و21 محطة وتبادل مع الخط السادس بالسيدة عائشة (مصدر إخباري)",
+    "unit": null,
+    "valid_as_of": "2026-11-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-C5-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-TOTAL-LINE-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "total_line_length",
+    "value": "101",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-062"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L4-TOTAL-STATIONS-2",
+    "entity_code": "TRANSIT-METRO-L4",
+    "attribute": "total_stations",
+    "value": "56",
+    "unit": "stations",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-C5-062"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-DISTINCT-FROM-ROD-EL-FARAG-WARRAQ-BRIDGE-OPENED-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "distinct_from_rod_el_farag_warraq_bridge_opened",
+    "value": "2019-05-15",
+    "unit": "date",
+    "valid_as_of": "2019-05-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-EXPANSION-BRIDGE-LENGTH-KM-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "expansion_bridge_length_km",
+    "value": "2.25",
+    "unit": "km",
+    "valid_as_of": "2026-01-05",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-EXPANSION-STATUS-NEWS-UPDATE-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "expansion_status_news_update",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-06-19",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-U6-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-EXPANSION-STATUS-OFFICIAL-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "expansion_status_official",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-01-05",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-ORIGINAL-BRIDGE-LENGTH-KM-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "original_bridge_length_km",
+    "value": "2.2",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-ORIGINAL-BRIDGE-WIDTH-M-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "original_bridge_width_m",
+    "value": "45",
+    "unit": "m",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-PLANNED-COMPLETION-CLAIM-2024-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "planned_completion_claim_2024",
+    "value": "أبريل 2024",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-RING-NORTH-WARRAQ-TARGET-LANES-PER-DIRECTION-1",
+    "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+    "attribute": "target_lanes_per_direction",
+    "value": "8",
+    "unit": "lanes_per_direction",
+    "valid_as_of": "2026-06-19",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-U6-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MOSTAKBAL-LISTED-SUBDEVELOPMENTS-1",
+    "entity_code": "CITY-MOSTAKBAL",
+    "attribute": "listed_subdevelopments",
+    "value": "مشروعات سكنية وتجارية متعددة قيد التسويق والتطوير (منها بلوم فيلدز ومول فيا مونتينابوليوني)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-U6-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MOSTAKBAL-LOCATION-BOUNDARY-1",
+    "entity_code": "CITY-MOSTAKBAL",
+    "attribute": "location_boundary",
+    "value": "الطريق الدائري الأوسطي شرق القاهرة الجديدة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-009"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MOSTAKBAL-MASTER-DEVELOPER-1",
+    "entity_code": "CITY-MOSTAKBAL",
+    "attribute": "master_developer",
+    "value": "شركة ميدار للاستثمار والتنمية العمرانية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MOSTAKBAL-TOTAL-AREA-FEDDAN-1",
+    "entity_code": "CITY-MOSTAKBAL",
+    "attribute": "total_area_feddan",
+    "value": "11000",
+    "unit": "feddan",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HADAEK-ASHGAR-METRO-LINE4-PHASE1-LENGTH-KM-1",
+    "entity_code": "DIST-HADAEK-ASHGAR",
+    "attribute": "metro_line4_phase1_length_km",
+    "value": "19",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-083"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HADAEK-ASHGAR-METRO-LINE4-STATION-AND-DEPOT-STATUS-1",
+    "entity_code": "DIST-HADAEK-ASHGAR",
+    "attribute": "metro_line4_station_and_depot_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HADAEK-ASHGAR-OFFICIAL-NEIGHBORHOOD-NAME-VARIANT-1",
+    "entity_code": "DIST-HADAEK-ASHGAR",
+    "attribute": "official_neighborhood_name_variant",
+    "value": "حي الأشجار (تقاطع طريق الواحات مع الطريق الدائري) / منطقة حدائق الأشجار",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-HADAEK-ASHGAR-PLANNED-LINE4-PHASE3-TO-HOSARY-KM-1",
+    "entity_code": "DIST-HADAEK-ASHGAR",
+    "attribute": "planned_line4_phase3_to_hosary_km",
+    "value": "16.3",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-MANSOURIYA-ADMINISTRATIVE-AFFILIATION-1",
+    "entity_code": "DIST-MANSOURIYA",
+    "attribute": "administrative_affiliation",
+    "value": "قرية المنصورية والوحدة المحلية بالمنصورية – مركز منشأة القناطر – محافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-MANSOURIYA-MANSOURIYA-CORRIDOR-LENGTH-KERDASA-KM-1",
+    "entity_code": "DIST-MANSOURIYA",
+    "attribute": "mansouriya_corridor_length_kerdasa_km",
+    "value": "8",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-MANSOURIYA-MANSOURIYA-CORRIDOR-TARGET-WIDTH-M-1",
+    "entity_code": "DIST-MANSOURIYA",
+    "attribute": "mansouriya_corridor_target_width_m",
+    "value": "35",
+    "unit": "m",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-MANSOURIYA-SANITATION-PROJECT-FOLLOWUP-1",
+    "entity_code": "DIST-MANSOURIYA",
+    "attribute": "sanitation_project_followup",
+    "value": "متابعة ميدانية لمشروع الصرف الصحي بقرية المنصورية (مايو 2024)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ADDED-LANDS-REGULARIZATION-COVERED-GREATER-CAIRO-CITIES-1",
+    "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+    "attribute": "covered_greater_cairo_cities",
+    "value": "الشيخ زايد، سفنكس الجديدة، الشروق، العبور الجديدة، السادس من أكتوبر، وأكتوبر (انقطع النص الرسمي عند هذه الكلمة)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ADDED-LANDS-REGULARIZATION-NEW-OBOUR-ALLOCATED-PLOTS-1",
+    "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+    "attribute": "new_obour_allocated_plots",
+    "value": "1168",
+    "unit": "plots",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-036"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ADDED-LANDS-REGULARIZATION-NEW-OBOUR-HANDOVER-PLOTS-OCT-2026-1",
+    "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+    "attribute": "new_obour_handover_plots_oct_2026",
+    "value": "842",
+    "unit": "plots",
+    "valid_as_of": "2026-10-19",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-030"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ADDED-LANDS-REGULARIZATION-NEW-OBOUR-REGULARIZATION-DEADLINE-1",
+    "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+    "attribute": "new_obour_regularization_deadline",
+    "value": "2026-10-07",
+    "unit": "date",
+    "valid_as_of": "2026-10-07",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-ADDED-LANDS-REGULARIZATION-SHOROUK-RABIA-PUBLIC-LOTTERY-NUMBER-1",
+    "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+    "attribute": "shorouk_rabia_public_lottery_number",
+    "value": "17",
+    "unit": "lottery_batch",
+    "valid_as_of": "2026-10-01",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-031"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-GIZA-PAVING-LINK-LENGTH-KM-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "giza_paving_link_length_km",
+    "value": "4",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-037"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-GIZA-WIDENING-WIDTH-M-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "giza_widening_width_m",
+    "value": "11.5",
+    "unit": "m",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-OFFICIAL-NAME-VARIANTS-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "official_name_variants",
+    "value": "طريق القاهرة–أسيوط الزراعي / طريق مصر أسيوط الزراعي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-DAHSHUR-LINK-HOMONYM-BADRASHEEN-LOCAL-ROAD-WIDTH-M-1",
+    "entity_code": "ROAD-DAHSHUR-LINK",
+    "attribute": "homonym_badrasheen_local_road_width_m",
+    "value": "4",
+    "unit": "m",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-046"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-DAHSHUR-LINK-ONGOING-WORKS-1",
+    "entity_code": "ROAD-DAHSHUR-LINK",
+    "attribute": "ongoing_works",
+    "value": "صيانة الأرصفة واستكمال تطوير وصلة دهشور بمدينة 6 أكتوبر",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-041"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-DAHSHUR-LINK-SOUTHERN-DAHSHUR-LINK-LENGTH-KM-1",
+    "entity_code": "ROAD-DAHSHUR-LINK",
+    "attribute": "southern_dahshur_link_length_km",
+    "value": "13",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MARYUTEYA-CANAL-COVERING-PHASE3-STATUS-1",
+    "entity_code": "ROAD-MARYUTEYA",
+    "attribute": "canal_covering_phase3_status",
+    "value": "افتتاح المرحلة الثالثة من تطوير وتغطية ترعة المريوطية وتشغيل المواقف أعلاها، وبلوغ القطاع الأخير عند الدائري",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MARYUTEYA-MARYOUTEYA-AXIS-OFFICIAL-REFERENCE-1",
+    "entity_code": "ROAD-MARYUTEYA",
+    "attribute": "maryouteya_axis_official_reference",
+    "value": "إدراج محور المريوطية – الطريق الدائري ضمن جولة وزير النقل لمونوريل غرب النيل",
+    "unit": null,
+    "valid_as_of": "2026-04-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-047"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MARYUTEYA-NEW-MARYOUTEYA-AXIS-PHASE1-LENGTH-KM-1",
+    "entity_code": "ROAD-MARYUTEYA",
+    "attribute": "new_maryouteya_axis_phase1_length_km",
+    "value": "20",
+    "unit": "km",
+    "valid_as_of": "2026-03-28",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MARYUTEYA-NEW-MARYOUTEYA-AXIS-PHASE1-STATUS-1",
+    "entity_code": "ROAD-MARYUTEYA",
+    "attribute": "new_maryouteya_axis_phase1_status",
+    "value": "under_construction",
+    "unit": null,
+    "valid_as_of": "2026-03-28",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MARYUTEYA-SERVICE-HUB-AREA-M2-1",
+    "entity_code": "ROAD-MARYUTEYA",
+    "attribute": "service_hub_area_m2",
+    "value": "16000",
+    "unit": "m2",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-077"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MBZ-NORTH-CORRIDOR-ENDPOINTS-1",
+    "entity_code": "ROAD-MBZ-NORTH",
+    "attribute": "corridor_endpoints",
+    "value": "من الطريق الدائري الأوسطي إلى الطريق الدائري الإقليمي بالعاصمة الإدارية الجديدة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-054"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MBZ-NORTH-TRAFFIC-STATUS-1",
+    "entity_code": "ROAD-MBZ-NORTH",
+    "attribute": "traffic_status",
+    "value": "operational",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-U6-055"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-WESTERN-DESERT-BRT-PHASE2-INTEGRATION-1",
+    "entity_code": "ROAD-WESTERN-DESERT",
+    "attribute": "brt_phase2_integration",
+    "value": "ربط محطة الأتوبيس الترددي على طريق الفيوم وطريق الصعيد الصحراوي الغربي (الرابط يحمل project-25-09-2026)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-057"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-WESTERN-DESERT-CAIRO-MINYA-INAUGURATION-MONTH-1",
+    "entity_code": "ROAD-WESTERN-DESERT",
+    "attribute": "cairo_minya_inauguration_month",
+    "value": "ديسمبر 2021",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-WESTERN-DESERT-CAIRO-MINYA-SECTION-LENGTH-KM-1",
+    "entity_code": "ROAD-WESTERN-DESERT",
+    "attribute": "cairo_minya_section_length_km",
+    "value": "230",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-058"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-WESTERN-DESERT-LANES-PER-DIRECTION-UPGRADED-1",
+    "entity_code": "ROAD-WESTERN-DESERT",
+    "attribute": "lanes_per_direction_upgraded",
+    "value": "6",
+    "unit": "lanes_per_direction",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-058"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-WESTERN-DESERT-TOTAL-CORRIDOR-PROJECT-LENGTH-KM-MPED-1",
+    "entity_code": "ROAD-WESTERN-DESERT",
+    "attribute": "total_corridor_project_length_km_mped",
+    "value": "1126",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-WESTERN-DESERT-TOTAL-CORRIDOR-PROJECT-LENGTH-KM-PRESIDENCY-1",
+    "entity_code": "ROAD-WESTERN-DESERT",
+    "attribute": "total_corridor_project_length_km_presidency",
+    "value": "1155",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-058"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-WESTERN-DESERT-UPPER-EGYPT-ASSIUT-LUXOR-PLANNED-KM-1",
+    "entity_code": "ROAD-WESTERN-DESERT",
+    "attribute": "upper_egypt_assiut_luxor_planned_km",
+    "value": "336",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-CURRENT-SURFACE-USE-MAIN-ALIGNMENT-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "current_surface_use_main_alignment",
+    "value": "أُدمج الخط الجنوبي (حلوان – باب اللوق 1872) في الخط الأول لمترو الأنفاق منذ 1987، وأُزيل الجزء السطحي حتى باب اللوق لصالح النفق",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-U6-063"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-PLANNED-ROBIKI-TEBBIN-FREIGHT-LINE-COST-MILLION-EGP-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "planned_robiki_tebbin_freight_line_cost_million_egp",
+    "value": "620",
+    "unit": "million_EGP",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-067"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-SURVIVING-FREIGHT-RAIL-TEBBIN-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "surviving_freight_rail_tebbin",
+    "value": "تشغيل قطارات بضائع سطحية تمر بالتبين (قليوب – الواحات)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-066"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-TEBBIN-RAIL-TOPONYM-OFFICIAL-REGISTRY-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "tebbin_rail_toponym_official_registry",
+    "value": "تثبيت المسمى المكاني «التبين البحري – السكة الحديد – حلوان» في قيد السجل التجاري",
+    "unit": null,
+    "valid_as_of": "2024-09-29",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-CONFLICTING-LAND-SALE-PLAN-2021-M2-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "conflicting_land_sale_plan_2021_m2",
+    "value": "6000000",
+    "unit": "m2",
+    "valid_as_of": "2021-01-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-073"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-CONFLICTING-LAND-USE-PROPOSAL-2021-OFFICIAL-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "conflicting_land_use_proposal_2021_official",
+    "value": "تحويل أراضي المصنع إلى نشاط عقاري",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-070"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-CONFLICTING-LAND-USE-STUDY-2025-FEDDAN-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "conflicting_land_use_study_2025_feddan",
+    "value": "300",
+    "unit": "feddan",
+    "valid_as_of": "2025-08-24",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-CURRENT-PLANNED-LAND-USE-2026-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "current_planned_land_use_2026",
+    "value": "إعادة تخطيط المنطقة (أرض الحديد والصلب – الكوك) لإقامة أنشطة صديقة للبيئة بتعليمات رئاسة الجمهورية",
+    "unit": null,
+    "valid_as_of": "2026-05-03",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-069"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LAND-DISPOSAL-AND-VALUATION-STATUS-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "land_disposal_and_valuation_status",
+    "value": "لم يتم تقييم أو التصرف في أي من أراضي الشركة حتى تاريخه (عدا تمكين تسجيل بيع قديم لمصانع النحاس يعود لعام 2010 بمساحة 132,616 م²)",
+    "unit": null,
+    "valid_as_of": "2026-05-03",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-069"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LEGAL-STATUS-AS-OF-AGM-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "legal_status_as_of_agm",
+    "value": "تحت التصفية (انقضاء الجمعية العامة في 2026-04-29؛ دون نقل تبعية ودون تعاقدات جديدة منذ 2026-01-01)",
+    "unit": null,
+    "valid_as_of": "2026-05-03",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-U6-069"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LIQUIDATION-DECISION-MONTH-CONFLICTING-ARTICLE-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "liquidation_decision_month_conflicting_article",
+    "value": "يناير 2020",
+    "unit": null,
+    "valid_as_of": "2025-08-24",
+    "valid_as_of_precision": "day",
+    "verification_state": "candidate",
+    "evidence_codes": [
+      "EV-U6-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LIQUIDATION-DECISION-MONTH-CONTEMPORANEOUS-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "liquidation_decision_month_contemporaneous",
+    "value": "يناير 2021",
+    "unit": null,
+    "valid_as_of": "2021-01-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-U6-073"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-SPUN-OFF-MINING-COMPANY-EGX-ACTIVE-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "spun_off_mining_company_egx_active",
+    "value": "الحديد والصلب للمناجم والمحاجر متداولة بالبورصة المصرية (اسم ملف النشرة الرسمية 31-Oct-2026)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-U6-071"
+    ],
+    "notes": null
   }
 ]

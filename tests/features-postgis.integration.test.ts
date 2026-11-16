@@ -9,6 +9,8 @@ import {
   REGIONAL_RING_ROAD_GEOMETRY_BBOX,
 } from "@/lib/atlas/features";
 import { runSeedImport } from "@/lib/atlas/seed";
+import { ATLAS_TABLE_COUNTS_SQL } from "@/lib/atlas/stats";
+import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
 import { ATLAS_FEATURES_SQL, featureSimplificationTolerance } from "@/lib/atlas/features-api";
 
 const featurePath = path.resolve(process.cwd(), "data/features/features.geojson");
@@ -62,7 +64,8 @@ describe("real PostGIS features SQL regression", () => {
         valid_as_of date,
         verification_state text NOT NULL,
         notes text,
-        valid_as_of_precision text NOT NULL DEFAULT 'day'
+        valid_as_of_precision text NOT NULL DEFAULT 'day',
+        retired_at timestamptz
       );
       CREATE TABLE fact_evidence (
         fact_id uuid NOT NULL REFERENCES facts(id),
@@ -109,12 +112,12 @@ describe("real PostGIS features SQL regression", () => {
       }),
     });
     expect(importSummary.dryRun).toBe(false);
-    expect(importSummary.entitiesCount).toBe(448);
-    expect(importSummary.evidenceCount).toBe(448);
-    expect(importSummary.factsCount).toBe(2252);
+    expect(importSummary.entitiesCount).toBe(483);
+    expect(importSummary.evidenceCount).toBe(580);
+    expect(importSummary.factsCount).toBe(2426);
     expect(importSummary.relationsCount).toBeGreaterThan(0);
     expect(importSummary.importSync.entityRelationsDeletedCount).toBe(0);
-    expect(importSummary.factEvidenceLinksCount).toBe(2605);
+    expect(importSummary.factEvidenceLinksCount).toBe(2779);
     const relations = await db.query<{ count: number }>("SELECT COUNT(*)::int AS count FROM entity_relations");
     expect(relations.rows[0]?.count).toBe(importSummary.relationsCount);
     const relationEvidence = await db.query<{ count: number }>("SELECT COUNT(*)::int AS count FROM entity_relations WHERE evidence_ref IS NOT NULL");
@@ -168,9 +171,15 @@ describe("real PostGIS features SQL regression", () => {
         (SELECT COUNT(*) FROM features)::text AS features,
         (SELECT COUNT(*) FROM boundaries)::text AS boundaries
     `);
-    expect(counts.rows[0]).toEqual({ entities: "448", evidence: "448", facts: "2252", links: "2605", features: "2983", boundaries: "19" });
+    expect(counts.rows[0]).toEqual({ entities: "483", evidence: "580", facts: "2426", links: "2779", features: "2983", boundaries: "19" });
     const validBoundaries = await db.query<{ count: string }>("SELECT COUNT(*)::text AS count FROM boundaries WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)");
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
+  }, 120_000);
+
+  it("matches non-retired database stats to canonical export counts after import", async () => {
+    const [stats, dataset] = await Promise.all([db.query(ATLAS_TABLE_COUNTS_SQL), getStaticAtlasDataset()]);
+    expect(stats.rows[0]).toEqual({ entities: dataset.entities.length, facts: dataset.facts.length,
+      evidence: dataset.evidence.length, fact_evidence: dataset.factEvidence.length, features: dataset.features.length });
   }, 120_000);
 
   it("loads all matched and unmatched South entities with facts independently of geometry", async () => {
@@ -209,7 +218,7 @@ describe("real PostGIS features SQL regression", () => {
     expect(migration).toContain("west DOUBLE PRECISION := 30.5");
     expect(migration).toContain("east DOUBLE PRECISION := 32.1");
     expect(migration).toContain("north DOUBLE PRECISION := 30.8");
-  });
+  }, 30_000);
 
   it("accepts Regional Ring geometry at longitude 30.3 and rejects 30.1 in the production PostGIS trigger", async () => {
     const regionalId = (await db.query<{ id: number }>("SELECT id FROM entities WHERE code = 'ROAD-REGIONAL-RING'")).rows[0]?.id;
