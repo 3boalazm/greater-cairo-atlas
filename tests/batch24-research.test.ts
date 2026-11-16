@@ -81,17 +81,19 @@ describe("Batch 24 EAST research", () => {
   it("serves all new entities in search, EAST and detail without geometry, with stats/export parity", async () => {
     const [data, metadata] = await Promise.all([getStaticAtlasDataset(), getExportMetadata()]);
     expect(metadata.counts).toMatchObject({entities: 564, facts: 2849, evidence: 810, fact_evidence: 3202});
-    expect(data.entities).toHaveLength(metadata.counts.entities); expect(data.facts).toHaveLength(metadata.counts.facts); expect(data.evidence).toHaveLength(metadata.counts.evidence); expect(data.factEvidence).toHaveLength(metadata.counts.fact_evidence); expect(data.features).toHaveLength(3031);
+    expect(data.entities).toHaveLength(metadata.counts.entities); expect(data.facts).toHaveLength(metadata.counts.facts); expect(data.evidence).toHaveLength(metadata.counts.evidence); expect(data.factEvidence).toHaveLength(metadata.counts.fact_evidence); expect(data.features).toHaveLength(3061);
     const rows = csv(await read("data/research/east-batch07/entities.csv")); const codes = new Set(rows.map((row) => row.code));
+    const batch26 = new Set((await json("data/research/geometry-batch26/accepts.json")).accepts.map((a: { entity_code: string }) => a.entity_code));
     expect(data.entities.filter((e) => codes.has(e.code) && e.sector === "EAST")).toHaveLength(21);
+    expect([...codes].filter((code) => batch26.has(code))).toHaveLength(18);
     for (const row of rows) {
       const entity = data.entities.find((e) => e.code === row.code)!;
       expect(searchEntities([{...entity, has_geometry: false}], entity.name_ar).map((e) => e.code)).toContain(entity.code);
-      expect(data.features.some((f) => f.entity_code === entity.code)).toBe(false);
-      const page = await getStaticEntityPageData(entity.code); expect(page?.code).toBe(entity.code); expect(page?.mapGeometry).toBeNull(); expect(page!.facts.length).toBeGreaterThan(0);
+      expect(data.features.some((f) => f.entity_code === entity.code)).toBe(batch26.has(row.code));
+      const page = await getStaticEntityPageData(entity.code); expect(page?.code).toBe(entity.code); expect(page?.mapGeometry === null).toBe(!batch26.has(row.code)); expect(page!.facts.length).toBeGreaterThan(0);
       const panel = renderToStaticMarkup(createElement(ResearchModeProvider, null, createElement(EntityPanel, {entity: {...page!, has_geometry: false}, loading: false, error: null, onClose: () => {}, onShowOnMap: () => {}, language: "ar", onToggleBoundary: () => {}, boundaryActive: false, boundaryLoading: false, onSelectRelated: () => {}})));
       expect(panel).toContain(entity.name_ar);
     }
-    const geometry = await json("data/derived/entity-map-geometries.json") as {geometries: Record<string, unknown>}; expect(Object.keys(geometry.geometries)).toHaveLength(280);
+    const geometry = await json("data/derived/entity-map-geometries.json") as {geometries: Record<string, unknown>}; expect(Object.keys(geometry.geometries)).toHaveLength(310);
   });
 });

@@ -95,7 +95,7 @@ describe("revision 9 seed + OSM geometry delivery", () => {
     const byEntity = new Map<string, number>();
     for (const feature of features) byEntity.set(feature.entity_code, (byEntity.get(feature.entity_code) ?? 0) + 1);
     expect(byCode.get("LANDMARK-HELWAN-UNIV")?.aliases).toEqual(expect.arrayContaining(["Capital University", "Capital University (formerly Helwan University)"]));
-    expect(features).toHaveLength(3031);
+    expect(features).toHaveLength(3061);
     expect(byEntity.get("ROAD-RING-ROAD")).toBe(429);
     expect(byEntity.get("ROAD-MIDDLE-RING")).toBe(174);
     expect(byEntity.get("ROAD-REGIONAL-RING")).toBe(524);
