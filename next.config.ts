@@ -8,11 +8,11 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/road-network.geojson",
-        headers: [{ key: "Cache-Control", value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }, { key: "X-Atlas-Geometry-Attribution", value: "(c) OpenStreetMap contributors, ODbL 1.0" }],
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800" }, { key: "X-Atlas-Geometry-Attribution", value: "(c) OpenStreetMap contributors, ODbL 1.0" }],
       },
       {
         source: "/road-network-detail.geojson",
-        headers: [{ key: "Cache-Control", value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }, { key: "X-Atlas-Geometry-Attribution", value: "(c) OpenStreetMap contributors, ODbL 1.0" }],
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800" }, { key: "X-Atlas-Geometry-Attribution", value: "(c) OpenStreetMap contributors, ODbL 1.0" }],
       },
     ];
   },
@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
     "/": ["./data/seed/**/*", "./data/features/features.geojson", "./data/features/codab-admin-units.geojson", "./data/features/boundaries.geojson"],
     "/entity/[code]": ["./data/seed/**/*", "./data/features/features.geojson", "./data/features/boundaries.geojson", "./data/features/codab-entity-boundaries.geojson", "./data/features/codab-relations.json", "./data/features/codab-admin-units.geojson", "./data/derived/entity-map-geometries.json"],
     "/api/atlas/features": ["./data/features/codab-admin-units.geojson"],
+    "/api/atlas/features/snapshot": ["./data/seed/**/*", "./data/features/features.geojson"],
     "/api/atlas/stats": ["./data/seed/**/*", "./data/features/**/*"],
     "/api/admin/dashboard": ["./data/seed/**/*", "./data/features/boundaries.geojson", "./data/features/codab-entity-boundaries.geojson"],
     "/api/atlas/evidence": ["./data/seed/**/*", "./data/features/**/*"],

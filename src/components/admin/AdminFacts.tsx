@@ -1,4 +1,5 @@
 "use client";
+import { formatFactValue } from "@/lib/atlas/units";
 
 /* eslint-disable react-hooks/set-state-in-effect -- server-side filtering is re-fetched whenever the filters change. */
 
@@ -114,7 +115,7 @@ export function AdminFacts({ language }: { language: AdminLanguage }) {
         <span className={`admin-chip is-${fact.review_state}`}>{STATE_LABELS[fact.review_state]?.[language] ?? fact.review_state}</span>
         <span className={`admin-chip is-verification-${fact.verification_state}`}>{VERIFICATION_LABELS[fact.verification_state]?.[language] ?? fact.verification_state}</span>
       </div>
-      <p className="admin-fact-value"><strong>{fact.attribute}</strong>: {fact.value}{fact.unit ? ` ${fact.unit}` : ""}
+      <p className="admin-fact-value"><strong>{fact.attribute}</strong>: {formatFactValue(fact.value, fact.unit, language)}
         {fact.valid_as_of && <small> · {ar ? "بتاريخ" : "as of"} {fact.valid_as_of}</small>}</p>
       {fact.review_reason && <p className="admin-fact-reason">{ar ? "سبب القرار السابق" : "Previous reason"}: {fact.review_reason}</p>}
 

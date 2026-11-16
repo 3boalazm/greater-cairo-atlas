@@ -9,13 +9,14 @@ import {
   clearDisplaySettings, DEFAULT_DISPLAY_SETTINGS, isDefaultSettings, parseLayersParam,
   readDisplaySettings, resolveDisplaySettings, writeDisplaySettings,
 } from "@/lib/atlas/display-settings";
-import { EntityPanel } from "./EntityPanel";
 import dynamic from "next/dynamic";
 import type { MapStyleStatus } from "./MapView";
 import { TransitModeFilter } from "./TransitModeFilter";
 import { TRANSIT_MODE_ORDER, TRANSIT_LINE_COLORS, type TransitMode } from "@/lib/atlas/transit-modes";
 import { isTransitFeatureType, transitFeatureVisible, transitLineEnabled } from "@/lib/atlas/transit-feature-filters";
 import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
+
+const EntityPanel = dynamic(() => import("./EntityPanel").then((module) => module.EntityPanel), { ssr: false });
 
 const MapView = dynamic(
   () => import("./MapView").then((module) => module.MapView),
@@ -28,13 +29,14 @@ import { InfoMenu, MapAttribution, MapLoading } from "./MapChrome";
 import { rememberEntity } from "@/lib/atlas/search";
 import { ResearchModeToggle, ResearcherOnly, useResearchMode } from "@/components/site/ResearchMode";
 import { FirstVisitGuide } from "./FirstVisitGuide";
-import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact, EntityListResponse } from "./atlas-client";
+import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact } from "./atlas-client";
 import { resolveStatusByYear, resolveTimelineUrlState, timelineSummary, timelineYearParam, timelineYearRange } from "@/lib/atlas/status-timeline";
 import { TimeControl } from "./TimeControl";
 import { approximateRadiusPolygon } from "@/lib/atlas/service-area";
-import { findGeometryAlternatives } from "@/lib/atlas/geometry-comparisons";
+import type { GeometryAlternative } from "@/lib/atlas/geometry-comparisons";
 import { STATUSES } from "./atlas-client";
 import { featureZoomBand, scheduleFeatureRequest } from "@/lib/atlas/feature-zoom";
+import { loadEntities } from "./load-entities";
 
 const emptyFilters: AtlasFilters = { type: "", sector: "", status: "", mappedOnly: false };
 const defaultLayerGroups: AtlasLayerGroupState = { infrastructure: true, transport: true, areas: true, projects: true, reference: true };
@@ -44,9 +46,9 @@ function messageFrom(error: unknown, language: "ar" | "en") {
   return error instanceof Error ? error.message : "Could not connect to the service.";
 }
 
-export default function AtlasApp({ initialEntities, initialFeatures, initialStats, initialLanguage, regionalCodes, statusTimeline }: {
+export default function AtlasApp({ initialEntities, initialAlternatives, initialStats, initialLanguage, regionalCodes, statusTimeline }: {
   initialEntities: AtlasEntitySummary[];
-  initialFeatures: AtlasFeatureCollection;
+  initialAlternatives: Array<[string, GeometryAlternative[]]>;
   initialStats: AtlasStatsResponse;
   initialLanguage: "ar" | "en";
   regionalCodes: string[];
@@ -77,7 +79,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   const [entitiesLoading, setEntitiesLoading] = useState(false);
   const [entitiesError, setEntitiesError] = useState<string | null>(null);
   const [adminUnitFeatures, setAdminUnitFeatures] = useState<AtlasFeatureCollection["features"]>([]);
-  const [features, setFeatures] = useState<AtlasFeatureCollection>(initialFeatures);
+  const [features, setFeatures] = useState<AtlasFeatureCollection>({ type: "FeatureCollection", metadata: { data_license: "", geometry_license: "", contact: "" }, features: [] });
   const [showAdminBoundaries, setShowAdminBoundaries] = useState(false);
   const [selectedAdminUnit, setSelectedAdminUnit] = useState<AtlasFeatureCollection["features"][number] | null>(null);
   const [featuresLoading, setFeaturesLoading] = useState(false);
@@ -280,14 +282,9 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     if (filters.sector) params.set("sector", filters.sector);
     if (filters.status) params.set("status", filters.status);
     if (filters.mappedOnly) params.set("has_geometry", "true");
-    fetch(`/api/atlas/entities?${params}`, { signal: controller.signal })
-      .then(async (response) => {
-        if (!response.ok) throw new Error((await response.json()).error?.message ?? `HTTP ${response.status}`);
-        return response.json() as Promise<EntityListResponse>;
-      })
-      .then((payload) => setEntities(payload.entities))
-      .catch((error: unknown) => { if (!(error instanceof DOMException && error.name === "AbortError")) setEntitiesError(messageFrom(error, language)); })
-      .finally(() => setEntitiesLoading(false));
+    loadEntities(params, controller.signal, setEntities)
+      .catch((error: unknown) => { if (!controller.signal.aborted) setEntitiesError(messageFrom(error, language)); })
+      .finally(() => { if (!controller.signal.aborted) setEntitiesLoading(false); });
     return () => controller.abort();
   }, [filters.type, filters.sector, filters.status, filters.mappedOnly, language]);
 
@@ -312,11 +309,19 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     if (filters.type) params.set("type", filters.type);
     if (filters.sector) params.set("sector", filters.sector);
     if (filters.status && !timelineEnabled) params.set("status", filters.status);
-    fetch(`/api/atlas/features?${params}`, { signal })
-      .then(async (response) => {
-        if (!response.ok) throw new Error((await response.json()).error?.message ?? `HTTP ${response.status}`);
-        return response.json() as Promise<AtlasFeatureCollection>;
-      })
+    const loadFeatures = async (): Promise<AtlasFeatureCollection> => {
+      try {
+        const response = await fetch(`/api/atlas/features?${params}`, { signal });
+        if (response.ok) return await response.json() as AtlasFeatureCollection;
+      } catch (error) {
+        if (signal.aborted) throw error;
+      }
+      // The public snapshot previously embedded in HTML remains available offline or on API failure.
+      const fallback = await fetch(`/api/atlas/features/snapshot?${params}`, { signal });
+      if (!fallback.ok) throw new Error(`HTTP ${fallback.status}`);
+      return await fallback.json() as AtlasFeatureCollection;
+    };
+    loadFeatures()
       .then((collection) => { if (!signal.aborted) setFeatures(collection); })
       .catch((error: unknown) => { if (!signal.aborted) setFeaturesError(messageFrom(error, language)); })
       .finally(() => { if (!signal.aborted) setFeaturesLoading(false); });
@@ -462,7 +467,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [selectedCode, closeEntity]);
 
-  const geometryAlternatives = useMemo(() => findGeometryAlternatives(initialFeatures.features), [initialFeatures.features]);
+  const geometryAlternatives = useMemo(() => new Map(initialAlternatives), [initialAlternatives]);
   // BATCH 14.1 — the timeline is available to everyone, not only researchers: "what existed in 2019" is a
   // plain question. Researcher mode adds the deciding fact and evidence, not the control itself.
   const useTimeline = timelineEnabled;
@@ -536,10 +541,10 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
    */
   const selectedGeometryCompleteness = useMemo(() => {
     if (!selectedCode) return null;
-    const drawn = initialFeatures.features.filter((feature) => feature.properties.entity_code === selectedCode);
+    const drawn = features.features.filter((feature) => feature.properties.entity_code === selectedCode);
     const partial = drawn.find((feature) => (feature.properties as { geometry_completeness?: string }).geometry_completeness === "partial_source_geometry");
     return partial ? "partial_source_geometry" : null;
-  }, [initialFeatures, selectedCode]);
+  }, [features, selectedCode]);
 
   const totalFeatures = visibleFeatureCollection.features.length;
   const mapTransitModes = !filters.type || ["transit_line", "transit_stop", "rail_station", "transit_station"].includes(filters.type)

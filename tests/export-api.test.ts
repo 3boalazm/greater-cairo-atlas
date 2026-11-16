@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CSV_HEADERS, csvForTable, exportResponseHeaders } from "@/lib/atlas/export-api";
+import { GET as exportJson } from "@/app/api/exports/json/route";
+import { GET as exportCsv } from "@/app/api/exports/csv/route";
 import { computeAtlasDatasetChecksum } from "@/lib/db/automatic-import";
 import { getExportMetadata, getStaticAtlasDataset, joinedFeatureCollection, getStaticEntityPageData } from "@/lib/atlas/static-dataset";
 
@@ -31,6 +33,16 @@ describe("atlas data exports", () => {
       expect(lines[1]).toContain("Contact: 01092500454 · 3boalazm@gmail.com");
       expect(lines[2]).toBe(CSV_HEADERS[table].join(","));
     }
+  });
+
+  it("keeps raw values and units in machine JSON and CSV exports", async () => {
+    const dataset = await getStaticAtlasDataset(root);
+    const json = await (await exportJson()).json();
+    expect(json.facts).toEqual(dataset.facts);
+    const csv = await (await exportCsv(new Request("https://atlas.test/api/exports/csv?table=facts"))).text();
+    expect(csv).toBe(csvForTable(dataset, "facts"));
+    expect(json.facts.some((fact: { unit: string | null }) => fact.unit === "million_passengers_per_day")).toBe(true);
+    expect(csv).toContain("million_passengers_per_day");
   });
 
   it("builds valid joined GeoJSON with entity code, names, type, and status", async () => {

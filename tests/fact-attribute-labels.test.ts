@@ -1,7 +1,8 @@
+import { FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/fact-attribute-labels";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { currentStatusNewsSourceCount, FACT_ATTRIBUTE_LABELS, hasDisplayableQuickFactValue, quickFactSourceCountLabel, showOnMapLabel, statusNewsSourceCountLabel } from "@/lib/atlas/labels";
+import { currentStatusNewsSourceCount, hasDisplayableQuickFactValue, quickFactSourceCountLabel, showOnMapLabel, statusNewsSourceCountLabel } from "@/lib/atlas/labels";
 
 describe("fact attribute translations", () => {
   it("uses correct Arabic plural forms for quick-fact source counts and hides a single source", () => {
@@ -30,25 +31,15 @@ describe("fact attribute translations", () => {
     expect(statusNewsSourceCountLabel(2, "en")).toBe("2 news sources");
     expect(statusNewsSourceCountLabel(1, "ar")).toBeNull();
   });
-  it("preserves pre-existing bilingual coverage and tracks untranslated batch 19 keys", async () => {
+  it("requires human Arabic and bilingual labels for every seeded attribute", async () => {
     const facts = JSON.parse(await readFile(path.join(process.cwd(), "data/seed/facts.json"), "utf8")) as Array<{ attribute: string }>;
     const humanArabic = JSON.parse(await readFile(path.join(process.cwd(), "data/research/labels/attribute_labels_ar.json"), "utf8")) as Record<string, string>;
     const attributes = [...new Set(facts.map((fact) => fact.attribute))].sort();
-    // Batch 19 is data-only: do not invent human translations or modify the UI.
-    // Pin this explicit debt instead of silently weakening pre-existing coverage.
-    const untranslated = JSON.parse(await readFile(path.join(process.cwd(), "tests/fixtures/batch19/untranslated-attributes.json"), "utf8")) as string[];
-    const missingHumanArabic = attributes.filter((key) => !humanArabic[key]?.trim());
-    expect(missingHumanArabic).toEqual(untranslated);
-    const batchFacts = JSON.parse(await readFile(path.join(process.cwd(), "data/research/central-batch05/facts.json"), "utf8")) as Array<{ attribute_key: string }>;
-    const unknownFacts = JSON.parse(await readFile(path.join(process.cwd(), "data/research/unknowns-batch06/facts.json"), "utf8")) as Array<{ attribute_key: string }>;
-    const batchKeys = new Set([...batchFacts, ...unknownFacts].map((fact) => fact.attribute_key));
-    expect(untranslated.every((key) => batchKeys.has(key))).toBe(true);
-    const missing = attributes.filter((key) => !untranslated.includes(key)).filter((key) => {
+    const missing = attributes.filter((key) => {
       const label = FACT_ATTRIBUTE_LABELS[key];
-      return !label?.ar?.trim() || !label?.en?.trim() || label.ar === key || label.en === key || label.ar.includes("_") || !/[\u0600-\u06FF]/.test(label.ar);
+      return !humanArabic[key]?.trim() || !label?.ar?.trim() || !label?.en?.trim() || label.ar === key || label.en === key || label.ar.includes("_") || !/[\u0600-\u06FF]/.test(label.ar);
     });
     expect(missing, `Missing bilingual attribute labels for: ${missing.join(", ")}`).toEqual([]);
-    expect(attributes).toContain("capacity_per_day");
     expect(FACT_ATTRIBUTE_LABELS.capacity_per_day).toEqual({ ar: "السعة اليومية", en: "Daily capacity" });
   });
 });

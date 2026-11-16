@@ -1,3 +1,6 @@
+import { QUICK_FACT_LABELS, selectQuickFacts } from "@/lib/atlas/quick-facts";
+import { formatFactValue } from "@/lib/atlas/units";
+import { FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/fact-attribute-labels";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -10,18 +13,12 @@ import type { AtlasFeatureCollection } from "@/components/atlas/atlas-client";
 import { transitModeLabel, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
 import { SuggestionForm } from "@/components/atlas/SuggestionForm";
 import { EntityTimeline } from "@/components/atlas/EntityTimeline";
-import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, SECTOR_LABELS, SIMPLE_STATUS_LABELS, SOURCE_TYPE_LABELS, VERIFICATION_LABELS, currentStatusNewsSourceCount, quickFactSourceCountLabel, statusNewsSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
+import { ENTITY_TYPE_LABELS, SECTOR_LABELS, SIMPLE_STATUS_LABELS, SOURCE_TYPE_LABELS, VERIFICATION_LABELS, currentStatusNewsSourceCount, quickFactSourceCountLabel, statusNewsSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
 interface EntityPageProps {
   params: Promise<{ code: string }>;
   searchParams: Promise<{ lang?: string | string[] }>;
 }
-const simpleFactLabels: Record<string, { ar: string; en: string }> = {
-  length: { ar: "الطول", en: "Length" }, length_approx: { ar: "الطول التقريبي", en: "Approximate length" },
-  total_length: { ar: "الطول الإجمالي", en: "Total length" }, stations_count: { ar: "عدد المحطات", en: "Stations" }, total_stations: { ar: "عدد المحطات", en: "Stations" },
-  stations: { ar: "المحطات", en: "Stations" }, capacity_per_day: { ar: "السعة اليومية", en: "Daily capacity" }, population: { ar: "عدد السكان", en: "Population" }, opening_date: { ar: "موعد الافتتاح", en: "Opening date" },
-};
-
 const labels = {
   ar: {
     entity: "صفحة الكيان", aliases: "أسماء بديلة", type: "النوع", sector: "النطاق الجغرافي", status: "الحالة المسجلة",
@@ -71,17 +68,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
   const entityModes = transitModesForEntityCode(entity.code, entityLineCodes);
   const transitLabel = transitModeLabel(entity.code, language, entityLineCodes);
   const factsSectionIndex = 2 + Number(entity.relations.length > 0) + Number(entity.neighbors.length > 0);
-  const quickFactGroups = new Map<string, typeof entity.facts>();
-  for (const fact of entity.facts.filter((item) => item.attribute in simpleFactLabels && !["rejected", "superseded"].includes(item.verification_state))) {
-    quickFactGroups.set(fact.attribute, [...(quickFactGroups.get(fact.attribute) ?? []), fact]);
-  }
-  const simpleKeyFacts = [...quickFactGroups.entries()].map(([attribute, claims]) => {
-    const ordered = [...claims].sort((a, b) => {
-      const official = (fact: typeof a) => fact.verification_state === "verified" && fact.evidence.some((source) => source.source_type === "official") ? 1 : 0;
-      return official(b) - official(a) || String(b.valid_as_of ?? "").localeCompare(String(a.valid_as_of ?? "")) || a.code.localeCompare(b.code);
-    });
-    return { fact: ordered[0]!, sourceCount: new Set(ordered.flatMap((item) => item.evidence.map((source) => source.code))).size, attribute };
-  }).sort((a, b) => Object.keys(simpleFactLabels).indexOf(a.attribute) - Object.keys(simpleFactLabels).indexOf(b.attribute)).slice(0, 3);
+  const simpleKeyFacts = selectQuickFacts(entity.facts);
 
   const groups=new Map<string,typeof entity.facts>();
   for (const fact of entity.facts) groups.set(fact.attribute,[...(groups.get(fact.attribute) ?? []),fact]);
@@ -131,7 +118,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
       </section>
       <section className="entity-section simple-key-facts" aria-labelledby="entity-key-facts-heading">
         <div className="section-title"><span>02</span><div><h2 id="entity-key-facts-heading">{ar ? "معلومات سريعة" : "Key facts"}</h2></div></div>
-        {simpleKeyFacts.length ? <ul>{simpleKeyFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <small className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</small>}{quickFactSourceCountLabel(sourceCount, language) && <small>{quickFactSourceCountLabel(sourceCount, language)}</small>}</li>)}</ul> : <p className="quiet-note">{ar ? "لا توجد معلومات موجزة مسجلة." : "No short facts are recorded."}</p>}
+        {simpleKeyFacts.length ? <ul>{simpleKeyFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{QUICK_FACT_LABELS[fact.attribute]![language]}</span><strong>{formatFactValue(fact.value, fact.unit, language)}</strong>{fact.verification_state === "verified" && <small className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</small>}{quickFactSourceCountLabel(sourceCount, language) && <small>{quickFactSourceCountLabel(sourceCount, language)}</small>}</li>)}</ul> : <p className="quiet-note">{ar ? "لا توجد معلومات موجزة مسجلة." : "No short facts are recorded."}</p>}
       </section>
       <ResearcherOnly><section className="entity-section" aria-labelledby="entity-sources-heading">
         <div className="section-title"><span>{String(factsSectionIndex + 2).padStart(2,"0")}</span><div><h2 id="entity-sources-heading">{text.sources}</h2><p>{ar?"بيانات الناشر والنوع والتواريخ والرابط كما وردت في سجل المصدر.":"Publisher, source type, dates, and link as recorded."}</p></div></div>
@@ -177,7 +164,7 @@ export default async function EntityPage({ params, searchParams }: EntityPagePro
         {groups.size ? <div className="entity-fact-groups">{[...groups.entries()].map(([attribute,facts])=><section className="entity-fact-group" key={attribute}>
           <h3 title={attribute}>{translateLabel(FACT_ATTRIBUTE_LABELS, attribute, language)}{facts.length>1&&<small>{ar?`${facts.length} ادعاءات`: `${facts.length} claims`}</small>}</h3>
           <div className={`entity-claim-grid ${facts.length>1?"has-conflicts":""}`}>{facts.map((fact)=><article key={fact.code} className={`entity-claim ${fact.verification_state==="superseded"||fact.verification_state==="rejected"?"is-deemphasized":""}`}>
-            <div className="claim-value"><strong>{fact.value}</strong>{fact.unit&&<span>{fact.unit}</span>}<span className={`verification-badge verification-${fact.verification_state}`}>{translateLabel(VERIFICATION_LABELS, fact.verification_state, language)}</span></div>
+            <div className="claim-value"><strong>{formatFactValue(fact.value, fact.unit, language)}</strong><span className={`verification-badge verification-${fact.verification_state}`}>{translateLabel(VERIFICATION_LABELS, fact.verification_state, language)}</span></div>
             {fact.valid_as_of&&<p className="claim-asof">{ar?"صالح بتاريخ":"Valid as of"} <time dateTime={fact.valid_as_of}>{fact.valid_as_of.slice(0,fact.valid_as_of_precision==="day"?10:fact.valid_as_of_precision==="month"?7:4)}</time>{fact.valid_as_of_precision!=="day"&&<small> · {fact.valid_as_of_precision}</small>}</p>}
             {fact.notes&&<p className="claim-notes">{fact.notes}</p>}
             <div className="claim-sources">{fact.evidence.length?fact.evidence.map((source)=><Link href={`/${language}/sources/${encodeURIComponent(source.code)}`} key={source.code}>{source.code}</Link>):<span>—</span>}</div>

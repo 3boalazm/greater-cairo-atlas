@@ -117,6 +117,22 @@ describe("BATCH 13 — server-side pagination and filters", () => {
     } finally { await db.close(); }
   }, 60000);
 
+  it("filters boundaries before pagination and counts, including later matches", async () => {
+    const db = await migratedDatabase();
+    try {
+      await seedFixtures(db);
+      const codes = ["CITY-OBOUR", "DIST-AGOUZA"];
+      const first = await listEntities({ has_boundary: true, page: 1, page_size: 1 }, executor(db), codes);
+      const second = await listEntities({ has_boundary: true, page: 2, page_size: 1 }, executor(db), codes);
+      expect(first.total).toBe(2); expect(second.total).toBe(2);
+      expect(first.rows.map((row) => row.code)).toEqual(["CITY-OBOUR"]);
+      expect(second.rows.map((row) => row.code)).toEqual(["DIST-AGOUZA"]);
+      const missing = await listEntities({ has_boundary: false }, executor(db), codes);
+      expect(missing.total).toBe(1); expect(missing.rows.map((row) => row.code)).toEqual(["CITY-ALEXANDRIA"]);
+      expect((await listEntities({ has_boundary: true }, executor(db), [])).total).toBe(0);
+    } finally { await db.close(); }
+  }, 60000);
+
   it("clamps an absurd page size instead of loading the table", async () => {
     const db = await migratedDatabase();
     try {

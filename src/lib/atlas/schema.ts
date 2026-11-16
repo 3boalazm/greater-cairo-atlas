@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { ENTITY_STATUSES } from "@/lib/atlas/status-values";
+export { ENTITY_STATUSES } from "@/lib/atlas/status-values";
 
 export const ATLAS_CODE_PATTERN = /^[A-Z0-9]+(-[A-Z0-9]+)*$/;
 export const FACT_ATTRIBUTE_PATTERN = /^[a-z][a-z0-9_]*$/;
@@ -39,15 +41,6 @@ export const ENTITY_SECTORS = [
   "WEST",
   "CENTRAL",
   "REGIONAL",
-] as const;
-
-export const ENTITY_STATUSES = [
-  "operational",
-  "partial",
-  "under_construction",
-  "planned",
-  "approved_planned",
-  "unknown",
 ] as const;
 
 export const FACT_VERIFICATION_STATES = [

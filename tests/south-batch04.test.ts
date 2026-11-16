@@ -70,7 +70,7 @@ describe("south batch 04 merge", () => {
     }
     // Nothing in the seed is duplicated, which is the failure mode an append-only merge can produce.
     expect(seedCodes.size).toBe(seed.entities.length);
-    expect(seed.entities).toHaveLength(483);
+    expect(seed.entities).toHaveLength(535);
   });
 
   it("places only matched batch entities from the geometry review", async () => {
@@ -81,12 +81,14 @@ describe("south batch 04 merge", () => {
     const report = JSON.parse(await readFile(path.join(RESEARCH_DIR, "geometry_match_report.json"), "utf8")) as {
       results: Array<{ entity_code: string; status: string }>;
     };
+    const batch20 = JSON.parse(await readFile(path.join(ROOT, "data/research/geometry-batch20/geometry_match_report.json"), "utf8")) as { results: Array<{ entity_code: string; status: string }> };
+    const batch20b = JSON.parse(await readFile(path.join(ROOT, "data/research/geometry-batch20b/geometry_match_report.json"), "utf8")) as { results: Array<{ entity_code: string; status: string }> };
     const positioned = new Set(features.features.map((feature) => feature.properties.entity_code));
     expect(report.results).toHaveLength(31);
     for (const row of batch) {
       const result = report.results.find((entry) => entry.entity_code === row.code);
       expect(result).toBeDefined();
-      expect(positioned.has(row.code!)).toBe(result!.status === "matched");
+      expect(positioned.has(row.code!)).toBe(result!.status === "matched" || batch20.results.some((entry) => entry.entity_code === row.code && entry.status === "matched") || batch20b.results.some((entry) => entry.entity_code === row.code && entry.status === "matched"));
     }
   });
 
@@ -111,8 +113,8 @@ describe("south batch 04 merge", () => {
     }>;
 
     expect(batchFacts).toHaveLength(95);
-    expect(seed.facts).toHaveLength(2426);
-    expect(seed.evidence).toHaveLength(580);
+    expect(seed.facts).toHaveLength(2735);
+    expect(seed.evidence).toHaveLength(764);
 
     const seedEvidence = new Map(seed.evidence.map((row) => [row.code, row]));
     const seedFacts = new Set(seed.facts.map((fact) => fact.code));
@@ -172,15 +174,15 @@ describe("south batch 04 merge", () => {
     }
   });
 
-  it("retains the two unresolved South entities in the current unknown set", async () => {
+  it("retains the South unknown not resolved by the subsequent batch", async () => {
     const seed = await loadAndValidateSeedDir(SEED_DIR);
     const batchCodes = new Set((await readBatchEntities()).map((row) => row.code!));
     const unknown = seed.entities.filter((entity) => entity.status === "unknown");
 
     expect(unknown.filter((entity) => !batchCodes.has(entity.code))).toHaveLength(3);
-    expect(unknown).toHaveLength(5);
+    expect(unknown).toHaveLength(4);
     expect(unknown.filter((entity) => batchCodes.has(entity.code)).map((entity) => entity.code).sort()).toEqual(
-      [...NEW_UNKNOWN_CODES].sort(),
+      NEW_UNKNOWN_CODES.filter((code) => code !== "LINE-HELWAN-OLD-RAIL").sort(),
     );
   });
 });

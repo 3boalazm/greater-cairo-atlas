@@ -59,23 +59,23 @@ describe("revision 9 seed + OSM geometry delivery", () => {
     expect(changes).toHaveLength(43);
     expect(changes.every((change) => change.oldStatus === "unknown" && ["operational", "partial", "under_construction"].includes(change.newStatus))).toBe(true);
     expect(changes.some((change) => change.oldStatus === "planned" && change.newStatus === "operational")).toBe(false);
-    expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(5);
+    expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(4);
   });
 
   it("validates rev9 counts and requires official URL-backed evidence for every verified fact", async () => {
     const bundle = await loadAndValidateSeedDir(path.join(process.cwd(), "data/seed"));
     const report = summarizeValidatedSeedBundle(bundle);
     expect(report).toMatchObject({
-      entitiesCount: 483,
-      entitiesWithAliasesCount: 318,
-      evidenceCount: 580,
+      entitiesCount: 535,
+      entitiesWithAliasesCount: 370,
+      evidenceCount: 764,
       evidenceMissingUrlCount: 71,
-      factsCount: 2426,
-      factEvidenceLinksCount: 2779,
+      factsCount: 2735,
+      factEvidenceLinksCount: 3088,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");
-    expect(verified).toHaveLength(488);
+    expect(verified).toHaveLength(631);
     for (const fact of verified) {
       expect(fact.evidence_codes.some((code) => {
         const item = evidence.get(code);
@@ -95,7 +95,7 @@ describe("revision 9 seed + OSM geometry delivery", () => {
     const byEntity = new Map<string, number>();
     for (const feature of features) byEntity.set(feature.entity_code, (byEntity.get(feature.entity_code) ?? 0) + 1);
     expect(byCode.get("LANDMARK-HELWAN-UNIV")?.aliases).toEqual(expect.arrayContaining(["Capital University", "Capital University (formerly Helwan University)"]));
-    expect(features).toHaveLength(2983);
+    expect(features).toHaveLength(3031);
     expect(byEntity.get("ROAD-RING-ROAD")).toBe(429);
     expect(byEntity.get("ROAD-MIDDLE-RING")).toBe(174);
     expect(byEntity.get("ROAD-REGIONAL-RING")).toBe(524);

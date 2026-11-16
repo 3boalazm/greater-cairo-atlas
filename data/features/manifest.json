@@ -13,7 +13,7 @@
     32.35,
     30.9
   ],
-  "feature_count": 2983,
+  "feature_count": 3031,
   "sources": [
     {
       "source": "OpenStreetMap",
@@ -78,6 +78,16 @@
       "license": "ODbL-1.0",
       "elements_received": 288,
       "timestamp_osm_base": "2026-11-16T01:03:02Z"
+    },
+    {
+      "source": "OpenStreetMap",
+      "url": "https://overpass-api.de/api/interpreter",
+      "retrieval_date": "2026-11-16",
+      "input_file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
+      "input_sha256": "2bca42344ffe7a7f0fe9df2909c9c430d10e62517bc1cdd40195de70c917cd2b",
+      "license": "ODbL-1.0",
+      "elements_received": 330,
+      "timestamp_osm_base": "2026-11-16T16:41:21Z"
     }
   ],
   "source_failures": [],
@@ -18852,7 +18862,7 @@
   },
   "entity_page_map_geometries": {
     "path": "data/derived/entity-map-geometries.json",
-    "entities_with_geometry": 232,
+    "entities_with_geometry": 280,
     "simplification_tolerance_degrees": 0.0002,
     "merge": "shapely.unary_union; no synthetic segments",
     "preserved_metadata": [
@@ -19210,5 +19220,49 @@
     "report": "data/research/south-batch04/geometry_match_report.json",
     "feature_count": 41,
     "entities_matched": 6
+  },
+  "geometry_batch20": {
+    "report": "data/research/geometry-batch20/geometry_match_report.json",
+    "feature_count": 31,
+    "entities_matched": 31
+  },
+  "geometry_batch20b": {
+    "report": "data/research/geometry-batch20b/geometry_match_report.json",
+    "feature_count": 17,
+    "entities_matched": 17,
+    "source_files": [
+      {
+        "file": "cairo-osm-boundaries-2026-11-14.json.gz",
+        "sha256": "a8ce40dc409c8d5061a3089888f4e134474e4288e66d88a63d14a479095e1a81"
+      },
+      {
+        "file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+        "sha256": "e99b9001ffae0d7256e69aa30b47b25192e44649b83e68e658e49adac21ff850"
+      },
+      {
+        "file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+        "sha256": "2d2c3eb6caabaed467a2ae0fffb6edeea08f33660b46d13b7a5d3b0b6cc83ea4"
+      },
+      {
+        "file": "cairo-osm-rail-2026-11-14.json.gz",
+        "sha256": "24e458266d40003a7d27676eecadc92cf67fa876a77230af75bfeb80bb2741ae"
+      },
+      {
+        "file": "osm-overpass-2026-11-14.json.gz",
+        "sha256": "397ad10cc68aa394d7811ee4aca2dd0051a92b709f56a911286601e1de774655"
+      },
+      {
+        "file": "cairo-osm-south-batch04-2026-11-16.json.gz",
+        "sha256": "b4712f32c7fa4319a7ad5dd99c3129ace2310ec02abe5e5231f99f2b69dbacb0"
+      },
+      {
+        "file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+        "sha256": "3074d971b30f564096a10fd8c3697f8071b9d2058e2f83805ae17e31149e4745"
+      },
+      {
+        "file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
+        "sha256": "2bca42344ffe7a7f0fe9df2909c9c430d10e62517bc1cdd40195de70c917cd2b"
+      }
+    ]
   }
 }

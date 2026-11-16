@@ -131,6 +131,7 @@ const MAX_PAGE_SIZE = 100;
 export async function listEntities(
   filters: EntityListQuery,
   execute: SqlExecutor = defaultExecutor,
+  boundaryCodes?: readonly string[],
 ): Promise<{ rows: EntityListRow[]; total: number; page: number; page_size: number }> {
   const page = Math.max(1, Math.trunc(filters.page ?? 1));
   const pageSize = Math.min(MAX_PAGE_SIZE, Math.max(1, Math.trunc(filters.page_size ?? DEFAULT_PAGE_SIZE)));
@@ -149,8 +150,12 @@ export async function listEntities(
   if (filters.status) add("e.status = $?", filters.status);
   if (filters.has_geometry === true) conditions.push("EXISTS (SELECT 1 FROM features f WHERE f.entity_id = e.id)");
   if (filters.has_geometry === false) conditions.push("NOT EXISTS (SELECT 1 FROM features f WHERE f.entity_id = e.id)");
-  // Boundaries live in the file-derived boundary set, which the database does not model; the filter is
-  // applied by the caller that has that set, and is accepted here only to keep the signature explicit.
+  // The file-derived boundary index must be applied before SQL pagination and counting.
+  if (filters.has_boundary !== undefined) {
+    if (!boundaryCodes) throw new Error("Boundary codes are required for boundary filtering");
+    values.push(boundaryCodes);
+    conditions.push(`${filters.has_boundary ? "" : "NOT "}(e.code = ANY($${values.length}::text[]))`);
+  }
   const where = conditions.length ? `WHERE ${conditions.join(" AND ")}` : "";
 
   const countRows = await execute.query<{ total: string | number }>(`SELECT COUNT(*) AS total FROM entities e ${where}`, values);

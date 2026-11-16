@@ -1,0 +1,7 @@
+# North batch 07 adaptation
+
+- The research branch files were copied unchanged; the 25 new NORTH entities were mapped by CSV header, checked for collisions, and added together with all West new entities before either fact batch was resolved. This resolves North facts about the new West project `PROJ-WARRAQ-ISLAND-DEV`.
+- 121 facts and 82 evidence records were passed through `adaptResearchSeedSources`; `EV-N7-###` references, supplied verification states, conflicting values and `url_check` notes are retained. Existing entities' names, sectors, types and statuses were not changed. No geometry was created.
+- The canonical source-type enum has no `data`. The three supplied non-official `data` records (`EV-N7-024`, `EV-N7-047`, `EV-N7-050`) are mapped to canonical `dataset`; their notes also retain `source_type_original=data`, in addition to `url_check`. No record was promoted to official or verified.
+- Two incoming rows share exact entity/attribute/value with baseline facts, but differ in verification state and/or date or unit. A North Metro L2 station-count row also shares an exact entity/attribute/value with a West incoming row, but its unit and date differ. The rows remain separate so no state, date or unit is lost. All seven batch overlaps and decisions are documented in `data/research/batch22-overlaps.json`.
+- No curated Arabic labels were invented for new fact attributes in this data-only batch; new untranslated keys are tracked in `tests/fixtures/batch22/untranslated-attributes.json`.

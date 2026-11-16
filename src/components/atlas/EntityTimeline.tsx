@@ -1,3 +1,4 @@
+import { formatFactValue } from "@/lib/atlas/units";
 import Link from "next/link";
 import type { AtlasEntityFact } from "./atlas-client";
 import { VERIFICATION_LABELS, translateLabel } from "@/lib/atlas/labels";
@@ -18,7 +19,7 @@ export function EntityTimeline({ facts, language }: { facts: AtlasEntityFact[]; 
     <div className="timeline-heading"><span className="section-index">{ar ? "الزمن" : "TIME"}</span><div><h3>{ar ? "التسلسل الزمني" : "Timeline"}</h3><p>{ar ? "حقائق الحالة المؤرخة فقط؛ لا تُضاف تواريخ أو انتقالات مستنتجة." : "Only dated status facts; no dates or transitions are inferred."}</p></div></div>
     {rows.length ? <ol>{rows.map(({ fact, status, previous, date }) => <li key={fact.code} className={`timeline-item timeline-${fact.verification_state}`}>
       <time dateTime={fact.valid_as_of!}>{date}{fact.valid_as_of_precision !== "day" ? ` · ${ar ? (fact.valid_as_of_precision === "month" ? "شهر" : "سنة") : `${fact.valid_as_of_precision} precision`}` : ""}</time>
-      <div><strong>{status && previous && previous !== fact.value ? `${previous} → ${fact.value}` : fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>
+      <div><strong>{status && previous && previous !== fact.value ? `${previous} → ` : ""}{formatFactValue(fact.value, fact.unit, language)}</strong>
         <span>{fact.attribute.replaceAll("_", " ")}</span>
         <span className={`verification-badge verification-${fact.verification_state}`}>{translateLabel(VERIFICATION_LABELS, fact.verification_state, language)}</span>
         {(fact.verification_state === "superseded" || fact.verification_state === "rejected" || fact.verification_state === "disputed") && <small>{ar ? (fact.verification_state === "superseded" ? "ادعاء مستبدل" : fact.verification_state === "rejected" ? "ادعاء مرفوض" : "ادعاء متنازع عليه") : `${fact.verification_state} claim`}</small>}

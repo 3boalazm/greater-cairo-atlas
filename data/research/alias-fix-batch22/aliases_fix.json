@@ -1,0 +1,117 @@
+{
+ "DIST-WARRAQ-ISLAND": {
+  "aliases_before": "جزيرة الوراق النيلية; أرض المجتمع العمراني الجديد بجزيرة الوراق",
+  "aliases_after": "جزيرة الوراق النيلية|أرض المجتمع العمراني الجديد بجزيرة الوراق",
+  "alias_count": 2
+ },
+ "DIST-SHUBRA-KHEIMA-IND": {
+  "aliases_before": "منطقة شبرا الخيمة الصناعية; صناعية غرب وشرق شبرا",
+  "aliases_after": "منطقة شبرا الخيمة الصناعية|صناعية غرب وشرق شبرا",
+  "alias_count": 2
+ },
+ "DIST-SAFA-IND-KHANKA": {
+  "aliases_before": "منطقة الصفا الصناعية; الصفا عرب العليقات",
+  "aliases_after": "منطقة الصفا الصناعية|الصفا عرب العليقات",
+  "alias_count": 2
+ },
+ "DIST-AKRASHA-IND": {
+  "aliases_before": "منطقة العكرشة; العكرشة الصناعية بالقليوبية",
+  "aliases_after": "منطقة العكرشة|العكرشة الصناعية بالقليوبية",
+  "alias_count": 2
+ },
+ "DIST-QALYUB-IND": {
+  "aliases_before": "منطقة قليوب الصناعية; صناعية قليوب",
+  "aliases_after": "منطقة قليوب الصناعية|صناعية قليوب",
+  "alias_count": 2
+ },
+ "ROAD-GESR-EL-SUEZ": {
+  "aliases_before": "شارع جسر السويس; جسر السويس",
+  "aliases_after": "شارع جسر السويس|جسر السويس",
+  "alias_count": 2
+ },
+ "ROAD-REGIONAL-RING-NORTH": {
+  "aliases_before": "الدائري الإقليمي الشمالي; القوس الشمالي الشرقي والغربي",
+  "aliases_after": "الدائري الإقليمي الشمالي|القوس الشمالي الشرقي والغربي",
+  "alias_count": 2
+ },
+ "RAIL-SHUBRA-EL-KHEIMA": {
+  "aliases_before": "محطة قطار شبرا الخيمة; محطة سكة حديد شبرا الخيمة الفرعية",
+  "aliases_after": "محطة قطار شبرا الخيمة|محطة سكة حديد شبرا الخيمة الفرعية",
+  "alias_count": 2
+ },
+ "RAIL-QALYUB": {
+  "aliases_before": "محطة قطار قليوب; مفرق سكك حديد قليوب",
+  "aliases_after": "محطة قطار قليوب|مفرق سكك حديد قليوب",
+  "alias_count": 2
+ },
+ "LANDMARK-DELTA-BARRAGE": {
+  "aliases_before": "القناطر الخيرية; قناطر محمد علي; مجموعة قناطر الدلتا",
+  "aliases_after": "القناطر الخيرية|قناطر محمد علي|مجموعة قناطر الدلتا",
+  "alias_count": 3
+ },
+ "LANDMARK-MOHAMED-ALI-PALACE-SHUBRA": {
+  "aliases_before": "قصر محمد علي بشبرا; قصر الفسقية",
+  "aliases_after": "قصر محمد علي بشبرا|قصر الفسقية",
+  "alias_count": 2
+ },
+ "LANDMARK-OBELISK-SENUSRET-MATARIYA": {
+  "aliases_before": "مسلة المطرية; مسلة سنوسرت الأول; متحف مسلة المطرية المفتوح",
+  "aliases_after": "مسلة المطرية|مسلة سنوسرت الأول|متحف مسلة المطرية المفتوح",
+  "alias_count": 3
+ },
+ "LANDMARK-VIRGIN-MARY-TREE": {
+  "aliases_before": "شجرة السيدة العذراء بالمطرية; شجرة مريم",
+  "aliases_after": "شجرة السيدة العذراء بالمطرية|شجرة مريم",
+  "alias_count": 2
+ },
+ "LANDMARK-FENG-SHOUBRA": {
+  "aliases_before": "هندسة شبرا; كلية الهندسة بشبرا",
+  "aliases_after": "هندسة شبرا|كلية الهندسة بشبرا",
+  "alias_count": 2
+ },
+ "LANDMARK-NASSER-INSTITUTE": {
+  "aliases_before": "مستشفى معهد ناصر; مدينة معهد ناصر الطبية",
+  "aliases_after": "مستشفى معهد ناصر|مدينة معهد ناصر الطبية",
+  "alias_count": 2
+ },
+ "LANDMARK-MATARIYA-TEACHING-HOSP": {
+  "aliases_before": "المطرية التعليمي; مستشفى المطرية",
+  "aliases_after": "المطرية التعليمي|مستشفى المطرية",
+  "alias_count": 2
+ },
+ "LANDMARK-SAHEL-TEACHING-HOSP": {
+  "aliases_before": "الساحل التعليمي; مستشفى الساحل",
+  "aliases_after": "الساحل التعليمي|مستشفى الساحل",
+  "alias_count": 2
+ },
+ "LANDMARK-QALYUB-SPEC-HOSP": {
+  "aliases_before": "مستشفى قليوب المركزي; مستشفى قليوب التخصصي; مستشفى قليوب الجديدة",
+  "aliases_after": "مستشفى قليوب المركزي|مستشفى قليوب التخصصي|مستشفى قليوب الجديدة",
+  "alias_count": 3
+ },
+ "LANDMARK-KHANKA-SPEC-HOSP": {
+  "aliases_before": "مستشفى الخانكة المركزي; مستشفى الخانكة التخصصي",
+  "aliases_after": "مستشفى الخانكة المركزي|مستشفى الخانكة التخصصي",
+  "alias_count": 2
+ },
+ "AUTH-NWRC-QANATER": {
+  "aliases_before": "المركز القومي لبحوث المياه; معاهد بحوث المياه بالقناطر",
+  "aliases_after": "المركز القومي لبحوث المياه|معاهد بحوث المياه بالقناطر",
+  "alias_count": 2
+ },
+ "PROJ-RING-ROAD-DEV": {
+  "aliases_before": "توسعة وتطوير الطريق الدائري; تطوير الدائري الشمالي",
+  "aliases_after": "توسعة وتطوير الطريق الدائري|تطوير الدائري الشمالي",
+  "alias_count": 2
+ },
+ "PROJ-KHOSOUS-DEV": {
+  "aliases_before": "تطوير مدينة الخصوص; تحديث المخطط الاستراتيجي للخصوص",
+  "aliases_after": "تطوير مدينة الخصوص|تحديث المخطط الاستراتيجي للخصوص",
+  "alias_count": 2
+ },
+ "PROJ-GABAL-EL-ASFAR-WWTP": {
+  "aliases_before": "محطة صرف الجبل الأصفر; محطة معالجة الجبل الأصفر",
+  "aliases_after": "محطة صرف الجبل الأصفر|محطة معالجة الجبل الأصفر",
+  "alias_count": 2
+ }
+}
