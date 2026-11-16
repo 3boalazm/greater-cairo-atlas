@@ -13,10 +13,10 @@ import { logger } from "@/lib/logger";
 export const ATLAS_TABLE_COUNTS_SQL = `
 SELECT
   (SELECT COUNT(*)::int FROM entities) AS entities,
-  (SELECT COUNT(*)::int FROM facts) AS facts,
+  (SELECT COUNT(*)::int FROM facts WHERE retired_at IS NULL) AS facts,
   (SELECT COUNT(*)::int FROM evidence) AS evidence,
   (SELECT COUNT(*)::int FROM features) AS features,
-  (SELECT COUNT(*)::int FROM fact_evidence) AS fact_evidence
+  (SELECT COUNT(*)::int FROM fact_evidence fe JOIN facts f ON f.id = fe.fact_id WHERE f.retired_at IS NULL) AS fact_evidence
 ` as const;
 
 export interface AtlasTableCountsRow {
