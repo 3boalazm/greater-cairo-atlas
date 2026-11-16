@@ -29,9 +29,9 @@ describe("Batch 24 EAST research", () => {
     expect(Object.keys(hashes).length).toBeGreaterThan(15);
     for (const [file, digest] of Object.entries(hashes)) expect(createHash("sha256").update(await readFile(file)).digest("hex"), file).toBe(digest);
     const before = csv(await read("tests/fixtures/batch24/baseline-entities.csv")), after = csv(await read("data/seed/entities.csv")), incoming = csv(await read("data/research/east-batch07/entities.csv"));
-    expect(before).toHaveLength(535); expect(incoming).toHaveLength(21); expect(after).toHaveLength(556);
-    expect(after.slice(0, 535)).toEqual(before); expect(after.slice(535)).toEqual(incoming);
-    expect(new Set(after.map((row) => row.code)).size).toBe(556);
+    expect(before).toHaveLength(535); expect(incoming).toHaveLength(21); expect(after).toHaveLength(564);
+    expect(after.slice(0, 535)).toEqual(before); expect(after.slice(535, 556)).toEqual(incoming);
+    expect(new Set(after.map((row) => row.code)).size).toBe(564);
     expect(await json("data/research/east-batch07/code_remap.json")).toEqual({});
     const baseline = await json("tests/fixtures/batch24/baseline-record-hashes.json") as Record<string, Record<string, string>>;
     for (const table of ["facts", "evidence"]) {
@@ -61,7 +61,7 @@ describe("Batch 24 EAST research", () => {
     expect(seed.facts.filter((f) => incomingCodes.has(f.entity_code))).toHaveLength(66);
     const entities = new Set(seed.entities.map((e) => e.code)), refs = new Set(seed.evidence.map((e) => e.code));
     expect(seed.facts.every((f) => entities.has(f.entity_code) && f.evidence_codes.every((ref) => refs.has(ref)))).toBe(true);
-    expect(seed.entities.filter((e) => e.status === "unknown").map((e) => e.code).sort()).toEqual(["DIST-GREEN-SARAYA", "LANDMARK-HELWAN-IRON-STEEL", "ROAD-CAIRO-ASSIUT-AGRI", "TRANSIT-MASPERO-RIVER-PIER"]);
+    expect(seed.entities.filter((e) => e.status === "unknown").map((e) => e.code).sort()).toEqual(["DIST-GREEN-SARAYA", "LANDMARK-HELWAN-IRON-STEEL", "LANDMARK-ICONIC-TOWER", "PROJ-CENTRAL-BUSINESS-DISTRICT", "ROAD-CAIRO-ASSIUT-AGRI", "TRANSIT-MASPERO-RIVER-PIER"]);
   });
   it("registers exact bilingual labels and unit forms without modifying existing units", async () => {
     const expected = await json("tests/fixtures/batch24/labels.json") as Record<string, {ar: string; en: string}>;
@@ -80,7 +80,7 @@ describe("Batch 24 EAST research", () => {
   });
   it("serves all new entities in search, EAST and detail without geometry, with stats/export parity", async () => {
     const [data, metadata] = await Promise.all([getStaticAtlasDataset(), getExportMetadata()]);
-    expect(metadata.counts).toMatchObject({entities: 556, facts: 2801, evidence: 793, fact_evidence: 3154});
+    expect(metadata.counts).toMatchObject({entities: 564, facts: 2849, evidence: 810, fact_evidence: 3202});
     expect(data.entities).toHaveLength(metadata.counts.entities); expect(data.facts).toHaveLength(metadata.counts.facts); expect(data.evidence).toHaveLength(metadata.counts.evidence); expect(data.factEvidence).toHaveLength(metadata.counts.fact_evidence); expect(data.features).toHaveLength(3031);
     const rows = csv(await read("data/research/east-batch07/entities.csv")); const codes = new Set(rows.map((row) => row.code));
     expect(data.entities.filter((e) => codes.has(e.code) && e.sector === "EAST")).toHaveLength(21);

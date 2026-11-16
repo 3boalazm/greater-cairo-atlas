@@ -18,14 +18,17 @@ describe("shared quick facts", () => {
       expect(code).toContain("selectQuickFacts(");
     }
     const data = await getStaticAtlasDataset();
-    expect(data.entities).toHaveLength(556); expect(data.facts).toHaveLength(2801);
+    expect(data.entities).toHaveLength(564); expect(data.facts).toHaveLength(2849);
     const sources = new Map(data.evidence.map((item) => [item.code, item]));
     const old = Object.fromEntries(Object.entries(QUICK_FACT_LABELS).slice(0, 9));
-    const counts = { before: 0, after: 0 }, previousCounts = { before: 0, after: 0 }, batch23Counts = { before: 0, after: 0 };
+    const counts = { before: 0, after: 0 }, previousCounts = { before: 0, after: 0 }, batch23Counts = { before: 0, after: 0 }, batch24Counts = { before: 0, after: 0 };
     for (const entity of data.entities) {
       const facts = data.facts.filter((fact) => fact.entity_code === entity.code).map((fact) => ({ ...fact, evidence: fact.evidence_codes.map((code) => sources.get(code)!) }));
-      const previousFacts = facts.filter((fact) => !fact.evidence_codes.some((ref) => ref.startsWith("EV-V8-") || ref.startsWith("EV-E7C-")));
-      const batch23Facts = facts.filter((fact) => !fact.evidence_codes.some((ref) => ref.startsWith("EV-E7C-")));
+      const previousFacts = facts.filter((fact) => !fact.evidence_codes.some((ref) => ref.startsWith("EV-V8-") || ref.startsWith("EV-E7C-") || ref.startsWith("EV-E8-")));
+      const batch23Facts = facts.filter((fact) => !fact.evidence_codes.some((ref) => ref.startsWith("EV-E7C-") || ref.startsWith("EV-E8-")));
+      const batch24Facts = facts.filter((fact) => !fact.evidence_codes.some((ref) => ref.startsWith("EV-E8-")));
+      if (selectQuickFacts(batch24Facts, old).length) batch24Counts.before++;
+      if (selectQuickFacts(batch24Facts).length) batch24Counts.after++;
       if (selectQuickFacts(batch23Facts, old).length) batch23Counts.before++;
       if (selectQuickFacts(batch23Facts).length) batch23Counts.after++;
       if (selectQuickFacts(previousFacts, old).length) previousCounts.before++;
@@ -35,7 +38,8 @@ describe("shared quick facts", () => {
     }
     expect(previousCounts).toEqual({ before: 54, after: 109 });
     expect(batch23Counts).toEqual({ before: 57, after: 112 });
-    expect(counts).toEqual({ before: 57, after: 126 });
+    expect(batch24Counts).toEqual({ before: 57, after: 126 });
+    expect(counts).toEqual({ before: 58, after: 130 });
   });
   it("hides long and conflicting claims, excludes retired states, ranks verified official first and counts sources", () => {
     const item = (code: string, value: string, extra = {}) => ({ code, attribute: "area", value, unit: "km2", valid_as_of: "2024-01-01", verification_state: "single_source", evidence: [{ code: `EV-${code}`, source_type: "news" }], ...extra });

@@ -1,0 +1,296 @@
+{
+ "drop_evidence": [
+  "EV-E8-103",
+  "EV-E8-104",
+  "EV-E8-106"
+ ],
+ "drop_facts": [
+  [
+   "LANDMARK-CENTRAL-PARK-NEW-CAPITAL",
+   "water_features"
+  ],
+  [
+   "LANDMARK-CENTRAL-PARK-NEW-CAPITAL",
+   "facilities"
+  ]
+ ],
+ "entity": {
+  "PROJ-GREEN-RIVER": {
+   "aliases": "منطقة النهر الأخضر|النهر الأخضر بالعاصمة الإدارية|Green River NAC",
+   "description": "منطقة حدائق ومتنزهات ومركز ترفيهي بالعاصمة الإدارية الجديدة، افتُتحت في 20 مارس 2026، وتضم عدة حدائق منها الحديقة المركزية."
+  },
+  "LANDMARK-CENTRAL-PARK-NEW-CAPITAL": {
+   "aliases": "الحديقة المركزية بالعاصمة الإدارية|Central Park New Administrative Capital|Central Park NAC",
+   "description": "الحديقة المركزية ضمن منطقة النهر الأخضر بالعاصمة الإدارية الجديدة، بمساحة 700 فدان، وتضم بحيرات ومشايات ومسرحًا مكشوفًا."
+  },
+  "PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY": {
+   "status": "operational",
+   "aliases": "المدينة الأولمبية بالعاصمة الإدارية|Olympic City NAC|Egypt Olympic City",
+   "description": "مجمع رياضي بالعاصمة الإدارية الجديدة يضم استاد العاصمة وصالات مغطاة ومجمعات ملاعب، وتُقام فيه بطولات دولية منها كأس العالم للرماية للناشئين (أبريل 2026)."
+  },
+  "LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE": {
+   "aliases": "مسجد المشير|Field Marshal Tantawi Mosque|مسجد المشير طنطاوي بالتجمع الخامس",
+   "description": "مسجد افتُتح في مارس 2015 على محور المشير طنطاوي بالتجمع الخامس ويسع نحو ثلاثة آلاف مصلٍّ، وتُؤدى فيه الصلوات الرسمية بحضور رئيس الجمهورية."
+  }
+ },
+ "modify_facts": [
+  {
+   "match": [
+    "PROJ-GREEN-RIVER",
+    "width"
+   ],
+   "set": {
+    "attribute_key": "width_range",
+    "value": "400–1000",
+    "unit": "m"
+   }
+  },
+  {
+   "match": [
+    "PROJ-GREEN-RIVER",
+    "site_area"
+   ],
+   "set": {
+    "value": "25000000",
+    "unit": "m2"
+   }
+  },
+  {
+   "match": [
+    "PROJ-GREEN-RIVER",
+    "function"
+   ],
+   "set": {
+    "value": "منطقة حدائق ومتنزهات ومناطق ترفيهية بالعاصمة الإدارية الجديدة"
+   }
+  }
+ ],
+ "evidence_fix": {
+  "EV-E8-101": {
+   "published_date": "2017-10",
+   "source_url": "https://www.presidency.eg/ar/%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%82%D9%88%D9%85%D9%8A%D8%A9/%D8%AA%D8%AF%D8%B4%D9%8A%D9%86-%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9-%D8%A7%D9%84%D8%A3%D9%88%D9%84%D9%89-%D9%85%D9%86-%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D9%85%D8%A9-%D8%A7%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A%D8%A9-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9/"
+  },
+  "EV-E8-102": {
+   "source_url": "https://www.presidency.eg/ar/%D9%82%D8%B3%D9%85-%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1-%D8%B1%D8%A6%D8%A7%D8%B3%D9%8A%D8%A9/news20032026-1/"
+  }
+ },
+ "add_evidence": [
+  {
+   "evidence_ref": "EV-E8-201",
+   "source_url": "https://www.presidency.eg/ar/%D9%82%D8%B3%D9%85-%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1-%D8%B1%D8%A6%D8%A7%D8%B3%D9%8A%D8%A9/news612024/",
+   "publisher": "رئاسة جمهورية مصر العربية",
+   "title": "الرئيس عبد الفتاح السيسي يتفقد مدينة مصر الدولية للألعاب الأوليمبية بالعاصمة الإدارية الجديدة",
+   "note": "خبر رسمي بتاريخ السبت 6 يناير 2024؛ يذكر أن رئيس الجمهورية تفقد مدينة مصر الدولية للألعاب الأوليمبية بالعاصمة الإدارية الجديدة واطمأن على المنتخب الوطني لكرة القدم الذي يواصل تدريباته استعدادًا لكأس الأمم الأفريقية. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2024-01-06",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-202",
+   "source_url": "https://sis.gov.eg/ar/%D8%A7%D9%84%D8%B1%D8%A6%D8%A7%D8%B3%D8%A9/%D8%B4%D8%A6%D9%88%D9%86-%D8%AF%D8%A7%D8%AE%D9%84%D9%8A%D8%A9/%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D8%A7%D8%AA-%D9%82%D9%88%D9%85%D9%8A%D8%A9-%D9%88%D8%A7%D9%81%D8%AA%D8%AA%D8%A7%D8%AD%D8%A7%D8%AA-%D8%B1%D8%A6%D8%A7%D8%B3%D9%8A%D8%A9/%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D9%85%D8%A9-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9/",
+   "publisher": "الهيئة العامة للاستعلامات",
+   "title": "العاصمة الجديدة",
+   "note": "صفحة رسمية عن العاصمة الإدارية الجديدة؛ تذكر أن مدينة مصر الدولية للألعاب الأولمبية تضم استاد العاصمة وصالات مغطاة ومجمعات ملاعب عالمية، وتذكر النهر الأخضر بطول نحو 35 كم. رقم سعة الاستاد لم يُنقل لتضارب الأرقام المنشورة على موقع الهيئة نفسه. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": null,
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-203",
+   "source_url": "https://sis.gov.eg/ar/%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2-%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%D9%8A/%D8%A7%D9%84%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA/%D8%A8%D8%B7%D9%88%D9%84%D8%A9-%D9%83%D8%A3%D8%B3-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-%D9%84%D9%84%D8%B1%D9%85%D8%A7%D9%8A%D8%A9-%D9%84%D9%84%D9%86%D8%A7%D8%B4%D8%A6%D9%8A%D9%86-2026/",
+   "publisher": "الهيئة العامة للاستعلامات",
+   "title": "بطولة كأس العالم للرماية للناشئين ٢٠٢٦",
+   "note": "صفحة رسمية بتاريخ 21 أبريل 2026 (محدّثة 24 أبريل)؛ تذكر أن مصر تستضيف بمدينة مصر الدولية للألعاب الأولمبية بالعاصمة الإدارية منافسات كأس العالم للرماية 2026 من 19 إلى 27 أبريل 2026 بمشاركة 26 دولة يمثلها أكثر من 255 لاعبًا ولاعبة من الناشئين. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2026-04-21",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-204",
+   "source_url": "https://www.presidency.eg/ar/%D8%A7%D9%84%D9%85%D8%B4%D8%A7%D8%B1%D9%8A%D8%B9-%D8%A7%D9%84%D9%82%D9%88%D9%85%D9%8A%D8%A9/%D9%85%D8%B3%D8%AC%D8%AF-%D8%A7%D9%84%D9%85%D8%B4%D9%8A%D8%B1-%D8%B7%D9%86%D8%B7%D8%A7%D9%88%D9%8A-1/",
+   "publisher": "رئاسة جمهورية مصر العربية",
+   "title": "مسجد المشير طنطاوي بمحافظة القاهرة",
+   "note": "صفحة المشروع على موقع رئاسة الجمهورية (وسم «دور عبادة — مارس 2015»)؛ تذكر أن المسجد يسع 3 آلاف مصلٍّ، وتصف قاعتيه الرئيسيتين وقاعاته الفرعية للمناسبات وجراج البدروم بسعة 300 سيارة ومنطقة المراسم والخدمات ومنطقتي انتظار السيارات والمسطحات الخضراء. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2015-03",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-205",
+   "source_url": "https://www.presidency.eg/ar/%D9%82%D8%B3%D9%85-%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1-%D8%B1%D8%A6%D8%A7%D8%B3%D9%8A%D8%A9/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D9%81%D8%AA%D8%A7%D8%AD-%D8%A7%D9%84%D8%B3%D9%8A%D8%B3%D9%8A-%D9%8A%D9%81%D8%AA%D8%AA%D8%AD-19%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D8%A7-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A7-%D9%86%D9%81%D8%B0%D8%AA%D9%87%D8%A7-%D8%A7%D9%84%D9%87%D9%8A%D8%A6%D8%A9-%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9-%D9%84%D9%84%D9%82%D9%88%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%B3%D9%84%D8%AD%D8%A9/",
+   "publisher": "رئاسة جمهورية مصر العربية",
+   "title": "الرئيس عبد الفتاح السيسي يفتتح ١٩ مشروعًا جديدًا نفذتها الهيئة الهندسية للقوات المسلحة",
+   "note": "خبر رسمي بتاريخ الإثنين 9 مارس 2015؛ يذكر افتتاح رئيس الجمهورية مسجد المشير طنطاوي المقام على مساحة 33 فدانًا والذي يسع لأكثر من 3 آلاف مصلٍّ. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2015-03-09",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-206",
+   "source_url": "https://afmad.mod.gov.eg/Mosque.aspx",
+   "publisher": "إدارة الشئون المعنوية للقوات المسلحة",
+   "title": "إدارة الشئون المعنوية للقوات المسلحة — المساجد",
+   "note": "صفحة قائمة المساجد على موقع إدارة الشئون المعنوية؛ تذكر مسجد المشير طنطاوى وعنوانه: محور المشير طنطاوى بالتجمع الخامس. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": null,
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-207",
+   "source_url": "https://sis.gov.eg/ar/%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2-%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%D9%8A/%D8%A7%D9%84%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%B3%D9%8A%D8%B3%D9%8A-%D9%8A%D8%A4%D8%AF%D9%8A-%D8%B5%D9%84%D8%A7%D8%A9-%D8%B9%D9%8A%D8%AF-%D8%A7%D9%84%D9%81%D8%B7%D8%B1-%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%83-%D8%A8%D9%85%D8%B3%D8%AC%D8%AF-%D8%A7%D9%84%D9%85%D8%B4%D9%8A%D8%B1/",
+   "publisher": "الهيئة العامة للاستعلامات",
+   "title": "الرئيس السيسي يؤدي صلاة عيد الفطر المبارك بمسجد المشير",
+   "note": "خبر رسمي بتاريخ 31 مارس 2025؛ يذكر أداء رئيس الجمهورية صلاة عيد الفطر بمسجد المشير طنطاوي بمنطقة التجمع الخامس. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2025-03-31",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-208",
+   "source_url": "https://sis.gov.eg/ar/%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2-%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85%D9%8A/%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%B3%D9%8A%D8%B3%D9%89-%D9%8A%D9%84%D8%AA%D9%82%D9%89-%D9%82%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D9%82%D9%88%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%B3%D9%84%D8%AD%D8%A9-%D9%88%D9%8A%D9%88%D8%AC%D9%87-%D8%A7%D9%84%D8%AA%D8%AD%D9%8A%D8%A9-%D9%84%D8%A3%D8%B1%D9%88%D8%A7%D8%AD-%D8%B4%D9%87%D8%AF%D8%A7%D8%A1-%D8%A7%D9%84%D9%88%D8%B7%D9%86/",
+   "publisher": "الهيئة العامة للاستعلامات",
+   "title": "الرئيس السيسى يلتقى قادة القوات المسلحة ويوجه التحية لأرواح شهداء الوطن",
+   "note": "خبر رسمي بتاريخ 27 فبراير 2026؛ يذكر أداء رئيس الجمهورية صلاة الجمعة بمسجد المشير طنطاوي بحضور رئيس الوزراء وقادة القوات المسلحة، بالتزامن مع احتفالات ذكرى انتصارات العاشر من رمضان. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2026-02-27",
+   "accessed_date": "2026-11-17"
+  }
+ ],
+ "add_facts": [
+  {
+   "entity_code": "PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY",
+   "attribute_key": "location",
+   "value": "العاصمة الإدارية الجديدة",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-201"
+  },
+  {
+   "entity_code": "PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY",
+   "attribute_key": "function",
+   "value": "مجمع رياضي يضم استاد العاصمة وصالات مغطاة ومجمعات ملاعب",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-202"
+  },
+  {
+   "entity_code": "PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY",
+   "attribute_key": "status_note",
+   "value": "6 يناير 2024: رئيس الجمهورية يتفقد المدينة ويطمئن على المنتخب الوطني لكرة القدم الذي يواصل تدريباته استعدادًا لكأس الأمم الأفريقية",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-201"
+  },
+  {
+   "entity_code": "PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY",
+   "attribute_key": "operational_use",
+   "value": "21 أبريل 2026: هيئة الاستعلامات تعلن أن المدينة تستضيف منافسات كأس العالم للرماية للناشئين 2026 (19–27 أبريل 2026) بمشاركة 26 دولة",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-203"
+  },
+  {
+   "entity_code": "LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE",
+   "attribute_key": "inauguration_date",
+   "value": "9 مارس 2015",
+   "unit": "date",
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-205"
+  },
+  {
+   "entity_code": "LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE",
+   "attribute_key": "site_area",
+   "value": "33",
+   "unit": "feddan",
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-205"
+  },
+  {
+   "entity_code": "LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE",
+   "attribute_key": "capacity",
+   "value": "3000",
+   "unit": "persons",
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-204"
+  },
+  {
+   "entity_code": "LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE",
+   "attribute_key": "address",
+   "value": "محور المشير طنطاوي، التجمع الخامس",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-206"
+  },
+  {
+   "entity_code": "LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE",
+   "attribute_key": "architectural_layout",
+   "value": "قاعتان رئيسيتان للمناسبات و5 قاعات فرعية للمناسبات، وجراج بدروم بسعة 300 سيارة، ومنطقة مراسم ومنطقة خدمات، ومنطقتا انتظار للسيارات ومسطحات خضراء",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-204"
+  },
+  {
+   "entity_code": "LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE",
+   "attribute_key": "operational_use",
+   "value": "أدى رئيس الجمهورية صلاة عيد الفطر بالمسجد في 31 مارس 2025 بمشاركة كبار رجال الدولة",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-207"
+  },
+  {
+   "entity_code": "LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE",
+   "attribute_key": "status_note",
+   "value": "27 فبراير 2026: رئيس الجمهورية يؤدي صلاة الجمعة بالمسجد بحضور رئيس الوزراء وقادة القوات المسلحة، بالتزامن مع احتفالات ذكرى انتصارات العاشر من رمضان",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-208"
+  },
+  {
+   "entity_code": "PROJ-GREEN-RIVER",
+   "attribute_key": "development_components",
+   "value": "يشتمل على عدة حدائق منها: حديقة الأسرة، وحديقة العلوم والتكنولوجيا، وحديقة المعرفة، وحديقة الفنون، والحديقة الترفيهية، وحديقة النباتات، والحديقة المركزية",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-101"
+  },
+  {
+   "entity_code": "PROJ-GREEN-RIVER",
+   "attribute_key": "development_note",
+   "value": "الطول والعرض والمساحة مأخوذة من وصف المشروع المنشور على موقع رئاسة الجمهورية عند تدشين المرحلة الأولى من العاصمة (أكتوبر 2017)",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-101"
+  },
+  {
+   "entity_code": "LANDMARK-CENTRAL-PARK-NEW-CAPITAL",
+   "attribute_key": "development_components",
+   "value": "مشايات، ومسطحات مائية تتضمن ثلاث بحيرات بمساحة 9000 م²، وبوابة رئيسية، ومبنى للمطاعم ومبانٍ للوجبات السريعة، ومسرح مكشوف، وكوبري وأبراج، وطرق داخلية (وفق وصف المشروع المنشور على موقع الرئاسة عام 2017)",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-101"
+  },
+  {
+   "entity_code": "LANDMARK-CENTRAL-PARK-NEW-CAPITAL",
+   "attribute_key": "status_note",
+   "value": "20 مارس 2026: افتتاح مونوريل شرق النيل ومنطقة النهر الأخضر التي تضم الحديقة المركزية، وتصفها رئاسة الجمهورية بأنها أكبر حديقة مركزية على مستوى العالم",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-102"
+  }
+ ]
+}

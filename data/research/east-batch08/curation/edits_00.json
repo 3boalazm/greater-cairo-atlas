@@ -1,0 +1,314 @@
+{
+ "add_entities": [
+  {
+   "code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "name_ar": "منطقة الأعمال المركزية",
+   "name_en": "Central Business District (CBD)",
+   "entity_type": "project",
+   "sector": "EAST",
+   "status": "unknown",
+   "aliases": "الحي المركزي للأعمال|المنطقة المركزية للأعمال|Central Business District NAC",
+   "description": "منطقة أعمال متعددة الاستخدامات بالعاصمة الإدارية الجديدة تضم 20 برجًا تنفذها الشركة الصينية CSCEC لصالح وزارة الإسكان، بينها البرج الأيقوني."
+  },
+  {
+   "code": "LANDMARK-ICONIC-TOWER",
+   "name_ar": "البرج الأيقوني",
+   "name_en": "Iconic Tower",
+   "entity_type": "landmark",
+   "sector": "EAST",
+   "status": "unknown",
+   "aliases": "Iconic Tower NAC|البرج الأيقوني بالعاصمة الإدارية",
+   "description": "برج متعدد الاستخدامات (فندقي وتجاري وإداري) بارتفاع نحو 400 م يمثل محور منطقة الأعمال المركزية بالعاصمة الإدارية الجديدة، وتصفه وزارة الإسكان بأنه أعلى مبنى في إفريقيا."
+  },
+  {
+   "code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+   "name_ar": "بانوراما حرب أكتوبر",
+   "name_en": "October War Panorama",
+   "entity_type": "landmark",
+   "sector": "EAST",
+   "status": "operational",
+   "aliases": "بانوراما أكتوبر|متحف بانوراما حرب أكتوبر|6th of October War Panorama",
+   "description": "متحف عسكري بشارع صلاح سالم بمدينة نصر يوثّق حرب أكتوبر بعرض متحفي تفاعلي، افتُتح عام 1989 وأُعيد افتتاحه عام 2019 بعد التطوير."
+  }
+ ],
+ "add_evidence": [
+  {
+   "evidence_ref": "EV-E8-211",
+   "source_url": "https://blogs.realestate.gov.eg/news/minister-of-housing-reviews-central-business-district-project-in-new-administrative-capital/",
+   "publisher": "وزارة الإسكان والمرافق والمجتمعات العمرانية (مدونة المنصة العقارية الرسمية)",
+   "title": "Minister of Housing Reviews Central Business District Project in New Administrative Capital",
+   "note": "تدوينة رسمية منشورة في 5 فبراير 2025 عن اجتماع 2 فبراير 2025 لمتابعة منطقة الأعمال المركزية؛ تذكر مكونات المنطقة وأن البرج الأيقوني سيكون محور المنطقة، وأن الجهة المشغّلة للفنادق هي أكور التي تدير علامتي فيرمونت ورافلز. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2025-02-05",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-212",
+   "source_url": "https://blogs.realestate.gov.eg/news/minister-of-housing-reviews-handover-status-at-the-central-business-district-in-the-new-administrative-capital/",
+   "publisher": "وزارة الإسكان والمرافق والمجتمعات العمرانية (مدونة المنصة العقارية الرسمية)",
+   "title": "Minister of Housing Reviews Handover Status at the Central Business District in the New Administrative Capital",
+   "note": "تدوينة رسمية منشورة في 8 يوليو 2026 عن اجتماع وزيرة الإسكان مع «إنكوم» لمراجعة موقف التسليمات بالمنطقة والاستعداد لمرحلة التشغيل والإدارة؛ تذكر مكونات المنطقة (806 آلاف م² و102 ألف م² وارتفاعات الأبراج) وتفاصيل البرج الأيقوني (نحو 400 م، 40 طابقًا مكتبيًا، 10 طوابق شقق مخدومة بـ52 وحدة، 30 طابقًا فندقيًا بـ183 غرفة، نحو 266 ألف م²). فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2026-07-08",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-213",
+   "source_url": "https://blogs.realestate.gov.eg/news/housing-minister-construction-work-completed-in-the-central-business-district-of-the-new-administrative-capital/",
+   "publisher": "وزارة الإسكان والمرافق والمجتمعات العمرانية (مدونة المنصة العقارية الرسمية)",
+   "title": "Housing Minister: Construction Work Completed in the Central Business District of the New Administrative Capital",
+   "note": "تدوينة رسمية منشورة في 23 أغسطس 2026؛ تذكر أن وزيرة الإسكان أشارت إلى اكتمال جميع أعمال الإنشاء بمنطقة الأعمال المركزية خلال اجتماعها مع ممثلي مركز القاهرة المالي الدولي (CIFC) لمراجعة المقترحات المقدمة لإدارة المنطقة. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2026-08-23",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-214",
+   "source_url": "https://cabinet.gov.eg/News/Details/74841",
+   "publisher": "رئاسة مجلس الوزراء",
+   "title": "رئيس الوزراء يشهد احتفالية تسليم أول ثلاثة أبراج ضمن منطقة الأعمال المركزية بالعاصمة الإدارية الجديدة",
+   "note": "صفحة رسمية بتاريخ 14 يناير 2024؛ تذكر تسليم أول ثلاثة أبراج إدارية في المنطقة، وأن المنطقة تشهد تشييد 20 برجًا تنفذها الشركة الصينية لصالح وزارة الإسكان بشريكها المصري «انكوم»، وأن البرج الأيقوني (نحو 400 م) سيدخل ضمن مراحل التسليم اللاحقة. عنوان وسم الصفحة العام «رئاسة مجلس الوزراء» والعنوان المذكور هو عنوان الخبر. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2024-01-14",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-215",
+   "source_url": "https://sis.gov.eg/en/media-center/news/pm-reviews-housing-points-timeline-for-alam-el-roum-project/",
+   "publisher": "الهيئة العامة للاستعلامات (State Information Service)",
+   "title": "PM reviews housing points, timeline for “Alam El-Roum” project",
+   "note": "خبر رسمي بتاريخ 20 يناير 2026؛ يذكر أن وزير الإسكان استعرض تقدم التنفيذ في منطقة الأعمال المركزية بالعاصمة الإدارية ومشروع أبراج داون تاون والبحيرات بالعلمين الجديدة، مؤكدًا ضرورة تسريع الإنجاز واستكمال ترتيبات التشغيل والصيانة. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": "2026-01-20",
+   "accessed_date": "2026-11-17"
+  },
+  {
+   "evidence_ref": "EV-E8-221",
+   "source_url": "https://www.mod.gov.eg/modwebsite/MuseumDetailsAr.aspx?id=2",
+   "publisher": "وزارة الدفاع المصرية",
+   "title": "بانوراما أكتوبر",
+   "note": "صفحة المتحف على موقع وزارة الدفاع؛ تذكر أن إنشاءه يرجع إلى 1983 (تعاون عسكري وثقافي مع كوريا الديمقراطية) وافتتاحه في 5 أكتوبر 1989 وتطويره في 2018 وإعادة افتتاحه في 2019، ومساحته 31 ألف م²، وموقعه بشارع صلاح سالم بمدينة نصر. مواعيد الزيارة وأسعار التذاكر الواردة بالصفحة لم تُنقل لأنها بيانات متغيرة. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+   "source_type": "official",
+   "published_date": null,
+   "accessed_date": "2026-11-17"
+  }
+ ],
+ "add_facts": [
+  {
+   "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "attribute_key": "location",
+   "value": "العاصمة الإدارية الجديدة",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-214"
+  },
+  {
+   "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "attribute_key": "development_components",
+   "value": "10 أبراج متعددة الاستخدامات (إدارية ومكتبية وتجارية وخدمية) بمساحة مبنية نحو 806 ألف م² وارتفاعات من 80 إلى 175 م؛ و5 أبراج سكنية كاملة التشطيب تضم نحو 1700 وحدة بمساحة مبنية 102 ألف م² وارتفاعات من 152 إلى 200 م؛ وأبراج الهلال (4 أبراج متصلة) للأنشطة الفندقية والتجارية والترفيهية والخدمية بارتفاع 64 م؛ والبرج الأيقوني",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-212"
+  },
+  {
+   "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "attribute_key": "development_note",
+   "value": "تشهد المنطقة تشييد 20 برجًا تنفذها الشركة الصينية CSCEC لصالح وزارة الإسكان والمرافق والمجتمعات العمرانية، ويشارك فيها شريكها المصري شركة «انكوم»",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-214"
+  },
+  {
+   "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "attribute_key": "international_hotels",
+   "value": "مجموعة أكور (Accor) هي الجهة المشغّلة للفنادق، وتدير علامتي فيرمونت ورافلز",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-211"
+  },
+  {
+   "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "attribute_key": "unit_handover_milestone",
+   "value": "14 يناير 2024: رئيس الوزراء يشهد احتفالية تسليم أول ثلاثة أبراج إدارية في المنطقة، على أن يدخل البرج الأيقوني ضمن مراحل التسليم اللاحقة",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-214"
+  },
+  {
+   "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "attribute_key": "executive_follow_up",
+   "value": "20 يناير 2026: وزير الإسكان يعرض على رئيس الوزراء موقف التنفيذ في منطقة الأعمال المركزية ومشروع أبراج داون تاون والبحيرات بالعلمين الجديدة، مؤكدًا ضرورة بذل الجهود لتسريع الإنجاز واستكمال ترتيبات التشغيل والصيانة",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-215"
+  },
+  {
+   "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "attribute_key": "status_note",
+   "value": "8 يوليو 2026: وزيرة الإسكان تراجع موقف التسليمات بالمنطقة وتشدد على الاستعداد المبكر لمرحلة التشغيل والإدارة وفق أفضل الممارسات العالمية",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-212"
+  },
+  {
+   "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "attribute_key": "construction_completed_announced",
+   "value": "2026-08-23",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-213"
+  },
+  {
+   "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+   "attribute_key": "latest_ministerial_review",
+   "value": "23 أغسطس 2026: اجتماع وزيرة الإسكان مع ممثلي مركز القاهرة المالي الدولي (CIFC) لمراجعة المقترحات المقدمة لإدارة منطقة المال والأعمال بالعاصمة الإدارية، بعد إعلانها اكتمال جميع أعمال الإنشاء بالمنطقة",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-213"
+  },
+  {
+   "entity_code": "LANDMARK-ICONIC-TOWER",
+   "attribute_key": "height",
+   "value": "نحو 400",
+   "unit": "m",
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-212"
+  },
+  {
+   "entity_code": "LANDMARK-ICONIC-TOWER",
+   "attribute_key": "function",
+   "value": "برج متعدد الاستخدامات يضم أنشطة فندقية وتجارية وإدارية، وتصفه وزارة الإسكان بأنه معلم منطقة الأعمال المركزية وأعلى مبنى في إفريقيا",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-212"
+  },
+  {
+   "entity_code": "LANDMARK-ICONIC-TOWER",
+   "attribute_key": "development_components",
+   "value": "40 طابقًا من المساحات المكتبية متعددة الأغراض، و10 طوابق لشقق مخدومة (52 وحدة)، و30 طابقًا فندقيًا (183 غرفة)، إضافة إلى منطقة تجارية متكاملة، بمساحة مبنية إجمالية نحو 266 ألف م²",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-212"
+  },
+  {
+   "entity_code": "LANDMARK-ICONIC-TOWER",
+   "attribute_key": "room_count",
+   "value": "183",
+   "unit": "rooms",
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-212"
+  },
+  {
+   "entity_code": "LANDMARK-ICONIC-TOWER",
+   "attribute_key": "location",
+   "value": "يمثل محور منطقة الأعمال المركزية (CBD) بالعاصمة الإدارية الجديدة، ووصفته وزارة الإسكان بأنه «معلم» المنطقة",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-211"
+  },
+  {
+   "entity_code": "LANDMARK-ICONIC-TOWER",
+   "attribute_key": "unit_handover_milestone",
+   "value": "يدخل ضمن مراحل التسليم اللاحقة لمشروع منطقة الأعمال المركزية بحسب مجلس الوزراء (14 يناير 2024)",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-214"
+  },
+  {
+   "entity_code": "LANDMARK-ICONIC-TOWER",
+   "attribute_key": "status_note",
+   "value": "8 يوليو 2026: اجتماع وزيرة الإسكان يستعرض حالة البرج الأيقوني ضمن مراجعة موقف التسليمات بالمنطقة",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-212"
+  },
+  {
+   "entity_code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+   "attribute_key": "established_year",
+   "value": "1983",
+   "unit": "year",
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-221"
+  },
+  {
+   "entity_code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+   "attribute_key": "historical_origin",
+   "value": "أُنشئ تأكيدًا للتعاون العسكري والثقافي بين مصر وجمهورية كوريا الديمقراطية، تخليدًا لانتصار أكتوبر وتوثيقًا لبطولات الشعب المصري",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-221"
+  },
+  {
+   "entity_code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+   "attribute_key": "inauguration_date",
+   "value": "5 أكتوبر 1989",
+   "unit": "date",
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-221"
+  },
+  {
+   "entity_code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+   "attribute_key": "restoration_status",
+   "value": "خضع للترميم والصيانة والتطوير عام 2018 ثم أُعيد افتتاحه عام 2019",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-221"
+  },
+  {
+   "entity_code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+   "attribute_key": "site_area",
+   "value": "31000",
+   "unit": "m2",
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-221"
+  },
+  {
+   "entity_code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+   "attribute_key": "architectural_layout",
+   "value": "ساحة مكشوفة يطل عليها المبنى الرئيسي للبانوراما الدائرية، إضافة إلى مبنى «تحيا مصر»",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-221"
+  },
+  {
+   "entity_code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+   "attribute_key": "function",
+   "value": "توثيق حرب أكتوبر عبر عرض متحفي تفاعلي بأحدث التقنيات",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-221"
+  },
+  {
+   "entity_code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+   "attribute_key": "location",
+   "value": "شارع صلاح سالم بمدينة نصر بالقاهرة، قريبًا من محطة مترو أرض المعارض وبجوار ستاد القاهرة الدولي",
+   "unit": null,
+   "status_as_of": "2026-11-17",
+   "verification_state": "verified",
+   "evidence_ref": "EV-E8-221"
+  }
+ ]
+}

@@ -70,7 +70,7 @@ describe("south batch 04 merge", () => {
     }
     // Nothing in the seed is duplicated, which is the failure mode an append-only merge can produce.
     expect(seedCodes.size).toBe(seed.entities.length);
-    expect(seed.entities).toHaveLength(556);
+    expect(seed.entities).toHaveLength(564);
   });
 
   it("places only matched batch entities from the geometry review", async () => {
@@ -113,8 +113,8 @@ describe("south batch 04 merge", () => {
     }>;
 
     expect(batchFacts).toHaveLength(95);
-    expect(seed.facts).toHaveLength(2801);
-    expect(seed.evidence).toHaveLength(793);
+    expect(seed.facts).toHaveLength(2849);
+    expect(seed.evidence).toHaveLength(810);
 
     const seedEvidence = new Map(seed.evidence.map((row) => [row.code, row]));
     const seedFacts = new Set(seed.facts.map((fact) => fact.code));
@@ -179,8 +179,8 @@ describe("south batch 04 merge", () => {
     const batchCodes = new Set((await readBatchEntities()).map((row) => row.code!));
     const unknown = seed.entities.filter((entity) => entity.status === "unknown");
 
-    expect(unknown.filter((entity) => !batchCodes.has(entity.code))).toHaveLength(3);
-    expect(unknown).toHaveLength(4);
+    expect(unknown.filter((entity) => !batchCodes.has(entity.code))).toHaveLength(5);
+    expect(unknown).toHaveLength(6);
     expect(unknown.filter((entity) => batchCodes.has(entity.code)).map((entity) => entity.code).sort()).toEqual(
       NEW_UNKNOWN_CODES.filter((code) => code !== "LINE-HELWAN-OLD-RAIL").sort(),
     );

@@ -35,9 +35,11 @@ describe("Batch 20b offline OSM", () => {
     expect(results).toHaveLength(272); expect(report.batch20_unmatched_in_scope).toBe(220); expect(report.other_missing_in_scope).toBe(52);
     expect(new Set(results.map((r) => r.entity_code)).size).toBe(272);
     const east = new Set((await readFile("data/research/east-batch07/entities.csv", "utf8")).split(/\r?\n/).slice(1).filter(Boolean).map((row) => row.split(",")[0]));
+    const east08 = new Set((await readFile("data/research/east-batch08/entities.csv", "utf8")).split(/\r?\n/).slice(1).filter(Boolean).map((row) => row.split(",")[0]));
     const missing = seed.entities.filter((e) => !prior.has(e.code) && !(e.code in baselineDerived)).map((e) => e.code);
-    expect(new Set(results.map((r) => r.entity_code))).toEqual(new Set(missing.filter((code) => !east.has(code))));
+    expect(new Set(results.map((r) => r.entity_code))).toEqual(new Set(missing.filter((code) => !east.has(code) && !east08.has(code))));
     expect(new Set(missing.filter((code) => east.has(code)))).toEqual(east);
+    expect(new Set(missing.filter((code) => east08.has(code)))).toEqual(east08);
     expect(added).toHaveLength(matched.length); expect(new Set(matched).size).toBe(matched.length);
     expect(added.map((f) => f.properties.entity_code).sort()).toEqual([...matched].sort());
     expect(matched.every((code) => !prior.has(code) && !(code in baselineDerived))).toBe(true);
