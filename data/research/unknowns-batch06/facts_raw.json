@@ -1,0 +1,524 @@
+[
+ {
+  "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+  "attribute_key": "original_bridge_length_km",
+  "value": "2.2",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-004"
+ },
+ {
+  "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+  "attribute_key": "original_bridge_width_m",
+  "value": "45",
+  "unit": "m",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-004"
+ },
+ {
+  "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+  "attribute_key": "expansion_bridge_length_km",
+  "value": "2.25",
+  "unit": "km",
+  "status_as_of": "2026-01-05",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-001"
+ },
+ {
+  "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+  "attribute_key": "expansion_status_official",
+  "value": "under_construction",
+  "unit": "",
+  "status_as_of": "2026-01-05",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-001"
+ },
+ {
+  "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+  "attribute_key": "expansion_status_news_update",
+  "value": "under_construction",
+  "unit": "",
+  "status_as_of": "2026-06-19",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-U6-005"
+ },
+ {
+  "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+  "attribute_key": "target_lanes_per_direction",
+  "value": "8",
+  "unit": "lanes_per_direction",
+  "status_as_of": "2026-06-19",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-U6-005"
+ },
+ {
+  "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+  "attribute_key": "planned_completion_claim_2024",
+  "value": "أبريل 2024",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-007"
+ },
+ {
+  "entity_code": "BRIDGE-RING-NORTH-WARRAQ",
+  "attribute_key": "distinct_from_rod_el_farag_warraq_bridge_opened",
+  "value": "2019-05-15",
+  "unit": "date",
+  "status_as_of": "2019-05-15",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-002"
+ },
+ {
+  "entity_code": "CITY-MOSTAKBAL",
+  "attribute_key": "master_developer",
+  "value": "شركة ميدار للاستثمار والتنمية العمرانية",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-008"
+ },
+ {
+  "entity_code": "CITY-MOSTAKBAL",
+  "attribute_key": "location_boundary",
+  "value": "الطريق الدائري الأوسطي شرق القاهرة الجديدة",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-009"
+ },
+ {
+  "entity_code": "CITY-MOSTAKBAL",
+  "attribute_key": "listed_subdevelopments",
+  "value": "مشروعات سكنية وتجارية متعددة قيد التسويق والتطوير (منها بلوم فيلدز ومول فيا مونتينابوليوني)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-U6-011"
+ },
+ {
+  "entity_code": "CITY-MOSTAKBAL",
+  "attribute_key": "total_area_feddan",
+  "value": "11000",
+  "unit": "feddan",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-013"
+ },
+ {
+  "entity_code": "DIST-HADAEK-ASHGAR",
+  "attribute_key": "official_neighborhood_name_variant",
+  "value": "حي الأشجار (تقاطع طريق الواحات مع الطريق الدائري) / منطقة حدائق الأشجار",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-022"
+ },
+ {
+  "entity_code": "DIST-HADAEK-ASHGAR",
+  "attribute_key": "metro_line4_station_and_depot_status",
+  "value": "under_construction",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-023"
+ },
+ {
+  "entity_code": "DIST-HADAEK-ASHGAR",
+  "attribute_key": "metro_line4_phase1_length_km",
+  "value": "19",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-083"
+ },
+ {
+  "entity_code": "DIST-HADAEK-ASHGAR",
+  "attribute_key": "planned_line4_phase3_to_hosary_km",
+  "value": "16.3",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-024"
+ },
+ {
+  "entity_code": "DIST-MANSOURIYA",
+  "attribute_key": "administrative_affiliation",
+  "value": "قرية المنصورية والوحدة المحلية بالمنصورية – مركز منشأة القناطر – محافظة الجيزة",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-027"
+ },
+ {
+  "entity_code": "DIST-MANSOURIYA",
+  "attribute_key": "mansouriya_corridor_length_kerdasa_km",
+  "value": "8",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-028"
+ },
+ {
+  "entity_code": "DIST-MANSOURIYA",
+  "attribute_key": "mansouriya_corridor_target_width_m",
+  "value": "35",
+  "unit": "m",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-028"
+ },
+ {
+  "entity_code": "DIST-MANSOURIYA",
+  "attribute_key": "sanitation_project_followup",
+  "value": "متابعة ميدانية لمشروع الصرف الصحي بقرية المنصورية (مايو 2024)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-029"
+ },
+ {
+  "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+  "attribute_key": "covered_greater_cairo_cities",
+  "value": "الشيخ زايد، سفنكس الجديدة، الشروق، العبور الجديدة، السادس من أكتوبر، وأكتوبر (انقطع النص الرسمي عند هذه الكلمة)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-033"
+ },
+ {
+  "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+  "attribute_key": "new_obour_handover_plots_oct_2026",
+  "value": "842",
+  "unit": "plots",
+  "status_as_of": "2026-10-19",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-030"
+ },
+ {
+  "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+  "attribute_key": "new_obour_allocated_plots",
+  "value": "1168",
+  "unit": "plots",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-036"
+ },
+ {
+  "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+  "attribute_key": "shorouk_rabia_public_lottery_number",
+  "value": "17",
+  "unit": "lottery_batch",
+  "status_as_of": "2026-10-01",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-031"
+ },
+ {
+  "entity_code": "PROJ-ADDED-LANDS-REGULARIZATION",
+  "attribute_key": "new_obour_regularization_deadline",
+  "value": "2026-10-07",
+  "unit": "date",
+  "status_as_of": "2026-10-07",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-034"
+ },
+ {
+  "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+  "attribute_key": "official_name_variants",
+  "value": "طريق القاهرة–أسيوط الزراعي / طريق مصر أسيوط الزراعي",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-039"
+ },
+ {
+  "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+  "attribute_key": "giza_widening_width_m",
+  "value": "11.5",
+  "unit": "m",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-038"
+ },
+ {
+  "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+  "attribute_key": "giza_paving_link_length_km",
+  "value": "4",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-037"
+ },
+ {
+  "entity_code": "ROAD-DAHSHUR-LINK",
+  "attribute_key": "southern_dahshur_link_length_km",
+  "value": "13",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-042"
+ },
+ {
+  "entity_code": "ROAD-DAHSHUR-LINK",
+  "attribute_key": "ongoing_works",
+  "value": "صيانة الأرصفة واستكمال تطوير وصلة دهشور بمدينة 6 أكتوبر",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-041"
+ },
+ {
+  "entity_code": "ROAD-DAHSHUR-LINK",
+  "attribute_key": "homonym_badrasheen_local_road_width_m",
+  "value": "4",
+  "unit": "m",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-046"
+ },
+ {
+  "entity_code": "ROAD-MARYUTEYA",
+  "attribute_key": "canal_covering_phase3_status",
+  "value": "افتتاح المرحلة الثالثة من تطوير وتغطية ترعة المريوطية وتشغيل المواقف أعلاها، وبلوغ القطاع الأخير عند الدائري",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-050"
+ },
+ {
+  "entity_code": "ROAD-MARYUTEYA",
+  "attribute_key": "service_hub_area_m2",
+  "value": "16000",
+  "unit": "m2",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-077"
+ },
+ {
+  "entity_code": "ROAD-MARYUTEYA",
+  "attribute_key": "maryouteya_axis_official_reference",
+  "value": "إدراج محور المريوطية – الطريق الدائري ضمن جولة وزير النقل لمونوريل غرب النيل",
+  "unit": "",
+  "status_as_of": "2026-04-13",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-047"
+ },
+ {
+  "entity_code": "ROAD-MARYUTEYA",
+  "attribute_key": "new_maryouteya_axis_phase1_length_km",
+  "value": "20",
+  "unit": "km",
+  "status_as_of": "2026-03-28",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-006"
+ },
+ {
+  "entity_code": "ROAD-MARYUTEYA",
+  "attribute_key": "new_maryouteya_axis_phase1_status",
+  "value": "under_construction",
+  "unit": "",
+  "status_as_of": "2026-03-28",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-006"
+ },
+ {
+  "entity_code": "ROAD-MBZ-NORTH",
+  "attribute_key": "corridor_endpoints",
+  "value": "من الطريق الدائري الأوسطي إلى الطريق الدائري الإقليمي بالعاصمة الإدارية الجديدة",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-054"
+ },
+ {
+  "entity_code": "ROAD-MBZ-NORTH",
+  "attribute_key": "traffic_status",
+  "value": "operational",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-U6-055"
+ },
+ {
+  "entity_code": "ROAD-WESTERN-DESERT",
+  "attribute_key": "cairo_minya_section_length_km",
+  "value": "230",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-058"
+ },
+ {
+  "entity_code": "ROAD-WESTERN-DESERT",
+  "attribute_key": "cairo_minya_inauguration_month",
+  "value": "ديسمبر 2021",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-059"
+ },
+ {
+  "entity_code": "ROAD-WESTERN-DESERT",
+  "attribute_key": "lanes_per_direction_upgraded",
+  "value": "6",
+  "unit": "lanes_per_direction",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-058"
+ },
+ {
+  "entity_code": "ROAD-WESTERN-DESERT",
+  "attribute_key": "total_corridor_project_length_km_presidency",
+  "value": "1155",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-058"
+ },
+ {
+  "entity_code": "ROAD-WESTERN-DESERT",
+  "attribute_key": "total_corridor_project_length_km_mped",
+  "value": "1126",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-060"
+ },
+ {
+  "entity_code": "ROAD-WESTERN-DESERT",
+  "attribute_key": "upper_egypt_assiut_luxor_planned_km",
+  "value": "336",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-061"
+ },
+ {
+  "entity_code": "ROAD-WESTERN-DESERT",
+  "attribute_key": "brt_phase2_integration",
+  "value": "ربط محطة الأتوبيس الترددي على طريق الفيوم وطريق الصعيد الصحراوي الغربي (الرابط يحمل project-25-09-2026)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-057"
+ },
+ {
+  "entity_code": "LINE-HELWAN-OLD-RAIL",
+  "attribute_key": "current_surface_use_main_alignment",
+  "value": "أُدمج الخط الجنوبي (حلوان – باب اللوق 1872) في الخط الأول لمترو الأنفاق منذ 1987، وأُزيل الجزء السطحي حتى باب اللوق لصالح النفق",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-U6-063"
+ },
+ {
+  "entity_code": "LINE-HELWAN-OLD-RAIL",
+  "attribute_key": "surviving_freight_rail_tebbin",
+  "value": "تشغيل قطارات بضائع سطحية تمر بالتبين (قليوب – الواحات)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-066"
+ },
+ {
+  "entity_code": "LINE-HELWAN-OLD-RAIL",
+  "attribute_key": "planned_robiki_tebbin_freight_line_cost_million_egp",
+  "value": "620",
+  "unit": "million_EGP",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-067"
+ },
+ {
+  "entity_code": "LINE-HELWAN-OLD-RAIL",
+  "attribute_key": "tebbin_rail_toponym_official_registry",
+  "value": "تثبيت المسمى المكاني «التبين البحري – السكة الحديد – حلوان» في قيد السجل التجاري",
+  "unit": "",
+  "status_as_of": "2024-09-29",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-068"
+ },
+ {
+  "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+  "attribute_key": "legal_status_as_of_agm",
+  "value": "تحت التصفية (انقضاء الجمعية العامة في 2026-04-29؛ دون نقل تبعية ودون تعاقدات جديدة منذ 2026-01-01)",
+  "unit": "",
+  "status_as_of": "2026-05-03",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-069"
+ },
+ {
+  "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+  "attribute_key": "liquidation_decision_month_contemporaneous",
+  "value": "يناير 2021",
+  "unit": "",
+  "status_as_of": "2021-01-13",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-U6-073"
+ },
+ {
+  "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+  "attribute_key": "liquidation_decision_month_conflicting_article",
+  "value": "يناير 2020",
+  "unit": "",
+  "status_as_of": "2025-08-24",
+  "verification_state": "candidate",
+  "evidence_ref": "EV-U6-072"
+ },
+ {
+  "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+  "attribute_key": "land_disposal_and_valuation_status",
+  "value": "لم يتم تقييم أو التصرف في أي من أراضي الشركة حتى تاريخه (عدا تمكين تسجيل بيع قديم لمصانع النحاس يعود لعام 2010 بمساحة 132,616 م²)",
+  "unit": "",
+  "status_as_of": "2026-05-03",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-069"
+ },
+ {
+  "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+  "attribute_key": "current_planned_land_use_2026",
+  "value": "إعادة تخطيط المنطقة (أرض الحديد والصلب – الكوك) لإقامة أنشطة صديقة للبيئة بتعليمات رئاسة الجمهورية",
+  "unit": "",
+  "status_as_of": "2026-05-03",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-069"
+ },
+ {
+  "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+  "attribute_key": "conflicting_land_use_proposal_2021_official",
+  "value": "تحويل أراضي المصنع إلى نشاط عقاري",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-070"
+ },
+ {
+  "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+  "attribute_key": "conflicting_land_sale_plan_2021_m2",
+  "value": "6000000",
+  "unit": "m2",
+  "status_as_of": "2021-01-13",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-073"
+ },
+ {
+  "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+  "attribute_key": "conflicting_land_use_study_2025_feddan",
+  "value": "300",
+  "unit": "feddan",
+  "status_as_of": "2025-08-24",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-U6-072"
+ },
+ {
+  "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+  "attribute_key": "spun_off_mining_company_egx_active",
+  "value": "الحديد والصلب للمناجم والمحاجر متداولة بالبورصة المصرية (اسم ملف النشرة الرسمية 31-Oct-2026)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-U6-071"
+ }
+]
