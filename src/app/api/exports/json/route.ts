@@ -1,15 +1,16 @@
 import { NextResponse } from "next/server";
 import { exportResponseHeaders } from "@/lib/atlas/export-api";
-import { getExportMetadata, getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
+import { getExportMetadata, getPublicAtlasDataset } from "@/lib/atlas/static-dataset";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(): Promise<NextResponse> {
-  const [dataset, metadata] = await Promise.all([getStaticAtlasDataset(), getExportMetadata()]);
+  const [dataset, metadata] = await Promise.all([getPublicAtlasDataset(), getExportMetadata()]);
   return NextResponse.json({
     metadata: {
       ...metadata,
+      counts: { ...metadata.counts, facts: dataset.facts.length, fact_evidence: dataset.factEvidence.length },
       licence_notice: metadata.licenses,
     },
     entities: dataset.entities,

@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { getSql } from "@/lib/db/client";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
@@ -47,6 +48,22 @@ export async function getStaticAtlasDataset(root = process.cwd()): Promise<Stati
     datasetPromise = loadStaticAtlasDataset(root);
   }
   return datasetPromise;
+}
+
+/** Public exports are a canonical seed snapshot, minus any database retirements.
+ * With no database configured the checked-in snapshot is the only available source.
+ * When a database is configured, fail closed if retirement status cannot be read.
+ */
+export async function getPublicAtlasDataset(root = process.cwd()): Promise<StaticAtlasDataset> {
+  const dataset = await getStaticAtlasDataset(root);
+  if (!process.env.DATABASE_URL?.trim()) return dataset;
+  const rows = await getSql().query("SELECT code FROM facts WHERE retired_at IS NOT NULL") as Array<{ code: string }>;
+  return excludeRetiredFacts(dataset, new Set(rows.map((row) => row.code)));
+}
+
+export function excludeRetiredFacts(dataset: StaticAtlasDataset, retired: ReadonlySet<string>): StaticAtlasDataset {
+  return { ...dataset, facts: dataset.facts.filter((fact) => !retired.has(fact.code)),
+    factEvidence: dataset.factEvidence.filter((link) => !retired.has(link.fact_code)) };
 }
 
 async function loadStaticAtlasDataset(root: string): Promise<StaticAtlasDataset> {

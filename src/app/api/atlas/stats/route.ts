@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getPublicAtlasDataset } from "@/lib/atlas/static-dataset";
 import {
   getAtlasTableStats,
   type AtlasStatsResponseBody,
@@ -13,6 +14,14 @@ export async function GET(): Promise<
 > {
   try {
     const { httpStatus, body } = await getAtlasTableStats();
+    // Exports are the canonical checked-in snapshot; expose counts for that same
+    // snapshot rather than mixing in DB-only drift. The query above still checks DB health.
+    if (body.ok) {
+      const dataset = await getPublicAtlasDataset();
+      body.counts = { entities: dataset.entities.length, facts: dataset.facts.length,
+        evidence: dataset.evidence.length, fact_evidence: dataset.factEvidence.length,
+        features: dataset.features.length };
+    }
     return NextResponse.json(body, {
       status: httpStatus,
       headers: {
