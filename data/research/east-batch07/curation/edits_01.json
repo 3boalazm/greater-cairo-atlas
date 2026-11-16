@@ -1,0 +1,58 @@
+{
+  "code_fix": {
+    "LANDMARK-CITYSTARS-HELiOPOLIS": "LANDMARK-CITYSTARS-HELIOPOLIS"
+  },
+  "entity": {
+    "LANDMARK-BARON-EMPAIN-PALACE": {
+      "description": "قصر تاريخي بحي مصر الجديدة أنشأه البارون البلجيكي إدوارد لويس جوزيف إمبان بين عامي 1907 و1911 على الطراز الهندي، وكُلّف المعماري الفرنسي ألكسندر مارسيل ببنائه."
+    },
+    "LANDMARK-BASILICA-HELIOPOLIS": {
+      "description": "كنيسة تاريخية في قلب ضاحية هليوبوليس (مصر الجديدة) على شارع الأهرام، شُيّدت على الطراز البيزنطي، وُضع حجر أساسها عام 1911 واكتمل بناؤها وتدشينها عام 1913.",
+      "aliases": "Basilica of Heliopolis|Notre-Dame d'Héliopolis|كنيسة البازيليك"
+    },
+    "LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER": {
+      "description": "مركز للمؤتمرات والمعارض بمدينة نصر يضم قاعة تتسع لنحو 2500 شخص وخمس قاعات للمعارض بمساحة إجمالية تبلغ 20000 متر مربع."
+    },
+    "LANDMARK-CAIRO-FESTIVAL-CITY": {
+      "description": "مجتمع عمراني متعدد الاستخدامات عند بوابة مدينة القاهرة الجديدة يمتد على أكثر من ثلاثة ملايين متر مربع، ويضم فلل وشققاً سكنية ومكاتب وفنادق ومدارس دولية ومعارض سيارات."
+    },
+    "LANDMARK-AIN-SHAMS-UNIVERSITY": {
+      "description": "جامعة مصرية تأسست عام 1950 ويقع مقرها الرئيسي بشارع الخليفة المأمون في العباسية بالقاهرة.",
+      "aliases": "ASU|Ain Shams University|جامعة عين شمس"
+    },
+    "LANDMARK-AL-ITTIHADIYA-PALACE": {
+      "description": "قصر تاريخي في مصر الجديدة افتُتح لأول مرة في الأول من ديسمبر 1910 باسم قصر هليوبوليس، ويعمل اليوم مقراً رسمياً لرئاسة الجمهورية المصرية لاستقبال الوفود الرسمية."
+    }
+  },
+  "drop_facts": [
+    ["LANDMARK-BARON-EMPAIN-PALACE", "operating_hours"],
+    ["LANDMARK-BASILICA-HELIOPOLIS", "address", "EV-E7C-003"],
+    ["LANDMARK-CAIRO-INTERNATIONAL-STADIUM", "establishment_year"],
+    ["LANDMARK-AIN-SHAMS-UNIVERSITY", "establishment_date"],
+    ["LANDMARK-AIN-SHAMS-UNIVERSITY", "original_name"],
+    ["LANDMARK-AL-ITTIHADIYA-PALACE", "aliases"]
+  ],
+  "modify_facts": [
+    {"match": ["LANDMARK-BASILICA-HELIOPOLIS", "official_name_ar"], "set": {"value": "كنيسة السيدة العذراء مريم (البازيليك هو اسم الشهرة)"}},
+    {"match": ["LANDMARK-BASILICA-HELIOPOLIS", "construction_period"], "set": {"value": "وُضع حجر الأساس عام 1911 واكتمل البناء والتدشين عام 1913"}},
+    {"match": ["LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER", "address"], "set": {"value": "2 طريق النصر، منطقة الاستاد، مدينة نصر، القاهرة"}},
+    {"match": ["LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER", "exhibition_halls"], "set": {"value": "5"}},
+    {"match": ["LANDMARK-CAIRO-FESTIVAL-CITY", "location"], "set": {"value": "عند بوابة مدينة القاهرة الجديدة"}},
+    {"match": ["LANDMARK-CAIRO-FESTIVAL-CITY", "developer"], "set": {"value": "الفطيم العقارية (Al-Futtaim Real Estate)"}},
+    {"match": ["LANDMARK-CITYSTARS-HELIOPOLIS", "international_hotels"], "set": {"value": "ثلاثة فنادق دولية: إنتركونتيننتال سيتي ستارز، هوليداي إن سيتي ستارز، ستايبريدج سويتس سيتي ستارز", "unit": null}},
+    {"match": ["LANDMARK-AL-ITTIHADIYA-PALACE", "official_function"], "set": {"value": "مقر العمل الرسمي لرئاسة الجمهورية المصرية، ويستقبل فيه رئيس الجمهورية الوفود الرسمية الزائرة"}},
+    {"match": ["LANDMARK-AL-ITTIHADIYA-PALACE", "inauguration_date"], "set": {"value": "افتُتح لأول مرة باسم «قصر هليوبوليس» في 1 ديسمبر 1910"}},
+    {"match": ["LANDMARK-AL-ITTIHADIYA-PALACE", "room_count"], "set": {"value": "500"}}
+  ],
+  "add_facts": [
+    {"entity_code": "LANDMARK-BASILICA-HELIOPOLIS", "attribute_key": "address", "value": "شارع الأهرام، ضاحية هليوبوليس (مصر الجديدة)، القاهرة", "unit": null, "verification_state": "single_source", "evidence_ref": "EV-E7C-002"},
+    {"entity_code": "LANDMARK-AIN-SHAMS-UNIVERSITY", "attribute_key": "establishment_year", "value": "1950", "unit": "سنة", "verification_state": "verified", "evidence_ref": "EV-E7C-010"},
+    {"entity_code": "LANDMARK-AL-ITTIHADIYA-PALACE", "attribute_key": "architect", "value": "إرنست جاسبار (Ernest Jaspar)، مهندس معماري بلجيكي", "unit": null, "verification_state": "verified", "evidence_ref": "EV-E7C-012"}
+  ],
+  "drop_evidence": ["EV-E7C-009"],
+  "evidence_fix": {
+    "EV-E7C-003": {"source_type": "secondary", "note": "موقع «أصدقاء بازيليك نوتردام هليوبوليس» (مبادرة بلجيكية لحفظ التراث)؛ تذكر المعماري ألكسندر مارسيل وارتباط المبنى بالبارون إمبان. ليست جهة رسمية مصرية."},
+    "EV-E7C-006": {"source_type": "secondary"},
+    "EV-E7C-010": {"published_date": null, "note": "صفحة الجامعة الرسمية: تأسست الجامعة عام 1950، وعنوانها شارع الخليفة المأمون بالعباسية بالقاهرة."}
+  }
+}

@@ -13,10 +13,10 @@ describe("checksummed production dataset gate", () => {
   it("runs full checked-in seed + GeoJSON validation in dry-run mode without database writes", async () => {
     const summary = await runAutomaticAtlasImport(process.cwd(), { dryRun: true });
     expect(summary.dryRun).toBe(true);
-    expect(summary.entitiesCount).toBe(535);
-    expect(summary.evidenceCount).toBe(764);
-    expect(summary.factsCount).toBe(2735);
-    expect(summary.factEvidenceLinksCount).toBe(3088);
+    expect(summary.entitiesCount).toBe(556);
+    expect(summary.evidenceCount).toBe(793);
+    expect(summary.factsCount).toBe(2801);
+    expect(summary.factEvidenceLinksCount).toBe(3154);
     expect(summary.featuresCount).toBe(3031);
   });
 

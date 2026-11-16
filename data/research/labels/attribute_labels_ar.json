@@ -721,5 +721,16 @@
  "upgrade_section_badrashin": "قطاع التطوير بالبدرشين",
  "upgrade_section_length": "طول قطاع التطوير",
  "upgrade_section_mazghuna": "قطاع التطوير حتى مزغونة",
- "widening_target_width": "عرض التوسعة المستهدف"
+ "widening_target_width": "عرض التوسعة المستهدف",
+ "cinema_screens": "عدد شاشات السينما",
+ "development_components": "مكوّنات المشروع",
+ "exhibition_area": "مساحة المعارض",
+ "exhibition_halls": "عدد قاعات المعارض",
+ "faculties_count": "عدد الكليات",
+ "international_hotels": "الفنادق الدولية",
+ "main_hall_capacity": "سعة القاعة الرئيسية",
+ "maximum_auditorium_capacity": "السعة القصوى للقاعة الكبرى",
+ "minaret_height": "ارتفاع المئذنة",
+ "minarets_count": "عدد المآذن",
+ "room_count": "عدد الغرف"
 }

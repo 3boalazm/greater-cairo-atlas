@@ -1,0 +1,713 @@
+{
+  "_rule": "Arabic form: integer 1 -> one; integer 2..10 -> few; anything else (11+, decimals, ranges, text) -> many. English: integer 1 -> one, else other. hide=true: print the value without a unit. Units not listed (and the OSM provenance units 'OSM node ID', 'stop position in OSM relation N', 'OSM route=train relation N') are shown exactly as stored.",
+  "units": {
+    "km": {
+      "ar": {
+        "one": "كم",
+        "few": "كم",
+        "many": "كم"
+      },
+      "en": {
+        "one": "km",
+        "other": "km"
+      }
+    },
+    "كم": {
+      "ar": {
+        "one": "كم",
+        "few": "كم",
+        "many": "كم"
+      },
+      "en": {
+        "one": "km",
+        "other": "km"
+      }
+    },
+    "m": {
+      "ar": {
+        "one": "م",
+        "few": "م",
+        "many": "م"
+      },
+      "en": {
+        "one": "m",
+        "other": "m"
+      }
+    },
+    "m2": {
+      "ar": {
+        "one": "م²",
+        "few": "م²",
+        "many": "م²"
+      },
+      "en": {
+        "one": "m²",
+        "other": "m²"
+      }
+    },
+    "م2": {
+      "ar": {
+        "one": "م²",
+        "few": "م²",
+        "many": "م²"
+      },
+      "en": {
+        "one": "m²",
+        "other": "m²"
+      }
+    },
+    "km2": {
+      "ar": {
+        "one": "كم²",
+        "few": "كم²",
+        "many": "كم²"
+      },
+      "en": {
+        "one": "km²",
+        "other": "km²"
+      }
+    },
+    "feddan": {
+      "ar": {
+        "one": "فدان",
+        "few": "فدان",
+        "many": "فدان"
+      },
+      "en": {
+        "one": "feddan",
+        "other": "feddans"
+      }
+    },
+    "فدان": {
+      "ar": {
+        "one": "فدان",
+        "few": "فدان",
+        "many": "فدان"
+      },
+      "en": {
+        "one": "feddan",
+        "other": "feddans"
+      }
+    },
+    "ft": {
+      "ar": {
+        "one": "قدم",
+        "few": "قدم",
+        "many": "قدم"
+      },
+      "en": {
+        "one": "ft",
+        "other": "ft"
+      }
+    },
+    "tons": {
+      "ar": {
+        "one": "طن",
+        "few": "طن",
+        "many": "طن"
+      },
+      "en": {
+        "one": "ton",
+        "other": "tons"
+      }
+    },
+    "km/h": {
+      "ar": {
+        "one": "كم/س",
+        "few": "كم/س",
+        "many": "كم/س"
+      },
+      "en": {
+        "one": "km/h",
+        "other": "km/h"
+      }
+    },
+    "EGP": {
+      "ar": {
+        "one": "جنيه",
+        "few": "جنيه",
+        "many": "جنيه"
+      },
+      "en": {
+        "one": "EGP",
+        "other": "EGP"
+      }
+    },
+    "million EGP": {
+      "ar": {
+        "one": "مليون جنيه",
+        "few": "مليون جنيه",
+        "many": "مليون جنيه"
+      },
+      "en": {
+        "one": "million EGP",
+        "other": "million EGP"
+      }
+    },
+    "million_EGP": {
+      "ar": {
+        "one": "مليون جنيه",
+        "few": "مليون جنيه",
+        "many": "مليون جنيه"
+      },
+      "en": {
+        "one": "million EGP",
+        "other": "million EGP"
+      }
+    },
+    "billion EGP": {
+      "ar": {
+        "one": "مليار جنيه",
+        "few": "مليار جنيه",
+        "many": "مليار جنيه"
+      },
+      "en": {
+        "one": "billion EGP",
+        "other": "billion EGP"
+      }
+    },
+    "billion_EGP": {
+      "ar": {
+        "one": "مليار جنيه",
+        "few": "مليار جنيه",
+        "many": "مليار جنيه"
+      },
+      "en": {
+        "one": "billion EGP",
+        "other": "billion EGP"
+      }
+    },
+    "USD": {
+      "ar": {
+        "one": "دولار",
+        "few": "دولار",
+        "many": "دولار"
+      },
+      "en": {
+        "one": "USD",
+        "other": "USD"
+      }
+    },
+    "trains_per_day": {
+      "ar": {
+        "one": "قطار/يوم",
+        "few": "قطار/يوم",
+        "many": "قطار/يوم"
+      },
+      "en": {
+        "one": "trains/day",
+        "other": "trains/day"
+      }
+    },
+    "vehicles/day": {
+      "ar": {
+        "one": "مركبة/يوم",
+        "few": "مركبة/يوم",
+        "many": "مركبة/يوم"
+      },
+      "en": {
+        "one": "vehicles/day",
+        "other": "vehicles/day"
+      }
+    },
+    "flights/week": {
+      "ar": {
+        "one": "رحلة/أسبوع",
+        "few": "رحلة/أسبوع",
+        "many": "رحلة/أسبوع"
+      },
+      "en": {
+        "one": "flights/week",
+        "other": "flights/week"
+      }
+    },
+    "passengers_per_hour": {
+      "ar": {
+        "one": "راكب/ساعة",
+        "few": "راكب/ساعة",
+        "many": "راكب/ساعة"
+      },
+      "en": {
+        "one": "passengers/hour",
+        "other": "passengers/hour"
+      }
+    },
+    "passengers/hour/direction": {
+      "ar": {
+        "one": "راكب/ساعة/اتجاه",
+        "few": "راكب/ساعة/اتجاه",
+        "many": "راكب/ساعة/اتجاه"
+      },
+      "en": {
+        "one": "passengers/hour/direction",
+        "other": "passengers/hour/direction"
+      }
+    },
+    "million_passengers": {
+      "ar": {
+        "one": "مليون راكب",
+        "few": "مليون راكب",
+        "many": "مليون راكب"
+      },
+      "en": {
+        "one": "million passengers",
+        "other": "million passengers"
+      }
+    },
+    "million_passengers_per_day": {
+      "ar": {
+        "one": "مليون راكب/يوم",
+        "few": "مليون راكب/يوم",
+        "many": "مليون راكب/يوم"
+      },
+      "en": {
+        "one": "million passengers/day",
+        "other": "million passengers/day"
+      }
+    },
+    "million_m3_per_day": {
+      "ar": {
+        "one": "مليون م³/يوم",
+        "few": "مليون م³/يوم",
+        "many": "مليون م³/يوم"
+      },
+      "en": {
+        "one": "million m³/day",
+        "other": "million m³/day"
+      }
+    },
+    "lane_per_direction": {
+      "ar": {
+        "one": "حارة/اتجاه",
+        "few": "حارة/اتجاه",
+        "many": "حارة/اتجاه"
+      },
+      "en": {
+        "one": "lane/direction",
+        "other": "lanes/direction"
+      }
+    },
+    "lanes_per_direction": {
+      "ar": {
+        "one": "حارة/اتجاه",
+        "few": "حارة/اتجاه",
+        "many": "حارة/اتجاه"
+      },
+      "en": {
+        "one": "lane/direction",
+        "other": "lanes/direction"
+      }
+    },
+    "حارة/اتجاه": {
+      "ar": {
+        "one": "حارة/اتجاه",
+        "few": "حارة/اتجاه",
+        "many": "حارة/اتجاه"
+      },
+      "en": {
+        "one": "lane/direction",
+        "other": "lanes/direction"
+      }
+    },
+    "persons": {
+      "ar": {
+        "one": "فرد",
+        "few": "فرد",
+        "many": "فرد"
+      },
+      "en": {
+        "one": "person",
+        "other": "persons"
+      }
+    },
+    "residents": {
+      "ar": {
+        "one": "نسمة",
+        "few": "نسمة",
+        "many": "نسمة"
+      },
+      "en": {
+        "one": "resident",
+        "other": "residents"
+      }
+    },
+    "passengers": {
+      "ar": {
+        "one": "راكب",
+        "few": "ركاب",
+        "many": "راكبًا"
+      },
+      "en": {
+        "one": "passenger",
+        "other": "passengers"
+      }
+    },
+    "visitors": {
+      "ar": {
+        "one": "زائر",
+        "few": "زوار",
+        "many": "زائرًا"
+      },
+      "en": {
+        "one": "visitor",
+        "other": "visitors"
+      }
+    },
+    "station": {
+      "ar": {
+        "one": "محطة",
+        "few": "محطات",
+        "many": "محطة"
+      },
+      "en": {
+        "one": "station",
+        "other": "stations"
+      }
+    },
+    "stations": {
+      "ar": {
+        "one": "محطة",
+        "few": "محطات",
+        "many": "محطة"
+      },
+      "en": {
+        "one": "station",
+        "other": "stations"
+      }
+    },
+    "محطة": {
+      "ar": {
+        "one": "محطة",
+        "few": "محطات",
+        "many": "محطة"
+      },
+      "en": {
+        "one": "station",
+        "other": "stations"
+      }
+    },
+    "lane": {
+      "ar": {
+        "one": "حارة",
+        "few": "حارات",
+        "many": "حارة"
+      },
+      "en": {
+        "one": "lane",
+        "other": "lanes"
+      }
+    },
+    "lanes": {
+      "ar": {
+        "one": "حارة",
+        "few": "حارات",
+        "many": "حارة"
+      },
+      "en": {
+        "one": "lane",
+        "other": "lanes"
+      }
+    },
+    "units": {
+      "ar": {
+        "one": "وحدة",
+        "few": "وحدات",
+        "many": "وحدة"
+      },
+      "en": {
+        "one": "unit",
+        "other": "units"
+      }
+    },
+    "وحدة": {
+      "ar": {
+        "one": "وحدة",
+        "few": "وحدات",
+        "many": "وحدة"
+      },
+      "en": {
+        "one": "unit",
+        "other": "units"
+      }
+    },
+    "trains": {
+      "ar": {
+        "one": "قطار",
+        "few": "قطارات",
+        "many": "قطارًا"
+      },
+      "en": {
+        "one": "train",
+        "other": "trains"
+      }
+    },
+    "buildings": {
+      "ar": {
+        "one": "مبنى",
+        "few": "مبانٍ",
+        "many": "مبنى"
+      },
+      "en": {
+        "one": "building",
+        "other": "buildings"
+      }
+    },
+    "beds": {
+      "ar": {
+        "one": "سرير",
+        "few": "أسرّة",
+        "many": "سريرًا"
+      },
+      "en": {
+        "one": "bed",
+        "other": "beds"
+      }
+    },
+    "ramps": {
+      "ar": {
+        "one": "مطلع",
+        "few": "مطالع",
+        "many": "مطلعًا"
+      },
+      "en": {
+        "one": "ramp",
+        "other": "ramps"
+      }
+    },
+    "ramp": {
+      "ar": {
+        "one": "مطلع",
+        "few": "مطالع",
+        "many": "مطلعًا"
+      },
+      "en": {
+        "one": "ramp",
+        "other": "ramps"
+      }
+    },
+    "bridges": {
+      "ar": {
+        "one": "كوبري",
+        "few": "كباري",
+        "many": "كوبري"
+      },
+      "en": {
+        "one": "bridge",
+        "other": "bridges"
+      }
+    },
+    "bridge": {
+      "ar": {
+        "one": "كوبري",
+        "few": "كباري",
+        "many": "كوبري"
+      },
+      "en": {
+        "one": "bridge",
+        "other": "bridges"
+      }
+    },
+    "modes": {
+      "ar": {
+        "one": "وسيلة",
+        "few": "وسائل",
+        "many": "وسيلة"
+      },
+      "en": {
+        "one": "mode",
+        "other": "modes"
+      }
+    },
+    "monuments": {
+      "ar": {
+        "one": "أثر",
+        "few": "آثار",
+        "many": "أثرًا"
+      },
+      "en": {
+        "one": "monument",
+        "other": "monuments"
+      }
+    },
+    "plots": {
+      "ar": {
+        "one": "قطعة",
+        "few": "قطع",
+        "many": "قطعة"
+      },
+      "en": {
+        "one": "plot",
+        "other": "plots"
+      }
+    },
+    "districts": {
+      "ar": {
+        "one": "حي",
+        "few": "أحياء",
+        "many": "حيًّا"
+      },
+      "en": {
+        "one": "district",
+        "other": "districts"
+      }
+    },
+    "requests": {
+      "ar": {
+        "one": "طلب",
+        "few": "طلبات",
+        "many": "طلب"
+      },
+      "en": {
+        "one": "request",
+        "other": "requests"
+      }
+    },
+    "cities": {
+      "ar": {
+        "one": "مدينة",
+        "few": "مدن",
+        "many": "مدينة"
+      },
+      "en": {
+        "one": "city",
+        "other": "cities"
+      }
+    },
+    "platforms": {
+      "ar": {
+        "one": "رصيف",
+        "few": "أرصفة",
+        "many": "رصيفًا"
+      },
+      "en": {
+        "one": "platform",
+        "other": "platforms"
+      }
+    },
+    "sections": {
+      "ar": {
+        "one": "قطاع",
+        "few": "قطاعات",
+        "many": "قطاعًا"
+      },
+      "en": {
+        "one": "section",
+        "other": "sections"
+      }
+    },
+    "min": {
+      "ar": {
+        "one": "دقيقة",
+        "few": "دقائق",
+        "many": "دقيقة"
+      },
+      "en": {
+        "one": "minute",
+        "other": "minutes"
+      }
+    },
+    "minutes": {
+      "ar": {
+        "one": "دقيقة",
+        "few": "دقائق",
+        "many": "دقيقة"
+      },
+      "en": {
+        "one": "minute",
+        "other": "minutes"
+      }
+    },
+    "mummies": {
+      "ar": {
+        "one": "مومياء",
+        "few": "مومياوات",
+        "many": "مومياء"
+      },
+      "en": {
+        "one": "mummy",
+        "other": "mummies"
+      }
+    },
+    "floors": {
+      "ar": {
+        "one": "طابق",
+        "few": "طوابق",
+        "many": "طابقًا"
+      },
+      "en": {
+        "one": "floor",
+        "other": "floors"
+      }
+    },
+    "cars": {
+      "ar": {
+        "one": "سيارة",
+        "few": "سيارات",
+        "many": "سيارة"
+      },
+      "en": {
+        "one": "car",
+        "other": "cars"
+      }
+    },
+    "buses": {
+      "ar": {
+        "one": "أتوبيس",
+        "few": "أتوبيسات",
+        "many": "أتوبيسًا"
+      },
+      "en": {
+        "one": "bus",
+        "other": "buses"
+      }
+    },
+    "electric_buses": {
+      "ar": {
+        "one": "أتوبيس كهربائي",
+        "few": "أتوبيسات كهربائية",
+        "many": "أتوبيسًا كهربائيًا"
+      },
+      "en": {
+        "one": "electric bus",
+        "other": "electric buses"
+      }
+    },
+    "species": {
+      "ar": {
+        "one": "نوع",
+        "few": "أنواع",
+        "many": "نوعًا"
+      },
+      "en": {
+        "one": "species",
+        "other": "species"
+      }
+    },
+    "destinations": {
+      "ar": {
+        "one": "وجهة",
+        "few": "وجهات",
+        "many": "وجهة"
+      },
+      "en": {
+        "one": "destination",
+        "other": "destinations"
+      }
+    },
+    "year": {
+      "hide": true
+    },
+    "سنة": {
+      "hide": true
+    },
+    "year_range": {
+      "hide": true
+    },
+    "date": {
+      "hide": true
+    },
+    "lottery_batch": {
+      "hide": true
+    }
+  }
+}

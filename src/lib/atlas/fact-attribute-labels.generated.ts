@@ -1,5 +1,16 @@
 // Generated from data/seed/facts.json; bilingual labels are required for every distinct seeded attribute.
 export const GENERATED_FACT_ATTRIBUTE_LABELS: Record<string, { ar: string; en: string }> = {
+  "cinema_screens": { ar: "عدد شاشات السينما", en: "Cinema screen count" },
+  "development_components": { ar: "مكوّنات المشروع", en: "Development components" },
+  "exhibition_area": { ar: "مساحة المعارض", en: "Exhibition area" },
+  "exhibition_halls": { ar: "عدد قاعات المعارض", en: "Exhibition hall count" },
+  "faculties_count": { ar: "عدد الكليات", en: "Faculty count" },
+  "international_hotels": { ar: "الفنادق الدولية", en: "International hotels" },
+  "main_hall_capacity": { ar: "سعة القاعة الرئيسية", en: "Main hall capacity" },
+  "maximum_auditorium_capacity": { ar: "السعة القصوى للقاعة الكبرى", en: "Maximum auditorium capacity" },
+  "minaret_height": { ar: "ارتفاع المئذنة", en: "Minaret height" },
+  "minarets_count": { ar: "عدد المآذن", en: "Minaret count" },
+  "room_count": { ar: "عدد الغرف", en: "Room count" },
   "access_type": { ar: "النوع — الدخول", en: "Access Type" },
   "acud_published_daily_employees": { ar: "عدد الموظفين اليومي المعلن من العاصمة الإدارية الجديدة", en: "ACUD Published Daily Employees" },
   "acud_published_phase1_area": { ar: "مساحة المرحلة الأولى المعلنة من العاصمة الإدارية الجديدة", en: "ACUD Published Phase1 Area" },

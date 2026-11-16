@@ -31,8 +31,8 @@ describe("Batch 19 additive research merge", () => {
     const changes = JSON.parse(changesText) as Change[];
     const rejected = JSON.parse(rejectedText) as Change[];
     const baseline = JSON.parse(manifestText) as { facts: Record<string,string>; evidence: Record<string,string> };
-    expect(oldRows).toHaveLength(448); expect(newRows).toHaveLength(35); expect(seed.entities).toHaveLength(535);
-    expect(new Set(seed.entities.map((e) => e.code)).size).toBe(535);
+    expect(oldRows).toHaveLength(448); expect(newRows).toHaveLength(35); expect(seed.entities).toHaveLength(556);
+    expect(new Set(seed.entities.map((e) => e.code)).size).toBe(556);
     expect(newRows.every((row) => row.sector === "CENTRAL" && !oldRows.some((old) => old.code === row.code))).toBe(true);
     const subsequent = JSON.parse(await read("data/research/unknowns-batch08/status_changes.json")) as Change[];
     const changeMap = new Map(changes.map((c) => [c.entity_code, c]));

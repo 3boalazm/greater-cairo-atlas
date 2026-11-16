@@ -1,0 +1,48 @@
+{
+  "code_fix": {
+    "LANDMARK-AMERICAN-UNIVERSITY-CAIRO": "LANDMARK-AUC-NEW-CAIRO-CAMPUS"
+  },
+  "entity": {
+    "LANDMARK-AMERICAN-UNIVERSITY-CAIRO": {
+      "name_ar": "الجامعة الأمريكية بالقاهرة – حرم القاهرة الجديدة",
+      "name_en": "The American University in Cairo – New Cairo Campus",
+      "aliases": "AUC|AUC New Cairo|The American University in Cairo|الجامعة الأمريكية",
+      "description": "حرم الجامعة الأمريكية بالقاهرة في القاهرة الجديدة، انتقلت إليه الجامعة عام 2008، ويمتد على مساحة 260 أكراً ويضم خمس مدارس أكاديمية و136 قاعة دراسية ذكية و200 معمل."
+    },
+    "LANDMARK-HELIOPOLIS-UNIVERSITY": {
+      "description": "جامعة أسّسها البروفيسور إبراهيم أبو العيش عام 2009 وافتُتحت عام 2012، وتقع على طريق بلبيس – القاهرة الصحراوي وتضم خمس كليات."
+    },
+    "LANDMARK-AL-AZHAR-UNIVERSITY": {
+      "description": "جامعة الأزهر؛ أُعيد تنظيم الأزهر بالقانون رقم 103 لسنة 1961 وأُنشئ بموجبه القسم الجامعي العلمي، وعنوانها بشارع النصر في مدينة نصر بالقاهرة."
+    },
+    "LANDMARK-EGYPTIAN-RUSSIAN-UNIVERSITY": {
+      "description": "جامعة مصرية خاصة تأسست عام 2006 بالتعاون مع جامعات روسية، وتقع في مدينة بدر وتمتد على مساحة 37 أكراً."
+    }
+  },
+  "drop_facts": [
+    ["LANDMARK-AMERICAN-UNIVERSITY-CAIRO", "main_campus_city"],
+    ["LANDMARK-AMERICAN-UNIVERSITY-CAIRO", "faculties_count"],
+    ["LANDMARK-AL-AZHAR-UNIVERSITY", "establishment_year"]
+  ],
+  "modify_facts": [
+    {"match": ["LANDMARK-AMERICAN-UNIVERSITY-CAIRO", "establishment_year"], "set": {"unit": "year", "evidence_ref": "EV-E7C-113"}},
+    {"match": ["LANDMARK-AMERICAN-UNIVERSITY-CAIRO", "site_area"], "set": {"unit": "acres"}},
+    {"match": ["LANDMARK-GERMAN-UNIVERSITY-CAIRO", "founder"], "set": {"value": "البروفيسور أشرف منصور (Ashraf Mansour)، المؤسس الرئيسي"}},
+    {"match": ["LANDMARK-FUTURE-UNIVERSITY-EGYPT", "faculties_count"], "set": {"unit": "faculties"}},
+    {"match": ["LANDMARK-HELIOPOLIS-UNIVERSITY", "founder"], "set": {"value": "البروفيسور إبراهيم أبو العيش (Ibrahim Abouleish)"}},
+    {"match": ["LANDMARK-HELIOPOLIS-UNIVERSITY", "address"], "set": {"evidence_ref": "EV-E7C-107"}},
+    {"match": ["LANDMARK-HELIOPOLIS-UNIVERSITY", "faculties_count"], "set": {"evidence_ref": "EV-E7C-107"}},
+    {"match": ["LANDMARK-MISR-INTERNATIONAL-UNIVERSITY", "founder"], "set": {"value": "حسين الراشدي (Hussein El Rashidy)"}},
+    {"match": ["LANDMARK-EGYPTIAN-RUSSIAN-UNIVERSITY", "site_area"], "set": {"unit": "acres"}}
+  ],
+  "add_facts": [
+    {"entity_code": "LANDMARK-AMERICAN-UNIVERSITY-CAIRO", "attribute_key": "location", "value": "القاهرة الجديدة", "unit": null, "verification_state": "verified", "evidence_ref": "EV-E7C-101"},
+    {"entity_code": "LANDMARK-HELIOPOLIS-UNIVERSITY", "attribute_key": "opened_year", "value": "2012", "unit": "year", "verification_state": "verified", "evidence_ref": "EV-E7C-107"},
+    {"entity_code": "LANDMARK-AL-AZHAR-UNIVERSITY", "attribute_key": "legal_status", "value": "القانون رقم 103 لسنة 1961 (صدر في 5 يوليو 1961) بشأن إعادة تنظيم الأزهر، وبموجبه أُنشئ القسم العلمي بالجامعة وفيه كليات علمية لأول مرة", "unit": null, "verification_state": "verified", "evidence_ref": "EV-E7C-110"}
+  ],
+  "evidence_fix": {
+    "EV-E7C-111": {
+      "note": "قاعدة بيانات التعليم العالي التابعة للرابطة الدولية للجامعات (WHED)؛ تحدد عنوان الجامعة: شارع النصر، مدينة نصر، القاهرة، صندوق بريد 11751."
+    }
+  }
+}

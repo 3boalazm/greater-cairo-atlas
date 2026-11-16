@@ -1,0 +1,9 @@
+REVIEW LANDMARK-AUC-NEW-CAIRO-CAMPUS | الجامعة الأمريكية بالقاهرة – حرم القاهرة الجديدة | landmark | same-type: [] | other-type: ['STOP-MRE-LOTUS'] | fuzzy: []
+REVIEW LANDMARK-AL-AZHAR-UNIVERSITY | جامعة الأزهر | landmark | same-type: [] | other-type: ['STOP-MRE-AZHAR-UNIV', 'DIST-HUSSEIN-AZHAR'] | fuzzy: []
+REVIEW LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE | مسجد الفتاح العليم | landmark | same-type: [] | other-type: ['STOP-MRE-FATTAH-ALIM'] | fuzzy: []
+REVIEW PROJ-GOVERNMENT-DISTRICT | الحي الحكومي | project | same-type: [] | other-type: ['STOP-MRE-GOV-DISTRICT'] | fuzzy: []
+RESULT new_entities=21 remapped=0 facts=66 evidence=29
+facts by state: {'verified': 57, 'single_source': 9}
+evidence url_check: {'ok': 29}
+new by status: {'operational': 21}
+new by type: {'landmark': 20, 'project': 1}

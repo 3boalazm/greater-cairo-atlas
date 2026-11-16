@@ -1,0 +1,79 @@
+{
+  "acres": {
+    "ar": {
+      "one": "أكر",
+      "few": "أكر",
+      "many": "أكر"
+    },
+    "en": {
+      "one": "acre",
+      "other": "acres"
+    }
+  },
+  "faculties": {
+    "ar": {
+      "one": "كلية",
+      "few": "كليات",
+      "many": "كلية"
+    },
+    "en": {
+      "one": "faculty",
+      "other": "faculties"
+    }
+  },
+  "halls": {
+    "ar": {
+      "one": "قاعة",
+      "few": "قاعات",
+      "many": "قاعة"
+    },
+    "en": {
+      "one": "hall",
+      "other": "halls"
+    }
+  },
+  "members": {
+    "ar": {
+      "one": "عضو",
+      "few": "أعضاء",
+      "many": "عضوًا"
+    },
+    "en": {
+      "one": "member",
+      "other": "members"
+    }
+  },
+  "rooms": {
+    "ar": {
+      "one": "غرفة",
+      "few": "غرف",
+      "many": "غرفة"
+    },
+    "en": {
+      "one": "room",
+      "other": "rooms"
+    }
+  },
+  "screens": {
+    "ar": {
+      "one": "شاشة",
+      "few": "شاشات",
+      "many": "شاشة"
+    },
+    "en": {
+      "one": "screen",
+      "other": "screens"
+    }
+  },
+  "seats": {
+    "ar": {
+      "one": "مقعد",
+      "few": "مقاعد",
+      "many": "مقعدًا"
+    },
+    "en": {
+      "one": "seat",
+      "other": "seats"
+    }
+  }
+}
