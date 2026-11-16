@@ -29,7 +29,7 @@ describe("revision 9 seed + OSM geometry delivery", () => {
     // Feature geometry matching is intentionally re-evaluated by later OSM-ingestion phases; entity/fact IDs remain stable.
   });
 
-  it("preserves the full rev6.2 baseline and advances only 31 unknown statuses through rev9", async () => {
+  it("preserves the full rev6.2 baseline and preserves earlier statuses and applies subsequent approved changes", async () => {
     const root = process.cwd();
     const [entitiesCsv, evidenceJsonText, factsJsonText, current] = await Promise.all([
       readFile(path.join(root, "data/research/rev6_2/entities_rev6_2_adapted.csv"), "utf8"),
@@ -56,26 +56,26 @@ describe("revision 9 seed + OSM geometry delivery", () => {
       const next = currentEntities.get(old.code)!;
       return old.status === next.status ? [] : [{ code: old.code, oldStatus: old.status, newStatus: next.status }];
     });
-    expect(changes).toHaveLength(34);
+    expect(changes).toHaveLength(43);
     expect(changes.every((change) => change.oldStatus === "unknown" && ["operational", "partial", "under_construction"].includes(change.newStatus))).toBe(true);
     expect(changes.some((change) => change.oldStatus === "planned" && change.newStatus === "operational")).toBe(false);
-    expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(13);
+    expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(5);
   });
 
   it("validates rev9 counts and requires official URL-backed evidence for every verified fact", async () => {
     const bundle = await loadAndValidateSeedDir(path.join(process.cwd(), "data/seed"));
     const report = summarizeValidatedSeedBundle(bundle);
     expect(report).toMatchObject({
-      entitiesCount: 448,
-      entitiesWithAliasesCount: 284,
-      evidenceCount: 448,
+      entitiesCount: 483,
+      entitiesWithAliasesCount: 318,
+      evidenceCount: 580,
       evidenceMissingUrlCount: 71,
-      factsCount: 2252,
-      factEvidenceLinksCount: 2605,
+      factsCount: 2426,
+      factEvidenceLinksCount: 2779,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");
-    expect(verified).toHaveLength(379);
+    expect(verified).toHaveLength(488);
     for (const fact of verified) {
       expect(fact.evidence_codes.some((code) => {
         const item = evidence.get(code);
