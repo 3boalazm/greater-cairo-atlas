@@ -41,8 +41,10 @@ class CodabImportTests(unittest.TestCase):
             self.assertEqual(feature["properties"]["license"], "CC-BY-IGO")
             self.assertIn("CAPMAS", feature["properties"]["attribution"])
             self.assertIn("CC BY-IGO", feature["properties"]["attribution"])
-        self.assertEqual(len(self.relations), 7)
-        self.assertTrue(all(relation["relation"] == "located_within" and relation["evidence_code"] == IMPORTER.EVIDENCE_CODE for relation in self.relations))
+        self.assertEqual(len(self.relations), 72)
+        self.assertEqual(sum(relation["relation"] == "located_within" for relation in self.relations), 7)
+        self.assertEqual(sum(relation["relation"] == "governorate" for relation in self.relations), 65)
+        self.assertTrue(all(relation["evidence_code"] == IMPORTER.EVIDENCE_CODE for relation in self.relations))
 
     def test_official_feature_requirements_and_name_fixes(self):
         by_pcode = {feature["properties"]["pcode"]: feature for feature in self.units}

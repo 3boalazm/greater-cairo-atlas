@@ -25,7 +25,7 @@ export function exportResponseHeaders(metadata: {
   import_checksum: string;
 }, contentType: string, filename?: string): HeadersInit {
   return {
-    "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+    "Cache-Control": "no-store, max-age=0",
     "Content-Type": contentType,
     "X-Atlas-Dataset-Version": metadata.dataset_version,
     "X-Atlas-Git-SHA": metadata.dataset_version.split("+")[0] ?? "unknown",

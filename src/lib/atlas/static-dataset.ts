@@ -207,7 +207,7 @@ export async function getStaticEntityNeighbors(code: string, root = process.cwd(
 }
 
 export async function getStaticEvidenceCatalog(root = process.cwd()): Promise<StaticEvidenceCatalogItem[]> {
-  const dataset = await getStaticAtlasDataset(root);
+  const dataset = await getPublicAtlasDataset(root);
   const factsByEvidence = new Map<string, FactSeed[]>();
   for (const fact of dataset.facts) for (const evidenceCode of fact.evidence_codes) {
     factsByEvidence.set(evidenceCode, [...(factsByEvidence.get(evidenceCode) ?? []), fact]);
@@ -219,7 +219,7 @@ export async function getStaticEvidenceCatalog(root = process.cwd()): Promise<St
 }
 
 export async function getStaticEvidenceDetail(code: string, root = process.cwd()): Promise<StaticEvidenceDetail | null> {
-  const dataset = await getStaticAtlasDataset(root);
+  const dataset = await getPublicAtlasDataset(root);
   const evidence = await getStaticEvidenceCatalog(root).then((items) => items.find((item) => item.code === code));
   if (!evidence) return null;
   const entities = new Map(dataset.entities.map((entity) => [entity.code, entity]));
@@ -237,7 +237,7 @@ export async function getStaticEvidenceDetail(code: string, root = process.cwd()
 }
 
 export async function getStaticEntityPageData(code: string, root = process.cwd()): Promise<StaticEntityPageData | null> {
-  const dataset = await getStaticAtlasDataset(root);
+  const dataset = await getPublicAtlasDataset(root);
   const entity = dataset.entities.find((item) => item.code === code);
   if (!entity) return null;
   const evidenceByCode = new Map(dataset.evidence.map((item) => [item.code, item]));

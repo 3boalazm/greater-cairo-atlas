@@ -37,7 +37,7 @@ export async function GET(
       } : null,
       relations, neighbors,
     }, {
-      headers: { "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300" },
+      headers: { "Cache-Control": "no-store, max-age=0" },
     });
   } catch (error) {
     return toApiErrorResponse(error);

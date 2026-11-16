@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const evidence = await getStaticEvidenceCatalog();
-    return NextResponse.json({ evidence }, { headers: { "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300" } });
+    return NextResponse.json({ evidence }, { headers: { "Cache-Control": "no-store, max-age=0" } });
   } catch (error) {
     return toApiErrorResponse(error);
   }

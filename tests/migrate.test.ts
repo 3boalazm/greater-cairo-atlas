@@ -51,6 +51,9 @@ describe("SQL migrations runner and migrations 000 through 010", () => {
       "009_entity_relations.sql",
       "010_submissions.sql",
       "011_admin_review.sql",
+      "012_fact_retirement.sql",
+      "013_geometry_licences.sql",
+      "014_update_timestamps.sql",
     ]);
 
     const m000 = migrations[0];
@@ -146,6 +149,9 @@ describe("SQL migrations runner and migrations 000 through 010", () => {
       "009_entity_relations.sql",
       "010_submissions.sql",
       "011_admin_review.sql",
+      "012_fact_retirement.sql",
+      "013_geometry_licences.sql",
+      "014_update_timestamps.sql",
     ]);
   });
 
