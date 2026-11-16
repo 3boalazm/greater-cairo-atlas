@@ -1,0 +1,19 @@
+{
+  "data/research/east-batch08/README.md": "c0868b92e4bbb84ca3fd0ddac7daac1e015b46d9f942b8306612d9a9e4b2a241",
+  "data/research/east-batch08/build_report.txt": "68630fb0b0acce9c4feb5d4884a0936bf9c0e0dec9548640ae2819025e7add3b",
+  "data/research/east-batch08/chatgpt_raw.json": "585f763cad40bef11b1e7909e55b01b036b5378a63214e8253888913d26e83b5",
+  "data/research/east-batch08/chatgpt_raw_00.json": "9088265fab955d535d6a40548733118a9cacd40cc918215d611eb083582375a8",
+  "data/research/east-batch08/chatgpt_raw_01.json": "90a87ce8afd8f6ca0d7a9de4ccafcf5025bd1b2efbc25fcfb62c637646c9fbf1",
+  "data/research/east-batch08/code_remap.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "data/research/east-batch08/curation/build_east.py": "d5e6f53fa165d348de08982548bb6dd592ecd99d2b2e8e0338cbe241239b7771",
+  "data/research/east-batch08/curation/edits_00.json": "e35fdf5271a1fd0b327b40e03da11bb71f8f25da34800291c96d6b0e99366fd9",
+  "data/research/east-batch08/curation/edits_01.json": "686353eaaa70d5dfca9fc5becfa37be7b70e1e59552d2df10027192a0be5c83c",
+  "data/research/east-batch08/curation_report.txt": "f87281086263368564a3e7c36c19fdfdb7479545b45fdc78901dfcba3390e546",
+  "data/research/east-batch08/entities.csv": "ed207a38a25514dbbfd2469425517da87c9fc5df8ae63287121b8d43d3cf077b",
+  "data/research/east-batch08/entities_raw.csv": "532a5992763f558fc5f5e80a3998a6ad7714f1fbd4f0155d503f2b9995a6d85a",
+  "data/research/east-batch08/evidence.json": "e787633d9fdde8df96bf9302763406203aa0f0fd1fd8f3caec49251e8ef74c9c",
+  "data/research/east-batch08/evidence_raw.json": "17860c3921f750916ee378dcdc54f2619ad7bebb74431b34b3d384d3ba945e68",
+  "data/research/east-batch08/facts.json": "bf3a973652a7a77082be40f4a3b42acc7a8c5fbf3ac9b85c9b82b295b73004b4",
+  "data/research/east-batch08/facts_raw.json": "c6f34da7a3c25ca7135a5b2c869a2116440802f24e6dac8e665c5b64bce4fcd2",
+  "data/research/east-batch08/url_status.json": "f5d35ac33f480859f0bbc259d2372df780de270fa526e119982bf1fee2223572"
+}
