@@ -1,0 +1,55 @@
+{
+  "drop_entities": [
+    "LANDMARK-ICONIC-TOWER",
+    "PROJ-CENTRAL-BUSINESS-DISTRICT",
+    "LANDMARK-OCTOBER-WAR-PANORAMA"
+  ],
+  "entity": {
+    "LANDMARK-NEW-PARLIAMENT": {
+      "status": "operational",
+      "description": "مقر مجلس النواب في العاصمة الإدارية الجديدة؛ تتسع قاعته الرئيسية لما يصل إلى ألف عضو بحسب بيانات رئاسة الجمهورية (2021)."
+    },
+    "PROJ-GOVERNMENT-DISTRICT": {
+      "status": "operational",
+      "description": "يضم مقار الوزارات والجهات الحكومية ومقر مجلس الوزراء بالعاصمة الإدارية الجديدة، بحسب رئاسة الجمهورية."
+    },
+    "LANDMARK-UNKNOWN-SOLDIER-MEMORIAL-NASR-CITY": {
+      "description": "النصب التذكاري لشهداء القوات المسلحة (نصب الجندي المجهول) بمدينة نصر؛ وضع الرئيس عنده إكليل الزهور في ذكرى تحرير سيناء يوم 24 أبريل 2025."
+    }
+  },
+  "modify_facts": [
+    {"match": ["LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE", "location"], "set": {"value": "الطريق الدائري الأوسطي الجديد، العاصمة الإدارية الجديدة"}},
+    {"match": ["LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE", "construction_period"], "set": {"unit": null}},
+    {"match": ["LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE", "site_area"], "set": {"unit": "m2"}},
+    {"match": ["LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE", "minarets_count"], "set": {"unit": null}},
+    {"match": ["LANDMARK-NEW-PARLIAMENT", "main_hall_capacity"], "set": {"unit": "members"}}
+  ],
+  "add_evidence": [
+    {
+      "evidence_ref": "EV-E7C-205",
+      "source_url": "https://www.presidency.eg/en/قسم-الأخبار/الفعاليات-والمؤتمرات/event242024/",
+      "publisher": "Presidency of the Arab Republic of Egypt",
+      "title": "Taking the Constitutional Oath for a New Presidential Term",
+      "note": "صفحة رئاسية رسمية مفتوحة؛ تذكر أن الرئيس عبد الفتاح السيسي أدّى اليمين الدستورية لفترة رئاسية جديدة في مقر مجلس النواب بالعاصمة الإدارية الجديدة. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+      "source_type": "official",
+      "published_date": null
+    },
+    {
+      "evidence_ref": "EV-E7C-206",
+      "source_url": "https://www.presidency.eg/en/قسم-الأخبار/أخبار-رئاسية/news-2572023-1/",
+      "publisher": "Presidency of the Arab Republic of Egypt",
+      "title": "President El-Sisi Holds Meeting to Review New Administrative Capital Developments",
+      "note": "صفحة رئاسية رسمية مفتوحة بتاريخ 25 يوليو 2023؛ تذكر انتقال أكثر من 100 جهة حكومية، بينها 30 وزارة، للعمل من العاصمة الجديدة بنحو 40 ألف موظف وعامل. فتحتها وقرأتها أثناء المراجعة (ليست من مخرجات ChatGPT).",
+      "source_type": "official",
+      "published_date": "2023-07-25"
+    }
+  ],
+  "add_facts": [
+    {"entity_code": "LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE", "attribute_key": "inauguration_date", "value": "6 يناير 2019", "unit": "date", "verification_state": "verified", "evidence_ref": "EV-E7C-202"},
+    {"entity_code": "LANDMARK-NEW-PARLIAMENT", "attribute_key": "function", "value": "مقر مجلس النواب في العاصمة الإدارية الجديدة، وقد أدّى فيه الرئيس اليمين الدستورية لفترة رئاسية جديدة", "unit": null, "verification_state": "verified", "evidence_ref": "EV-E7C-205"},
+    {"entity_code": "PROJ-GOVERNMENT-DISTRICT", "attribute_key": "relocation_status", "value": "بحسب رئاسة الجمهورية (25 يوليو 2023): انتقلت أكثر من 100 جهة حكومية، بينها 30 وزارة، للعمل من العاصمة الإدارية الجديدة (نحو 40 ألف موظف وعامل)", "unit": null, "verification_state": "verified", "evidence_ref": "EV-E7C-206"}
+  ],
+  "evidence_fix": {
+    "EV-E7C-201": {"published_date": null}
+  }
+}
