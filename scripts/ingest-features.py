@@ -42,6 +42,7 @@ OUT = ROOT / "data/features"
 # Conservative Greater Cairo envelope [west, south, east, north], WGS84.
 BBOX = (30.5, 29.2, 32.1, 30.8)
 ROAD_BBOX = (30.5, 29.2, 32.35, 30.9)
+REGIONAL_RING_ROAD_BBOX = (30.25, 29.2, 32.35, 30.9)
 OSM_ATTRIBUTION = "© OpenStreetMap contributors, ODbL 1.0"
 TFC_ATTRIBUTION = "Transport for Cairo (TfC), GTFS for Public Road-Transport, CC BY 4.0"
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
@@ -244,9 +245,10 @@ def validate_feature_geometries(features: list[dict[str, Any]], *, repair: bool,
         nested = props.get("properties", {}) if isinstance(props, dict) else {}
         road_geometry = isinstance(nested, dict) and nested.get("entity_type") == "road"
         entity_code = props.get("entity_code")
-        entity_road_bbox = ((rules or {}).get("entity_rules", {}).get(entity_code, {}).get("road_bbox_wgs84")
-                            if road_geometry else None)
-        accepted_bbox = box(*(entity_road_bbox or (ROAD_BBOX if road_geometry else BBOX)))
+        # Match the database trigger (migration 007), regardless of broader ingestion
+        # search rules. Only the Regional Ring has an accepted westward exception.
+        db_bbox = (REGIONAL_RING_ROAD_BBOX if entity_code == "ROAD-REGIONAL-RING" else ROAD_BBOX) if road_geometry else BBOX
+        accepted_bbox = box(*db_bbox)
         if not accepted_bbox.covers(geom):
             reject(item, "geometry_outside_road_bbox" if road_geometry else "geometry_outside_greater_cairo_bbox")
             continue
@@ -1786,7 +1788,7 @@ def main():
             previous = json.loads(feature_file.read_text(encoding="utf-8"))
             feature_count = len(previous.get("features", []))
         except (OSError, json.JSONDecodeError, AttributeError):
-            features_written = 0
+            feature_count = 0
     # Entity target denominators are explicit; no source item is represented as a match without source data.
     target_types = {"road": "road", "transit_line": "transit_line", "transit_stop": "transit_stop", "rail_station": "rail_station"}
     target_types.update({key:key for key in ("city","district","airport","bridge","landmark")})
@@ -2123,7 +2125,7 @@ def main():
         "arabic_boundary_matching_report": report.get("arabic_boundary_matching_report"),
         "arabic_phase_07_4_report": report.get("arabic_phase_07_4_report"),
         "lifecycle_policy": "Operational/unknown station nodes require exact normalized seed/configured names and compatible mode/route evidence. Planned/under-construction station points require explicit OSM construction tags, matched non-planned official line geometry within 600 m, and compatible lifecycle; planned line geometry is never used. BRT geometry matches only existing STOP-BRT entities from bus=yes/route evidence. No station entity is inferred.",
-        "geometry_policy": "WGS84 / SRID 4326; non-empty, GEOS-valid geometries are validated and repaired only when polygonal. Non-road features use bbox_wgs84; roads use their entity-specific road_bbox_wgs84 override when configured, otherwise the shared road envelope. The Regional Ring west patch is accepted only for ROAD-REGIONAL-RING. Every output geometry is checked with Shapely is_valid/explain_validity; degenerate lines and unrepaired/otherwise invalid geometries are dropped.",
+        "geometry_policy": "WGS84 / SRID 4326; non-empty, GEOS-valid geometries are validated and repaired only when polygonal. Non-road features use bbox_wgs84; roads use the shared road envelope, with the database Regional Ring exception only. The Regional Ring west patch is accepted only for ROAD-REGIONAL-RING. Every output geometry is checked with Shapely is_valid/explain_validity; degenerate lines and unrepaired/otherwise invalid geometries are dropped.",
         "geometry_validation": {"validator":f"Shapely {shapely.__version__}","db_constraint":"ST_SRID(geometry)=4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)","features_repaired_count":len(report["geometry_repairs"]),"features_dropped_count":len(report["invalid_geometry"]),"repairs":report["geometry_repairs"],"dropped":report["invalid_geometry"]},
         "osm_query_coverage": {
             "preserved_extracts": "Three prior owner-supplied extracts (first extract, extract2, roads-full) plus the new boundaries/stations/road-patch extract are deduplicated by OSM type/id, preferring current versions and most complete geometry. Route graph connectivity uses shared OSM node IDs, never coordinate snapping.",

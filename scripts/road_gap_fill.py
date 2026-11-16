@@ -285,7 +285,7 @@ def connect_seed_components(
         component_endpoint_sets = [_component_endpoints(component, ways) for component in components]
         pair_nearest: dict[tuple[int, int], tuple[float, int, int]] = {}
         for left_index, left_nodes in enumerate(component_endpoint_sets):
-            for right_index in range(left_index + 1, len(component_node_sets)):
+            for right_index in range(left_index + 1, len(component_endpoint_sets)):
                 nearest: tuple[float, int, int] | None = None
                 for left in sorted(left_nodes):
                     left_coord = node_coordinates.get(left)

@@ -30,7 +30,7 @@ describe("BATCH 12.5 — entities whose point falls outside their official bound
     expect(obour.distance_outside_m).toBeGreaterThan(100);
     expect(obour.distance_outside_m).toBeLessThan(200);
     expect(obour.evidence_code).toBe("EV-CODAB-ADMIN-2026");
-    expect(obour.license).toContain("CC BY-IGO");
+    expect(obour.license).toContain("CC-BY-IGO");
   });
 
   it("uses the report as a report: no geometry is corrected automatically", async () => {

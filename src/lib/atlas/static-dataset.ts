@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { getSql } from "@/lib/db/client";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { loadAndValidateFeatureCollection } from "@/lib/atlas/features";
@@ -47,6 +48,22 @@ export async function getStaticAtlasDataset(root = process.cwd()): Promise<Stati
     datasetPromise = loadStaticAtlasDataset(root);
   }
   return datasetPromise;
+}
+
+/** Public exports are a canonical seed snapshot, minus any database retirements.
+ * With no database configured the checked-in snapshot is the only available source.
+ * When a database is configured, fail closed if retirement status cannot be read.
+ */
+export async function getPublicAtlasDataset(root = process.cwd()): Promise<StaticAtlasDataset> {
+  const dataset = await getStaticAtlasDataset(root);
+  if (!process.env.DATABASE_URL?.trim()) return dataset;
+  const rows = await getSql().query("SELECT code FROM facts WHERE retired_at IS NOT NULL") as Array<{ code: string }>;
+  return excludeRetiredFacts(dataset, new Set(rows.map((row) => row.code)));
+}
+
+export function excludeRetiredFacts(dataset: StaticAtlasDataset, retired: ReadonlySet<string>): StaticAtlasDataset {
+  return { ...dataset, facts: dataset.facts.filter((fact) => !retired.has(fact.code)),
+    factEvidence: dataset.factEvidence.filter((link) => !retired.has(link.fact_code)) };
 }
 
 async function loadStaticAtlasDataset(root: string): Promise<StaticAtlasDataset> {
@@ -190,7 +207,7 @@ export async function getStaticEntityNeighbors(code: string, root = process.cwd(
 }
 
 export async function getStaticEvidenceCatalog(root = process.cwd()): Promise<StaticEvidenceCatalogItem[]> {
-  const dataset = await getStaticAtlasDataset(root);
+  const dataset = await getPublicAtlasDataset(root);
   const factsByEvidence = new Map<string, FactSeed[]>();
   for (const fact of dataset.facts) for (const evidenceCode of fact.evidence_codes) {
     factsByEvidence.set(evidenceCode, [...(factsByEvidence.get(evidenceCode) ?? []), fact]);
@@ -202,7 +219,7 @@ export async function getStaticEvidenceCatalog(root = process.cwd()): Promise<St
 }
 
 export async function getStaticEvidenceDetail(code: string, root = process.cwd()): Promise<StaticEvidenceDetail | null> {
-  const dataset = await getStaticAtlasDataset(root);
+  const dataset = await getPublicAtlasDataset(root);
   const evidence = await getStaticEvidenceCatalog(root).then((items) => items.find((item) => item.code === code));
   if (!evidence) return null;
   const entities = new Map(dataset.entities.map((entity) => [entity.code, entity]));
@@ -220,7 +237,7 @@ export async function getStaticEvidenceDetail(code: string, root = process.cwd()
 }
 
 export async function getStaticEntityPageData(code: string, root = process.cwd()): Promise<StaticEntityPageData | null> {
-  const dataset = await getStaticAtlasDataset(root);
+  const dataset = await getPublicAtlasDataset(root);
   const entity = dataset.entities.find((item) => item.code === code);
   if (!entity) return null;
   const evidenceByCode = new Map(dataset.evidence.map((item) => [item.code, item]));
@@ -347,7 +364,7 @@ export function joinedFeatureCollection(dataset: StaticAtlasDataset, metadata: A
         ...feature.properties, code: feature.properties.code, entity_code: feature.properties.pcode,
         level: feature.properties.level, name_ar: feature.properties.name_ar, name_en: feature.properties.name_en ?? "",
         entity_type: "admin_unit", status: "unknown", sector: null, aliases: [],
-        license: "CC BY-IGO", attribution: feature.properties.attribution,
+        license: "CC-BY-IGO", attribution: feature.properties.attribution,
         source: feature.properties.source, retrieval_date: "2026-11-15",
         source_ids: { pcode: feature.properties.pcode, level: feature.properties.level,
           parent_pcodes: feature.properties.parent_pcodes, area_sqkm: feature.properties.area_sqkm },

@@ -117,7 +117,8 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
         entitiesNotInSeedCount: null,
         factsNotInSeedCount: null,
         evidenceNotInSeedCount: null,
-        databasePreviewAvailable: false,
+        driftCodes: null,
+      databasePreviewAvailable: false,
       },
     });
     expect(payload.report.evidenceMissingUrlCount).toBe(71);
@@ -137,6 +138,7 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
       async query<Row = Record<string, unknown>>(text: string) {
         const sql = text.trim();
         statements.push(sql);
+        if (sql.startsWith("SELECT code FROM")) return { rows: [] };
         const count = sql.includes("FROM entities") ? 2
           : sql.includes("FROM facts") ? 3
           : sql.includes("FROM evidence") ? 1
@@ -164,6 +166,7 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
       entitiesNotInSeedCount: 2,
       factsNotInSeedCount: 3,
       evidenceNotInSeedCount: 1,
+      driftCodes: { entities: [], facts: [], evidence: [] },
       databasePreviewAvailable: true,
     });
     expect(statements[0]).toBe("BEGIN READ ONLY");
@@ -254,7 +257,8 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
         entitiesNotInSeedCount: 0,
         factsNotInSeedCount: 0,
         evidenceNotInSeedCount: 0,
-        databasePreviewAvailable: true,
+        driftCodes: { entities: [], facts: [], evidence: [] },
+      databasePreviewAvailable: true,
       },
     });
     expect(entityIds.size).toBe(5);

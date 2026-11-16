@@ -81,6 +81,7 @@ export const FEATURE_LICENSES = [
   "ODbL",
   "ODbL-1.0",
   "CC-BY-4.0",
+  "CC-BY-IGO",
   "CC0-1.0",
   "official_gazette",
   "custom_documented",

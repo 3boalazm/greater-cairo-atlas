@@ -152,7 +152,7 @@ const defaultEntityDetailExecutor: AtlasEntityDetailExecutor = {
          JOIN entities e ON e.id = f.entity_id
          LEFT JOIN fact_evidence fe ON fe.fact_id = f.id
          LEFT JOIN evidence ev ON ev.id = fe.evidence_id
-        WHERE e.code = $1
+        WHERE e.code = $1 AND f.retired_at IS NULL
         GROUP BY f.id, f.code, f.attribute, f.value, f.unit, f.valid_as_of,
                  f.valid_as_of_precision, f.verification_state, f.notes
         ORDER BY f.attribute, CASE f.verification_state

@@ -20,7 +20,7 @@ describe("pure JavaScript GeoPackage exports", () => {
       expect(tables).toContain("license_attribution");
       expect(Number(db.exec("SELECT COUNT(*) FROM features")[0]!.values[0]![0])).toBeGreaterThan(0);
       expect(Number(db.exec("SELECT COUNT(*) FROM admin_units")[0]!.values[0]![0])).toBe(838);
-      expect(db.exec("SELECT license,attribution FROM admin_units LIMIT 1")[0]!.values[0]).toEqual(["CC BY-IGO", expect.stringContaining("CAPMAS")]);
+      expect(db.exec("SELECT license,attribution FROM admin_units LIMIT 1")[0]!.values[0]).toEqual(["CC-BY-IGO", expect.stringContaining("CAPMAS")]);
       expect(db.exec("SELECT hex(substr(geom,1,2)) FROM features LIMIT 1")[0]!.values[0]![0]).toBe("4750");
       expect(db.exec("SELECT COUNT(*) FROM license_attribution")[0]!.values[0]![0]).toBe(4);
       expect(db.exec("PRAGMA integrity_check")[0]!.values[0]![0]).toBe("ok");

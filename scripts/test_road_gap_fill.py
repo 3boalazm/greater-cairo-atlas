@@ -59,6 +59,17 @@ class RoadGapFillTests(unittest.TestCase):
         self.assertEqual(len(result["unresolved_gaps"]), result["gaps_after"])
         self.assertIn("coordinates", result["unresolved_gaps"][0]["endpoint_a"])
 
+    def test_nonpositive_maximum_reports_unresolved_components(self):
+        for limit in (0.0, -1.0):
+            with self.subTest(limit=limit):
+                result = connect_seed_components(
+                    entity_code="ROAD-RING-ROAD", seed_way_ids={101, 102}, ways=self.ways,
+                    adjacency=self.adjacency, max_km=limit,
+                )
+                self.assertEqual(result["gaps_after"], 1)
+                self.assertEqual(result["filled_way_ids"], [])
+                self.assertEqual(len(result["unresolved_gaps"]), 1)
+
     def test_named_other_road_is_never_used_as_a_connector(self):
         self.elements[2]["tags"]["name"] = "Different Expressway"
         self.ways, self.adjacency = build_road_graph(self.elements)

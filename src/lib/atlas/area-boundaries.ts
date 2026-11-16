@@ -15,7 +15,7 @@ export interface AreaBoundaryFeature {
     osm_type?: "way" | "relation";
     osm_id?: number;
     osm_version?: number;
-    license: "ODbL-1.0" | "CC BY-IGO";
+    license: "ODbL-1.0" | "CC-BY-IGO";
     properties: {
       role: "boundary";
       entity_type: string;
@@ -32,7 +32,7 @@ export interface AreaBoundaryFeature {
       source_ids?: { osm_type: string; osm_id: number; osm_version: number };
       source: string;
       attribution: string;
-      license: "ODbL-1.0" | "CC BY-IGO";
+      license: "ODbL-1.0" | "CC-BY-IGO";
       retrieval_date: string;
     };
   };
@@ -116,7 +116,7 @@ async function loadOfficialBoundaries(root: string): Promise<AreaBoundaryFeature
       const feature = {
         type: "Feature" as const, id: String(raw.id ?? props.code), geometry,
         properties: {
-          code: props.code, entity_code: props.entity_code, license: "CC BY-IGO" as const,
+          code: props.code, entity_code: props.entity_code, license: "CC-BY-IGO" as const,
           properties: {
             role: "boundary" as const, entity_type: "administrative_unit", boundary_kind: "administrative" as const,
             source_kind: "administrative" as const, area_km2: Number(props.area_sqkm) || 0,
@@ -127,7 +127,7 @@ async function loadOfficialBoundaries(root: string): Promise<AreaBoundaryFeature
             name_en: typeof props.name_en === "string" ? props.name_en : null,
             source: String(props.source ?? "CAPMAS COD-AB 2017 (reviewed 2024)"),
             attribution: String(props.attribution ?? "حدود إدارية © الجهاز المركزي للتعبئة العامة والإحصاء عبر OCHA/HDX (CC BY-IGO)"),
-            license: "CC BY-IGO" as const, retrieval_date: "2026-11-15",
+            license: "CC-BY-IGO" as const, retrieval_date: "2026-11-15",
           },
         },
       };

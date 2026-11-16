@@ -24,7 +24,7 @@ describe("atlas data exports", () => {
     const headers = new Headers(exportResponseHeaders(metadata, "application/json; charset=utf-8"));
     expect(headers.get("X-Atlas-Research-Data-License")).toBe("CC BY 4.0");
     expect(headers.get("X-Atlas-Research-Data-Copyright")).toBe("Mustafa Aboalazm");
-    expect(headers.get("Cache-Control")).toBe("public, s-maxage=3600, stale-while-revalidate=86400");
+    expect(headers.get("Cache-Control")).toBe("no-store, max-age=0");
     for (const table of ["entities", "facts", "evidence", "fact_evidence"] as const) {
       const lines = csvForTable(dataset, table).split("\r\n");
       expect(lines[0]).toContain("© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0");

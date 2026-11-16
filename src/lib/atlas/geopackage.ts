@@ -115,14 +115,14 @@ export async function generateGeoPackage(dataset: StaticAtlasDataset, filters: G
         gpkgGeometry(feature.geometry as { type: string; coordinates?: unknown; geometries?: unknown[] }),
         String(props.pcode), Number(props.level), String(props.name_ar), props.name_en == null ? null : String(props.name_en),
         parents.length ? String(parents[0]) : null, String(props.parent_name_ar ?? ""), Number(props.area_sqkm ?? 0),
-        "CC BY-IGO", String(props.attribution ?? ""), String(props.source ?? "CAPMAS COD-AB 2017 (reviewed 2024)"), String(props.evidence_code ?? "EV-CODAB-ADMIN-2026"),
+        "CC-BY-IGO", String(props.attribution ?? ""), String(props.source ?? "CAPMAS COD-AB 2017 (reviewed 2024)"), String(props.evidence_code ?? "EV-CODAB-ADMIN-2026"),
       ]);
     }
     adminUnitInsert.free();
     const attrInsert = db.prepare("INSERT INTO license_attribution VALUES (?,?,?,?)");
     attrInsert.run(["Research data and evidence", "CC BY 4.0", "© Mustafa Aboalazm (مصطفى أبوالعزم)", "Attribution required."]);
     attrInsert.run(["OpenStreetMap geometry", "ODbL 1.0", "© OpenStreetMap contributors", "Keep ODbL attribution and comply with the ODbL when sharing derived databases."]);
-    attrInsert.run(["Official administrative boundaries", "CC BY-IGO", "© CAPMAS (الجهاز المركزي للتعبئة العامة والإحصاء) via OCHA/HDX", "Source: https://data.humdata.org/dataset/cod-ab-egy. Preserve this attribution."]);
+    attrInsert.run(["Official administrative boundaries", "CC-BY-IGO", "© CAPMAS (الجهاز المركزي للتعبئة العامة والإحصاء) via OCHA/HDX", "Source: https://data.humdata.org/dataset/cod-ab-egy. Preserve this attribution."]);
     attrInsert.run(["Basemap", "OpenFreeMap", "OpenFreeMap", "Basemap tiles are not embedded in this export."]);
     attrInsert.free();
     db.run("CREATE INDEX features_entity_code_idx ON features(entity_code); CREATE INDEX features_type_sector_idx ON features(entity_type,status);");

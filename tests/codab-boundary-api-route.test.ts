@@ -21,7 +21,7 @@ describe("official CAPMAS boundary API responses", () => {
     const body = await response.json();
     expect(body).toMatchObject({ type: "FeatureCollection", features: [expect.objectContaining({
       type: "Feature", properties: expect.objectContaining({
-        entity_code: code, license: "CC BY-IGO",
+        entity_code: code, license: "CC-BY-IGO",
         properties: expect.objectContaining({ source: "CAPMAS COD-AB 2017 (reviewed 2024)", attribution: expect.stringContaining("CAPMAS") }),
       }),
     })] });

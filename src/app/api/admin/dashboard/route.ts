@@ -1,4 +1,8 @@
 import { NextResponse } from "next/server";
+import path from "node:path";
+import { getSeedDriftCodes } from "@/lib/atlas/drift";
+import { loadAndValidateSeedDir } from "@/lib/atlas/seed";
+import { defaultExecutor } from "@/lib/admin/queries";
 import { resolveAdminIdentity } from "@/lib/admin/auth";
 import { getAdminCounts } from "@/lib/admin/queries";
 import { getAreaBoundaryCodes } from "@/lib/atlas/area-boundaries";
@@ -18,7 +22,9 @@ export async function GET(request: Request) {
     resolveAdminIdentity(request);
     const counts = await getAdminCounts();
     const boundaryCodes = await getAreaBoundaryCodes();
-    return NextResponse.json({ ok: true, counts: { ...counts, boundaries: boundaryCodes.size } },
+    const seed = await loadAndValidateSeedDir(path.join(process.cwd(), "data/seed"));
+    const drift = await getSeedDriftCodes((text, values) => defaultExecutor.query<{ code: string }>(text, values), seed);
+    return NextResponse.json({ ok: true, counts: { ...counts, boundaries: boundaryCodes.size }, drift },
       { headers: { "Cache-Control": "no-store, max-age=0" } });
   } catch (error) {
     return toApiErrorResponse(error);

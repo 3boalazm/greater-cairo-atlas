@@ -1,3 +1,4 @@
+import { getSeedDriftCodes, type SeedDriftCodes } from "@/lib/atlas/drift";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import type { z } from "zod";
@@ -80,6 +81,7 @@ export interface ImportSyncReport {
   entitiesNotInSeedCount: number | null;
   factsNotInSeedCount: number | null;
   evidenceNotInSeedCount: number | null;
+  driftCodes: SeedDriftCodes | null;
   databasePreviewAvailable: boolean;
 }
 
@@ -868,11 +870,11 @@ async function readImportSyncCounts(
      FROM fact_evidence fe
      JOIN facts f ON f.id = fe.fact_id
      JOIN evidence e ON e.id = fe.evidence_id
-     WHERE NOT EXISTS (
+     WHERE f.code = ANY($3::text[]) AND NOT EXISTS (
        SELECT 1 FROM unnest($1::text[], $2::text[]) AS desired(fact_code, evidence_code)
        WHERE desired.fact_code = f.code AND desired.evidence_code = e.code
      )`,
-    [pairFactCodes, pairEvidenceCodes],
+    [pairFactCodes, pairEvidenceCodes, factCodes],
   );
   const relationCount = await session.query<{ count: number | string }>(
     `SELECT COUNT(*)::int AS count FROM entity_relations er
@@ -889,6 +891,7 @@ async function readImportSyncCounts(
     entitiesNotInSeedCount: await count("entities", bundle.entities.map((item) => item.code)),
     factsNotInSeedCount: await count("facts", factCodes),
     evidenceNotInSeedCount: await count("evidence", evidenceCodes),
+    driftCodes: await getSeedDriftCodes(async (text, values) => (await session.query<{ code: string }>(text, values)).rows, bundle),
   };
 }
 
@@ -918,6 +921,9 @@ export async function upsertValidatedSeedBundle(
 
   try {
     await session.query("BEGIN");
+    // Lock before inspecting the current checksum or reconciliation counts, so two
+    // concurrent production builds cannot make a skip decision from stale state.
+    await session.query("SELECT pg_advisory_xact_lock($1)", [72940132]);
     const importSyncCounts = await readImportSyncCounts(session, bundle, features, syncFeatures);
 
     if (importRun) {
@@ -927,7 +933,6 @@ export async function upsertValidatedSeedBundle(
       if (!/^[a-f0-9]{64}$/.test(importRun.checksum)) {
         throw new Error("Invalid automatic import checksum.");
       }
-      await session.query("SELECT pg_advisory_xact_lock($1)", [72940132]);
       const previous = await session.query<{ checksum: string }>(
         "SELECT checksum FROM import_runs WHERE dataset_key = $1 FOR UPDATE",
         [importRun.datasetKey],
@@ -1118,21 +1123,8 @@ export async function upsertValidatedSeedBundle(
       }
     }
 
-    const seedFactCodes = bundle.facts.flatMap((fact) => fact.evidence_codes.map(() => fact.code));
-    const seedEvidenceCodes = bundle.facts.flatMap((fact) => fact.evidence_codes);
-    const orphanFactEvidenceLinks = await session.query<{ fact_id: string; evidence_id: string }>(
-      `DELETE FROM fact_evidence fe
-       WHERE NOT EXISTS (
-         SELECT 1 FROM facts f
-         JOIN evidence e ON e.id = fe.evidence_id
-         JOIN unnest($1::text[], $2::text[]) AS desired(fact_code, evidence_code)
-           ON desired.fact_code = f.code AND desired.evidence_code = e.code
-         WHERE f.id = fe.fact_id
-       )
-       RETURNING fe.fact_id, fe.evidence_id`,
-      [seedFactCodes, seedEvidenceCodes],
-    );
-    factEvidenceLinksDeletedCount += orphanFactEvidenceLinks.rows.length;
+    // Per-fact reconciliation above is limited to seed facts. Retained DB-only
+    // facts must retain their evidence (including verified official sources).
 
     let featuresDeletedCount = 0;
     if (syncFeatures) {
@@ -1207,6 +1199,7 @@ export async function upsertValidatedSeedBundle(
         entitiesNotInSeedCount: importSyncCounts.entitiesNotInSeedCount,
         factsNotInSeedCount: importSyncCounts.factsNotInSeedCount,
         evidenceNotInSeedCount: importSyncCounts.evidenceNotInSeedCount,
+        driftCodes: importSyncCounts.driftCodes,
         databasePreviewAvailable: true,
       },
       ...(importRun ? { importSkipped: false } : {}),
@@ -1246,6 +1239,7 @@ export async function runSeedImport(
           entitiesNotInSeedCount: null,
           factsNotInSeedCount: null,
           evidenceNotInSeedCount: null,
+          driftCodes: null,
           databasePreviewAvailable: false,
         };
     report.importSync = importSync;

@@ -37,7 +37,7 @@ describe("BATCH 12.4 — governorate parentage derived from CAPMAS adm1 codes", 
       expect(Object.keys(GOVERNORATE_ENTITY)).toContain(row.adm1_pcode);
       expect(row.adm1_name_ar.length).toBeGreaterThan(0);
       expect(row.evidence_code).toBe("EV-CODAB-ADMIN-2026");
-      expect(row.license).toBe("CC BY-IGO");
+      expect(row.license).toBe("CC-BY-IGO");
       expect(row.pcodes.length).toBeGreaterThan(0);
     }
     // Spot-check the cases named in the brief.
@@ -73,7 +73,7 @@ describe("BATCH 12.4 — governorate parentage derived from CAPMAS adm1 codes", 
     const codab: CodabGovernorateRelation[] = [{
       entity_code: "CITY-OBOUR", relation: "governorate", adm1_pcode: "EG14", adm1_name_ar: "القليوبية",
       adm1_name_en: "Qalyubia", pcodes: ["EG1401"], evidence_code: "EV-CODAB-ADMIN-2026",
-      source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC BY-IGO",
+      source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC-BY-IGO",
     }];
     const withoutGovernorate = deriveGovernorateRelations(codab, [{ code: "CITY-OBOUR", entity_type: "city" }]);
     expect(withoutGovernorate.relations).toHaveLength(0);
