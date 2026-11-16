@@ -1,7 +1,18 @@
 import { describe, expect, it, vi } from "vitest";
+import { readFile } from "node:fs/promises";
 import { RoadNetworkLoader } from "@/lib/atlas/road-network-loader";
 
 describe("road network lazy loading", () => {
+  it("wires initially empty URL-backed sources to idle, zoom and layer state", async () => {
+    const source = await readFile("src/components/atlas/MapView.tsx", "utf8");
+    expect(source).toContain('map.addSource(roadNetworkSourceId, { type: "geojson", data: EMPTY_GEOJSON })');
+    expect(source).toContain('map.addSource(roadNetworkDetailSourceId, { type: "geojson", data: EMPTY_GEOJSON })');
+    expect(source).toContain('map.once("idle", () => roads.firstIdle');
+    expect(source).toContain('map.on("zoomend", () => roads.sync');
+    expect(source).toContain('roadLoaders.get(map)?.sync(showRoadNetwork, map.getZoom())');
+    expect(source).toContain('id: roadNetworkDetailLayerId, type: "line", source: roadNetworkDetailSourceId, minzoom: 11');
+    expect(source).toContain(').setData(url)');
+  });
   it("waits for first map idle and the detail layer zoom threshold", () => {
     const load = vi.fn();
     const roads = new RoadNetworkLoader(load);
