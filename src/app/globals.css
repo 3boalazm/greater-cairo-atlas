@@ -937,3 +937,8 @@ a { color: inherit; }
 }
 @media (min-width:761px) { .map-attribution { white-space:nowrap; max-width:calc(100% - 20px); overflow-x:auto; flex-wrap:nowrap; } }
 @media (max-width:760px) { .entity-panel, .entity-panel.simple-panel { height:var(--sheet-height, min(58dvh, 520px)); } }
+@media (max-width:760px) {
+  .atlas-topbar { height:auto; flex-wrap:wrap; padding-block:6px; }
+  .atlas-search { order:3; flex:1 0 100%; width:100%; }
+  .topbar-actions { margin-inline-start:auto; }
+}

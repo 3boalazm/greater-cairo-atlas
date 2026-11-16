@@ -4,7 +4,7 @@ import { createElement } from "react";
 import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
 import { normalizeEntityName } from "@/lib/atlas/entity-presentation";
 import { readRecent, rememberEntity, searchEntities, searchGroup, suggestedEntities } from "@/lib/atlas/search";
-import { MapAttribution, MapLoading } from "@/components/atlas/MapChrome";
+import { InfoMenu, MapAttribution, MapLoading } from "@/components/atlas/MapChrome";
 
 describe("search and map polish", () => {
   it("normalizes Arabic spelling, diacritics, tatweel and both Arabic digit sets", () => {
@@ -44,6 +44,10 @@ describe("search and map polish", () => {
     expect(html.match(/class="map-attribution/g)).toHaveLength(1);
     expect(html).toContain("CC BY 4.0"); expect(html).toContain("ODbL 1.0"); expect(html).toContain("CC BY-IGO");
     expect(html).toContain('aria-expanded="false"');
+    for (const language of ["ar", "en"] as const) {
+      const menu = renderToStaticMarkup(createElement(InfoMenu, { language }));
+      for (const page of ["data", "methodology", "sources", "directory", "api-docs"]) expect(menu).toContain(`/${language}/${page}`);
+    }
   });
 });
 

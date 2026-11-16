@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/set-state-in-effect -- fetch lifecycle and URL hydration synchronize external state. */
 
 import Link from "next/link";
-import { AlertTriangle, Database, Info, MapPinned, RefreshCw } from "lucide-react";
+import { AlertTriangle, Database, MapPinned, RefreshCw } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AppSidebar } from "./AppSidebar";
 import { ActiveFilterChips, AtlasFilters, LayerChips, LayerGroupToggles, LayerOpacityControls, Legend, MapFilters, TransitLineToggles, type AtlasLayerGroup, type AtlasLayerGroupState } from "./AtlasControls";
@@ -25,7 +25,7 @@ const MapView = dynamic(
 import { ThemeToggle, useAtlasPreferences } from "./Preferences";
 import { SiteLanguageSwitch } from "@/components/site/SiteLanguageSwitch";
 import { SearchCommand } from "./SearchCommand";
-import { MapAttribution, MapLoading } from "./MapChrome";
+import { InfoMenu, MapAttribution, MapLoading } from "./MapChrome";
 import { rememberEntity } from "@/lib/atlas/search";
 import { ResearchModeToggle, ResearcherOnly, useResearchMode } from "@/components/site/ResearchMode";
 import { FirstVisitGuide } from "./FirstVisitGuide";
@@ -562,7 +562,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
       <header className="atlas-topbar">
         <div className="topbar-heading"><span className="eyebrow">{ar ? "مصر · دلتا النيل" : "EGYPT · NILE DELTA"}</span><strong>{ar ? "الخريطة التفاعلية" : "Interactive map"}</strong></div>
         <SearchCommand language={language} entities={initialEntities.map((entity) => ({ ...entity, has_boundary: entities.find((current) => current.code === entity.code)?.has_boundary }))} onSelect={selectEntity} onShowBoundary={toggleAreaBoundary} />
-        <details className="atlas-info-menu"><summary><Info aria-hidden="true" />{ar ? "معلومات" : "Info"}</summary><nav aria-label={ar ? "معلومات الأطلس" : "Atlas information"}><Link href={`/${language}/data`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/${language}/methodology`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/${language}/sources`}>{ar ? "المصادر" : "Sources"}</Link><Link href={`/${language}/directory`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/${language}/api-docs`}>{ar ? "توثيق API" : "API docs"}</Link></nav></details>
+        <InfoMenu language={language} />
         <div className="topbar-actions"><ResearchModeToggle language={language} compact/><FirstVisitGuide language={language}/><ThemeToggle theme={theme} onChange={setTheme} language={language} /><SiteLanguageSwitch language={language} label={ar ? "English" : "العربية"} /></div>
       </header>
       <ResearcherOnly><section className="stats-strip" aria-label={ar ? "إحصاءات قاعدة البيانات" : "Database statistics"} aria-live="polite">
