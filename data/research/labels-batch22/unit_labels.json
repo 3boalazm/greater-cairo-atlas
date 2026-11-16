@@ -1,6 +1,13 @@
 {
  "_rule": "Arabic form: integer 1 -> one; integer 2..10 -> few; anything else (11+, decimals, ranges, text) -> many. English: integer 1 -> one, else other. hide=true: print the value without a unit. Units not listed (and the OSM provenance units 'OSM node ID', 'stop position in OSM relation N', 'OSM route=train relation N') are shown exactly as stored.",
  "units": {
+  "acres": {"ar": {"one": "أكر", "few": "أكر", "many": "أكر"}, "en": {"one": "acre", "other": "acres"}},
+  "faculties": {"ar": {"one": "كلية", "few": "كليات", "many": "كلية"}, "en": {"one": "faculty", "other": "faculties"}},
+  "halls": {"ar": {"one": "قاعة", "few": "قاعات", "many": "قاعة"}, "en": {"one": "hall", "other": "halls"}},
+  "members": {"ar": {"one": "عضو", "few": "أعضاء", "many": "عضوًا"}, "en": {"one": "member", "other": "members"}},
+  "rooms": {"ar": {"one": "غرفة", "few": "غرف", "many": "غرفة"}, "en": {"one": "room", "other": "rooms"}},
+  "screens": {"ar": {"one": "شاشة", "few": "شاشات", "many": "شاشة"}, "en": {"one": "screen", "other": "screens"}},
+  "seats": {"ar": {"one": "مقعد", "few": "مقاعد", "many": "مقعدًا"}, "en": {"one": "seat", "other": "seats"}},
   "km": {
    "ar": {
     "one": "كم",

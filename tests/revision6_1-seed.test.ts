@@ -66,16 +66,16 @@ describe("revision 9 seed + OSM geometry delivery", () => {
     const bundle = await loadAndValidateSeedDir(path.join(process.cwd(), "data/seed"));
     const report = summarizeValidatedSeedBundle(bundle);
     expect(report).toMatchObject({
-      entitiesCount: 535,
-      entitiesWithAliasesCount: 370,
-      evidenceCount: 764,
+      entitiesCount: 556,
+      entitiesWithAliasesCount: 391,
+      evidenceCount: 793,
       evidenceMissingUrlCount: 71,
-      factsCount: 2735,
-      factEvidenceLinksCount: 3088,
+      factsCount: 2801,
+      factEvidenceLinksCount: 3154,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");
-    expect(verified).toHaveLength(631);
+    expect(verified).toHaveLength(688);
     for (const fact of verified) {
       expect(fact.evidence_codes.some((code) => {
         const item = evidence.get(code);

@@ -33,8 +33,8 @@ describe("Batch 22 additive research", () => {
     const oldRows = csvRows(await read("tests/fixtures/batch22/baseline-entities.csv"));
     const currentRows = csvRows(await read("data/seed/entities.csv"));
     const baseline = JSON.parse(await read("tests/fixtures/batch22/baseline-record-hashes.json")) as { facts: Record<string, string>; evidence: Record<string, string> };
-    expect(oldRows).toHaveLength(483); expect(currentRows).toHaveLength(535);
-    expect(new Set(currentRows.map((r) => r.code)).size).toBe(535);
+    expect(oldRows).toHaveLength(483); expect(currentRows).toHaveLength(556);
+    expect(new Set(currentRows.map((r) => r.code)).size).toBe(556);
     const laterChanges = JSON.parse(await read("data/research/unknowns-batch08/status_changes.json")) as Array<{ entity_code: string; from: string; to: string }>;
     for (const row of oldRows) {
       const change = laterChanges.find((item) => item.entity_code === row.code);
@@ -57,8 +57,8 @@ describe("Batch 22 additive research", () => {
       const actual = new Map(seed[table].map((row) => [row.code, row]));
       for (const [code, hash] of Object.entries(baseline[table])) expect(digest(actual.get(code)), `${table} ${code}`).toBe(hash);
     }
-    expect(seed.facts).toHaveLength(2735); expect(seed.evidence).toHaveLength(764);
-    expect(seed.facts.reduce((sum, fact) => sum + fact.evidence_codes.length, 0)).toBe(3088);
+    expect(seed.facts).toHaveLength(2801); expect(seed.evidence).toHaveLength(793);
+    expect(seed.facts.reduce((sum, fact) => sum + fact.evidence_codes.length, 0)).toBe(3154);
     expect(new Set(seed.facts.map((f) => f.code)).size).toBe(seed.facts.length);
     expect(new Set(seed.evidence.map((e) => e.code)).size).toBe(seed.evidence.length);
     const entityCodes = new Set(seed.entities.map((e) => e.code)), evidenceCodes = new Set(seed.evidence.map((e) => e.code));

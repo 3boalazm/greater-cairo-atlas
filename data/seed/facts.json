@@ -38641,5 +38641,929 @@
       "EV-V8-026"
     ],
     "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BARON-EMPAIN-PALACE-ADDRESS-1",
+    "entity_code": "LANDMARK-BARON-EMPAIN-PALACE",
+    "attribute": "address",
+    "value": "شارع العروبة، مصر الجديدة، القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BARON-EMPAIN-PALACE-CONSTRUCTION-PERIOD-1",
+    "entity_code": "LANDMARK-BARON-EMPAIN-PALACE",
+    "attribute": "construction_period",
+    "value": "أُنشئ بين عامي 1907 و1911",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BARON-EMPAIN-PALACE-ORIGINAL-ARCHITECT-1",
+    "entity_code": "LANDMARK-BARON-EMPAIN-PALACE",
+    "attribute": "original_architect",
+    "value": "ألكسندر مارسيل، مهندس معماري فرنسي",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BASILICA-HELIOPOLIS-ADDRESS-1",
+    "entity_code": "LANDMARK-BASILICA-HELIOPOLIS",
+    "attribute": "address",
+    "value": "شارع الأهرام، ضاحية هليوبوليس (مصر الجديدة)، القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-E7C-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BASILICA-HELIOPOLIS-CONSTRUCTION-PERIOD-1",
+    "entity_code": "LANDMARK-BASILICA-HELIOPOLIS",
+    "attribute": "construction_period",
+    "value": "وُضع حجر الأساس عام 1911 واكتمل البناء والتدشين عام 1913",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-E7C-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BASILICA-HELIOPOLIS-OFFICIAL-NAME-VARIANTS-1",
+    "entity_code": "LANDMARK-BASILICA-HELIOPOLIS",
+    "attribute": "official_name_variants",
+    "value": "كنيسة السيدة العذراء مريم (البازيليك هو اسم الشهرة)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-E7C-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BASILICA-HELIOPOLIS-ORIGINAL-ARCHITECT-1",
+    "entity_code": "LANDMARK-BASILICA-HELIOPOLIS",
+    "attribute": "original_architect",
+    "value": "ألكسندر مارسيل",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-E7C-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-INTERNATIONAL-STADIUM-CAPACITY-1",
+    "entity_code": "LANDMARK-CAIRO-INTERNATIONAL-STADIUM",
+    "attribute": "capacity",
+    "value": "75000",
+    "unit": "seats",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-INTERNATIONAL-STADIUM-INAUGURATION-DATE-1",
+    "entity_code": "LANDMARK-CAIRO-INTERNATIONAL-STADIUM",
+    "attribute": "inauguration_date",
+    "value": "23 يوليو 1960",
+    "unit": "date",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-INTERNATIONAL-STADIUM-LOCATION-1",
+    "entity_code": "LANDMARK-CAIRO-INTERNATIONAL-STADIUM",
+    "attribute": "location",
+    "value": "مدينة نصر، القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER-ADDRESS-1",
+    "entity_code": "LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER",
+    "attribute": "address",
+    "value": "2 طريق النصر، منطقة الاستاد، مدينة نصر، القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-E7C-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER-EXHIBITION-AREA-1",
+    "entity_code": "LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER",
+    "attribute": "exhibition_area",
+    "value": "20000",
+    "unit": "m2",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-E7C-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER-EXHIBITION-HALLS-1",
+    "entity_code": "LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER",
+    "attribute": "exhibition_halls",
+    "value": "5",
+    "unit": "halls",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-E7C-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER-MAXIMUM-AUDITORIUM-CAPACITY-1",
+    "entity_code": "LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER",
+    "attribute": "maximum_auditorium_capacity",
+    "value": "2500",
+    "unit": "persons",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-E7C-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-FESTIVAL-CITY-DEVELOPER-1",
+    "entity_code": "LANDMARK-CAIRO-FESTIVAL-CITY",
+    "attribute": "developer",
+    "value": "الفطيم العقارية (Al-Futtaim Real Estate)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-FESTIVAL-CITY-LOCATION-1",
+    "entity_code": "LANDMARK-CAIRO-FESTIVAL-CITY",
+    "attribute": "location",
+    "value": "عند بوابة مدينة القاهرة الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CAIRO-FESTIVAL-CITY-SITE-AREA-1",
+    "entity_code": "LANDMARK-CAIRO-FESTIVAL-CITY",
+    "attribute": "site_area",
+    "value": "أكثر من 3 ملايين",
+    "unit": "m2",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CITYSTARS-HELIOPOLIS-CINEMA-SCREENS-1",
+    "entity_code": "LANDMARK-CITYSTARS-HELIOPOLIS",
+    "attribute": "cinema_screens",
+    "value": "21",
+    "unit": "screens",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CITYSTARS-HELIOPOLIS-DEVELOPMENT-COMPONENTS-1",
+    "entity_code": "LANDMARK-CITYSTARS-HELIOPOLIS",
+    "attribute": "development_components",
+    "value": "التسوق والترفيه والمكاتب والسكن والضيافة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CITYSTARS-HELIOPOLIS-INTERNATIONAL-HOTELS-1",
+    "entity_code": "LANDMARK-CITYSTARS-HELIOPOLIS",
+    "attribute": "international_hotels",
+    "value": "ثلاثة فنادق دولية: إنتركونتيننتال سيتي ستارز، هوليداي إن سيتي ستارز، ستايبريدج سويتس سيتي ستارز",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-CITYSTARS-HELIOPOLIS-SITE-AREA-1",
+    "entity_code": "LANDMARK-CITYSTARS-HELIOPOLIS",
+    "attribute": "site_area",
+    "value": "750000",
+    "unit": "m2",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AIN-SHAMS-UNIVERSITY-ADDRESS-1",
+    "entity_code": "LANDMARK-AIN-SHAMS-UNIVERSITY",
+    "attribute": "address",
+    "value": "شارع الخليفة المأمون، العباسية، القاهرة، مصر",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AIN-SHAMS-UNIVERSITY-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-AIN-SHAMS-UNIVERSITY",
+    "attribute": "establishment_year",
+    "value": "1950",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-ITTIHADIYA-PALACE-FUNCTION-1",
+    "entity_code": "LANDMARK-AL-ITTIHADIYA-PALACE",
+    "attribute": "function",
+    "value": "مقر العمل الرسمي لرئاسة الجمهورية المصرية، ويستقبل فيه رئيس الجمهورية الوفود الرسمية الزائرة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-ITTIHADIYA-PALACE-INAUGURATION-DATE-1",
+    "entity_code": "LANDMARK-AL-ITTIHADIYA-PALACE",
+    "attribute": "inauguration_date",
+    "value": "افتُتح لأول مرة باسم «قصر هليوبوليس» في 1 ديسمبر 1910",
+    "unit": "date",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-ITTIHADIYA-PALACE-ORIGINAL-ARCHITECT-1",
+    "entity_code": "LANDMARK-AL-ITTIHADIYA-PALACE",
+    "attribute": "original_architect",
+    "value": "إرنست جاسبار (Ernest Jaspar)، مهندس معماري بلجيكي",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-ITTIHADIYA-PALACE-ROOM-COUNT-1",
+    "entity_code": "LANDMARK-AL-ITTIHADIYA-PALACE",
+    "attribute": "room_count",
+    "value": "500",
+    "unit": "rooms",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AUC-NEW-CAIRO-CAMPUS-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-AUC-NEW-CAIRO-CAMPUS",
+    "attribute": "establishment_year",
+    "value": "2008",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-113"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AUC-NEW-CAIRO-CAMPUS-LOCATION-1",
+    "entity_code": "LANDMARK-AUC-NEW-CAIRO-CAMPUS",
+    "attribute": "location",
+    "value": "القاهرة الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-101"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AUC-NEW-CAIRO-CAMPUS-SITE-AREA-1",
+    "entity_code": "LANDMARK-AUC-NEW-CAIRO-CAMPUS",
+    "attribute": "site_area",
+    "value": "260",
+    "unit": "acres",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-101"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GERMAN-UNIVERSITY-CAIRO-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-GERMAN-UNIVERSITY-CAIRO",
+    "attribute": "establishment_year",
+    "value": "2002",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-102"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GERMAN-UNIVERSITY-CAIRO-FOUNDER-1",
+    "entity_code": "LANDMARK-GERMAN-UNIVERSITY-CAIRO",
+    "attribute": "founder",
+    "value": "البروفيسور أشرف منصور (Ashraf Mansour)، المؤسس الرئيسي",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-103"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GERMAN-UNIVERSITY-CAIRO-LEGAL-STATUS-1",
+    "entity_code": "LANDMARK-GERMAN-UNIVERSITY-CAIRO",
+    "attribute": "legal_status",
+    "value": "جامعة مصرية خاصة مستقلة ذات توجه غير هادف للربح",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-102"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-FUTURE-UNIVERSITY-EGYPT-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-FUTURE-UNIVERSITY-EGYPT",
+    "attribute": "establishment_year",
+    "value": "2006",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-104"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-FUTURE-UNIVERSITY-EGYPT-FACULTIES-COUNT-1",
+    "entity_code": "LANDMARK-FUTURE-UNIVERSITY-EGYPT",
+    "attribute": "faculties_count",
+    "value": "6",
+    "unit": "faculties",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-104"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-FUTURE-UNIVERSITY-EGYPT-MAIN-CAMPUS-CITY-1",
+    "entity_code": "LANDMARK-FUTURE-UNIVERSITY-EGYPT",
+    "attribute": "main_campus_city",
+    "value": "القاهرة الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-104"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BADR-UNIVERSITY-CAIRO-ADDRESS-1",
+    "entity_code": "LANDMARK-BADR-UNIVERSITY-CAIRO",
+    "attribute": "address",
+    "value": "منطقة الترفيه، مدينة بدر، القاهرة، مصر",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-106"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-BADR-UNIVERSITY-CAIRO-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-BADR-UNIVERSITY-CAIRO",
+    "attribute": "establishment_year",
+    "value": "2014",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-105"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELIOPOLIS-UNIVERSITY-ADDRESS-1",
+    "entity_code": "LANDMARK-HELIOPOLIS-UNIVERSITY",
+    "attribute": "address",
+    "value": "3 طريق بلبيس – القاهرة الصحراوي، القاهرة، مصر",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-107"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELIOPOLIS-UNIVERSITY-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-HELIOPOLIS-UNIVERSITY",
+    "attribute": "establishment_year",
+    "value": "2009",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-107"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELIOPOLIS-UNIVERSITY-FACULTIES-COUNT-1",
+    "entity_code": "LANDMARK-HELIOPOLIS-UNIVERSITY",
+    "attribute": "faculties_count",
+    "value": "5",
+    "unit": "faculties",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-107"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELIOPOLIS-UNIVERSITY-FOUNDER-1",
+    "entity_code": "LANDMARK-HELIOPOLIS-UNIVERSITY",
+    "attribute": "founder",
+    "value": "البروفيسور إبراهيم أبو العيش (Ibrahim Abouleish)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-107"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELIOPOLIS-UNIVERSITY-OPENED-YEAR-1",
+    "entity_code": "LANDMARK-HELIOPOLIS-UNIVERSITY",
+    "attribute": "opened_year",
+    "value": "2012",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-107"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MISR-INTERNATIONAL-UNIVERSITY-ADDRESS-1",
+    "entity_code": "LANDMARK-MISR-INTERNATIONAL-UNIVERSITY",
+    "attribute": "address",
+    "value": "الكيلو 28، طريق القاهرة – الإسماعيلية، حي أحمد عرابي، القاهرة، مصر",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-109"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MISR-INTERNATIONAL-UNIVERSITY-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-MISR-INTERNATIONAL-UNIVERSITY",
+    "attribute": "establishment_year",
+    "value": "1996",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-109"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MISR-INTERNATIONAL-UNIVERSITY-FOUNDER-1",
+    "entity_code": "LANDMARK-MISR-INTERNATIONAL-UNIVERSITY",
+    "attribute": "founder",
+    "value": "حسين الراشدي (Hussein El Rashidy)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-109"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-AZHAR-UNIVERSITY-ADDRESS-1",
+    "entity_code": "LANDMARK-AL-AZHAR-UNIVERSITY",
+    "attribute": "address",
+    "value": "شارع النصر، مدينة نصر، القاهرة، مصر، صندوق بريد 11751",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-E7C-111"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-AZHAR-UNIVERSITY-LEGAL-STATUS-1",
+    "entity_code": "LANDMARK-AL-AZHAR-UNIVERSITY",
+    "attribute": "legal_status",
+    "value": "القانون رقم 103 لسنة 1961 (صدر في 5 يوليو 1961) بشأن إعادة تنظيم الأزهر، وبموجبه أُنشئ القسم العلمي بالجامعة وفيه كليات علمية لأول مرة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-110"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EGYPTIAN-RUSSIAN-UNIVERSITY-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-EGYPTIAN-RUSSIAN-UNIVERSITY",
+    "attribute": "establishment_year",
+    "value": "2006",
+    "unit": "year",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-112"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EGYPTIAN-RUSSIAN-UNIVERSITY-MAIN-CAMPUS-CITY-1",
+    "entity_code": "LANDMARK-EGYPTIAN-RUSSIAN-UNIVERSITY",
+    "attribute": "main_campus_city",
+    "value": "مدينة بدر",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-112"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EGYPTIAN-RUSSIAN-UNIVERSITY-SITE-AREA-1",
+    "entity_code": "LANDMARK-EGYPTIAN-RUSSIAN-UNIVERSITY",
+    "attribute": "site_area",
+    "value": "37",
+    "unit": "acres",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-112"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE-CONSTRUCTION-PERIOD-1",
+    "entity_code": "LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE",
+    "attribute": "construction_period",
+    "value": "من يوليو 2017 إلى ديسمبر 2018",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-201"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE-INAUGURATION-DATE-1",
+    "entity_code": "LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE",
+    "attribute": "inauguration_date",
+    "value": "6 يناير 2019",
+    "unit": "date",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-202"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE-LOCATION-1",
+    "entity_code": "LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE",
+    "attribute": "location",
+    "value": "الطريق الدائري الأوسطي الجديد، العاصمة الإدارية الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-201"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE-MINARET-HEIGHT-1",
+    "entity_code": "LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE",
+    "attribute": "minaret_height",
+    "value": "90",
+    "unit": "m",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-201"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE-MINARETS-COUNT-1",
+    "entity_code": "LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE",
+    "attribute": "minarets_count",
+    "value": "4",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-201"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE-SITE-AREA-1",
+    "entity_code": "LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE",
+    "attribute": "site_area",
+    "value": "250000",
+    "unit": "m2",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-201"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NATIVITY-CATHEDRAL-INAUGURATION-DATE-1",
+    "entity_code": "LANDMARK-NATIVITY-CATHEDRAL",
+    "attribute": "inauguration_date",
+    "value": "6 يناير 2019",
+    "unit": "date",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-202"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NATIVITY-CATHEDRAL-LOCATION-1",
+    "entity_code": "LANDMARK-NATIVITY-CATHEDRAL",
+    "attribute": "location",
+    "value": "العاصمة الإدارية الجديدة، مصر",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-202"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NEW-PARLIAMENT-FUNCTION-1",
+    "entity_code": "LANDMARK-NEW-PARLIAMENT",
+    "attribute": "function",
+    "value": "مقر مجلس النواب في العاصمة الإدارية الجديدة، وقد أدّى فيه الرئيس اليمين الدستورية لفترة رئاسية جديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-205"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NEW-PARLIAMENT-LOCATION-1",
+    "entity_code": "LANDMARK-NEW-PARLIAMENT",
+    "attribute": "location",
+    "value": "العاصمة الإدارية الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-203"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NEW-PARLIAMENT-MAIN-HALL-CAPACITY-1",
+    "entity_code": "LANDMARK-NEW-PARLIAMENT",
+    "attribute": "main_hall_capacity",
+    "value": "1000",
+    "unit": "members",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-203"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-GOVERNMENT-DISTRICT-FUNCTION-1",
+    "entity_code": "PROJ-GOVERNMENT-DISTRICT",
+    "attribute": "function",
+    "value": "يضم مقار الوزارات والجهات الحكومية ومقر مجلس الوزراء",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-203"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-GOVERNMENT-DISTRICT-RELOCATION-STATUS-1",
+    "entity_code": "PROJ-GOVERNMENT-DISTRICT",
+    "attribute": "relocation_status",
+    "value": "بحسب رئاسة الجمهورية (25 يوليو 2023): انتقلت أكثر من 100 جهة حكومية، بينها 30 وزارة، للعمل من العاصمة الإدارية الجديدة (نحو 40 ألف موظف وعامل)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-206"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-UNKNOWN-SOLDIER-MEMORIAL-NASR-CITY-FUNCTION-1",
+    "entity_code": "LANDMARK-UNKNOWN-SOLDIER-MEMORIAL-NASR-CITY",
+    "attribute": "function",
+    "value": "النصب التذكاري لشهداء القوات المسلحة وموقع للمراسم الوطنية ووضع أكاليل الزهور",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-204"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-UNKNOWN-SOLDIER-MEMORIAL-NASR-CITY-LOCATION-1",
+    "entity_code": "LANDMARK-UNKNOWN-SOLDIER-MEMORIAL-NASR-CITY",
+    "attribute": "location",
+    "value": "مدينة نصر، القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-E7C-204"
+    ],
+    "notes": null
   }
 ]

@@ -70,7 +70,7 @@ describe("south batch 04 merge", () => {
     }
     // Nothing in the seed is duplicated, which is the failure mode an append-only merge can produce.
     expect(seedCodes.size).toBe(seed.entities.length);
-    expect(seed.entities).toHaveLength(535);
+    expect(seed.entities).toHaveLength(556);
   });
 
   it("places only matched batch entities from the geometry review", async () => {
@@ -113,8 +113,8 @@ describe("south batch 04 merge", () => {
     }>;
 
     expect(batchFacts).toHaveLength(95);
-    expect(seed.facts).toHaveLength(2735);
-    expect(seed.evidence).toHaveLength(764);
+    expect(seed.facts).toHaveLength(2801);
+    expect(seed.evidence).toHaveLength(793);
 
     const seedEvidence = new Map(seed.evidence.map((row) => [row.code, row]));
     const seedFacts = new Set(seed.facts.map((fact) => fact.code));

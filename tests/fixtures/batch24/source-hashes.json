@@ -1,0 +1,21 @@
+{
+  "data/research/east-batch07/README.md": "510fdc25c044bb4b6c9ff914baed51814d1fbb88e9803827ce805f48b48ef2ef",
+  "data/research/east-batch07/build_report.txt": "22198292579e8db51fcd3d3034749ff25f7f4465b16018ff78434d88e6464f0e",
+  "data/research/east-batch07/chatgpt_raw.json": "8135596e3e7ffe3ac032e9f9ea7cb565b89c47beeef54e011fca28a66e002b56",
+  "data/research/east-batch07/chatgpt_raw_01.json": "fbbc55e1aad482b63469dfb800ca803313c7bfa6a3727a50db368728fcde2c20",
+  "data/research/east-batch07/chatgpt_raw_02.json": "b7c957ee859ab04adbf8aad053e56dc09402bb5ca311060ed3f8312e4489ddfc",
+  "data/research/east-batch07/chatgpt_raw_03.json": "c4e6915f1085f22b7f8427d3e313b0285f8ec2c4b94c330e460e8efea86e9e5d",
+  "data/research/east-batch07/code_remap.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "data/research/east-batch07/curation/build_east.py": "fdbaf6cafacf061ff0fedd4931b3ac3ff31685535e60d7d2f4fef5474a72cac7",
+  "data/research/east-batch07/curation/edits_01.json": "87f23924db67eef1bde424be1496bba91766effcba28b77302162bbc0f60fe47",
+  "data/research/east-batch07/curation/edits_02.json": "4f6882e586138d20841adec81fc4620db3df5d2e37da41dd2719dd0e3fd3b77e",
+  "data/research/east-batch07/curation/edits_03.json": "f206ebb8997fb65fe7420c211f2396d8561f8c184f9d879f38869861ec318486",
+  "data/research/east-batch07/curation_report.txt": "f2654ceabcf7ca2377c775b8bd2e79714967e8e550fbf59614bd92dba7e3a54c",
+  "data/research/east-batch07/entities.csv": "245f02537c696b774ddbab03b43a85dbaa331ea6465f17188676d4bc93277ba1",
+  "data/research/east-batch07/entities_raw.csv": "c35b7e5e7d3c8ce4ea429bea50adf41b27d2b117e461536c1191b9c1d3cc8a1d",
+  "data/research/east-batch07/evidence.json": "7744d58bf4b7b8cafbc13f7af76c322f7439b5f40296f4e4797cdd844bffc90e",
+  "data/research/east-batch07/evidence_raw.json": "80724128db6ce7903e326d9b692bb80a0f94cdf70b281166b3f76ca9af388c93",
+  "data/research/east-batch07/facts.json": "fd09ac73d22009391f8a7a74082196329c27ae18687b80a1c30a6f7f307112af",
+  "data/research/east-batch07/facts_raw.json": "296a2d7980fc42830c306f26d2be87ce91c71b4457bfcc84015c6619054ac0db",
+  "data/research/east-batch07/url_status.json": "b1271d3959bcff3281c60fa1a15202a737b5bb31469ebc83c1fff8b5007b488f"
+}
