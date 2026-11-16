@@ -9,6 +9,7 @@ import type { AtlasFeatureCollection, AtlasTheme } from "./atlas-client";
 import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 import { getAtlasMapStyleUrl } from "./map-styles";
 import { getMapCameraPadding } from "@/lib/atlas/map-camera";
+import { SelectionCamera } from "@/lib/atlas/selection-camera";
 import { selectedAreaFilter, selectionBoundaryFilter } from "@/lib/atlas/map-selection-filters";
 import { hasDrawableBoundary, selectionFit } from "@/lib/atlas/map-fit";
 import { TRANSIT_LINE_COLORS, TRANSIT_LINE_LABELS, TRANSIT_MODE_LABELS, transitModeLabel, type TransitMode } from "@/lib/atlas/transit-modes";
@@ -42,7 +43,7 @@ const boundaryOutlineLayerId = "atlas-area-boundary-outline";
 const selectionFillLayerId = "atlas-selection-boundary-fill";
 const selectionOutlineLayerId = "atlas-selection-boundary-outline";
 const stationIconLayers = ["atlas-station-entity-icons", "atlas-transit-station-icons"];
-const lineLayers = ["atlas-admin-unit-outline", "atlas-polygons-fill", "atlas-polygons-outline", "atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
+const lineLayers = ["atlas-admin-unit-outline", "atlas-admin-unit-outline-adm3", "atlas-polygons-fill", "atlas-polygons-outline", "atlas-roads-casing", "atlas-lines-operational", "atlas-lines-partial", "atlas-lines-construction", "atlas-lines-planned", "atlas-lines-unknown", "atlas-points", ...stationIconLayers];
 
 type MapExpression = import("maplibre-gl").ExpressionSpecification;
 
@@ -142,6 +143,7 @@ const OPACITY_GROUP_LAYERS: Record<keyof MapLayerOpacity, Array<{ id: string; pr
     { id: "atlas-polygons-outline", property: "line-opacity" },
     { id: "atlas-area-boundary-fill", property: "fill-opacity" },
     { id: "atlas-admin-unit-outline", property: "line-opacity" },
+    { id: "atlas-admin-unit-outline-adm3", property: "line-opacity" },
   ],
   projects: [
     // Project geometry is drawn by the status layers above; the group slider reuses those ids at a
@@ -278,6 +280,21 @@ function cameraPadding(map: MapLibreMap, margin: number) {
   );
 }
 
+function fitSelectedEntity(map: MapLibreMap, code: string, features: AtlasFeatureCollection, boundary: AreaBoundaryFeature | null, compact: boolean, duration: number): boolean {
+  const selected = features.features.filter((feature) => feature.properties.entity_code === code);
+  const entityBoundary = boundary?.properties.entity_code === code ? boundary : null;
+  const fit = selectionFit({ features: selected, boundary: entityBoundary });
+  if (!fit) return false;
+  const bounds = fit.bounds;
+  const padding = cameraPadding(map, compact ? 28 : 90);
+  const center: [number, number] = [(bounds.west + bounds.east) / 2, (bounds.south + bounds.north) / 2];
+  if (fit.isPointLike) map.flyTo({ center, zoom: Math.max(map.getZoom(), compact ? 13 : 14), padding, duration });
+  else map.fitBounds([[bounds.west, bounds.south], [bounds.east, bounds.north]], {
+    padding, maxZoom: compact ? 14 : fit.target === "area" ? 14 : 15, duration,
+  });
+  return true;
+}
+
 export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomChange, onStyleStatus, language, fitToFeatures = false, compact = false, showRoadNetwork = false, showRailNetwork = false, highlightBoundary = null, selectedCode = null, visibleTransitModes = Object.keys(TRANSIT_MODE_LABELS) as TransitMode[], showInterchanges = true, showDisusedRail = false, showAreaBoundaries = true, fitRequest = 0, opacity = DEFAULT_MAP_OPACITY }: {
   theme: AtlasTheme;
   features: AtlasFeatureCollection;
@@ -318,7 +335,8 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
   /** BATCH 14.2 — authored opacities, so repeated slider changes scale from 100%, never compound. */
   const authoredOpacity = useRef(new Map<string, number>());
   const selectedCodeRef = useRef<string | null>(selectedCode);
-  const lastSelectedCodeRef = useRef<string | null>(null);
+  const selectionCameraRef = useRef(new SelectionCamera());
+  const appliedFeaturesRef = useRef<AtlasFeatureCollection | null>(null);
   const visibleModesRef = useRef<readonly TransitMode[]>(visibleTransitModes);
   const railStatusesRef = useRef<readonly string[] | null>(null);
   const showInterchangesRef = useRef(showInterchanges);
@@ -351,9 +369,12 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
       minZoom: 6,
       maxZoom: 17,
       attributionControl: false,
-      cooperativeGestures: !compact,
+      cooperativeGestures: compact,
     });
     mapRef.current = map;
+    appliedFeaturesRef.current = null;
+    map.on("dragstart", (event) => { if (event.originalEvent) selectionCameraRef.current.cancelForGesture(); });
+    map.on("zoomstart", (event) => { if (event.originalEvent) selectionCameraRef.current.cancelForGesture(); });
     const urlView = window.location.hash.slice(1).split("/").map(Number);
     if (urlView.length >= 3 && urlView.every(Number.isFinite)) map.jumpTo({ zoom: urlView[0]!, center: [urlView[2]!, urlView[1]!] });
     const syncUrlView = () => {
@@ -370,6 +391,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
     map.on("style.load", () => onStyleStatusRef.current("ready"));
     map.on("load", () => {
       map.addSource(sourceId, { type: "geojson", data: dataRef.current as unknown as FeatureCollection });
+      appliedFeaturesRef.current = dataRef.current;
       if (!compact) map.addSource(transitStationSourceId, { type: "geojson", data: "/transit-stations.geojson" });
       map.addSource(railNetworkSourceId, { type: "geojson", data: EMPTY_GEOJSON });
       map.addSource(railNetworkDetailSourceId, { type: "geojson", data: EMPTY_GEOJSON });
@@ -433,7 +455,12 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
       });
       map.addLayer({
         id: "atlas-admin-unit-outline", type: "line", source: sourceId,
-        filter: ["==", ["get", "type"], "admin_unit"],
+        filter: ["all", ["==", ["get", "type"], "admin_unit"], ["==", ["get", "level"], 2]],
+        paint: { "line-color": theme === "day" ? "#667b77" : "#82928d", "line-width": ["interpolate", ["linear"], ["zoom"], 7, 0.35, 12, 0.8, 16, 1.1], "line-opacity": 0.72 },
+      });
+      map.addLayer({
+        id: "atlas-admin-unit-outline-adm3", type: "line", source: sourceId, minzoom: 13,
+        filter: ["all", ["==", ["get", "type"], "admin_unit"], ["==", ["get", "level"], 3]],
         paint: { "line-color": theme === "day" ? "#667b77" : "#82928d", "line-width": ["interpolate", ["linear"], ["zoom"], 7, 0.35, 12, 0.8, 16, 1.1], "line-opacity": 0.72 },
       });
       map.addLayer({
@@ -672,7 +699,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
         transitTooltipRef.current ??= new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 12, className: "transit-line-tooltip" });
         transitTooltipRef.current.setLngLat(event.lngLat).setDOMContent(content).addTo(map);
       });
-      if (boundaryRef.current || (fitToFeatures && dataRef.current.features.length > 0)) {
+      if (!selectionCameraRef.current.hasUserMoved() && ((compact && boundaryRef.current) || (fitToFeatures && dataRef.current.features.length > 0))) {
         const bounds = new maplibregl.LngLatBounds();
         if (boundaryRef.current) visitPositions(boundaryRef.current.geometry, (point) => bounds.extend(point));
         else for (const feature of dataRef.current.features) {
@@ -700,8 +727,11 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
 
   useEffect(() => {
     const source = mapRef.current?.getSource(sourceId) as GeoJSONSource | undefined;
-    source?.setData(features as unknown as FeatureCollection);
-  }, [features]);
+    if (source && appliedFeaturesRef.current !== features) {
+      source.setData(features as unknown as FeatureCollection);
+      appliedFeaturesRef.current = features;
+    }
+  }, [features, mapReady]);
 
   /**
    * BATCH 14.2 — apply opacity changes without rebuilding the map. Rebuilding on every slider tick would
@@ -718,57 +748,36 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
     const map = mapRef.current;
     if (!map || !mapReady) return;
     const selectedFilter: maplibregl.FilterSpecification = ["==", ["get", "entity_code"], selectedCode ?? "__none__"];
-    if (map.getLayer("atlas-selected-polygon-fill")) {
-      map.setFilter("atlas-selected-polygon-fill", selectedAreaFilter(selectedCode) as unknown as maplibregl.FilterSpecification);
-    }
+    if (map.getLayer("atlas-selected-polygon-fill")) map.setFilter("atlas-selected-polygon-fill", selectedAreaFilter(selectedCode) as unknown as maplibregl.FilterSpecification);
     if (map.getLayer("atlas-selected-outline")) map.setFilter("atlas-selected-outline", selectedFilter);
     if (map.getLayer("atlas-selected-point-halo")) map.setFilter("atlas-selected-point-halo", ["all", selectedFilter, ["==", ["geometry-type"], "Point"]]);
+  }, [selectedCode, mapReady]);
 
-    const fitCode = selectedCode ?? lastSelectedCodeRef.current;
-    if (selectedCode) lastSelectedCodeRef.current = selectedCode;
-    /**
-     * FIX E — frame the whole selected area. A city/district with a source boundary is fitted to
-     * that boundary (official CAPMAS first, OSM second) using the panel-aware padding from
-     * map-camera.ts, so the area is not centred under the open panel. Entities without a boundary
-     * keep the previous point/feature behaviour.
-     */
-    const fitEntity = (code: string, duration: number) => {
-      const selected = features.features.filter((feature) => feature.properties.entity_code === code);
-      const entityBoundary = boundaryRef.current?.properties.entity_code === code ? boundaryRef.current : null;
-      const fit = selectionFit({ features: selected, boundary: entityBoundary });
-      if (!fit) return;
-      const bounds = fit.bounds;
-      const padding = cameraPadding(map, compact ? 28 : 90);
-      const center: [number, number] = [(bounds.west + bounds.east) / 2, (bounds.south + bounds.north) / 2];
-      if (fit.isPointLike) {
-        map.flyTo({ center, zoom: Math.max(map.getZoom(), compact ? 13 : 14), padding, duration });
-      } else {
-        map.fitBounds([[bounds.west, bounds.south], [bounds.east, bounds.north]], {
-          padding, maxZoom: compact ? 14 : fit.target === "area" ? 14 : 15, duration,
-        });
-      }
-    };
-    if (fitCode) fitEntity(fitCode, selectedCode ? 650 : 0);
+  useEffect(() => {
+    const camera = selectionCameraRef.current;
+    camera.update(selectedCode, fitRequest);
+    const map = mapRef.current;
+    if (!map || !mapReady) return;
+    // Data may arrive after a selection, but once a fit succeeds (or a user gestures),
+    // subsequent zoom-driven feature changes must never issue another camera move.
+    camera.attempt((code) => fitSelectedEntity(map, code, dataRef.current, boundaryRef.current, compact, 650));
+  }, [selectedCode, fitRequest, mapReady, features, highlightBoundary, compact]);
 
-    const onLayoutChange = () => {
-      map.resize();
-      const activeCode = selectedCodeRef.current ?? lastSelectedCodeRef.current;
-      if (activeCode) fitEntity(activeCode, 0);
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !mapReady) return;
+    const onResize = () => map.resize();
+    const observer = new ResizeObserver(onResize);
+    observer.observe(map.getContainer());
+    window.addEventListener("resize", onResize);
+    const panel = selectedCode ? document.querySelector<HTMLElement>(".entity-panel") : null;
+    const onPanelOpen = (event: AnimationEvent) => {
+      if (event.target !== panel || !["panel-in", "sheet-in"].includes(event.animationName)) return;
+      selectionCameraRef.current.panelOpened((code) => fitSelectedEntity(map, code, dataRef.current, boundaryRef.current, compact, 0));
     };
-    const resizeObserver = new ResizeObserver(onLayoutChange);
-    resizeObserver.observe(map.getContainer());
-    const panel = document.querySelector<HTMLElement>(".entity-panel");
-    if (panel) {
-      resizeObserver.observe(panel);
-      panel.addEventListener("animationend", onLayoutChange);
-    }
-    window.addEventListener("resize", onLayoutChange);
-    return () => {
-      resizeObserver.disconnect();
-      panel?.removeEventListener("animationend", onLayoutChange);
-      window.removeEventListener("resize", onLayoutChange);
-    };
-  }, [selectedCode, features, mapReady, compact, fitRequest, highlightBoundary]);
+    panel?.addEventListener("animationend", onPanelOpen);
+    return () => { observer.disconnect(); window.removeEventListener("resize", onResize); panel?.removeEventListener("animationend", onPanelOpen); };
+  }, [mapReady, selectedCode, compact]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -783,21 +792,8 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
         map.setLayoutProperty(layerId, "visibility", drawable && showAreaBoundariesRef.current ? "visible" : "none");
       }
     }
-    // FIX E: when the boundary belongs to the selected entity, the selection effect below already
-    // fits the whole area (with the panel-aware padding), so this path must not fly twice. It covers
-    // the other cases: the boundary toggle for a non-selected entity, the search «إظهار الحدود»
-    // action, and compact boundary-preview maps.
-    const boundaryBelongsToSelection = Boolean(selectedCodeRef.current && highlightBoundary?.properties.entity_code === selectedCodeRef.current);
-    if (map && highlightBoundary && !boundaryBelongsToSelection) {
-      const fit = selectionFit({ features: [], boundary: highlightBoundary });
-      if (fit) {
-        const bounds = fit.bounds;
-        map.fitBounds([[bounds.west, bounds.south], [bounds.east, bounds.north]], {
-          padding: cameraPadding(map, compact ? 28 : 70), maxZoom: compact ? 14 : 14, duration: 650,
-        });
-      }
-    }
-  }, [highlightBoundary, compact]);
+
+  }, [highlightBoundary]);
 
   useEffect(() => {
     visibleModesRef.current = visibleTransitModes;

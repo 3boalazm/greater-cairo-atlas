@@ -1,4 +1,6 @@
 import { readFile } from "node:fs/promises";
+import { featureSimplificationTolerance } from "@/lib/atlas/feature-zoom";
+export { featureSimplificationTolerance } from "@/lib/atlas/feature-zoom";
 import path from "node:path";
 import { z } from "zod";
 import { getSql } from "@/lib/db/client";
@@ -108,10 +110,6 @@ export const ATLAS_FEATURES_SQL = `
    ORDER BY e.entity_type, e.code, f.code
    LIMIT 5000
 `;
-
-export function featureSimplificationTolerance(zoom: number): number {
-  return zoom <= 7 ? 0.004 : zoom <= 9 ? 0.001 : zoom <= 11 ? 0.0002 : 0;
-}
 
 const defaultFeatureRowsExecutor: FeatureRowsExecutor = async (filters) => {
   const sql = getSql();

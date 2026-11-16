@@ -34,6 +34,7 @@ import { TimeControl } from "./TimeControl";
 import { approximateRadiusPolygon } from "@/lib/atlas/service-area";
 import { findGeometryAlternatives } from "@/lib/atlas/geometry-comparisons";
 import { STATUSES } from "./atlas-client";
+import { featureZoomBand, scheduleFeatureRequest } from "@/lib/atlas/feature-zoom";
 
 const emptyFilters: AtlasFilters = { type: "", sector: "", status: "", mappedOnly: false };
 const defaultLayerGroups: AtlasLayerGroupState = { infrastructure: true, transport: true, areas: true, projects: true, reference: true };
@@ -82,6 +83,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
   const [featuresLoading, setFeaturesLoading] = useState(false);
   const [featuresError, setFeaturesError] = useState<string | null>(null);
   const [zoom, setZoom] = useState(9);
+  const featureZoom = featureZoomBand(zoom);
   const [showRoadNetwork, setShowRoadNetwork] = useState(true);
   const [railNetworkAvailable, setRailNetworkAvailable] = useState(false);
   const [showRailNetwork, setShowRailNetwork] = useState(false);
@@ -303,26 +305,22 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     return () => controller.abort();
   }, [showAdminBoundaries, researcherMode, language]);
 
-  useEffect(() => {
-    const controller = new AbortController();
+  useEffect(() => scheduleFeatureRequest((signal) => {
     setFeaturesLoading(true);
     setFeaturesError(null);
-    const params = new URLSearchParams({ zoom: String(Math.max(4, Math.min(20, zoom))) });
+    const params = new URLSearchParams({ zoom: String(featureZoom) });
     if (filters.type) params.set("type", filters.type);
     if (filters.sector) params.set("sector", filters.sector);
-    // A status filter + a year would fight each other (filter by "operational" while the year says
-    // "planned"), so the year takes over when it is on.
     if (filters.status && !timelineEnabled) params.set("status", filters.status);
-    fetch(`/api/atlas/features?${params}`, { signal: controller.signal })
+    fetch(`/api/atlas/features?${params}`, { signal })
       .then(async (response) => {
         if (!response.ok) throw new Error((await response.json()).error?.message ?? `HTTP ${response.status}`);
         return response.json() as Promise<AtlasFeatureCollection>;
       })
-      .then(setFeatures)
-      .catch((error: unknown) => { if (!(error instanceof DOMException && error.name === "AbortError")) setFeaturesError(messageFrom(error, language)); })
-      .finally(() => setFeaturesLoading(false));
-    return () => controller.abort();
-  }, [filters.type, filters.sector, filters.status, zoom, language, timelineEnabled]);
+      .then((collection) => { if (!signal.aborted) setFeatures(collection); })
+      .catch((error: unknown) => { if (!signal.aborted) setFeaturesError(messageFrom(error, language)); })
+      .finally(() => { if (!signal.aborted) setFeaturesLoading(false); });
+  }), [filters.type, filters.sector, filters.status, featureZoom, language, timelineEnabled]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -517,8 +515,9 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         ...(alternatives ? { geometry_conflict: true, geometry_sources: alternatives.map((item) => item.source_label) } : {}) } }];
     });
     if (showAdminBoundaries) {
+      // ADM3 is kept in the source and becomes visible via MapLibre minzoom, not React zoom filtering.
       visibleFeatures.push(...adminUnitFeatures.filter((feature) => feature.properties.level === 2 ||
-        (feature.properties.level === 3 && researcherMode && zoom >= 13)));
+        (feature.properties.level === 3 && researcherMode)));
     }
     const stationTypes = ["transit_stop", "rail_station", "transit_station"];
     const selectedStation = serviceRadiusMeters && researcherMode && stationTypes.includes(detail?.entity_type ?? "")
@@ -529,7 +528,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         properties: { ...selectedStation.properties, code: `SERVICE-AREA-${selectedCode}-${serviceRadiusMeters}`, entity_code: selectedCode!, type: "service_area", status: "service_area", name_ar: `${serviceRadiusMeters} متر حول المحطة`, name_en: `${serviceRadiusMeters} m radius around station`, service_area: true, modes: [], line_codes: [], primary_line_code: null, interchange: false } });
     }
     return { ...features, features: visibleFeatures };
-  }, [features, visibleTransitModes, visibleTransitLines, selectedCode, detail?.entity_type, layerGroups, quickLayer, filters.status, useTimeline, timelineStatusByCode, serviceRadiusMeters, researcherMode, geometryAlternatives, adminUnitFeatures, showAdminBoundaries, zoom, regionalSet]);
+  }, [features, visibleTransitModes, visibleTransitLines, selectedCode, detail?.entity_type, layerGroups, quickLayer, filters.status, useTimeline, timelineStatusByCode, serviceRadiusMeters, researcherMode, geometryAlternatives, adminUnitFeatures, showAdminBoundaries, regionalSet]);
   const ar = language === "ar";
   /**
    * FIX F — the selected line's geometry completeness comes from the features actually drawn, so the
