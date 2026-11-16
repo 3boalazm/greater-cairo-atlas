@@ -1,0 +1,108 @@
+{
+  "definition": "exact entity_code, attribute and value",
+  "baseline_overlap_rows": 6,
+  "cross_batch_overlap_rows": 1,
+  "attached": 0,
+  "overlaps": [
+    {
+      "batch": "west-batch07",
+      "entity_code": "BRIDGE-TAHYA-MISR",
+      "attribute": "length",
+      "value": "540",
+      "incoming_evidence": [
+        "EV-W7-068"
+      ],
+      "prior_fact_codes": [
+        "F-BRIDGE-TAHYA-MISR-LENGTH-1"
+      ],
+      "action": "retain_separate_fact",
+      "reason": "unit, date, precision, state or notes differ; merging would lose claim metadata"
+    },
+    {
+      "batch": "west-batch07",
+      "entity_code": "BRIDGE-TAHYA-MISR",
+      "attribute": "width",
+      "value": "67.3",
+      "incoming_evidence": [
+        "EV-W7-068"
+      ],
+      "prior_fact_codes": [
+        "F-BRIDGE-TAHYA-MISR-WIDTH-2",
+        "F-BRIDGE-TAHYA-MISR-WIDTH-3"
+      ],
+      "action": "retain_separate_fact",
+      "reason": "unit, date, precision, state or notes differ; merging would lose claim metadata"
+    },
+    {
+      "batch": "west-batch07",
+      "entity_code": "TRANSIT-METRO-L3",
+      "attribute": "total_length",
+      "value": "41.2",
+      "incoming_evidence": [
+        "EV-W7-022"
+      ],
+      "prior_fact_codes": [
+        "F-TRANSIT-METRO-L3-TOTAL-LENGTH-1",
+        "F-TRANSIT-METRO-L3-TOTAL-LENGTH-2"
+      ],
+      "action": "retain_separate_fact",
+      "reason": "unit, date, precision, state or notes differ; merging would lose claim metadata"
+    },
+    {
+      "batch": "west-batch07",
+      "entity_code": "TRANSIT-HSR-L1",
+      "attribute": "length",
+      "value": "660",
+      "incoming_evidence": [
+        "EV-W7-024"
+      ],
+      "prior_fact_codes": [
+        "F-TRANSIT-HSR-L1-LENGTH-1"
+      ],
+      "action": "retain_separate_fact",
+      "reason": "unit, date, precision, state or notes differ; merging would lose claim metadata"
+    },
+    {
+      "batch": "north-batch07",
+      "entity_code": "TRANSIT-METRO-L2",
+      "attribute": "stations_count",
+      "value": "20",
+      "incoming_evidence": [
+        "EV-N7-038"
+      ],
+      "prior_fact_codes": [
+        "F-TRANSIT-METRO-L2-STATIONS-COUNT-1"
+      ],
+      "action": "retain_separate_fact",
+      "reason": "unit, date, precision, state or notes differ; merging would lose claim metadata"
+    },
+    {
+      "batch": "north-batch07",
+      "entity_code": "PROJ-AHALINA-1",
+      "attribute": "area",
+      "value": "11",
+      "incoming_evidence": [
+        "EV-N7-003"
+      ],
+      "prior_fact_codes": [
+        "F-PROJ-AHALINA-1-AREA-1"
+      ],
+      "action": "retain_separate_fact",
+      "reason": "unit, date, precision, state or notes differ; merging would lose claim metadata"
+    },
+    {
+      "batch": "north-batch07",
+      "entity_code": "PROJ-AHALINA-1",
+      "attribute": "cost",
+      "value": "600",
+      "incoming_evidence": [
+        "EV-N7-003"
+      ],
+      "prior_fact_codes": [
+        "F-PROJ-AHALINA-1-COST-1"
+      ],
+      "action": "retain_separate_fact",
+      "reason": "unit, date, precision, state or notes differ; merging would lose claim metadata"
+    }
+  ]
+}

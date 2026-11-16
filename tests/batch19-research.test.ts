@@ -31,8 +31,8 @@ describe("Batch 19 additive research merge", () => {
     const changes = JSON.parse(changesText) as Change[];
     const rejected = JSON.parse(rejectedText) as Change[];
     const baseline = JSON.parse(manifestText) as { facts: Record<string,string>; evidence: Record<string,string> };
-    expect(oldRows).toHaveLength(448); expect(newRows).toHaveLength(35); expect(seed.entities).toHaveLength(483);
-    expect(new Set(seed.entities.map((e) => e.code)).size).toBe(483);
+    expect(oldRows).toHaveLength(448); expect(newRows).toHaveLength(35); expect(seed.entities).toHaveLength(535);
+    expect(new Set(seed.entities.map((e) => e.code)).size).toBe(535);
     expect(newRows.every((row) => row.sector === "CENTRAL" && !oldRows.some((old) => old.code === row.code))).toBe(true);
     const changeMap = new Map(changes.map((c) => [c.entity_code, c]));
     expect(changeMap.size).toBe(9);
@@ -49,7 +49,7 @@ describe("Batch 19 additive research merge", () => {
     }
     for (const item of rejected) expect(currentRows.find((row) => row.code === item.entity_code)?.status).toBe("unknown");
     expect(seed.entities.filter((e) => e.status === "unknown" && oldRows.some((row) => row.code === e.code))).toHaveLength(4);
-    expect(seed.entities.filter((e) => e.status === "unknown")).toHaveLength(5);
+    expect(seed.entities.filter((e) => e.status === "unknown")).toHaveLength(8);
     expect(seed.entities.find((e) => e.code === "TRANSIT-MASPERO-RIVER-PIER")?.status).toBe("unknown");
     for (const table of ["facts", "evidence"] as const) {
       const actual = new Map(seed[table].map((row) => [row.code, row]));

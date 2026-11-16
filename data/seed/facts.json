@@ -34315,5 +34315,3631 @@
       "EV-U6-071"
     ],
     "notes": null
+  },
+  {
+    "code": "F-CITY-MANSHAAT-EL-QANATER-ADMINISTRATIVE-TIER-1",
+    "entity_code": "CITY-MANSHAAT-EL-QANATER",
+    "attribute": "administrative_tier",
+    "value": "مركز ومدينة بمحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MANSHAAT-EL-QANATER-DETAILED-MASTERPLAN-STATUS-1",
+    "entity_code": "CITY-MANSHAAT-EL-QANATER",
+    "attribute": "detailed_masterplan_status",
+    "value": "تم الانتهاء من اعتماد المخطط التفصيلي للمدينة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-MANSHAAT-EL-QANATER-PUBLIC-SERVICE-FACILITY-1",
+    "entity_code": "CITY-MANSHAAT-EL-QANATER",
+    "attribute": "public_service_facility",
+    "value": "مركز تكنولوجي لخدمة المواطنين",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-ABU-EL-NOMROS-ADMINISTRATIVE-TIER-1",
+    "entity_code": "CITY-ABU-EL-NOMROS",
+    "attribute": "administrative_tier",
+    "value": "مركز ومدينة بمحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-014"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-ABU-EL-NOMROS-DETAILED-MASTERPLAN-STATUS-1",
+    "entity_code": "CITY-ABU-EL-NOMROS",
+    "attribute": "detailed_masterplan_status",
+    "value": "تم الانتهاء من اعتماد المخطط التفصيلي للمدينة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-ABU-EL-NOMROS-FUEL-STATIONS-COUNT-1",
+    "entity_code": "CITY-ABU-EL-NOMROS",
+    "attribute": "fuel_stations_count",
+    "value": "7",
+    "unit": "station",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-ABU-EL-NOMROS-WASTEWATER-STATIONS-COUNT-1",
+    "entity_code": "CITY-ABU-EL-NOMROS",
+    "attribute": "wastewater_stations_count",
+    "value": "5",
+    "unit": "station",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-ABU-EL-NOMROS-WATER-STATIONS-COUNT-1",
+    "entity_code": "CITY-ABU-EL-NOMROS",
+    "attribute": "water_stations_count",
+    "value": "1",
+    "unit": "station",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-EL-HAWAMDIYA-ADMINISTRATIVE-TIER-1",
+    "entity_code": "CITY-EL-HAWAMDIYA",
+    "attribute": "administrative_tier",
+    "value": "مدينة ومركز بمحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-EL-HAWAMDIYA-DETAILED-MASTERPLAN-STATUS-1",
+    "entity_code": "CITY-EL-HAWAMDIYA",
+    "attribute": "detailed_masterplan_status",
+    "value": "تم الانتهاء من اعتماد المخطط التفصيلي للمدينة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-EL-HAWAMDIYA-PUBLIC-SERVICE-FACILITY-1",
+    "entity_code": "CITY-EL-HAWAMDIYA",
+    "attribute": "public_service_facility",
+    "value": "مركز تكنولوجي لخدمة المواطنين",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-EL-BADRASHEIN-ADMINISTRATIVE-TIER-1",
+    "entity_code": "CITY-EL-BADRASHEIN",
+    "attribute": "administrative_tier",
+    "value": "مركز ومدينة بمحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-EL-BADRASHEIN-DETAILED-MASTERPLAN-STATUS-1",
+    "entity_code": "CITY-EL-BADRASHEIN",
+    "attribute": "detailed_masterplan_status",
+    "value": "تم الانتهاء من اعتماد المخطط التفصيلي للمدينة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-EL-BADRASHEIN-PUBLIC-SERVICE-FACILITY-1",
+    "entity_code": "CITY-EL-BADRASHEIN",
+    "attribute": "public_service_facility",
+    "value": "مركز تكنولوجي لخدمة المواطنين",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-ARD-EL-LEWA-ADMINISTRATIVE-PARENT-1",
+    "entity_code": "DIST-ARD-EL-LEWA",
+    "attribute": "administrative_parent",
+    "value": "حي العجوزة بمحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-043"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-ARD-EL-LEWA-INFRASTRUCTURE-UPGRADE-STATUS-1",
+    "entity_code": "DIST-ARD-EL-LEWA",
+    "attribute": "infrastructure_upgrade_status",
+    "value": "رفع كفاءة البنية التحتية بالتعاون مع جهاز تنمية المشروعات",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-ARD-EL-LEWA-PEDESTRIAN-BRIDGE-MAINTENANCE-1",
+    "entity_code": "DIST-ARD-EL-LEWA",
+    "attribute": "pedestrian_bridge_maintenance",
+    "value": "صيانة وتشغيل السلالم الكهربائية بكوبري مشاة أرض اللواء بالعجوزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-043"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-MIT-OKBA-AXIS-SERVICE-ROAD-ZONE-1",
+    "entity_code": "DIST-MIT-OKBA",
+    "attribute": "axis_service_road_zone",
+    "value": "تضم منطقة بطيء المحور بميت عقبة ضمن نطاق الحملات الخدمية بمحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-044"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-MIT-OKBA-INFRASTRUCTURE-UPGRADE-STATUS-1",
+    "entity_code": "DIST-MIT-OKBA",
+    "attribute": "infrastructure_upgrade_status",
+    "value": "شملتها أعمال تطوير ورفع كفاءة البنية التحتية بالتعاون مع جهاز تنمية المشروعات",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-NAZLET-EL-SEMMAN-REVITALIZATION-PROJECT-STATUS-1",
+    "entity_code": "DIST-NAZLET-EL-SEMMAN",
+    "attribute": "revitalization_project_status",
+    "value": "استعراض مستجدات مشروع إعادة إحياء منطقة نزلة السمان كمقصد سياحي باجتماع رئيس الوزراء",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-045"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-6OCTOBER-IND-INDUSTRIAL-INVESTMENT-PROJECT-1",
+    "entity_code": "DIST-6OCTOBER-IND",
+    "attribute": "industrial_investment_project",
+    "value": "تضم مصنعاً على مساحة 86 ألف متر مربع باستثمارات 123 مليون دولار",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-041"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-6OCTOBER-IND-INDUSTRIAL-SUBZONE-ACTIVITY-1",
+    "entity_code": "DIST-6OCTOBER-IND",
+    "attribute": "industrial_subzone_activity",
+    "value": "تضم المنطقة الصناعية السادسة ومنشآت مطاحن القطاع الخاص",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-6OCTOBER-IND-TRANSIT-CONNECTIVITY-1",
+    "entity_code": "DIST-6OCTOBER-IND",
+    "attribute": "transit_connectivity",
+    "value": "منطقة صناعية قائمة ومخدومة بمسار مشروع مونوريل غرب النيل",
+    "unit": null,
+    "valid_as_of": "2026-09-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-067"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GREAT-SPHINX-HEIGHT-1",
+    "entity_code": "LANDMARK-GREAT-SPHINX",
+    "attribute": "height",
+    "value": "20",
+    "unit": "m",
+    "valid_as_of": "2025-09-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GREAT-SPHINX-HEIGHT-CONFLICTING-SIS-ARCHIVE-1",
+    "entity_code": "LANDMARK-GREAT-SPHINX",
+    "attribute": "height_conflicting_sis_archive",
+    "value": "70",
+    "unit": "ft",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-040"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GREAT-SPHINX-HISTORICAL-ERA-1",
+    "entity_code": "LANDMARK-GREAT-SPHINX",
+    "attribute": "historical_era",
+    "value": "الأسرة الرابعة (حوالي 2613-2494 ق.م) وعهد الملك خفرع (حوالي 2558-2532 ق.م)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GREAT-SPHINX-LENGTH-1",
+    "entity_code": "LANDMARK-GREAT-SPHINX",
+    "attribute": "length",
+    "value": "73.5",
+    "unit": "m",
+    "valid_as_of": "2025-09-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GREAT-SPHINX-LENGTH-CONFLICTING-SIS-ARCHIVE-1",
+    "entity_code": "LANDMARK-GREAT-SPHINX",
+    "attribute": "length_conflicting_sis_archive",
+    "value": "20",
+    "unit": "ft",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-040"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GREAT-SPHINX-WIDTH-1",
+    "entity_code": "LANDMARK-GREAT-SPHINX",
+    "attribute": "width",
+    "value": "19.3",
+    "unit": "m",
+    "valid_as_of": "2025-09-25",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GIZA-ZOO-AREA-EXPANSION-1938-1",
+    "entity_code": "LANDMARK-GIZA-ZOO",
+    "attribute": "area_expansion_1938",
+    "value": "38",
+    "unit": "feddan",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GIZA-ZOO-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-GIZA-ZOO",
+    "attribute": "establishment_year",
+    "value": "1891",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GIZA-ZOO-PLANNED-PUBLIC-REOPENING-YEAR-1",
+    "entity_code": "LANDMARK-GIZA-ZOO",
+    "attribute": "planned_public_reopening_year",
+    "value": "2026",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GIZA-ZOO-REDEVELOPMENT-STATUS-1",
+    "entity_code": "LANDMARK-GIZA-ZOO",
+    "attribute": "redevelopment_status",
+    "value": "مشروع إحياء وتطوير حديقتي الحيوان والأورمان وربطهما بنفق",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ORMAN-GARDEN-DESIGNED-GARDEN-AREA-1875-1",
+    "entity_code": "LANDMARK-ORMAN-GARDEN",
+    "attribute": "designed_garden_area_1875",
+    "value": "24",
+    "unit": "feddan",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ORMAN-GARDEN-ESTABLISHMENT-YEAR-1",
+    "entity_code": "LANDMARK-ORMAN-GARDEN",
+    "attribute": "establishment_year",
+    "value": "1875",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ORMAN-GARDEN-PLANNED-PUBLIC-REOPENING-YEAR-1",
+    "entity_code": "LANDMARK-ORMAN-GARDEN",
+    "attribute": "planned_public_reopening_year",
+    "value": "2026",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ORMAN-GARDEN-PLANT-SPECIES-COUNT-1",
+    "entity_code": "LANDMARK-ORMAN-GARDEN",
+    "attribute": "plant_species_count",
+    "value": "600",
+    "unit": "species",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ORMAN-GARDEN-TOTAL-ESTATE-AREA-AT-CREATION-1",
+    "entity_code": "LANDMARK-ORMAN-GARDEN",
+    "attribute": "total_estate_area_at_creation",
+    "value": "95",
+    "unit": "feddan",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AGRICULTURAL-MUSEUM-AREA-1",
+    "entity_code": "LANDMARK-AGRICULTURAL-MUSEUM",
+    "attribute": "area",
+    "value": "30",
+    "unit": "feddan",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-057"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AGRICULTURAL-MUSEUM-EXHIBITION-EDITION-STATUS-1",
+    "entity_code": "LANDMARK-AGRICULTURAL-MUSEUM",
+    "attribute": "exhibition_edition_status",
+    "value": "انطلاق الاستعدادات النهائية للدورة الـ 92 من معرض زهور الربيع بالمتحف الزراعي بالدقي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-AGRICULTURAL-MUSEUM-SPRING-FLOWERS-EXHIBITION-2026-AREA-1",
+    "entity_code": "LANDMARK-AGRICULTURAL-MUSEUM",
+    "attribute": "spring_flowers_exhibition_2026_area",
+    "value": "20000",
+    "unit": "m2",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-058"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MEDIA-PROD-CITY-ADDRESS-1",
+    "entity_code": "LANDMARK-MEDIA-PROD-CITY",
+    "attribute": "address",
+    "value": "مدينة الإنتاج الإعلامي، مدينة السادس من أكتوبر، الجيزة، الرمز البريدي 15515",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-052"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MEDIA-PROD-CITY-GOVERNANCE-AND-OPERATION-1",
+    "entity_code": "LANDMARK-MEDIA-PROD-CITY",
+    "attribute": "governance_and_operation",
+    "value": "تعمل منذ 1997 وتضم مجلس إدارة برئاسة عبد الفتاح الجبالي منذ 2022 حتى الآن",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-054"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ZEWAIL-CITY-ACTIVE-OPERATIONS-STATUS-1",
+    "entity_code": "LANDMARK-ZEWAIL-CITY",
+    "attribute": "active_operations_status",
+    "value": "مؤسسة عاملة بنشاطاتها البحثية والطلابية وفق أحدث فعالية منشورة بتاريخ 29 أكتوبر 2026",
+    "unit": null,
+    "valid_as_of": "2026-10-29",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-053"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ZEWAIL-CITY-ADDRESS-1",
+    "entity_code": "LANDMARK-ZEWAIL-CITY",
+    "attribute": "address",
+    "value": "طريق أحمد زويل، حدائق أكتوبر، مدينة السادس من أكتوبر، الجيزة 17742",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-056"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ZEWAIL-CITY-PHASE1-COMPLETION-CABINET-REPORT-1",
+    "entity_code": "LANDMARK-ZEWAIL-CITY",
+    "attribute": "phase1_completion_cabinet_report",
+    "value": "تم توثيق تكلفة الانتهاء من المرحلة الأولى لمشروع مدينة زويل بتقرير تقدم أعمال الحكومة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-ZEWAIL-CITY-SPECIAL-LAW-DATE-1",
+    "entity_code": "LANDMARK-ZEWAIL-CITY",
+    "attribute": "special_law_date",
+    "value": "2012-12-20",
+    "unit": "date",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-055"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GIZA-SQUARE-CORRIDOR-CONNECTIVITY-1",
+    "entity_code": "LANDMARK-GIZA-SQUARE",
+    "attribute": "corridor_connectivity",
+    "value": "مدرج ضمن نطاق المحاور والشوارع الرئيسية مع شارع ثروت ومحور صفط اللبن وشارع الجامعة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-030"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-GIZA-SQUARE-PEDESTRIAN-TUNNELS-LENGTH-1",
+    "entity_code": "LANDMARK-GIZA-SQUARE",
+    "attribute": "pedestrian_tunnels_length",
+    "value": "200",
+    "unit": "m",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-EL-HOSARY-MOSQUE-TRANSIT-SERVICE-STATUS-1",
+    "entity_code": "LANDMARK-EL-HOSARY-MOSQUE",
+    "attribute": "transit_service_status",
+    "value": "من المعالم الحيوية المخدومة بمشروع مونوريل غرب النيل",
+    "unit": null,
+    "valid_as_of": "2026-09-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-067"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SAFT-EL-LABAN-AXIS-ADJACENT-STREETS-LINK-1",
+    "entity_code": "ROAD-SAFT-EL-LABAN-AXIS",
+    "attribute": "adjacent_streets_link",
+    "value": "مذكور ضمن نطاق التنسيق المروري مع شارع ثروت وشارع الجامعة وميدان الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-030"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SAFT-EL-LABAN-AXIS-CONNECTIVITY-1",
+    "entity_code": "ROAD-SAFT-EL-LABAN-AXIS",
+    "attribute": "connectivity",
+    "value": "يمتد من الطريق الدائري باتجاه جامعة القاهرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-SAFT-EL-LABAN-AXIS-NETWORK-INTEGRATION-1",
+    "entity_code": "ROAD-SAFT-EL-LABAN-AXIS",
+    "attribute": "network_integration",
+    "value": "يرد ضمن شبكة المحاور المترابطة بمدينة الجيزة مع محاور 26 يوليو وجامعة الدول العربية وفيصل والهرم",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-FAISAL-STREET-CORRIDOR-INCLUSION-1",
+    "entity_code": "ROAD-FAISAL-STREET",
+    "attribute": "corridor_inclusion",
+    "value": "مدرج ضمن خطة المحاور المرورية الرئيسية بمحافظة الجيزة مع شارع البحر الأعظم وصفط اللبن وترسا",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-FAISAL-STREET-KAMAL-AMER-CROSSING-1",
+    "entity_code": "ROAD-FAISAL-STREET",
+    "attribute": "kamal_amer_crossing",
+    "value": "يمر محور الفريق كمال عامر أعلى كوبري الملك فيصل، ويضم حي العمرانية مطلع كوبري فيصل",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-031"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-FAISAL-STREET-TRAFFIC-NETWORK-ROLE-1",
+    "entity_code": "ROAD-FAISAL-STREET",
+    "attribute": "traffic_network_role",
+    "value": "شارع رئيسي بمحافظة الجيزة يرتبط عبر محور مدينة الجيزة بمحاور صفط اللبن والهرم و26 يوليو وجامعة الدول العربية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-TERSA-AXIS-BRIDGE-RAMP-PRESENCE-1",
+    "entity_code": "ROAD-TERSA-AXIS",
+    "attribute": "bridge_ramp_presence",
+    "value": "يضم مطلع كوبري ترسا في نطاق حي الطالبية بمحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-TERSA-AXIS-INTERSECTIONS-1",
+    "entity_code": "ROAD-TERSA-AXIS",
+    "attribute": "intersections",
+    "value": "يتقاطع مع محور المريوطية والطريق الدائري",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AL-HARAM-CORRIDOR-PLACEMENT-1",
+    "entity_code": "STOP-BRT-AL-HARAM",
+    "attribute": "corridor_placement",
+    "value": "إحدى محطات الأتوبيس الترددي بنطاق تقاطع الدائري والفيوم والمنطقة المحيطة بالمتحف المصري الكبير",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-FAISAL-CORRIDOR-PLACEMENT-1",
+    "entity_code": "STOP-BRT-FAISAL",
+    "attribute": "corridor_placement",
+    "value": "إحدى محطات الأتوبيس الترددي بنطاق الجيزة والهرم وترسا والمنطقة المحيطة بالمتحف المصري الكبير",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-TERSA-CORRIDOR-PLACEMENT-1",
+    "entity_code": "STOP-BRT-TERSA",
+    "attribute": "corridor_placement",
+    "value": "إحدى محطات الأتوبيس الترددي بنطاق الجيزة والهرم وفيصل والمنطقة المحيطة بالمتحف المصري الكبير",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-GIZA-STATION-NETWORK-INTERCHANGE-ROLE-1",
+    "entity_code": "RAIL-GIZA-STATION",
+    "attribute": "network_interchange_role",
+    "value": "محطة قائمة على خط سكك حديد القاهرة–أسوان ويتبادل عندها الركاب مع الخط الأول للقطار الكهربائي السريع",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-6OCTOBER-DRY-PORT-IMPLEMENTATION-STATUS-CABINET-REPORT-1",
+    "entity_code": "PROJ-6OCTOBER-DRY-PORT",
+    "attribute": "implementation_status_cabinet_report",
+    "value": "جاري تنفيذ مشروع إنشاء الميناء الجاف بمدينة السادس من أكتوبر عبر التحالف الفائز",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-6OCTOBER-DRY-PORT-PPP-PROCUREMENT-STATUS-1",
+    "entity_code": "PROJ-6OCTOBER-DRY-PORT",
+    "attribute": "ppp_procurement_status",
+    "value": "تم طرح مشروع الميناء الجاف بالسادس من أكتوبر بنظام المشاركة بين القطاعين العام والخاص",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-6OCTOBER-DRY-PORT-STRATEGIC-LAUNCH-ROLE-1",
+    "entity_code": "PROJ-6OCTOBER-DRY-PORT",
+    "attribute": "strategic_launch_role",
+    "value": "يمثل بداية انطلاقة كبيرة لإنشاء 14 ميناءً جافاً ومنطقة لوجستية (8 موانئ جافة و6 مناطق لوجستية)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-WARRAQ-ISLAND-DEV-LAND-TRANSFER-AND-COMPENSATION-1",
+    "entity_code": "PROJ-WARRAQ-ISLAND-DEV",
+    "attribute": "land_transfer_and_compensation",
+    "value": "منع التعديات وتوفير وحدات سكنية بديلة بأرض مطار إمبابة أو مدينة العبور الجديدة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-WARRAQ-ISLAND-DEV-OWNERSHIP-TRANSFER-PROGRESS-1",
+    "entity_code": "PROJ-WARRAQ-ISLAND-DEV",
+    "attribute": "ownership_transfer_progress",
+    "value": "متابعة الجهود التي تمت بشأن أعمال نقل الملكية وتسليم الأراضي بجزيرة الوراق",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-WARRAQ-ISLAND-DEV-URBAN-DEVELOPMENT-SCOPE-1",
+    "entity_code": "PROJ-WARRAQ-ISLAND-DEV",
+    "attribute": "urban_development_scope",
+    "value": "متابعة الموقف التنفيذي لتطوير تجمع جزيرة الوراق العمراني بمشاركة وزارة الإسكان ومحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-IMBABA-AIRPORT-DEV-ALTERNATIVE-HOUSING-DELIVERY-1",
+    "entity_code": "PROJ-IMBABA-AIRPORT-DEV",
+    "attribute": "alternative_housing_delivery",
+    "value": "توفير وتسليم وحدات سكنية بديلة بأرض مطار إمبابة لمنتفعي جزيرة الوراق",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-IMBABA-AIRPORT-DEV-LOCATION-1",
+    "entity_code": "PROJ-IMBABA-AIRPORT-DEV",
+    "attribute": "location",
+    "value": "شمال الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-009"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-IMBABA-AIRPORT-DEV-RESIDENTIAL-UPGRADING-1",
+    "entity_code": "PROJ-IMBABA-AIRPORT-DEV",
+    "attribute": "residential_upgrading",
+    "value": "أعمال لرفع كفاءة عدد من العمارات السكنية بأرض مطار إمبابة بمحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-IMBABA-AIRPORT-DEV-ROAD-NETWORK-PROJECT-LENGTH-GIZA-GOV-1",
+    "entity_code": "PROJ-IMBABA-AIRPORT-DEV",
+    "attribute": "road_network_project_length_giza_gov",
+    "value": "4",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-PYRAMIDS-AREA-DEV-ARCHAEOLOGICAL-ZONE-OBJECTIVES-1",
+    "entity_code": "PROJ-PYRAMIDS-AREA-DEV",
+    "attribute": "archaeological_zone_objectives",
+    "value": "تخفيف الازدحام المروري وتخصيص أماكن واسعة للحافلات السياحية وتحسين انسيابية الزيارة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-PYRAMIDS-AREA-DEV-FAYOUM-ROAD-LANES-PER-DIRECTION-1",
+    "entity_code": "PROJ-PYRAMIDS-AREA-DEV",
+    "attribute": "fayoum_road_lanes_per_direction",
+    "value": "9",
+    "unit": "lane",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-PYRAMIDS-AREA-DEV-PEDESTRIAN-WALKWAYS-LENGTH-1",
+    "entity_code": "PROJ-PYRAMIDS-AREA-DEV",
+    "attribute": "pedestrian_walkways_length",
+    "value": "12",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-PYRAMIDS-AREA-DEV-PYRAMIDS-PLATEAU-AREA-1",
+    "entity_code": "PROJ-PYRAMIDS-AREA-DEV",
+    "attribute": "pyramids_plateau_area",
+    "value": "3500",
+    "unit": "feddan",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-PYRAMIDS-AREA-DEV-RING-ROAD-FAYOUM-BRT-INTEGRATION-1",
+    "entity_code": "PROJ-PYRAMIDS-AREA-DEV",
+    "attribute": "ring_road_fayoum_brt_integration",
+    "value": "تطوير تقاطع الدائري مع الفيوم والمنطقة المحيطة بالمتحف وربطها بمحطات الأتوبيس الترددي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-PYRAMIDS-AREA-DEV-SHOOTING-CLUB-LAND-INTEGRATED-1",
+    "entity_code": "PROJ-PYRAMIDS-AREA-DEV",
+    "attribute": "shooting_club_land_integrated",
+    "value": "180",
+    "unit": "feddan",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-PYRAMIDS-AREA-DEV-TOTAL-GOLDEN-CONE-AREA-1",
+    "entity_code": "PROJ-PYRAMIDS-AREA-DEV",
+    "attribute": "total_golden_cone_area",
+    "value": "3750",
+    "unit": "feddan",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-RING-ROAD-COORDINATION-STATUS-1",
+    "entity_code": "ROAD-RING-ROAD",
+    "attribute": "coordination_status",
+    "value": "متابعة حكومية لمستجدات التطوير والتوسعة ورفع الكفاءة بمشاركة محافظي الجيزة والقاهرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-063"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-RING-ROAD-LENGTH-1",
+    "entity_code": "ROAD-RING-ROAD",
+    "attribute": "length",
+    "value": "110",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-071"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-RING-ROAD-UPGRADING-AND-WIDENING-1",
+    "entity_code": "ROAD-RING-ROAD",
+    "attribute": "upgrading_and_widening",
+    "value": "تنفيذ أعمال تشجير الطريق الدائري وتفقد الأتوبيس الترددي بمحافظتي الجيزة والقاهرة",
+    "unit": null,
+    "valid_as_of": "2026-09-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-067"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-ATTR-6OCTOBER-SEPARATOR-LENGTH-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "attr_6october_separator_length",
+    "value": "14",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-046"
+    ],
+    "notes": "source_attribute_key=6october_separator_length"
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-ATTR-6OCTOBER-SEPARATOR-WIDTH-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "attr_6october_separator_width",
+    "value": "56-82",
+    "unit": "m",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-046"
+    ],
+    "notes": "source_attribute_key=6october_separator_width"
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-FAYOUM-ROAD-INTERSECTION-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "fayoum_road_intersection",
+    "value": "يتقاطع مع طريق الفيوم في نطاق تطوير وتوسعة طريق الفيوم حتى ميدان الرماية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-OPERATIONAL-STATUS-3",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "operational_status",
+    "value": "قائم وعامل ضمن شبكة الطرق القومية المعلنة في 24 أكتوبر 2026",
+    "unit": null,
+    "valid_as_of": "2026-10-24",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-048"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-MIDDLE-RING-WEST-SECTOR-SERVICE-SCOPE-1",
+    "entity_code": "ROAD-MIDDLE-RING",
+    "attribute": "west_sector_service_scope",
+    "value": "يرد ضمن مشروعات الطرق والمحاور المحيطة بالجيزة ومدينتي الشيخ زايد و6 أكتوبر",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-047"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-OPERATIONAL-USE-1",
+    "entity_code": "ROAD-REGIONAL-RING",
+    "attribute": "operational_use",
+    "value": "مستخدم في الانتقالات بين محافظتي الجيزة والبحيرة ضمن شبكة المحاور",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-049"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-WEST-SECTOR-COVERAGE-1",
+    "entity_code": "ROAD-REGIONAL-RING",
+    "attribute": "west_sector_coverage",
+    "value": "يرد ضمن مشروعات المحاور لخدمة الجيزة ومدينتي الشيخ زايد و6 أكتوبر",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-047"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-BRIDGES-COUNT-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "bridges_count",
+    "value": "5",
+    "unit": "bridge",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-BRIDGES-TOTAL-LENGTH-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "bridges_total_length",
+    "value": "16",
+    "unit": "km",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-LANES-COUNT-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "lanes_count",
+    "value": "10",
+    "unit": "lane",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-NATIONAL-CORRIDOR-LINKAGE-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "national_corridor_linkage",
+    "value": "جزء من محور الزعفرانة – مطروح",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-070"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-OPENING-DATE-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "opening_date",
+    "value": "2019-05-15",
+    "unit": "date",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-RAMPS-COUNT-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "ramps_count",
+    "value": "31",
+    "unit": "ramp",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-ROD-ELFARAG-DABAA-WEST-CORRIDOR-LINKAGE-1",
+    "entity_code": "ROAD-ROD-ELFARAG-DABAA",
+    "attribute": "west_corridor_linkage",
+    "value": "يخدم المتجهين من شمال وشرق القاهرة إلى طريق الإسكندرية الصحراوي ويضم 8 مطالع ومنازل بالدائري",
+    "unit": null,
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-LANES-COUNT-CONFLICTING-PRESIDENCY-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "lanes_count_conflicting_presidency",
+    "value": "6",
+    "unit": "lane_per_direction",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-069"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-LANES-COUNT-SIS-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "lanes_count_sis",
+    "value": "6",
+    "unit": "lane",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-LENGTH-2",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "length",
+    "value": "540",
+    "unit": "m",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-NAVIGATIONAL-SPAN-WIDTH-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "navigational_span_width",
+    "value": "300",
+    "unit": "m",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-OPENING-DATE-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "opening_date",
+    "value": "2019-05-15",
+    "unit": "date",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-TOWER-HEIGHT-CONFLICTING-PRESIDENCY-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "tower_height_conflicting_presidency",
+    "value": "92",
+    "unit": "m",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-069"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-TOWER-HEIGHT-SIS-1",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "tower_height_sis",
+    "value": "100",
+    "unit": "m",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-TAHYA-MISR-WIDTH-4",
+    "entity_code": "BRIDGE-TAHYA-MISR",
+    "attribute": "width",
+    "value": "67.3",
+    "unit": "m",
+    "valid_as_of": "2026-06-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-6-OCTOBER-DOKKI-RAMP-PRESENCE-1",
+    "entity_code": "BRIDGE-6-OCTOBER",
+    "attribute": "dokki_ramp_presence",
+    "value": "يضم منزل كوبري 6 أكتوبر بمنطقة الدقي ضمن مشروعات التنسيق بمحافظة الجيزة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-066"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-6-OCTOBER-MAINTENANCE-STATUS-1",
+    "entity_code": "BRIDGE-6-OCTOBER",
+    "attribute": "maintenance_status",
+    "value": "يخضع لأعمال صيانة دورية بالتنسيق مع محافظتي الجيزة والقاهرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-062"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-6-OCTOBER-PUBLIC-TRANSIT-CORRIDOR-1",
+    "entity_code": "BRIDGE-6-OCTOBER",
+    "attribute": "public_transit_corridor",
+    "value": "يمر عبره خط النقل الجماعي (المنيب - عجوزة - كوبري 6 أكتوبر - عتبة)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-6-OCTOBER-WEST-SECTOR-CONNECTIONS-1",
+    "entity_code": "BRIDGE-6-OCTOBER",
+    "attribute": "west_sector_connections",
+    "value": "يتصل بنقطة تقاطع مع كوبري 15 مايو ضمن نطاق التطوير الممتد حتى ميدان سفنكس",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-15-MAY-MAINTENANCE-ACTIVITY-1",
+    "entity_code": "BRIDGE-15-MAY",
+    "attribute": "maintenance_activity",
+    "value": "صيانة الفواصل العرضية بمطلع كوبري 15 مايو القادم من ميدان سفنكس وشارع جامعة الدول العربية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-065"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-15-MAY-WEST-RAMPS-AND-CONNECTIVITY-1",
+    "entity_code": "BRIDGE-15-MAY",
+    "attribute": "west_ramps_and_connectivity",
+    "value": "يمتد من نقطة اتصاله بكوبري 6 أكتوبر حتى ميدان سفنكس ومحور 26 يوليو",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MONIB-LENGTH-1",
+    "entity_code": "BRIDGE-MONIB",
+    "attribute": "length",
+    "value": "2.35",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-MONIB-NILE-CORNICHE-LINKAGE-1",
+    "entity_code": "BRIDGE-MONIB",
+    "attribute": "nile_corniche_linkage",
+    "value": "يرتبط بتطوير وتنسيق ضفاف وكورنيش النيل بالجيزة من كوبري المنيب حتى كوبري الجلاء",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-066"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-DESIGN-CAPACITY-1",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "design_capacity",
+    "value": "1.76",
+    "unit": "million_passengers",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-GIZA-FINAL-PHASE-OPENING-YEAR-1",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "giza_final_phase_opening_year",
+    "value": "2005",
+    "unit": "year",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-PLANNED-NORTHERN-EXTENSION-1",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "planned_northern_extension",
+    "value": "مد الخط بطول 3.2 كم و3 محطات من شبرا الخيمة إلى الطريق الدائري للتبادل مع الأتوبيس الترددي BRT",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-STATIONS-COUNT-1",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "stations_count",
+    "value": "20",
+    "unit": "station",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-TOTAL-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "total_length",
+    "value": "21.6",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3-OPENING-DATE-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3_opening_date",
+    "value": "2024-10-12",
+    "unit": "date",
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3-TOTAL-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3_total_length",
+    "value": "17.7",
+    "unit": "km",
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3-TOTAL-STATIONS-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3_total_stations",
+    "value": "15",
+    "unit": "station",
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3B-IMBABA-BRANCH-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3b_imbaba_branch_length",
+    "value": "6.6",
+    "unit": "km",
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-PHASE3C-CAIRO-UNIV-BRANCH-LENGTH-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "phase3c_cairo_univ_branch_length",
+    "value": "7.1",
+    "unit": "km",
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-STATIONS-COUNT-1",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "stations_count",
+    "value": "34",
+    "unit": "station",
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L3-TOTAL-LENGTH-4",
+    "entity_code": "TRANSIT-METRO-L3",
+    "attribute": "total_length",
+    "value": "41.2",
+    "unit": "km",
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-M3-ROD-ELFARAG-AXIS-OPENING-DATE-1",
+    "entity_code": "STOP-M3-ROD-ELFARAG-AXIS",
+    "attribute": "opening_date",
+    "value": "2024-10-12",
+    "unit": "date",
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-M3-ROD-ELFARAG-AXIS-STATION-CONFIGURATION-1",
+    "entity_code": "STOP-M3-ROD-ELFARAG-AXIS",
+    "attribute": "station_configuration",
+    "value": "محطة سطحية نهائية بالجزء الثاني (3B) من المرحلة الثالثة للخط الثالث",
+    "unit": null,
+    "valid_as_of": "2024-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-M3-ROD-ELFARAG-AXIS-TRIAL-PASSENGER-SERVICE-1",
+    "entity_code": "STOP-M3-ROD-ELFARAG-AXIS",
+    "attribute": "trial_passenger_service",
+    "value": "شملها التشغيل التجريبي بالركاب لمحطات الجزء الثاني من المرحلة الثالثة من الكيت كات حتى محور روض الفرج",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-CABINET-INSPECTION-CONFIRMATION-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "cabinet_inspection_confirmation",
+    "value": "تفقد رئيس الوزراء للمرحلة الثانية من الأتوبيس الترددي بالجيزة والقاهرة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-036"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-CORRIDOR-LENGTH-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "corridor_length",
+    "value": "110",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-071"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PHASE2-OPERATIONAL-READINESS-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "phase2_operational_readiness",
+    "value": "تأكيد جاهزية فرق التشغيل استعداداً لتشغيل المرحلة الثانية خلال الفترة المقبلة عقب جولة رئيس الوزراء في 13 سبتمبر 2026",
+    "unit": null,
+    "valid_as_of": "2026-09-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-067"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-PLANNING-ALTERNATIVE-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "planning_alternative",
+    "value": "تم تنفيذه كبديل للخط الخامس للمترو المُخطط سابقاً",
+    "unit": null,
+    "valid_as_of": "2026-09-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-W7-067"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-EXPRESS-DESIGN-SPEED-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "express_design_speed",
+    "value": "250",
+    "unit": "km/h",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-LATEST-INSPECTION-DATE-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "latest_inspection_date",
+    "value": "رئيس الوزراء يتفقد مشروع الخط الأول من شبكة القطار الكهربائي السريع في 13 سبتمبر 2026",
+    "unit": null,
+    "valid_as_of": "2026-09-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-035"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-LENGTH-3",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "length",
+    "value": "660",
+    "unit": "km",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-PLANNED-DAILY-PASSENGERS-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "planned_daily_passengers",
+    "value": "1",
+    "unit": "million_passengers_per_day",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-STATIONS-COUNT-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "stations_count",
+    "value": "21",
+    "unit": "station",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-TRIAL-OPERATION-STATUS-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "trial_operation_status",
+    "value": "تم إعطاء إشارة بدء التشغيل التجريبي للخط الأول في المرحلة الأولى منه في نطاق أكتوبر",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-037"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-HSR-L1-WEST-MONORAIL-INTEGRATION-1",
+    "entity_code": "TRANSIT-HSR-L1",
+    "attribute": "west_monorail_integration",
+    "value": "يتكامل مع مونوريل غرب النيل في محطة 6 أكتوبر",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-W7-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-WARRAQ-ISLAND-DEV-PLANNED-NILE-PARK-1",
+    "entity_code": "PROJ-WARRAQ-ISLAND-DEV",
+    "attribute": "planned_nile_park",
+    "value": "إعداد مخططات لإنشاء حديقة نيلية كبرى بأرض المجتمع العمراني الجديد بجزيرة الوراق",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-WARRAQ-ISLAND-DEV-URGENT-PHASE-DELIVERY-TARGET-DATE-1",
+    "entity_code": "PROJ-WARRAQ-ISLAND-DEV",
+    "attribute": "urgent_phase_delivery_target_date",
+    "value": "2026-09-30 (موعد محدد لبدء التسليم وفق الموقف التنفيذي)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-WARRAQ-ISLAND-DEV-URGENT-PHASE-UNITS-1",
+    "entity_code": "PROJ-WARRAQ-ISLAND-DEV",
+    "attribute": "urgent_phase_units",
+    "value": "792",
+    "unit": "units",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-WARRAQ-ISLAND-RESIDENTS-POLICY-DIRECTIVE-1",
+    "entity_code": "DIST-WARRAQ-ISLAND",
+    "attribute": "residents_policy_directive",
+    "value": "توجيه رئاسي بمراعاة أوضاع سكان الجزيرة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-WARRAQ-ISLAND-URBAN-DESIGNATION-1",
+    "entity_code": "DIST-WARRAQ-ISLAND",
+    "attribute": "urban_designation",
+    "value": "أرض المجتمع العمراني الجديد بجزيرة الوراق",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SHUBRA-KHEIMA-IND-INDUSTRIAL-DIRECTORY-SAMPLE-1",
+    "entity_code": "DIST-SHUBRA-KHEIMA-IND",
+    "attribute": "industrial_directory_sample",
+    "value": "تضم مصانع عاملة وفق دليل الأعمال (مثل المصنع المصري لكسوة السلندرات الكاوتشوك، 5 ش 25)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SHUBRA-KHEIMA-IND-INDUSTRIES-PROFILE-1",
+    "entity_code": "DIST-SHUBRA-KHEIMA-IND",
+    "attribute": "industries_profile",
+    "value": "صناعات غذائية، وغزل ونسيج، وملابس جاهزة (حي غرب شبرا الخيمة)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SHUBRA-KHEIMA-IND-OFFICIAL-ZONE-RECOGNITION-1",
+    "entity_code": "DIST-SHUBRA-KHEIMA-IND",
+    "attribute": "official_zone_recognition",
+    "value": "إحدى المناطق الصناعية الرئيسية بمحافظة القليوبية في نطاق حي شرق ومدينة شبرا الخيمة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SAFA-IND-KHANKA-AREA-1",
+    "entity_code": "DIST-SAFA-IND-KHANKA",
+    "attribute": "area",
+    "value": "142",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SAFA-IND-KHANKA-FIELD-INSPECTION-1",
+    "entity_code": "DIST-SAFA-IND-KHANKA",
+    "attribute": "field_inspection",
+    "value": "جولة تفقدية لمحافظ القليوبية لمتابعة أوضاع المنطقة الصناعية بمدينة الخانكة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SAFA-IND-KHANKA-GOVERNANCE-1",
+    "entity_code": "DIST-SAFA-IND-KHANKA",
+    "attribute": "governance",
+    "value": "تدار ضمن مجلس إدارة المناطق الصناعية بمحافظة القليوبية (بجانب منطقة الشروق)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SAFA-IND-KHANKA-LOCATION-1",
+    "entity_code": "DIST-SAFA-IND-KHANKA",
+    "attribute": "location",
+    "value": "زمام عرب العليقات بمركز الخانكة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-AKRASHA-IND-DETAILED-PLAN-FOLLOW-UP-1",
+    "entity_code": "DIST-AKRASHA-IND",
+    "attribute": "detailed_plan_follow_up",
+    "value": "مناقشة مستجدات المخطط التفصيلي لمنطقة العكرشة لدفع التنمية والاستثمار الصناعي",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-028"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-AKRASHA-IND-URBAN-PLAN-STATUS-1",
+    "entity_code": "DIST-AKRASHA-IND",
+    "attribute": "urban_plan_status",
+    "value": "إعداد ومناقشة المخطط الاستراتيجي لمنطقة العكرشة مع تخصيص الجزء الجنوبي للأنشطة الصناعية",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-027"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-QALYUB-IND-ADJACENT-CORRIDOR-1",
+    "entity_code": "DIST-QALYUB-IND",
+    "attribute": "adjacent_corridor",
+    "value": "بجوار الطريق الدائري (أرض الجمعية، 7 شارع عفيفي رمضان) وفق موقع مصنع محلي",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-030"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-QALYUB-IND-INDUSTRIAL-ACTIVITY-SAMPLE-1",
+    "entity_code": "DIST-QALYUB-IND",
+    "attribute": "industrial_activity_sample",
+    "value": "تضم مصنعًا لحوامل وسلالم الكابلات بالمنطقة الصناعية بقليوب وفق تعريف الشركة الموردة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-031"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-QALYUB-IND-LAND-USE-REVIEW-PARCEL-1",
+    "entity_code": "DIST-QALYUB-IND",
+    "attribute": "land_use_review_parcel",
+    "value": "28",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-QALYUB-IND-OFFICIAL-ZONE-RECOGNITION-1",
+    "entity_code": "DIST-QALYUB-IND",
+    "attribute": "official_zone_recognition",
+    "value": "معتمدة ضمن المناطق الصناعية بمحافظة القليوبية بمدينة قليوب",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-WARRAQ-TAHYA-MISR-CONNECTION-1",
+    "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+    "attribute": "connection",
+    "value": "يربط جزيرة الوراق بمنطقة شبرا عبر النيل",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-WARRAQ-TAHYA-MISR-LANES-AND-DIRECTIONS-1",
+    "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+    "attribute": "lanes_and_directions",
+    "value": "اتجاهان و5 حارات مرورية",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-WARRAQ-TAHYA-MISR-LENGTH-1",
+    "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+    "attribute": "length",
+    "value": "1900",
+    "unit": "m",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-WARRAQ-TAHYA-MISR-OPENING-DATE-1",
+    "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+    "attribute": "opening_date",
+    "value": "مايو 2019 (كوبري خرساني ضمن محور تحيا مصر)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-BRIDGE-WARRAQ-TAHYA-MISR-WIDTH-1",
+    "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+    "attribute": "width",
+    "value": "48",
+    "unit": "m",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-GESR-EL-SUEZ-BRT-SERVICE-LINK-1",
+    "entity_code": "ROAD-GESR-EL-SUEZ",
+    "attribute": "brt_service_link",
+    "value": "تخدم محطة عدلي منصور للأتوبيس الترددي السريع القادمين من جسر السويس",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-GESR-EL-SUEZ-CORRIDOR-CONNECTIONS-1",
+    "entity_code": "ROAD-GESR-EL-SUEZ",
+    "attribute": "corridor_connections",
+    "value": "يرتبط بطريق القاهرة/بلبيس الصحراوي عبر محور الفريق إبراهيم العرابي",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-NORTH-COMPLETION-DATE-1",
+    "entity_code": "ROAD-REGIONAL-RING-NORTH",
+    "attribute": "completion_date",
+    "value": "يونيو 2017",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-NORTH-NORTHEAST-ARC-LENGTH-1",
+    "entity_code": "ROAD-REGIONAL-RING-NORTH",
+    "attribute": "northeast_arc_length",
+    "value": "34.5",
+    "unit": "km",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-NORTH-NORTHEAST-ARC-STRUCTURES-1",
+    "entity_code": "ROAD-REGIONAL-RING-NORTH",
+    "attribute": "northeast_arc_structures",
+    "value": "27 كوبريًّا و26 نفقًا",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-NORTH-NORTHWEST-ARC-LENGTH-1",
+    "entity_code": "ROAD-REGIONAL-RING-NORTH",
+    "attribute": "northwest_arc_length",
+    "value": "57.5",
+    "unit": "km",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-NORTH-NORTHWEST-ARC-STRUCTURES-MINISTER-STATEMENT-1",
+    "entity_code": "ROAD-REGIONAL-RING-NORTH",
+    "attribute": "northwest_arc_structures_minister_statement",
+    "value": "25 كوبري و43 نفقًا",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-035"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-NORTH-NORTHWEST-ARC-STRUCTURES-PROJECT-ARCHIVE-1",
+    "entity_code": "ROAD-REGIONAL-RING-NORTH",
+    "attribute": "northwest_arc_structures_project_archive",
+    "value": "23 كوبريًّا و38 نفقًا",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-NORTH-TOTAL-COST-1",
+    "entity_code": "ROAD-REGIONAL-RING-NORTH",
+    "attribute": "total_cost",
+    "value": "10.542",
+    "unit": "billion_EGP",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-REGIONAL-RING-NORTH-TOTAL-LENGTH-1",
+    "entity_code": "ROAD-REGIONAL-RING-NORTH",
+    "attribute": "total_length",
+    "value": "92",
+    "unit": "km",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-SHUBRA-EL-KHEIMA-DAILY-TRAIN-MOVEMENTS-1",
+    "entity_code": "RAIL-SHUBRA-EL-KHEIMA",
+    "attribute": "daily_train_movements",
+    "value": "128",
+    "unit": "trains_per_day",
+    "valid_as_of": "2026-11-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-047"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-SHUBRA-EL-KHEIMA-DESTINATIONS-COUNT-1",
+    "entity_code": "RAIL-SHUBRA-EL-KHEIMA",
+    "attribute": "destinations_count",
+    "value": "198",
+    "unit": "destinations",
+    "valid_as_of": "2026-11-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-047"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-SHUBRA-EL-KHEIMA-LATEST-OPERATIONAL-STATUS-MASRAWY-1",
+    "entity_code": "RAIL-SHUBRA-EL-KHEIMA",
+    "attribute": "latest_operational_status_masrawy",
+    "value": "تحديد القطار المتوقف بها بالقطار الروسي رقم 809 واتخاذ الإجراءات الفنية دون إعاقة تشغيل المحطة",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-N7-048"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-SHUBRA-EL-KHEIMA-LATEST-OPERATIONAL-STATUS-SHOROUK-1",
+    "entity_code": "RAIL-SHUBRA-EL-KHEIMA",
+    "attribute": "latest_operational_status_shorouk",
+    "value": "محطة عاملة؛ وردت باسم محطة سكة حديد شبرا الخيمة الفرعية عند التعامل مع تصاعد أدخنة بقطار روسي أثناء توقفه",
+    "unit": null,
+    "valid_as_of": "2026-11-13",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-N7-049"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-QALYUB-BRANCH-UPGRADE-AGREEMENT-1",
+    "entity_code": "RAIL-QALYUB",
+    "attribute": "branch_upgrade_agreement",
+    "value": "توقيع الاتفاقية الإطارية لتنفيذ ازدواج وتطوير خط قليوب / شبين القناطر",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-051"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-QALYUB-DAILY-TRAIN-MOVEMENTS-1",
+    "entity_code": "RAIL-QALYUB",
+    "attribute": "daily_train_movements",
+    "value": "93",
+    "unit": "trains_per_day",
+    "valid_as_of": "2026-11-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-QALYUB-JUNCTION-LINES-OFFICIAL-1",
+    "entity_code": "RAIL-QALYUB",
+    "attribute": "junction_lines_official",
+    "value": "تتفرع منها خطوط قليوب/منوف/طنطا وقليوب/شبين القناطر/الزقازيق",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-052"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-RAIL-QALYUB-JUNCTION-LINES-SCHEDULE-PORTAL-1",
+    "entity_code": "RAIL-QALYUB",
+    "attribute": "junction_lines_schedule_portal",
+    "value": "تقع على خط القاهرة–الإسكندرية وخط منوف وخط الشرق (135 وجهة وفق منصة غير رسمية)",
+    "unit": null,
+    "valid_as_of": "2026-11-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-050"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-DELTA-BARRAGE-DISTANCE-FROM-CAIRO-1",
+    "entity_code": "LANDMARK-DELTA-BARRAGE",
+    "attribute": "distance_from_cairo",
+    "value": "22",
+    "unit": "km",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-053"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-DELTA-BARRAGE-FOUNDATION-STONE-DATE-1",
+    "entity_code": "LANDMARK-DELTA-BARRAGE",
+    "attribute": "foundation_stone_date",
+    "value": "أبريل 1843 في عهد محمد علي باشا",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-053"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-DELTA-BARRAGE-OFFICIAL-HYDRO-GROUP-1",
+    "entity_code": "LANDMARK-DELTA-BARRAGE",
+    "attribute": "official_hydro_group",
+    "value": "مجموعة قناطر الدلتا التابعة لوزارة الموارد المائية والري",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-054"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-DELTA-BARRAGE-STATED-OPENING-DATE-QALYUBIA-PORTAL-1",
+    "entity_code": "LANDMARK-DELTA-BARRAGE",
+    "attribute": "stated_opening_date_qalyubia_portal",
+    "value": "30 أغسطس 1986 واتُّخذ عيدًا قوميًا للمحافظة (كما ورد نصًا ببوابة محافظة القليوبية، مع عدم اتساق السنة مع البدء في 1843)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-053"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MOHAMED-ALI-PALACE-SHUBRA-ARCHITECTURAL-LAYOUT-1",
+    "entity_code": "LANDMARK-MOHAMED-ALI-PALACE-SHUBRA",
+    "attribute": "architectural_layout",
+    "value": "يجمع بين الأسلوب الأوروبي في الزخارف وتخطيط العمارة الإسلامية (4 ظلات تحيط بفسقية ضخمة)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-055"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MOHAMED-ALI-PALACE-SHUBRA-CONSTRUCTION-PERIOD-1",
+    "entity_code": "LANDMARK-MOHAMED-ALI-PALACE-SHUBRA",
+    "attribute": "construction_period",
+    "value": "استمر بناؤه نحو 13 عامًا بدءًا من عام 1808 م",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-053"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MOHAMED-ALI-PALACE-SHUBRA-RESTORATION-STATUS-1",
+    "entity_code": "LANDMARK-MOHAMED-ALI-PALACE-SHUBRA",
+    "attribute": "restoration_status",
+    "value": "مشروع ترميم وإعادة تأهيل قصر محمد علي بشبرا الخيمة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-056"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-OBELISK-SENUSRET-MATARIYA-ARCHAEOLOGICAL-ZONE-1",
+    "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+    "attribute": "archaeological_zone",
+    "value": "منطقة آثار المطرية ومعبد الشمس",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-058"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-OBELISK-SENUSRET-MATARIYA-HEIGHT-ELBALAD-1",
+    "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+    "attribute": "height_elbalad",
+    "value": "21",
+    "unit": "m",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-061"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-OBELISK-SENUSRET-MATARIYA-HEIGHT-YOUM7-1",
+    "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+    "attribute": "height_youm7",
+    "value": "20.40",
+    "unit": "m",
+    "valid_as_of": "2018-02-17",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-OBELISK-SENUSRET-MATARIYA-NECROPOLIS-CONTEXT-1",
+    "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+    "attribute": "necropolis_context",
+    "value": "تقع ضمن نطاق جبانة هليوبوليس التاريخية بعين شمس (مقبرة بانحسي بمنطقة آثار المطرية)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-059"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-OBELISK-SENUSRET-MATARIYA-SITE-ADDRESS-1",
+    "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+    "attribute": "site_address",
+    "value": "ميدان المسلة القديم، المطرية (مواعيد الزيارة 8 ص – 5 م، ورمضان 9 ص – 4 م)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-057"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-OBELISK-SENUSRET-MATARIYA-WEIGHT-1",
+    "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+    "attribute": "weight",
+    "value": "121",
+    "unit": "tons",
+    "valid_as_of": "2018-02-17",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-060"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-VIRGIN-MARY-TREE-DEVELOPMENT-STATUS-2025-1",
+    "entity_code": "LANDMARK-VIRGIN-MARY-TREE",
+    "attribute": "development_status_2025",
+    "value": "شملها التطوير ضمن نقاط مسار العائلة المقدسة المدرجة في ملف حصاد 2025",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-063"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-VIRGIN-MARY-TREE-HOLY-FAMILY-STATION-1",
+    "entity_code": "LANDMARK-VIRGIN-MARY-TREE",
+    "attribute": "holy_family_station",
+    "value": "نقطة رئيسية ضمن مسار رحلة العائلة المقدسة في مصر",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-062"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-QOBBA-PALACE-GEOGRAPHIC-EXTENT-1",
+    "entity_code": "LANDMARK-QOBBA-PALACE",
+    "attribute": "geographic_extent",
+    "value": "يمتد من محطة مترو سراي القبة حتى محطة مترو كوبري القبة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-045"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-FENG-SHOUBRA-ACCREDITATION-1",
+    "entity_code": "LANDMARK-FENG-SHOUBRA",
+    "attribute": "accreditation",
+    "value": "معتمدة من الهيئة القومية لضمان جودة التعليم والاعتماد",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-066"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-FENG-SHOUBRA-ADDRESS-1",
+    "entity_code": "LANDMARK-FENG-SHOUBRA",
+    "attribute": "address",
+    "value": "108 ش شبرا، القاهرة (المبنى الرئيسي)، والمبنى الفرعي بميدان الخلفاوي بشبرا، الرمز البريدي 11629",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-064"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-FENG-SHOUBRA-FOUNDING-DECREE-1",
+    "entity_code": "LANDMARK-FENG-SHOUBRA",
+    "attribute": "founding_decree",
+    "value": "القرار الجمهوري رقم 367 لسنة 1976 بتاريخ 1976-04-07",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-065"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NASSER-INSTITUTE-BED-CAPACITY-1",
+    "entity_code": "LANDMARK-NASSER-INSTITUTE",
+    "attribute": "bed_capacity",
+    "value": "885",
+    "unit": "beds",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-046"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NASSER-INSTITUTE-EXPANSION-DIRECTIVE-1",
+    "entity_code": "LANDMARK-NASSER-INSTITUTE",
+    "attribute": "expansion_directive",
+    "value": "توجيه رئاسي بتحويل معهد ناصر إلى مدينة طبية متكاملة بإضافة مبانٍ جديدة وزيادة الطاقة الاستيعابية",
+    "unit": null,
+    "valid_as_of": "2022-08-01",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-069"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NASSER-INSTITUTE-MEDICAL-CITY-REDEVELOPMENT-1",
+    "entity_code": "LANDMARK-NASSER-INSTITUTE",
+    "attribute": "medical_city_redevelopment",
+    "value": "متابعة الموقف التنفيذي لتحويله إلى مدينة طبية عالمية وإنشاء أكبر مركز إقليمي لزراعة الأعضاء",
+    "unit": null,
+    "valid_as_of": "2022-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-068"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-NASSER-INSTITUTE-NILE-WING-CAPACITY-1",
+    "entity_code": "LANDMARK-NASSER-INSTITUTE",
+    "attribute": "nile_wing_capacity",
+    "value": "50 سرير رعاية مركزة و50 سرير إقامة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-067"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MATARIYA-TEACHING-HOSP-AREA-1",
+    "entity_code": "LANDMARK-MATARIYA-TEACHING-HOSP",
+    "attribute": "area",
+    "value": "10",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-070"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MATARIYA-TEACHING-HOSP-BED-CAPACITY-1",
+    "entity_code": "LANDMARK-MATARIYA-TEACHING-HOSP",
+    "attribute": "bed_capacity",
+    "value": "687",
+    "unit": "beds",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-070"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-MATARIYA-TEACHING-HOSP-DISTRICT-LANDMARK-LOCATION-1",
+    "entity_code": "LANDMARK-MATARIYA-TEACHING-HOSP",
+    "attribute": "district_landmark_location",
+    "value": "ميدان المطرية، القاهرة (وردت الإشارة إليه في وصف عنوان مجاور بميدان المطرية بدليل الهيئة)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-071"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-SAHEL-TEACHING-HOSP-ADDRESS-DIRECTORY-ENTRY-1",
+    "entity_code": "LANDMARK-SAHEL-TEACHING-HOSP",
+    "attribute": "address_directory_entry",
+    "value": "ورد بدليل الهيئة عنوان بالساحل (2 شارع يوسف كرم، الساحل، خلف سنترال شبرا) مع اقتطاع عنوان الجدول بالمقتطف",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-071"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-SAHEL-TEACHING-HOSP-OPERATIONAL-STATUS-1",
+    "entity_code": "LANDMARK-SAHEL-TEACHING-HOSP",
+    "attribute": "operational_status",
+    "value": "مستشفى تعليمي تخصصي عامل تابع للهيئة العامة للمستشفيات والمعاهد التعليمية",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-072"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-QALYUB-SPEC-HOSP-ADDRESS-1",
+    "entity_code": "LANDMARK-QALYUB-SPEC-HOSP",
+    "attribute": "address",
+    "value": "شارع العاشر من رمضان، بجوار التأمين الصحي، قليوب",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-073"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-QALYUB-SPEC-HOSP-OFFICIAL-NAMING-VARIANTS-1",
+    "entity_code": "LANDMARK-QALYUB-SPEC-HOSP",
+    "attribute": "official_naming_variants",
+    "value": "يرد باسم مستشفى قليوب المركزي في دليل المستشفيات والرئاسة (أمانة المراكز الطبية المتخصصة) وباسم مستشفى قليوب التخصصي في بيان المحافظة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-075"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-KHANKA-SPEC-HOSP-ADDED-BEDS-1",
+    "entity_code": "LANDMARK-KHANKA-SPEC-HOSP",
+    "attribute": "added_beds",
+    "value": "77",
+    "unit": "beds",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-076"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-KHANKA-SPEC-HOSP-OFFICIAL-NAMING-VARIANTS-1",
+    "entity_code": "LANDMARK-KHANKA-SPEC-HOSP",
+    "attribute": "official_naming_variants",
+    "value": "يرد باسم مستشفى الخانكة المركزي في رئاسة الجمهورية وحصاد 2025 وباسم مستشفى الخانكة التخصصي في بيان مستشفيات القليوبية",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-075"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-KHANKA-SPEC-HOSP-REVAMP-COST-1",
+    "entity_code": "LANDMARK-KHANKA-SPEC-HOSP",
+    "attribute": "revamp_cost",
+    "value": "139.436",
+    "unit": "million_EGP",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-076"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NWRC-QANATER-HYDRAULIC-MODELING-ROLE-1",
+    "entity_code": "AUTH-NWRC-QANATER",
+    "attribute": "hydraulic_modeling_role",
+    "value": "يضم المعامل البحثية والنماذج الهيدروليكية للمشروعات المائية الكبرى مثل قناطر ديروط الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-078"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-AUTH-NWRC-QANATER-LOCATION-AND-FACILITIES-1",
+    "entity_code": "AUTH-NWRC-QANATER",
+    "attribute": "location_and_facilities",
+    "value": "يقع بالقناطر الخيرية ويضم المعامل المركزية للرصد البيئي",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-077"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RING-ROAD-DEV-GOVERNORATES-COVERED-1",
+    "entity_code": "PROJ-RING-ROAD-DEV",
+    "attribute": "governorates_covered",
+    "value": "القاهرة، الجيزة، القليوبية",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-079"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RING-ROAD-DEV-PHASE-1-SURFACE-ROADS-1",
+    "entity_code": "PROJ-RING-ROAD-DEV",
+    "attribute": "phase_1_surface_roads",
+    "value": "رصف الطرق أسفل الطريق الدائري في المسافة من نفق السلام حتى تقاطعه مع محور 26 يوليو",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-009"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-RING-ROAD-DEV-TOTAL-CORRIDOR-LENGTH-1",
+    "entity_code": "PROJ-RING-ROAD-DEV",
+    "attribute": "total_corridor_length",
+    "value": "110",
+    "unit": "km",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-063"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-KHOSOUS-DEV-ADDED-SERVICES-AREA-1",
+    "entity_code": "PROJ-KHOSOUS-DEV",
+    "attribute": "added_services_area",
+    "value": "67",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-081"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-KHOSOUS-DEV-MASTERPLAN-AND-PROJECTS-STATUS-1",
+    "entity_code": "PROJ-KHOSOUS-DEV",
+    "attribute": "masterplan_and_projects_status",
+    "value": "بدء العمل الفعلي لتحديث المخطط الاستراتيجي بواسطة هيئة التخطيط العمراني، بالتوازي مع عمارات الخصوص 11 ومحطة المياه المرشحة 90 ل/ث ومشروعات التعليم",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-080"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-GABAL-EL-ASFAR-WWTP-AREA-1",
+    "entity_code": "PROJ-GABAL-EL-ASFAR-WWTP",
+    "attribute": "area",
+    "value": "78",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-082"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-GABAL-EL-ASFAR-WWTP-CAPACITY-1",
+    "entity_code": "PROJ-GABAL-EL-ASFAR-WWTP",
+    "attribute": "capacity",
+    "value": "2.5",
+    "unit": "million_m3_per_day",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-082"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-GABAL-EL-ASFAR-WWTP-PHASE-3-AND-SEWER-LINK-1",
+    "entity_code": "PROJ-GABAL-EL-ASFAR-WWTP",
+    "attribute": "phase_3_and_sewer_link",
+    "value": "المرحلة الثالثة مدرجة بحصاد 2025 وربطها بخط صرف صحي بالانحدار من القاهرة الجديدة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-083"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SALAM-1-AHALINA-2-SPECS-1",
+    "entity_code": "DIST-SALAM-1",
+    "attribute": "ahalina_2_specs",
+    "value": "يقع مشروع أهالينا 2 بمحور ترعة الطوارئ بحي السلام أول على مساحة 15 فدانًا ويضم 30 عمارة سكنية من 10 أدوار وبدروم ومحلات تجارية",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SALAM-1-CAIRO-ADMIN-ZONE-1",
+    "entity_code": "DIST-SALAM-1",
+    "attribute": "cairo_admin_zone",
+    "value": "المنطقة الشرقية (تصنيف محافظة القاهرة الإداري)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SALAM-1-HOUSING-COMPLEXES-HOSTED-1",
+    "entity_code": "DIST-SALAM-1",
+    "attribute": "housing_complexes_hosted",
+    "value": "أهالينا 1 وأهالينا 2",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SALAM-2-CAIRO-ADMIN-ZONE-1",
+    "entity_code": "DIST-SALAM-2",
+    "attribute": "cairo_admin_zone",
+    "value": "المنطقة الشرقية (تصنيف محافظة القاهرة الإداري)",
+    "unit": null,
+    "valid_as_of": "2026-06-09",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SALAM-2-DISTRICT-LISTING-STATUS-1",
+    "entity_code": "DIST-SALAM-2",
+    "attribute": "district_listing_status",
+    "value": "مدرج ضمن أحياء محافظة القاهرة الرسمية",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-DIST-SALAM-2-NOTABLE-SUBAREAS-1",
+    "entity_code": "DIST-SALAM-2",
+    "attribute": "notable_subareas",
+    "value": "مساكن الصعيد، طريق بريفكتو، تقسيم الضباط المتقاعدين",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-OBOUR-DEVELOPMENT-AUTHORITY-2",
+    "entity_code": "CITY-OBOUR",
+    "attribute": "development_authority",
+    "value": "جهاز تنمية مدينة العبور",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-OBOUR-GOVERNORATE-JURISDICTION-1",
+    "entity_code": "CITY-OBOUR",
+    "attribute": "governorate_jurisdiction",
+    "value": "محافظة القليوبية (مدينة جديدة)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-OBOUR-POPULATION-1",
+    "entity_code": "CITY-OBOUR",
+    "attribute": "population",
+    "value": "550000",
+    "unit": "residents",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-009"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-FOUNDATION-STONE-DATE-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "foundation_stone_date",
+    "value": "مارس 2018",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-GOVERNORATE-AND-GREEN-HOUSING-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "governorate_and_green_housing",
+    "value": "تقع بمحافظة القليوبية؛ طُرح بها 1320 وحدة إسكان أخضر بإعلان سكن لكل المصريين 7 (4200 متقدم)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-GREEN-PARK-STATUS-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "green_park_status",
+    "value": "تحويل أرض مقلب بمدينة العبور الجديدة إلى متنزه أخضر لسكان المدينة",
+    "unit": null,
+    "valid_as_of": "2026-04-05",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-014"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-PHASE-1-AREA-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "phase_1_area",
+    "value": "3000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-PHASE-1-SOCIAL-HOUSING-UNITS-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "phase_1_social_housing_units",
+    "value": "26000",
+    "unit": "units",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-TOTAL-AREA-NUCA-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "total_area_nuca",
+    "value": "59000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-TOTAL-AREA-SIS-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "total_area_sis",
+    "value": "58000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-CITY-NEW-OBOUR-URBAN-MASS-AREA-1",
+    "entity_code": "CITY-NEW-OBOUR",
+    "attribute": "urban_mass_area",
+    "value": "22000",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-BILBEIS-DESERT-BRT-SERVICE-LINK-1",
+    "entity_code": "ROAD-BILBEIS-DESERT",
+    "attribute": "brt_service_link",
+    "value": "تخدم محطة مسطرد للأتوبيس الترددي السريع طريق بلبيس",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-BILBEIS-DESERT-CORRIDOR-CONNECTIONS-1",
+    "entity_code": "ROAD-BILBEIS-DESERT",
+    "attribute": "corridor_connections",
+    "value": "يرتبط بطريق جسر السويس عبر محور الفريق إبراهيم العرابي (بطول 13.5 كم)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-032"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-NORTH-PHASE-1-HISTORY-1",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "north_phase_1_history",
+    "value": "افتتحت المرحلة الأولى (شبرا الخيمة – الشهداء، 8 محطات بطول 8 كم) عام 1996",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-037"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-STATIONS-COUNT-2",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "stations_count",
+    "value": "20",
+    "unit": "stations",
+    "valid_as_of": "2023-09-14",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-N7-038"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-METRO-L2-TERMINALS-1",
+    "entity_code": "TRANSIT-METRO-L2",
+    "attribute": "terminals",
+    "value": "شبرا الخيمة – المنيب (قيام أول قطار 5:15 صباحًا)",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-036"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-FLEET-SIZE-PHASES-1-2-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "fleet_size_phases_1_2",
+    "value": "100",
+    "unit": "electric_buses",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-HEADWAY-2",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "headway",
+    "value": "3",
+    "unit": "minutes",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-HOURLY-CAPACITY-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "hourly_capacity",
+    "value": "3200",
+    "unit": "passengers_per_hour",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-INAUGURATION-DATE-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "inauguration_date",
+    "value": "يونيو 2025",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-LENGTH-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "length",
+    "value": "35",
+    "unit": "km",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-BRT-STATIONS-COUNT-1",
+    "entity_code": "TRANSIT-BRT",
+    "attribute": "stations_count",
+    "value": "14",
+    "unit": "stations",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-M2-AL-MEZALLAT-LANDMARKS-SERVED-1",
+    "entity_code": "STOP-M2-AL-MEZALLAT",
+    "attribute": "landmarks_served",
+    "value": "منطقة عبود، موقف عبود، نادي إسكو، معهد ناصر، شارع شبرا، كوبري المظلات، منطقة أغاخان، موقف أتوبيسات النقل العام",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-039"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-M2-KHALAFAWY-LANDMARKS-SERVED-1",
+    "entity_code": "STOP-M2-KHALAFAWY",
+    "attribute": "landmarks_served",
+    "value": "معهد ناصر، شارع شبرا، كورنيش النيل، أبراج أغاخان، ميدان المماليك، شارع البحر، شارع الحرية",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-040"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-M2-RAWD-EL-FARAG-OFFICIAL-STATION-STATUS-1",
+    "entity_code": "STOP-M2-RAWD-EL-FARAG",
+    "attribute": "official_station_status",
+    "value": "محطة عاملة على الخط الثاني لمترو القاهرة",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-041"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-M2-MASSARA-LANDMARKS-SERVED-1",
+    "entity_code": "STOP-M2-MASSARA",
+    "attribute": "landmarks_served",
+    "value": "شارع أفلاطون، شارع شبرا، شارع الترعة البولاقية، شارع البهار زهير، شارع مسرة، مأمورية ضرائب الساحل، مجمع الأحياء",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-042"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-M1-MANSHIET-AL-SADR-LANDMARKS-SERVED-1",
+    "entity_code": "STOP-M1-MANSHIET-AL-SADR",
+    "attribute": "landmarks_served",
+    "value": "حدائق القبة، جامعة عين شمس، المدينة الجامعية، شارع الكنيسة، شارع الجامع، شارع القائد، شارع شلبي",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-043"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-M1-KOBRI-AL-QOBBA-LANDMARKS-SERVED-1",
+    "entity_code": "STOP-M1-KOBRI-AL-QOBBA",
+    "attribute": "landmarks_served",
+    "value": "قصر القبة، منطقة الحدائق، وزارة الدفاع، مستشفى كوبري القبة العسكري، سكة الوايلي، ترعة الجبل، موقف سيارات المطرية والأميرية",
+    "unit": null,
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-044"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-AHALINA-1-AREA-2",
+    "entity_code": "PROJ-AHALINA-1",
+    "attribute": "area",
+    "value": "11",
+    "unit": "feddan",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-AHALINA-1-BUILDINGS-COUNT-1",
+    "entity_code": "PROJ-AHALINA-1",
+    "attribute": "buildings_count",
+    "value": "25",
+    "unit": "buildings",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-PROJ-AHALINA-1-COST-2",
+    "entity_code": "PROJ-AHALINA-1",
+    "attribute": "cost",
+    "value": "600",
+    "unit": "million_EGP",
+    "valid_as_of": "2026-11-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-N7-003"
+    ],
+    "notes": null
   }
 ]
