@@ -14,9 +14,9 @@ describe("checksummed production dataset gate", () => {
     const summary = await runAutomaticAtlasImport(process.cwd(), { dryRun: true });
     expect(summary.dryRun).toBe(true);
     expect(summary.entitiesCount).toBe(535);
-    expect(summary.evidenceCount).toBe(730);
-    expect(summary.factsCount).toBe(2685);
-    expect(summary.factEvidenceLinksCount).toBe(3038);
+    expect(summary.evidenceCount).toBe(764);
+    expect(summary.factsCount).toBe(2735);
+    expect(summary.factEvidenceLinksCount).toBe(3088);
     expect(summary.featuresCount).toBe(3031);
   });
 
