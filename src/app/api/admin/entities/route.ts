@@ -38,6 +38,7 @@ export async function GET(request: Request) {
     const booleanParam = (value: string | null): boolean | undefined => (value === "true" ? true : value === "false" ? false : undefined);
     const page = Number.parseInt(params.get("page") ?? "1", 10);
     const pageSize = Number.parseInt(params.get("page_size") ?? "25", 10);
+    const boundaryCodes = await getAreaBoundaryCodes();
     const result = await listEntities({
       q: params.get("q") ?? undefined,
       entity_type: params.get("type") ?? undefined,
@@ -47,21 +48,10 @@ export async function GET(request: Request) {
       has_boundary: booleanParam(params.get("boundary")),
       page: Number.isFinite(page) ? page : 1,
       page_size: Number.isFinite(pageSize) ? pageSize : 25,
-    }, );
+    }, undefined, [...boundaryCodes]);
 
-    // Boundaries come from the boundary GeoJSON files, not a table, so they are joined here rather
-    // than fabricated in SQL.
-    const boundaryParam = booleanParam(params.get("boundary"));
-    let rows = result.rows;
-    let total = result.total;
-    if (boundaryParam !== undefined) {
-      const boundaryCodes = await getAreaBoundaryCodes();
-      rows = rows.map((row) => ({ ...row, has_boundary: boundaryCodes.has(row.code) })).filter((row) => row.has_boundary === boundaryParam);
-      if (total === rows.length) total = rows.length;
-    } else {
-      const boundaryCodes = await getAreaBoundaryCodes();
-      rows = rows.map((row) => ({ ...row, has_boundary: boundaryCodes.has(row.code) }));
-    }
+    const rows = result.rows.map((row) => ({ ...row, has_boundary: boundaryCodes.has(row.code) }));
+    const total = result.total;
     return NextResponse.json({ ok: true, rows, total, page: result.page, page_size: result.page_size }, { headers: { "Cache-Control": "no-store, max-age=0" } });
   } catch (error) {
     return toApiErrorResponse(error);

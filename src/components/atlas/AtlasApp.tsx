@@ -29,13 +29,14 @@ import { InfoMenu, MapAttribution, MapLoading } from "./MapChrome";
 import { rememberEntity } from "@/lib/atlas/search";
 import { ResearchModeToggle, ResearcherOnly, useResearchMode } from "@/components/site/ResearchMode";
 import { FirstVisitGuide } from "./FirstVisitGuide";
-import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact, EntityListResponse } from "./atlas-client";
+import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact } from "./atlas-client";
 import { resolveStatusByYear, resolveTimelineUrlState, timelineSummary, timelineYearParam, timelineYearRange } from "@/lib/atlas/status-timeline";
 import { TimeControl } from "./TimeControl";
 import { approximateRadiusPolygon } from "@/lib/atlas/service-area";
 import type { GeometryAlternative } from "@/lib/atlas/geometry-comparisons";
 import { STATUSES } from "./atlas-client";
 import { featureZoomBand, scheduleFeatureRequest } from "@/lib/atlas/feature-zoom";
+import { loadEntities } from "./load-entities";
 
 const emptyFilters: AtlasFilters = { type: "", sector: "", status: "", mappedOnly: false };
 const defaultLayerGroups: AtlasLayerGroupState = { infrastructure: true, transport: true, areas: true, projects: true, reference: true };
@@ -281,14 +282,9 @@ export default function AtlasApp({ initialEntities, initialAlternatives, initial
     if (filters.sector) params.set("sector", filters.sector);
     if (filters.status) params.set("status", filters.status);
     if (filters.mappedOnly) params.set("has_geometry", "true");
-    fetch(`/api/atlas/entities?${params}`, { signal: controller.signal })
-      .then(async (response) => {
-        if (!response.ok) throw new Error((await response.json()).error?.message ?? `HTTP ${response.status}`);
-        return response.json() as Promise<EntityListResponse>;
-      })
-      .then((payload) => setEntities(payload.entities))
-      .catch((error: unknown) => { if (!(error instanceof DOMException && error.name === "AbortError")) setEntitiesError(messageFrom(error, language)); })
-      .finally(() => setEntitiesLoading(false));
+    loadEntities(params, controller.signal, setEntities)
+      .catch((error: unknown) => { if (!controller.signal.aborted) setEntitiesError(messageFrom(error, language)); })
+      .finally(() => { if (!controller.signal.aborted) setEntitiesLoading(false); });
     return () => controller.abort();
   }, [filters.type, filters.sector, filters.status, filters.mappedOnly, language]);
 
