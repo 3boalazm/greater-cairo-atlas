@@ -53,6 +53,14 @@ describe("feature ingestion validation and GeoJSON API", () => {
     expect(features[0]).toMatchObject({ code: "OSM-WAY-100", entity_code: roadEntity.code, license: "ODbL-1.0", osm_type: "way", osm_id: 100, osm_version: 3 });
   });
 
+  it("accepts the canonical CAPMAS licence without OSM lineage", async () => {
+    const item = geojsonFeature({ license: "CC-BY-IGO", osm_type: null, osm_id: null, osm_version: null,
+      properties: { source: "CAPMAS", attribution: "© CAPMAS via OCHA/HDX, CC BY-IGO", retrieval_date: "2026-11-13" } });
+    await expect(loadAndValidateFeatureCollection(await featureFile([item]), [roadEntity])).resolves.toHaveLength(1);
+    const osm = geojsonFeature({ license: "CC-BY-IGO" });
+    await expect(loadAndValidateFeatureCollection(await featureFile([osm]), [roadEntity])).rejects.toThrow(/OpenStreetMap lineage/);
+  });
+
   it("uses the extended envelope for roads only and never creates unknown entities", async () => {
     const extendedRoad = JSON.parse(JSON.stringify(geojsonFeature())) as Record<string, unknown>;
     extendedRoad.geometry = { type: "LineString", coordinates: [[32.2, 30.85], [32.25, 30.86]] };
