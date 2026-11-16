@@ -88,7 +88,8 @@ function normalizeName(value: string): string {
   return value
     .normalize("NFKC")
     .replace(/[\u0640\u200c\u200d\u00a0]/gu, "")
-    .replace(/[\u064b-\u0652]/gu, "")
+    .replace(/[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
+    .replace(/[٠-٩۰-۹]/gu, (digit) => String("٠١٢٣٤٥٦٧٨٩".includes(digit) ? "٠١٢٣٤٥٦٧٨٩".indexOf(digit) : "۰۱۲۳۴۵۶۷۸۹".indexOf(digit)))
     .replace(/[أإآٱ]/gu, "ا")
     .replace(/ى/gu, "ي")
     .replace(/ة/gu, "ه")

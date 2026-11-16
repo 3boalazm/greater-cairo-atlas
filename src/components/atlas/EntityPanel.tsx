@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { MapPinOff, MapPinned, X } from "lucide-react";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { CalendarClock, CircleAlert, CircleCheck, Construction } from "lucide-react";
 import { useResearchMode } from "@/components/site/ResearchMode";
 import { TimelinePanelNote } from "./TimeControl";
@@ -34,16 +34,19 @@ function FactCard({ fact, language }: { fact: AtlasEntityFact; language: AtlasLa
       {dateText(fact, ar) && <span>{ar ? "صالح بتاريخ" : "Valid as of"} {dateText(fact, ar)}{fact.valid_as_of_precision !== "day" ? ` · ${ar ? `دقة ${fact.valid_as_of_precision === "month" ? "شهر" : "سنة"}` : `${fact.valid_as_of_precision} precision`}` : ""}</span>}
       {fact.notes && <p>{fact.notes}</p>}
     </div>
-    {fact.evidence.length > 0 ? <ul className="evidence-list" aria-label={ar ? "المصادر" : "Sources"}>
-      {fact.evidence.map((source) => <li key={source.code}>
-        <span className="source-type" title={source.source_type}>{translateLabel(SOURCE_TYPE_LABELS, source.source_type, language)}</span>
-        <div><strong>{source.publisher}</strong>{source.source_type === "secondary" && <span className="weak-source">{ar ? "مصدر ثانوي · ضعيف" : "Secondary · weak source"}</span>}
-          {source.url ? <a href={source.url} target="_blank" rel="noreferrer">{source.title || source.url}<span className="sr-only"> ({ar ? "يفتح في تبويب جديد" : "opens in a new tab"})</span></a> : <span className="source-no-url">{source.title} · {ar ? "لا يوجد رابط" : "No URL"}</span>}
-          <small>{source.code}{source.accessed_date ? ` · ${ar ? "اطّلع عليه" : "accessed"} ${source.accessed_date}` : ""}</small>
-        </div>
-      </li>)}
-    </ul> : <p className="no-evidence">{ar ? "لا توجد إحالات مصدرية مرتبطة." : "No linked evidence records."}</p>}
+    <SourceBadge fact={fact} language={language} />
   </article>;
+}
+
+function SourceBadge({ fact, language }: { fact: AtlasEntityFact; language: AtlasLanguage }) {
+  const ar = language === "ar";
+  return <details className="fact-source-badge"><summary>{ar ? "المصدر" : "Source"}{fact.evidence.length > 1 ? ` (${fact.evidence.length})` : ""}</summary>
+    {fact.evidence.length ? <ul className="evidence-list">{fact.evidence.map((source) => <li key={source.code}>
+      <span className="source-type">{translateLabel(SOURCE_TYPE_LABELS, source.source_type, language)}</span><div><strong>{source.publisher}</strong>
+      <small>{source.published_date ? `${ar ? "نُشر" : "Published"}: ${source.published_date}` : (ar ? "تاريخ النشر غير معروف" : "Publication date unknown")}{source.accessed_date ? ` · ${ar ? "اطّلع عليه" : "accessed"} ${source.accessed_date}` : ""}</small>
+      {source.url ? <a href={source.url} target="_blank" rel="noreferrer">{source.title || source.url}</a> : <span className="source-no-url">{source.title || (ar ? "لا يوجد رابط" : "No URL")}</span>}</div>
+    </li>)}</ul> : <p className="no-evidence">{ar ? "لا توجد إحالات مصدرية مرتبطة." : "No linked evidence records."}</p>}
+  </details>;
 }
 
 function simpleStatus(status: string) {
@@ -80,6 +83,10 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
+  const [sheetHeight, setSheetHeight] = useState<number | null>(null);
+  const dragStart = useRef<number | null>(null);
+  const didDrag = useRef(false);
+  const [actionMessage, setActionMessage] = useState("");
   const ar = language === "ar";
   const { researcherMode } = useResearchMode();
   const partialNote = partialGeometryNote(entity?.code, geometryCompleteness, language);
@@ -126,24 +133,51 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
   for (const fact of (entity?.facts ?? []).filter((item) => item.attribute in simpleFactLabels && hasDisplayableQuickFactValue(item.value) && !["rejected", "superseded"].includes(item.verification_state))) {
     simpleFactGroups.set(fact.attribute, [...(simpleFactGroups.get(fact.attribute) ?? []), fact]);
   }
-  const simpleFacts = [...simpleFactGroups.entries()].map(([attribute, claims]) => {
+  const conflicts = groups.filter(([, facts]) => new Set(facts.filter((fact) => !["rejected", "superseded"].includes(fact.verification_state) && /[0-9٠-٩۰-۹]/u.test(fact.value)).map((fact) => JSON.stringify([fact.value, fact.unit]))).size > 1);
+  const conflictingAttributes = new Set(conflicts.map(([attribute]) => attribute));
+  const simpleFacts = [...simpleFactGroups.entries()].filter(([attribute]) => !conflictingAttributes.has(attribute)).map(([attribute, claims]) => {
     const ordered = [...claims].sort((a, b) => {
       const official = (fact: typeof a) => fact.verification_state === "verified" && fact.evidence.some((item) => item.source_type === "official") ? 1 : 0;
       return official(b) - official(a) || String(b.valid_as_of ?? "").localeCompare(String(a.valid_as_of ?? "")) || a.code.localeCompare(b.code);
     });
     return { fact: ordered[0]!, sourceCount: new Set(ordered.flatMap((item) => item.evidence.map((source) => source.code))).size, attribute };
   }).sort((a, b) => Object.keys(simpleFactLabels).indexOf(a.attribute) - Object.keys(simpleFactLabels).indexOf(b.attribute)).slice(0, 3);
+  const related = (entity?.relations ?? []).flatMap((relation) => {
+    if (!entity) return [];
+    const target = relation.subject_code === entity.code ? relation.object : relation.subject;
+    const station = ["transit_stop", "rail_station", "transit_station"].includes(entity.entity_type);
+    const area = ["city", "district", "neighborhood"].includes(entity.entity_type);
+    if (station && target.entity_type === "transit_line" && relation.predicate === "has_station") return [target];
+    if (area && ["road", "bridge", "transit_line"].includes(target.entity_type)) return [target];
+    return [];
+  });
+  const copyText = async (text: string) => {
+    try { await navigator.clipboard.writeText(text); setActionMessage(ar ? "تم النسخ" : "Copied"); }
+    catch { setActionMessage(ar ? "تعذّر النسخ" : "Could not copy"); }
+  };
+  const downloadGeoJSON = async () => {
+    if (!entity) return;
+    try {
+      const response = await fetch(`/api/exports/entities/${encodeURIComponent(entity.code)}`);
+      if (!response.ok) throw new Error("export failed");
+      const data = await response.json() as { geometry: unknown; geometry_license: unknown; geometry_attribution: unknown };
+      if (!data.geometry) throw new Error("no geometry");
+      const collection = { type: "FeatureCollection", features: [{ type: "Feature", geometry: data.geometry, properties: { entity_code: entity.code, license: data.geometry_license, attribution: data.geometry_attribution } }] };
+      const url = URL.createObjectURL(new Blob([JSON.stringify(collection)], { type: "application/geo+json" }));
+      const link = document.createElement("a"); link.href = url; link.download = `${entity.code.toLowerCase()}.geojson`; link.click(); URL.revokeObjectURL(url);
+    } catch { setActionMessage(ar ? "تعذّر تنزيل الهندسة" : "Could not download geometry"); }
+  };
   const entityLineCodes = entity?.facts.filter((fact) => fact.attribute === "line_membership").map((fact) => fact.value) ?? [];
   const entityModeLabel = entity ? transitModeLabel(entity.code, language, entityLineCodes) : null;
   return <>
     <button className="panel-backdrop" tabIndex={-1} onClick={onClose} aria-label={ar ? "إغلاق تفاصيل الكيان" : "Close entity details"} />
-    <aside ref={panelRef} className={`entity-panel ${researcherMode ? "researcher-panel" : "simple-panel"}`} role="dialog" aria-modal="true" aria-labelledby="entity-panel-title" aria-busy={loading}>
-      <div className="sheet-grab" aria-hidden="true"><span /></div>
+    <aside ref={panelRef} style={sheetHeight === null ? undefined : { "--sheet-height": `${sheetHeight}px` } as CSSProperties} className={`entity-panel ${researcherMode ? "researcher-panel" : "simple-panel"}`} role="dialog" aria-modal="true" aria-labelledby="entity-panel-title" aria-busy={loading}>
+      <button type="button" className="sheet-grab" aria-label={ar ? "توسيع أو تصغير لوحة التفاصيل" : "Expand or collapse details"} onClick={() => { if (!didDrag.current) setSheetHeight((height) => height && height > window.innerHeight * 0.7 ? window.innerHeight * 0.45 : window.innerHeight * 0.85); didDrag.current = false; }} onPointerDown={(event) => { if (window.matchMedia("(max-width:760px)").matches) { dragStart.current = event.clientY; didDrag.current = false; event.currentTarget.setPointerCapture(event.pointerId); } }} onPointerMove={(event) => { if (event.currentTarget.hasPointerCapture(event.pointerId) && event.buttons && dragStart.current !== null && Math.abs(event.clientY - dragStart.current) > 4) { didDrag.current = true; setSheetHeight(Math.max(200, Math.min(window.innerHeight * 0.9, window.innerHeight - event.clientY))); } }} onPointerUp={() => { dragStart.current = null; }}><span /></button>
       <header className="entity-panel-header">
         <div className="entity-overline" title={researcherMode ? `${entity?.entity_type ?? "ATLAS ENTITY"} · ${entity?.sector ?? ""}` : undefined}>{entity ? translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language) : (ar ? "كيان أطلس" : "ATLAS ENTITY")} {researcherMode && entity && <><span>·</span> {translateLabel(SECTOR_LABELS, entity.sector, language)}</>}</div>
         <button ref={closeRef} className="close-panel" type="button" onClick={onClose} aria-label={ar ? "إغلاق" : "Close"}><X aria-hidden="true" /></button>
         {entity ? <><h2 id="entity-panel-title">{stationDisplayName(entity.code, ar ? entity.name_ar : entity.name_en)}</h2>
-          {researcherMode && <p className="entity-subtitle">{ar ? entity.name_en : entity.name_ar} <span>·</span> {entity.code}</p>}
+          <p className="entity-subtitle">{ar ? entity.name_en : entity.name_ar} {researcherMode && <button type="button" className="copy-code" onClick={() => void copyText(entity.code)} title={ar ? "نسخ الرمز" : "Copy code"}>{entity.code}</button>}</p>
           <div className="entity-badges">{researcherMode ? <span className={`status-pill status-${entity.status}`} title={entity.status}>{translateLabel(STATUS_LABELS, entity.status, language)}</span> : (() => { const state = simpleStatus(entity.status); const Icon = state.icon; return <span className={`simple-status-word status-${entity.status}`} aria-label={`${ar ? "الحالة" : "Status"}: ${state[language]}`}><Icon aria-hidden="true"/>{state[language]}</span>; })()}
             {researcherMode && entityModeLabel && <span className="transit-mode-pill">{entityModeLabel}</span>}
           </div></> : <h2 id="entity-panel-title">{loading ? (ar ? "جارٍ تحميل الكيان…" : "Loading entity…") : (ar ? "تعذر تحميل الكيان" : "Unable to load entity")}</h2>}
@@ -155,9 +189,16 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
           {!researcherMode && <section className="simple-entity-summary" aria-label={ar ? "ملخص الكيان" : "Entity summary"}>
             <p className="simple-entity-type">{translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language)}</p>
             {governorateParent && <p className="simple-entity-parent">{governorateParent}</p>}
-            {simpleFacts.length ? <ul>{simpleFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <span className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</span>}{quickFactSourceCountLabel(sourceCount, language) && <small>{quickFactSourceCountLabel(sourceCount, language)}</small>}</li>)}</ul> : <p className="simple-no-facts">{ar ? "لا توجد معلومات موجزة مسجلة بعد." : "No short facts have been recorded yet."}</p>}
-            <button type="button" className="show-on-map-button" aria-label={showOnMapLabel(language)} onClick={onShowOnMap}><span>{showOnMapLabel(language)}</span></button>
+            {simpleFacts.length ? <ul>{simpleFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <span className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</span>}{quickFactSourceCountLabel(sourceCount, language) && <small>{quickFactSourceCountLabel(sourceCount, language)}</small>}<SourceBadge fact={fact} language={language}/></li>)}</ul> : <p className="simple-no-facts">{ar ? "لا توجد معلومات موجزة مسجلة بعد." : "No short facts have been recorded yet."}</p>}
           </section>}
+          <div className="entity-quick-actions">
+            <button type="button" className="show-on-map-button" onClick={onShowOnMap}>{showOnMapLabel(language)}</button>
+            <button type="button" onClick={() => { const url = new URL(window.location.href); url.searchParams.set("entity", entity.code); void copyText(url.toString()); }}>{ar ? "انسخ الرابط" : "Copy link"}</button>
+            {researcherMode && <button type="button" disabled={!entity.has_geometry} onClick={() => void downloadGeoJSON()}>{ar ? "تنزيل GeoJSON" : "Download GeoJSON"}</button>}
+            {actionMessage && <small role="status">{actionMessage}</small>}
+          </div>
+          {!researcherMode && conflicts.length > 0 && <details className="simple-conflicts"><summary>{ar ? "في مصادر مختلفة بأرقام مختلفة" : "Sources report different values"}</summary>{conflicts.map(([attribute, facts]) => <section key={attribute}><h4>{translateLabel(FACT_ATTRIBUTE_LABELS, attribute, language)}</h4><div className="fact-grid conflicting-facts">{facts.filter((fact) => !["rejected", "superseded"].includes(fact.verification_state)).map((fact) => <article className="fact-card" key={fact.code}><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong><SourceBadge fact={fact} language={language} /></article>)}</div></section>)}</details>}
+          {!researcherMode && (related.length > 0 || (entity.neighbors?.length ?? 0) > 0) && <section className="simple-related"><h3>{ar ? "كيانات مرتبطة" : "Linked entities"}</h3><ul>{related.map((item) => <li key={item.code}><button type="button" onClick={() => onSelectRelated(item.code)}>{ar ? item.name_ar : item.name_en}</button></li>)}{entity.neighbors?.map((neighbor) => <li key={`${neighbor.subject_code}:${neighbor.object_code}`}><button type="button" onClick={() => onSelectRelated(neighbor.object_code)}>{neighbor.direction === "previous" ? (ar ? "السابقة: " : "Previous: ") : (ar ? "التالية: " : "Next: ")}{ar ? neighbor.object.name_ar : neighbor.object.name_en}</button></li>)}</ul></section>}
           <details className={`entity-panel-details ${researcherMode ? "is-researcher-details" : ""}`} open={researcherMode}>
             <summary>{researcherMode ? (ar ? "بيانات الباحث" : "Research details") : (ar ? "تفاصيل أكتر" : "More details")}</summary>
             <div className="entity-panel-research-content">

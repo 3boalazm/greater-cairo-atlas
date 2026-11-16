@@ -1,7 +1,6 @@
 "use client";
 /* eslint-disable react-hooks/set-state-in-effect -- fetch lifecycle and URL hydration synchronize external state. */
 
-import Link from "next/link";
 import { AlertTriangle, Database, MapPinned, RefreshCw } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AppSidebar } from "./AppSidebar";
@@ -20,11 +19,13 @@ import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 
 const MapView = dynamic(
   () => import("./MapView").then((module) => module.MapView),
-  { ssr: false, loading: () => <div className="map-canvas map-canvas-loading" role="status">Loading interactive map…</div> },
+  { ssr: false, loading: () => null },
 );
 import { ThemeToggle, useAtlasPreferences } from "./Preferences";
 import { SiteLanguageSwitch } from "@/components/site/SiteLanguageSwitch";
 import { SearchCommand } from "./SearchCommand";
+import { InfoMenu, MapAttribution, MapLoading } from "./MapChrome";
+import { rememberEntity } from "@/lib/atlas/search";
 import { ResearchModeToggle, ResearcherOnly, useResearchMode } from "@/components/site/ResearchMode";
 import { FirstVisitGuide } from "./FirstVisitGuide";
 import type { AtlasEntityDetail, AtlasEntitySummary, AtlasFeatureCollection, AtlasStatsResponse, AtlasTimelineStatusFact, EntityListResponse } from "./atlas-client";
@@ -38,7 +39,8 @@ const emptyFilters: AtlasFilters = { type: "", sector: "", status: "", mappedOnl
 const defaultLayerGroups: AtlasLayerGroupState = { infrastructure: true, transport: true, areas: true, projects: true, reference: true };
 
 function messageFrom(error: unknown, language: "ar" | "en") {
-  return error instanceof Error ? error.message : language === "ar" ? "تعذر الاتصال بالخدمة." : "Could not connect to the service.";
+  if (language === "ar") return "تعذر الاتصال بالخدمة.";
+  return error instanceof Error ? error.message : "Could not connect to the service.";
 }
 
 export default function AtlasApp({ initialEntities, initialFeatures, initialStats, initialLanguage, regionalCodes, statusTimeline }: {
@@ -389,7 +391,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
         if (!response.ok) throw new Error((await response.json()).error?.message ?? `HTTP ${response.status}`);
         return response.json() as Promise<AtlasEntityDetail>;
       })
-      .then(setDetail)
+      .then((result) => { setDetail(result); try { rememberEntity(window.localStorage, result.code); } catch { /* Storage is optional. */ } })
       .catch((error: unknown) => { if (!(error instanceof DOMException && error.name === "AbortError")) setDetailError(messageFrom(error, language)); })
       .finally(() => setDetailLoading(false));
     return () => controller.abort();
@@ -397,6 +399,7 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
 
   const selectEntity = useCallback((code: string) => {
     setSelectedCode(code);
+    try { rememberEntity(window.localStorage, code); } catch { /* Storage is optional. */ }
     setServiceRadiusMeters(0);
     setHighlightBoundary(null);
     setBoundaryError(null);
@@ -557,8 +560,8 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
     <section className="atlas-workspace">
       <header className="atlas-topbar">
         <div className="topbar-heading"><span className="eyebrow">{ar ? "مصر · دلتا النيل" : "EGYPT · NILE DELTA"}</span><strong>{ar ? "الخريطة التفاعلية" : "Interactive map"}</strong></div>
-        <SearchCommand language={language} onSelect={selectEntity} onShowBoundary={toggleAreaBoundary} />
-        <ResearcherOnly><nav className="atlas-info-nav" aria-label={ar ? "روابط الباحث" : "Research links"}><Link href={`/${language}/directory`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/${language}/data`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/${language}/methodology`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/${language}/sources`}>{ar ? "المصادر" : "Sources"}</Link><Link href={`/${language}/api-docs`}>{ar ? "توثيق API" : "API docs"}</Link></nav></ResearcherOnly>
+        <SearchCommand language={language} entities={initialEntities.map((entity) => ({ ...entity, has_boundary: entities.find((current) => current.code === entity.code)?.has_boundary }))} onSelect={selectEntity} onShowBoundary={toggleAreaBoundary} />
+        <InfoMenu language={language} />
         <div className="topbar-actions"><ResearchModeToggle language={language} compact/><FirstVisitGuide language={language}/><ThemeToggle theme={theme} onChange={setTheme} language={language} /><SiteLanguageSwitch language={language} label={ar ? "English" : "العربية"} /></div>
       </header>
       <ResearcherOnly><section className="stats-strip" aria-label={ar ? "إحصاءات قاعدة البيانات" : "Database statistics"} aria-live="polite">
@@ -629,14 +632,13 @@ export default function AtlasApp({ initialEntities, initialFeatures, initialStat
           </details>
           <span className="map-feature-count" aria-live="polite">{featuresLoading ? "…" : totalFeatures} {ar ? "ميزة هندسية" : "features"}</span></ResearcherOnly>
         </div>
+        {mapStyleStatus === "loading" && <MapLoading language={language} />}
         {((featuresLoading && features.features.length === 0) || (entitiesLoading && entities.length === 0)) && <div className="map-loading" role="status"><RefreshCw aria-hidden="true" />{ar ? "جارٍ تحميل بيانات الأطلس…" : "Loading atlas data…"}</div>}
         {(featuresError || entitiesError || boundaryError) && <div className="map-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{boundaryError ?? featuresError ?? entitiesError}</span></div>}
         {mapStyleStatus === "error" && <div className="map-error map-style-error" role="alert"><AlertTriangle aria-hidden="true" /><span>{ar ? "تعذّر تحميل خريطة OpenFreeMap." : "Could not load the OpenFreeMap basemap."}</span><button type="button" onClick={() => { setMapStyleStatus("loading"); setMapGeneration((value) => value + 1); }}>{ar ? "إعادة المحاولة" : "Retry"}</button></div>}
         {!featuresLoading && !featuresError && totalFeatures === 0 && <div className="map-empty">{ar ? "لا توجد هندسة تطابق هذه الفلاتر. الكيانات تظل متاحة في القائمة والبحث." : "No geometries match these filters. Entities remain available in the list and search."}</div>}
         {researcherMode && serviceRadiusMeters > 0 && <div className="service-area-map-label" role="status">{ar ? `نصف قطر تقريبي ${serviceRadiusMeters} م · ليس نطاق تغطية فعليًا` : `Approximate ${serviceRadiusMeters} m radius · not an actual catchment`}</div>}
-        <div className="map-attribution"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors, ODbL 1.0</a><span>·</span><span>© CAPMAS (الجهاز المركزي للتعبئة العامة والإحصاء) عبر OCHA/HDX، CC BY-IGO</span><span>·</span><a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a></div>
-        <nav className="atlas-site-footer" aria-label={ar ? "إسناد بيانات الأطلس" : "Atlas data attribution"}><span>{ar ? "حقائق البحث والأدلة: © Mustafa Aboalazm (مصطفى أبوالعزم)، CC BY 4.0 | حدود CAPMAS عبر OCHA/HDX، CC BY-IGO | هندسة OpenStreetMap، ODbL 1.0" : "Research facts and evidence: © Mustafa Aboalazm (مصطفى أبوالعزم), CC BY 4.0 | CAPMAS boundaries via OCHA/HDX, CC BY-IGO | OpenStreetMap geometry, ODbL 1.0"}</span></nav>
-        <ResearcherOnly><nav className="atlas-site-footer atlas-research-footer" aria-label={ar ? "روابط الباحث" : "Research links"}><Link href={`/${language}/directory`}>{ar ? "الدليل" : "Directory"}</Link><Link href={`/${language}/data`}>{ar ? "البيانات" : "Data"}</Link><Link href={`/${language}/methodology`}>{ar ? "المنهجية" : "Methodology"}</Link><Link href={`/${language}/sources`}>{ar ? "المصادر" : "Sources"}</Link><Link href={`/${language}/api-docs`}>{ar ? "توثيق API" : "API docs"}</Link></nav></ResearcherOnly>
+        <MapAttribution language={language} />
       </section>
     </section>
     {selectedCode && <EntityPanel entity={detail} loading={detailLoading} error={detailError} onClose={closeEntity} onShowOnMap={requestShowOnMap} language={language}

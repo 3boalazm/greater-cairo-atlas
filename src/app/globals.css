@@ -894,3 +894,51 @@ a { color: inherit; }
 .layer-opacity-row output { font-variant-numeric: tabular-nums; text-align: end; color: var(--muted); font-size: .74rem; }
 .layer-opacity-reset { justify-self: start; margin-top: .25rem; }
 .layer-opacity-controls small { font-size: .7rem; line-height: 1.5; color: var(--muted); }
+
+/* BATCH 17: compact, reachable information and attribution. */
+.atlas-info-menu { position: relative; flex: none; }
+.atlas-info-menu summary { display:flex; align-items:center; gap:5px; min-height:35px; padding:0 8px; border:1px solid var(--border); border-radius:8px; cursor:pointer; font-size:11px; list-style:none; }
+.atlas-info-menu summary::-webkit-details-marker { display:none; }
+.atlas-info-menu summary svg { width:15px; height:15px; color:var(--accent); }
+.atlas-info-menu nav { position:absolute; z-index:30; inset-inline-end:0; top:calc(100% + 6px); display:grid; min-width:155px; padding:6px; border:1px solid var(--border); border-radius:8px; background:var(--surface); box-shadow:0 12px 30px #0004; }
+.atlas-info-menu nav a { padding:9px; color:var(--foreground); text-decoration:none; font-size:12px; }
+.atlas-info-menu nav a:hover { background:var(--surface-raised); }
+.search-focus-button { display:flex; padding:0; border:0; background:transparent; cursor:pointer; }
+.search-results { max-height:min(65vh, 520px); overflow-y:auto; }
+.search-group-heading { margin:8px 10px 2px; color:var(--muted); font-size:10px; }
+.search-type-chip,.search-status-chip { display:inline-block; padding:1px 5px; border:1px solid var(--border); border-radius:5px; }
+.attribution-toggle { display:none; }
+.attribution-credits { display:inline; }
+@media (pointer:coarse) { .atlas-search .search-shortcut { display:none; } }
+@media (max-width:760px) {
+  .atlas-info-menu summary { min-height:44px; }
+  .map-attribution { z-index:6; max-width:calc(100vw - 20px); }
+  .attribution-toggle { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:0; background:transparent; color:var(--foreground); cursor:pointer; }
+  .attribution-toggle svg { width:17px; height:17px; }
+  .map-attribution:not(.is-open) .attribution-credits { display:none; }
+}
+.entity-panel { width:min(400px, calc(100vw - 18px)); }
+.entity-quick-actions { display:flex; flex-wrap:wrap; gap:7px; margin:12px 0; }
+.entity-quick-actions button,.copy-code { padding:7px 9px; border:1px solid var(--border); border-radius:6px; color:var(--foreground); background:var(--surface-raised); cursor:pointer; font-size:11px; }
+.entity-quick-actions button:disabled { opacity:.5; cursor:not-allowed; }
+.entity-quick-actions small { align-self:center; color:var(--muted); }
+.copy-code { font-family:var(--font-ibm-plex-mono),monospace; font-size:9px; }
+.fact-source-badge { font-size:10px; margin-top:6px; }
+.fact-source-badge summary { display:inline-block; padding:3px 7px; border:1px solid var(--border); border-radius:5px; color:var(--accent); cursor:pointer; }
+.simple-conflicts { margin:12px 0; padding:9px; border:1px solid var(--border); border-radius:8px; }
+.simple-conflicts summary { cursor:pointer; color:var(--accent); font-size:12px; }
+.simple-conflicts h4,.simple-related h3 { font-size:12px; margin:12px 0 7px; }
+.simple-related ul { display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0; list-style:none; }
+.simple-related button { border:1px solid var(--border); border-radius:6px; padding:6px; color:var(--accent); background:transparent; cursor:pointer; }
+@media(max-width:760px) {
+  .entity-panel { width:100%; }
+  .sheet-grab { width:100%; border:0; background:transparent; cursor:ns-resize; touch-action:none; }
+  .simple-conflicts .conflicting-facts { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width:761px) { .map-attribution { white-space:nowrap; max-width:calc(100% - 20px); overflow-x:auto; flex-wrap:nowrap; } }
+@media (max-width:760px) { .entity-panel, .entity-panel.simple-panel { height:var(--sheet-height, min(58dvh, 520px)); } }
+@media (max-width:760px) {
+  .atlas-topbar { height:auto; flex-wrap:wrap; padding-block:6px; }
+  .atlas-search { order:3; flex:1 0 100%; width:100%; }
+  .topbar-actions { margin-inline-start:auto; }
+}
