@@ -58,7 +58,7 @@ describe("GET /api/atlas/entities/[code]", () => {
     });
     const response = await getEntity(new Request("http://atlas.test/api/atlas/entities/ROAD-RING-ROAD"), { params: Promise.resolve({ code: "ROAD-RING-ROAD" }) });
     expect(response.status).toBe(200);
-    expect(response.headers.get("Cache-Control")).toContain("s-maxage=60");
+    expect(response.headers.get("Cache-Control")).toContain("no-store");
     expect(await response.json()).toMatchObject({ ...entityRow, description: null, facts });
     expect(queryMock).toHaveBeenCalledTimes(2);
   });
