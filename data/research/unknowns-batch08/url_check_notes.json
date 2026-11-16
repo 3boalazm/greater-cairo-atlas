@@ -1,0 +1,44 @@
+{
+ "checked": "2026-11-16 (Africa/Cairo evening) in the owner's Chrome; one scratch tab; HTTP status from navigation timing + keyword presence",
+ "ok": [
+  "007",
+  "008",
+  "010",
+  "011",
+  "012",
+  "015",
+  "016",
+  "017",
+  "018",
+  "019",
+  "021",
+  "022",
+  "023",
+  "024",
+  "025",
+  "026",
+  "028",
+  "029",
+  "032",
+  "033",
+  "034"
+ ],
+ "unchecked_reasons": {
+  "001": "giza.gov.eg: unreachable from the checking browser (http->https upgrade ends in a connection error)",
+  "002": "giza.gov.eg: unreachable (same)",
+  "003": "giza.gov.eg: unreachable (same)",
+  "004": "giza.gov.eg: unreachable (same)",
+  "005": "giza.gov.eg: unreachable (same)",
+  "006": "giza.gov.eg: unreachable (same)",
+  "009": "nat.gov.eg: connection closed",
+  "013": "darelhilal.com: HTTP 403 Cloudflare challenge",
+  "020": "mpbs.gov.eg: connection closed",
+  "027": "sis.gov.eg: page loads (200) but the claimed BRT content was not found -> not relied upon",
+  "030": "qaliobia.gov.eg: connection closed",
+  "031": "almasryalyoum.com: blocked by the browser tool safety policy; not checked",
+  "035": "elaosboa.com: blocked by the browser tool safety policy; not checked"
+ },
+ "treated_as_dead": {
+  "014": "elbalad.news/7179521 resolves to a different article (smoke from a Russian train carriage at Shubra El Kheima), not the cited Tebbin/Maraziq tractor article -> treated as dead so the evidence and its facts are dropped"
+ }
+}
