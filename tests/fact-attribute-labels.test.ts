@@ -38,13 +38,14 @@ describe("fact attribute translations", () => {
     // Batch 19 is data-only: do not invent human translations or modify the UI.
     // Pin this explicit debt instead of silently weakening pre-existing coverage.
     const untranslated = JSON.parse(await readFile(path.join(process.cwd(), "tests/fixtures/batch19/untranslated-attributes.json"), "utf8")) as string[];
+    const batch22Untranslated = JSON.parse(await readFile(path.join(process.cwd(), "tests/fixtures/batch22/untranslated-attributes.json"), "utf8")) as string[];
     const missingHumanArabic = attributes.filter((key) => !humanArabic[key]?.trim());
-    expect(missingHumanArabic).toEqual(untranslated);
+    expect(missingHumanArabic).toEqual([...untranslated, ...batch22Untranslated].sort());
     const batchFacts = JSON.parse(await readFile(path.join(process.cwd(), "data/research/central-batch05/facts.json"), "utf8")) as Array<{ attribute_key: string }>;
     const unknownFacts = JSON.parse(await readFile(path.join(process.cwd(), "data/research/unknowns-batch06/facts.json"), "utf8")) as Array<{ attribute_key: string }>;
     const batchKeys = new Set([...batchFacts, ...unknownFacts].map((fact) => fact.attribute_key));
     expect(untranslated.every((key) => batchKeys.has(key))).toBe(true);
-    const missing = attributes.filter((key) => !untranslated.includes(key)).filter((key) => {
+    const missing = attributes.filter((key) => !untranslated.includes(key) && !batch22Untranslated.includes(key)).filter((key) => {
       const label = FACT_ATTRIBUTE_LABELS[key];
       return !label?.ar?.trim() || !label?.en?.trim() || label.ar === key || label.en === key || label.ar.includes("_") || !/[\u0600-\u06FF]/.test(label.ar);
     });
