@@ -73,16 +73,21 @@ describe("south batch 04 merge", () => {
     expect(seed.entities).toHaveLength(448);
   });
 
-  it("keeps every new entity unpositioned rather than inventing coordinates", async () => {
+  it("places only matched batch entities from the geometry review", async () => {
     const batch = await readBatchEntities();
-    const features = JSON.parse(
-      await readFile(path.join(ROOT, "data/features/features.geojson"), "utf8"),
-    ) as { features: Array<{ properties: { entity_code?: string | null } }> };
-    const positioned = new Set(
-      features.features.map((feature) => feature.properties.entity_code).filter(Boolean),
-    );
-    // No OSM feature carries a confident name match for these, so none may be placed.
-    expect(batch.filter((row) => positioned.has(row.code!)).map((row) => row.code)).toEqual([]);
+    const features = JSON.parse(await readFile(path.join(ROOT, "data/features/features.geojson"), "utf8")) as {
+      features: Array<{ properties: { entity_code: string } }>;
+    };
+    const report = JSON.parse(await readFile(path.join(RESEARCH_DIR, "geometry_match_report.json"), "utf8")) as {
+      results: Array<{ entity_code: string; status: string }>;
+    };
+    const positioned = new Set(features.features.map((feature) => feature.properties.entity_code));
+    expect(report.results).toHaveLength(31);
+    for (const row of batch) {
+      const result = report.results.find((entry) => entry.entity_code === row.code);
+      expect(result).toBeDefined();
+      expect(positioned.has(row.code!)).toBe(result!.status === "matched");
+    }
   });
 
   it("preserves every batch fact and applies the supplied verification states verbatim", async () => {
