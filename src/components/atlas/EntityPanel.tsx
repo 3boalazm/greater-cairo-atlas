@@ -1,4 +1,6 @@
 "use client";
+import { QUICK_FACT_LABELS, selectQuickFacts } from "@/lib/atlas/quick-facts";
+import { formatFactValue } from "@/lib/atlas/units";
 
 import { FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/fact-attribute-labels";
 
@@ -16,7 +18,7 @@ import { governorateParentLabel } from "@/lib/atlas/entity-relations";
 import { pointOutsideBoundaryNote } from "@/lib/atlas/point-outside-boundary";
 import { EntityTimeline } from "./EntityTimeline";
 import type { GeometryAlternative } from "@/lib/atlas/geometry-comparisons";
-import { ENTITY_TYPE_LABELS, hasDisplayableQuickFactValue, SECTOR_LABELS, showOnMapLabel, SOURCE_TYPE_LABELS, STATUS_LABELS, VERIFICATION_LABELS, quickFactSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
+import { ENTITY_TYPE_LABELS, SECTOR_LABELS, showOnMapLabel, SOURCE_TYPE_LABELS, STATUS_LABELS, VERIFICATION_LABELS, quickFactSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
 const areaEntityTypes = new Set(["city", "district", "neighborhood", "authority"]);
 
@@ -31,7 +33,7 @@ function FactCard({ fact, language }: { fact: AtlasEntityFact; language: AtlasLa
   const ar = language === "ar";
   const faded = fact.verification_state === "superseded" || fact.verification_state === "rejected";
   return <article className={`fact-card ${faded ? "fact-deemphasized" : ""}`}>
-    <div className="fact-value-row"><strong>{fact.value}{fact.unit ? <small> {fact.unit}</small> : null}</strong><span className={`verification-badge verification-${fact.verification_state}`}>{translateLabel(VERIFICATION_LABELS, fact.verification_state, language)}</span></div>
+    <div className="fact-value-row"><strong>{formatFactValue(fact.value, fact.unit, language)}</strong><span className={`verification-badge verification-${fact.verification_state}`}>{translateLabel(VERIFICATION_LABELS, fact.verification_state, language)}</span></div>
     <div className="fact-meta">
       {dateText(fact, ar) && <span>{ar ? "صالح بتاريخ" : "Valid as of"} {dateText(fact, ar)}{fact.valid_as_of_precision !== "day" ? ` · ${ar ? `دقة ${fact.valid_as_of_precision === "month" ? "شهر" : "سنة"}` : `${fact.valid_as_of_precision} precision`}` : ""}</span>}
       {fact.notes && <p>{fact.notes}</p>}
@@ -110,24 +112,8 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
     for (const fact of entity?.facts ?? []) map.set(fact.attribute, [...(map.get(fact.attribute) ?? []), fact]);
     return [...map.entries()];
   }, [entity?.facts]);
-  const simpleFactLabels: Record<string, { ar: string; en: string }> = {
-    length: { ar: "الطول", en: "Length" }, length_approx: { ar: "الطول التقريبي", en: "Approximate length" },
-    total_length: { ar: "الطول الإجمالي", en: "Total length" }, stations_count: { ar: "عدد المحطات", en: "Stations" }, total_stations: { ar: "عدد المحطات", en: "Stations" },
-    stations: { ar: "المحطات", en: "Stations" }, capacity_per_day: { ar: "السعة اليومية", en: "Daily capacity" }, population: { ar: "عدد السكان", en: "Population" }, opening_date: { ar: "موعد الافتتاح", en: "Opening date" },
-  };
-  const simpleFactGroups = new Map<string, NonNullable<typeof entity>["facts"]>();
-  for (const fact of (entity?.facts ?? []).filter((item) => item.attribute in simpleFactLabels && hasDisplayableQuickFactValue(item.value) && !["rejected", "superseded"].includes(item.verification_state))) {
-    simpleFactGroups.set(fact.attribute, [...(simpleFactGroups.get(fact.attribute) ?? []), fact]);
-  }
   const conflicts = groups.filter(([, facts]) => new Set(facts.filter((fact) => !["rejected", "superseded"].includes(fact.verification_state) && /[0-9٠-٩۰-۹]/u.test(fact.value)).map((fact) => JSON.stringify([fact.value, fact.unit]))).size > 1);
-  const conflictingAttributes = new Set(conflicts.map(([attribute]) => attribute));
-  const simpleFacts = [...simpleFactGroups.entries()].filter(([attribute]) => !conflictingAttributes.has(attribute)).map(([attribute, claims]) => {
-    const ordered = [...claims].sort((a, b) => {
-      const official = (fact: typeof a) => fact.verification_state === "verified" && fact.evidence.some((item) => item.source_type === "official") ? 1 : 0;
-      return official(b) - official(a) || String(b.valid_as_of ?? "").localeCompare(String(a.valid_as_of ?? "")) || a.code.localeCompare(b.code);
-    });
-    return { fact: ordered[0]!, sourceCount: new Set(ordered.flatMap((item) => item.evidence.map((source) => source.code))).size, attribute };
-  }).sort((a, b) => Object.keys(simpleFactLabels).indexOf(a.attribute) - Object.keys(simpleFactLabels).indexOf(b.attribute)).slice(0, 3);
+  const simpleFacts = selectQuickFacts(entity?.facts ?? []);
   const related = (entity?.relations ?? []).flatMap((relation) => {
     if (!entity) return [];
     const target = relation.subject_code === entity.code ? relation.object : relation.subject;
@@ -175,7 +161,7 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
           {!researcherMode && <section className="simple-entity-summary" aria-label={ar ? "ملخص الكيان" : "Entity summary"}>
             <p className="simple-entity-type">{translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language)}</p>
             {governorateParent && <p className="simple-entity-parent">{governorateParent}</p>}
-            {simpleFacts.length ? <ul>{simpleFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{simpleFactLabels[fact.attribute]![language]}</span><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>{fact.verification_state === "verified" && <span className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</span>}{quickFactSourceCountLabel(sourceCount, language) && <small>{quickFactSourceCountLabel(sourceCount, language)}</small>}<SourceBadge fact={fact} language={language}/></li>)}</ul> : <p className="simple-no-facts">{ar ? "لا توجد معلومات موجزة مسجلة بعد." : "No short facts have been recorded yet."}</p>}
+            {simpleFacts.length ? <ul>{simpleFacts.map(({ fact, sourceCount }) => <li key={fact.code}><span>{QUICK_FACT_LABELS[fact.attribute]![language]}</span><strong>{formatFactValue(fact.value, fact.unit, language)}</strong>{fact.verification_state === "verified" && <span className="official-verified-badge">{ar ? "موثّق رسميًا ✓" : "Officially verified ✓"}</span>}{quickFactSourceCountLabel(sourceCount, language) && <small>{quickFactSourceCountLabel(sourceCount, language)}</small>}<SourceBadge fact={fact} language={language}/></li>)}</ul> : <p className="simple-no-facts">{ar ? "لا توجد معلومات موجزة مسجلة بعد." : "No short facts have been recorded yet."}</p>}
           </section>}
           <div className="entity-quick-actions">
             <button type="button" className="show-on-map-button" onClick={onShowOnMap}>{showOnMapLabel(language)}</button>
@@ -183,7 +169,7 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
             {researcherMode && <button type="button" disabled={!entity.has_geometry} onClick={() => void downloadGeoJSON()}>{ar ? "تنزيل GeoJSON" : "Download GeoJSON"}</button>}
             {actionMessage && <small role="status">{actionMessage}</small>}
           </div>
-          {!researcherMode && conflicts.length > 0 && <details className="simple-conflicts"><summary>{ar ? "في مصادر مختلفة بأرقام مختلفة" : "Sources report different values"}</summary>{conflicts.map(([attribute, facts]) => <section key={attribute}><h4>{translateLabel(FACT_ATTRIBUTE_LABELS, attribute, language)}</h4><div className="fact-grid conflicting-facts">{facts.filter((fact) => !["rejected", "superseded"].includes(fact.verification_state)).map((fact) => <article className="fact-card" key={fact.code}><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong><SourceBadge fact={fact} language={language} /></article>)}</div></section>)}</details>}
+          {!researcherMode && conflicts.length > 0 && <details className="simple-conflicts"><summary>{ar ? "في مصادر مختلفة بأرقام مختلفة" : "Sources report different values"}</summary>{conflicts.map(([attribute, facts]) => <section key={attribute}><h4>{translateLabel(FACT_ATTRIBUTE_LABELS, attribute, language)}</h4><div className="fact-grid conflicting-facts">{facts.filter((fact) => !["rejected", "superseded"].includes(fact.verification_state)).map((fact) => <article className="fact-card" key={fact.code}><strong>{formatFactValue(fact.value, fact.unit, language)}</strong><SourceBadge fact={fact} language={language} /></article>)}</div></section>)}</details>}
           {!researcherMode && (related.length > 0 || (entity.neighbors?.length ?? 0) > 0) && <section className="simple-related"><h3>{ar ? "كيانات مرتبطة" : "Linked entities"}</h3><ul>{related.map((item) => <li key={item.code}><button type="button" onClick={() => onSelectRelated(item.code)}>{ar ? item.name_ar : item.name_en}</button></li>)}{entity.neighbors?.map((neighbor) => <li key={`${neighbor.subject_code}:${neighbor.object_code}`}><button type="button" onClick={() => onSelectRelated(neighbor.object_code)}>{neighbor.direction === "previous" ? (ar ? "السابقة: " : "Previous: ") : (ar ? "التالية: " : "Next: ")}{ar ? neighbor.object.name_ar : neighbor.object.name_en}</button></li>)}</ul></section>}
           <details className={`entity-panel-details ${researcherMode ? "is-researcher-details" : ""}`} open={researcherMode}>
             <summary>{researcherMode ? (ar ? "بيانات الباحث" : "Research details") : (ar ? "تفاصيل أكتر" : "More details")}</summary>

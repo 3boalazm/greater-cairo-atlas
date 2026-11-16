@@ -1,0 +1,1358 @@
+{
+ "accreditation": {
+  "ar": "الاعتماد",
+  "en": "Accreditation"
+ },
+ "active_operations_status": {
+  "ar": "حالة النشاط الحالي",
+  "en": "Current activity status"
+ },
+ "added_beds": {
+  "ar": "الأسرّة المضافة",
+  "en": "Added beds"
+ },
+ "added_services_area": {
+  "ar": "مساحة الخدمات المضافة",
+  "en": "Added services area"
+ },
+ "address_directory_entry": {
+  "ar": "العنوان في الدليل الرسمي",
+  "en": "Address in the official directory"
+ },
+ "adjacent_corridor": {
+  "ar": "الطريق أو المحور المجاور",
+  "en": "Adjacent road or axis"
+ },
+ "adjacent_streets_link": {
+  "ar": "الشوارع المجاورة وتنسيق المرور",
+  "en": "Adjacent streets and traffic coordination"
+ },
+ "administrative_affiliation": {
+  "ar": "التبعية الإدارية",
+  "en": "Administrative affiliation"
+ },
+ "administrative_parent": {
+  "ar": "يتبع إداريًا",
+  "en": "Administrative parent"
+ },
+ "administrative_tier": {
+  "ar": "المستوى الإداري",
+  "en": "Administrative level"
+ },
+ "ahalina_2_specs": {
+  "ar": "مواصفات مشروع أهالينا 2",
+  "en": "Ahalina 2 specifications"
+ },
+ "alternative_housing_delivery": {
+  "ar": "تسليم الوحدات السكنية البديلة",
+  "en": "Alternative housing delivery"
+ },
+ "archaeological_zone": {
+  "ar": "المنطقة الأثرية",
+  "en": "Archaeological zone"
+ },
+ "archaeological_zone_objectives": {
+  "ar": "أهداف تطوير المنطقة الأثرية",
+  "en": "Archaeological zone development goals"
+ },
+ "architect_and_historical_cost": {
+  "ar": "المعماري والتكلفة التاريخية",
+  "en": "Architect and historical cost"
+ },
+ "architectural_layout": {
+  "ar": "التخطيط المعماري",
+  "en": "Architectural layout"
+ },
+ "area_expansion_1938": {
+  "ar": "مساحة التوسعة عام 1938",
+  "en": "Area added in 1938"
+ },
+ "attr_6october_separator_length": {
+  "ar": "طول قطاع الدائري الأوسطي بالفاصل السكني الصناعي (6 أكتوبر)",
+  "en": "Length of the Middle Ring Road section in the 6th of October residential–industrial separator"
+ },
+ "attr_6october_separator_width": {
+  "ar": "عرض قطاع الدائري الأوسطي بالفاصل السكني الصناعي (6 أكتوبر)",
+  "en": "Width of the Middle Ring Road section in the 6th of October residential–industrial separator"
+ },
+ "axis_service_road_zone": {
+  "ar": "منطقة الخدمات على المحور",
+  "en": "Axis service-road zone"
+ },
+ "bed_capacity": {
+  "ar": "عدد الأسرّة",
+  "en": "Bed capacity"
+ },
+ "branch_upgrade_agreement": {
+  "ar": "اتفاقية ازدواج وتطوير الخط الفرعي",
+  "en": "Branch-line upgrade agreement"
+ },
+ "bridge_ramp_presence": {
+  "ar": "مطلع الكوبري في النطاق",
+  "en": "Bridge ramp in the area"
+ },
+ "bridges_count": {
+  "ar": "عدد الكباري",
+  "en": "Number of bridges"
+ },
+ "bridges_total_length": {
+  "ar": "الطول الإجمالي للكباري",
+  "en": "Total bridges length"
+ },
+ "brt_phase2_integration": {
+  "ar": "التكامل مع المرحلة الثانية من الأتوبيس الترددي",
+  "en": "BRT phase 2 integration"
+ },
+ "brt_service_link": {
+  "ar": "الربط بخدمة الأتوبيس الترددي",
+  "en": "BRT service link"
+ },
+ "built_century": {
+  "ar": "قرن البناء",
+  "en": "Century built"
+ },
+ "built_year": {
+  "ar": "سنة البناء",
+  "en": "Year built"
+ },
+ "cabinet_follow_up": {
+  "ar": "متابعة مجلس الوزراء",
+  "en": "Cabinet follow-up"
+ },
+ "cabinet_inspection_confirmation": {
+  "ar": "تفقد رئيس الوزراء",
+  "en": "Prime Minister's inspection"
+ },
+ "cairo_admin_zone": {
+  "ar": "المنطقة الإدارية بمحافظة القاهرة",
+  "en": "Cairo administrative zone"
+ },
+ "cairo_minya_inauguration_month": {
+  "ar": "شهر افتتاح قطاع القاهرة–المنيا",
+  "en": "Cairo–Minya section inauguration month"
+ },
+ "cairo_minya_section_length_km": {
+  "ar": "طول قطاع القاهرة–المنيا",
+  "en": "Cairo–Minya section length"
+ },
+ "canal_covering_phase3_status": {
+  "ar": "حالة المرحلة الثالثة من تغطية الترعة",
+  "en": "Canal covering phase 3 status"
+ },
+ "capacity_cars": {
+  "ar": "سعة السيارات",
+  "en": "Car capacity"
+ },
+ "capacity_public_buses": {
+  "ar": "سعة أتوبيسات النقل العام",
+  "en": "Public bus capacity"
+ },
+ "central_sector_interchanges_and_phase_2": {
+  "ar": "نقاط التبادل بالقطاع الأوسط والمرحلة الثانية",
+  "en": "Central-sector interchanges and phase 2"
+ },
+ "completed_units": {
+  "ar": "الوحدات المنفذة",
+  "en": "Completed units"
+ },
+ "completion_date": {
+  "ar": "تاريخ الانتهاء",
+  "en": "Completion date"
+ },
+ "conflicting_land_sale_plan_2021_m2": {
+  "ar": "مساحة خطة بيع الأراضي 2021 (قيمة متعارضة)",
+  "en": "Land-sale plan area, 2021 (conflicting value)"
+ },
+ "conflicting_land_use_proposal_2021_official": {
+  "ar": "مقترح استخدام الأراضي 2021 (رسمي — متعارض)",
+  "en": "Land-use proposal, 2021 (official — conflicting)"
+ },
+ "conflicting_land_use_study_2025_feddan": {
+  "ar": "دراسة استخدام الأراضي 2025 (قيمة متعارضة)",
+  "en": "Land-use study, 2025 (conflicting value)"
+ },
+ "connection": {
+  "ar": "الربط",
+  "en": "Connection"
+ },
+ "connectivity": {
+  "ar": "امتداد الطريق وربطه",
+  "en": "Route and connectivity"
+ },
+ "construction_period": {
+  "ar": "فترة الإنشاء",
+  "en": "Construction period"
+ },
+ "contractor_arab_contractors": {
+  "ar": "المقاول (المقاولون العرب)",
+  "en": "Contractor (Arab Contractors)"
+ },
+ "contractor_with_french_firms": {
+  "ar": "المقاول بالتعاون مع شركات فرنسية",
+  "en": "Contractor with French firms"
+ },
+ "coordination_status": {
+  "ar": "حالة المتابعة والتنسيق",
+  "en": "Coordination status"
+ },
+ "corridor_connections": {
+  "ar": "وصلات المحور",
+  "en": "Corridor connections"
+ },
+ "corridor_connectivity": {
+  "ar": "الربط بالمحاور والشوارع",
+  "en": "Corridor connectivity"
+ },
+ "corridor_endpoints": {
+  "ar": "بداية المحور ونهايته",
+  "en": "Corridor endpoints"
+ },
+ "corridor_inclusion": {
+  "ar": "الإدراج ضمن خطة المحاور",
+  "en": "Inclusion in the corridor plan"
+ },
+ "corridor_length": {
+  "ar": "طول المحور",
+  "en": "Corridor length"
+ },
+ "corridor_placement": {
+  "ar": "موقع المحطة على المحور",
+  "en": "Station placement on the corridor"
+ },
+ "covered_greater_cairo_cities": {
+  "ar": "مدن القاهرة الكبرى المشمولة",
+  "en": "Greater Cairo cities covered"
+ },
+ "cta_bus_operations": {
+  "ar": "تشغيل هيئة النقل العام",
+  "en": "Cairo Transport Authority bus operations"
+ },
+ "current_planned_land_use_2026": {
+  "ar": "استخدام الأرض المخطط حاليًا (2026)",
+  "en": "Currently planned land use (2026)"
+ },
+ "current_surface_use_main_alignment": {
+  "ar": "الاستخدام السطحي الحالي للمسار الرئيسي",
+  "en": "Current surface use of the main alignment"
+ },
+ "daily_train_movements": {
+  "ar": "حركات القطارات اليومية",
+  "en": "Daily train movements"
+ },
+ "design_capacity": {
+  "ar": "الطاقة التصميمية",
+  "en": "Design capacity"
+ },
+ "designed_garden_area_1875": {
+  "ar": "مساحة الحديقة عند تصميمها عام 1875",
+  "en": "Garden area at design (1875)"
+ },
+ "destinations_count": {
+  "ar": "عدد الوجهات",
+  "en": "Number of destinations"
+ },
+ "detailed_masterplan_status": {
+  "ar": "حالة المخطط التفصيلي",
+  "en": "Detailed masterplan status"
+ },
+ "detailed_plan_follow_up": {
+  "ar": "متابعة المخطط التفصيلي",
+  "en": "Detailed plan follow-up"
+ },
+ "development_plan": {
+  "ar": "خطة التطوير",
+  "en": "Development plan"
+ },
+ "development_status_2025": {
+  "ar": "حالة التطوير في 2025",
+  "en": "Development status in 2025"
+ },
+ "distance_from_cairo": {
+  "ar": "المسافة من القاهرة",
+  "en": "Distance from Cairo"
+ },
+ "distinct_from_rod_el_farag_warraq_bridge_opened": {
+  "ar": "تاريخ الافتتاح (يختلف عن كوبري روض الفرج–الوراق)",
+  "en": "Opening date (distinct from the Rod El Farag–Warraq bridge)"
+ },
+ "district_landmark_location": {
+  "ar": "موقع المعلم داخل الحي",
+  "en": "Landmark location within the district"
+ },
+ "district_listing_status": {
+  "ar": "الإدراج ضمن أحياء المحافظة",
+  "en": "Listing among the governorate's districts"
+ },
+ "dokki_ramp_presence": {
+  "ar": "منزل الكوبري بالدقي",
+  "en": "Bridge descent ramp in Dokki"
+ },
+ "establishment_year": {
+  "ar": "سنة التأسيس",
+  "en": "Year established"
+ },
+ "estimated_program_cost_min": {
+  "ar": "الحد الأدنى للتكلفة التقديرية للبرنامج",
+  "en": "Estimated program cost (minimum)"
+ },
+ "executive_follow_up": {
+  "ar": "المتابعة التنفيذية",
+  "en": "Executive follow-up"
+ },
+ "exhibition_edition_status": {
+  "ar": "حالة دورة المعرض",
+  "en": "Exhibition edition status"
+ },
+ "expansion_bridge_length_km": {
+  "ar": "طول الكوبري بعد التوسعة",
+  "en": "Bridge length after expansion"
+ },
+ "expansion_directive": {
+  "ar": "توجيه التوسعة",
+  "en": "Expansion directive"
+ },
+ "expansion_status_news_update": {
+  "ar": "حالة التوسعة (بحسب الأخبار)",
+  "en": "Expansion status (news)"
+ },
+ "expansion_status_official": {
+  "ar": "حالة التوسعة (رسمية)",
+  "en": "Expansion status (official)"
+ },
+ "express_design_speed": {
+  "ar": "السرعة التصميمية للخدمة السريعة",
+  "en": "Express service design speed"
+ },
+ "facility_and_museum_upgrade_status": {
+  "ar": "حالة تطوير المرافق والمتحف",
+  "en": "Facilities and museum upgrade status"
+ },
+ "fayoum_road_intersection": {
+  "ar": "التقاطع مع طريق الفيوم",
+  "en": "Intersection with Fayoum Road"
+ },
+ "fayoum_road_lanes_per_direction": {
+  "ar": "عدد حارات طريق الفيوم في كل اتجاه",
+  "en": "Fayoum Road lanes per direction"
+ },
+ "field_inspection": {
+  "ar": "الجولة التفقدية الميدانية",
+  "en": "Field inspection"
+ },
+ "fleet_size_phases_1_2": {
+  "ar": "حجم الأسطول (المرحلتان الأولى والثانية)",
+  "en": "Fleet size (phases 1–2)"
+ },
+ "floors": {
+  "ar": "عدد الطوابق",
+  "en": "Number of floors"
+ },
+ "foundation_stone_date": {
+  "ar": "تاريخ وضع حجر الأساس",
+  "en": "Foundation stone date"
+ },
+ "founded_year": {
+  "ar": "سنة الإنشاء",
+  "en": "Year founded"
+ },
+ "founder": {
+  "ar": "المؤسس",
+  "en": "Founder"
+ },
+ "founding_decree": {
+  "ar": "قرار التأسيس",
+  "en": "Founding decree"
+ },
+ "fuel_stations_count": {
+  "ar": "عدد محطات الوقود",
+  "en": "Number of fuel stations"
+ },
+ "functional_transformation_goal": {
+  "ar": "هدف التحويل الوظيفي",
+  "en": "Functional transformation goal"
+ },
+ "geographic_extent": {
+  "ar": "الامتداد الجغرافي",
+  "en": "Geographic extent"
+ },
+ "geographic_scope": {
+  "ar": "النطاق الجغرافي",
+  "en": "Geographic scope"
+ },
+ "giza_final_phase_opening_year": {
+  "ar": "سنة افتتاح المرحلة الأخيرة بالجيزة",
+  "en": "Opening year of the final phase in Giza"
+ },
+ "giza_paving_link_length_km": {
+  "ar": "طول وصلة الرصف بالجيزة",
+  "en": "Giza paving link length"
+ },
+ "giza_widening_width_m": {
+  "ar": "عرض التوسعة بالجيزة",
+  "en": "Giza widening width"
+ },
+ "governance": {
+  "ar": "الإدارة والتبعية",
+  "en": "Governance"
+ },
+ "governance_and_operation": {
+  "ar": "الإدارة والتشغيل",
+  "en": "Governance and operation"
+ },
+ "governorate_and_green_housing": {
+  "ar": "المحافظة والإسكان الأخضر",
+  "en": "Governorate and green housing"
+ },
+ "governorate_jurisdiction": {
+  "ar": "المحافظة التابعة لها",
+  "en": "Governorate jurisdiction"
+ },
+ "governorates_covered": {
+  "ar": "المحافظات التي يشملها",
+  "en": "Governorates covered"
+ },
+ "green_park_status": {
+  "ar": "حالة المتنزه الأخضر",
+  "en": "Green park status"
+ },
+ "height": {
+  "ar": "الارتفاع",
+  "en": "Height"
+ },
+ "height_conflicting_sis_archive": {
+  "ar": "الارتفاع (قيمة متعارضة — أرشيف الهيئة العامة للاستعلامات)",
+  "en": "Height (conflicting value — SIS archive)"
+ },
+ "height_elbalad": {
+  "ar": "الارتفاع (بحسب صدى البلد)",
+  "en": "Height (per El Balad)"
+ },
+ "height_youm7": {
+  "ar": "الارتفاع (بحسب اليوم السابع)",
+  "en": "Height (per Youm7)"
+ },
+ "historical_era": {
+  "ar": "العصر التاريخي",
+  "en": "Historical era"
+ },
+ "historical_origin": {
+  "ar": "النشأة التاريخية",
+  "en": "Historical origin"
+ },
+ "historical_river_bus_operation": {
+  "ar": "تشغيل الأتوبيس النهري",
+  "en": "River bus operation"
+ },
+ "historical_significance": {
+  "ar": "الأهمية التاريخية",
+  "en": "Historical significance"
+ },
+ "holy_family_station": {
+  "ar": "محطة في مسار العائلة المقدسة",
+  "en": "Holy Family route stop"
+ },
+ "homonym_badrasheen_local_road_width_m": {
+  "ar": "عرض الطريق المحلي بالبدرشين (اسم متشابه)",
+  "en": "Badrasheen local road width (similarly named road)"
+ },
+ "hourly_capacity": {
+  "ar": "الطاقة الاستيعابية في الساعة",
+  "en": "Hourly capacity"
+ },
+ "housing_complexes_hosted": {
+  "ar": "المجمعات السكنية التي يستضيفها",
+  "en": "Housing complexes hosted"
+ },
+ "hydraulic_modeling_role": {
+  "ar": "دور النماذج الهيدروليكية",
+  "en": "Hydraulic modelling role"
+ },
+ "implementation_status_cabinet_report": {
+  "ar": "موقف التنفيذ (تقرير مجلس الوزراء)",
+  "en": "Implementation status (Cabinet report)"
+ },
+ "included_monuments_and_museums": {
+  "ar": "الآثار والمتاحف الواقعة ضمنه",
+  "en": "Monuments and museums included"
+ },
+ "industrial_activity_sample": {
+  "ar": "نموذج للأنشطة الصناعية",
+  "en": "Sample of industrial activity"
+ },
+ "industrial_directory_sample": {
+  "ar": "نموذج من دليل المصانع",
+  "en": "Sample from the industrial directory"
+ },
+ "industrial_investment_project": {
+  "ar": "مشروع صناعي استثماري",
+  "en": "Industrial investment project"
+ },
+ "industrial_subzone_activity": {
+  "ar": "أنشطة المنطقة الصناعية الفرعية",
+  "en": "Industrial sub-zone activity"
+ },
+ "industries_profile": {
+  "ar": "الصناعات القائمة",
+  "en": "Industries profile"
+ },
+ "infrastructure_upgrade_status": {
+  "ar": "حالة رفع كفاءة البنية التحتية",
+  "en": "Infrastructure upgrade status"
+ },
+ "intersections": {
+  "ar": "التقاطعات",
+  "en": "Intersections"
+ },
+ "joint_ticket_foreigner_adult": {
+  "ar": "سعر التذكرة المشتركة — أجنبي (بالغ)",
+  "en": "Joint ticket price — foreign adult"
+ },
+ "joint_ticket_foreigner_student": {
+  "ar": "سعر التذكرة المشتركة — أجنبي (طالب)",
+  "en": "Joint ticket price — foreign student"
+ },
+ "junction_lines_official": {
+  "ar": "الخطوط المتفرعة (المصدر الرسمي)",
+  "en": "Junction lines (official source)"
+ },
+ "junction_lines_schedule_portal": {
+  "ar": "الخطوط عند التقاطع (بوابة المواعيد)",
+  "en": "Junction lines (timetable portal)"
+ },
+ "kamal_amer_crossing": {
+  "ar": "عبور محور الفريق كمال عامر",
+  "en": "Kamal Amer axis crossing"
+ },
+ "land_disposal_and_valuation_status": {
+  "ar": "حالة تقييم الأراضي والتصرف فيها",
+  "en": "Land valuation and disposal status"
+ },
+ "land_transfer_and_compensation": {
+  "ar": "نقل الأراضي والتعويضات",
+  "en": "Land transfer and compensation"
+ },
+ "land_use_review_parcel": {
+  "ar": "مساحة قطعة مراجعة استخدام الأرض",
+  "en": "Land-use review parcel area"
+ },
+ "landmarks_served": {
+  "ar": "المعالم التي تخدمها المحطة",
+  "en": "Landmarks served"
+ },
+ "lanes_and_directions": {
+  "ar": "الحارات والاتجاهات",
+  "en": "Lanes and directions"
+ },
+ "lanes_count": {
+  "ar": "عدد الحارات",
+  "en": "Number of lanes"
+ },
+ "lanes_count_conflicting_presidency": {
+  "ar": "عدد الحارات (قيمة متعارضة — رئاسة الجمهورية)",
+  "en": "Number of lanes (conflicting value — Presidency)"
+ },
+ "lanes_count_sis": {
+  "ar": "عدد الحارات (الهيئة العامة للاستعلامات)",
+  "en": "Number of lanes (SIS)"
+ },
+ "lanes_per_direction_upgraded": {
+  "ar": "عدد الحارات في كل اتجاه بعد التطوير",
+  "en": "Lanes per direction after upgrade"
+ },
+ "last_ticket_time": {
+  "ar": "موعد آخر تذكرة",
+  "en": "Last ticket time"
+ },
+ "latest_inspection_date": {
+  "ar": "آخر تفقد",
+  "en": "Latest inspection"
+ },
+ "latest_ministerial_review": {
+  "ar": "آخر مراجعة وزارية",
+  "en": "Latest ministerial review"
+ },
+ "latest_operational_status_masrawy": {
+  "ar": "آخر حالة تشغيل (مصراوي)",
+  "en": "Latest operational status (Masrawy)"
+ },
+ "latest_operational_status_shorouk": {
+  "ar": "آخر حالة تشغيل (الشروق)",
+  "en": "Latest operational status (Shorouk)"
+ },
+ "legal_status_as_of_agm": {
+  "ar": "الوضع القانوني (وقت انعقاد الجمعية العامة)",
+  "en": "Legal status (at the general assembly)"
+ },
+ "length_conflicting_sis_archive": {
+  "ar": "الطول (قيمة متعارضة — أرشيف الهيئة العامة للاستعلامات)",
+  "en": "Length (conflicting value — SIS archive)"
+ },
+ "length_per_bore": {
+  "ar": "طول كل نفق",
+  "en": "Length per bore"
+ },
+ "liquidation_decision_month_conflicting_article": {
+  "ar": "شهر قرار التصفية (مقال متعارض)",
+  "en": "Liquidation decision month (conflicting article)"
+ },
+ "liquidation_decision_month_contemporaneous": {
+  "ar": "شهر قرار التصفية (مصدر معاصر)",
+  "en": "Liquidation decision month (contemporaneous source)"
+ },
+ "listed_subdevelopments": {
+  "ar": "المشروعات الفرعية المعلنة",
+  "en": "Listed sub-developments"
+ },
+ "location_and_district": {
+  "ar": "الموقع والحي",
+  "en": "Location and district"
+ },
+ "location_and_facilities": {
+  "ar": "الموقع والمرافق",
+  "en": "Location and facilities"
+ },
+ "location_and_patron": {
+  "ar": "الموقع والراعي",
+  "en": "Location and patron"
+ },
+ "location_and_type": {
+  "ar": "الموقع والنوع",
+  "en": "Location and type"
+ },
+ "location_archaeological_area": {
+  "ar": "المنطقة الأثرية الواقع بها",
+  "en": "Archaeological area of location"
+ },
+ "location_boundary": {
+  "ar": "حدود الموقع",
+  "en": "Location boundary"
+ },
+ "location_complex": {
+  "ar": "المجمع الواقع به",
+  "en": "Complex of location"
+ },
+ "maintenance_activity": {
+  "ar": "أعمال الصيانة",
+  "en": "Maintenance activity"
+ },
+ "maintenance_status": {
+  "ar": "حالة الصيانة",
+  "en": "Maintenance status"
+ },
+ "management_reform": {
+  "ar": "إصلاح الإدارة والتشغيل",
+  "en": "Management reform"
+ },
+ "mansouriya_corridor_length_kerdasa_km": {
+  "ar": "طول محور المنصورية باتجاه كرداسة",
+  "en": "Mansouriya corridor length towards Kerdasa"
+ },
+ "mansouriya_corridor_target_width_m": {
+  "ar": "العرض المستهدف لمحور المنصورية",
+  "en": "Mansouriya corridor target width"
+ },
+ "maryouteya_axis_official_reference": {
+  "ar": "الإشارة الرسمية إلى محور المريوطية",
+  "en": "Official reference to the Maryouteya axis"
+ },
+ "master_developer": {
+  "ar": "المطور الرئيسي",
+  "en": "Master developer"
+ },
+ "masterplan_and_projects_status": {
+  "ar": "حالة المخطط والمشروعات",
+  "en": "Masterplan and projects status"
+ },
+ "medical_city_redevelopment": {
+  "ar": "تطوير المدينة الطبية",
+  "en": "Medical city redevelopment"
+ },
+ "metro_line4_phase1_length_km": {
+  "ar": "طول المرحلة الأولى من الخط الرابع للمترو",
+  "en": "Metro Line 4 phase 1 length"
+ },
+ "metro_line4_station_and_depot_status": {
+  "ar": "حالة محطة الخط الرابع للمترو وورشته",
+  "en": "Metro Line 4 station and depot status"
+ },
+ "monument_adaptive_reuse": {
+  "ar": "إعادة توظيف المباني الأثرية",
+  "en": "Monument adaptive reuse"
+ },
+ "monuments_count_conflict_a": {
+  "ar": "عدد الآثار (قيمة متعارضة أ)",
+  "en": "Monuments count (conflicting value A)"
+ },
+ "monuments_count_conflict_b": {
+  "ar": "عدد الآثار (قيمة متعارضة ب)",
+  "en": "Monuments count (conflicting value B)"
+ },
+ "mummies_transferred_to_nmec": {
+  "ar": "المومياوات المنقولة إلى المتحف القومي للحضارة",
+  "en": "Mummies transferred to the NMEC"
+ },
+ "named_year": {
+  "ar": "سنة التسمية",
+  "en": "Year named"
+ },
+ "national_corridor_linkage": {
+  "ar": "الارتباط بمحور قومي",
+  "en": "National corridor linkage"
+ },
+ "navigational_span_width": {
+  "ar": "عرض فتحة الملاحة",
+  "en": "Navigational span width"
+ },
+ "nearby_landmarks": {
+  "ar": "المعالم القريبة",
+  "en": "Nearby landmarks"
+ },
+ "necropolis_context": {
+  "ar": "السياق الجنائزي والتاريخي",
+  "en": "Necropolis context"
+ },
+ "network_integration": {
+  "ar": "التكامل مع شبكة المحاور",
+  "en": "Axis network integration"
+ },
+ "network_interchange_role": {
+  "ar": "دور المحطة في التبادل بين الخطوط",
+  "en": "Network interchange role"
+ },
+ "new_maryouteya_axis_phase1_length_km": {
+  "ar": "طول المرحلة الأولى من محور المريوطية الجديد",
+  "en": "New Maryouteya axis phase 1 length"
+ },
+ "new_maryouteya_axis_phase1_status": {
+  "ar": "حالة المرحلة الأولى من محور المريوطية الجديد",
+  "en": "New Maryouteya axis phase 1 status"
+ },
+ "new_obour_allocated_plots": {
+  "ar": "القطع المخصصة بالعبور الجديدة",
+  "en": "New Obour allocated plots"
+ },
+ "new_obour_handover_plots_oct_2026": {
+  "ar": "القطع المسلَّمة بالعبور الجديدة (أكتوبر 2026)",
+  "en": "New Obour plots handed over (Oct 2026)"
+ },
+ "new_obour_regularization_deadline": {
+  "ar": "الموعد النهائي لتقنين الأوضاع بالعبور الجديدة",
+  "en": "New Obour regularization deadline"
+ },
+ "nile_corniche_linkage": {
+  "ar": "الارتباط بكورنيش النيل",
+  "en": "Nile Corniche linkage"
+ },
+ "nile_wing_capacity": {
+  "ar": "سعة جناح النيل",
+  "en": "Nile wing capacity"
+ },
+ "north_phase_1_history": {
+  "ar": "تاريخ المرحلة الأولى بالقطاع الشمالي",
+  "en": "History of the northern phase 1"
+ },
+ "northeast_arc_length": {
+  "ar": "طول القوس الشمالي الشرقي",
+  "en": "North-eastern arc length"
+ },
+ "northeast_arc_structures": {
+  "ar": "منشآت القوس الشمالي الشرقي",
+  "en": "North-eastern arc structures"
+ },
+ "northwest_arc_length": {
+  "ar": "طول القوس الشمالي الغربي",
+  "en": "North-western arc length"
+ },
+ "northwest_arc_structures_minister_statement": {
+  "ar": "منشآت القوس الشمالي الغربي (بيان الوزير)",
+  "en": "North-western arc structures (minister's statement)"
+ },
+ "northwest_arc_structures_project_archive": {
+  "ar": "منشآت القوس الشمالي الغربي (أرشيف المشروع)",
+  "en": "North-western arc structures (project archive)"
+ },
+ "notable_subareas": {
+  "ar": "أبرز المناطق الفرعية",
+  "en": "Notable sub-areas"
+ },
+ "official_hydro_group": {
+  "ar": "المجموعة المائية الرسمية",
+  "en": "Official hydraulic group"
+ },
+ "official_name_variants": {
+  "ar": "صيغ الاسم الرسمية",
+  "en": "Official name variants"
+ },
+ "official_naming_variants": {
+  "ar": "صيغ التسمية الرسمية",
+  "en": "Official naming variants"
+ },
+ "official_neighborhood_name_variant": {
+  "ar": "صيغ اسم الحي الرسمية",
+  "en": "Official neighborhood name variants"
+ },
+ "official_station_status": {
+  "ar": "حالة المحطة الرسمية",
+  "en": "Official station status"
+ },
+ "official_zone_recognition": {
+  "ar": "الاعتماد الرسمي للمنطقة",
+  "en": "Official zone recognition"
+ },
+ "ongoing_works": {
+  "ar": "الأعمال الجارية",
+  "en": "Ongoing works"
+ },
+ "opened_year": {
+  "ar": "سنة الافتتاح",
+  "en": "Year opened"
+ },
+ "operational_use": {
+  "ar": "الاستخدام التشغيلي",
+  "en": "Operational use"
+ },
+ "operator_and_vendor_enforcement": {
+  "ar": "المشغّل وضبط الباعة",
+  "en": "Operator and vendor enforcement"
+ },
+ "original_architect": {
+  "ar": "المعماري الأصلي",
+  "en": "Original architect"
+ },
+ "original_bridge_length_km": {
+  "ar": "الطول الأصلي للكوبري",
+  "en": "Original bridge length"
+ },
+ "original_bridge_width_m": {
+  "ar": "العرض الأصلي للكوبري",
+  "en": "Original bridge width"
+ },
+ "ownership_transfer_progress": {
+  "ar": "تقدم نقل الملكية",
+  "en": "Ownership transfer progress"
+ },
+ "pedestrian_bridge_maintenance": {
+  "ar": "صيانة كوبري المشاة",
+  "en": "Pedestrian bridge maintenance"
+ },
+ "pedestrian_tunnels_length": {
+  "ar": "طول أنفاق المشاة",
+  "en": "Pedestrian tunnels length"
+ },
+ "pedestrian_walkways_length": {
+  "ar": "طول ممرات المشاة",
+  "en": "Pedestrian walkways length"
+ },
+ "phase1_completion_cabinet_report": {
+  "ar": "إنجاز المرحلة الأولى (تقرير مجلس الوزراء)",
+  "en": "Phase 1 completion (Cabinet report)"
+ },
+ "phase2_operational_readiness": {
+  "ar": "جاهزية تشغيل المرحلة الثانية",
+  "en": "Phase 2 operational readiness"
+ },
+ "phase3_opening_date": {
+  "ar": "تاريخ افتتاح المرحلة الثالثة",
+  "en": "Phase 3 opening date"
+ },
+ "phase3_total_length": {
+  "ar": "الطول الإجمالي للمرحلة الثالثة",
+  "en": "Phase 3 total length"
+ },
+ "phase3_total_stations": {
+  "ar": "إجمالي محطات المرحلة الثالثة",
+  "en": "Phase 3 total stations"
+ },
+ "phase3b_imbaba_branch_length": {
+  "ar": "طول فرع إمبابة (المرحلة 3ب)",
+  "en": "Imbaba branch length (phase 3B)"
+ },
+ "phase3c_cairo_univ_branch_length": {
+  "ar": "طول فرع جامعة القاهرة (المرحلة 3ج)",
+  "en": "Cairo University branch length (phase 3C)"
+ },
+ "phase_1_area": {
+  "ar": "مساحة المرحلة الأولى",
+  "en": "Phase 1 area"
+ },
+ "phase_1_scope": {
+  "ar": "نطاق المرحلة الأولى",
+  "en": "Phase 1 scope"
+ },
+ "phase_1_social_housing_units": {
+  "ar": "وحدات الإسكان الاجتماعي بالمرحلة الأولى",
+  "en": "Phase 1 social housing units"
+ },
+ "phase_1_surface_roads": {
+  "ar": "الطرق السطحية بالمرحلة الأولى",
+  "en": "Phase 1 surface roads"
+ },
+ "phase_2_scope": {
+  "ar": "نطاق المرحلة الثانية",
+  "en": "Phase 2 scope"
+ },
+ "phase_3_and_sewer_link": {
+  "ar": "المرحلة الثالثة وخط الصرف المرتبط بها",
+  "en": "Phase 3 and sewer link"
+ },
+ "phase_3_scope": {
+  "ar": "نطاق المرحلة الثالثة",
+  "en": "Phase 3 scope"
+ },
+ "planned_completion_claim_2024": {
+  "ar": "موعد الانتهاء المعلن سابقًا (2024)",
+  "en": "Previously announced completion date (2024)"
+ },
+ "planned_daily_passengers": {
+  "ar": "عدد الركاب اليومي المخطط",
+  "en": "Planned daily passengers"
+ },
+ "planned_line4_phase3_to_hosary_km": {
+  "ar": "طول المرحلة الثالثة المخططة للخط الرابع حتى الحصري",
+  "en": "Planned Line 4 phase 3 length to Hosary"
+ },
+ "planned_nile_park": {
+  "ar": "الحديقة النيلية المخططة",
+  "en": "Planned Nile park"
+ },
+ "planned_northern_extension": {
+  "ar": "الامتداد الشمالي المخطط",
+  "en": "Planned northern extension"
+ },
+ "planned_public_reopening_year": {
+  "ar": "سنة إعادة الافتتاح للجمهور (مخطط)",
+  "en": "Planned public reopening year"
+ },
+ "planned_robiki_tebbin_freight_line_cost_million_egp": {
+  "ar": "تكلفة خط البضائع المخطط (الروبيكي–التبين)",
+  "en": "Planned Robiki–Tebbin freight line cost"
+ },
+ "planning_alternative": {
+  "ar": "البديل التخطيطي",
+  "en": "Planning alternative"
+ },
+ "plant_species_count": {
+  "ar": "عدد الأنواع النباتية",
+  "en": "Number of plant species"
+ },
+ "pm_inspection_status": {
+  "ar": "حالة تفقد رئيس مجلس الوزراء",
+  "en": "Prime Minister's inspection status"
+ },
+ "ppp_procurement_status": {
+  "ar": "حالة الطرح بنظام الشراكة بين القطاعين العام والخاص",
+  "en": "PPP procurement status"
+ },
+ "precautionary_closure_inspection": {
+  "ar": "تفقد إجراءات الغلق الاحترازي",
+  "en": "Precautionary closure inspection"
+ },
+ "predecessor_khedivial_opera_opening_year": {
+  "ar": "سنة افتتاح الأوبرا الخديوية السابقة",
+  "en": "Predecessor Khedivial Opera opening year"
+ },
+ "project_type_and_status": {
+  "ar": "نوع المشروع وحالته",
+  "en": "Project type and status"
+ },
+ "public_service_facility": {
+  "ar": "مرفق خدمة عامة",
+  "en": "Public service facility"
+ },
+ "public_transit_corridor": {
+  "ar": "خط النقل الجماعي المار به",
+  "en": "Public transit corridor"
+ },
+ "pyramids_plateau_area": {
+  "ar": "مساحة هضبة الأهرامات",
+  "en": "Pyramids plateau area"
+ },
+ "ramps_count": {
+  "ar": "عدد المطالع والمنازل",
+  "en": "Number of ramps"
+ },
+ "readiness_and_services": {
+  "ar": "الجاهزية والخدمات",
+  "en": "Readiness and services"
+ },
+ "redevelopment_project": {
+  "ar": "مشروع إعادة التطوير",
+  "en": "Redevelopment project"
+ },
+ "regional_classification": {
+  "ar": "التصنيف الإقليمي",
+  "en": "Regional classification"
+ },
+ "rehousing_and_reuse_strategy": {
+  "ar": "استراتيجية إعادة التسكين وإعادة التوظيف",
+  "en": "Rehousing and reuse strategy"
+ },
+ "religious_complex": {
+  "ar": "المجمع الديني",
+  "en": "Religious complex"
+ },
+ "relocation_status": {
+  "ar": "حالة النقل",
+  "en": "Relocation status"
+ },
+ "renovation_2006_cost": {
+  "ar": "تكلفة تجديد 2006",
+  "en": "2006 renovation cost"
+ },
+ "residential_upgrading": {
+  "ar": "رفع كفاءة المباني السكنية",
+  "en": "Residential upgrading"
+ },
+ "residents_policy_directive": {
+  "ar": "توجيه بشأن السكان",
+  "en": "Directive on residents"
+ },
+ "restoration_period": {
+  "ar": "فترة الترميم",
+  "en": "Restoration period"
+ },
+ "restoration_status": {
+  "ar": "حالة الترميم",
+  "en": "Restoration status"
+ },
+ "revamp_cost": {
+  "ar": "تكلفة التجديد",
+  "en": "Revamp cost"
+ },
+ "revitalization_project_status": {
+  "ar": "حالة مشروع إعادة الإحياء",
+  "en": "Revitalization project status"
+ },
+ "revival_status_context": {
+  "ar": "سياق حالة إعادة الإحياء",
+  "en": "Revival status context"
+ },
+ "ring_road_fayoum_brt_integration": {
+  "ar": "التكامل بين الدائري وطريق الفيوم والأتوبيس الترددي",
+  "en": "Ring Road–Fayoum Road–BRT integration"
+ },
+ "road_network_project_length_giza_gov": {
+  "ar": "طول مشروع شبكة الطرق (محافظة الجيزة)",
+  "en": "Road-network project length (Giza Governorate)"
+ },
+ "sanitation_project_followup": {
+  "ar": "متابعة مشروع الصرف الصحي",
+  "en": "Sanitation project follow-up"
+ },
+ "scope_squares_and_facades": {
+  "ar": "نطاق تطوير الميادين والواجهات",
+  "en": "Squares and facades scope"
+ },
+ "seat_of_government_period": {
+  "ar": "فترة كونه مقرًا للحكم",
+  "en": "Seat-of-government period"
+ },
+ "service_hub_area_m2": {
+  "ar": "مساحة مركز الخدمات",
+  "en": "Service hub area"
+ },
+ "shooting_club_land_integrated": {
+  "ar": "أرض نادي الرماية المضمومة",
+  "en": "Shooting-club land integrated"
+ },
+ "shorouk_rabia_public_lottery_number": {
+  "ar": "رقم القرعة العلنية بمنطقة الرابية (الشروق)",
+  "en": "Public lottery number — Rabia area (Shorouk)"
+ },
+ "site_address": {
+  "ar": "عنوان الموقع",
+  "en": "Site address"
+ },
+ "southern_dahshur_link_length_km": {
+  "ar": "طول وصلة دهشور الجنوبية",
+  "en": "Southern Dahshur link length"
+ },
+ "special_law_date": {
+  "ar": "تاريخ القانون الخاص",
+  "en": "Special law date"
+ },
+ "spring_flowers_exhibition_2026_area": {
+  "ar": "مساحة معرض زهور الربيع 2026",
+  "en": "Spring flowers exhibition 2026 area"
+ },
+ "spun_off_mining_company_egx_active": {
+  "ar": "شركة المناجم المنبثقة المتداولة بالبورصة",
+  "en": "Spun-off mining company (EGX-listed)"
+ },
+ "stated_opening_date_qalyubia_portal": {
+  "ar": "تاريخ الافتتاح المعلن (بوابة القليوبية)",
+  "en": "Stated opening date (Qalyubia portal)"
+ },
+ "station_configuration": {
+  "ar": "تصميم المحطة",
+  "en": "Station configuration"
+ },
+ "stations_count": {
+  "ar": "عدد المحطات",
+  "en": "Number of stations"
+ },
+ "strategic_launch_role": {
+  "ar": "الدور الاستراتيجي للمشروع",
+  "en": "Strategic launch role"
+ },
+ "surrounding_development_context": {
+  "ar": "سياق أعمال التطوير المحيطة",
+  "en": "Surrounding development context"
+ },
+ "surrounding_landmarks_and_transit": {
+  "ar": "المعالم والمواصلات المحيطة",
+  "en": "Surrounding landmarks and transit"
+ },
+ "surrounding_monuments_and_streets": {
+  "ar": "الآثار والشوارع المحيطة",
+  "en": "Surrounding monuments and streets"
+ },
+ "surrounding_works_2025": {
+  "ar": "الأعمال المحيطة (2025)",
+  "en": "Surrounding works (2025)"
+ },
+ "surviving_freight_rail_tebbin": {
+  "ar": "خط بضائع باقٍ بالتبين",
+  "en": "Surviving freight rail at Tebbin"
+ },
+ "tanneries_and_aqueduct_redevelopment": {
+  "ar": "تطوير المدابغ وسور مجرى العيون",
+  "en": "Tanneries and aqueduct redevelopment"
+ },
+ "tanneries_conference_reference": {
+  "ar": "الإشارة إلى المدابغ في منتدى مصر 2026",
+  "en": "Tanneries reference at Egypt Forum 2026"
+ },
+ "target_lanes_per_direction": {
+  "ar": "عدد الحارات المستهدف في كل اتجاه",
+  "en": "Target lanes per direction"
+ },
+ "tebbin_rail_toponym_official_registry": {
+  "ar": "تسجيل مسمى التبين للسكة الحديد في السجل الرسمي",
+  "en": "Tebbin rail toponym in the official registry"
+ },
+ "tendering_and_award_status": {
+  "ar": "حالة الطرح والترسية",
+  "en": "Tendering and award status"
+ },
+ "terminals": {
+  "ar": "المحطات الطرفية",
+  "en": "Terminals"
+ },
+ "ticket_egyptian": {
+  "ar": "سعر التذكرة — مصري",
+  "en": "Ticket price — Egyptian"
+ },
+ "ticket_egyptian_adult": {
+  "ar": "سعر التذكرة — مصري (بالغ)",
+  "en": "Ticket price — Egyptian adult"
+ },
+ "ticket_egyptian_adult_portal_conflict_a": {
+  "ar": "سعر التذكرة — مصري بالغ (قيمة متعارضة أ: البوابة)",
+  "en": "Ticket price — Egyptian adult (conflicting value A: portal)"
+ },
+ "ticket_egyptian_adult_subportal_conflict_b": {
+  "ar": "سعر التذكرة — مصري بالغ (قيمة متعارضة ب: البوابة الفرعية)",
+  "en": "Ticket price — Egyptian adult (conflicting value B: sub-portal)"
+ },
+ "ticket_egyptian_student": {
+  "ar": "سعر التذكرة — مصري (طالب)",
+  "en": "Ticket price — Egyptian student"
+ },
+ "ticket_foreigner_adult": {
+  "ar": "سعر التذكرة — أجنبي (بالغ)",
+  "en": "Ticket price — foreign adult"
+ },
+ "ticket_foreigner_adult_portal_conflict_a": {
+  "ar": "سعر التذكرة — أجنبي بالغ (قيمة متعارضة أ: البوابة)",
+  "en": "Ticket price — foreign adult (conflicting value A: portal)"
+ },
+ "ticket_foreigner_adult_subportal_conflict_b": {
+  "ar": "سعر التذكرة — أجنبي بالغ (قيمة متعارضة ب: البوابة الفرعية)",
+  "en": "Ticket price — foreign adult (conflicting value B: sub-portal)"
+ },
+ "ticket_foreigner_student": {
+  "ar": "سعر التذكرة — أجنبي (طالب)",
+  "en": "Ticket price — foreign student"
+ },
+ "total_area": {
+  "ar": "المساحة الإجمالية",
+  "en": "Total area"
+ },
+ "total_area_feddan": {
+  "ar": "المساحة الإجمالية بالفدان",
+  "en": "Total area in feddans"
+ },
+ "total_area_nuca": {
+  "ar": "المساحة الإجمالية (هيئة المجتمعات العمرانية الجديدة)",
+  "en": "Total area (NUCA)"
+ },
+ "total_area_sis": {
+  "ar": "المساحة الإجمالية (الهيئة العامة للاستعلامات)",
+  "en": "Total area (SIS)"
+ },
+ "total_corridor_length": {
+  "ar": "الطول الإجمالي للمحور",
+  "en": "Total corridor length"
+ },
+ "total_corridor_project_length_km_mped": {
+  "ar": "الطول الإجمالي لمشروع المحور (وزارة التخطيط والتنمية الاقتصادية)",
+  "en": "Total corridor project length (Ministry of Planning and Economic Development)"
+ },
+ "total_corridor_project_length_km_presidency": {
+  "ar": "الطول الإجمالي لمشروع المحور (رئاسة الجمهورية)",
+  "en": "Total corridor project length (Presidency)"
+ },
+ "total_cost": {
+  "ar": "التكلفة الإجمالية",
+  "en": "Total cost"
+ },
+ "total_estate_area_at_creation": {
+  "ar": "المساحة الإجمالية عند الإنشاء",
+  "en": "Total estate area at creation"
+ },
+ "total_golden_cone_area": {
+  "ar": "مساحة المخروط الذهبي الإجمالية",
+  "en": "Total golden-cone area"
+ },
+ "total_line_length": {
+  "ar": "الطول الإجمالي للخط",
+  "en": "Total line length"
+ },
+ "tower_height_conflicting_presidency": {
+  "ar": "ارتفاع الأبراج (قيمة متعارضة — رئاسة الجمهورية)",
+  "en": "Tower height (conflicting value — Presidency)"
+ },
+ "tower_height_sis": {
+  "ar": "ارتفاع الأبراج (الهيئة العامة للاستعلامات)",
+  "en": "Tower height (SIS)"
+ },
+ "towers_public_opening_decade": {
+  "ar": "عقد افتتاح الأبراج للجمهور",
+  "en": "Decade the towers opened to the public"
+ },
+ "traffic_network_role": {
+  "ar": "دور الشارع في شبكة المرور",
+  "en": "Role in the traffic network"
+ },
+ "traffic_status": {
+  "ar": "الحالة المرورية",
+  "en": "Traffic status"
+ },
+ "transit_connectivity": {
+  "ar": "الربط بوسائل النقل",
+  "en": "Transit connectivity"
+ },
+ "transit_service_status": {
+  "ar": "حالة خدمة النقل",
+  "en": "Transit service status"
+ },
+ "tree_conservation_status": {
+  "ar": "حالة الحفاظ على الأشجار",
+  "en": "Tree conservation status"
+ },
+ "trial_operation_status": {
+  "ar": "حالة التشغيل التجريبي",
+  "en": "Trial operation status"
+ },
+ "trial_passenger_service": {
+  "ar": "التشغيل التجريبي بالركاب",
+  "en": "Trial passenger service"
+ },
+ "tutankhamun_registration_year": {
+  "ar": "سنة تسجيل آثار توت عنخ آمون بالمتحف",
+  "en": "Year Tutankhamun's artefacts were registered at the museum"
+ },
+ "under_construction_units": {
+  "ar": "الوحدات قيد التنفيذ",
+  "en": "Units under construction"
+ },
+ "unesco_world_heritage_listing_year": {
+  "ar": "سنة التسجيل في قائمة التراث العالمي لليونسكو",
+  "en": "UNESCO World Heritage listing year"
+ },
+ "unit_handover_milestone": {
+  "ar": "مرحلة تسليم الوحدات",
+  "en": "Unit handover milestone"
+ },
+ "upgrading_and_widening": {
+  "ar": "أعمال التطوير والتوسعة",
+  "en": "Upgrading and widening"
+ },
+ "upper_egypt_assiut_luxor_planned_km": {
+  "ar": "الطول المخطط لقطاع أسيوط–الأقصر",
+  "en": "Planned Assiut–Luxor section length"
+ },
+ "urban_designation": {
+  "ar": "التخصيص العمراني",
+  "en": "Urban designation"
+ },
+ "urban_development_scope": {
+  "ar": "نطاق التطوير العمراني",
+  "en": "Urban development scope"
+ },
+ "urban_mass_area": {
+  "ar": "مساحة الكتلة العمرانية",
+  "en": "Urban mass area"
+ },
+ "urban_plan_status": {
+  "ar": "حالة المخطط العمراني",
+  "en": "Urban plan status"
+ },
+ "urban_scope": {
+  "ar": "النطاق العمراني",
+  "en": "Urban scope"
+ },
+ "urgent_phase_delivery_target_date": {
+  "ar": "موعد تسليم المرحلة العاجلة المستهدف",
+  "en": "Urgent phase delivery target date"
+ },
+ "urgent_phase_units": {
+  "ar": "وحدات المرحلة العاجلة",
+  "en": "Urgent phase units"
+ },
+ "vacated_buildings_reuse": {
+  "ar": "إعادة توظيف المباني المُخلاة",
+  "en": "Vacated buildings reuse"
+ },
+ "ventilation_and_safety_infrastructure": {
+  "ar": "التهوية والسلامة بالنفق",
+  "en": "Tunnel ventilation and safety infrastructure"
+ },
+ "wastewater_stations_count": {
+  "ar": "عدد محطات الصرف الصحي",
+  "en": "Number of wastewater stations"
+ },
+ "water_stations_count": {
+  "ar": "عدد محطات المياه",
+  "en": "Number of water stations"
+ },
+ "weight": {
+  "ar": "الوزن",
+  "en": "Weight"
+ },
+ "west_corridor_linkage": {
+  "ar": "الربط بالمحور الغربي",
+  "en": "Western corridor linkage"
+ },
+ "west_monorail_integration": {
+  "ar": "التكامل مع مونوريل غرب النيل",
+  "en": "West monorail integration"
+ },
+ "west_ramps_and_connectivity": {
+  "ar": "المطالع والربط في الاتجاه الغربي",
+  "en": "Western ramps and connectivity"
+ },
+ "west_sector_connections": {
+  "ar": "الوصلات بالقطاع الغربي",
+  "en": "Western sector connections"
+ },
+ "west_sector_coverage": {
+  "ar": "تغطية القطاع الغربي",
+  "en": "Western sector coverage"
+ },
+ "west_sector_service_scope": {
+  "ar": "نطاق الخدمة بالقطاع الغربي",
+  "en": "Western sector service scope"
+ }
+}

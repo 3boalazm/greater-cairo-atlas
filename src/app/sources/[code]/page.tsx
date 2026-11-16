@@ -1,3 +1,4 @@
+import { formatFactValue } from "@/lib/atlas/units";
 import { FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/fact-attribute-labels";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -41,7 +42,7 @@ export default async function EvidenceDetailPage({ params, searchParams }: { par
     {source.notes && <section className="license-block"><h2>{ar ? "ملاحظات الدليل" : "Evidence notes"}</h2><p>{source.notes}</p></section>}
     <section className="entity-section"><div className="section-title"><span>01</span><div><h2>{ar ? "الحقائق المدعومة" : "Supported facts"}</h2><p>{ar ? "تُعرض حالة التحقق كما سُجلت، بما في ذلك الادعاءات المتنازع عليها أو المستبدلة." : "Verification states are shown as recorded, including disputed and superseded claims."}</p></div></div>
       {detail.facts.length ? <div className="entity-fact-groups">{detail.facts.map((fact) => <article className="entity-claim" key={fact.code}>
-        <h3><Link href={`/${language}/entity/${encodeURIComponent(fact.entity_code)}`}>{ar ? fact.entity_name_ar : fact.entity_name_en}</Link></h3><p>{translateLabel(FACT_ATTRIBUTE_LABELS, fact.attribute, language)}</p><strong>{fact.value}{fact.unit ? ` ${fact.unit}` : ""}</strong>
+        <h3><Link href={`/${language}/entity/${encodeURIComponent(fact.entity_code)}`}>{ar ? fact.entity_name_ar : fact.entity_name_en}</Link></h3><p>{translateLabel(FACT_ATTRIBUTE_LABELS, fact.attribute, language)}</p><strong>{formatFactValue(fact.value, fact.unit, language)}</strong>
         <p><span className={`verification-badge verification-${fact.verification_state}`}>{translateLabel(VERIFICATION_LABELS, fact.verification_state, language)}</span>
           {fact.is_contradicted && <span className="verification-badge verification-disputed">{ar ? "قيمة متعارضة" : "Contradicted claim"}</span>}
           {fact.verification_state === "superseded" && <span className="verification-badge">{ar ? "مستبدل" : "Superseded"}</span>}</p>
