@@ -143,7 +143,7 @@ def build_outputs(geojson: dict[str, Any], links: dict[str, Any], entities: list
                 "parent_pcodes": [parent_pcode], "parent_name_ar": parent_name_ar, "parent_name_en": parent_name_en,
                 "area_sqkm": fmt_area(geometry), "valid_on": p.get("valid_on"),
                 "entity_codes": sorted(set(pcode_to_entities.get(pcode, []))),
-                "license": "CC BY-IGO", "source": SOURCE, "evidence_code": EVIDENCE_CODE,
+                "license": "CC-BY-IGO", "source": SOURCE, "evidence_code": EVIDENCE_CODE,
                 "attribution": ATTRIBUTION,
             },
         })
@@ -171,7 +171,7 @@ def build_outputs(geojson: dict[str, Any], links: dict[str, Any], entities: list
                 "code": f"CAPMAS-ENTITY-{code}", "entity_code": code,
                 "name_ar": entity["name_ar"], "name_en": entity["name_en"],
                 "name_ar_units": link.get("names_ar", []), "pcodes": link["pcodes"],
-                "level": 2, "license": "CC BY-IGO", "source": SOURCE,
+                "level": 2, "license": "CC-BY-IGO", "source": SOURCE,
                 "evidence_code": EVIDENCE_CODE, "attribution": ATTRIBUTION,
                 "area_sqkm": round(sum(next(f["properties"]["area_sqkm"] for f in features if f["properties"]["pcode"] == p) for p in link["pcodes"]), 4),
             },
@@ -200,7 +200,7 @@ def build_outputs(geojson: dict[str, Any], links: dict[str, Any], entities: list
             "entity_code": link["entity_code"], "relation": "governorate",
             "adm1_pcode": adm1_pcode, "adm1_name_ar": adm1_ar, "adm1_name_en": adm1_en,
             "pcodes": link["pcodes"],
-            "evidence_code": EVIDENCE_CODE, "source": SOURCE, "license": "CC BY-IGO",
+            "evidence_code": EVIDENCE_CODE, "source": SOURCE, "license": "CC-BY-IGO",
         })
 
     curated_located_within = [link for link in curated_links if link["relation"] == "located_within"]
@@ -208,7 +208,7 @@ def build_outputs(geojson: dict[str, Any], links: dict[str, Any], entities: list
         relations.append({
             "entity_code": link["entity_code"], "relation": "located_within",
             "pcodes": link["pcodes"], "names_ar": link["names_ar"],
-            "evidence_code": EVIDENCE_CODE, "source": SOURCE, "license": "CC BY-IGO",
+            "evidence_code": EVIDENCE_CODE, "source": SOURCE, "license": "CC-BY-IGO",
         })
     relations.sort(key=lambda relation: relation["entity_code"])
     return features, entity_features, relations, {
@@ -256,7 +256,7 @@ def main() -> int:
     geojson, links, entities, fixes = read_inputs()
     units, unions, relations, report = build_outputs(geojson, links, entities, fixes)
     collection = {"type": "FeatureCollection", "name": "CAPMAS COD-AB administrative units for Greater Cairo", "metadata": {
-        "source": SOURCE, "evidence_code": EVIDENCE_CODE, "license": "CC BY-IGO", "attribution": ATTRIBUTION,
+        "source": SOURCE, "evidence_code": EVIDENCE_CODE, "license": "CC-BY-IGO", "attribution": ATTRIBUTION,
         "bbox_wgs84": list(BBOX), "source_json_sha256": source_hashes()[1],
     }, "features": units}
     entity_collection = {"type": "FeatureCollection", "name": "Curated official entity boundary unions", "metadata": collection["metadata"], "features": unions}

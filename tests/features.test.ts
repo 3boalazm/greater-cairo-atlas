@@ -126,10 +126,6 @@ describe("feature ingestion validation and GeoJSON API", () => {
         if (sql.startsWith("SELECT COUNT(*)::int AS count FROM evidence")) return { rows: [{ count: 2 }] as unknown as Row[] };
         if (sql.startsWith("SELECT COUNT(*)::int AS count")) return { rows: [{ count: 1 }] as unknown as Row[] };
         if (sql.startsWith("INSERT INTO entities")) return { rows: [{ id: "entity-current", code: roadEntity.code }] as unknown as Row[] };
-        if (sql.startsWith("DELETE FROM fact_evidence fe")) {
-          expect(inTransaction).toBe(true);
-          return { rows: [{ fact_id: "stale-fact", evidence_id: "stale-evidence" }, { fact_id: "other-fact", evidence_id: "other-evidence" }] as unknown as Row[] };
-        }
         if (sql.startsWith("DELETE FROM features")) {
           expect(inTransaction).toBe(true);
           return { rows: [{ code: "OSM-WAY-OLD-1" }, { code: "OSM-WAY-OLD-2" }] as unknown as Row[] } as unknown as { rows: Row[] };
@@ -146,13 +142,14 @@ describe("feature ingestion validation and GeoJSON API", () => {
     expect(result.importSync).toEqual({
       featuresDeletedCount: 2,
       entityRelationsDeletedCount: 0,
-      factEvidenceLinksDeletedCount: 2,
+      factEvidenceLinksDeletedCount: 0,
       entitiesNotInSeedCount: 1,
       factsNotInSeedCount: 3,
       evidenceNotInSeedCount: 2,
       databasePreviewAvailable: true,
     });
     expect(statements.at(-1)).toBe("COMMIT");
+    expect(statements.some((sql) => sql.startsWith("DELETE FROM fact_evidence fe"))).toBe(false);
     expect(statements.some((sql) => sql.startsWith("DELETE FROM entities") || sql.startsWith("DELETE FROM facts") || sql.startsWith("DELETE FROM evidence"))).toBe(false);
     expect(statements.findIndex((sql) => sql.startsWith("DELETE FROM features"))).toBeGreaterThan(statements.indexOf("BEGIN"));
   });
