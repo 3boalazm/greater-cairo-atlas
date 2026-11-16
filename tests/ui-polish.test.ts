@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
+import { readFile } from "node:fs/promises";
 import { getStaticAtlasDataset } from "@/lib/atlas/static-dataset";
 import { normalizeEntityName } from "@/lib/atlas/entity-presentation";
 import { readRecent, rememberEntity, searchEntities, searchGroup, suggestedEntities } from "@/lib/atlas/search";
@@ -71,4 +72,17 @@ it("renders a neutral expandable comparison with each source and linked entities
   expect(html).toContain("كيانات مرتبطة"); expect(html).toContain("الخط");
   expect(html).toContain("انسخ الرابط");
   expect(html).not.toContain("تنزيل GeoJSON");
+});
+
+
+it("keeps transit labels on lines and exposes a mobile search affordance", async () => {
+  const map = await readFile("src/components/atlas/MapView.tsx", "utf8");
+  expect(map).toContain('id: "atlas-transit-line-labels"');
+  expect(map).toContain('"symbol-placement": "line"');
+  expect(map).toContain('properties?.type === "transit_line"');
+  const { SearchCommand } = await import("@/components/atlas/SearchCommand");
+  const { ResearchModeProvider } = await import("@/components/site/ResearchMode");
+  const html = renderToStaticMarkup(createElement(ResearchModeProvider, null, createElement(SearchCommand, { language: "ar", entities: [], onSelect: () => {}, onShowBoundary: () => {} })));
+  expect(html).toContain("ابحث في الأطلس…");
+  expect(html).toContain('class="search-focus-button"');
 });

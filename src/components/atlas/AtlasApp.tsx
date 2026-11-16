@@ -1,7 +1,6 @@
 "use client";
 /* eslint-disable react-hooks/set-state-in-effect -- fetch lifecycle and URL hydration synchronize external state. */
 
-import Link from "next/link";
 import { AlertTriangle, Database, MapPinned, RefreshCw } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AppSidebar } from "./AppSidebar";
