@@ -1,4 +1,5 @@
-import { ENTITY_STATUSES, type EntityStatus, type FactVerificationState } from "@/lib/atlas/schema";
+import type { EntityStatus, FactVerificationState } from "@/lib/atlas/schema";
+import { ENTITY_STATUSES } from "@/lib/atlas/status-values";
 
 /**
  * BATCH 14.1 — «الحالة في تاريخ»: what did the atlas know about an entity in a given year?

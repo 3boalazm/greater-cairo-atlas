@@ -1,7 +1,8 @@
+import { FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/fact-attribute-labels";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { currentStatusNewsSourceCount, FACT_ATTRIBUTE_LABELS, hasDisplayableQuickFactValue, quickFactSourceCountLabel, showOnMapLabel, statusNewsSourceCountLabel } from "@/lib/atlas/labels";
+import { currentStatusNewsSourceCount, hasDisplayableQuickFactValue, quickFactSourceCountLabel, showOnMapLabel, statusNewsSourceCountLabel } from "@/lib/atlas/labels";
 
 describe("fact attribute translations", () => {
   it("uses correct Arabic plural forms for quick-fact source counts and hides a single source", () => {
