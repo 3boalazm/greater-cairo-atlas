@@ -138,4 +138,4 @@ export const ENTITY_TYPES = [
   "public_facility", "development_zone",
 ] as const;
 export const SECTORS = ["NORTH", "EAST", "SOUTH", "WEST", "CENTRAL", "REGIONAL"] as const;
-export const STATUSES = ["operational", "partial", "under_construction", "planned", "approved_planned", "unknown"] as const;
+export { ENTITY_STATUSES as STATUSES } from "@/lib/atlas/status-values";

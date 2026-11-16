@@ -1,5 +1,7 @@
 "use client";
 
+import { FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/fact-attribute-labels";
+
 import Link from "next/link";
 import { MapPinOff, MapPinned, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
@@ -14,7 +16,7 @@ import { governorateParentLabel } from "@/lib/atlas/entity-relations";
 import { pointOutsideBoundaryNote } from "@/lib/atlas/point-outside-boundary";
 import { EntityTimeline } from "./EntityTimeline";
 import type { GeometryAlternative } from "@/lib/atlas/geometry-comparisons";
-import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, hasDisplayableQuickFactValue, SECTOR_LABELS, showOnMapLabel, SOURCE_TYPE_LABELS, STATUS_LABELS, VERIFICATION_LABELS, quickFactSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
+import { ENTITY_TYPE_LABELS, hasDisplayableQuickFactValue, SECTOR_LABELS, showOnMapLabel, SOURCE_TYPE_LABELS, STATUS_LABELS, VERIFICATION_LABELS, quickFactSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
 const areaEntityTypes = new Set(["city", "district", "neighborhood", "authority"]);
 

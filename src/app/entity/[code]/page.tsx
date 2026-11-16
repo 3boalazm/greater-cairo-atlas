@@ -1,3 +1,4 @@
+import { FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/fact-attribute-labels";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -10,7 +11,7 @@ import type { AtlasFeatureCollection } from "@/components/atlas/atlas-client";
 import { transitModeLabel, transitModesForEntityCode } from "@/lib/atlas/transit-modes";
 import { SuggestionForm } from "@/components/atlas/SuggestionForm";
 import { EntityTimeline } from "@/components/atlas/EntityTimeline";
-import { ENTITY_TYPE_LABELS, FACT_ATTRIBUTE_LABELS, SECTOR_LABELS, SIMPLE_STATUS_LABELS, SOURCE_TYPE_LABELS, VERIFICATION_LABELS, currentStatusNewsSourceCount, quickFactSourceCountLabel, statusNewsSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
+import { ENTITY_TYPE_LABELS, SECTOR_LABELS, SIMPLE_STATUS_LABELS, SOURCE_TYPE_LABELS, VERIFICATION_LABELS, currentStatusNewsSourceCount, quickFactSourceCountLabel, statusNewsSourceCountLabel, stationDisplayName, translateLabel } from "@/lib/atlas/labels";
 
 interface EntityPageProps {
   params: Promise<{ code: string }>;

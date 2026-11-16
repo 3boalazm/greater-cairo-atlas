@@ -1,9 +1,10 @@
+import { FACT_ATTRIBUTE_LABELS } from "@/lib/atlas/fact-attribute-labels";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteFooter, SiteHeader, getSiteUrl, localizedPath, resolveLanguage } from "@/components/site/SiteChrome";
 import { getStaticEvidenceDetail } from "@/lib/atlas/static-dataset";
-import { FACT_ATTRIBUTE_LABELS, SOURCE_TYPE_LABELS, VERIFICATION_LABELS, translateLabel } from "@/lib/atlas/labels";
+import { SOURCE_TYPE_LABELS, VERIFICATION_LABELS, translateLabel } from "@/lib/atlas/labels";
 
 export async function generateStaticParams() {
   const { getStaticEvidenceCatalog } = await import("@/lib/atlas/static-dataset");
