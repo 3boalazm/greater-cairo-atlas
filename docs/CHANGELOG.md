@@ -1,6 +1,6 @@
 # Change history
 
-One line per merged pull request, in merge-number order; Batch 18 is pending.
+One line per merged pull request, in merge-number order; Batch 19 is pending.
 
 - [#1](https://github.com/3boalazm/greater-cairo-atlas/pull/1) — Phase 01: Project Foundation (Next.js, Neon + PostGIS, Migrations, Health Probe)
 - [#2](https://github.com/3boalazm/greater-cairo-atlas/pull/2) — Phase 02: Core Schema, Migration Automation, Seed Importer & Stats API
@@ -46,4 +46,5 @@ One line per merged pull request, in merge-number order; Batch 18 is pending.
 - [#42](https://github.com/3boalazm/greater-cairo-atlas/pull/42) — Install Vercel Web Analytics
 - [#43](https://github.com/3boalazm/greater-cairo-atlas/pull/43) — BATCH 16: South OSM geometry review and ingestion
 - [#44](https://github.com/3boalazm/greater-cairo-atlas/pull/44) — BATCH 17: polish atlas search, map and entity panel
-- Batch 18 (pending) — data integrity, retirement, drift, licences, timestamps and documentation.
+- [#45](https://github.com/3boalazm/greater-cairo-atlas/pull/45) — Batch 18 data integrity, retirement, drift, licences, timestamps and documentation.
+- Batch 19 (pending) — Central and unknown-status research merge.
