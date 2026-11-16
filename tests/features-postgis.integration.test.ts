@@ -173,28 +173,27 @@ describe("real PostGIS features SQL regression", () => {
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
   }, 120_000);
 
-  it("loads matched and unmatched South entities with facts independently of geometry", async () => {
+  it("loads all matched and unmatched South entities with facts independently of geometry", async () => {
+    const report = JSON.parse(await readFile(path.resolve(process.cwd(), "data/research/south-batch04/geometry_match_report.json"), "utf8")) as {
+      results: Array<{ entity_code: string; status: string }>;
+    };
+    const batchCodes = report.results.map((row) => row.entity_code);
+    expect(batchCodes).toHaveLength(31);
     const result = await db.query<{ code: string; has_geometry: boolean; facts_count: number }>(`
       SELECT e.code,
              EXISTS (SELECT 1 FROM features f WHERE f.entity_id = e.id) AS has_geometry,
              (SELECT COUNT(*)::int FROM facts fa WHERE fa.entity_id = e.id) AS facts_count
-      FROM entities e
-      WHERE e.code IN ('LANDMARK-NMEC', 'PROJ-FUSTAT-HILLS', 'LANDMARK-EIN-EL-SIRA', 'LANDMARK-JAPANESE-GARDEN-HELWAN', 'LINE-HELWAN-OLD-RAIL')
-      ORDER BY e.code
-    `);
-    expect(result.rows.map((row) => [row.code, row.has_geometry])).toEqual([
-      ["LANDMARK-EIN-EL-SIRA", true],
-      ["LANDMARK-JAPANESE-GARDEN-HELWAN", true],
-      ["LANDMARK-NMEC", true],
-      ["LINE-HELWAN-OLD-RAIL", false],
-      ["PROJ-FUSTAT-HILLS", false],
-    ]);
-    expect(result.rows.every((row) => row.facts_count > 0)).toBe(true);
-    const batchCodes = result.rows.map((row) => row.code);
+      FROM entities e WHERE e.code = ANY($1::text[]) ORDER BY e.code
+    `, [batchCodes]);
+    expect(result.rows).toHaveLength(31);
+    for (const row of result.rows) {
+      expect(row.has_geometry).toBe(report.results.find((r) => r.entity_code === row.code)?.status === "matched");
+      expect(row.facts_count).toBeGreaterThan(0);
+    }
     const searchable = await db.query<{ count: number }>(
       `SELECT COUNT(*)::int AS count FROM entities WHERE code = ANY($1::text[])`, [batchCodes],
     );
-    expect(searchable.rows[0]?.count).toBe(batchCodes.length);
+    expect(searchable.rows[0]?.count).toBe(31);
   }, 120_000);
 
   it("keeps database envelopes identical to shared TypeScript geometry constants", async () => {
