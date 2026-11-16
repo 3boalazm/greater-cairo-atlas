@@ -1,0 +1,7 @@
+# Central batch 05 adaptation
+
+- Research files were copied unchanged from `research/central-batch05`; the Gemini raw files were not altered.
+- The 35 new CENTRAL entity rows were mapped by CSV header name, checked for collisions, and added to the seed. No geometry or coordinates were created.
+- 116 facts and 65 evidence records were adapted with `adaptResearchSeedSources`, preserving `EV-C5-###` references and each supplied verification state. Existing entity codes used by `code_remap.json` are references only; their status and sector are unchanged.
+- `url_check` has no canonical column, so it is retained in evidence `notes`. Fact codes were sequenced beyond existing codes; old facts and evidence remain, including conflicting values.
+- The research includes `TRANSIT-MASPERO-RIVER-PIER` as `unknown`; its source explicitly does not establish reopening. It remains unknown, not inferred operational.

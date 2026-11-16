@@ -32,7 +32,7 @@ BRIDGE-MIDDLE-RING-ISMAILIA,كوبري تقاطع الدائري الأوسطي 
 BRIDGE-MONIB,كوبري المنيب,El Monib Bridge,bridge,SOUTH,operational,الدائري الجنوبي|دائري المنيب,
 BRIDGE-QALYUB-FLYOVER,كوبري قليوب العلوي,Qalyub Overpass Bridge,bridge,NORTH,operational,كوبري قليوب|Qalyub Flyover,
 BRIDGE-QASR-EL-NIL,كوبري قصر النيل,Qasr El Nil Bridge,bridge,CENTRAL,operational,,
-BRIDGE-RING-NORTH-WARRAQ,كوبري الدائري الشمالي (الوراق),Ring Road North Bridge (Warraq),bridge,NORTH,unknown,,
+BRIDGE-RING-NORTH-WARRAQ,كوبري الدائري الشمالي (الوراق),Ring Road North Bridge (Warraq),bridge,NORTH,operational,,
 BRIDGE-SHUBRA-AXIS,كباري منطقة شبرا (محور روض الفرج),Shubra Area Bridges (Rod El Farag Axis),bridge,NORTH,operational,مطالع ومنازل كوبري تحيا مصر بمنطقة شبرا|كباري شبرا,
 BRIDGE-TAHYA-MISR,كوبري تحيا مصر,Tahya Misr Cable-Stayed Bridge,bridge,NORTH,operational,كوبري روض الفرج الملجم|كوبري النيل الشرقي|كوبري تحيا مصر بروض الفرج,
 BRIDGE-TAHYA-MISR-RING,كوبري تقاطع محور تحيا مصر مع الطريق الدائري,Tahya Misr Axis – Ring Road Interchange Bridge,bridge,NORTH,operational,تقاطع محور تحيا مصر مع الدائري,
@@ -58,7 +58,7 @@ CITY-KHANKA,الخانكة,El Khanka,city,NORTH,operational,مركز ومدين�
 CITY-MADINATY,مدينتي,Madinaty,city,EAST,operational,Madinaty City|مدينتى,
 CITY-MANSOURA,المنصورة,Mansoura,city,REGIONAL,operational,مدينة المنصورة|El Mansoura|Al Mansurah,
 CITY-MARSA-MATROUH,مرسى مطروح,Marsa Matrouh,city,REGIONAL,operational,مطروح|Marsa Matruh|Mersa Matruh,
-CITY-MOSTAKBAL,المستقبل سيتي,Mostakbal City,city,EAST,unknown,المستقبل|مستقبل سيتي|Future City,
+CITY-MOSTAKBAL,المستقبل سيتي,Mostakbal City,city,EAST,partial,المستقبل|مستقبل سيتي|Future City,
 CITY-NEW-CAIRO,القاهرة الجديدة,New Cairo,city,EAST,operational,التجمع|التجمع الأول|التجمع التالت|التجمع الخامس|التجمع السادس|مدينة القاهرة الجديدة|New Cairo City|Al Qahirah al Jadidah|قسم أول القاهرة الجديدة|قسم ثان القاهرة الجديدة|قسم ثالث القاهرة الجديدة,
 CITY-NEW-CAPITAL,العاصمة الإدارية,New Administrative Capital,city,EAST,partial,العاصمة|العاصمة الإدارية الجديدة|NAC|The New Capital,
 CITY-NEW-HELIOPOLIS,هليوبوليس الجديدة,New Heliopolis,city,EAST,partial,مدينة هليوبوليس الجديدة|هيليوبوليس الجديدة|New Heliopolis City,
@@ -104,7 +104,7 @@ DIST-FUSTAT,الفسطاط,Fustat,district,CENTRAL,operational,El Fustat,
 DIST-GARDEN-CITY,جاردن سيتي,Garden City,district,CENTRAL,operational,جاردن سيتى,
 DIST-GHARB,حي غرب,Gharb (West) District,district,CENTRAL,operational,حى غرب|حي غرب القاهرة|West District|West Cairo District,
 DIST-GREEN-SARAYA,السرايا الخضرا,Green Saraya,district,EAST,unknown,السروة الخضرا|السرايا الخضراء,
-DIST-HADAEK-ASHGAR,حدائق الأشجار,Hadaek El Ashgar,district,WEST,unknown,حدائق الاشجار,
+DIST-HADAEK-ASHGAR,حدائق الأشجار,Hadaek El Ashgar,district,WEST,operational,حدائق الاشجار,
 DIST-HADAEK-OCTOBER,حدائق أكتوبر,Hadaek October,district,WEST,operational,مدينة حدائق أكتوبر|Hadayek October|October Gardens,
 DIST-HADAYEK-AHRAM,حدائق الأهرام,Hadayek El Ahram,district,WEST,operational,حدائق الاهرام|Pyramids Gardens,
 DIST-HADAYEK-QOBBA,حدائق القبة,Hadayek El Qobba,district,NORTH,operational,حي حدائق القبة|حى حدائق القبة|قسم حدائق القبة|Hadayek El Kobba|Hadaiq al-Qubbah,
@@ -122,7 +122,7 @@ DIST-MAASARA,حي المعصرة,El Maasara District,district,SOUTH,operational,
 DIST-MANIAL,المنيل,Manial,district,CENTRAL,operational,الروضة|Manial El Roda|El Manial|Roda Island,
 DIST-MANSHEYET-BAKARY,منشأة البكاري,Mansheyet El Bakary,district,WEST,operational,منشأة البكارى|منشية البكري,
 DIST-MANSHIYAT-NASSER,حي منشأة ناصر,Manshiyat Nasser District,district,CENTRAL,operational,منشأة ناصر|حى منشاة ناصر|Manshiyet Nasser|Manshiet Nasser,
-DIST-MANSOURIYA,المنصورية,El Mansouriya,district,WEST,unknown,Al Mansuriyah,
+DIST-MANSOURIYA,المنصورية,El Mansouriya,district,WEST,operational,Al Mansuriyah,
 DIST-MARG,المرج,El Marg,district,NORTH,operational,حي المرج|حى المرج|قسم المرج|El Marg District|Al Marj,
 DIST-MATARIYA,المطرية,El Matariya,district,NORTH,operational,حي المطرية|قسم المطرية|El Matareya|Matariyya|Al Matariyah,
 DIST-MERAJ,المعراج,El Meraj,district,SOUTH,operational,El Mearag|Al Meraj|El Me'rag,
@@ -171,7 +171,7 @@ LANDMARK-MALL-OF-ARABIA,مول العرب,Mall of Arabia,landmark,WEST,operation
 LANDMARK-MALL-OF-EGYPT,مول مصر,Mall of Egypt,landmark,WEST,operational,,
 LANDMARK-PYRAMIDS,الأهرام,Giza Pyramids,landmark,WEST,operational,,
 LANDMARK-SPHINX-SQ,سفنكس,Sphinx Square,landmark,WEST,operational,,
-PROJ-ADDED-LANDS-REGULARIZATION,ملف توفيق أوضاع الأراضي المضافة,Added Lands Regularization File,project,REGIONAL,unknown,الأراضي المضافة,
+PROJ-ADDED-LANDS-REGULARIZATION,ملف توفيق أوضاع الأراضي المضافة,Added Lands Regularization File,project,REGIONAL,partial,الأراضي المضافة,
 PROJ-AHALINA-1,مشروع الإسكان الاجتماعي «أهالينا 1»,Ahalina 1 Social Housing (El Salam 1),project,EAST,operational,أهالينا 1|أهالينا ١,
 PROJ-METRO-L1-UPGRADE,تطوير الخط الأول للمترو,Metro Line 1 Modernization,project,CENTRAL,under_construction,تطوير الخط الأول حلوان – المرج الجديدة,
 PROJ-RING-WIDENING-2798,توسعة الدائري من المنصورية لوصلة الواحات,Ring Road Widening (Mansouriya–Wahat Link),project,WEST,approved_planned,القرار 2798 لسنة 2026,
@@ -199,7 +199,7 @@ ROAD-CAIRO-ISMAILIA-DESERT,القاهرة–الإسماعيلية الصحرا�
 ROAD-CAIRO-SUEZ,القاهرة–السويس,Cairo–Suez Road,road,EAST,operational,السويس,
 ROAD-CORNICHE,الكورنيش,Corniche,road,SOUTH,operational,كورنيش النيل|كورنيش القاهرة|كورنيش المعادي|Cairo Corniche,
 ROAD-DABAA-AXIS,محور الضبعة,Dabaa Axis,road,WEST,operational,الضبعة,
-ROAD-DAHSHUR-LINK,وصلة دهشور,Dahshur Link,road,WEST,unknown,طريق وصلة دهشور|طريق وصلة دهشور الجنوبية|Waslet Dahshur Road,
+ROAD-DAHSHUR-LINK,وصلة دهشور,Dahshur Link,road,WEST,operational,طريق وصلة دهشور|طريق وصلة دهشور الجنوبية|Waslet Dahshur Road,
 ROAD-EAST-RAYAH-TAWFIKI,طريق حر شرق الرياح التوفيقي,East Rayah Tawfiki Free Road,road,REGIONAL,under_construction,,
 ROAD-EASTERN-DESERT,الصحراوي الشرقي,Eastern Desert Road,road,SOUTH,operational,طريق القاهرة السويس الصحراوي|الطريق الصحراوي الشرقي,
 ROAD-GAMET-EL-DOWAL,جامعة الدول,Gameat El Dowal Street,road,WEST,operational,شارع جامعة الدول العربية|جامعة الدول العربية,
@@ -208,8 +208,8 @@ ROAD-IBRAHIM-ORABI-AXIS,محور الفريق إبراهيم العرابي,El F
 ROAD-ISMAILIA-AGRI,الإسماعيلية الزراعي,Ismailia Agricultural Road,road,NORTH,operational,طريق القاهرة الإسماعيلية الزراعي|طريق الاسماعيلية الزراعي|Cairo Ismailia Agricultural Road,
 ROAD-KAMAL-AMER,محور الفريق كمال عامر,Al-Fariq Kamal Amer Axis,road,WEST,operational,كمال عامر,
 ROAD-MARG-AXIS,محور المرج,El Marg Axis,road,NORTH,planned,محور المرج – الخانكة|محور المرج الخانكة,
-ROAD-MARYUTEYA,المريوطية,Maryuteya Road,road,WEST,unknown,طريق المريوطية|شارع ترعة المريوطية|طريق ترعة المريوطية|Al Maryouteya Road,
-ROAD-MBZ-NORTH,محمد بن زايد الشمالي,Mohamed Bin Zayed North Axis,road,EAST,unknown,محور الشيخ محمد بن زايد الشمالى|محور الشيخ محمد بن زايد الشمالي|Sheikh Mohamed Bin Zayed North Axis,
+ROAD-MARYUTEYA,المريوطية,Maryuteya Road,road,WEST,partial,طريق المريوطية|شارع ترعة المريوطية|طريق ترعة المريوطية|Al Maryouteya Road,
+ROAD-MBZ-NORTH,محمد بن زايد الشمالي,Mohamed Bin Zayed North Axis,road,EAST,operational,محور الشيخ محمد بن زايد الشمالى|محور الشيخ محمد بن زايد الشمالي|Sheikh Mohamed Bin Zayed North Axis,
 ROAD-MBZ-SOUTH,محمد بن زايد الجنوبي,Mohamed Bin Zayed South Axis,road,EAST,operational,محور الشيخ محمد بن زايد الجنوبي|Sheikh Mohamed Bin Zayed South Axis,
 ROAD-MIDDLE-RING,الأوسطي,Middle Ring Road,road,REGIONAL,operational,الدائري الأوسطي|الطريق الدائري الأوسطي|Central Ring Road,
 ROAD-MOHAMED-NAGUIB,محور محمد نجيب,Mohamed Naguib Axis,road,EAST,operational,محمد نجيب,
@@ -224,7 +224,7 @@ ROAD-RING-ROAD,الدائري,Ring Road,road,CENTRAL,operational,الدائري 
 ROAD-ROD-ELFARAG-DABAA,محور روض الفرج–الضبعة,Rod El Farag–Dabaa Axis,road,NORTH,operational,محور تحيا مصر|تحيا مصر|محور روض الفرج,
 ROAD-SHUBRA-BENHA-FREE,شبرا–بنها الحر,Shubra–Benha Free Road,road,NORTH,operational,محور شبرا–بنها الحر|طريق شبرا بنها الحر|طريق شبرا / بنها الحر|Shubra Banha Free Road,
 ROAD-WAHAT,الواحات,Wahat Road,road,WEST,operational,وصلة الواحات|طريق الواحات|طريق الجيزة الواحات البحرية|Al Wahat Road,
-ROAD-WESTERN-DESERT,الصحراوي الغربي,Western Desert Road,road,WEST,unknown,طريق القاهرة أسيوط الصحراوي الغربي|القاهرة أسيوط الصحراوي الغربي|Cairo Asyout Western Desert Road,
+ROAD-WESTERN-DESERT,الصحراوي الغربي,Western Desert Road,road,WEST,operational,طريق القاهرة أسيوط الصحراوي الغربي|القاهرة أسيوط الصحراوي الغربي|Cairo Asyout Western Desert Road,
 STOP-6-OCTOBER-INTERCHANGE,6 أكتوبر,6th of October Interchange,transit_stop,WEST,under_construction,,
 STOP-ABBASSIA,العباسية,Abbassia Station,transit_stop,CENTRAL,operational,,
 STOP-ADALA-CITY,مدينة العدالة,Justice City Station,transit_stop,EAST,operational,,
@@ -447,3 +447,38 @@ PROJ-RAWDAT-EL-SAYEDA,مشروع روضة السيدة,Rawdat El Sayeda Project,
 PROJ-ASMARAT,مشروع حي الأسمرات,El Asmarat Housing Project,project,SOUTH,operational,مدينة الأسمرات,مجتمع سكني بديل للمناطق غير الآمنة بالمقطم في ثلاث مراحل
 PROJ-EL-KHAYALA,مشروع إسكان أرض الخيالة,El Khayala Housing Project,project,SOUTH,operational,أرض الخيالة,مشروع إسكان بديل في جنوب القاهرة
 PROJ-ZOHOUR-15-MAY,مشروع زهور 15 مايو,Zohour 15 May Housing Project,project,SOUTH,under_construction,زهور مايو,مشروع سكن بديل بمدينة 15 مايو
+LANDMARK-EGYPTIAN-MUSEUM,المتحف المصري بالتحرير,Egyptian Museum in Tahrir,landmark,CENTRAL,operational,المتحف المصري,متحف الآثار المصرية بميدان التحرير ويضم مجموعات أثرية تاريخية مع نقل 22 مومياء ملكية منه إلى المتحف القومي للحضارة
+LANDMARK-CAIRO-CITADEL,قلعة صلاح الدين الأيوبي,Cairo Citadel,landmark,CENTRAL,operational,القلعة|قلعة الجبل,حصن دفاعي تاريخي على مرتفع من جبل المقطم يضم جوامع محمد علي والناصر محمد وسليمان باشا الخادم ومتاحف الجوهرة والشرطة والحربي
+LANDMARK-MUHAMMAD-ALI-MOSQUE,مسجد محمد علي بالقلعة,Mosque of Muhammad Ali,landmark,CENTRAL,operational,جامع محمد علي|جامع الألبستر,مسجد أثري داخل قلعة صلاح الدين أمر بإنشائه محمد علي باشا عام 1265هـ/1848م وكُسيت جدرانه بألواح الرخام الألبستر
+LANDMARK-SULTAN-HASAN,مسجد ومدرسة السلطان حسن,Mosque and Madrasa of Sultan Hasan,landmark,CENTRAL,operational,جامع السلطان حسن,مسجد ومدرسة مملوكية أنشأها السلطان حسن بن قلاوون بين 1356 و1362م بنهاية شارع محمد علي بميدان صلاح الدين
+LANDMARK-AL-RIFAI-MOSQUE,جامع الرفاعي,Al-Rifa'i Mosque,landmark,CENTRAL,operational,مسجد الرفاعي,جامع أثري بميدان صلاح الدين أُنشئ في القرن التاسع عشر مقابل مسجد السلطان حسن ويضم المقابر الملكية لأسرة محمد علي
+LANDMARK-SALAH-EL-DIN-SQ,ميدان صلاح الدين,Salah al-Din Square,landmark,CENTRAL,operational,ميدان القلعة|ميدان الرميلة|قراميدان|سوق الخيل,ميدان تاريخي أسفل قلعة صلاح الدين تطل عليه جوامع السلطان حسن والرفاعي والمحمودية وباب العزب وتتفرع منه شوارع القاهرة التاريخية
+LANDMARK-AL-AZHAR-PARK,حديقة الأزهر,Al-Azhar Park,landmark,CENTRAL,operational,متنزه الأزهر,حديقة عامة في القاهرة تصفها الهيئة العامة للاستعلامات بأنها الأكبر من نوعها في الشرق الأوسط وتعيد الزوار إلى المساحات الخضراء المفتوحة
+LANDMARK-KHAN-EL-KHALILI,خان الخليلي,Khan El-Khalili,landmark,CENTRAL,operational,سوق خان الخليلي,سوق تاريخي أسسه الأمير جركس الخليلي عام 1382م بجوار مسجد الحسين والجامع الأزهر ويزيد عمره على 600 عام
+LANDMARK-AL-MUIZZ,شارع المعز لدين الله الفاطمي,Al-Muizz Street,landmark,CENTRAL,operational,شارع المعز|الشارع الأعظم|قصبة القاهرة,أكبر متحف مفتوح للآثار الإسلامية وأُدرج ضمن مواقع التراث العالمي عام 1979 ويضم عشرات الآثار الإسلامية المتنوعة
+LANDMARK-BAB-ZUWEILA,باب زويلة,Bab Zuweila,landmark,CENTRAL,operational,بوابة المتولي,البوابة الجنوبية لأسوار القاهرة الفاطمية أنشأها بدر الجمالي عام 485هـ/1092م وتوفر مآذنها إطلالة على المدينة القديمة
+LANDMARK-IBN-TULUN-MOSQUE,جامع أحمد بن طولون,Mosque of Ahmad ibn Tulun,landmark,CENTRAL,operational,مسجد ابن طولون,جامع أثري شيده أحمد بن طولون بين 876 و879م فوق جبل يشكر بشارع الصليبة في حي السيدة زينب
+LANDMARK-ISLAMIC-ART-MUSEUM,متحف الفن الإسلامي,Museum of Islamic Art,landmark,CENTRAL,operational,متحف الفن الإسلامي بباب الخلق,متحف بباب الخلق بجوار دار الكتب القومية افتُتح عام 1903 ويضم حسب وزارة السياحة والآثار أكبر وأروع مجموعة من الآثار الإسلامية عالميًا
+LANDMARK-COPTIC-MUSEUM,المتحف القبطي,The Coptic Museum,landmark,CENTRAL,operational,متحف مصر القديمة القبطي,متحف بمجمع الأديان في الفسطاط بمصر القديمة افتُتح عام 1910 ويضم أكبر مجموعة من الآثار القبطية في العالم
+LANDMARK-HANGING-CHURCH,الكنيسة المعلقة,The Hanging Church,landmark,CENTRAL,operational,الكنيسة المعلقة بمصر القديمة,كنيسة تاريخية مشيدة فوق الحصن الروماني لبابليون بمصر القديمة (الفسطاط) بجوار المتحف القبطي ضمن مجمع الأديان
+LANDMARK-AMR-IBN-AL-AS,جامع عمرو بن العاص,Mosque of Amr ibn al-As,landmark,CENTRAL,operational,مسجد عمرو بن العاص,أول وأقدم مسجد أُقيم في مصر وإفريقيا ويقع بنطاق حي مصر القديمة ومجمع الأديان
+LANDMARK-MANIAL-PALACE,متحف قصر الأمير محمد علي بالمنيل,Manial Palace Museum,landmark,CENTRAL,operational,قصر المنيل|متحف قصر المنيل,قصر تاريخي ومتحف على فرع النيل الشرقي بجزيرة منيل الروضة يدمج الطراز الإسلامي الحديث بالعناصر الفارسية والمملوكية
+LANDMARK-CAIRO-TOWER,برج القاهرة,Cairo Tower,landmark,CENTRAL,operational,برج الجزيرة,برج سياحي بارز في القاهرة يبلغ ارتفاعه 187 مترًا ويتكون من 16 طابقًا فوق قاعدة من الجرانيت الأسواني
+LANDMARK-CAIRO-OPERA,دار الأوبرا المصرية,Cairo Opera House,landmark,CENTRAL,operational,المركز الثقافي القومي|الأوبرا,الصرح الرئيسي للفنون الأدائية بجزيرة الزمالك وتخضع مرافقه ومتحفه لخطط تطوير ورفع كفاءة مستمرة
+LANDMARK-FISH-GARDEN,حديقة جبلاية الأسماك بالزمالك,Aquarium Grotto Garden,landmark,CENTRAL,operational,حديقة الأسماك|حديقة الجبلاية,حديقة بالزمالك تضم مساحات خضراء وأشجارًا وأكدت وزارة الزراعة سلامة أشجارها والتزامها بحماية التراث النباتي
+LANDMARK-HORREYA-PARK,حديقة الحرية بالزمالك,Al-Horreya Park,landmark,CENTRAL,operational,حديقة الحرية,حديقة متخصصة تابعة لحي غرب القاهرة تقع في منطقة الجزيرة بالزمالك بجوار كوبري قصر النيل
+LANDMARK-ABDEEN-PALACE,قصر عابدين,Abdeen Palace,landmark,CENTRAL,operational,,قصر تاريخي ورئاسي بوسط القاهرة أنشأه الخديوي إسماعيل وكان مقر الحكم من 1874 حتى ثورة 23 يوليو 1952
+LANDMARK-ATABA-SQUARE,ميدان العتبة,Ataba Square,landmark,CENTRAL,operational,ميدان العتبة الخضراء,ميدان تاريخي على حد القاهرة الخديوية نشأ باسم ميدان العتبة الخضراء ويشمل محيطه أعمال تطوير بميدان وجراج العتبة وميدان الأوبرا
+LANDMARK-AL-HUSSEIN-MOSQUE,مسجد الإمام الحسين,Al-Hussein Mosque,landmark,CENTRAL,operational,جامع الحسين|مسجد الإمام الحسين بن علي,مسجد تاريخي بحي الحسين في القاهرة القديمة يجاور سوق خان الخليلي والجامع الأزهر
+LANDMARK-AZBAKEYA-GARDEN,حديقة الأزبكية,Azbakeya Garden,landmark,CENTRAL,under_construction,متنزه الأزبكية,حديقة تاريخية نشأت مكان بركة الأزبكية في القاهرة الخديوية وترتبط بخطط إعادة الإحياء في نطاق وسط البلد وميداني العتبة والأوبرا
+PROJ-MASPERO-TRIANGLE,مشروع تطوير مثلث ماسبيرو,Maspero Triangle Development Project,project,CENTRAL,partial,تطوير مثلث ماسبيرو,مشروع تطوير عمراني يضم وحدات سكنية وتجارية وإدارية بمحافظة القاهرة أُنجزت فيه 5700 وحدة ويتواصل تنفيذ 510 وحدات
+PROJ-AHL-MISR-WALKWAY,مشروع ممشى أهل مصر,Ahl Misr Walkway Project,project,CENTRAL,partial,ممشى أهل مصر,مشروع تطوير كورنيش النيل لمسارات المشاة والأنشطة الترفيهية عبر مراحل متعددة تشمل نطاقي 15 مايو وأكتوبر وقصر النيل وقصر العيني
+PROJ-HISTORIC-CAIRO,مشروع إحياء وتطوير القاهرة التاريخية,Historic Cairo Revitalization Project,project,CENTRAL,partial,تطوير القاهرة التاريخية,برنامج حكومي لإحياء النسيج التراثي وإعادة توظيف المباني الأثرية وتطوير مناطق مثل درب اللبانة بتكلفة تتجاوز 22 مليار جنيه
+PROJ-KHEDIVIAL-CAIRO,مشروع تطوير القاهرة الخديوية,Khedivial Cairo Development Project,project,CENTRAL,under_construction,تطوير وسط البلد|باريس الشرق,مشروع لتطوير وسط البلد وميادين التحرير وطلعت حرب ومصطفى كامل وواجهات المباني لتحويل القاهرة الخديوية لمناطق فنادق وجذب سياحي
+PROJ-ATABA-MARKET,مشروع تطوير سوق العتبة,Ataba Market Development Project,project,CENTRAL,planned,تطوير سوق العتبة,مشروع ضمن خطة الحكومة لتحويل الأسواق التاريخية والعشوائية بالعتبة إلى مراكز حضارية وتجارية منظمة
+PROJ-MINISTRIES-RELOCATION,مشروع نقل الوزارات وإعادة استغلال مباني وسط البلد,Ministries Relocation and Downtown Reuse,project,CENTRAL,partial,نقل الوزارات من وسط البلد,خطة نقل الوزارات والهيئات والسفارات من قلب القاهرة إلى العاصمة الجديدة وتحويل نطاق القاهرة الخديوية لمناطق فنادق وجذب سياحي وعمراني
+PROJ-MOGAMMA-REUSE,مشروع تطوير وإعادة استغلال مجمع التحرير,Mogamma El-Tahrir Adaptive Reuse Project,project,CENTRAL,approved_planned,تطوير مجمع التحرير|مجمع التحرير,مشروع إعادة توظيف مبنى مجمع المصالح الحكومية بميدان التحرير بعد طرحه تنافسيًا وترسيته
+TRANSIT-ABDEL-MONEIM-RIAD,موقف عبد المنعم رياض,Abdel Moneim Riad Bus Terminal,transit_stop,CENTRAL,operational,موقف التحرير|موقف السرفيس بعبد المنعم رياض,أحد أهم مواقف النقل العام والسرفيس بوسط البلد بالقاهرة ويشهد مشروع تطوير جاري مع إعلان إشراك القطاع الخاص في إدارته وفق تغطيات صحفية
+TRANSIT-TORGOMAN-TERMINAL,جراج وموقف الترجمان,Al-Torgoman Garage and Terminal,transit_stop,CENTRAL,operational,موقف الترجمان|جراج الترجمان,جراج وموقف بالقاهرة يتسع لـ2700 سيارة و60 أتوبيس نقل عام على مساحة 52 ألف م2 وفق تغطيات صحفية دون مصدر رسمي محدث لتأكيد وضعه الراهن
+TRANSIT-MASPERO-RIVER-PIER,مرسى ماسبيرو النهري,Maspero River Bus Pier,transit_stop,CENTRAL,unknown,مرسى الأتوبيس النهري بماسبيرو,مرسى نهري بماسبيرو عمل ضمن إدارة الأتوبيس النهري وأُغلق احترازيًا في يوليو 2020 دون مصدر أحدث لتأكيد إعادة تشغيله
+ROAD-AL-AZHAR-TUNNEL,نفق الأزهر,Al-Azhar Tunnel,road,CENTRAL,operational,نفقا الأزهر,نفقان متوازيان للسيارات بطول نحو 2.7 كم يربطان وسط مدينة القاهرة بمناطق صلاح سالم والحسين وبورسعيد والعتبة وفق مصادر ثانوية
