@@ -216,7 +216,7 @@
   "en": "Foundation stone date"
  },
  "founding_decree": {
-  "ar": "قرار الإنشاء",
+  "ar": "قرار التأسيس",
   "en": "Founding decree"
  },
  "fuel_stations_count": {
@@ -588,7 +588,7 @@
   "en": "Restoration status"
  },
  "revamp_cost": {
-  "ar": "تكلفة التطوير",
+  "ar": "تكلفة التجديد",
   "en": "Revamp cost"
  },
  "revitalization_project_status": {
