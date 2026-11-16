@@ -1,0 +1,49 @@
+# Change history
+
+One line per merged pull request, in merge-number order; Batch 18 is pending.
+
+- [#1](https://github.com/3boalazm/greater-cairo-atlas/pull/1) — Phase 01: Project Foundation (Next.js, Neon + PostGIS, Migrations, Health Probe)
+- [#2](https://github.com/3boalazm/greater-cairo-atlas/pull/2) — Phase 02: Core Schema, Migration Automation, Seed Importer & Stats API
+- [#3](https://github.com/3boalazm/greater-cairo-atlas/pull/3) — Phase 02.1: Run SQL Migrations During Vercel Build + Researcher Entity & Secondary Evidence Taxonomy
+- [#4](https://github.com/3boalazm/greater-cairo-atlas/pull/4) — Phase 03: Migration 003, Research-Seed Adapter, Validated rev2 Seed & Protected Import Route
+- [#5](https://github.com/3boalazm/greater-cairo-atlas/pull/5) — Phase 03.1: Adopt seed revision 3 with explicit unresolved-source warnings
+- [#6](https://github.com/3boalazm/greater-cairo-atlas/pull/6) — Phase 04: provenance-checked geometry ingestion and features API
+- [#7](https://github.com/3boalazm/greater-cairo-atlas/pull/7) — Phase 04.1: ingest owner-supplied Cairo OSM geometry
+- [#8](https://github.com/3boalazm/greater-cairo-atlas/pull/8) — Phase 05: Bilingual, source-backed interactive atlas
+- [#9](https://github.com/3boalazm/greater-cairo-atlas/pull/9) — Phase 05.1: fix PostGIS features API and basemap diagnostics
+- [#10](https://github.com/3boalazm/greater-cairo-atlas/pull/10) — Fix MapLibre worker loading and self-host fonts
+- [#11](https://github.com/3boalazm/greater-cairo-atlas/pull/11) — Add revision 5 data and production auto-import
+- [#12](https://github.com/3boalazm/greater-cairo-atlas/pull/12) — PHASE 05.4: Expand Greater Cairo geometry coverage
+- [#13](https://github.com/3boalazm/greater-cairo-atlas/pull/13) — PHASE 05.4.1: Validate and repair PostGIS feature geometries
+- [#14](https://github.com/3boalazm/greater-cairo-atlas/pull/14) — PHASE 06: entity pages, exports, and methodology
+- [#15](https://github.com/3boalazm/greater-cairo-atlas/pull/15) — PHASE 06.1: Update atlas data to revision 6.1
+- [#16](https://github.com/3boalazm/greater-cairo-atlas/pull/16) — PHASE 05.5: OSM road continuity and lighter map layers
+- [#17](https://github.com/3boalazm/greater-cairo-atlas/pull/17) — PHASE 07: final polish, licensing, and QA
+- [#18](https://github.com/3boalazm/greater-cairo-atlas/pull/18) — PHASE 07.1: scope road matching and classify topology gaps
+- [#19](https://github.com/3boalazm/greater-cairo-atlas/pull/19) — Complete phase 07.2 road geometry ingestion
+- [#20](https://github.com/3boalazm/greater-cairo-atlas/pull/20) — PHASE 07.3: Tighten road matching and add OSM area boundaries
+- [#21](https://github.com/3boalazm/greater-cairo-atlas/pull/21) — PHASE 07.3: Conservative OSM station matching and clipped-edge reporting
+- [#22](https://github.com/3boalazm/greater-cairo-atlas/pull/22) — Complete PHASE 07.4 OSM boundaries and station rematch
+- [#23](https://github.com/3boalazm/greater-cairo-atlas/pull/23) — Implement PHASE 07.5 area boundary coverage
+- [#24](https://github.com/3boalazm/greater-cairo-atlas/pull/24) — PHASE 07.6: apply rev7 seed and boundary safeguards
+- [#25](https://github.com/3boalazm/greater-cairo-atlas/pull/25) — PHASE 07.6.1: align Regional Ring road bbox in PostGIS
+- [#26](https://github.com/3boalazm/greater-cairo-atlas/pull/26) — Complete transit mode styling and OSM station coverage
+- [#27](https://github.com/3boalazm/greater-cairo-atlas/pull/27) — [PHASE 07.8] Rail network and rev8 station draft
+- [#28](https://github.com/3boalazm/greater-cairo-atlas/pull/28) — Polish and adapt rev8 transit station seed
+- [#29](https://github.com/3boalazm/greater-cairo-atlas/pull/29) — [PHASE 07.10 / 08.0] Exact station geometry and atlas trust/UX
+- [#30](https://github.com/3boalazm/greater-cairo-atlas/pull/30) — PHASE 08.1: Correct transit colors and station coverage
+- [#31](https://github.com/3boalazm/greater-cairo-atlas/pull/31) — PHASE 09.0: searchable evidence registry and entity relations
+- [#32](https://github.com/3boalazm/greater-cairo-atlas/pull/32) — PHASE 09.1: timelines, submissions, exports, and API docs
+- [#33](https://github.com/3boalazm/greater-cairo-atlas/pull/33) — PHASE 09.2: Simple-first atlas with researcher mode
+- [#34](https://github.com/3boalazm/greater-cairo-atlas/pull/34) — PHASE 10.0: Official CAPMAS admin boundaries
+- [#35](https://github.com/3boalazm/greater-cairo-atlas/pull/35) — HOTFIX 10.1: boundary API headers + source count wording
+- [#36](https://github.com/3boalazm/greater-cairo-atlas/pull/36) — PHASE 10.2: rev9 status delta
+- [#37](https://github.com/3boalazm/greater-cairo-atlas/pull/37) — BATCH 11: station filters, city area highlight, BRT geometry
+- [#38](https://github.com/3boalazm/greater-cairo-atlas/pull/38) — BATCH 12+13: CI, regional scope, disambiguation, CAPMAS relations, admin workspace
+- [#39](https://github.com/3boalazm/greater-cairo-atlas/pull/39) — BATCH 14: map time slider, layer opacity, saved settings
+- [#40](https://github.com/3boalazm/greater-cairo-atlas/pull/40) — BATCH 15: South sector research merge (batch 04)
+- [#41](https://github.com/3boalazm/greater-cairo-atlas/pull/41) — BATCH 16 (in progress): archive South OSM research
+- [#42](https://github.com/3boalazm/greater-cairo-atlas/pull/42) — Install Vercel Web Analytics
+- [#43](https://github.com/3boalazm/greater-cairo-atlas/pull/43) — BATCH 16: South OSM geometry review and ingestion
+- [#44](https://github.com/3boalazm/greater-cairo-atlas/pull/44) — BATCH 17: polish atlas search, map and entity panel
+- Batch 18 (pending) — data integrity, retirement, drift, licences, timestamps and documentation.
