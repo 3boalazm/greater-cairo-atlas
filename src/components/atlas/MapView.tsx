@@ -9,6 +9,7 @@ import type { AtlasFeatureCollection, AtlasTheme } from "./atlas-client";
 import type { AreaBoundaryFeature } from "@/lib/atlas/area-boundaries";
 import { getAtlasMapStyleUrl } from "./map-styles";
 import { getMapCameraPadding } from "@/lib/atlas/map-camera";
+import { RoadNetworkLoader } from "@/lib/atlas/road-network-loader";
 import { SelectionCamera } from "@/lib/atlas/selection-camera";
 import { selectedAreaFilter, selectionBoundaryFilter } from "@/lib/atlas/map-selection-filters";
 import { hasDrawableBoundary, selectionFit } from "@/lib/atlas/map-fit";
@@ -49,6 +50,7 @@ type MapExpression = import("maplibre-gl").ExpressionSpecification;
 
 interface RailLoadState { baseRequested: boolean; detailRequested: boolean }
 const railLoadStates = new WeakMap<MapLibreMap, RailLoadState>();
+const roadLoaders = new WeakMap<MapLibreMap, RoadNetworkLoader>();
 const EMPTY_GEOJSON: FeatureCollection = { type: "FeatureCollection", features: [] };
 
 /**
@@ -399,8 +401,16 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
       addTransitIcons(map);
       map.addSource(boundarySourceId, { type: "geojson", data: boundaryCollection(boundaryRef.current) });
       if (!compact) {
-        map.addSource(roadNetworkSourceId, { type: "geojson", data: "/road-network.geojson" });
-        map.addSource(roadNetworkDetailSourceId, { type: "geojson", data: "/road-network-detail.geojson" });
+        map.addSource(roadNetworkSourceId, { type: "geojson", data: EMPTY_GEOJSON });
+        map.addSource(roadNetworkDetailSourceId, { type: "geojson", data: EMPTY_GEOJSON });
+        const roads = new RoadNetworkLoader((kind) => {
+          const id = kind === "base" ? roadNetworkSourceId : roadNetworkDetailSourceId;
+          const url = kind === "base" ? "/road-network.geojson" : "/road-network-detail.geojson";
+          (map.getSource(id) as GeoJSONSource).setData(url);
+        });
+        roadLoaders.set(map, roads);
+        map.once("idle", () => roads.firstIdle(showRoadNetworkRef.current, map.getZoom()));
+        map.on("zoomend", () => roads.sync(showRoadNetworkRef.current, map.getZoom()));
         map.addLayer({
           id: roadNetworkLayerId, type: "line", source: roadNetworkSourceId, maxzoom: 11,
           paint: {
@@ -824,6 +834,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
   useEffect(() => {
     showRoadNetworkRef.current = showRoadNetwork;
     const map = mapRef.current;
+    if (map) roadLoaders.get(map)?.sync(showRoadNetwork, map.getZoom());
     for (const layerId of [roadNetworkLayerId, roadNetworkDetailLayerId]) {
       if (map?.getLayer(layerId)) {
         map.setLayoutProperty(layerId, "visibility", showRoadNetwork ? "visible" : "none");
