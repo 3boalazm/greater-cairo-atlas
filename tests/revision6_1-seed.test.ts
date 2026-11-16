@@ -59,7 +59,7 @@ describe("revision 9 seed + OSM geometry delivery", () => {
     expect(changes).toHaveLength(43);
     expect(changes.every((change) => change.oldStatus === "unknown" && ["operational", "partial", "under_construction"].includes(change.newStatus))).toBe(true);
     expect(changes.some((change) => change.oldStatus === "planned" && change.newStatus === "operational")).toBe(false);
-    expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(8);
+    expect(current.entities.filter((entity) => entity.status === "unknown")).toHaveLength(4);
   });
 
   it("validates rev9 counts and requires official URL-backed evidence for every verified fact", async () => {
@@ -68,14 +68,14 @@ describe("revision 9 seed + OSM geometry delivery", () => {
     expect(report).toMatchObject({
       entitiesCount: 535,
       entitiesWithAliasesCount: 370,
-      evidenceCount: 730,
+      evidenceCount: 764,
       evidenceMissingUrlCount: 71,
-      factsCount: 2685,
-      factEvidenceLinksCount: 3038,
+      factsCount: 2735,
+      factEvidenceLinksCount: 3088,
     });
     const evidence = new Map(bundle.evidence.map((item) => [item.code, item]));
     const verified = bundle.facts.filter((fact) => fact.verification_state === "verified");
-    expect(verified).toHaveLength(611);
+    expect(verified).toHaveLength(631);
     for (const fact of verified) {
       expect(fact.evidence_codes.some((code) => {
         const item = evidence.get(code);

@@ -34,22 +34,24 @@ describe("Batch 19 additive research merge", () => {
     expect(oldRows).toHaveLength(448); expect(newRows).toHaveLength(35); expect(seed.entities).toHaveLength(535);
     expect(new Set(seed.entities.map((e) => e.code)).size).toBe(535);
     expect(newRows.every((row) => row.sector === "CENTRAL" && !oldRows.some((old) => old.code === row.code))).toBe(true);
+    const subsequent = JSON.parse(await read("data/research/unknowns-batch08/status_changes.json")) as Change[];
     const changeMap = new Map(changes.map((c) => [c.entity_code, c]));
     expect(changeMap.size).toBe(9);
     for (const old of oldRows) {
       const now = currentRows.find((row) => row.code === old.code)!;
       expect(now).toBeDefined();
       const change = changeMap.get(old.code!);
-      expect(now).toEqual({ ...old, status: change ? change.to : old.status });
+      const later = subsequent.find((entry) => entry.entity_code === old.code);
+      expect(now).toEqual({ ...old, status: later?.to ?? change?.to ?? old.status });
       if (change) expect(old.status).toBe("unknown");
     }
     for (const row of newRows) {
       const actual = currentRows.find((item) => item.code === row.code)!;
       for (const key of ["code", "name_ar", "name_en", "entity_type", "sector", "status", "description"]) expect(actual[key]).toBe(row[key]);
     }
-    for (const item of rejected) expect(currentRows.find((row) => row.code === item.entity_code)?.status).toBe("unknown");
-    expect(seed.entities.filter((e) => e.status === "unknown" && oldRows.some((row) => row.code === e.code))).toHaveLength(4);
-    expect(seed.entities.filter((e) => e.status === "unknown")).toHaveLength(8);
+    for (const item of rejected) expect(currentRows.find((row) => row.code === item.entity_code)?.status).toBe(subsequent.find((change) => change.entity_code === item.entity_code)?.to ?? "unknown");
+    expect(seed.entities.filter((e) => e.status === "unknown" && oldRows.some((row) => row.code === e.code))).toHaveLength(3);
+    expect(seed.entities.filter((e) => e.status === "unknown")).toHaveLength(4);
     expect(seed.entities.find((e) => e.code === "TRANSIT-MASPERO-RIVER-PIER")?.status).toBe("unknown");
     for (const table of ["facts", "evidence"] as const) {
       const actual = new Map(seed[table].map((row) => [row.code, row]));

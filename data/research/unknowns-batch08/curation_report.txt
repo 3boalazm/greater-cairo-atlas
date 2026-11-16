@@ -1,0 +1,5 @@
+RESULT new_entities=0 remapped=0 facts=50 evidence=34
+facts by state: {'single_source': 30, 'verified': 20}
+evidence url_check: {'unchecked': 13, 'ok': 21}
+accepted: [('LINE-HELWAN-OLD-RAIL', 'partial'), ('STOP-BRT-AL-HARAM', 'approved_planned'), ('STOP-BRT-FAISAL', 'approved_planned'), ('STOP-BRT-TERSA', 'approved_planned')]
+rejected: [('ROAD-CAIRO-ASSIUT-AGRI', 'operational', 'no official source with a verified URL in basis; k')]

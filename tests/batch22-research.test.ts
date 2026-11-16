@@ -35,7 +35,12 @@ describe("Batch 22 additive research", () => {
     const baseline = JSON.parse(await read("tests/fixtures/batch22/baseline-record-hashes.json")) as { facts: Record<string, string>; evidence: Record<string, string> };
     expect(oldRows).toHaveLength(483); expect(currentRows).toHaveLength(535);
     expect(new Set(currentRows.map((r) => r.code)).size).toBe(535);
-    for (const row of oldRows) expect(currentRows.find((r) => r.code === row.code)).toEqual(row);
+    const laterChanges = JSON.parse(await read("data/research/unknowns-batch08/status_changes.json")) as Array<{ entity_code: string; from: string; to: string }>;
+    for (const row of oldRows) {
+      const change = laterChanges.find((item) => item.entity_code === row.code);
+      expect(currentRows.find((r) => r.code === row.code)).toEqual({ ...row, status: change?.to ?? row.status });
+      if (change) expect(row.status).toBe(change.from);
+    }
     for (const [batch, count, , , sector] of batches) {
       const rows = csvRows(await read(`data/research/${batch}/entities.csv`));
       expect(rows).toHaveLength(count);
@@ -43,15 +48,17 @@ describe("Batch 22 additive research", () => {
         expect(oldRows.some((old) => old.code === row.code)).toBe(false);
         expect(row.sector).toBe(sector);
         const actual = currentRows.find((item) => item.code === row.code)!;
-        for (const key of ["code", "name_ar", "name_en", "entity_type", "sector", "status", "description"]) expect(actual[key], `${row.code} ${key}`).toBe(row[key]);
+        for (const key of ["code", "name_ar", "name_en", "entity_type", "sector", "description"]) expect(actual[key], `${row.code} ${key}`).toBe(row[key]);
+        const change = laterChanges.find((item) => item.entity_code === row.code);
+        expect(actual.status).toBe(change?.to ?? row.status);
       }
     }
     for (const table of ["facts", "evidence"] as const) {
       const actual = new Map(seed[table].map((row) => [row.code, row]));
       for (const [code, hash] of Object.entries(baseline[table])) expect(digest(actual.get(code)), `${table} ${code}`).toBe(hash);
     }
-    expect(seed.facts).toHaveLength(2685); expect(seed.evidence).toHaveLength(730);
-    expect(seed.facts.reduce((sum, fact) => sum + fact.evidence_codes.length, 0)).toBe(3038);
+    expect(seed.facts).toHaveLength(2735); expect(seed.evidence).toHaveLength(764);
+    expect(seed.facts.reduce((sum, fact) => sum + fact.evidence_codes.length, 0)).toBe(3088);
     expect(new Set(seed.facts.map((f) => f.code)).size).toBe(seed.facts.length);
     expect(new Set(seed.evidence.map((e) => e.code)).size).toBe(seed.evidence.length);
     const entityCodes = new Set(seed.entities.map((e) => e.code)), evidenceCodes = new Set(seed.evidence.map((e) => e.code));

@@ -18,16 +18,20 @@ describe("shared quick facts", () => {
       expect(code).toContain("selectQuickFacts(");
     }
     const data = await getStaticAtlasDataset();
-    expect(data.entities).toHaveLength(535); expect(data.facts).toHaveLength(2685);
+    expect(data.entities).toHaveLength(535); expect(data.facts).toHaveLength(2735);
     const sources = new Map(data.evidence.map((item) => [item.code, item]));
     const old = Object.fromEntries(Object.entries(QUICK_FACT_LABELS).slice(0, 9));
-    const counts = { before: 0, after: 0 };
+    const counts = { before: 0, after: 0 }, previousCounts = { before: 0, after: 0 };
     for (const entity of data.entities) {
       const facts = data.facts.filter((fact) => fact.entity_code === entity.code).map((fact) => ({ ...fact, evidence: fact.evidence_codes.map((code) => sources.get(code)!) }));
+      const previousFacts = facts.filter((fact) => !fact.evidence_codes.some((ref) => ref.startsWith("EV-V8-")));
+      if (selectQuickFacts(previousFacts, old).length) previousCounts.before++;
+      if (selectQuickFacts(previousFacts).length) previousCounts.after++;
       if (selectQuickFacts(facts, old).length) counts.before++;
       if (selectQuickFacts(facts).length) counts.after++;
     }
-    expect(counts).toEqual({ before: 54, after: 109 });
+    expect(previousCounts).toEqual({ before: 54, after: 109 });
+    expect(counts).toEqual({ before: 57, after: 112 });
   });
   it("hides long and conflicting claims, excludes retired states, ranks verified official first and counts sources", () => {
     const item = (code: string, value: string, extra = {}) => ({ code, attribute: "area", value, unit: "km2", valid_as_of: "2024-01-01", verification_state: "single_source", evidence: [{ code: `EV-${code}`, source_type: "news" }], ...extra });

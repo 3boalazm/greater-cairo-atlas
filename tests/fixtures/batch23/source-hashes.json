@@ -1,0 +1,17 @@
+{
+  "data/research/unknowns-batch08/README.md": "ecc3cfacfe514077e3d52afe20e50ee5b65454a1b5335fbd9a0a176ffce089e6",
+  "data/research/unknowns-batch08/curate.py": "b72f9093f5d66748a7c5f0a89ae1c445e767211f11446f8fb9bf2ab9bbddce14",
+  "data/research/unknowns-batch08/curation_report.txt": "424d7205e9513b93b0e9069e9be8ee79d50f1f93775c6755f03d6ef66c5f2dc7",
+  "data/research/unknowns-batch08/evidence.json": "e537b23bf39e2102aa250a3000868983837ed5c3d57d106a2667995633040395",
+  "data/research/unknowns-batch08/evidence_raw.json": "f12aa68a3b3cdd643564c6cae9ff106076c6b9a7266204ab7742cb316b33097a",
+  "data/research/unknowns-batch08/facts.json": "af9bf7646596138d184fe6494d70cf632fc599e6c837319698241848a40923e5",
+  "data/research/unknowns-batch08/facts_raw.json": "d6cf7a37b70e54d3b7ab27f489ce9ce8a1063de9e62288ff03a9d38d3cde955f",
+  "data/research/unknowns-batch08/gemini_raw.json": "2bdbfd3ea2d82f4ae5c19cf374fbda0ee03b1946b3b0a8719deaeb03a7eea683",
+  "data/research/unknowns-batch08/status_changes.json": "7194b302c10d0f5a08b0678214cb87e8b8c6203bf3b84493a8591132e8116ffe",
+  "data/research/unknowns-batch08/status_changes_raw.json": "33f121289e166e33d2338d00f843ada435843d4bb00d1c866317ac2adf500591",
+  "data/research/unknowns-batch08/status_changes_rejected.json": "daf149be2140762468e3be1e01971d5e328475f0a296a77dd4465908774b3d44",
+  "data/research/unknowns-batch08/url_check_notes.json": "d43d24191a92ed5ea46caf23fd0095eb2653efb9ed80aa3f16bbb5723801eb31",
+  "data/research/unknowns-batch08/url_status.json": "cf936f792735a4f766d9260141b63c169843cd32143b10c9ec95c594cc9eafad",
+  "data/research/alias-fix-batch22/README.md": "76638d7b9a5a1ade0b4ab09b2a7d56d23f5eb1ebf00a9d011aadf19972c66621",
+  "data/research/alias-fix-batch22/aliases_fix.json": "5e06215d5c067ce0d52f2cf95a691035e07658a97bb2a01d97e5a06fb35f1628"
+}

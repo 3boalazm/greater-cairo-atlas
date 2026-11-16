@@ -37941,5 +37941,705 @@
       "EV-N7-003"
     ],
     "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-ACTIVE-FACILITIES-ALONG-ROAD-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "active_facilities_along_road",
+    "value": "تقع وتعمل على الطريق منشآت طبية وخدمية رسمية منها مستشفى الحوامدية العام ومواقع بشمال العياط",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-006"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-PAVING-START-ANNOUNCEMENT-DATE-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "paving_start_announcement_date",
+    "value": "بدء رصف طريق مصر أسيوط الزراعي بين قريتي المرازيق وأبو رجوان",
+    "unit": null,
+    "valid_as_of": "2025-02-02",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-007"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-PAVING-START-OFFICIAL-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "paving_start_official",
+    "value": "إعلان بدء أعمال الرصف والتطوير لوصلة طريق مصر أسيوط الزراعي بين المرازيق وأبو رجوان بطول 4 كم",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-002"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-PEDESTRIAN-BRIDGE-MARAZIQ-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "pedestrian_bridge_maraziq",
+    "value": "تنفيذ كوبري مشاة المرازيق بالبدرشين بالتزامن مع تطوير وتوسعة طريق مصر أسيوط بطول 4 كم",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-004"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-TRAFFIC-STATUS-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "traffic_status",
+    "value": "مفتوح أمام الحركة المرورية ويخدم الكثافات المرورية المتزايدة على الطريق",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-UPGRADE-CORRIDORS-ABU-NOMROS-HAWAMDEYA-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "upgrade_corridors_abu_nomros_hawamdeya",
+    "value": "تنفيذ محاور مرورية بطريق مصر–أسيوط الزراعي في أبو النمرس والحوامدية والبدرشين بما يشمل كوبري أعلى مزلقان أبو النمرس (تقرير سابق قبل يوليو 2024)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-005"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-UPGRADE-SECTION-BADRASHIN-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "upgrade_section_badrashin",
+    "value": "تطوير وتوسعة الوصلة بين قريتي المرازيق وأبو رجوان بمركز البدرشين",
+    "unit": null,
+    "valid_as_of": "2025-01-01",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-UPGRADE-SECTION-LENGTH-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "upgrade_section_length",
+    "value": "4",
+    "unit": "km",
+    "valid_as_of": "2025-01-01",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-001"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-UPGRADE-SECTION-MAZGHUNA-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "upgrade_section_mazghuna",
+    "value": "متابعة نسب تنفيذ رفع كفاءة وتطوير الطريق من قرية المرازيق حتى قرية مزغونة بالتعاون مع الهيئة العامة للطرق",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-008"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-ROAD-CAIRO-ASSIUT-AGRI-WIDENING-TARGET-WIDTH-1",
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "attribute": "widening_target_width",
+    "value": "11.5",
+    "unit": "m",
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-003"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-FREIGHT-OPERATION-KAFR-EL-ELW-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "freight_operation_kafr_el_elw",
+    "value": "مرور قطارات بضائع بنطاق كفر العلو بحلوان على الخط السطحي",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-013"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-FREIGHT-OPERATION-TEBBIN-HELWAN-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "freight_operation_tebbin_helwan",
+    "value": "تشغيل قطارات بضائع على خط التبين – العباسية في المسافة بين التبين وحلوان وفق بيان منقول عن هيئة سكك حديد مصر",
+    "unit": null,
+    "valid_as_of": "2021-06-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-012"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-METRO-LINE1-CORRIDOR-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "metro_line1_corridor",
+    "value": "يخدم الخط الأول لمترو الأنفاق حالياً مسار حلوان – وسط القاهرة – المرج للركاب",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-010"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-METRO-REPLACEMENT-STATUS-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "metro_replacement_status",
+    "value": "استُبدل مسار الركاب الرئيسي (حلوان – رمسيس) بالمرحلة الأولى من الخط الأول لمترو الأنفاق بافتتاحها عام 1987 بطول 28 كم و22 محطة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-009"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LINE-HELWAN-OLD-RAIL-SURFACE-RAIL-REMNANT-OFFICIAL-1",
+    "entity_code": "LINE-HELWAN-OLD-RAIL",
+    "attribute": "surface_rail_remnant_official",
+    "value": "مسار سكة حديد سطحي قائم باسم «خط سكة حديد طرة - التبين» أُنشئ أسفله نفق للسيارات بعزبة الوالدة/حلوان (2021)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-011"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LAND-REUSE-PLAN-2023-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "land_reuse_plan_2023",
+    "value": "خطة لاستغلال 6 ملايين م² في مشروعات سكنية وموافقة الجمعية العامة في 2023-10-23 على تطوير 120 فداناً بالشوبك الشرقي (الجيزة)",
+    "unit": null,
+    "valid_as_of": "2023-10-27",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-018"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LAND-REUSE-POLICY-2021-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "land_reuse_policy_2021",
+    "value": "توجه معلن في 2021 بتحويل أراضي مصنع الحديد والصلب في حلوان إلى نشاط عقاري وطرحها",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-016"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LAND-REUSE-POLICY-2025-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "land_reuse_policy_2025",
+    "value": "توجه رسمي في أغسطس 2025 لاستخدام أصول الشركة بحلوان في الأغراض الصناعية بالشراكة مع القطاع الخاص (متعارض مع توجه 2021 العقاري)",
+    "unit": null,
+    "valid_as_of": "2025-08-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LAND-REUSE-REVERSAL-2021-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "land_reuse_reversal_2021",
+    "value": "التراجع في نوفمبر 2021 عن نقل/بيع الأراضي للقابضة المعدنية وإعادتها لشركة الحديد والصلب تحت التصفية",
+    "unit": null,
+    "valid_as_of": "2021-11-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-017"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LEGAL-STATUS-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "legal_status",
+    "value": "شركة الحديد والصلب المصرية بحلوان (تحت التصفية)",
+    "unit": null,
+    "valid_as_of": "2025-08-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-LIQUIDATION-LITIGATION-STATUS-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "liquidation_litigation_status",
+    "value": "نزاع قضائي منشور في سياق تصفية الشركة حول فروق مساحات أراضٍ بنحو مليون م² ودعوى شركة مالتي تريد أمام محكمة حلوان الكلية (جلسة 2026-10-22)",
+    "unit": null,
+    "valid_as_of": "2026-10-16",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-019"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-OPERATIONAL-STATUS-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "operational_status",
+    "value": "غير منتج؛ الأصول محل فحص ودراسة لإعادة الاستغلال الأمثل في الأغراض الصناعية بالشراكة مع القطاع الخاص",
+    "unit": null,
+    "valid_as_of": "2025-08-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-015"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-LANDMARK-HELWAN-IRON-STEEL-SPINOFF-MINING-COMPANY-1",
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "spinoff_mining_company",
+    "value": "تعمل شركة الحديد والصلب للمناجم والمحاجر كشركة تابعة منفصلة عن مصنع حلوان",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-020"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MASPERO-RIVER-PIER-HANDOVER-PREPARATION-2023-1",
+    "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+    "attribute": "handover_preparation_2023",
+    "value": "استعداد هيئة النقل العام لاستلام محطة ماسبيرو بممشى أهل مصر دون توثيق رسمي لاحق بتاريخ بدء التشغيل الفعلي",
+    "unit": null,
+    "valid_as_of": "2023-01-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-024"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MASPERO-RIVER-PIER-LATEST-OFFICIAL-DATED-OPERATION-1",
+    "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+    "attribute": "latest_official_dated_operation",
+    "value": "أحدث توثيق رسمي مؤرخ لتشغيل مرسى ماسبيرو النهري وتفقده ميدانياً يعود لعام 2019 (عيد الفطر)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-021"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MASPERO-RIVER-PIER-OFFICIAL-ROUTE-CAPACITY-1",
+    "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+    "attribute": "official_route_capacity",
+    "value": "خط الركاب «ماسبيرو – القناطر الخيرية» بطاقة استيعابية 800–1000 راكب و6–7 رحلات يومياً في قاعدة بيانات غير مؤرخة",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-022"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MASPERO-RIVER-PIER-STATION-DIRECTORY-MENTION-1",
+    "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+    "attribute": "station_directory_mention",
+    "value": "ذُكرت محطة ماسبيرو أمام مبنى الإذاعة والتليفزيون ضمن محطات الأتوبيس النهري في تقرير صحفي غير مؤرخ",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-025"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-TRANSIT-MASPERO-RIVER-PIER-TEMPORARY-RELOCATION-2020-1",
+    "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+    "attribute": "temporary_relocation_2020",
+    "value": "نقل محطة ماسبيرو للأتوبيس النهري مؤقتاً إلى محطة الساحل بالمظلات لحين الانتهاء من مشروع ممشى أهل مصر",
+    "unit": null,
+    "valid_as_of": "2020-10-12",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-023"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AL-HARAM-CORRIDOR-LINE-1",
+    "entity_code": "STOP-BRT-AL-HARAM",
+    "attribute": "corridor_line",
+    "value": "منظومة الأتوبيس الترددي السريع على الطريق الدائري BRT – قطاع الجيزة / محور المريوطية (ضمن مخططات المرحلة الثانية قبل حصر إطلاقها حتى صن كابيتال؛ وردت إخبارياً بنسب تنفيذ متقدمة ضمن حزمة 21 محطة في 2025-11-08)",
+    "unit": null,
+    "valid_as_of": "2025-11-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AL-HARAM-IMPLEMENTATION-PARTNER-NEWS-CLAIM-1",
+    "entity_code": "STOP-BRT-AL-HARAM",
+    "attribute": "implementation_partner_news_claim",
+    "value": "إشارة إخبارية غير مؤرخة إلى تنفيذ المشروع بين وزارة النقل وشركة ترانس ديف الفرنسية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-035"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AL-HARAM-OFFICIAL-STATION-NAME-1",
+    "entity_code": "STOP-BRT-AL-HARAM",
+    "attribute": "official_station_name",
+    "value": "محطة الهرم",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AL-HARAM-OPENING-DATE-1",
+    "entity_code": "STOP-BRT-AL-HARAM",
+    "attribute": "opening_date",
+    "value": "لم تُفتتح بعد؛ لا يوجد موعد افتتاح معلن حتى 2026-11-16",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AL-HARAM-OPERATOR-1",
+    "entity_code": "STOP-BRT-AL-HARAM",
+    "attribute": "operator",
+    "value": "الشركة المصرية للأتوبيس الترددي السريع BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-031"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AL-HARAM-PASSENGER-OPENING-STATUS-1",
+    "entity_code": "STOP-BRT-AL-HARAM",
+    "attribute": "passenger_opening_status",
+    "value": "غير مفتوحة للركاب؛ غير مدرجة ضمن الـ16 محطة للمرحلة الثانية المفتتحة في 2026-09-26 أو القائمة العاملة حتى 2026-11-15",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-AL-HARAM-SUPERVISING-AUTHORITY-1",
+    "entity_code": "STOP-BRT-AL-HARAM",
+    "attribute": "supervising_authority",
+    "value": "وزارة النقل المصرية (ولم يسمِّ مستند 2026-09-26 الشركة المشغلة للخط صراحة)",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-FAISAL-CORRIDOR-LINE-1",
+    "entity_code": "STOP-BRT-FAISAL",
+    "attribute": "corridor_line",
+    "value": "منظومة الأتوبيس الترددي السريع على الطريق الدائري BRT – قطاع الجيزة / محور المريوطية (ضمن مخططات المرحلة الثانية قبل حصر إطلاقها حتى صن كابيتال؛ وردت إخبارياً بنسب تنفيذ متقدمة ضمن حزمة 21 محطة في 2025-11-08)",
+    "unit": null,
+    "valid_as_of": "2025-11-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-FAISAL-IMPLEMENTATION-PARTNER-NEWS-CLAIM-1",
+    "entity_code": "STOP-BRT-FAISAL",
+    "attribute": "implementation_partner_news_claim",
+    "value": "إشارة إخبارية غير مؤرخة إلى تنفيذ المشروع بين وزارة النقل وشركة ترانس ديف الفرنسية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-035"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-FAISAL-NAMING-VARIANT-1",
+    "entity_code": "STOP-BRT-FAISAL",
+    "attribute": "naming_variant",
+    "value": "ترد أيضاً بصيغة «محطة فيصل» في إنفوجرافات إعلامية (2024-12-17) وفي أحد البيانات الرسمية المختصرة",
+    "unit": null,
+    "valid_as_of": "2024-12-17",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-034"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-FAISAL-OFFICIAL-STATION-NAME-1",
+    "entity_code": "STOP-BRT-FAISAL",
+    "attribute": "official_station_name",
+    "value": "محطة الملك فيصل (الصيغة الرسمية المعتمدة في الوثائق الحكومية لعام 2025)",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-FAISAL-OPENING-DATE-1",
+    "entity_code": "STOP-BRT-FAISAL",
+    "attribute": "opening_date",
+    "value": "لم تُفتتح بعد؛ لا يوجد موعد افتتاح معلن حتى 2026-11-16",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-FAISAL-OPERATOR-1",
+    "entity_code": "STOP-BRT-FAISAL",
+    "attribute": "operator",
+    "value": "الشركة المصرية للأتوبيس الترددي السريع BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-031"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-FAISAL-PASSENGER-OPENING-STATUS-1",
+    "entity_code": "STOP-BRT-FAISAL",
+    "attribute": "passenger_opening_status",
+    "value": "غير مفتوحة للركاب؛ غير مدرجة ضمن الـ16 محطة للمرحلة الثانية المفتتحة في 2026-09-26 أو القائمة العاملة حتى 2026-11-15",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-FAISAL-SUPERVISING-AUTHORITY-1",
+    "entity_code": "STOP-BRT-FAISAL",
+    "attribute": "supervising_authority",
+    "value": "وزارة النقل المصرية (ولم يسمِّ مستند 2026-09-26 الشركة المشغلة للخط صراحة)",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-TERSA-CORRIDOR-LINE-1",
+    "entity_code": "STOP-BRT-TERSA",
+    "attribute": "corridor_line",
+    "value": "منظومة الأتوبيس الترددي السريع على الطريق الدائري BRT – قطاع الجيزة / محور المريوطية (ضمن مخططات المرحلة الثانية قبل حصر إطلاقها حتى صن كابيتال؛ وردت إخبارياً بنسب تنفيذ متقدمة ضمن حزمة 21 محطة في 2025-11-08)",
+    "unit": null,
+    "valid_as_of": "2025-11-08",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-033"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-TERSA-IMPLEMENTATION-PARTNER-NEWS-CLAIM-1",
+    "entity_code": "STOP-BRT-TERSA",
+    "attribute": "implementation_partner_news_claim",
+    "value": "إشارة إخبارية غير مؤرخة إلى تنفيذ المشروع بين وزارة النقل وشركة ترانس ديف الفرنسية",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-035"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-TERSA-OFFICIAL-STATION-NAME-1",
+    "entity_code": "STOP-BRT-TERSA",
+    "attribute": "official_station_name",
+    "value": "محطة ترسا",
+    "unit": null,
+    "valid_as_of": null,
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-029"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-TERSA-OPENING-DATE-1",
+    "entity_code": "STOP-BRT-TERSA",
+    "attribute": "opening_date",
+    "value": "لم تُفتتح بعد؛ لا يوجد موعد افتتاح معلن حتى 2026-11-16",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-TERSA-OPERATOR-1",
+    "entity_code": "STOP-BRT-TERSA",
+    "attribute": "operator",
+    "value": "الشركة المصرية للأتوبيس الترددي السريع BRT",
+    "unit": null,
+    "valid_as_of": "2026-11-15",
+    "valid_as_of_precision": "day",
+    "verification_state": "single_source",
+    "evidence_codes": [
+      "EV-V8-031"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-TERSA-PASSENGER-OPENING-STATUS-1",
+    "entity_code": "STOP-BRT-TERSA",
+    "attribute": "passenger_opening_status",
+    "value": "غير مفتوحة للركاب؛ غير مدرجة ضمن الـ16 محطة للمرحلة الثانية المفتتحة في 2026-09-26 أو القائمة العاملة حتى 2026-11-15",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "code": "F-STOP-BRT-TERSA-SUPERVISING-AUTHORITY-1",
+    "entity_code": "STOP-BRT-TERSA",
+    "attribute": "supervising_authority",
+    "value": "وزارة النقل المصرية (ولم يسمِّ مستند 2026-09-26 الشركة المشغلة للخط صراحة)",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
   }
 ]

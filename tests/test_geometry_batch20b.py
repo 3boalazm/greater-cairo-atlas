@@ -4,6 +4,8 @@ import csv
 import hashlib
 import json
 import subprocess
+import shutil
+import tempfile
 import sys
 import unittest
 from pathlib import Path
@@ -56,11 +58,31 @@ class GeometryBatch20bTest(unittest.TestCase):
         self.assertEqual(len(bridge['properties']['properties']['source_ids']['members']), 2)
 
     def test_rerun_is_byte_idempotent_and_collisions_refused(self):
+        # Reproduce the archived 20b decision against its own seed snapshot.
+        # Later status research must not rewrite historical geometry reports.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            shutil.copytree(ROOT / 'scripts', root / 'scripts', ignore=shutil.ignore_patterns('__pycache__'))
+            (root / 'data').mkdir()
+            (root / 'data/raw').symlink_to(ROOT / 'data/raw', target_is_directory=True)
+            for relative in ['data/features/features.geojson', 'data/features/manifest.json',
+                             'data/features/codab-admin-units.geojson', 'data/derived/entity-map-geometries.json',
+                             'data/research/geometry-batch20/geometry_match_report.json',
+                             'data/research/geometry-batch20b/geometry_match_report.json']:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(ROOT / relative, target)
+            (root / 'data/seed').mkdir()
+            shutil.copyfile(ROOT / 'tests/fixtures/batch23/baseline-entities.csv', root / 'data/seed/entities.csv')
+            paths = [root / 'data/features/features.geojson', root / 'data/derived/entity-map-geometries.json',
+                     root / 'data/features/manifest.json', root / 'data/research/geometry-batch20b/geometry_match_report.json']
+            digest = lambda: [hashlib.sha256(p.read_bytes()).hexdigest() for p in paths]
+            before = digest()
+            subprocess.run([sys.executable, str(root / 'scripts/geometry_batch20b.py')], check=True, cwd=root, capture_output=True)
+            self.assertEqual(digest(), before)
         paths = [batch.FEATURES, batch.DERIVED, batch.MANIFEST, batch.OUT / 'geometry_match_report.json']
         digest = lambda: [hashlib.sha256(p.read_bytes()).hexdigest() for p in paths]
         before = digest()
-        subprocess.run([sys.executable, str(ROOT / 'scripts/geometry_batch20b.py')], check=True, cwd=ROOT, capture_output=True)
-        self.assertEqual(digest(), before)
         collection = json.loads(batch.FEATURES.read_text())
         derived = json.loads(batch.DERIVED.read_text())
         additions = [copy.deepcopy(f) for f in collection['features'] if f['id'].startswith(batch.PREFIX)]

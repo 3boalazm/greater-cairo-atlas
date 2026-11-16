@@ -24,7 +24,7 @@ describe("rev9 additive status delta", () => {
     expect(changes).toHaveLength(3);
     expect(new Map(changes.map((change) => [change.entity_code, change.to]))).toEqual(expectedStatuses);
     expect(changes.every((change) => change.from === "unknown")).toBe(true);
-    expect(bundle.entities.filter((entity) => entity.status === "unknown")).toHaveLength(8);
+    expect(bundle.entities.filter((entity) => entity.status === "unknown")).toHaveLength(4);
     for (const [code, status] of expectedStatuses) {
       expect(bundle.entities.find((entity) => entity.code === code)?.status).toBe(status);
     }
@@ -49,7 +49,7 @@ describe("rev9 additive status delta", () => {
       expect(match?.verification_state).toBe(raw.verification_state);
     }
     expect(addedFacts.filter((fact) => fact.entity_code === "ROAD-REGIONAL-NW-ARC" && fact.attribute === "maintenance_closure")).toHaveLength(1);
-    expect(bundle.evidence).toHaveLength(730);
-    expect(bundle.facts).toHaveLength(2685);
+    expect(bundle.evidence).toHaveLength(764);
+    expect(bundle.facts).toHaveLength(2735);
   });
 });
