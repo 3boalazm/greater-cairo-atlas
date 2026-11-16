@@ -1,0 +1,8 @@
+REVIEW DIST-WARRAQ-ISLAND | جزيرة الوراق | district | same-type: [] | other-type: [] | fuzzy: ['DIST-WARRAQ']
+REVIEW DIST-SHUBRA-KHEIMA-IND | المنطقة الصناعية بشبرا الخيمة | district | same-type: [] | other-type: [] | fuzzy: ['DIST-SHUBRA']
+REVIEW ROAD-REGIONAL-RING-NORTH | القوس الشمالي للطريق الدائري الإقليمي | road | same-type: [] | other-type: [] | fuzzy: ['ROAD-REGIONAL-RING', 'ROAD-RING-ROAD']
+RESULT new_entities=25 remapped=15 facts=121 evidence=82
+facts by state: {'verified': 76, 'single_source': 43, 'corroborated': 2}
+evidence url_check: {'ok': 50, 'unchecked': 32}
+new by status: {'partial': 3, 'operational': 21, 'under_construction': 1}
+new by type: {'district': 5, 'bridge': 1, 'road': 2, 'rail_station': 2, 'landmark': 11, 'authority': 1, 'project': 3}

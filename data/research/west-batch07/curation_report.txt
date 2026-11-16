@@ -1,0 +1,10 @@
+REPAIR csv row (unquoted comma in name_en): LANDMARK-ZEWAIL-CITY
+REVIEW CITY-MANSHAAT-EL-QANATER | مركز ومدينة منشأة القناطر | city | same-type: [] | other-type: [] | fuzzy: ['CITY-QANATER']
+REVIEW CITY-EL-BADRASHEIN | مركز ومدينة البدرشين | city | same-type: [] | other-type: [] | fuzzy: ['CITY-BADR']
+REVIEW ROAD-FAISAL-STREET | شارع الملك فيصل | road | same-type: [] | other-type: ['DIST-FAISAL'] | fuzzy: []
+REVIEW STOP-BRT-FAISAL | محطة فيصل - الأتوبيس الترددي | transit_stop | same-type: [] | other-type: [] | fuzzy: ['STOP-M2-FAISAL']
+RESULT new_entities=27 remapped=13 facts=138 evidence=68
+facts by state: {'single_source': 91, 'verified': 47}
+evidence url_check: {'unchecked': 50, 'ok': 18}
+new by status: {'operational': 18, 'under_construction': 4, 'unknown': 3, 'partial': 2}
+new by type: {'city': 4, 'district': 4, 'landmark': 8, 'road': 3, 'transit_stop': 3, 'rail_station': 1, 'project': 4}

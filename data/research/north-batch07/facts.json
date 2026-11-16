@@ -1,0 +1,1091 @@
+[
+ {
+  "entity_code": "DIST-SALAM-1",
+  "attribute_key": "cairo_admin_zone",
+  "value": "المنطقة الشرقية (تصنيف محافظة القاهرة الإداري)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-001"
+ },
+ {
+  "entity_code": "DIST-SALAM-1",
+  "attribute_key": "housing_complexes_hosted",
+  "value": "أهالينا 1 وأهالينا 2",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-004"
+ },
+ {
+  "entity_code": "DIST-SALAM-1",
+  "attribute_key": "ahalina_2_specs",
+  "value": "يقع مشروع أهالينا 2 بمحور ترعة الطوارئ بحي السلام أول على مساحة 15 فدانًا ويضم 30 عمارة سكنية من 10 أدوار وبدروم ومحلات تجارية",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-005"
+ },
+ {
+  "entity_code": "DIST-SALAM-2",
+  "attribute_key": "cairo_admin_zone",
+  "value": "المنطقة الشرقية (تصنيف محافظة القاهرة الإداري)",
+  "unit": "",
+  "status_as_of": "2026-06-09",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-006"
+ },
+ {
+  "entity_code": "DIST-SALAM-2",
+  "attribute_key": "district_listing_status",
+  "value": "مدرج ضمن أحياء محافظة القاهرة الرسمية",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-002"
+ },
+ {
+  "entity_code": "DIST-SALAM-2",
+  "attribute_key": "notable_subareas",
+  "value": "مساكن الصعيد، طريق بريفكتو، تقسيم الضباط المتقاعدين",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-007"
+ },
+ {
+  "entity_code": "CITY-OBOUR",
+  "attribute_key": "governorate_jurisdiction",
+  "value": "محافظة القليوبية (مدينة جديدة)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-008"
+ },
+ {
+  "entity_code": "CITY-OBOUR",
+  "attribute_key": "population",
+  "value": "550000",
+  "unit": "residents",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-009"
+ },
+ {
+  "entity_code": "CITY-OBOUR",
+  "attribute_key": "development_authority",
+  "value": "جهاز تنمية مدينة العبور",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-010"
+ },
+ {
+  "entity_code": "CITY-NEW-OBOUR",
+  "attribute_key": "total_area_nuca",
+  "value": "59000",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-011"
+ },
+ {
+  "entity_code": "CITY-NEW-OBOUR",
+  "attribute_key": "total_area_sis",
+  "value": "58000",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-012"
+ },
+ {
+  "entity_code": "CITY-NEW-OBOUR",
+  "attribute_key": "urban_mass_area",
+  "value": "22000",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-011"
+ },
+ {
+  "entity_code": "CITY-NEW-OBOUR",
+  "attribute_key": "phase_1_area",
+  "value": "3000",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-012"
+ },
+ {
+  "entity_code": "CITY-NEW-OBOUR",
+  "attribute_key": "phase_1_social_housing_units",
+  "value": "26000",
+  "unit": "units",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-012"
+ },
+ {
+  "entity_code": "CITY-NEW-OBOUR",
+  "attribute_key": "foundation_stone_date",
+  "value": "مارس 2018",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-015"
+ },
+ {
+  "entity_code": "CITY-NEW-OBOUR",
+  "attribute_key": "governorate_and_green_housing",
+  "value": "تقع بمحافظة القليوبية؛ طُرح بها 1320 وحدة إسكان أخضر بإعلان سكن لكل المصريين 7 (4200 متقدم)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-013"
+ },
+ {
+  "entity_code": "CITY-NEW-OBOUR",
+  "attribute_key": "green_park_status",
+  "value": "تحويل أرض مقلب بمدينة العبور الجديدة إلى متنزه أخضر لسكان المدينة",
+  "unit": "",
+  "status_as_of": "2026-04-05",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-014"
+ },
+ {
+  "entity_code": "DIST-WARRAQ-ISLAND",
+  "attribute_key": "urban_designation",
+  "value": "أرض المجتمع العمراني الجديد بجزيرة الوراق",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-018"
+ },
+ {
+  "entity_code": "DIST-WARRAQ-ISLAND",
+  "attribute_key": "residents_policy_directive",
+  "value": "توجيه رئاسي بمراعاة أوضاع سكان الجزيرة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-019"
+ },
+ {
+  "entity_code": "DIST-SHUBRA-KHEIMA-IND",
+  "attribute_key": "industries_profile",
+  "value": "صناعات غذائية، وغزل ونسيج، وملابس جاهزة (حي غرب شبرا الخيمة)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-023"
+ },
+ {
+  "entity_code": "DIST-SHUBRA-KHEIMA-IND",
+  "attribute_key": "official_zone_recognition",
+  "value": "إحدى المناطق الصناعية الرئيسية بمحافظة القليوبية في نطاق حي شرق ومدينة شبرا الخيمة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-022"
+ },
+ {
+  "entity_code": "DIST-SHUBRA-KHEIMA-IND",
+  "attribute_key": "industrial_directory_sample",
+  "value": "تضم مصانع عاملة وفق دليل الأعمال (مثل المصنع المصري لكسوة السلندرات الكاوتشوك، 5 ش 25)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-024"
+ },
+ {
+  "entity_code": "DIST-SAFA-IND-KHANKA",
+  "attribute_key": "area",
+  "value": "142",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-023"
+ },
+ {
+  "entity_code": "DIST-SAFA-IND-KHANKA",
+  "attribute_key": "location",
+  "value": "زمام عرب العليقات بمركز الخانكة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-023"
+ },
+ {
+  "entity_code": "DIST-SAFA-IND-KHANKA",
+  "attribute_key": "field_inspection",
+  "value": "جولة تفقدية لمحافظ القليوبية لمتابعة أوضاع المنطقة الصناعية بمدينة الخانكة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-025"
+ },
+ {
+  "entity_code": "DIST-SAFA-IND-KHANKA",
+  "attribute_key": "governance",
+  "value": "تدار ضمن مجلس إدارة المناطق الصناعية بمحافظة القليوبية (بجانب منطقة الشروق)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-026"
+ },
+ {
+  "entity_code": "DIST-AKRASHA-IND",
+  "attribute_key": "urban_plan_status",
+  "value": "إعداد ومناقشة المخطط الاستراتيجي لمنطقة العكرشة مع تخصيص الجزء الجنوبي للأنشطة الصناعية",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-027"
+ },
+ {
+  "entity_code": "DIST-AKRASHA-IND",
+  "attribute_key": "detailed_plan_follow_up",
+  "value": "مناقشة مستجدات المخطط التفصيلي لمنطقة العكرشة لدفع التنمية والاستثمار الصناعي",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-028"
+ },
+ {
+  "entity_code": "DIST-QALYUB-IND",
+  "attribute_key": "official_zone_recognition",
+  "value": "معتمدة ضمن المناطق الصناعية بمحافظة القليوبية بمدينة قليوب",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-021"
+ },
+ {
+  "entity_code": "DIST-QALYUB-IND",
+  "attribute_key": "land_use_review_parcel",
+  "value": "28",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-029"
+ },
+ {
+  "entity_code": "DIST-QALYUB-IND",
+  "attribute_key": "adjacent_corridor",
+  "value": "بجوار الطريق الدائري (أرض الجمعية، 7 شارع عفيفي رمضان) وفق موقع مصنع محلي",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-030"
+ },
+ {
+  "entity_code": "DIST-QALYUB-IND",
+  "attribute_key": "industrial_activity_sample",
+  "value": "تضم مصنعًا لحوامل وسلالم الكابلات بالمنطقة الصناعية بقليوب وفق تعريف الشركة الموردة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-031"
+ },
+ {
+  "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+  "attribute_key": "length",
+  "value": "1900",
+  "unit": "m",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-016"
+ },
+ {
+  "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+  "attribute_key": "width",
+  "value": "48",
+  "unit": "m",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-016"
+ },
+ {
+  "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+  "attribute_key": "lanes_and_directions",
+  "value": "اتجاهان و5 حارات مرورية",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-016"
+ },
+ {
+  "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+  "attribute_key": "opening_date",
+  "value": "مايو 2019 (كوبري خرساني ضمن محور تحيا مصر)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-016"
+ },
+ {
+  "entity_code": "BRIDGE-WARRAQ-TAHYA-MISR",
+  "attribute_key": "connection",
+  "value": "يربط جزيرة الوراق بمنطقة شبرا عبر النيل",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-020"
+ },
+ {
+  "entity_code": "ROAD-GESR-EL-SUEZ",
+  "attribute_key": "corridor_connections",
+  "value": "يرتبط بطريق القاهرة/بلبيس الصحراوي عبر محور الفريق إبراهيم العرابي",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-032"
+ },
+ {
+  "entity_code": "ROAD-GESR-EL-SUEZ",
+  "attribute_key": "brt_service_link",
+  "value": "تخدم محطة عدلي منصور للأتوبيس الترددي السريع القادمين من جسر السويس",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-033"
+ },
+ {
+  "entity_code": "ROAD-BILBEIS-DESERT",
+  "attribute_key": "corridor_connections",
+  "value": "يرتبط بطريق جسر السويس عبر محور الفريق إبراهيم العرابي (بطول 13.5 كم)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-032"
+ },
+ {
+  "entity_code": "ROAD-BILBEIS-DESERT",
+  "attribute_key": "brt_service_link",
+  "value": "تخدم محطة مسطرد للأتوبيس الترددي السريع طريق بلبيس",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-033"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-RING-NORTH",
+  "attribute_key": "total_length",
+  "value": "92",
+  "unit": "km",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-034"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-RING-NORTH",
+  "attribute_key": "northeast_arc_length",
+  "value": "34.5",
+  "unit": "km",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-034"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-RING-NORTH",
+  "attribute_key": "northeast_arc_structures",
+  "value": "27 كوبريًّا و26 نفقًا",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-034"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-RING-NORTH",
+  "attribute_key": "northwest_arc_length",
+  "value": "57.5",
+  "unit": "km",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-034"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-RING-NORTH",
+  "attribute_key": "northwest_arc_structures_project_archive",
+  "value": "23 كوبريًّا و38 نفقًا",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-034"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-RING-NORTH",
+  "attribute_key": "northwest_arc_structures_minister_statement",
+  "value": "25 كوبري و43 نفقًا",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-035"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-RING-NORTH",
+  "attribute_key": "total_cost",
+  "value": "10.542",
+  "unit": "billion_EGP",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-034"
+ },
+ {
+  "entity_code": "ROAD-REGIONAL-RING-NORTH",
+  "attribute_key": "completion_date",
+  "value": "يونيو 2017",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-034"
+ },
+ {
+  "entity_code": "TRANSIT-METRO-L2",
+  "attribute_key": "terminals",
+  "value": "شبرا الخيمة – المنيب (قيام أول قطار 5:15 صباحًا)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-036"
+ },
+ {
+  "entity_code": "TRANSIT-METRO-L2",
+  "attribute_key": "stations_count",
+  "value": "20",
+  "unit": "stations",
+  "status_as_of": "2023-09-14",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-038"
+ },
+ {
+  "entity_code": "TRANSIT-METRO-L2",
+  "attribute_key": "north_phase_1_history",
+  "value": "افتتحت المرحلة الأولى (شبرا الخيمة – الشهداء، 8 محطات بطول 8 كم) عام 1996",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-037"
+ },
+ {
+  "entity_code": "TRANSIT-BRT",
+  "attribute_key": "inauguration_date",
+  "value": "يونيو 2025",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-033"
+ },
+ {
+  "entity_code": "TRANSIT-BRT",
+  "attribute_key": "length",
+  "value": "35",
+  "unit": "km",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-033"
+ },
+ {
+  "entity_code": "TRANSIT-BRT",
+  "attribute_key": "stations_count",
+  "value": "14",
+  "unit": "stations",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-033"
+ },
+ {
+  "entity_code": "TRANSIT-BRT",
+  "attribute_key": "fleet_size_phases_1_2",
+  "value": "100",
+  "unit": "electric_buses",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-033"
+ },
+ {
+  "entity_code": "TRANSIT-BRT",
+  "attribute_key": "hourly_capacity",
+  "value": "3200",
+  "unit": "passengers_per_hour",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-033"
+ },
+ {
+  "entity_code": "TRANSIT-BRT",
+  "attribute_key": "headway",
+  "value": "3",
+  "unit": "minutes",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-033"
+ },
+ {
+  "entity_code": "STOP-M2-AL-MEZALLAT",
+  "attribute_key": "landmarks_served",
+  "value": "منطقة عبود، موقف عبود، نادي إسكو، معهد ناصر، شارع شبرا، كوبري المظلات، منطقة أغاخان، موقف أتوبيسات النقل العام",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-039"
+ },
+ {
+  "entity_code": "STOP-M2-KHALAFAWY",
+  "attribute_key": "landmarks_served",
+  "value": "معهد ناصر، شارع شبرا، كورنيش النيل، أبراج أغاخان، ميدان المماليك، شارع البحر، شارع الحرية",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-040"
+ },
+ {
+  "entity_code": "STOP-M2-RAWD-EL-FARAG",
+  "attribute_key": "official_station_status",
+  "value": "محطة عاملة على الخط الثاني لمترو القاهرة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-041"
+ },
+ {
+  "entity_code": "STOP-M2-MASSARA",
+  "attribute_key": "landmarks_served",
+  "value": "شارع أفلاطون، شارع شبرا، شارع الترعة البولاقية، شارع البهار زهير، شارع مسرة، مأمورية ضرائب الساحل، مجمع الأحياء",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-042"
+ },
+ {
+  "entity_code": "STOP-M1-MANSHIET-AL-SADR",
+  "attribute_key": "landmarks_served",
+  "value": "حدائق القبة، جامعة عين شمس، المدينة الجامعية، شارع الكنيسة، شارع الجامع، شارع القائد، شارع شلبي",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-043"
+ },
+ {
+  "entity_code": "STOP-M1-KOBRI-AL-QOBBA",
+  "attribute_key": "landmarks_served",
+  "value": "قصر القبة، منطقة الحدائق، وزارة الدفاع، مستشفى كوبري القبة العسكري، سكة الوايلي، ترعة الجبل، موقف سيارات المطرية والأميرية",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-044"
+ },
+ {
+  "entity_code": "RAIL-SHUBRA-EL-KHEIMA",
+  "attribute_key": "daily_train_movements",
+  "value": "128",
+  "unit": "trains_per_day",
+  "status_as_of": "2026-11-08",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-047"
+ },
+ {
+  "entity_code": "RAIL-SHUBRA-EL-KHEIMA",
+  "attribute_key": "destinations_count",
+  "value": "198",
+  "unit": "destinations",
+  "status_as_of": "2026-11-08",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-047"
+ },
+ {
+  "entity_code": "RAIL-SHUBRA-EL-KHEIMA",
+  "attribute_key": "latest_operational_status_shorouk",
+  "value": "محطة عاملة؛ وردت باسم محطة سكة حديد شبرا الخيمة الفرعية عند التعامل مع تصاعد أدخنة بقطار روسي أثناء توقفه",
+  "unit": "",
+  "status_as_of": "2026-11-13",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-N7-049"
+ },
+ {
+  "entity_code": "RAIL-SHUBRA-EL-KHEIMA",
+  "attribute_key": "latest_operational_status_masrawy",
+  "value": "تحديد القطار المتوقف بها بالقطار الروسي رقم 809 واتخاذ الإجراءات الفنية دون إعاقة تشغيل المحطة",
+  "unit": "",
+  "status_as_of": "2026-11-13",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-N7-048"
+ },
+ {
+  "entity_code": "RAIL-QALYUB",
+  "attribute_key": "daily_train_movements",
+  "value": "93",
+  "unit": "trains_per_day",
+  "status_as_of": "2026-11-08",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-050"
+ },
+ {
+  "entity_code": "RAIL-QALYUB",
+  "attribute_key": "junction_lines_official",
+  "value": "تتفرع منها خطوط قليوب/منوف/طنطا وقليوب/شبين القناطر/الزقازيق",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-052"
+ },
+ {
+  "entity_code": "RAIL-QALYUB",
+  "attribute_key": "junction_lines_schedule_portal",
+  "value": "تقع على خط القاهرة–الإسكندرية وخط منوف وخط الشرق (135 وجهة وفق منصة غير رسمية)",
+  "unit": "",
+  "status_as_of": "2026-11-08",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-050"
+ },
+ {
+  "entity_code": "RAIL-QALYUB",
+  "attribute_key": "branch_upgrade_agreement",
+  "value": "توقيع الاتفاقية الإطارية لتنفيذ ازدواج وتطوير خط قليوب / شبين القناطر",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-051"
+ },
+ {
+  "entity_code": "LANDMARK-DELTA-BARRAGE",
+  "attribute_key": "distance_from_cairo",
+  "value": "22",
+  "unit": "km",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-053"
+ },
+ {
+  "entity_code": "LANDMARK-DELTA-BARRAGE",
+  "attribute_key": "foundation_stone_date",
+  "value": "أبريل 1843 في عهد محمد علي باشا",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-053"
+ },
+ {
+  "entity_code": "LANDMARK-DELTA-BARRAGE",
+  "attribute_key": "stated_opening_date_qalyubia_portal",
+  "value": "30 أغسطس 1986 واتُّخذ عيدًا قوميًا للمحافظة (كما ورد نصًا ببوابة محافظة القليوبية، مع عدم اتساق السنة مع البدء في 1843)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-053"
+ },
+ {
+  "entity_code": "LANDMARK-DELTA-BARRAGE",
+  "attribute_key": "official_hydro_group",
+  "value": "مجموعة قناطر الدلتا التابعة لوزارة الموارد المائية والري",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-054"
+ },
+ {
+  "entity_code": "LANDMARK-MOHAMED-ALI-PALACE-SHUBRA",
+  "attribute_key": "construction_period",
+  "value": "استمر بناؤه نحو 13 عامًا بدءًا من عام 1808 م",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-053"
+ },
+ {
+  "entity_code": "LANDMARK-MOHAMED-ALI-PALACE-SHUBRA",
+  "attribute_key": "architectural_layout",
+  "value": "يجمع بين الأسلوب الأوروبي في الزخارف وتخطيط العمارة الإسلامية (4 ظلات تحيط بفسقية ضخمة)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-055"
+ },
+ {
+  "entity_code": "LANDMARK-MOHAMED-ALI-PALACE-SHUBRA",
+  "attribute_key": "restoration_status",
+  "value": "مشروع ترميم وإعادة تأهيل قصر محمد علي بشبرا الخيمة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-056"
+ },
+ {
+  "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+  "attribute_key": "site_address",
+  "value": "ميدان المسلة القديم، المطرية (مواعيد الزيارة 8 ص – 5 م، ورمضان 9 ص – 4 م)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-057"
+ },
+ {
+  "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+  "attribute_key": "height_youm7",
+  "value": "20.40",
+  "unit": "m",
+  "status_as_of": "2018-02-17",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-060"
+ },
+ {
+  "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+  "attribute_key": "height_elbalad",
+  "value": "21",
+  "unit": "m",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-061"
+ },
+ {
+  "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+  "attribute_key": "weight",
+  "value": "121",
+  "unit": "tons",
+  "status_as_of": "2018-02-17",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-060"
+ },
+ {
+  "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+  "attribute_key": "archaeological_zone",
+  "value": "منطقة آثار المطرية ومعبد الشمس",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-058"
+ },
+ {
+  "entity_code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+  "attribute_key": "necropolis_context",
+  "value": "تقع ضمن نطاق جبانة هليوبوليس التاريخية بعين شمس (مقبرة بانحسي بمنطقة آثار المطرية)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-059"
+ },
+ {
+  "entity_code": "LANDMARK-VIRGIN-MARY-TREE",
+  "attribute_key": "holy_family_station",
+  "value": "نقطة رئيسية ضمن مسار رحلة العائلة المقدسة في مصر",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-062"
+ },
+ {
+  "entity_code": "LANDMARK-VIRGIN-MARY-TREE",
+  "attribute_key": "development_status_2025",
+  "value": "شملها التطوير ضمن نقاط مسار العائلة المقدسة المدرجة في ملف حصاد 2025",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-063"
+ },
+ {
+  "entity_code": "LANDMARK-QOBBA-PALACE",
+  "attribute_key": "geographic_extent",
+  "value": "يمتد من محطة مترو سراي القبة حتى محطة مترو كوبري القبة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-045"
+ },
+ {
+  "entity_code": "LANDMARK-FENG-SHOUBRA",
+  "attribute_key": "address",
+  "value": "108 ش شبرا، القاهرة (المبنى الرئيسي)، والمبنى الفرعي بميدان الخلفاوي بشبرا، الرمز البريدي 11629",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-064"
+ },
+ {
+  "entity_code": "LANDMARK-FENG-SHOUBRA",
+  "attribute_key": "founding_decree",
+  "value": "القرار الجمهوري رقم 367 لسنة 1976 بتاريخ 1976-04-07",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-065"
+ },
+ {
+  "entity_code": "LANDMARK-FENG-SHOUBRA",
+  "attribute_key": "accreditation",
+  "value": "معتمدة من الهيئة القومية لضمان جودة التعليم والاعتماد",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-066"
+ },
+ {
+  "entity_code": "LANDMARK-NASSER-INSTITUTE",
+  "attribute_key": "bed_capacity",
+  "value": "885",
+  "unit": "beds",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-046"
+ },
+ {
+  "entity_code": "LANDMARK-NASSER-INSTITUTE",
+  "attribute_key": "nile_wing_capacity",
+  "value": "50 سرير رعاية مركزة و50 سرير إقامة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-067"
+ },
+ {
+  "entity_code": "LANDMARK-NASSER-INSTITUTE",
+  "attribute_key": "expansion_directive",
+  "value": "توجيه رئاسي بتحويل معهد ناصر إلى مدينة طبية متكاملة بإضافة مبانٍ جديدة وزيادة الطاقة الاستيعابية",
+  "unit": "",
+  "status_as_of": "2022-08-01",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-069"
+ },
+ {
+  "entity_code": "LANDMARK-NASSER-INSTITUTE",
+  "attribute_key": "medical_city_redevelopment",
+  "value": "متابعة الموقف التنفيذي لتحويله إلى مدينة طبية عالمية وإنشاء أكبر مركز إقليمي لزراعة الأعضاء",
+  "unit": "",
+  "status_as_of": "2022-09-26",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-068"
+ },
+ {
+  "entity_code": "LANDMARK-MATARIYA-TEACHING-HOSP",
+  "attribute_key": "bed_capacity",
+  "value": "687",
+  "unit": "beds",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-070"
+ },
+ {
+  "entity_code": "LANDMARK-MATARIYA-TEACHING-HOSP",
+  "attribute_key": "area",
+  "value": "10",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-070"
+ },
+ {
+  "entity_code": "LANDMARK-MATARIYA-TEACHING-HOSP",
+  "attribute_key": "district_landmark_location",
+  "value": "ميدان المطرية، القاهرة (وردت الإشارة إليه في وصف عنوان مجاور بميدان المطرية بدليل الهيئة)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-071"
+ },
+ {
+  "entity_code": "LANDMARK-SAHEL-TEACHING-HOSP",
+  "attribute_key": "operational_status",
+  "value": "مستشفى تعليمي تخصصي عامل تابع للهيئة العامة للمستشفيات والمعاهد التعليمية",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-072"
+ },
+ {
+  "entity_code": "LANDMARK-SAHEL-TEACHING-HOSP",
+  "attribute_key": "address_directory_entry",
+  "value": "ورد بدليل الهيئة عنوان بالساحل (2 شارع يوسف كرم، الساحل، خلف سنترال شبرا) مع اقتطاع عنوان الجدول بالمقتطف",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-071"
+ },
+ {
+  "entity_code": "LANDMARK-QALYUB-SPEC-HOSP",
+  "attribute_key": "address",
+  "value": "شارع العاشر من رمضان، بجوار التأمين الصحي، قليوب",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-073"
+ },
+ {
+  "entity_code": "LANDMARK-QALYUB-SPEC-HOSP",
+  "attribute_key": "official_naming_variants",
+  "value": "يرد باسم مستشفى قليوب المركزي في دليل المستشفيات والرئاسة (أمانة المراكز الطبية المتخصصة) وباسم مستشفى قليوب التخصصي في بيان المحافظة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-075"
+ },
+ {
+  "entity_code": "LANDMARK-KHANKA-SPEC-HOSP",
+  "attribute_key": "revamp_cost",
+  "value": "139.436",
+  "unit": "million_EGP",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-076"
+ },
+ {
+  "entity_code": "LANDMARK-KHANKA-SPEC-HOSP",
+  "attribute_key": "added_beds",
+  "value": "77",
+  "unit": "beds",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-076"
+ },
+ {
+  "entity_code": "LANDMARK-KHANKA-SPEC-HOSP",
+  "attribute_key": "official_naming_variants",
+  "value": "يرد باسم مستشفى الخانكة المركزي في رئاسة الجمهورية وحصاد 2025 وباسم مستشفى الخانكة التخصصي في بيان مستشفيات القليوبية",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-075"
+ },
+ {
+  "entity_code": "AUTH-NWRC-QANATER",
+  "attribute_key": "location_and_facilities",
+  "value": "يقع بالقناطر الخيرية ويضم المعامل المركزية للرصد البيئي",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-077"
+ },
+ {
+  "entity_code": "AUTH-NWRC-QANATER",
+  "attribute_key": "hydraulic_modeling_role",
+  "value": "يضم المعامل البحثية والنماذج الهيدروليكية للمشروعات المائية الكبرى مثل قناطر ديروط الجديدة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-078"
+ },
+ {
+  "entity_code": "PROJ-WARRAQ-ISLAND-DEV",
+  "attribute_key": "urgent_phase_units",
+  "value": "792",
+  "unit": "units",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-017"
+ },
+ {
+  "entity_code": "PROJ-WARRAQ-ISLAND-DEV",
+  "attribute_key": "urgent_phase_delivery_target_date",
+  "value": "2026-09-30 (موعد محدد لبدء التسليم وفق الموقف التنفيذي)",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-017"
+ },
+ {
+  "entity_code": "PROJ-WARRAQ-ISLAND-DEV",
+  "attribute_key": "planned_nile_park",
+  "value": "إعداد مخططات لإنشاء حديقة نيلية كبرى بأرض المجتمع العمراني الجديد بجزيرة الوراق",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-018"
+ },
+ {
+  "entity_code": "PROJ-RING-ROAD-DEV",
+  "attribute_key": "total_corridor_length",
+  "value": "110",
+  "unit": "km",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-063"
+ },
+ {
+  "entity_code": "PROJ-RING-ROAD-DEV",
+  "attribute_key": "phase_1_surface_roads",
+  "value": "رصف الطرق أسفل الطريق الدائري في المسافة من نفق السلام حتى تقاطعه مع محور 26 يوليو",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-009"
+ },
+ {
+  "entity_code": "PROJ-RING-ROAD-DEV",
+  "attribute_key": "governorates_covered",
+  "value": "القاهرة، الجيزة، القليوبية",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-079"
+ },
+ {
+  "entity_code": "PROJ-KHOSOUS-DEV",
+  "attribute_key": "added_services_area",
+  "value": "67",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-081"
+ },
+ {
+  "entity_code": "PROJ-KHOSOUS-DEV",
+  "attribute_key": "masterplan_and_projects_status",
+  "value": "بدء العمل الفعلي لتحديث المخطط الاستراتيجي بواسطة هيئة التخطيط العمراني، بالتوازي مع عمارات الخصوص 11 ومحطة المياه المرشحة 90 ل/ث ومشروعات التعليم",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-080"
+ },
+ {
+  "entity_code": "PROJ-GABAL-EL-ASFAR-WWTP",
+  "attribute_key": "area",
+  "value": "78",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-082"
+ },
+ {
+  "entity_code": "PROJ-GABAL-EL-ASFAR-WWTP",
+  "attribute_key": "capacity",
+  "value": "2.5",
+  "unit": "million_m3_per_day",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-082"
+ },
+ {
+  "entity_code": "PROJ-GABAL-EL-ASFAR-WWTP",
+  "attribute_key": "phase_3_and_sewer_link",
+  "value": "المرحلة الثالثة مدرجة بحصاد 2025 وربطها بخط صرف صحي بالانحدار من القاهرة الجديدة",
+  "unit": "",
+  "status_as_of": "2026-11-16",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-N7-083"
+ },
+ {
+  "entity_code": "PROJ-AHALINA-1",
+  "attribute_key": "area",
+  "value": "11",
+  "unit": "feddan",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-003"
+ },
+ {
+  "entity_code": "PROJ-AHALINA-1",
+  "attribute_key": "cost",
+  "value": "600",
+  "unit": "million_EGP",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-003"
+ },
+ {
+  "entity_code": "PROJ-AHALINA-1",
+  "attribute_key": "buildings_count",
+  "value": "25",
+  "unit": "buildings",
+  "status_as_of": "2026-11-16",
+  "verification_state": "verified",
+  "evidence_ref": "EV-N7-003"
+ }
+]
