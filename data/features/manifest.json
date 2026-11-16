@@ -13,7 +13,7 @@
     32.35,
     30.9
   ],
-  "feature_count": 2983,
+  "feature_count": 3014,
   "sources": [
     {
       "source": "OpenStreetMap",
@@ -78,6 +78,16 @@
       "license": "ODbL-1.0",
       "elements_received": 288,
       "timestamp_osm_base": "2026-11-16T01:03:02Z"
+    },
+    {
+      "source": "OpenStreetMap",
+      "url": "https://overpass-api.de/api/interpreter",
+      "retrieval_date": "2026-11-16",
+      "input_file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
+      "input_sha256": "2bca42344ffe7a7f0fe9df2909c9c430d10e62517bc1cdd40195de70c917cd2b",
+      "license": "ODbL-1.0",
+      "elements_received": 330,
+      "timestamp_osm_base": "2026-11-16T16:41:21Z"
     }
   ],
   "source_failures": [],
@@ -18852,7 +18862,7 @@
   },
   "entity_page_map_geometries": {
     "path": "data/derived/entity-map-geometries.json",
-    "entities_with_geometry": 232,
+    "entities_with_geometry": 263,
     "simplification_tolerance_degrees": 0.0002,
     "merge": "shapely.unary_union; no synthetic segments",
     "preserved_metadata": [
@@ -19210,5 +19220,10 @@
     "report": "data/research/south-batch04/geometry_match_report.json",
     "feature_count": 41,
     "entities_matched": 6
+  },
+  "geometry_batch20": {
+    "report": "data/research/geometry-batch20/geometry_match_report.json",
+    "feature_count": 31,
+    "entities_matched": 31
   }
 }
