@@ -19,3 +19,5 @@ OSM geometry is ODbL; research data is CC BY 4.0; CAPMAS COD-AB is CC BY-IGO (`C
 ## Verification and deployment
 
 CI validates GeoJSON with the same road envelopes as migration 007, runs Python regression tests, lint, strict typecheck, Vitest including PGlite/PostGIS, migration and seed checks, and a production build. Production Vercel builds migrate and checksum-import transactionally before building. A successful local validation does not establish the live migration or import result. See [performance notes](docs/perf-2026-11.md) and [change history](docs/CHANGELOG.md).
+
+Batch 19 introduces 150 attribute keys without curated Arabic labels. They are tracked in `tests/fixtures/batch19/untranslated-attributes.json`; no UI or translation changes were made as part of this data-only batch.
