@@ -80,12 +80,14 @@ describe("Batch 19 additive research merge", () => {
     }
   });
 
-  it("leaves the new entities without geometry but available to search and entity detail", async () => {
+  it("keeps new entities searchable with geometry only when subsequently matched", async () => {
     const [dataset, text] = await Promise.all([getStaticAtlasDataset(), read("data/research/central-batch05/entities.csv")]);
+    const report = JSON.parse(await read("data/research/geometry-batch20/geometry_match_report.json")) as { results: Array<{ entity_code: string; status: string }> };
     for (const row of csvRows(text)) {
       const entity = dataset.entities.find((e) => e.code === row.code)!;
-      expect(dataset.features.some((feature) => feature.entity_code === row.code)).toBe(false);
-      const summary = { ...entity, has_geometry: false };
+      const hasGeometry = dataset.features.some((feature) => feature.entity_code === row.code);
+      expect(hasGeometry).toBe(report.results.some((result) => result.entity_code === row.code && result.status === "matched"));
+      const summary = { ...entity, has_geometry: hasGeometry };
       expect(searchEntities([summary], entity.name_ar).some((item) => item.code === entity.code)).toBe(true);
       expect((await getStaticEntityPageData(entity.code))?.code).toBe(entity.code);
     }

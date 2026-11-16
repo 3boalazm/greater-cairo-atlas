@@ -109,7 +109,7 @@ describe("POST /api/admin/import-seed protected seed import endpoint", () => {
       factsCount: 2426,
       relationsCount: 194,
       factEvidenceLinksCount: 2779,
-      featuresCount: 2983,
+      featuresCount: 3014,
       importSync: {
         featuresDeletedCount: null,
         entityRelationsDeletedCount: null,

@@ -152,7 +152,7 @@ describe("real PostGIS features SQL regression", () => {
       WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)
     `);
     expect(Number(result.rows[0]?.valid_count)).toBe(featureCount);
-    expect(featureCount).toBe(2983);
+    expect(featureCount).toBe(3014);
     const constraint = await db.query<{ constraint_name: string }>(`
       SELECT conname AS constraint_name
       FROM pg_constraint
@@ -171,7 +171,7 @@ describe("real PostGIS features SQL regression", () => {
         (SELECT COUNT(*) FROM features)::text AS features,
         (SELECT COUNT(*) FROM boundaries)::text AS boundaries
     `);
-    expect(counts.rows[0]).toEqual({ entities: "483", evidence: "580", facts: "2426", links: "2779", features: "2983", boundaries: "19" });
+    expect(counts.rows[0]).toEqual({ entities: "483", evidence: "580", facts: "2426", links: "2779", features: "3014", boundaries: "19" });
     const validBoundaries = await db.query<{ count: string }>("SELECT COUNT(*)::text AS count FROM boundaries WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)");
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
   }, 120_000);
@@ -186,6 +186,9 @@ describe("real PostGIS features SQL regression", () => {
     const report = JSON.parse(await readFile(path.resolve(process.cwd(), "data/research/south-batch04/geometry_match_report.json"), "utf8")) as {
       results: Array<{ entity_code: string; status: string }>;
     };
+    const batch20 = JSON.parse(await readFile(path.resolve(process.cwd(), "data/research/geometry-batch20/geometry_match_report.json"), "utf8")) as {
+      results: Array<{ entity_code: string; status: string }>;
+    };
     const batchCodes = report.results.map((row) => row.entity_code);
     expect(batchCodes).toHaveLength(31);
     const result = await db.query<{ code: string; has_geometry: boolean; facts_count: number }>(`
@@ -196,7 +199,7 @@ describe("real PostGIS features SQL regression", () => {
     `, [batchCodes]);
     expect(result.rows).toHaveLength(31);
     for (const row of result.rows) {
-      expect(row.has_geometry).toBe(report.results.find((r) => r.entity_code === row.code)?.status === "matched");
+      expect(row.has_geometry).toBe(report.results.find((r) => r.entity_code === row.code)?.status === "matched" || batch20.results.some((r) => r.entity_code === row.code && r.status === "matched"));
       expect(row.facts_count).toBeGreaterThan(0);
     }
     const searchable = await db.query<{ count: number }>(
@@ -259,7 +262,7 @@ describe("real PostGIS features SQL regression", () => {
     expect(rows.rows).toHaveLength(featureCount);
     expect(rows.rows.every((row) => row.code && row.entity_code && row.geometry.type)).toBe(true);
     expect(rows.rows.every((row) => row.attribution && row.source_ids.length > 0)).toBe(true);
-    expect(rows.rows.filter((row) => row.geometry.type === "Point")).toHaveLength(175);
+    expect(rows.rows.filter((row) => row.geometry.type === "Point")).toHaveLength(178);
     expect(rows.rows.some((row) => row.geometry.type === "GeometryCollection")).toBe(false);
   }, 120_000);
 
