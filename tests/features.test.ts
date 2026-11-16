@@ -146,6 +146,7 @@ describe("feature ingestion validation and GeoJSON API", () => {
       entitiesNotInSeedCount: 1,
       factsNotInSeedCount: 3,
       evidenceNotInSeedCount: 2,
+      driftCodes: { entities: [], facts: [], evidence: [] },
       databasePreviewAvailable: true,
     });
     expect(statements.at(-1)).toBe("COMMIT");

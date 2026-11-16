@@ -1,3 +1,4 @@
+import { getSeedDriftCodes, type SeedDriftCodes } from "@/lib/atlas/drift";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import type { z } from "zod";
@@ -80,6 +81,7 @@ export interface ImportSyncReport {
   entitiesNotInSeedCount: number | null;
   factsNotInSeedCount: number | null;
   evidenceNotInSeedCount: number | null;
+  driftCodes: SeedDriftCodes | null;
   databasePreviewAvailable: boolean;
 }
 
@@ -889,6 +891,7 @@ async function readImportSyncCounts(
     entitiesNotInSeedCount: await count("entities", bundle.entities.map((item) => item.code)),
     factsNotInSeedCount: await count("facts", factCodes),
     evidenceNotInSeedCount: await count("evidence", evidenceCodes),
+    driftCodes: await getSeedDriftCodes(async (text, values) => (await session.query<{ code: string }>(text, values)).rows, bundle),
   };
 }
 
@@ -1196,6 +1199,7 @@ export async function upsertValidatedSeedBundle(
         entitiesNotInSeedCount: importSyncCounts.entitiesNotInSeedCount,
         factsNotInSeedCount: importSyncCounts.factsNotInSeedCount,
         evidenceNotInSeedCount: importSyncCounts.evidenceNotInSeedCount,
+        driftCodes: importSyncCounts.driftCodes,
         databasePreviewAvailable: true,
       },
       ...(importRun ? { importSkipped: false } : {}),
@@ -1235,6 +1239,7 @@ export async function runSeedImport(
           entitiesNotInSeedCount: null,
           factsNotInSeedCount: null,
           evidenceNotInSeedCount: null,
+          driftCodes: null,
           databasePreviewAvailable: false,
         };
     report.importSync = importSync;

@@ -502,7 +502,8 @@ describe("Atlas Zod schemas, Phase 03 taxonomy/precision/aliases extensions, and
         entitiesNotInSeedCount: 0,
         factsNotInSeedCount: 0,
         evidenceNotInSeedCount: 0,
-        databasePreviewAvailable: true,
+        driftCodes: { entities: [], facts: [], evidence: [] },
+      databasePreviewAvailable: true,
       },
     });
     expect(entitiesStore.get("TEST-ROAD-ALPHA")?.aliases).toEqual([
