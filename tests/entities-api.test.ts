@@ -47,7 +47,7 @@ describe("GET /api/atlas/entities/[code]", () => {
 
   it("returns entity, conflicting facts, precision, and provenance records", async () => {
     const facts = [
-      { code: "F-RING-A", attribute: "length", value: "110", unit: "km", valid_as_of: "2026-11-01", valid_as_of_precision: "month", verification_state: "verified", notes: null, evidence: [{ code: "EV-043", url: "https://example.gov/road", publisher: "Official publisher", title: "Road record", source_type: "official", published_date: null, accessed_date: "2026-11-13" }] },
+      { code: "F-RING-A", attribute: "length", value: "110", unit: "trains_per_day", valid_as_of: "2026-11-01", valid_as_of_precision: "month", verification_state: "verified", notes: null, evidence: [{ code: "EV-043", url: "https://example.gov/road", publisher: "Official publisher", title: "Road record", source_type: "official", published_date: null, accessed_date: "2026-11-13" }] },
       { code: "F-RING-B", attribute: "length", value: "118", unit: "km", valid_as_of: "2025-01-01", valid_as_of_precision: "year", verification_state: "disputed", notes: null, evidence: [{ code: "EV-050", url: "https://example.org/report", publisher: "Secondary outlet", title: "Estimate", source_type: "secondary", published_date: null, accessed_date: "2026-11-13" }] },
     ];
     queryMock.mockImplementation((sql?: string) => {
