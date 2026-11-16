@@ -1,0 +1,19 @@
+Deep Research — Greater Cairo Atlas: resolve 5 entities whose current status is still UNKNOWN (second pass). Answer in Arabic with English codes.
+
+A first research pass could not find an OFFICIAL source (government site with a working URL) for these. Find official evidence first (presidency.eg, cabinet.gov.eg, mot.gov.eg, enr.gov.eg (Egyptian National Railways), nat.gov.eg, cairo.gov.eg, giza.gov.eg, mpbs.gov.eg (Ministry of Public Business Sector), sis.gov.eg, idsc.gov.eg, ministry of irrigation, river transport authority). News only if no official source, and say so.
+
+1. ROAD-CAIRO-ASSIUT-AGRI — طريق القاهرة–أسيوط الزراعي (west bank agricultural road, Giza/Hawamdeya/Badrashin section): is it open to traffic, under widening/upgrade, which sections? Status options: operational / partial / under_construction.
+2. LINE-HELWAN-OLD-RAIL — خط سكة حديد القاهرة–حلوان القديم: after conversion to Metro Line 1 (1987), do any surface rail tracks/stations of the old line still operate (e.g. freight to Tebbin / Helwan steel works, ENR line Helwan–Kafr El Elw)? If nothing operates, say "historic / replaced by Metro L1" and give the source.
+3. LANDMARK-HELWAN-IRON-STEEL — مجمع الحديد والصلب بحلوان: official legal status after the 2021 liquidation decision; is any part operating (2025–2026)? Land reuse decisions. Note: our schema has no "cancelled" status — tell me whether "unknown" or "partial" or "operational" fits, with evidence.
+4. DIST-GREEN-SARAYA — السرايا الخضرا (EAST sector, Cairo): identify what this place is (neighbourhood near Matareya/El Marg? street? compound?) with an official or map source; if it cannot be identified, say so.
+5. TRANSIT-MASPERO-RIVER-PIER — مرسى ماسبيرو النهري (river bus pier at Maspero / Corniche): is the river bus service operating from it today, latest official date.
+
+Rules (strict):
+- Every claim needs a real, working URL that actually mentions the entity. Do not invent URLs. If unsure, say "no source found".
+- Never invent dates or statuses. Keep conflicting values side by side with both sources.
+
+Output exactly three blocks I can paste into files:
+1) status_changes.json: array of {entity_code, from: "unknown", to, basis: [evidence refs], caveat} — only for entities you could resolve with at least one official source.
+2) facts.json: array of {entity_code, attribute_key, value, unit, status_as_of (YYYY-MM-DD), verification_state (verified only if official source; else corroborated/single_source/candidate), evidence_ref}
+3) evidence.json: array of {evidence_ref (EV-U8-###), source_url, publisher, title, note, source_type (official/news/data/map/secondary), published_date, accessed_date: 2026-11-16}
+Then a short list of what you could not resolve and why.
