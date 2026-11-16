@@ -1,20 +1,18 @@
 #!/usr/bin/env python3
-"""Audit local OSM name candidates and prepare a targeted Overpass query.
+"""Audit historical local OSM name candidates without changing the supplied query.
 
 Candidates are NOT accepted matches: their semantics, geometry and location need review.
-The query intentionally covers all entities until that review has been completed.
+The supplied Overpass response and query are deliberately not touched.
 """
 import csv
 import gzip
 import json
-import re
 from pathlib import Path
 
 from road_gap_fill import normalize, way_labels
 
 ROOT = Path(__file__).resolve().parents[1]
 BBOX = (31.15, 29.75, 31.45, 30.08)  # west, south, east, north
-PREFIXES = ('مشروع', 'كوبري', 'محور', 'طريق')
 
 
 def normalized(value):
@@ -45,7 +43,8 @@ def bbox_status(element):
 def main():
     with (ROOT / 'data/research/south-batch04/entities.csv').open(encoding='utf-8-sig', newline='') as f:
         entities = list(csv.DictReader(f))
-    paths = sorted((ROOT / 'data/raw').glob('*json.gz'))
+    paths = sorted(path for path in (ROOT / 'data/raw').glob('*json.gz')
+                   if not path.name.startswith('cairo-osm-south-batch04-'))
     candidates = {row['code']: {} for row in entities}
     for path in paths:
         with gzip.open(path, 'rt', encoding='utf-8') as f:
@@ -76,21 +75,6 @@ def main():
     ]}
     out = ROOT / 'data/research/south-batch04/local_geometry_candidates.json'
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    # Quote each literal for both POSIX regular expressions and Overpass string syntax.
-    terms = set()
-    for row in entities:
-        for name in [row['name_ar'], row['name_en'], *row['aliases'].split('|')]:
-            name = name.strip()
-            if name:
-                terms.add(name)
-                for prefix in PREFIXES:
-                    if name.startswith(prefix + ' '):
-                        terms.add(name[len(prefix) + 1:])
-    pattern = '|'.join(re.sub(r'([.\^$*+?{}\[\]\\|()])', r'\\\1', term) for term in sorted(terms))
-    pattern = pattern.replace('\\', '\\\\').replace('"', '\\"')
-    clauses = '\n'.join(f'  nwr["{key}"~"{pattern}",i](29.75,31.15,30.08,31.45);' for key in ('name', 'name:ar', 'name:en', 'alt_name'))
-    query = f'// Preliminary: all 31 entities until local candidates have been reviewed.\n[out:json][timeout:180];\n(\n{clauses}\n);\nout meta geom;\n'
-    (ROOT / 'data/research/south-batch04/targeted-south-batch04.overpassql').write_text(query, encoding='utf-8')
     print(f"Audited {len(paths)} files, {len(entities)} entities; {sum(bool(x) for x in candidates.values())} have name candidates. No geometry accepted.")
 
 
