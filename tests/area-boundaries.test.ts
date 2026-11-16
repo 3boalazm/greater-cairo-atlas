@@ -74,7 +74,7 @@ describe("OSM area boundary provenance and matching", () => {
     const [official, osm, codes] = await Promise.all([
       getAreaBoundary("DIST-DOKKI"), getOsmAreaBoundary("CITY-NEW-CAIRO"), getAreaBoundaryCodes(),
     ]);
-    expect(official).toMatchObject({ properties: { entity_code: "DIST-DOKKI", license: "CC BY-IGO", properties: { source: "CAPMAS COD-AB 2017 (reviewed 2024)" } } });
+    expect(official).toMatchObject({ properties: { entity_code: "DIST-DOKKI", license: "CC-BY-IGO", properties: { source: "CAPMAS COD-AB 2017 (reviewed 2024)" } } });
     expect(osm).toMatchObject({ properties: { entity_code: "CITY-NEW-CAIRO", license: "ODbL-1.0" } });
     expect(codes.has("DIST-DOKKI")).toBe(true);
     const newCairo = await getAreaBoundary("CITY-NEW-CAIRO");

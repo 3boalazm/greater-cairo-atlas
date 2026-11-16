@@ -30,7 +30,7 @@ describe("feature ingestion validation and GeoJSON API", () => {
     const query = parseAtlasFeatureQuery(new URLSearchParams("type=admin_unit&level=2"));
     const collection = await getAtlasFeatures(query);
     expect(collection.features).toHaveLength(75);
-    expect(collection.features.every((feature) => feature.properties.type === "admin_unit" && feature.properties.license === "CC BY-IGO")).toBe(true);
+    expect(collection.features.every((feature) => feature.properties.type === "admin_unit" && feature.properties.license === "CC-BY-IGO")).toBe(true);
     expect(collection.features[0]?.properties.attribution).toContain("CAPMAS");
     const level3 = await getAtlasFeatures(parseAtlasFeatureQuery(new URLSearchParams("type=admin_unit&level=3")));
     expect(level3.features).toHaveLength(763);

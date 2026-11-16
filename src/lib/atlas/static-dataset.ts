@@ -364,7 +364,7 @@ export function joinedFeatureCollection(dataset: StaticAtlasDataset, metadata: A
         ...feature.properties, code: feature.properties.code, entity_code: feature.properties.pcode,
         level: feature.properties.level, name_ar: feature.properties.name_ar, name_en: feature.properties.name_en ?? "",
         entity_type: "admin_unit", status: "unknown", sector: null, aliases: [],
-        license: "CC BY-IGO", attribution: feature.properties.attribution,
+        license: "CC-BY-IGO", attribution: feature.properties.attribution,
         source: feature.properties.source, retrieval_date: "2026-11-15",
         source_ids: { pcode: feature.properties.pcode, level: feature.properties.level,
           parent_pcodes: feature.properties.parent_pcodes, area_sqkm: feature.properties.area_sqkm },

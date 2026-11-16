@@ -18,7 +18,7 @@ describe("FIX E — selecting a city/district highlights its whole area", () => 
   it("draws the official CAPMAS boundary of CITY-OBOUR instead of only its representative point", async () => {
     const boundary = await getAreaBoundary("CITY-OBOUR");
     expect(boundary).not.toBeNull();
-    expect(boundary!.properties.license).toBe("CC BY-IGO");
+    expect(boundary!.properties.license).toBe("CC-BY-IGO");
     expect(isPolygonalGeometry(boundary!.geometry)).toBe(true);
 
     // The atlas point for CITY-OBOUR sits outside the CAPMAS polygon, which is exactly why framing

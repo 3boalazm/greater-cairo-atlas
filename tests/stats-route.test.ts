@@ -71,7 +71,7 @@ describe("GET /api/atlas/stats and table count queries", () => {
         features: 2,
         fact_evidence: 6,
       });
-      expect(outcome.body.boundary_counts).toEqual({ source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC BY-IGO", total: 838, adm2: 75, adm3: 763 });
+      expect(outcome.body.boundary_counts).toEqual({ source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC-BY-IGO", total: 838, adm2: 75, adm3: 763 });
     }
   });
 

@@ -3,7 +3,7 @@
   "dataset": "Egypt - Subnational Administrative Boundaries (cod-ab-egy)",
   "url": "https://data.humdata.org/dataset/cod-ab-egy",
   "publisher": "CAPMAS; contributed by OCHA ROMENA; published by OCHA FIS / HDX",
-  "license": "CC BY-IGO",
+  "license": "CC-BY-IGO",
   "boundaries_created": "2017-08-14",
   "reviewed": "2024-12-19",
   "accessed": "2026-11-15"

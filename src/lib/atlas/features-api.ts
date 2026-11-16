@@ -135,7 +135,7 @@ export async function getAtlasFeatures(
       type: "FeatureCollection",
       metadata: {
         data_license: "CAPMAS COD-AB 2017 (reviewed 2024), CC BY-IGO",
-        geometry_license: "CC BY-IGO",
+        geometry_license: "CC-BY-IGO",
         contact: "CAPMAS / OCHA HDX",
       },
       features: features.map((feature) => ({
@@ -146,7 +146,7 @@ export async function getAtlasFeatures(
           pcode: String(feature.properties.pcode), level: Number(feature.properties.level),
           parent_pcodes: Array.isArray(feature.properties.parent_pcodes) ? feature.properties.parent_pcodes.map(String) : [],
           parent_name_ar: String(feature.properties.parent_name_ar ?? ""), area_sqkm: Number(feature.properties.area_sqkm),
-          type: "admin_unit", status: "unknown", license: "CC BY-IGO",
+          type: "admin_unit", status: "unknown", license: "CC-BY-IGO",
           attribution: String(feature.properties.attribution), source: String(feature.properties.source),
           retrieval_date: "2026-11-15", source_ids: { pcode: feature.properties.pcode, level: feature.properties.level,
             parent_pcodes: feature.properties.parent_pcodes, area_sqkm: feature.properties.area_sqkm },

@@ -97,10 +97,10 @@ async function getCodabBoundaryCounts(): Promise<{ source: string; license: stri
   try {
     const data = JSON.parse(await readFile(file, "utf8")) as { features?: Array<{ properties?: { level?: number } }> };
     const levels = (data.features ?? []).map((feature) => feature.properties?.level);
-    return { source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC BY-IGO", total: levels.length,
+    return { source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC-BY-IGO", total: levels.length,
       adm2: levels.filter((level) => level === 2).length, adm3: levels.filter((level) => level === 3).length };
   } catch {
-    return { source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC BY-IGO", total: 0, adm2: 0, adm3: 0 };
+    return { source: "CAPMAS COD-AB 2017 (reviewed 2024)", license: "CC-BY-IGO", total: 0, adm2: 0, adm3: 0 };
   }
 }
 

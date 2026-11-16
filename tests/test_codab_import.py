@@ -38,7 +38,7 @@ class CodabImportTests(unittest.TestCase):
         evidence_codes = {f["properties"]["evidence_code"] for f in self.units + self.unions}
         self.assertEqual(evidence_codes, {IMPORTER.EVIDENCE_CODE})
         for feature in self.units + self.unions:
-            self.assertEqual(feature["properties"]["license"], "CC BY-IGO")
+            self.assertEqual(feature["properties"]["license"], "CC-BY-IGO")
             self.assertIn("CAPMAS", feature["properties"]["attribution"])
             self.assertIn("CC BY-IGO", feature["properties"]["attribution"])
         self.assertEqual(len(self.relations), 7)
