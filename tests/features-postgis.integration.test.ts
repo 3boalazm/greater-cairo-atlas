@@ -149,7 +149,7 @@ describe("real PostGIS features SQL regression", () => {
       WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)
     `);
     expect(Number(result.rows[0]?.valid_count)).toBe(featureCount);
-    expect(featureCount).toBe(2942);
+    expect(featureCount).toBe(2983);
     const constraint = await db.query<{ constraint_name: string }>(`
       SELECT conname AS constraint_name
       FROM pg_constraint
@@ -168,39 +168,32 @@ describe("real PostGIS features SQL regression", () => {
         (SELECT COUNT(*) FROM features)::text AS features,
         (SELECT COUNT(*) FROM boundaries)::text AS boundaries
     `);
-    expect(counts.rows[0]).toEqual({ entities: "448", evidence: "448", facts: "2252", links: "2605", features: "2942", boundaries: "19" });
+    expect(counts.rows[0]).toEqual({ entities: "448", evidence: "448", facts: "2252", links: "2605", features: "2983", boundaries: "19" });
     const validBoundaries = await db.query<{ count: string }>("SELECT COUNT(*)::text AS count FROM boundaries WHERE ST_SRID(geometry) = 4326 AND NOT ST_IsEmpty(geometry) AND ST_IsValid(geometry)");
     expect(Number(validBoundaries.rows[0]?.count)).toBe(boundaryCount);
   }, 120_000);
 
-  it("resolves the south batch 04 entities with no geometry, exactly as the entity panel queries them", async () => {
-    // Mirrors `getAtlasEntityDetail`: the geography is only reported as a flag, never a join requirement,
-    // so an entity without a feature must still come back with its facts attached.
+  it("loads all matched and unmatched South entities with facts independently of geometry", async () => {
+    const report = JSON.parse(await readFile(path.resolve(process.cwd(), "data/research/south-batch04/geometry_match_report.json"), "utf8")) as {
+      results: Array<{ entity_code: string; status: string }>;
+    };
+    const batchCodes = report.results.map((row) => row.entity_code);
+    expect(batchCodes).toHaveLength(31);
     const result = await db.query<{ code: string; has_geometry: boolean; facts_count: number }>(`
       SELECT e.code,
              EXISTS (SELECT 1 FROM features f WHERE f.entity_id = e.id) AS has_geometry,
              (SELECT COUNT(*)::int FROM facts fa WHERE fa.entity_id = e.id) AS facts_count
-      FROM entities e
-      WHERE e.code IN ('LANDMARK-NMEC', 'PROJ-FUSTAT-HILLS', 'LANDMARK-EIN-EL-SIRA', 'LANDMARK-JAPANESE-GARDEN-HELWAN')
-      ORDER BY e.code
-    `);
-    expect(result.rows.map((row) => row.code)).toEqual([
-      "LANDMARK-EIN-EL-SIRA",
-      "LANDMARK-JAPANESE-GARDEN-HELWAN",
-      "LANDMARK-NMEC",
-      "PROJ-FUSTAT-HILLS",
-    ]);
-    // No geometry was invented for these, and each still carries research facts.
-    expect(result.rows.every((row) => row.has_geometry === false)).toBe(true);
-    expect(result.rows.every((row) => row.facts_count > 0)).toBe(true);
-
-    // The whole batch is searchable: all 31 rows are entities, none is silently dropped for lacking a pin.
-    const batchCodes = ["LANDMARK-NMEC", "PROJ-FUSTAT-HILLS", "LINE-HELWAN-OLD-RAIL", "LANDMARK-HELWAN-IRON-STEEL"];
+      FROM entities e WHERE e.code = ANY($1::text[]) ORDER BY e.code
+    `, [batchCodes]);
+    expect(result.rows).toHaveLength(31);
+    for (const row of result.rows) {
+      expect(row.has_geometry).toBe(report.results.find((r) => r.entity_code === row.code)?.status === "matched");
+      expect(row.facts_count).toBeGreaterThan(0);
+    }
     const searchable = await db.query<{ count: number }>(
-      `SELECT COUNT(*)::int AS count FROM entities WHERE code = ANY($1::text[])`,
-      [batchCodes],
+      `SELECT COUNT(*)::int AS count FROM entities WHERE code = ANY($1::text[])`, [batchCodes],
     );
-    expect(searchable.rows[0]?.count).toBe(batchCodes.length);
+    expect(searchable.rows[0]?.count).toBe(31);
   }, 120_000);
 
   it("keeps database envelopes identical to shared TypeScript geometry constants", async () => {

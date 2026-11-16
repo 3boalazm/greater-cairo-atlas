@@ -357514,6 +357514,7788 @@
           "road_geometry_match": "exact road name/ref"
         }
       }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745814",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3312518,
+            29.9931654
+          ],
+          [
+            31.3315081,
+            29.9936777
+          ],
+          [
+            31.331715,
+            29.9941359
+          ],
+          [
+            31.3318753,
+            29.99451
+          ],
+          [
+            31.3320288,
+            29.9948862
+          ],
+          [
+            31.3323225,
+            29.9955576
+          ],
+          [
+            31.3324176,
+            29.9957502
+          ],
+          [
+            31.3325227,
+            29.9959389
+          ],
+          [
+            31.3326377,
+            29.9961232
+          ],
+          [
+            31.3327796,
+            29.9963317
+          ],
+          [
+            31.3328285,
+            29.9963983
+          ],
+          [
+            31.3328825,
+            29.9964582
+          ],
+          [
+            31.3329486,
+            29.9965183
+          ],
+          [
+            31.3330362,
+            29.9965817
+          ],
+          [
+            31.3331737,
+            29.996684
+          ],
+          [
+            31.3332285,
+            29.9967212
+          ],
+          [
+            31.3332894,
+            29.9967747
+          ],
+          [
+            31.3333405,
+            29.9968343
+          ],
+          [
+            31.3333736,
+            29.996885
+          ],
+          [
+            31.3336784,
+            29.9974485
+          ],
+          [
+            31.3337225,
+            29.9975301
+          ],
+          [
+            31.3337322,
+            29.9975514
+          ],
+          [
+            31.3338353,
+            29.9977795
+          ],
+          [
+            31.3338545,
+            29.9978221
+          ],
+          [
+            31.3338673,
+            29.9978665
+          ],
+          [
+            31.3338737,
+            29.997912
+          ],
+          [
+            31.3338734,
+            29.9979578
+          ],
+          [
+            31.3338666,
+            29.9980032
+          ],
+          [
+            31.3338532,
+            29.9980475
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745814",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745814,
+        "osm_version": 11,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745814,
+            "osm_version": 11
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745815",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3336421,
+            29.9981394
+          ],
+          [
+            31.3335852,
+            29.998122
+          ],
+          [
+            31.3335313,
+            29.9980986
+          ],
+          [
+            31.3334813,
+            29.9980695
+          ],
+          [
+            31.3334358,
+            29.9980352
+          ],
+          [
+            31.3333958,
+            29.9979962
+          ],
+          [
+            31.3333617,
+            29.9979531
+          ],
+          [
+            31.3333342,
+            29.9979066
+          ],
+          [
+            31.3333113,
+            29.9978584
+          ],
+          [
+            31.3329636,
+            29.9971267
+          ],
+          [
+            31.3329361,
+            29.9970716
+          ],
+          [
+            31.3329227,
+            29.9970309
+          ],
+          [
+            31.3328825,
+            29.9969242
+          ],
+          [
+            31.3328201,
+            29.9967655
+          ],
+          [
+            31.332785,
+            29.9966651
+          ],
+          [
+            31.3327443,
+            29.9965663
+          ],
+          [
+            31.3327034,
+            29.996467
+          ],
+          [
+            31.3326543,
+            29.9963637
+          ],
+          [
+            31.3325505,
+            29.9961708
+          ],
+          [
+            31.332492,
+            29.9960856
+          ],
+          [
+            31.3324311,
+            29.9959827
+          ],
+          [
+            31.3323283,
+            29.9957929
+          ],
+          [
+            31.3322353,
+            29.9955994
+          ],
+          [
+            31.3319162,
+            29.9949071
+          ],
+          [
+            31.331774,
+            29.9945564
+          ],
+          [
+            31.3316157,
+            29.9941615
+          ],
+          [
+            31.3314173,
+            29.9937364
+          ],
+          [
+            31.3311887,
+            29.9932304
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745815",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745815,
+        "osm_version": 9,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745815,
+            "osm_version": 9
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745816",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3162238,
+            29.9705489
+          ],
+          [
+            31.3166279,
+            29.9707577
+          ],
+          [
+            31.3197701,
+            29.9723577
+          ],
+          [
+            31.3204835,
+            29.9727099
+          ],
+          [
+            31.3207428,
+            29.9728625
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745816",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745816,
+        "osm_version": 8,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745816,
+            "osm_version": 8
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745817",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3134867,
+            29.9691535
+          ],
+          [
+            31.3162238,
+            29.9705489
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745817",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745817,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745817,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745818",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3161796,
+            29.9706384
+          ],
+          [
+            31.3134411,
+            29.9692302
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745818",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745818,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745818,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745819",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3101793,
+            29.9676112
+          ],
+          [
+            31.3092238,
+            29.9671459
+          ],
+          [
+            31.3060786,
+            29.9656407
+          ],
+          [
+            31.3047406,
+            29.9649479
+          ],
+          [
+            31.303364,
+            29.9642414
+          ],
+          [
+            31.3030135,
+            29.9640694
+          ],
+          [
+            31.3026599,
+            29.9639042
+          ],
+          [
+            31.3023009,
+            29.9637477
+          ],
+          [
+            31.3019367,
+            29.9636006
+          ],
+          [
+            31.3015676,
+            29.9634629
+          ],
+          [
+            31.301194,
+            29.9633347
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745819",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745819,
+        "osm_version": 9,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745819,
+            "osm_version": 9
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745820",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3012461,
+            29.9632219
+          ],
+          [
+            31.301633,
+            29.9633595
+          ],
+          [
+            31.3019999,
+            29.9635002
+          ],
+          [
+            31.3023628,
+            29.9636487
+          ],
+          [
+            31.3027215,
+            29.9638047
+          ],
+          [
+            31.3030757,
+            29.9639682
+          ],
+          [
+            31.3034278,
+            29.9641367
+          ],
+          [
+            31.3056809,
+            29.9652809
+          ],
+          [
+            31.3077081,
+            29.9662764
+          ],
+          [
+            31.3092804,
+            29.9670423
+          ],
+          [
+            31.3102305,
+            29.9675052
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745820",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745820,
+        "osm_version": 9,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745820,
+            "osm_version": 9
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745822",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3009683,
+            29.9632526
+          ],
+          [
+            31.3005835,
+            29.9631283
+          ],
+          [
+            31.3001954,
+            29.9630119
+          ],
+          [
+            31.2998041,
+            29.9629036
+          ],
+          [
+            31.29941,
+            29.9628035
+          ],
+          [
+            31.2990132,
+            29.9627116
+          ],
+          [
+            31.298614,
+            29.9626279
+          ],
+          [
+            31.2982126,
+            29.9625526
+          ],
+          [
+            31.2978093,
+            29.9624856
+          ],
+          [
+            31.2974042,
+            29.9624269
+          ],
+          [
+            31.2969975,
+            29.9623767
+          ],
+          [
+            31.2965897,
+            29.962335
+          ],
+          [
+            31.2961808,
+            29.9623017
+          ],
+          [
+            31.2957706,
+            29.9622826
+          ],
+          [
+            31.2953595,
+            29.962265
+          ],
+          [
+            31.2949481,
+            29.9622557
+          ],
+          [
+            31.2945365,
+            29.9622545
+          ],
+          [
+            31.294125,
+            29.9622616
+          ],
+          [
+            31.2937138,
+            29.9622769
+          ],
+          [
+            31.2933031,
+            29.9623004
+          ],
+          [
+            31.2928931,
+            29.9623321
+          ],
+          [
+            31.2924841,
+            29.962372
+          ],
+          [
+            31.2920762,
+            29.9624247
+          ],
+          [
+            31.2916698,
+            29.9624868
+          ],
+          [
+            31.2912289,
+            29.9625671
+          ],
+          [
+            31.2900435,
+            29.9628043
+          ],
+          [
+            31.2890571,
+            29.9629912
+          ],
+          [
+            31.2887869,
+            29.9630442
+          ],
+          [
+            31.2884793,
+            29.9631044
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745822",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745822,
+        "osm_version": 7,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745822,
+            "osm_version": 7
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745823",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.288476,
+            29.9629908
+          ],
+          [
+            31.2888068,
+            29.9629393
+          ],
+          [
+            31.2890263,
+            29.9628971
+          ],
+          [
+            31.289493,
+            29.9628181
+          ],
+          [
+            31.2899778,
+            29.9627211
+          ],
+          [
+            31.2903259,
+            29.9626425
+          ],
+          [
+            31.2911458,
+            29.9624641
+          ],
+          [
+            31.2916151,
+            29.9623699
+          ],
+          [
+            31.2920088,
+            29.9623079
+          ],
+          [
+            31.2924374,
+            29.962242
+          ],
+          [
+            31.2928522,
+            29.9622024
+          ],
+          [
+            31.293268,
+            29.9621705
+          ],
+          [
+            31.2936844,
+            29.9621464
+          ],
+          [
+            31.2941013,
+            29.96213
+          ],
+          [
+            31.2945186,
+            29.9621213
+          ],
+          [
+            31.2949359,
+            29.9621204
+          ],
+          [
+            31.2953532,
+            29.9621273
+          ],
+          [
+            31.2957703,
+            29.9621419
+          ],
+          [
+            31.2961849,
+            29.9621667
+          ],
+          [
+            31.2965985,
+            29.9622019
+          ],
+          [
+            31.2970111,
+            29.9622455
+          ],
+          [
+            31.2974223,
+            29.9622975
+          ],
+          [
+            31.2978321,
+            29.9623579
+          ],
+          [
+            31.29824,
+            29.9624266
+          ],
+          [
+            31.298646,
+            29.9625036
+          ],
+          [
+            31.2990498,
+            29.9625889
+          ],
+          [
+            31.2994512,
+            29.9626824
+          ],
+          [
+            31.2998499,
+            29.962784
+          ],
+          [
+            31.3002458,
+            29.9628938
+          ],
+          [
+            31.3006385,
+            29.9630116
+          ],
+          [
+            31.3010038,
+            29.9631397
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745823",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745823,
+        "osm_version": 7,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745823,
+            "osm_version": 7
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745824",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.301194,
+            29.9633347
+          ],
+          [
+            31.3009683,
+            29.9632526
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745824",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745824,
+        "osm_version": 5,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745824,
+            "osm_version": 5
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745825",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3010038,
+            29.9631397
+          ],
+          [
+            31.3012461,
+            29.9632219
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745825",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745825,
+        "osm_version": 5,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745825,
+            "osm_version": 5
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745826",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2884793,
+            29.9631044
+          ],
+          [
+            31.288292,
+            29.9631352
+          ],
+          [
+            31.2881248,
+            29.9631538
+          ],
+          [
+            31.2879567,
+            29.9631648
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745826",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745826,
+        "osm_version": 5,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745826,
+            "osm_version": 5
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050745827",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2879262,
+            29.9630513
+          ],
+          [
+            31.2880898,
+            29.963035
+          ],
+          [
+            31.2882554,
+            29.9630172
+          ],
+          [
+            31.288476,
+            29.9629908
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050745827",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050745827,
+        "osm_version": 5,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050745827,
+            "osm_version": 5
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764756",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3284998,
+            29.9877771
+          ],
+          [
+            31.3280374,
+            29.9868111
+          ],
+          [
+            31.3279455,
+            29.9866433
+          ],
+          [
+            31.327844,
+            29.9864747
+          ],
+          [
+            31.3277462,
+            29.9863074
+          ],
+          [
+            31.3276049,
+            29.9861139
+          ],
+          [
+            31.3274752,
+            29.9859162
+          ],
+          [
+            31.3273473,
+            29.9856925
+          ],
+          [
+            31.3269743,
+            29.9849245
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764756",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764756,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764756,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764757",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3311887,
+            29.9932304
+          ],
+          [
+            31.3295149,
+            29.9897909
+          ],
+          [
+            31.3284998,
+            29.9877771
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764757",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764757,
+        "osm_version": 7,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764757,
+            "osm_version": 7
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764758",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3286173,
+            29.9877351
+          ],
+          [
+            31.3296176,
+            29.9897304
+          ],
+          [
+            31.3312518,
+            29.9931654
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764758",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764758,
+        "osm_version": 7,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764758,
+            "osm_version": 7
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764759",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3273345,
+            29.9847769
+          ],
+          [
+            31.3280527,
+            29.9863887
+          ],
+          [
+            31.3281996,
+            29.9867914
+          ],
+          [
+            31.3284601,
+            29.9874129
+          ],
+          [
+            31.3286173,
+            29.9877351
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764759",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764759,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764759,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764763",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3206929,
+            29.9729432
+          ],
+          [
+            31.320412,
+            29.972782
+          ],
+          [
+            31.3197105,
+            29.9724344
+          ],
+          [
+            31.3164343,
+            29.9707815
+          ],
+          [
+            31.3161796,
+            29.9706384
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764763",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764763,
+        "osm_version": 7,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764763,
+            "osm_version": 7
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764764",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3207428,
+            29.9728625
+          ],
+          [
+            31.3209147,
+            29.9729705
+          ],
+          [
+            31.3211149,
+            29.9731106
+          ],
+          [
+            31.3213134,
+            29.9732627
+          ],
+          [
+            31.3214998,
+            29.9734277
+          ],
+          [
+            31.321658,
+            29.9736031
+          ],
+          [
+            31.3218105,
+            29.9737923
+          ],
+          [
+            31.3219517,
+            29.9739875
+          ],
+          [
+            31.322079,
+            29.9741896
+          ],
+          [
+            31.3221924,
+            29.974398
+          ],
+          [
+            31.3222913,
+            29.9746118
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764764",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764764,
+        "osm_version": 7,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764764,
+            "osm_version": 7
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764765",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3221899,
+            29.9746454
+          ],
+          [
+            31.3220929,
+            29.9744352
+          ],
+          [
+            31.3219814,
+            29.9742304
+          ],
+          [
+            31.3218558,
+            29.9740319
+          ],
+          [
+            31.3217161,
+            29.9738406
+          ],
+          [
+            31.3215628,
+            29.9736508
+          ],
+          [
+            31.3214166,
+            29.9734916
+          ],
+          [
+            31.3212302,
+            29.9733266
+          ],
+          [
+            31.3210465,
+            29.9731814
+          ],
+          [
+            31.3208333,
+            29.9730364
+          ],
+          [
+            31.3206929,
+            29.9729432
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764765",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764765,
+        "osm_version": 7,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764765,
+            "osm_version": 7
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764766",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3241828,
+            29.9794096
+          ],
+          [
+            31.32335,
+            29.9775113
+          ],
+          [
+            31.3232776,
+            29.9773463
+          ],
+          [
+            31.3222765,
+            29.9748674
+          ],
+          [
+            31.3221899,
+            29.9746454
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764766",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764766,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764766,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764767",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3222913,
+            29.9746118
+          ],
+          [
+            31.3223793,
+            29.974836
+          ],
+          [
+            31.3230414,
+            29.9764422
+          ],
+          [
+            31.3233954,
+            29.977301
+          ],
+          [
+            31.3242768,
+            29.9793738
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764767",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764767,
+        "osm_version": 6,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764767,
+            "osm_version": 6
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764768",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3269743,
+            29.9849245
+          ],
+          [
+            31.3267878,
+            29.9845636
+          ],
+          [
+            31.3264948,
+            29.9839627
+          ],
+          [
+            31.3264587,
+            29.9839008
+          ],
+          [
+            31.326417,
+            29.9838417
+          ],
+          [
+            31.3263699,
+            29.9837856
+          ],
+          [
+            31.3263179,
+            29.9837329
+          ],
+          [
+            31.3259003,
+            29.9829368
+          ],
+          [
+            31.3258785,
+            29.9828601
+          ],
+          [
+            31.3258538,
+            29.982784
+          ],
+          [
+            31.3258261,
+            29.9827087
+          ],
+          [
+            31.3257764,
+            29.9826006
+          ],
+          [
+            31.3257022,
+            29.9824514
+          ],
+          [
+            31.3241828,
+            29.9794096
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764768",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764768,
+        "osm_version": 8,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764768,
+            "osm_version": 8
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1050764769",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3242768,
+            29.9793738
+          ],
+          [
+            31.3258063,
+            29.9823943
+          ],
+          [
+            31.3258904,
+            29.982543
+          ],
+          [
+            31.3259704,
+            29.9826776
+          ],
+          [
+            31.326065,
+            29.9828257
+          ],
+          [
+            31.3261881,
+            29.982996
+          ],
+          [
+            31.3262289,
+            29.9830427
+          ],
+          [
+            31.3262748,
+            29.9830857
+          ],
+          [
+            31.3263255,
+            29.9831244
+          ],
+          [
+            31.3264799,
+            29.9832866
+          ],
+          [
+            31.3268346,
+            29.9837508
+          ],
+          [
+            31.3270191,
+            29.9841075
+          ],
+          [
+            31.3271101,
+            29.9842906
+          ],
+          [
+            31.3271997,
+            29.9844847
+          ],
+          [
+            31.3273345,
+            29.9847769
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1050764769",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1050764769,
+        "osm_version": 8,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1050764769,
+            "osm_version": 8
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1051475276",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3102305,
+            29.9675052
+          ],
+          [
+            31.3134867,
+            29.9691535
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1051475276",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1051475276,
+        "osm_version": 5,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1051475276,
+            "osm_version": 5
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "destination": "المقطم;القطامية;القاهرة الجديدة;مدينة نصر",
+            "destination:lang:en": "Mokattam;Katameya;New Cairo;Nasr City",
+            "foot": "no",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1348303456",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3134411,
+            29.9692302
+          ],
+          [
+            31.3101793,
+            29.9676112
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1348303456",
+        "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1348303456,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1348303456,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-14",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-174698876",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2681619,
+            30.0295089
+          ],
+          [
+            31.2683595,
+            30.0294113
+          ],
+          [
+            31.2685409,
+            30.029322
+          ],
+          [
+            31.268716,
+            30.0292239
+          ],
+          [
+            31.2688844,
+            30.0291173
+          ],
+          [
+            31.2690393,
+            30.0290152
+          ],
+          [
+            31.2691889,
+            30.028915
+          ],
+          [
+            31.2692537,
+            30.0288691
+          ],
+          [
+            31.2693201,
+            30.028825
+          ],
+          [
+            31.2694009,
+            30.0287749
+          ],
+          [
+            31.2694838,
+            30.0287274
+          ],
+          [
+            31.2695686,
+            30.0286825
+          ],
+          [
+            31.2697538,
+            30.028606
+          ],
+          [
+            31.2700604,
+            30.0284759
+          ],
+          [
+            31.2706357,
+            30.02825
+          ],
+          [
+            31.2709051,
+            30.0281591
+          ],
+          [
+            31.2711491,
+            30.0280851
+          ],
+          [
+            31.2711691,
+            30.028079
+          ],
+          [
+            31.2714418,
+            30.0280029
+          ],
+          [
+            31.2718172,
+            30.0279116
+          ],
+          [
+            31.2721968,
+            30.0278345
+          ],
+          [
+            31.2723051,
+            30.0278168
+          ],
+          [
+            31.2725799,
+            30.0277719
+          ],
+          [
+            31.2731881,
+            30.0276194
+          ],
+          [
+            31.2732837,
+            30.0275885
+          ],
+          [
+            31.273375,
+            30.0275489
+          ],
+          [
+            31.2734608,
+            30.0275011
+          ],
+          [
+            31.2735402,
+            30.0274456
+          ],
+          [
+            31.2736122,
+            30.027383
+          ],
+          [
+            31.2736761,
+            30.0273141
+          ],
+          [
+            31.2737311,
+            30.0272397
+          ],
+          [
+            31.2737766,
+            30.0271606
+          ],
+          [
+            31.2738233,
+            30.0270812
+          ],
+          [
+            31.2738589,
+            30.0269977
+          ],
+          [
+            31.2738854,
+            30.0269117
+          ],
+          [
+            31.2739024,
+            30.026824
+          ],
+          [
+            31.2739098,
+            30.0267352
+          ],
+          [
+            31.2739075,
+            30.0266462
+          ],
+          [
+            31.2738956,
+            30.0265578
+          ],
+          [
+            31.2738733,
+            30.0264588
+          ],
+          [
+            31.2738428,
+            30.0263627
+          ],
+          [
+            31.2738009,
+            30.0262695
+          ],
+          [
+            31.2737492,
+            30.02618
+          ],
+          [
+            31.273106,
+            30.0251698
+          ],
+          [
+            31.272461,
+            30.0241822
+          ],
+          [
+            31.2724127,
+            30.024081
+          ],
+          [
+            31.2723767,
+            30.023976
+          ],
+          [
+            31.2723536,
+            30.0238684
+          ],
+          [
+            31.2723434,
+            30.0237592
+          ],
+          [
+            31.2723465,
+            30.0236497
+          ],
+          [
+            31.2723627,
+            30.0235411
+          ],
+          [
+            31.2723918,
+            30.0234345
+          ],
+          [
+            31.2724335,
+            30.0233312
+          ],
+          [
+            31.2724874,
+            30.0232321
+          ],
+          [
+            31.272553,
+            30.0231384
+          ],
+          [
+            31.2726294,
+            30.0230512
+          ],
+          [
+            31.2727167,
+            30.022958
+          ],
+          [
+            31.2728156,
+            30.0228741
+          ],
+          [
+            31.2729243,
+            30.0227998
+          ],
+          [
+            31.2730416,
+            30.022736
+          ],
+          [
+            31.2731492,
+            30.0226835
+          ],
+          [
+            31.2732622,
+            30.0226404
+          ],
+          [
+            31.2733793,
+            30.0226064
+          ],
+          [
+            31.2734995,
+            30.0225818
+          ],
+          [
+            31.2736216,
+            30.0225628
+          ],
+          [
+            31.2737504,
+            30.0225412
+          ],
+          [
+            31.2738772,
+            30.022512
+          ],
+          [
+            31.2740014,
+            30.0224755
+          ],
+          [
+            31.2741224,
+            30.0224317
+          ],
+          [
+            31.2742397,
+            30.0223809
+          ],
+          [
+            31.2743528,
+            30.0223233
+          ],
+          [
+            31.2755187,
+            30.0216554
+          ],
+          [
+            31.2755989,
+            30.0216037
+          ],
+          [
+            31.275676,
+            30.0215487
+          ],
+          [
+            31.2757499,
+            30.0214905
+          ],
+          [
+            31.2758205,
+            30.0214292
+          ],
+          [
+            31.2758863,
+            30.0213621
+          ],
+          [
+            31.2759392,
+            30.0212895
+          ],
+          [
+            31.2759835,
+            30.0212126
+          ],
+          [
+            31.2760187,
+            30.0211322
+          ],
+          [
+            31.2760444,
+            30.0210493
+          ],
+          [
+            31.2760604,
+            30.0209645
+          ],
+          [
+            31.2760666,
+            30.0208787
+          ],
+          [
+            31.2760681,
+            30.0207946
+          ],
+          [
+            31.2760598,
+            30.0207113
+          ],
+          [
+            31.2760407,
+            30.0206294
+          ],
+          [
+            31.2760111,
+            30.0205499
+          ],
+          [
+            31.2759713,
+            30.0204737
+          ],
+          [
+            31.2759219,
+            30.0204019
+          ],
+          [
+            31.275857,
+            30.0203226
+          ],
+          [
+            31.2757769,
+            30.0202516
+          ],
+          [
+            31.275687,
+            30.02019
+          ],
+          [
+            31.2755889,
+            30.0201387
+          ],
+          [
+            31.275484,
+            30.0200986
+          ],
+          [
+            31.2753741,
+            30.0200703
+          ],
+          [
+            31.275261,
+            30.0200543
+          ],
+          [
+            31.2750936,
+            30.0200477
+          ],
+          [
+            31.2748857,
+            30.0200595
+          ],
+          [
+            31.27465,
+            30.0200763
+          ],
+          [
+            31.2744148,
+            30.0200966
+          ],
+          [
+            31.2741799,
+            30.0201205
+          ],
+          [
+            31.2739456,
+            30.0201478
+          ],
+          [
+            31.2737403,
+            30.0201652
+          ],
+          [
+            31.2736484,
+            30.0201667
+          ],
+          [
+            31.273557,
+            30.0201588
+          ],
+          [
+            31.2734674,
+            30.020141
+          ],
+          [
+            31.2733847,
+            30.0201157
+          ],
+          [
+            31.273306,
+            30.0200823
+          ],
+          [
+            31.2732322,
+            30.0200412
+          ],
+          [
+            31.2731643,
+            30.0199931
+          ],
+          [
+            31.2731145,
+            30.0199462
+          ],
+          [
+            31.2730683,
+            30.0198939
+          ],
+          [
+            31.2730275,
+            30.0198419
+          ],
+          [
+            31.2729808,
+            30.0197643
+          ],
+          [
+            31.272947,
+            30.0196855
+          ],
+          [
+            31.2729247,
+            30.0196037
+          ],
+          [
+            31.272914,
+            30.0195201
+          ],
+          [
+            31.2729152,
+            30.019436
+          ],
+          [
+            31.272931,
+            30.0192954
+          ],
+          [
+            31.2729381,
+            30.0192289
+          ],
+          [
+            31.2729383,
+            30.0191448
+          ],
+          [
+            31.2729355,
+            30.0190956
+          ],
+          [
+            31.2729259,
+            30.0190294
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-174698876",
+        "entity_code": "ROAD-YASSER-RIZK",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 174698876,
+        "osm_version": 15,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 174698876,
+            "osm_version": 15
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lanes": "5",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "old_ref": "06",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-174698887",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3293358,
+            29.9968361
+          ],
+          [
+            31.3292312,
+            29.9968816
+          ],
+          [
+            31.3291293,
+            29.9969316
+          ],
+          [
+            31.3290383,
+            29.9969816
+          ],
+          [
+            31.32895,
+            29.9970352
+          ],
+          [
+            31.328558,
+            29.9973662
+          ],
+          [
+            31.3284266,
+            29.9974666
+          ],
+          [
+            31.328295,
+            29.997563
+          ],
+          [
+            31.3281612,
+            29.9976571
+          ],
+          [
+            31.3280254,
+            29.997749
+          ],
+          [
+            31.3278885,
+            29.9978379
+          ],
+          [
+            31.3277302,
+            29.9979396
+          ],
+          [
+            31.3275628,
+            29.998036
+          ],
+          [
+            31.3273901,
+            29.9981252
+          ],
+          [
+            31.3272124,
+            29.9982066
+          ],
+          [
+            31.3270327,
+            29.9982792
+          ],
+          [
+            31.3265798,
+            29.9984532
+          ],
+          [
+            31.3262602,
+            29.9985638
+          ],
+          [
+            31.3260624,
+            29.9986205
+          ],
+          [
+            31.325919,
+            29.9986409
+          ],
+          [
+            31.3257838,
+            29.9986532
+          ],
+          [
+            31.3256478,
+            29.9986588
+          ],
+          [
+            31.3255183,
+            29.9986577
+          ],
+          [
+            31.3238295,
+            29.9986661
+          ],
+          [
+            31.3235551,
+            29.9986588
+          ],
+          [
+            31.3232821,
+            29.9986455
+          ],
+          [
+            31.3230108,
+            29.9986264
+          ],
+          [
+            31.3191518,
+            29.9983095
+          ],
+          [
+            31.3184567,
+            29.9982307
+          ],
+          [
+            31.3183317,
+            29.9982162
+          ],
+          [
+            31.318206,
+            29.9982069
+          ],
+          [
+            31.3180567,
+            29.9982025
+          ],
+          [
+            31.3179074,
+            29.9982053
+          ],
+          [
+            31.3177584,
+            29.9982153
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-174698887",
+        "entity_code": "ROAD-YASSER-RIZK",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 174698887,
+        "osm_version": 12,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 174698887,
+            "osm_version": 12
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1103186271",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2822549,
+            30.0095814
+          ],
+          [
+            31.2823838,
+            30.0095478
+          ],
+          [
+            31.2825095,
+            30.0095061
+          ],
+          [
+            31.2826313,
+            30.0094565
+          ],
+          [
+            31.2827486,
+            30.0093992
+          ],
+          [
+            31.2836444,
+            30.0089114
+          ],
+          [
+            31.2837996,
+            30.0088323
+          ],
+          [
+            31.2839589,
+            30.0087595
+          ],
+          [
+            31.284048,
+            30.0087232
+          ],
+          [
+            31.2841219,
+            30.0086931
+          ],
+          [
+            31.2842765,
+            30.0086373
+          ],
+          [
+            31.2844337,
+            30.0085872
+          ],
+          [
+            31.2845933,
+            30.0085431
+          ],
+          [
+            31.2847549,
+            30.0085049
+          ],
+          [
+            31.2849544,
+            30.0084623
+          ],
+          [
+            31.2851513,
+            30.0084111
+          ],
+          [
+            31.285345,
+            30.0083516
+          ],
+          [
+            31.2855128,
+            30.0082924
+          ],
+          [
+            31.2856775,
+            30.0082268
+          ],
+          [
+            31.2858387,
+            30.0081552
+          ],
+          [
+            31.2859962,
+            30.0080775
+          ],
+          [
+            31.2861496,
+            30.007994
+          ],
+          [
+            31.2862768,
+            30.0078983
+          ],
+          [
+            31.2864084,
+            30.0078071
+          ],
+          [
+            31.2865439,
+            30.0077205
+          ],
+          [
+            31.2866834,
+            30.0076386
+          ],
+          [
+            31.2868292,
+            30.0075602
+          ],
+          [
+            31.2869785,
+            30.0074869
+          ],
+          [
+            31.2871311,
+            30.0074189
+          ],
+          [
+            31.2872868,
+            30.0073563
+          ],
+          [
+            31.2874564,
+            30.0073073
+          ],
+          [
+            31.2876286,
+            30.0072661
+          ],
+          [
+            31.2879794,
+            30.0072025
+          ],
+          [
+            31.2881771,
+            30.0071558
+          ],
+          [
+            31.2883683,
+            30.007092
+          ],
+          [
+            31.288551,
+            30.0070117
+          ],
+          [
+            31.2887235,
+            30.0069158
+          ],
+          [
+            31.2890488,
+            30.0067117
+          ],
+          [
+            31.2892497,
+            30.0065616
+          ],
+          [
+            31.2901468,
+            30.0058304
+          ],
+          [
+            31.2903956,
+            30.005648
+          ],
+          [
+            31.2906252,
+            30.00549
+          ],
+          [
+            31.2908791,
+            30.0053264
+          ],
+          [
+            31.2911001,
+            30.005192
+          ],
+          [
+            31.291345,
+            30.0050522
+          ],
+          [
+            31.2922685,
+            30.0046378
+          ],
+          [
+            31.2924577,
+            30.0045529
+          ],
+          [
+            31.2925586,
+            30.0045023
+          ],
+          [
+            31.2928009,
+            30.0043881
+          ],
+          [
+            31.2930362,
+            30.0042636
+          ],
+          [
+            31.2932641,
+            30.0041289
+          ],
+          [
+            31.2934839,
+            30.0039846
+          ],
+          [
+            31.293695,
+            30.0038309
+          ],
+          [
+            31.293897,
+            30.0036682
+          ],
+          [
+            31.2940893,
+            30.0034969
+          ],
+          [
+            31.2941927,
+            30.0033837
+          ],
+          [
+            31.29429,
+            30.0032668
+          ],
+          [
+            31.2943794,
+            30.0031453
+          ],
+          [
+            31.2944603,
+            30.0030191
+          ],
+          [
+            31.2945333,
+            30.0028905
+          ],
+          [
+            31.294601,
+            30.0027598
+          ],
+          [
+            31.2946634,
+            30.0026272
+          ],
+          [
+            31.2947204,
+            30.0024927
+          ],
+          [
+            31.294772,
+            30.0023566
+          ],
+          [
+            31.294818,
+            30.0022191
+          ],
+          [
+            31.2948584,
+            30.0020802
+          ],
+          [
+            31.2950087,
+            30.0016156
+          ],
+          [
+            31.2950535,
+            30.0015006
+          ],
+          [
+            31.2951061,
+            30.0013881
+          ],
+          [
+            31.2951662,
+            30.0012784
+          ],
+          [
+            31.2952337,
+            30.0011721
+          ],
+          [
+            31.2953083,
+            30.0010694
+          ],
+          [
+            31.2953898,
+            30.0009706
+          ],
+          [
+            31.2954778,
+            30.0008762
+          ],
+          [
+            31.2955722,
+            30.0007865
+          ],
+          [
+            31.295921,
+            30.0005055
+          ],
+          [
+            31.2960514,
+            30.0004153
+          ],
+          [
+            31.2961878,
+            30.0003319
+          ],
+          [
+            31.2963296,
+            30.0002558
+          ],
+          [
+            31.2964764,
+            30.000187
+          ],
+          [
+            31.2966277,
+            30.0001259
+          ],
+          [
+            31.2967829,
+            30.0000727
+          ],
+          [
+            31.2969168,
+            30.0000333
+          ],
+          [
+            31.2970524,
+            29.9999987
+          ],
+          [
+            31.2971896,
+            29.9999688
+          ],
+          [
+            31.2973369,
+            29.9999423
+          ],
+          [
+            31.2974854,
+            29.9999214
+          ],
+          [
+            31.2976348,
+            29.9999061
+          ],
+          [
+            31.2977786,
+            29.9998945
+          ],
+          [
+            31.2979218,
+            29.9998782
+          ],
+          [
+            31.2980968,
+            29.9998518
+          ],
+          [
+            31.2982701,
+            29.9998184
+          ],
+          [
+            31.298868,
+            29.9996874
+          ],
+          [
+            31.2990735,
+            29.9996318
+          ],
+          [
+            31.2992764,
+            29.9995695
+          ],
+          [
+            31.2994764,
+            29.9995005
+          ],
+          [
+            31.2996732,
+            29.9994249
+          ],
+          [
+            31.2998525,
+            29.9993431
+          ],
+          [
+            31.301009,
+            29.9988236
+          ],
+          [
+            31.3011969,
+            29.9987358
+          ],
+          [
+            31.3013621,
+            29.9986503
+          ],
+          [
+            31.3015093,
+            29.9985819
+          ],
+          [
+            31.3016598,
+            29.9985189
+          ],
+          [
+            31.3018132,
+            29.9984616
+          ],
+          [
+            31.3019693,
+            29.99841
+          ],
+          [
+            31.3021278,
+            29.9983642
+          ],
+          [
+            31.304732,
+            29.9977295
+          ],
+          [
+            31.3063946,
+            29.9973153
+          ],
+          [
+            31.3065704,
+            29.9972854
+          ],
+          [
+            31.3067479,
+            29.9972641
+          ],
+          [
+            31.3069265,
+            29.9972513
+          ],
+          [
+            31.3071056,
+            29.9972471
+          ],
+          [
+            31.3072847,
+            29.9972515
+          ],
+          [
+            31.3074632,
+            29.9972645
+          ],
+          [
+            31.3076407,
+            29.9972861
+          ],
+          [
+            31.3078165,
+            29.9973162
+          ],
+          [
+            31.3089938,
+            29.9975611
+          ],
+          [
+            31.3092452,
+            29.9975979
+          ],
+          [
+            31.3094977,
+            29.9976284
+          ],
+          [
+            31.3097511,
+            29.9976526
+          ],
+          [
+            31.3100052,
+            29.9976704
+          ],
+          [
+            31.3102598,
+            29.9976819
+          ],
+          [
+            31.3105147,
+            29.997687
+          ],
+          [
+            31.3107696,
+            29.9976857
+          ],
+          [
+            31.3122717,
+            29.9976436
+          ],
+          [
+            31.3125697,
+            29.9976446
+          ],
+          [
+            31.3138377,
+            29.9976489
+          ],
+          [
+            31.3141136,
+            29.9976508
+          ],
+          [
+            31.3143894,
+            29.997659
+          ],
+          [
+            31.3146649,
+            29.9976733
+          ],
+          [
+            31.3149398,
+            29.9976939
+          ],
+          [
+            31.3169309,
+            29.9978903
+          ],
+          [
+            31.3170299,
+            29.9978933
+          ],
+          [
+            31.3171189,
+            29.9978882
+          ],
+          [
+            31.317207,
+            29.9978757
+          ],
+          [
+            31.3172932,
+            29.997856
+          ],
+          [
+            31.3173769,
+            29.9978292
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1103186271",
+        "entity_code": "ROAD-YASSER-RIZK",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1103186271,
+        "osm_version": 10,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1103186271,
+            "osm_version": 10
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1103210417",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2732622,
+            30.0191246
+          ],
+          [
+            31.2732178,
+            30.0191697
+          ],
+          [
+            31.2731792,
+            30.0192186
+          ],
+          [
+            31.2731469,
+            30.0192708
+          ],
+          [
+            31.2731238,
+            30.0193257
+          ],
+          [
+            31.2730962,
+            30.0194487
+          ],
+          [
+            31.2730914,
+            30.0195304
+          ],
+          [
+            31.2731021,
+            30.0196116
+          ],
+          [
+            31.2731279,
+            30.0196903
+          ],
+          [
+            31.2731703,
+            30.0197634
+          ],
+          [
+            31.2732233,
+            30.0198197
+          ],
+          [
+            31.2732839,
+            30.0198697
+          ],
+          [
+            31.2733514,
+            30.0199128
+          ],
+          [
+            31.2734246,
+            30.0199481
+          ],
+          [
+            31.2735024,
+            30.0199751
+          ],
+          [
+            31.2735835,
+            30.0199935
+          ],
+          [
+            31.2736666,
+            30.0200028
+          ],
+          [
+            31.2737504,
+            30.0200019
+          ],
+          [
+            31.2739197,
+            30.0199892
+          ],
+          [
+            31.274204,
+            30.0199529
+          ],
+          [
+            31.2744894,
+            30.0199239
+          ],
+          [
+            31.2747757,
+            30.0199023
+          ],
+          [
+            31.2750836,
+            30.0198838
+          ],
+          [
+            31.2751815,
+            30.0198845
+          ],
+          [
+            31.2753002,
+            30.019892
+          ],
+          [
+            31.2754173,
+            30.0199105
+          ],
+          [
+            31.2755315,
+            30.0199397
+          ],
+          [
+            31.2756414,
+            30.0199793
+          ],
+          [
+            31.2757457,
+            30.0200289
+          ],
+          [
+            31.2758434,
+            30.0200879
+          ],
+          [
+            31.2759331,
+            30.0201555
+          ],
+          [
+            31.276014,
+            30.0202312
+          ],
+          [
+            31.2760814,
+            30.0203145
+          ],
+          [
+            31.2761305,
+            30.0203836
+          ],
+          [
+            31.2761727,
+            30.0204561
+          ],
+          [
+            31.2762041,
+            30.0205215
+          ],
+          [
+            31.276232,
+            30.0205878
+          ],
+          [
+            31.2762497,
+            30.0206569
+          ],
+          [
+            31.2762634,
+            30.0207654
+          ],
+          [
+            31.2762662,
+            30.0208551
+          ],
+          [
+            31.276258,
+            30.020941
+          ],
+          [
+            31.276243,
+            30.0210265
+          ],
+          [
+            31.276222,
+            30.0211173
+          ],
+          [
+            31.2761901,
+            30.0212057
+          ],
+          [
+            31.2761477,
+            30.0212907
+          ],
+          [
+            31.2760956,
+            30.0213713
+          ],
+          [
+            31.2760379,
+            30.0214461
+          ],
+          [
+            31.2759707,
+            30.0215231
+          ],
+          [
+            31.2758959,
+            30.0215947
+          ],
+          [
+            31.2758141,
+            30.0216604
+          ],
+          [
+            31.2757867,
+            30.0216796
+          ],
+          [
+            31.275475,
+            30.0218667
+          ],
+          [
+            31.2752897,
+            30.0219834
+          ],
+          [
+            31.2750592,
+            30.022116
+          ],
+          [
+            31.2744724,
+            30.0224535
+          ],
+          [
+            31.2743349,
+            30.0225143
+          ],
+          [
+            31.2741946,
+            30.0225699
+          ],
+          [
+            31.2740517,
+            30.0226202
+          ],
+          [
+            31.2739064,
+            30.0226652
+          ],
+          [
+            31.273759,
+            30.0227047
+          ],
+          [
+            31.2736098,
+            30.0227387
+          ],
+          [
+            31.2734599,
+            30.0227663
+          ],
+          [
+            31.2733463,
+            30.022792
+          ],
+          [
+            31.2732363,
+            30.0228277
+          ],
+          [
+            31.2731312,
+            30.0228729
+          ],
+          [
+            31.273032,
+            30.0229273
+          ],
+          [
+            31.2729398,
+            30.0229902
+          ],
+          [
+            31.2728555,
+            30.023061
+          ],
+          [
+            31.2727801,
+            30.0231388
+          ],
+          [
+            31.2727143,
+            30.023223
+          ],
+          [
+            31.2726383,
+            30.0233381
+          ],
+          [
+            31.2725916,
+            30.0234386
+          ],
+          [
+            31.2725584,
+            30.023543
+          ],
+          [
+            31.2725391,
+            30.02365
+          ],
+          [
+            31.272534,
+            30.0237582
+          ],
+          [
+            31.2725431,
+            30.0238663
+          ],
+          [
+            31.2725662,
+            30.0239727
+          ],
+          [
+            31.2726032,
+            30.0240762
+          ],
+          [
+            31.2726589,
+            30.0241754
+          ],
+          [
+            31.2727251,
+            30.0242745
+          ],
+          [
+            31.2732589,
+            30.025092
+          ],
+          [
+            31.2739066,
+            30.0261344
+          ],
+          [
+            31.2739601,
+            30.0262309
+          ],
+          [
+            31.274002,
+            30.0263315
+          ],
+          [
+            31.274032,
+            30.0264353
+          ],
+          [
+            31.2740496,
+            30.0265412
+          ],
+          [
+            31.2740561,
+            30.0266481
+          ],
+          [
+            31.2740568,
+            30.0267549
+          ],
+          [
+            31.2740477,
+            30.0268582
+          ],
+          [
+            31.2740373,
+            30.0269461
+          ],
+          [
+            31.274018,
+            30.0270328
+          ],
+          [
+            31.27399,
+            30.0271178
+          ],
+          [
+            31.2739535,
+            30.0272003
+          ],
+          [
+            31.2739087,
+            30.0272796
+          ],
+          [
+            31.2738561,
+            30.0273553
+          ],
+          [
+            31.273796,
+            30.0274267
+          ],
+          [
+            31.2737289,
+            30.0274932
+          ],
+          [
+            31.2736686,
+            30.0275473
+          ],
+          [
+            31.273595,
+            30.0276041
+          ],
+          [
+            31.2735191,
+            30.0276558
+          ],
+          [
+            31.2734397,
+            30.027698
+          ],
+          [
+            31.2733574,
+            30.0277315
+          ],
+          [
+            31.273274,
+            30.0277616
+          ],
+          [
+            31.2731852,
+            30.0277846
+          ],
+          [
+            31.273085,
+            30.0278103
+          ],
+          [
+            31.272622,
+            30.0279264
+          ],
+          [
+            31.2722833,
+            30.0280594
+          ],
+          [
+            31.2721814,
+            30.0280994
+          ],
+          [
+            31.272041,
+            30.0281691
+          ],
+          [
+            31.2718977,
+            30.028234
+          ],
+          [
+            31.2716866,
+            30.0283186
+          ],
+          [
+            31.2716032,
+            30.0283498
+          ],
+          [
+            31.2714524,
+            30.0284003
+          ],
+          [
+            31.2712994,
+            30.028446
+          ],
+          [
+            31.2711446,
+            30.0284866
+          ],
+          [
+            31.2709882,
+            30.0285221
+          ],
+          [
+            31.2700817,
+            30.0287177
+          ],
+          [
+            31.2699621,
+            30.0287463
+          ],
+          [
+            31.269845,
+            30.0287819
+          ],
+          [
+            31.269416,
+            30.0289669
+          ],
+          [
+            31.2690831,
+            30.0291433
+          ],
+          [
+            31.2689007,
+            30.0292619
+          ],
+          [
+            31.2687421,
+            30.0293603
+          ],
+          [
+            31.268577,
+            30.0294505
+          ],
+          [
+            31.2684061,
+            30.0295321
+          ],
+          [
+            31.2682245,
+            30.0296141
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1103210417",
+        "entity_code": "ROAD-YASSER-RIZK",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1103210417,
+        "osm_version": 9,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1103210417,
+            "osm_version": 9
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "destination": "ميدان السيدة عائشة;القلعة",
+            "destination:lang:en": "Sayeda Eisha Square;Citadel",
+            "highway": "primary",
+            "lanes": "5",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "old_ref": "06",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1103210419",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2820111,
+            30.0100302
+          ],
+          [
+            31.2819405,
+            30.0100313
+          ],
+          [
+            31.2818707,
+            30.0100402
+          ],
+          [
+            31.2818027,
+            30.0100567
+          ],
+          [
+            31.2817377,
+            30.0100807
+          ],
+          [
+            31.2810195,
+            30.0104153
+          ],
+          [
+            31.2795433,
+            30.0110703
+          ],
+          [
+            31.278681,
+            30.0114353
+          ],
+          [
+            31.2785582,
+            30.0114901
+          ],
+          [
+            31.2784381,
+            30.0115491
+          ],
+          [
+            31.2783208,
+            30.0116121
+          ],
+          [
+            31.2782064,
+            30.011679
+          ],
+          [
+            31.2775867,
+            30.0120574
+          ],
+          [
+            31.2772085,
+            30.0123164
+          ],
+          [
+            31.276549,
+            30.0127625
+          ],
+          [
+            31.2763723,
+            30.0128929
+          ],
+          [
+            31.2762001,
+            30.0130277
+          ],
+          [
+            31.2760326,
+            30.013167
+          ],
+          [
+            31.275871,
+            30.0133113
+          ],
+          [
+            31.2757162,
+            30.0134609
+          ],
+          [
+            31.2755704,
+            30.013617
+          ],
+          [
+            31.2754339,
+            30.0137794
+          ],
+          [
+            31.2753071,
+            30.0139476
+          ],
+          [
+            31.2746058,
+            30.0149422
+          ],
+          [
+            31.2744826,
+            30.0151333
+          ],
+          [
+            31.2743632,
+            30.0153261
+          ],
+          [
+            31.2742478,
+            30.0155208
+          ],
+          [
+            31.2741285,
+            30.0157173
+          ],
+          [
+            31.2740207,
+            30.0158907
+          ],
+          [
+            31.2737945,
+            30.0162279
+          ],
+          [
+            31.2733982,
+            30.0167978
+          ],
+          [
+            31.2733229,
+            30.0169031
+          ],
+          [
+            31.2732466,
+            30.0170078
+          ],
+          [
+            31.2731692,
+            30.0171119
+          ],
+          [
+            31.2730908,
+            30.0172153
+          ],
+          [
+            31.2729848,
+            30.01737
+          ],
+          [
+            31.2729332,
+            30.0174669
+          ],
+          [
+            31.2728922,
+            30.0175675
+          ],
+          [
+            31.2728621,
+            30.017671
+          ],
+          [
+            31.2728433,
+            30.0177764
+          ],
+          [
+            31.2728358,
+            30.0178829
+          ],
+          [
+            31.2728398,
+            30.0179895
+          ],
+          [
+            31.2728639,
+            30.0181418
+          ],
+          [
+            31.2729595,
+            30.0184292
+          ],
+          [
+            31.2729895,
+            30.0185046
+          ],
+          [
+            31.2730313,
+            30.0185756
+          ],
+          [
+            31.2730841,
+            30.0186409
+          ],
+          [
+            31.2731468,
+            30.0186993
+          ],
+          [
+            31.2732182,
+            30.0187496
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1103210419",
+        "entity_code": "ROAD-YASSER-RIZK",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1103210419,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1103210419,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1103210420",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.2729263,
+            30.0188617
+          ],
+          [
+            31.2729067,
+            30.0187625
+          ],
+          [
+            31.2728816,
+            30.0186642
+          ],
+          [
+            31.2728508,
+            30.0185671
+          ],
+          [
+            31.2728158,
+            30.0184715
+          ],
+          [
+            31.2727523,
+            30.0182828
+          ],
+          [
+            31.2727267,
+            30.0181883
+          ],
+          [
+            31.2727082,
+            30.0180926
+          ],
+          [
+            31.2726967,
+            30.0179961
+          ],
+          [
+            31.2726923,
+            30.0178991
+          ],
+          [
+            31.2726951,
+            30.0178021
+          ],
+          [
+            31.2727057,
+            30.0177055
+          ],
+          [
+            31.2727259,
+            30.0176052
+          ],
+          [
+            31.272755,
+            30.0175067
+          ],
+          [
+            31.2727928,
+            30.0174103
+          ],
+          [
+            31.2728389,
+            30.0173167
+          ],
+          [
+            31.2728932,
+            30.0172265
+          ],
+          [
+            31.2729554,
+            30.0171401
+          ],
+          [
+            31.273025,
+            30.0170582
+          ],
+          [
+            31.2731009,
+            30.0169703
+          ],
+          [
+            31.2731745,
+            30.016881
+          ],
+          [
+            31.273248,
+            30.0167872
+          ],
+          [
+            31.273342,
+            30.0166598
+          ],
+          [
+            31.2734311,
+            30.0165297
+          ],
+          [
+            31.2736084,
+            30.0162516
+          ],
+          [
+            31.2737585,
+            30.0160333
+          ],
+          [
+            31.2738968,
+            30.0158132
+          ],
+          [
+            31.2741341,
+            30.0154055
+          ],
+          [
+            31.2742423,
+            30.015222
+          ],
+          [
+            31.2743559,
+            30.015041
+          ],
+          [
+            31.2744747,
+            30.0148625
+          ],
+          [
+            31.2751734,
+            30.0139028
+          ],
+          [
+            31.2753272,
+            30.0137015
+          ],
+          [
+            31.2754916,
+            30.0135067
+          ],
+          [
+            31.2756662,
+            30.0133186
+          ],
+          [
+            31.2758506,
+            30.0131376
+          ],
+          [
+            31.2760445,
+            30.0129643
+          ],
+          [
+            31.2762475,
+            30.0127989
+          ],
+          [
+            31.276459,
+            30.0126418
+          ],
+          [
+            31.2770202,
+            30.0122543
+          ],
+          [
+            31.2772104,
+            30.0121176
+          ],
+          [
+            31.2774025,
+            30.0119848
+          ],
+          [
+            31.2776016,
+            30.0118584
+          ],
+          [
+            31.2778047,
+            30.0117375
+          ],
+          [
+            31.2782513,
+            30.0114807
+          ],
+          [
+            31.2783975,
+            30.0113988
+          ],
+          [
+            31.278547,
+            30.0113216
+          ],
+          [
+            31.2786997,
+            30.011249
+          ],
+          [
+            31.2788553,
+            30.0111814
+          ],
+          [
+            31.2790136,
+            30.0111186
+          ],
+          [
+            31.2791745,
+            30.0110609
+          ],
+          [
+            31.2793146,
+            30.0110043
+          ],
+          [
+            31.2794533,
+            30.010945
+          ],
+          [
+            31.2795903,
+            30.0108852
+          ],
+          [
+            31.2799206,
+            30.0107277
+          ],
+          [
+            31.2802552,
+            30.0105773
+          ],
+          [
+            31.280594,
+            30.010434
+          ],
+          [
+            31.2809367,
+            30.010298
+          ],
+          [
+            31.2816103,
+            30.0099965
+          ],
+          [
+            31.2816752,
+            30.0099608
+          ],
+          [
+            31.2817327,
+            30.0099167
+          ],
+          [
+            31.2817815,
+            30.0098652
+          ],
+          [
+            31.2818202,
+            30.0098077
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1103210420",
+        "entity_code": "ROAD-YASSER-RIZK",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1103210420,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1103210420,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1150630266",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3178343,
+            29.9979162
+          ],
+          [
+            31.3179039,
+            29.9979529
+          ],
+          [
+            31.3179767,
+            29.9979846
+          ],
+          [
+            31.3180523,
+            29.9980111
+          ],
+          [
+            31.3181302,
+            29.998032
+          ],
+          [
+            31.3182097,
+            29.9980474
+          ],
+          [
+            31.3186318,
+            29.9981052
+          ],
+          [
+            31.3189314,
+            29.9981417
+          ],
+          [
+            31.3230265,
+            29.9984698
+          ],
+          [
+            31.3232945,
+            29.9984887
+          ],
+          [
+            31.323563,
+            29.9985017
+          ],
+          [
+            31.3238318,
+            29.9985089
+          ],
+          [
+            31.3255187,
+            29.9985005
+          ],
+          [
+            31.3256444,
+            29.9985016
+          ],
+          [
+            31.3257699,
+            29.9984964
+          ],
+          [
+            31.3258948,
+            29.998485
+          ],
+          [
+            31.3260189,
+            29.9984674
+          ],
+          [
+            31.3261979,
+            29.9984161
+          ],
+          [
+            31.3265093,
+            29.9983083
+          ],
+          [
+            31.3269575,
+            29.9981361
+          ],
+          [
+            31.3271315,
+            29.9980658
+          ],
+          [
+            31.3273011,
+            29.9979881
+          ],
+          [
+            31.327466,
+            29.997903
+          ],
+          [
+            31.3276258,
+            29.9978109
+          ],
+          [
+            31.32778,
+            29.9977119
+          ],
+          [
+            31.3279151,
+            29.9976242
+          ],
+          [
+            31.3280481,
+            29.9975342
+          ],
+          [
+            31.3281791,
+            29.997442
+          ],
+          [
+            31.3283079,
+            29.9973476
+          ],
+          [
+            31.3284345,
+            29.9972509
+          ],
+          [
+            31.3288705,
+            29.9968828
+          ],
+          [
+            31.3289182,
+            29.9968362
+          ],
+          [
+            31.3289587,
+            29.9967848
+          ],
+          [
+            31.3289915,
+            29.9967294
+          ],
+          [
+            31.329016,
+            29.9966709
+          ],
+          [
+            31.3290318,
+            29.9966102
+          ],
+          [
+            31.329039,
+            29.9965482
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1150630266",
+        "entity_code": "ROAD-YASSER-RIZK",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1150630266,
+        "osm_version": 1,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1150630266,
+            "osm_version": 1
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1150632740",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3173011,
+            29.9981283
+          ],
+          [
+            31.3172042,
+            29.9980926
+          ],
+          [
+            31.317105,
+            29.9980617
+          ],
+          [
+            31.3169975,
+            29.9980344
+          ],
+          [
+            31.3168884,
+            29.9980129
+          ],
+          [
+            31.3167779,
+            29.9979972
+          ],
+          [
+            31.3166665,
+            29.9979874
+          ],
+          [
+            31.3149258,
+            29.9978471
+          ],
+          [
+            31.3146547,
+            29.9978268
+          ],
+          [
+            31.3143828,
+            29.9978127
+          ],
+          [
+            31.3141106,
+            29.9978046
+          ],
+          [
+            31.3138369,
+            29.9978027
+          ],
+          [
+            31.3127021,
+            29.9977989
+          ],
+          [
+            31.3122737,
+            29.9977974
+          ],
+          [
+            31.3107723,
+            29.9978394
+          ],
+          [
+            31.3105135,
+            29.9978408
+          ],
+          [
+            31.3102545,
+            29.9978356
+          ],
+          [
+            31.3099959,
+            29.9978239
+          ],
+          [
+            31.3097378,
+            29.9978058
+          ],
+          [
+            31.3094804,
+            29.9977812
+          ],
+          [
+            31.3092239,
+            29.9977503
+          ],
+          [
+            31.3089658,
+            29.9977125
+          ],
+          [
+            31.3077866,
+            29.9974672
+          ],
+          [
+            31.3076174,
+            29.9974383
+          ],
+          [
+            31.3074476,
+            29.9974176
+          ],
+          [
+            31.3072768,
+            29.9974052
+          ],
+          [
+            31.3071055,
+            29.997401
+          ],
+          [
+            31.3069342,
+            29.997405
+          ],
+          [
+            31.3067633,
+            29.9974172
+          ],
+          [
+            31.3065935,
+            29.9974376
+          ],
+          [
+            31.3064275,
+            29.9974658
+          ],
+          [
+            31.3047703,
+            29.9978787
+          ],
+          [
+            31.302169,
+            29.9985127
+          ],
+          [
+            31.3020164,
+            29.9985567
+          ],
+          [
+            31.3018659,
+            29.9986065
+          ],
+          [
+            31.301718,
+            29.9986617
+          ],
+          [
+            31.3015729,
+            29.9987225
+          ],
+          [
+            31.3014312,
+            29.9987884
+          ],
+          [
+            31.3012661,
+            29.9988738
+          ],
+          [
+            31.3010745,
+            29.9989633
+          ],
+          [
+            31.2999174,
+            29.9994831
+          ],
+          [
+            31.2997343,
+            29.9995666
+          ],
+          [
+            31.2995307,
+            29.9996448
+          ],
+          [
+            31.2993257,
+            29.9997155
+          ],
+          [
+            31.2991178,
+            29.9997794
+          ],
+          [
+            31.2989072,
+            29.9998364
+          ],
+          [
+            31.2987382,
+            29.9998742
+          ],
+          [
+            31.2985682,
+            29.9999084
+          ],
+          [
+            31.2983451,
+            29.9999473
+          ],
+          [
+            31.2981206,
+            29.9999799
+          ],
+          [
+            31.297895,
+            30.000006
+          ],
+          [
+            31.2976838,
+            30.0000325
+          ],
+          [
+            31.2974739,
+            30.0000664
+          ],
+          [
+            31.297257,
+            30.0001095
+          ],
+          [
+            31.2970425,
+            30.0001605
+          ],
+          [
+            31.2968306,
+            30.0002193
+          ],
+          [
+            31.2966831,
+            30.0002699
+          ],
+          [
+            31.2965394,
+            30.0003279
+          ],
+          [
+            31.2963999,
+            30.0003933
+          ],
+          [
+            31.2962651,
+            30.0004656
+          ],
+          [
+            31.2961356,
+            30.0005448
+          ],
+          [
+            31.2960125,
+            30.0006299
+          ],
+          [
+            31.2956718,
+            30.0009044
+          ],
+          [
+            31.2955841,
+            30.0009877
+          ],
+          [
+            31.2955013,
+            30.0010765
+          ],
+          [
+            31.2954246,
+            30.0011695
+          ],
+          [
+            31.2953544,
+            30.0012662
+          ],
+          [
+            31.2952909,
+            30.0013662
+          ],
+          [
+            31.2952344,
+            30.0014694
+          ],
+          [
+            31.2951849,
+            30.0015753
+          ],
+          [
+            31.2951426,
+            30.0016839
+          ],
+          [
+            31.2949937,
+            30.0021439
+          ],
+          [
+            31.2949532,
+            30.0022833
+          ],
+          [
+            31.2949058,
+            30.0024249
+          ],
+          [
+            31.2948527,
+            30.002565
+          ],
+          [
+            31.294794,
+            30.0027035
+          ],
+          [
+            31.2947298,
+            30.00284
+          ],
+          [
+            31.2946601,
+            30.0029746
+          ],
+          [
+            31.2945844,
+            30.0031078
+          ],
+          [
+            31.2944998,
+            30.0032399
+          ],
+          [
+            31.2944059,
+            30.0033674
+          ],
+          [
+            31.2943039,
+            30.00349
+          ],
+          [
+            31.2941938,
+            30.0036074
+          ],
+          [
+            31.294076,
+            30.0037188
+          ],
+          [
+            31.2937719,
+            30.0039535
+          ],
+          [
+            31.2935982,
+            30.004087
+          ],
+          [
+            31.293419,
+            30.004215
+          ],
+          [
+            31.2932346,
+            30.0043373
+          ],
+          [
+            31.2930451,
+            30.0044537
+          ],
+          [
+            31.2928509,
+            30.0045641
+          ],
+          [
+            31.2926522,
+            30.0046683
+          ],
+          [
+            31.2923457,
+            30.0048041
+          ],
+          [
+            31.2922425,
+            30.0048454
+          ],
+          [
+            31.2920746,
+            30.0049048
+          ],
+          [
+            31.2913303,
+            30.0052442
+          ],
+          [
+            31.2911759,
+            30.0053272
+          ],
+          [
+            31.2910261,
+            30.0054162
+          ],
+          [
+            31.290881,
+            30.005511
+          ],
+          [
+            31.2893763,
+            30.0066584
+          ],
+          [
+            31.2892281,
+            30.0067603
+          ],
+          [
+            31.2890748,
+            30.0068563
+          ],
+          [
+            31.2889167,
+            30.0069463
+          ],
+          [
+            31.288754,
+            30.00703
+          ],
+          [
+            31.2885837,
+            30.007109
+          ],
+          [
+            31.2884094,
+            30.0071811
+          ],
+          [
+            31.2882315,
+            30.0072463
+          ],
+          [
+            31.2880503,
+            30.0073044
+          ],
+          [
+            31.2878662,
+            30.0073506
+          ],
+          [
+            31.2876955,
+            30.0073869
+          ],
+          [
+            31.2875272,
+            30.0074272
+          ],
+          [
+            31.287362,
+            30.007476
+          ],
+          [
+            31.287194,
+            30.0075356
+          ],
+          [
+            31.2870305,
+            30.007604
+          ],
+          [
+            31.2868722,
+            30.0076809
+          ],
+          [
+            31.2867197,
+            30.0077661
+          ],
+          [
+            31.2865734,
+            30.0078592
+          ],
+          [
+            31.2864341,
+            30.0079608
+          ],
+          [
+            31.2862896,
+            30.0080568
+          ],
+          [
+            31.2861401,
+            30.0081468
+          ],
+          [
+            31.285986,
+            30.0082309
+          ],
+          [
+            31.285825,
+            30.0083099
+          ],
+          [
+            31.2856599,
+            30.0083823
+          ],
+          [
+            31.2854911,
+            30.0084479
+          ],
+          [
+            31.2849418,
+            30.0085956
+          ],
+          [
+            31.2845457,
+            30.008696
+          ],
+          [
+            31.2843524,
+            30.008759
+          ],
+          [
+            31.2841631,
+            30.0088303
+          ],
+          [
+            31.2840409,
+            30.0088816
+          ],
+          [
+            31.2839207,
+            30.0089364
+          ],
+          [
+            31.283682,
+            30.0090484
+          ],
+          [
+            31.2834698,
+            30.0091547
+          ],
+          [
+            31.2832608,
+            30.0092656
+          ],
+          [
+            31.2830552,
+            30.0093812
+          ],
+          [
+            31.2828532,
+            30.0095014
+          ],
+          [
+            31.2825917,
+            30.0096552
+          ],
+          [
+            31.2825286,
+            30.0096982
+          ],
+          [
+            31.2824788,
+            30.0097392
+          ],
+          [
+            31.2824331,
+            30.0097836
+          ],
+          [
+            31.282392,
+            30.0098313
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1150632740",
+        "entity_code": "ROAD-YASSER-RIZK",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1150632740,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1150632740,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1012760325",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3453933,
+            29.9897956
+          ],
+          [
+            31.3455016,
+            29.9899096
+          ],
+          [
+            31.3455684,
+            29.9899725
+          ],
+          [
+            31.3456611,
+            29.9900357
+          ],
+          [
+            31.3457647,
+            29.9900943
+          ],
+          [
+            31.3458589,
+            29.9901269
+          ],
+          [
+            31.345991,
+            29.9901531
+          ],
+          [
+            31.3461327,
+            29.9901641
+          ],
+          [
+            31.3463089,
+            29.9901682
+          ],
+          [
+            31.3473871,
+            29.9901008
+          ],
+          [
+            31.3478807,
+            29.9900404
+          ],
+          [
+            31.3485931,
+            29.9899531
+          ],
+          [
+            31.3490784,
+            29.9898974
+          ],
+          [
+            31.3495658,
+            29.9898417
+          ],
+          [
+            31.3498893,
+            29.9898145
+          ],
+          [
+            31.3502218,
+            29.9897976
+          ],
+          [
+            31.3505008,
+            29.9897956
+          ],
+          [
+            31.3509532,
+            29.9898063
+          ],
+          [
+            31.3514386,
+            29.9898504
+          ],
+          [
+            31.3518271,
+            29.9899001
+          ],
+          [
+            31.3522761,
+            29.9899643
+          ],
+          [
+            31.3526557,
+            29.990057
+          ],
+          [
+            31.3534738,
+            29.9903293
+          ],
+          [
+            31.3553554,
+            29.9910518
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1012760325",
+        "entity_code": "ROAD-SAMIRA-MOUSSA",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1012760325,
+        "osm_version": 8,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1012760325,
+            "osm_version": 8
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1012760326",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3551652,
+            29.9911834
+          ],
+          [
+            31.3533775,
+            29.9904648
+          ],
+          [
+            31.353187,
+            29.9904031
+          ],
+          [
+            31.3531035,
+            29.9903803
+          ],
+          [
+            31.3522075,
+            29.9901471
+          ],
+          [
+            31.3518261,
+            29.9900899
+          ],
+          [
+            31.3513946,
+            29.9900389
+          ],
+          [
+            31.3509541,
+            29.9900064
+          ],
+          [
+            31.350498,
+            29.9899791
+          ],
+          [
+            31.3501911,
+            29.9899755
+          ],
+          [
+            31.3498682,
+            29.9899893
+          ],
+          [
+            31.3495678,
+            29.990012
+          ],
+          [
+            31.3491125,
+            29.990049
+          ],
+          [
+            31.3486164,
+            29.9901032
+          ],
+          [
+            31.347886,
+            29.990196
+          ],
+          [
+            31.3476325,
+            29.9902255
+          ],
+          [
+            31.3473871,
+            29.9902541
+          ],
+          [
+            31.3470121,
+            29.9903046
+          ],
+          [
+            31.3461104,
+            29.990426
+          ],
+          [
+            31.3459301,
+            29.9904519
+          ],
+          [
+            31.3457177,
+            29.9904889
+          ],
+          [
+            31.3455688,
+            29.9905184
+          ],
+          [
+            31.345442,
+            29.9905387
+          ],
+          [
+            31.3453499,
+            29.9905598
+          ],
+          [
+            31.3452379,
+            29.990587
+          ],
+          [
+            31.345048,
+            29.9906366
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1012760326",
+        "entity_code": "ROAD-SAMIRA-MOUSSA",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1012760326,
+        "osm_version": 9,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1012760326,
+            "osm_version": 9
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1012799257",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3444395,
+            29.990205
+          ],
+          [
+            31.3443643,
+            29.9900717
+          ],
+          [
+            31.3443159,
+            29.9900018
+          ],
+          [
+            31.3442658,
+            29.9899472
+          ],
+          [
+            31.3441591,
+            29.9898842
+          ],
+          [
+            31.3440475,
+            29.9898463
+          ],
+          [
+            31.343927,
+            29.9898241
+          ],
+          [
+            31.3437573,
+            29.9898049
+          ],
+          [
+            31.3435511,
+            29.98979
+          ],
+          [
+            31.3429059,
+            29.9897506
+          ],
+          [
+            31.3425057,
+            29.9897262
+          ],
+          [
+            31.3422614,
+            29.9897076
+          ],
+          [
+            31.3420451,
+            29.9896876
+          ],
+          [
+            31.3418451,
+            29.9896687
+          ],
+          [
+            31.3416398,
+            29.98965
+          ],
+          [
+            31.3412252,
+            29.9896136
+          ],
+          [
+            31.3408238,
+            29.9896
+          ],
+          [
+            31.3404429,
+            29.9896083
+          ],
+          [
+            31.3401221,
+            29.9896216
+          ],
+          [
+            31.3397951,
+            29.9896536
+          ],
+          [
+            31.3394819,
+            29.9896957
+          ],
+          [
+            31.3391742,
+            29.9897477
+          ],
+          [
+            31.3388341,
+            29.9898255
+          ],
+          [
+            31.3384822,
+            29.9899149
+          ],
+          [
+            31.3381517,
+            29.99002
+          ],
+          [
+            31.3378868,
+            29.9901077
+          ],
+          [
+            31.337518,
+            29.9902344
+          ],
+          [
+            31.3372001,
+            29.9903389
+          ],
+          [
+            31.3369125,
+            29.9904285
+          ],
+          [
+            31.3365269,
+            29.9905538
+          ],
+          [
+            31.3362461,
+            29.9906593
+          ],
+          [
+            31.3357537,
+            29.9908804
+          ],
+          [
+            31.3351812,
+            29.9911798
+          ],
+          [
+            31.3345889,
+            29.9914854
+          ],
+          [
+            31.3338916,
+            29.9918269
+          ],
+          [
+            31.33374,
+            29.9919035
+          ],
+          [
+            31.3335801,
+            29.9919783
+          ],
+          [
+            31.3334182,
+            29.9920475
+          ],
+          [
+            31.3332395,
+            29.9921229
+          ],
+          [
+            31.3329365,
+            29.9922367
+          ],
+          [
+            31.3326236,
+            29.9923291
+          ],
+          [
+            31.3323875,
+            29.9923867
+          ],
+          [
+            31.3322387,
+            29.9924232
+          ],
+          [
+            31.3321018,
+            29.9924635
+          ],
+          [
+            31.3320283,
+            29.9924894
+          ],
+          [
+            31.3319459,
+            29.9925216
+          ],
+          [
+            31.3318948,
+            29.9925488
+          ],
+          [
+            31.3317763,
+            29.9926229
+          ],
+          [
+            31.3317415,
+            29.9926409
+          ],
+          [
+            31.3316959,
+            29.9926541
+          ],
+          [
+            31.3316414,
+            29.9926632
+          ],
+          [
+            31.3315722,
+            29.9926701
+          ],
+          [
+            31.3314374,
+            29.9926749
+          ],
+          [
+            31.3313632,
+            29.9926809
+          ],
+          [
+            31.3313032,
+            29.9926906
+          ],
+          [
+            31.331249,
+            29.9927037
+          ],
+          [
+            31.3311922,
+            29.9927248
+          ],
+          [
+            31.3308031,
+            29.9929133
+          ],
+          [
+            31.3307654,
+            29.992935
+          ],
+          [
+            31.3307303,
+            29.9929596
+          ],
+          [
+            31.3306751,
+            29.9930079
+          ],
+          [
+            31.330634,
+            29.9930454
+          ],
+          [
+            31.3305935,
+            29.9930914
+          ],
+          [
+            31.3305505,
+            29.9931284
+          ],
+          [
+            31.3305087,
+            29.9931529
+          ],
+          [
+            31.3304687,
+            29.9931689
+          ],
+          [
+            31.3304092,
+            29.9931822
+          ],
+          [
+            31.3303623,
+            29.993185
+          ],
+          [
+            31.3303176,
+            29.9931816
+          ],
+          [
+            31.330265,
+            29.9931715
+          ],
+          [
+            31.3302355,
+            29.9931503
+          ],
+          [
+            31.3302029,
+            29.9931232
+          ],
+          [
+            31.330178,
+            29.9930905
+          ],
+          [
+            31.3301622,
+            29.9930537
+          ],
+          [
+            31.3301563,
+            29.9930149
+          ],
+          [
+            31.3301605,
+            29.9929759
+          ],
+          [
+            31.3301747,
+            29.9929387
+          ],
+          [
+            31.3302117,
+            29.9928592
+          ],
+          [
+            31.3302267,
+            29.9928199
+          ],
+          [
+            31.3302358,
+            29.9927794
+          ],
+          [
+            31.3302391,
+            29.9927382
+          ],
+          [
+            31.3302363,
+            29.9926969
+          ],
+          [
+            31.3302104,
+            29.9925443
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1012799257",
+        "entity_code": "ROAD-SAMIRA-MOUSSA",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1012799257,
+        "osm_version": 10,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1012799257,
+            "osm_version": 10
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-1012799258",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            31.3317137,
+            29.9923658
+          ],
+          [
+            31.3318566,
+            29.9923751
+          ],
+          [
+            31.3319396,
+            29.9923766
+          ],
+          [
+            31.3320169,
+            29.9923743
+          ],
+          [
+            31.3321093,
+            29.9923635
+          ],
+          [
+            31.3322159,
+            29.9923437
+          ],
+          [
+            31.3323534,
+            29.9923054
+          ],
+          [
+            31.3325816,
+            29.9922372
+          ],
+          [
+            31.3329005,
+            29.9921451
+          ],
+          [
+            31.3332022,
+            29.9920284
+          ],
+          [
+            31.3333497,
+            29.9919732
+          ],
+          [
+            31.3335174,
+            29.991899
+          ],
+          [
+            31.333665,
+            29.9918292
+          ],
+          [
+            31.3338477,
+            29.991744
+          ],
+          [
+            31.334545,
+            29.9913968
+          ],
+          [
+            31.335124,
+            29.9911009
+          ],
+          [
+            31.335703,
+            29.9908114
+          ],
+          [
+            31.3362049,
+            29.9905916
+          ],
+          [
+            31.3364826,
+            29.9904888
+          ],
+          [
+            31.3368725,
+            29.9903656
+          ],
+          [
+            31.337188,
+            29.9902669
+          ],
+          [
+            31.3374915,
+            29.9901633
+          ],
+          [
+            31.33786,
+            29.9900392
+          ],
+          [
+            31.3381173,
+            29.98995
+          ],
+          [
+            31.3384581,
+            29.9898406
+          ],
+          [
+            31.3388129,
+            29.989745
+          ],
+          [
+            31.33915,
+            29.9896663
+          ],
+          [
+            31.3394647,
+            29.9896093
+          ],
+          [
+            31.339779,
+            29.9895664
+          ],
+          [
+            31.3401023,
+            29.9895363
+          ],
+          [
+            31.3404549,
+            29.9895176
+          ],
+          [
+            31.340825,
+            29.9895212
+          ],
+          [
+            31.3412177,
+            29.989525
+          ],
+          [
+            31.3416479,
+            29.9895652
+          ],
+          [
+            31.3418537,
+            29.9895897
+          ],
+          [
+            31.3420421,
+            29.9896058
+          ],
+          [
+            31.3422735,
+            29.9896187
+          ],
+          [
+            31.342508,
+            29.9896335
+          ],
+          [
+            31.3429148,
+            29.9896426
+          ],
+          [
+            31.3435429,
+            29.9896432
+          ],
+          [
+            31.3437568,
+            29.9896446
+          ],
+          [
+            31.3439593,
+            29.9896439
+          ],
+          [
+            31.3441049,
+            29.9896431
+          ],
+          [
+            31.3443148,
+            29.9896395
+          ],
+          [
+            31.3445923,
+            29.9896082
+          ],
+          [
+            31.3447419,
+            29.989594
+          ],
+          [
+            31.3448986,
+            29.9895865
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-1012799258",
+        "entity_code": "ROAD-SAMIRA-MOUSSA",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 1012799258,
+        "osm_version": 9,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 1012799258,
+            "osm_version": 9
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "road",
+          "osm_tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-400424568",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              31.2495141,
+              30.0093603
+            ],
+            [
+              31.2495292,
+              30.0093141
+            ],
+            [
+              31.2494897,
+              30.0092907
+            ],
+            [
+              31.2494597,
+              30.0092719
+            ],
+            [
+              31.249434,
+              30.009249
+            ],
+            [
+              31.2494132,
+              30.0092225
+            ],
+            [
+              31.2493982,
+              30.0091933
+            ],
+            [
+              31.2493892,
+              30.0091623
+            ],
+            [
+              31.2493866,
+              30.0091303
+            ],
+            [
+              31.2493862,
+              30.0089723
+            ],
+            [
+              31.2493869,
+              30.0088455
+            ],
+            [
+              31.2493946,
+              30.0088202
+            ],
+            [
+              31.2493986,
+              30.0088002
+            ],
+            [
+              31.249404,
+              30.0085859
+            ],
+            [
+              31.2494023,
+              30.0085575
+            ],
+            [
+              31.2493953,
+              30.0085293
+            ],
+            [
+              31.2493844,
+              30.0085077
+            ],
+            [
+              31.2493672,
+              30.0084762
+            ],
+            [
+              31.249354,
+              30.0084392
+            ],
+            [
+              31.2493477,
+              30.0083888
+            ],
+            [
+              31.2493489,
+              30.0083507
+            ],
+            [
+              31.2493552,
+              30.008313
+            ],
+            [
+              31.2493665,
+              30.0082762
+            ],
+            [
+              31.2493812,
+              30.0082396
+            ],
+            [
+              31.2494099,
+              30.0081835
+            ],
+            [
+              31.2494157,
+              30.0081588
+            ],
+            [
+              31.2494153,
+              30.0081358
+            ],
+            [
+              31.2494099,
+              30.0081141
+            ],
+            [
+              31.2494026,
+              30.0080985
+            ],
+            [
+              31.2494144,
+              30.008058
+            ],
+            [
+              31.2494425,
+              30.0080556
+            ],
+            [
+              31.2494635,
+              30.0080456
+            ],
+            [
+              31.2496441,
+              30.0076958
+            ],
+            [
+              31.2497366,
+              30.0075166
+            ],
+            [
+              31.2497423,
+              30.0074949
+            ],
+            [
+              31.2497417,
+              30.0074682
+            ],
+            [
+              31.2497357,
+              30.0074469
+            ],
+            [
+              31.2497621,
+              30.0074159
+            ],
+            [
+              31.2497836,
+              30.007411
+            ],
+            [
+              31.2498003,
+              30.0074049
+            ],
+            [
+              31.2498131,
+              30.0073935
+            ],
+            [
+              31.2498298,
+              30.0073732
+            ],
+            [
+              31.249855,
+              30.0073474
+            ],
+            [
+              31.2498915,
+              30.0073198
+            ],
+            [
+              31.2499343,
+              30.0072964
+            ],
+            [
+              31.2499797,
+              30.0072812
+            ],
+            [
+              31.2500287,
+              30.0072679
+            ],
+            [
+              31.250143,
+              30.0072382
+            ],
+            [
+              31.2502563,
+              30.0072054
+            ],
+            [
+              31.2502989,
+              30.0071897
+            ],
+            [
+              31.2503371,
+              30.0071706
+            ],
+            [
+              31.2503747,
+              30.007141
+            ],
+            [
+              31.2504031,
+              30.0071062
+            ],
+            [
+              31.2504353,
+              30.007057
+            ],
+            [
+              31.2504719,
+              30.0070097
+            ],
+            [
+              31.2505156,
+              30.0069712
+            ],
+            [
+              31.2505687,
+              30.0069414
+            ],
+            [
+              31.2506365,
+              30.0069133
+            ],
+            [
+              31.2507002,
+              30.0068977
+            ],
+            [
+              31.2507616,
+              30.0068895
+            ],
+            [
+              31.2508296,
+              30.0068878
+            ],
+            [
+              31.2509101,
+              30.0068924
+            ],
+            [
+              31.2510107,
+              30.0069069
+            ],
+            [
+              31.2510945,
+              30.0069267
+            ],
+            [
+              31.2511589,
+              30.006947
+            ],
+            [
+              31.2511927,
+              30.0069607
+            ],
+            [
+              31.251225,
+              30.0069769
+            ],
+            [
+              31.2512568,
+              30.0069946
+            ],
+            [
+              31.2512896,
+              30.0070028
+            ],
+            [
+              31.2513214,
+              30.0069978
+            ],
+            [
+              31.2513395,
+              30.0069845
+            ],
+            [
+              31.2513527,
+              30.0069636
+            ],
+            [
+              31.2513921,
+              30.0067949
+            ],
+            [
+              31.2509242,
+              30.0066863
+            ],
+            [
+              31.2502831,
+              30.0066137
+            ],
+            [
+              31.2502942,
+              30.0065679
+            ],
+            [
+              31.2503055,
+              30.0065212
+            ],
+            [
+              31.2503153,
+              30.0064807
+            ],
+            [
+              31.2494369,
+              30.0063727
+            ],
+            [
+              31.2494449,
+              30.0063112
+            ],
+            [
+              31.2493343,
+              30.0062809
+            ],
+            [
+              31.2488525,
+              30.0061493
+            ],
+            [
+              31.2486974,
+              30.0061051
+            ],
+            [
+              31.2485591,
+              30.0060598
+            ],
+            [
+              31.2484231,
+              30.0060095
+            ],
+            [
+              31.2482896,
+              30.0059544
+            ],
+            [
+              31.2481589,
+              30.0058944
+            ],
+            [
+              31.2480312,
+              30.0058298
+            ],
+            [
+              31.2479067,
+              30.0057607
+            ],
+            [
+              31.2478839,
+              30.0058118
+            ],
+            [
+              31.2478706,
+              30.0058011
+            ],
+            [
+              31.2478542,
+              30.0057943
+            ],
+            [
+              31.2478363,
+              30.005792
+            ],
+            [
+              31.2478183,
+              30.0057943
+            ],
+            [
+              31.247802,
+              30.0058011
+            ],
+            [
+              31.2477857,
+              30.0058159
+            ],
+            [
+              31.2477776,
+              30.0058327
+            ],
+            [
+              31.2477803,
+              30.0058507
+            ],
+            [
+              31.2477931,
+              30.0058652
+            ],
+            [
+              31.2475859,
+              30.006343
+            ],
+            [
+              31.2475314,
+              30.0064673
+            ],
+            [
+              31.2474437,
+              30.0066673
+            ],
+            [
+              31.2472818,
+              30.0070364
+            ],
+            [
+              31.2465347,
+              30.0087675
+            ],
+            [
+              31.2468539,
+              30.0091765
+            ],
+            [
+              31.2475144,
+              30.0092517
+            ],
+            [
+              31.24948,
+              30.0094649
+            ],
+            [
+              31.2495141,
+              30.0093603
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-400424568",
+        "entity_code": "LANDMARK-NMEC",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 400424568,
+        "osm_version": 24,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 400424568,
+            "osm_version": 24
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "landmark",
+          "osm_tags": {
+            "addr:city": "قاهرة",
+            "addr:street": "شارع عين الصيرة",
+            "museum": "archaeological",
+            "name": "المتحف القومي للحضارة المصرية",
+            "name:ar": "المتحف القومي للحضارة المصرية",
+            "name:de": "Nationalmuseum der ägyptischen Zivilisation",
+            "name:en": "National Museum of Egyptian Civilization",
+            "name:es": "Museo Nacional de Civilización Egipcia",
+            "name:fa": "موزه ملی تمدن مصر",
+            "name:fr": "Musée national de la civilisation égyptienne",
+            "name:it": "Museo Nazionale della Civiltà Egizia",
+            "short_name:en": "NMEC",
+            "tourism": "museum",
+            "website": "https://nmec.gov.eg/",
+            "wikidata": "Q29017001",
+            "wikimedia_commons": "Category:National Museum of Egyptian Civilization",
+            "wikipedia": "en:National Museum of Egyptian Civilization"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-RELATION-16855202",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              31.2498908,
+              30.0077716
+            ],
+            [
+              31.2498683,
+              30.0078023
+            ],
+            [
+              31.2498465,
+              30.0078368
+            ],
+            [
+              31.2498275,
+              30.0078746
+            ],
+            [
+              31.2498104,
+              30.0079412
+            ],
+            [
+              31.2498128,
+              30.0079649
+            ],
+            [
+              31.2498215,
+              30.0079816
+            ],
+            [
+              31.2498383,
+              30.0079938
+            ],
+            [
+              31.2497918,
+              30.0080945
+            ],
+            [
+              31.2497613,
+              30.0081877
+            ],
+            [
+              31.2497182,
+              30.0083126
+            ],
+            [
+              31.2496815,
+              30.0083922
+            ],
+            [
+              31.2496541,
+              30.0084616
+            ],
+            [
+              31.2496386,
+              30.0085432
+            ],
+            [
+              31.2496325,
+              30.0086114
+            ],
+            [
+              31.2496312,
+              30.0086853
+            ],
+            [
+              31.2496543,
+              30.0089922
+            ],
+            [
+              31.2496647,
+              30.009055
+            ],
+            [
+              31.2497021,
+              30.0091358
+            ],
+            [
+              31.2497262,
+              30.0091786
+            ],
+            [
+              31.2497778,
+              30.0092259
+            ],
+            [
+              31.2498616,
+              30.0092747
+            ],
+            [
+              31.2499174,
+              30.0092986
+            ],
+            [
+              31.2499836,
+              30.0093234
+            ],
+            [
+              31.25013,
+              30.0093714
+            ],
+            [
+              31.2501942,
+              30.0093904
+            ],
+            [
+              31.2504536,
+              30.0094811
+            ],
+            [
+              31.250502,
+              30.0094988
+            ],
+            [
+              31.2505331,
+              30.0095083
+            ],
+            [
+              31.2505626,
+              30.0095308
+            ],
+            [
+              31.2505797,
+              30.0095621
+            ],
+            [
+              31.2505924,
+              30.0096009
+            ],
+            [
+              31.250633,
+              30.0099247
+            ],
+            [
+              31.2506505,
+              30.0099771
+            ],
+            [
+              31.250688,
+              30.0100157
+            ],
+            [
+              31.2507374,
+              30.0100395
+            ],
+            [
+              31.2507959,
+              30.010062
+            ],
+            [
+              31.2509948,
+              30.0101292
+            ],
+            [
+              31.25109,
+              30.0101663
+            ],
+            [
+              31.251173,
+              30.0102101
+            ],
+            [
+              31.2512539,
+              30.010266
+            ],
+            [
+              31.2513691,
+              30.0103543
+            ],
+            [
+              31.2514549,
+              30.0104122
+            ],
+            [
+              31.2515053,
+              30.0104401
+            ],
+            [
+              31.2515559,
+              30.0104615
+            ],
+            [
+              31.251599,
+              30.0104869
+            ],
+            [
+              31.2516357,
+              30.0105203
+            ],
+            [
+              31.2516842,
+              30.0105701
+            ],
+            [
+              31.2517249,
+              30.0106302
+            ],
+            [
+              31.2517807,
+              30.0106949
+            ],
+            [
+              31.2518727,
+              30.010769
+            ],
+            [
+              31.2519713,
+              30.0108456
+            ],
+            [
+              31.2520895,
+              30.0109344
+            ],
+            [
+              31.2521458,
+              30.0109868
+            ],
+            [
+              31.2522141,
+              30.0110591
+            ],
+            [
+              31.2522571,
+              30.0111107
+            ],
+            [
+              31.2523103,
+              30.0111726
+            ],
+            [
+              31.2523555,
+              30.0112308
+            ],
+            [
+              31.2523821,
+              30.0112697
+            ],
+            [
+              31.2524074,
+              30.0113063
+            ],
+            [
+              31.2524374,
+              30.011341
+            ],
+            [
+              31.2524721,
+              30.0113662
+            ],
+            [
+              31.252526,
+              30.011394
+            ],
+            [
+              31.2526296,
+              30.0114317
+            ],
+            [
+              31.2527416,
+              30.0114643
+            ],
+            [
+              31.2528241,
+              30.0114786
+            ],
+            [
+              31.2529073,
+              30.0114777
+            ],
+            [
+              31.2529987,
+              30.0114649
+            ],
+            [
+              31.2530891,
+              30.0114394
+            ],
+            [
+              31.2531598,
+              30.0114093
+            ],
+            [
+              31.2533385,
+              30.0112934
+            ],
+            [
+              31.2533858,
+              30.0112596
+            ],
+            [
+              31.2534297,
+              30.0112129
+            ],
+            [
+              31.2534625,
+              30.0111565
+            ],
+            [
+              31.2534788,
+              30.0111047
+            ],
+            [
+              31.2535095,
+              30.0108253
+            ],
+            [
+              31.2535014,
+              30.010758
+            ],
+            [
+              31.2534872,
+              30.0106907
+            ],
+            [
+              31.2534708,
+              30.0106175
+            ],
+            [
+              31.2534825,
+              30.0105462
+            ],
+            [
+              31.2535163,
+              30.0104619
+            ],
+            [
+              31.2535708,
+              30.0103854
+            ],
+            [
+              31.2536406,
+              30.0103231
+            ],
+            [
+              31.2537121,
+              30.0102599
+            ],
+            [
+              31.253788,
+              30.0101925
+            ],
+            [
+              31.2538404,
+              30.0101398
+            ],
+            [
+              31.2538756,
+              30.0101014
+            ],
+            [
+              31.2538799,
+              30.0100956
+            ],
+            [
+              31.2538839,
+              30.0100902
+            ],
+            [
+              31.2539012,
+              30.0100624
+            ],
+            [
+              31.2539052,
+              30.0100572
+            ],
+            [
+              31.2539083,
+              30.0100528
+            ],
+            [
+              31.2539994,
+              30.0099013
+            ],
+            [
+              31.2540014,
+              30.0098962
+            ],
+            [
+              31.2540041,
+              30.0098892
+            ],
+            [
+              31.2540063,
+              30.0098833
+            ],
+            [
+              31.2540181,
+              30.0098524
+            ],
+            [
+              31.2540206,
+              30.0098459
+            ],
+            [
+              31.2540232,
+              30.0098392
+            ],
+            [
+              31.2540257,
+              30.0098328
+            ],
+            [
+              31.2540337,
+              30.0097657
+            ],
+            [
+              31.2540348,
+              30.0097068
+            ],
+            [
+              31.2540368,
+              30.0096829
+            ],
+            [
+              31.2540483,
+              30.0096552
+            ],
+            [
+              31.2540645,
+              30.009612
+            ],
+            [
+              31.2540691,
+              30.009568
+            ],
+            [
+              31.2540532,
+              30.0094929
+            ],
+            [
+              31.2540097,
+              30.0093873
+            ],
+            [
+              31.2539767,
+              30.0093194
+            ],
+            [
+              31.2539155,
+              30.0092486
+            ],
+            [
+              31.2538296,
+              30.0092006
+            ],
+            [
+              31.2536942,
+              30.0091627
+            ],
+            [
+              31.2535573,
+              30.0091633
+            ],
+            [
+              31.2534301,
+              30.0091842
+            ],
+            [
+              31.2532706,
+              30.009221
+            ],
+            [
+              31.253148,
+              30.0092641
+            ],
+            [
+              31.2530759,
+              30.009295
+            ],
+            [
+              31.253023,
+              30.009317
+            ],
+            [
+              31.2529774,
+              30.0093306
+            ],
+            [
+              31.2529179,
+              30.0093346
+            ],
+            [
+              31.2528582,
+              30.0093175
+            ],
+            [
+              31.2528155,
+              30.0092862
+            ],
+            [
+              31.2527908,
+              30.0092497
+            ],
+            [
+              31.2527806,
+              30.0092116
+            ],
+            [
+              31.2527785,
+              30.0091501
+            ],
+            [
+              31.2527747,
+              30.0090741
+            ],
+            [
+              31.2527717,
+              30.0089982
+            ],
+            [
+              31.2527724,
+              30.0089264
+            ],
+            [
+              31.2527801,
+              30.0088745
+            ],
+            [
+              31.2527972,
+              30.0088232
+            ],
+            [
+              31.2528239,
+              30.0087796
+            ],
+            [
+              31.2528751,
+              30.0087225
+            ],
+            [
+              31.2529449,
+              30.0086721
+            ],
+            [
+              31.2530267,
+              30.0086356
+            ],
+            [
+              31.2530817,
+              30.0086126
+            ],
+            [
+              31.253125,
+              30.0085763
+            ],
+            [
+              31.2531658,
+              30.0085088
+            ],
+            [
+              31.2531936,
+              30.0084354
+            ],
+            [
+              31.2532019,
+              30.0083746
+            ],
+            [
+              31.2531993,
+              30.0083165
+            ],
+            [
+              31.2531909,
+              30.0082747
+            ],
+            [
+              31.2531736,
+              30.0082254
+            ],
+            [
+              31.2531368,
+              30.008166
+            ],
+            [
+              31.2530473,
+              30.0080451
+            ],
+            [
+              31.2529095,
+              30.0078944
+            ],
+            [
+              31.2528497,
+              30.0078552
+            ],
+            [
+              31.2527927,
+              30.0078379
+            ],
+            [
+              31.2527117,
+              30.0078279
+            ],
+            [
+              31.2525911,
+              30.0078191
+            ],
+            [
+              31.2524906,
+              30.0078154
+            ],
+            [
+              31.2524437,
+              30.0078206
+            ],
+            [
+              31.2523807,
+              30.0078394
+            ],
+            [
+              31.2523123,
+              30.007878
+            ],
+            [
+              31.2522432,
+              30.00791
+            ],
+            [
+              31.2521686,
+              30.007952
+            ],
+            [
+              31.252126,
+              30.0079661
+            ],
+            [
+              31.2520732,
+              30.0079722
+            ],
+            [
+              31.2520111,
+              30.0079647
+            ],
+            [
+              31.2519633,
+              30.0079558
+            ],
+            [
+              31.2517449,
+              30.0079124
+            ],
+            [
+              31.25165,
+              30.0078913
+            ],
+            [
+              31.2516074,
+              30.0078818
+            ],
+            [
+              31.2514898,
+              30.0078481
+            ],
+            [
+              31.2512014,
+              30.0077403
+            ],
+            [
+              31.250938,
+              30.0076304
+            ],
+            [
+              31.2508034,
+              30.0075907
+            ],
+            [
+              31.2506922,
+              30.0075739
+            ],
+            [
+              31.2505788,
+              30.007571
+            ],
+            [
+              31.2504565,
+              30.0075984
+            ],
+            [
+              31.2503629,
+              30.007625
+            ],
+            [
+              31.2503083,
+              30.007647
+            ],
+            [
+              31.2502849,
+              30.0076701
+            ],
+            [
+              31.2502408,
+              30.0076976
+            ],
+            [
+              31.2501903,
+              30.0077061
+            ],
+            [
+              31.2501322,
+              30.0077012
+            ],
+            [
+              31.2500569,
+              30.0076987
+            ],
+            [
+              31.2499917,
+              30.0077128
+            ],
+            [
+              31.2499466,
+              30.0077326
+            ],
+            [
+              31.2499179,
+              30.0077488
+            ],
+            [
+              31.2499305,
+              30.0077613
+            ],
+            [
+              31.2499603,
+              30.0077429
+            ],
+            [
+              31.2499969,
+              30.007729
+            ],
+            [
+              31.2500225,
+              30.0077239
+            ],
+            [
+              31.2500502,
+              30.0077212
+            ],
+            [
+              31.2500841,
+              30.0077251
+            ],
+            [
+              31.2501157,
+              30.0077366
+            ],
+            [
+              31.2501393,
+              30.007759
+            ],
+            [
+              31.250149,
+              30.0077937
+            ],
+            [
+              31.2501438,
+              30.0078254
+            ],
+            [
+              31.2501318,
+              30.0078557
+            ],
+            [
+              31.2501192,
+              30.0078857
+            ],
+            [
+              31.2500953,
+              30.0079101
+            ],
+            [
+              31.2500622,
+              30.0079328
+            ],
+            [
+              31.2500262,
+              30.0079553
+            ],
+            [
+              31.2499843,
+              30.0079696
+            ],
+            [
+              31.2499439,
+              30.0079747
+            ],
+            [
+              31.2499133,
+              30.0079686
+            ],
+            [
+              31.2498857,
+              30.0079539
+            ],
+            [
+              31.2498674,
+              30.0079356
+            ],
+            [
+              31.2498561,
+              30.0079143
+            ],
+            [
+              31.249852,
+              30.0078918
+            ],
+            [
+              31.2498565,
+              30.007864
+            ],
+            [
+              31.2498669,
+              30.0078374
+            ],
+            [
+              31.2498833,
+              30.0078085
+            ],
+            [
+              31.2499051,
+              30.0077848
+            ],
+            [
+              31.2498908,
+              30.0077716
+            ]
+          ],
+          [
+            [
+              31.2513104,
+              30.0084608
+            ],
+            [
+              31.251466,
+              30.0084724
+            ],
+            [
+              31.2516081,
+              30.0084771
+            ],
+            [
+              31.2516537,
+              30.0084573
+            ],
+            [
+              31.2517208,
+              30.0083981
+            ],
+            [
+              31.2517664,
+              30.0083458
+            ],
+            [
+              31.2518415,
+              30.0082576
+            ],
+            [
+              31.2518576,
+              30.0082158
+            ],
+            [
+              31.251812,
+              30.0081519
+            ],
+            [
+              31.2517463,
+              30.0080962
+            ],
+            [
+              31.2516591,
+              30.00803
+            ],
+            [
+              31.2516108,
+              30.0080137
+            ],
+            [
+              31.25147,
+              30.0080102
+            ],
+            [
+              31.2513587,
+              30.0079986
+            ],
+            [
+              31.251234,
+              30.0079765
+            ],
+            [
+              31.251132,
+              30.0079719
+            ],
+            [
+              31.2510315,
+              30.0079603
+            ],
+            [
+              31.2509537,
+              30.0079568
+            ],
+            [
+              31.2508893,
+              30.0079603
+            ],
+            [
+              31.250833,
+              30.007994
+            ],
+            [
+              31.2507927,
+              30.0080125
+            ],
+            [
+              31.2507203,
+              30.0080416
+            ],
+            [
+              31.2506291,
+              30.0080648
+            ],
+            [
+              31.2505822,
+              30.0081101
+            ],
+            [
+              31.2505876,
+              30.0081716
+            ],
+            [
+              31.2506653,
+              30.0081995
+            ],
+            [
+              31.2507592,
+              30.0082483
+            ],
+            [
+              31.2508558,
+              30.0083296
+            ],
+            [
+              31.2510301,
+              30.0083935
+            ],
+            [
+              31.251175,
+              30.0084376
+            ],
+            [
+              31.2512514,
+              30.0084527
+            ],
+            [
+              31.2513104,
+              30.0084608
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-RELATION-16855202",
+        "entity_code": "LANDMARK-EIN-EL-SIRA",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "relation",
+        "osm_id": 16855202,
+        "osm_version": 3,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "relation",
+            "osm_id": 16855202,
+            "osm_version": 3
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "landmark",
+          "osm_tags": {
+            "alt_name": "بحيرة عين الصيرة",
+            "alt_name:en": "Ain Al Sira Lake",
+            "name": "بحيرة عين الحياة",
+            "name:ar": "بحيرة عين الحياة",
+            "name:en": "Ain Al Hayat Lake",
+            "name:fa": "دریاچه عین الحیات",
+            "natural": "water",
+            "type": "multipolygon",
+            "water": "lake"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SOUTH04-WAY-29222649",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              31.3391166,
+              29.8498171
+            ],
+            [
+              31.3391461,
+              29.8498169
+            ],
+            [
+              31.3402255,
+              29.8498463
+            ],
+            [
+              31.3402834,
+              29.8498479
+            ],
+            [
+              31.3406473,
+              29.8498581
+            ],
+            [
+              31.3413407,
+              29.8498774
+            ],
+            [
+              31.3414673,
+              29.8498808
+            ],
+            [
+              31.3415111,
+              29.8490552
+            ],
+            [
+              31.3415174,
+              29.848937
+            ],
+            [
+              31.3415212,
+              29.848866
+            ],
+            [
+              31.3415252,
+              29.8487899
+            ],
+            [
+              31.3415726,
+              29.8478638
+            ],
+            [
+              31.3405804,
+              29.8478307
+            ],
+            [
+              31.3403463,
+              29.8478233
+            ],
+            [
+              31.33925,
+              29.8477863
+            ],
+            [
+              31.3392188,
+              29.8477853
+            ],
+            [
+              31.3392182,
+              29.8477991
+            ],
+            [
+              31.3391782,
+              29.8486633
+            ],
+            [
+              31.3391992,
+              29.8486892
+            ],
+            [
+              31.3392218,
+              29.8487171
+            ],
+            [
+              31.3392328,
+              29.8487154
+            ],
+            [
+              31.3392322,
+              29.8487586
+            ],
+            [
+              31.3392449,
+              29.8487587
+            ],
+            [
+              31.3392445,
+              29.8487906
+            ],
+            [
+              31.3392441,
+              29.848822
+            ],
+            [
+              31.339229,
+              29.8488219
+            ],
+            [
+              31.3392284,
+              29.8488643
+            ],
+            [
+              31.3392284,
+              29.8488685
+            ],
+            [
+              31.3391621,
+              29.8488679
+            ],
+            [
+              31.3391608,
+              29.8488931
+            ],
+            [
+              31.3391185,
+              29.8497766
+            ],
+            [
+              31.3391166,
+              29.8498171
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "code": "SOUTH04-WAY-29222649",
+        "entity_code": "LANDMARK-JAPANESE-GARDEN-HELWAN",
+        "evidence_code": null,
+        "srid": 4326,
+        "license": "ODbL-1.0",
+        "osm_type": "way",
+        "osm_id": 29222649,
+        "osm_version": 11,
+        "properties": {
+          "source": "OpenStreetMap",
+          "source_ids": {
+            "osm_type": "way",
+            "osm_id": 29222649,
+            "osm_version": 11
+          },
+          "retrieval_date": "2026-11-16",
+          "attribution": "© OpenStreetMap contributors, ODbL 1.0",
+          "entity_type": "landmark",
+          "osm_tags": {
+            "barrier": "fence",
+            "fee": "yes",
+            "leisure": "park",
+            "name": "الحديقة اليابانية",
+            "name:ar": "الحديقة اليابانية",
+            "name:en": "Japanese Garden",
+            "operator": "مشروع الحدائق المتخصصة",
+            "wikidata": "Q20404979"
+          },
+          "match_method": "reviewed exact normalized name, OSM type, South bbox and CAPMAS proximity",
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz"
+        }
+      }
     }
   ]
 }

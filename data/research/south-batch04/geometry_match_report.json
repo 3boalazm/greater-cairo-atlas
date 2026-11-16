@@ -1,0 +1,2630 @@
+{
+  "method": "exact normalized seed names and aliases; reviewed type, target bbox, and CAPMAS proximity; no synthetic coordinates",
+  "bbox_wgs84": [
+    31.15,
+    29.75,
+    31.45,
+    30.08
+  ],
+  "capmas_adm2_pcodes": [
+    "EG0101",
+    "EG0102",
+    "EG0103",
+    "EG0104",
+    "EG0105",
+    "EG0106",
+    "EG0107",
+    "EG0108",
+    "EG0134",
+    "EG0135"
+  ],
+  "near_boundary_degrees": 0.01,
+  "results": [
+    {
+      "entity_code": "AUTH-CAIRO-SOUTH-ZONE",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "AUTH-NUCA-15-MAY",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "ROAD-HASABALLAH-EL-KAFRAWY",
+      "status": "matched",
+      "reason": "same named axis ways; source geometries kept individually and merged on entity map",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 1050745814,
+          "osm_version": 11,
+          "tags": {
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745815,
+          "osm_version": 9,
+          "tags": {
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745816,
+          "osm_version": 8,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745817,
+          "osm_version": 6,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745818,
+          "osm_version": 6,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745819,
+          "osm_version": 9,
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745820,
+          "osm_version": 9,
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745822,
+          "osm_version": 7,
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745823,
+          "osm_version": 7,
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745824,
+          "osm_version": 5,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745825,
+          "osm_version": 5,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745826,
+          "osm_version": 5,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050745827,
+          "osm_version": 5,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764756,
+          "osm_version": 6,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764757,
+          "osm_version": 7,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764758,
+          "osm_version": 7,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764759,
+          "osm_version": 6,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764763,
+          "osm_version": 7,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764764,
+          "osm_version": 7,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764765,
+          "osm_version": 7,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764766,
+          "osm_version": 6,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764767,
+          "osm_version": 6,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764768,
+          "osm_version": 8,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1050764769,
+          "osm_version": 8,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1051475276,
+          "osm_version": 5,
+          "tags": {
+            "destination": "المقطم;القطامية;القاهرة الجديدة;مدينة نصر",
+            "destination:lang:en": "Mokattam;Katameya;New Cairo;Nasr City",
+            "foot": "no",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1348303456,
+          "osm_version": 3,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "matched"
+        }
+      ]
+    },
+    {
+      "entity_code": "ROAD-YASSER-RIZK",
+      "status": "matched",
+      "reason": "same named axis ways; source geometries kept individually and merged on entity map",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 174698876,
+          "osm_version": 15,
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lanes": "5",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "old_ref": "06",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 174698887,
+          "osm_version": 12,
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1103186271,
+          "osm_version": 10,
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1103210417,
+          "osm_version": 9,
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "destination": "ميدان السيدة عائشة;القلعة",
+            "destination:lang:en": "Sayeda Eisha Square;Citadel",
+            "highway": "primary",
+            "lanes": "5",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "old_ref": "06",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1103210419,
+          "osm_version": 3,
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1103210420,
+          "osm_version": 3,
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1150630266,
+          "osm_version": 1,
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1150632740,
+          "osm_version": 3,
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        }
+      ]
+    },
+    {
+      "entity_code": "ROAD-SAMIRA-MOUSSA",
+      "status": "matched",
+      "reason": "same named axis ways; source geometries kept individually and merged on entity map",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 669910422,
+          "osm_version": 9,
+          "tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 669910423,
+          "osm_version": 14,
+          "tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012760325,
+          "osm_version": 8,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012760326,
+          "osm_version": 9,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012760328,
+          "osm_version": 5,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012760336,
+          "osm_version": 5,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012760337,
+          "osm_version": 5,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012760338,
+          "osm_version": 5,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012760341,
+          "osm_version": 3,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012760342,
+          "osm_version": 3,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012799257,
+          "osm_version": 10,
+          "tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1012799258,
+          "osm_version": 9,
+          "tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089005429,
+          "osm_version": 5,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089005430,
+          "osm_version": 4,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089005431,
+          "osm_version": 4,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089005432,
+          "osm_version": 5,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089005433,
+          "osm_version": 4,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089005434,
+          "osm_version": 3,
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089820970,
+          "osm_version": 6,
+          "tags": {
+            "bridge": "yes",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089820971,
+          "osm_version": 5,
+          "tags": {
+            "bridge": "yes",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089820972,
+          "osm_version": 5,
+          "tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089820979,
+          "osm_version": 10,
+          "tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089848652,
+          "osm_version": 10,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089848653,
+          "osm_version": 11,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089848663,
+          "osm_version": 9,
+          "tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1089848664,
+          "osm_version": 8,
+          "tags": {
+            "highway": "primary",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1173586509,
+          "osm_version": 6,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "layer": "-1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "tunnel": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1173586510,
+          "osm_version": 7,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "layer": "-1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "tunnel": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1173586513,
+          "osm_version": 4,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "layer": "-1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "tunnel": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1173586514,
+          "osm_version": 4,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "layer": "-1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "tunnel": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1346373662,
+          "osm_version": 3,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1346373663,
+          "osm_version": 3,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1364010025,
+          "osm_version": 3,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1364010026,
+          "osm_version": 3,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1502447462,
+          "osm_version": 2,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1502447463,
+          "osm_version": 2,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "layer": "-1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "tunnel": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1502447464,
+          "osm_version": 2,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "layer": "-1",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "tunnel": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1502447465,
+          "osm_version": 2,
+          "tags": {
+            "construction": "primary",
+            "highway": "construction",
+            "name": "محور الدكتوره سميره موسى",
+            "name:ar": "محور الدكتوره سميره موسى",
+            "name:en": "Al Doctor Samira Mousa Axis",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "geometry is farther than 0.01 degrees from South CAPMAS ADM2"
+        }
+      ]
+    },
+    {
+      "entity_code": "ROAD-HADARAT-AXIS",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "ROAD-SALAH-SALEM-ALT",
+      "status": "ambiguous",
+      "reason": "name candidates are incompatible or do not establish the requested geometry",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 1428967487,
+          "osm_version": 13,
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1428967488,
+          "osm_version": 13,
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "start_date": "2026-01-09",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1428967498,
+          "osm_version": 10,
+          "tags": {
+            "highway": "trunk",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "right",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1428967500,
+          "osm_version": 10,
+          "tags": {
+            "highway": "trunk",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "right",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1496932839,
+          "osm_version": 1,
+          "tags": {
+            "highway": "trunk",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "right",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1496947755,
+          "osm_version": 2,
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1496947756,
+          "osm_version": 2,
+          "tags": {
+            "highway": "trunk",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1496947757,
+          "osm_version": 2,
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1496947758,
+          "osm_version": 2,
+          "tags": {
+            "highway": "trunk",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1496947759,
+          "osm_version": 3,
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1496947760,
+          "osm_version": 2,
+          "tags": {
+            "highway": "trunk",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1496947761,
+          "osm_version": 4,
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1496947762,
+          "osm_version": 2,
+          "tags": {
+            "highway": "trunk",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+          "decision": "excluded",
+          "reason": "similar street name does not establish that it is the alternative axis"
+        }
+      ]
+    },
+    {
+      "entity_code": "ROAD-HELWAN-KORIMAT",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "BRIDGE-SOUTH-HELWAN",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "RAIL-HELWAN-HSR",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "LINE-HELWAN-OLD-RAIL",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "LANDMARK-NMEC",
+      "status": "matched",
+      "reason": "one compatible named OSM polygon",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 400424568,
+          "osm_version": 24,
+          "tags": {
+            "addr:city": "قاهرة",
+            "addr:street": "شارع عين الصيرة",
+            "museum": "archaeological",
+            "name": "المتحف القومي للحضارة المصرية",
+            "name:ar": "المتحف القومي للحضارة المصرية",
+            "name:de": "Nationalmuseum der ägyptischen Zivilisation",
+            "name:en": "National Museum of Egyptian Civilization",
+            "name:es": "Museo Nacional de Civilización Egipcia",
+            "name:fa": "موزه ملی تمدن مصر",
+            "name:fr": "Musée national de la civilisation égyptienne",
+            "name:it": "Museo Nazionale della Civiltà Egizia",
+            "short_name:en": "NMEC",
+            "tourism": "museum",
+            "website": "https://nmec.gov.eg/",
+            "wikidata": "Q29017001",
+            "wikimedia_commons": "Category:National Museum of Egyptian Civilization",
+            "wikipedia": "en:National Museum of Egyptian Civilization"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870730582,
+          "osm_version": 8,
+          "tags": {
+            "alt_name": "كوبرى متحف الحضاره",
+            "alt_name:en": "Museum Al Hadarh Bridge",
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "2",
+            "name": "كوبرى اللواء دكتور صلاح الشاذلي",
+            "name:ar": "كوبرى اللواء دكتور صلاح الشاذلي",
+            "name:en": "Major General Doctor Salah Al Shazly Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870730583,
+          "osm_version": 7,
+          "tags": {
+            "alt_name": "كوبرى متحف الحضاره",
+            "alt_name:en": "Museum Al Hadarh Bridge",
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "2",
+            "name": "كوبرى اللواء دكتور صلاح الشاذلي",
+            "name:ar": "كوبرى اللواء دكتور صلاح الشاذلي",
+            "name:en": "Major General Doctor Salah Al Shazly Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870730590,
+          "osm_version": 7,
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "destination": "طريق الاوتوستراد; المعادى; مدينة نصر",
+            "destination:lang:en": "Autostrad Road; Maadi; Nasr City",
+            "foot": "no",
+            "highway": "motorway",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870730591,
+          "osm_version": 6,
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "foot": "no",
+            "highway": "motorway",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870730595,
+          "osm_version": 9,
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870730596,
+          "osm_version": 8,
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 914701399,
+          "osm_version": 6,
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "bridge": "yes",
+            "destination": "طريق الاوتوستراد; مدينة نصر",
+            "destination:lang:en": "Al Autostrad Road; Nasr City",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        }
+      ]
+    },
+    {
+      "entity_code": "LANDMARK-EIN-EL-SIRA",
+      "status": "matched",
+      "reason": "one compatible named OSM polygon",
+      "candidates": [
+        {
+          "osm_type": "node",
+          "osm_id": 384309600,
+          "osm_version": 7,
+          "tags": {
+            "name": "عين الصيرة",
+            "name:ar": "عين الصيرة",
+            "name:en": "Ain El Sira",
+            "place": "suburb"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "relation",
+          "osm_id": 16855202,
+          "osm_version": 3,
+          "tags": {
+            "alt_name": "بحيرة عين الصيرة",
+            "alt_name:en": "Ain Al Sira Lake",
+            "name": "بحيرة عين الحياة",
+            "name:ar": "بحيرة عين الحياة",
+            "name:en": "Ain Al Hayat Lake",
+            "name:fa": "دریاچه عین الحیات",
+            "natural": "water",
+            "type": "multipolygon",
+            "water": "lake"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 24617974,
+          "osm_version": 48,
+          "tags": {
+            "destination": "متحف الحضارة; كورنيش النيل; مجمع الاديان; جامع عمرو بن العاص",
+            "destination:lang:en": "Civilization Museum; Corniche El Nile; Religious Complex; Amr Ibn Al As Mousqe",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع عين الصيره",
+            "name:ar": "شارع عين الصيره",
+            "name:en": "Ein El Seirah Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "paved"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 688365353,
+          "osm_version": 34,
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع عين الصيره",
+            "name:ar": "شارع عين الصيره",
+            "name:en": "Ein El Seirah Street",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 701035910,
+          "osm_version": 16,
+          "tags": {
+            "boundary": "administrative",
+            "name": "عين الصيره",
+            "name:ar": "عين الصيره",
+            "name:en": "Ein El Seirah",
+            "place": "neighbourhood"
+          },
+          "source_file": "cairo-osm-boundaries-2026-11-14.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870766149,
+          "osm_version": 6,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870766150,
+          "osm_version": 4,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870766151,
+          "osm_version": 5,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "2",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870766152,
+          "osm_version": 3,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "2",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870766153,
+          "osm_version": 9,
+          "tags": {
+            "bridge": "yes",
+            "destination": "طريق الدائرى;طريق الاوتوستراد;حلوان;المعادى;كنيسة السيده العذراء",
+            "destination:lang:en": "Ring Road;Autostrad Road;Helwan;Maadi;Virgin Mary Church",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870766154,
+          "osm_version": 6,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 870766157,
+          "osm_version": 5,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 914639431,
+          "osm_version": 13,
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع عين الصيره",
+            "name:ar": "شارع عين الصيره",
+            "name:en": "Ein El Seirah Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "paved"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 914639434,
+          "osm_version": 7,
+          "tags": {
+            "destination": "المعادى; مجمع الاديان; المتحف القومي للحضارة المصرية",
+            "destination:lang:en": "Maadi; Religious Complex; National Museum Of Egyptian Civilization",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع عين الصيره",
+            "name:ar": "شارع عين الصيره",
+            "name:en": "Ein El Seirah Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "paved"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 993435585,
+          "osm_version": 6,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "OSM object type does not describe the entity"
+        }
+      ]
+    },
+    {
+      "entity_code": "LANDMARK-MAGRA-EL-OYOUN",
+      "status": "ambiguous",
+      "reason": "name candidates are incompatible or do not establish the requested geometry",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 28864655,
+          "osm_version": 21,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "كوبري مجري العيون",
+            "name:ar": "كوبري مجري العيون",
+            "name:en": "Magra Al Eyoun Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 29421753,
+          "osm_version": 10,
+          "tags": {
+            "bridge": "aqueduct",
+            "historic": "aqueduct",
+            "layer": "1",
+            "name": "سور مجرى العيون",
+            "name:ar": "سور مجرى العيون",
+            "name:en": "Magra El Oyoun Wall",
+            "waterway": "canal"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 29421757,
+          "osm_version": 9,
+          "tags": {
+            "bridge": "aqueduct",
+            "historic": "aqueduct",
+            "layer": "1",
+            "name": "سور مجرى العيون",
+            "name:ar": "سور مجرى العيون",
+            "name:en": "Magra El Oyoun Wall",
+            "waterway": "canal"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 29421855,
+          "osm_version": 11,
+          "tags": {
+            "bridge": "aqueduct",
+            "historic": "aqueduct",
+            "layer": "1",
+            "name": "سور مجرى العيون",
+            "name:ar": "سور مجرى العيون",
+            "name:en": "Magra El Oyoun Wall",
+            "waterway": "canal"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 49678877,
+          "osm_version": 16,
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "كوبري مجري العيون",
+            "name:ar": "كوبري مجري العيون",
+            "name:en": "Magra Al Eyoun Bridge",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 49678878,
+          "osm_version": 15,
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع مجرى العيون",
+            "name:ar": "شارع مجرى العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 55356198,
+          "osm_version": 30,
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 383631300,
+          "osm_version": 9,
+          "tags": {
+            "highway": "residential",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 383631809,
+          "osm_version": 7,
+          "tags": {
+            "highway": "residential",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 395097210,
+          "osm_version": 27,
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 395103215,
+          "osm_version": 11,
+          "tags": {
+            "destination": "مدينة نصر; المقطم",
+            "destination:lang:en": "Nasr City; Mokattam",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع مجرى العيون",
+            "name:ar": "شارع مجرى العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 708521528,
+          "osm_version": 2,
+          "tags": {
+            "highway": "residential",
+            "name": "شارع مجرى العيون",
+            "name:ar": "شارع مجرى العيون",
+            "name:en": "Magra Al Eyoun Street"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 935438187,
+          "osm_version": 8,
+          "tags": {
+            "destination": "فم الخليج",
+            "destination:lang:en": "Fum El Khalig",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1040482893,
+          "osm_version": 4,
+          "tags": {
+            "destination": "مدينة نصر; المقطم",
+            "destination:lang:en": "Nasr City; Mokattam",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع مجرى العيون",
+            "name:ar": "شارع مجرى العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1565149214,
+          "osm_version": 1,
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1565149215,
+          "osm_version": 1,
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1565149216,
+          "osm_version": 1,
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1565149217,
+          "osm_version": 1,
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "aqueduct ways are open lines; no named polygon or OSM point"
+        }
+      ]
+    },
+    {
+      "entity_code": "LANDMARK-JAPANESE-GARDEN-HELWAN",
+      "status": "matched",
+      "reason": "one compatible named OSM polygon",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 29222649,
+          "osm_version": 11,
+          "tags": {
+            "barrier": "fence",
+            "fee": "yes",
+            "leisure": "park",
+            "name": "الحديقة اليابانية",
+            "name:ar": "الحديقة اليابانية",
+            "name:en": "Japanese Garden",
+            "operator": "مشروع الحدائق المتخصصة",
+            "wikidata": "Q20404979"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "matched"
+        }
+      ]
+    },
+    {
+      "entity_code": "LANDMARK-ROKN-FAROUK",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "LANDMARK-WADI-DEGLA",
+      "status": "ambiguous",
+      "reason": "name candidates are incompatible or do not establish the requested geometry",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 25879557,
+          "osm_version": 34,
+          "tags": {
+            "highway": "tertiary",
+            "lit": "yes",
+            "name": "شارع وادي دجله",
+            "name:ar": "شارع وادي دجله",
+            "name:en": "Wadi Degla Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "reserve polygon extends outside the targeted South bbox"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 686686133,
+          "osm_version": 9,
+          "tags": {
+            "highway": "unclassified",
+            "name": "شارع وادي دجله",
+            "name:ar": "شارع وادي دجله",
+            "name:en": "Wadi Degla Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "reserve polygon extends outside the targeted South bbox"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 686871840,
+          "osm_version": 14,
+          "tags": {
+            "highway": "tertiary",
+            "lit": "yes",
+            "name": "شارع وادي دجله",
+            "name:ar": "شارع وادي دجله",
+            "name:en": "Wadi Degla Street",
+            "oneway": "yes"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "reserve polygon extends outside the targeted South bbox"
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 773773382,
+          "osm_version": 30,
+          "tags": {
+            "boundary": "protected_area",
+            "leisure": "nature_reserve",
+            "name": "محمية وادي دجلة",
+            "name:ar": "محمية وادي دجلة",
+            "name:en": "Wadi Degla Protectorate Area",
+            "name:fr": "Réserve de Wadi Degla",
+            "opening_hours": "07:00-18:00",
+            "protect_class": "3",
+            "protection_title": "Special Protected Area",
+            "tourism": "attraction",
+            "wikidata": "Q12241414",
+            "wikimedia_commons": "Category:Wadi Degla",
+            "wikipedia": "arz:محمية وادى دجله"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "reserve polygon extends outside the targeted South bbox"
+        }
+      ]
+    },
+    {
+      "entity_code": "LANDMARK-FAWAKHIR-VILLAGE",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "LANDMARK-RELIGIOUS-COMPLEX",
+      "status": "ambiguous",
+      "reason": "name candidates are incompatible or do not establish the requested geometry",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 28827708,
+          "osm_version": 31,
+          "tags": {
+            "barrier": "wall",
+            "historic": "district",
+            "name": "القاهرة القبطية",
+            "name:ar": "القاهرة القبطية",
+            "name:de": "Koptisch-Kairo",
+            "name:en": "Coptic Cairo",
+            "name:fa": "قاهره قبطی",
+            "name:it": "Cairo Copto",
+            "name:ko": "콥틱 카이로",
+            "name:ml": "കോപ്റ്റിക് കെയ്റോ",
+            "name:pt": "Cairo Copta",
+            "tourism": "attraction",
+            "wikidata": "Q3438824",
+            "wikipedia": "ar:القاهرة القبطية"
+          },
+          "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+          "decision": "excluded",
+          "reason": "Coptic Cairo historic district does not establish the full religious complex"
+        }
+      ]
+    },
+    {
+      "entity_code": "LANDMARK-EL-TONSY-MARKET",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "LANDMARK-15-MAY-SLAUGHTERHOUSE",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "DIST-SHAQ-EL-THOABAN",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "DIST-TEBBIN-INDUSTRIAL",
+      "status": "ambiguous",
+      "reason": "name candidates are incompatible or do not establish the requested geometry",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 706681889,
+          "osm_version": 13,
+          "tags": {
+            "boundary": "administrative",
+            "name": "كفر العلو",
+            "name:ar": "كفر العلو",
+            "name:en": "Kafr Al Aalwo",
+            "place": "neighbourhood"
+          },
+          "source_file": "cairo-osm-boundaries-2026-11-14.json.gz",
+          "decision": "excluded",
+          "reason": "Kafr El Elow neighbourhood is not the whole industrial zone"
+        }
+      ]
+    },
+    {
+      "entity_code": "DIST-15-MAY-INDUSTRIAL",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "PROJ-FUSTAT-HILLS",
+      "status": "ambiguous",
+      "reason": "no admissible unambiguous polygon; see candidate decisions",
+      "candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 28800605,
+          "osm_version": 41,
+          "tags": {
+            "fee": "yes",
+            "leisure": "park",
+            "name": "حدائق تلال الفسطاط",
+            "name:ar": "حدائق تلال الفسطاط",
+            "name:en": "Fustat Hills Gardens"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "official alignment evidence required by feature pipeline; official source does not establish this OSM polygon boundary"
+        }
+      ]
+    },
+    {
+      "entity_code": "PROJ-MAGRA-EL-OYOUN",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "PROJ-RAWDAT-EL-SAYEDA",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "PROJ-ASMARAT",
+      "status": "ambiguous",
+      "reason": "name candidates are incompatible or do not establish the requested geometry",
+      "candidates": [
+        {
+          "osm_type": "node",
+          "osm_id": 4446893390,
+          "osm_version": 1,
+          "tags": {
+            "amenity": "place_of_worship",
+            "name": "الاسمرات",
+            "name:ar": "الاسمرات"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "generic Asmarat stops and place of worship are not the exact housing project polygon"
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 6266014523,
+          "osm_version": 9,
+          "tags": {
+            "bus": "yes",
+            "gtfs:stop_id": "2496",
+            "name": "Asmarat",
+            "public_transport": "stop_position"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "generic Asmarat stops and place of worship are not the exact housing project polygon"
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 9602602571,
+          "osm_version": 7,
+          "tags": {
+            "bus": "yes",
+            "gtfs:stop_id": "1536",
+            "name": "Asmarat",
+            "public_transport": "stop_position"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "generic Asmarat stops and place of worship are not the exact housing project polygon"
+        },
+        {
+          "osm_type": "relation",
+          "osm_id": 20981406,
+          "osm_version": 1,
+          "tags": {
+            "name": "Asmarat",
+            "public_transport": "stop_area",
+            "type": "public_transport"
+          },
+          "source_file": "cairo-osm-south-batch04-meta-2026-11-16.json.gz",
+          "decision": "excluded",
+          "reason": "generic Asmarat stops and place of worship are not the exact housing project polygon"
+        }
+      ]
+    },
+    {
+      "entity_code": "PROJ-EL-KHAYALA",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    },
+    {
+      "entity_code": "PROJ-ZOHOUR-15-MAY",
+      "status": "not_found",
+      "reason": "no exact name or alias candidate in saved extracts",
+      "candidates": []
+    }
+  ]
+}
