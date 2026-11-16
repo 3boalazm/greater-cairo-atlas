@@ -1,0 +1,5 @@
+RESULT new_entities=8 remapped=0 facts=48 evidence=17
+facts by state: {'verified': 48}
+evidence url_check: {'ok': 17}
+new by status: {'unknown': 2, 'operational': 6}
+new by type: {'project': 3, 'landmark': 5}

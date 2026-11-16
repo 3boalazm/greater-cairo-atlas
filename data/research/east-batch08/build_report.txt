@@ -1,0 +1,75 @@
+[00] ADD entity PROJ-CENTRAL-BUSINESS-DISTRICT (curator-researched directly, every source opened in Chrome)
+[00] ADD entity LANDMARK-ICONIC-TOWER (curator-researched directly, every source opened in Chrome)
+[00] ADD entity LANDMARK-OCTOBER-WAR-PANORAMA (curator-researched directly, every source opened in Chrome)
+[00] ADD evidence EV-E8-211 (curator-found, opened and read in Chrome)
+[00] ADD evidence EV-E8-212 (curator-found, opened and read in Chrome)
+[00] ADD evidence EV-E8-213 (curator-found, opened and read in Chrome)
+[00] ADD evidence EV-E8-214 (curator-found, opened and read in Chrome)
+[00] ADD evidence EV-E8-215 (curator-found, opened and read in Chrome)
+[00] ADD evidence EV-E8-221 (curator-found, opened and read in Chrome)
+[00] ADD fact PROJ-CENTRAL-BUSINESS-DISTRICT.location
+[00] ADD fact PROJ-CENTRAL-BUSINESS-DISTRICT.development_components
+[00] ADD fact PROJ-CENTRAL-BUSINESS-DISTRICT.development_note
+[00] ADD fact PROJ-CENTRAL-BUSINESS-DISTRICT.international_hotels
+[00] ADD fact PROJ-CENTRAL-BUSINESS-DISTRICT.unit_handover_milestone
+[00] ADD fact PROJ-CENTRAL-BUSINESS-DISTRICT.executive_follow_up
+[00] ADD fact PROJ-CENTRAL-BUSINESS-DISTRICT.status_note
+[00] ADD fact PROJ-CENTRAL-BUSINESS-DISTRICT.construction_completed_announced
+[00] ADD fact PROJ-CENTRAL-BUSINESS-DISTRICT.latest_ministerial_review
+[00] ADD fact LANDMARK-ICONIC-TOWER.height
+[00] ADD fact LANDMARK-ICONIC-TOWER.function
+[00] ADD fact LANDMARK-ICONIC-TOWER.development_components
+[00] ADD fact LANDMARK-ICONIC-TOWER.room_count
+[00] ADD fact LANDMARK-ICONIC-TOWER.location
+[00] ADD fact LANDMARK-ICONIC-TOWER.unit_handover_milestone
+[00] ADD fact LANDMARK-ICONIC-TOWER.status_note
+[00] ADD fact LANDMARK-OCTOBER-WAR-PANORAMA.established_year
+[00] ADD fact LANDMARK-OCTOBER-WAR-PANORAMA.historical_origin
+[00] ADD fact LANDMARK-OCTOBER-WAR-PANORAMA.inauguration_date
+[00] ADD fact LANDMARK-OCTOBER-WAR-PANORAMA.restoration_status
+[00] ADD fact LANDMARK-OCTOBER-WAR-PANORAMA.site_area
+[00] ADD fact LANDMARK-OCTOBER-WAR-PANORAMA.architectural_layout
+[00] ADD fact LANDMARK-OCTOBER-WAR-PANORAMA.function
+[00] ADD fact LANDMARK-OCTOBER-WAR-PANORAMA.location
+[00] OK entities=3 facts=24 evidence=6
+[01] ENTITY PROJ-GREEN-RIVER.aliases edited
+[01] ENTITY PROJ-GREEN-RIVER.description edited
+[01] ENTITY LANDMARK-CENTRAL-PARK-NEW-CAPITAL.aliases edited
+[01] ENTITY LANDMARK-CENTRAL-PARK-NEW-CAPITAL.description edited
+[01] ENTITY PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY.status edited
+[01] ENTITY PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY.aliases edited
+[01] ENTITY PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY.description edited
+[01] ENTITY LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE.aliases edited
+[01] ENTITY LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE.description edited
+[01] DROP evidence ['EV-E8-103', 'EV-E8-104', 'EV-E8-106'] (+4 facts that cited it)
+[01] DROP fact LANDMARK-CENTRAL-PARK-NEW-CAPITAL.water_features x1
+[01] DROP fact LANDMARK-CENTRAL-PARK-NEW-CAPITAL.facilities x1
+[01] MODIFY fact PROJ-GREEN-RIVER.width: ['attribute_key', 'unit', 'value']
+[01] MODIFY fact PROJ-GREEN-RIVER.site_area: ['unit', 'value']
+[01] MODIFY fact PROJ-GREEN-RIVER.function: ['value']
+[01] ADD evidence EV-E8-201 (curator-found, opened and read in Chrome)
+[01] ADD evidence EV-E8-202 (curator-found, opened and read in Chrome)
+[01] ADD evidence EV-E8-203 (curator-found, opened and read in Chrome)
+[01] ADD evidence EV-E8-204 (curator-found, opened and read in Chrome)
+[01] ADD evidence EV-E8-205 (curator-found, opened and read in Chrome)
+[01] ADD evidence EV-E8-206 (curator-found, opened and read in Chrome)
+[01] ADD evidence EV-E8-207 (curator-found, opened and read in Chrome)
+[01] ADD evidence EV-E8-208 (curator-found, opened and read in Chrome)
+[01] ADD fact PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY.location
+[01] ADD fact PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY.function
+[01] ADD fact PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY.status_note
+[01] ADD fact PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY.operational_use
+[01] ADD fact LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE.inauguration_date
+[01] ADD fact LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE.site_area
+[01] ADD fact LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE.capacity
+[01] ADD fact LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE.address
+[01] ADD fact LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE.architectural_layout
+[01] ADD fact LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE.operational_use
+[01] ADD fact LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE.status_note
+[01] ADD fact PROJ-GREEN-RIVER.development_components
+[01] ADD fact PROJ-GREEN-RIVER.development_note
+[01] ADD fact LANDMARK-CENTRAL-PARK-NEW-CAPITAL.development_components
+[01] ADD fact LANDMARK-CENTRAL-PARK-NEW-CAPITAL.status_note
+[01] EVIDENCE-FIX EV-E8-101: ['published_date', 'source_url']
+[01] EVIDENCE-FIX EV-E8-102: ['source_url']
+[01] OK entities=5 facts=24 evidence=11
