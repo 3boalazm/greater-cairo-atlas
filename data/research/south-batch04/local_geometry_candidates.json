@@ -1,0 +1,1933 @@
+{
+  "scope": "local extracts only; preliminary candidates, not accepted geometry",
+  "bbox_wgs84": [
+    31.15,
+    29.75,
+    31.45,
+    30.08
+  ],
+  "entities": [
+    {
+      "code": "AUTH-CAIRO-SOUTH-ZONE",
+      "candidates": []
+    },
+    {
+      "code": "AUTH-NUCA-15-MAY",
+      "candidates": []
+    },
+    {
+      "code": "ROAD-HASABALLAH-EL-KAFRAWY",
+      "candidates": [
+        {
+          "osm_id": "way/1050745814",
+          "tags": {
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745815",
+          "tags": {
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745816",
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745817",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745818",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745819",
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745820",
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745822",
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745823",
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745824",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745825",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745826",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050745827",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764756",
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764757",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764758",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764759",
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764763",
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764764",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764765",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764766",
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764767",
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764768",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1050764769",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1051475276",
+          "tags": {
+            "destination": "المقطم;القطامية;القاهرة الجديدة;مدينة نصر",
+            "destination:lang:en": "Mokattam;Katameya;New Cairo;Nasr City",
+            "foot": "no",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        },
+        {
+          "osm_id": "way/1348303456",
+          "tags": {
+            "foot": "no",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور حسب الله الكفراوى",
+            "name:ar": "محور حسب الله الكفراوى",
+            "name:en": "Hassab Allah Al Kafrawi Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "حسباللهالكفراوي"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ROAD-YASSER-RIZK",
+      "candidates": [
+        {
+          "osm_id": "way/174698876",
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lanes": "5",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "old_ref": "06",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "ياسررزق"
+          ]
+        },
+        {
+          "osm_id": "way/174698887",
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "ياسررزق"
+          ]
+        },
+        {
+          "osm_id": "way/1103186271",
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "ياسررزق"
+          ]
+        },
+        {
+          "osm_id": "way/1103210417",
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "destination": "ميدان السيدة عائشة;القلعة",
+            "destination:lang:en": "Sayeda Eisha Square;Citadel",
+            "highway": "primary",
+            "lanes": "5",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "old_ref": "06",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "ياسررزق"
+          ]
+        },
+        {
+          "osm_id": "way/1103210419",
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "ياسررزق"
+          ]
+        },
+        {
+          "osm_id": "way/1103210420",
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "ياسررزق"
+          ]
+        },
+        {
+          "osm_id": "way/1150630266",
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "ياسررزق"
+          ]
+        },
+        {
+          "osm_id": "way/1150632740",
+          "tags": {
+            "alt_name": "طريق المقطم",
+            "alt_name:en": "Al Mokattam Road",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "محور ياسر رزق",
+            "name:ar": "محور ياسر رزق",
+            "name:en": "Yaser Rezq Axis",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "ياسررزق"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ROAD-SAMIRA-MOUSSA",
+      "candidates": []
+    },
+    {
+      "code": "ROAD-HADARAT-AXIS",
+      "candidates": []
+    },
+    {
+      "code": "ROAD-SALAH-SALEM-ALT",
+      "candidates": [
+        {
+          "osm_id": "way/1428967487",
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1428967488",
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "start_date": "2026-01-09",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1496947755",
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1496947757",
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1496947759",
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1496947761",
+          "tags": {
+            "bridge": "yes",
+            "highway": "trunk",
+            "layer": "1",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1428967498",
+          "tags": {
+            "highway": "trunk",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "right",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1428967500",
+          "tags": {
+            "highway": "trunk",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "right",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1496932839",
+          "tags": {
+            "highway": "trunk",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "right",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1496947756",
+          "tags": {
+            "highway": "trunk",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1496947758",
+          "tags": {
+            "highway": "trunk",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1496947760",
+          "tags": {
+            "highway": "trunk",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        },
+        {
+          "osm_id": "way/1496947762",
+          "tags": {
+            "highway": "trunk",
+            "lit": "yes",
+            "maxspeed": "80",
+            "name": "شارع صلاح سالم الجديد",
+            "name:ar": "شارع صلاح سالم الجديد",
+            "name:en": "New Salah Salem Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "asphalt"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "صلاحسالمالجديد"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ROAD-HELWAN-KORIMAT",
+      "candidates": []
+    },
+    {
+      "code": "BRIDGE-SOUTH-HELWAN",
+      "candidates": []
+    },
+    {
+      "code": "RAIL-HELWAN-HSR",
+      "candidates": []
+    },
+    {
+      "code": "LINE-HELWAN-OLD-RAIL",
+      "candidates": []
+    },
+    {
+      "code": "LANDMARK-NMEC",
+      "candidates": [
+        {
+          "osm_id": "way/870730582",
+          "tags": {
+            "alt_name": "كوبرى متحف الحضاره",
+            "alt_name:en": "Museum Al Hadarh Bridge",
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "2",
+            "name": "كوبرى اللواء دكتور صلاح الشاذلي",
+            "name:ar": "كوبرى اللواء دكتور صلاح الشاذلي",
+            "name:en": "Major General Doctor Salah Al Shazly Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "متحفالحضاره"
+          ]
+        },
+        {
+          "osm_id": "way/870730583",
+          "tags": {
+            "alt_name": "كوبرى متحف الحضاره",
+            "alt_name:en": "Museum Al Hadarh Bridge",
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "2",
+            "name": "كوبرى اللواء دكتور صلاح الشاذلي",
+            "name:ar": "كوبرى اللواء دكتور صلاح الشاذلي",
+            "name:en": "Major General Doctor Salah Al Shazly Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "متحفالحضاره"
+          ]
+        },
+        {
+          "osm_id": "way/870730595",
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "متحفالحضاره"
+          ]
+        },
+        {
+          "osm_id": "way/870730596",
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "متحفالحضاره"
+          ]
+        },
+        {
+          "osm_id": "way/914701399",
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "bridge": "yes",
+            "destination": "طريق الاوتوستراد; مدينة نصر",
+            "destination:lang:en": "Al Autostrad Road; Nasr City",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "متحفالحضاره"
+          ]
+        },
+        {
+          "osm_id": "way/870730590",
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "destination": "طريق الاوتوستراد; المعادى; مدينة نصر",
+            "destination:lang:en": "Autostrad Road; Maadi; Nasr City",
+            "foot": "no",
+            "highway": "motorway",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "متحفالحضاره"
+          ]
+        },
+        {
+          "osm_id": "way/870730591",
+          "tags": {
+            "alt_name": "كوبرى اللواء دكتور صلاح الشاذلى",
+            "alt_name:en": "Al Lowa' Doctor Salah Al Shazly Bridge",
+            "foot": "no",
+            "highway": "motorway",
+            "name": "كوبرى متحف الحضاره",
+            "name:ar": "كوبرى متحف الحضاره",
+            "name:en": "Museum Al Hadarh Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "متحفالحضاره"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "LANDMARK-EIN-EL-SIRA",
+      "candidates": [
+        {
+          "osm_id": "way/701035910",
+          "tags": {
+            "boundary": "administrative",
+            "name": "عين الصيره",
+            "name:ar": "عين الصيره",
+            "name:en": "Ein El Seirah",
+            "place": "neighbourhood"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-boundaries-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "node/384309600",
+          "tags": {
+            "name": "عين الصيرة",
+            "name:ar": "عين الصيرة",
+            "name:en": "Ain El Sira",
+            "place": "suburb"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/24617974",
+          "tags": {
+            "destination": "متحف الحضارة; كورنيش النيل; مجمع الاديان; جامع عمرو بن العاص",
+            "destination:lang:en": "Civilization Museum; Corniche El Nile; Religious Complex; Amr Ibn Al As Mousqe",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع عين الصيره",
+            "name:ar": "شارع عين الصيره",
+            "name:en": "Ein El Seirah Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "paved"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/688365353",
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع عين الصيره",
+            "name:ar": "شارع عين الصيره",
+            "name:en": "Ein El Seirah Street",
+            "oneway": "yes",
+            "sidewalk": "no"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/870766149",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/870766150",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/870766151",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "2",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/870766152",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "2",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/870766153",
+          "tags": {
+            "bridge": "yes",
+            "destination": "طريق الدائرى;طريق الاوتوستراد;حلوان;المعادى;كنيسة السيده العذراء",
+            "destination:lang:en": "Ring Road;Autostrad Road;Helwan;Maadi;Virgin Mary Church",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/870766154",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/870766157",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/914639431",
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع عين الصيره",
+            "name:ar": "شارع عين الصيره",
+            "name:en": "Ein El Seirah Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "paved"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/914639434",
+          "tags": {
+            "destination": "المعادى; مجمع الاديان; المتحف القومي للحضارة المصرية",
+            "destination:lang:en": "Maadi; Religious Complex; National Museum Of Egyptian Civilization",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع عين الصيره",
+            "name:ar": "شارع عين الصيره",
+            "name:en": "Ein El Seirah Street",
+            "oneway": "yes",
+            "sidewalk": "no",
+            "surface": "paved"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        },
+        {
+          "osm_id": "way/993435585",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "motorway",
+            "layer": "1",
+            "name": "كوبرى عين الصيره",
+            "name:ar": "كوبرى عين الصيره",
+            "name:en": "Ein El Seirah Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+            "cairo-osm-overpass-2026-11-14-roads-full.json.gz",
+            "osm-overpass-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "عينالصيره"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "LANDMARK-MAGRA-EL-OYOUN",
+      "candidates": [
+        {
+          "osm_id": "way/28864655",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "كوبري مجري العيون",
+            "name:ar": "كوبري مجري العيون",
+            "name:en": "Magra Al Eyoun Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/29421753",
+          "tags": {
+            "bridge": "aqueduct",
+            "historic": "aqueduct",
+            "layer": "1",
+            "name": "سور مجرى العيون",
+            "name:ar": "سور مجرى العيون",
+            "name:en": "Magra El Oyoun Wall",
+            "waterway": "canal"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "سورمجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/29421757",
+          "tags": {
+            "bridge": "aqueduct",
+            "historic": "aqueduct",
+            "layer": "1",
+            "name": "سور مجرى العيون",
+            "name:ar": "سور مجرى العيون",
+            "name:en": "Magra El Oyoun Wall",
+            "waterway": "canal"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "سورمجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/29421855",
+          "tags": {
+            "bridge": "aqueduct",
+            "historic": "aqueduct",
+            "layer": "1",
+            "name": "سور مجرى العيون",
+            "name:ar": "سور مجرى العيون",
+            "name:en": "Magra El Oyoun Wall",
+            "waterway": "canal"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "سورمجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/49678877",
+          "tags": {
+            "bridge": "yes",
+            "foot": "no",
+            "highway": "primary",
+            "layer": "1",
+            "lit": "yes",
+            "name": "كوبري مجري العيون",
+            "name:ar": "كوبري مجري العيون",
+            "name:en": "Magra Al Eyoun Bridge",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/49678878",
+          "tags": {
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع مجرى العيون",
+            "name:ar": "شارع مجرى العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/55356198",
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/395097210",
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/395103215",
+          "tags": {
+            "destination": "مدينة نصر; المقطم",
+            "destination:lang:en": "Nasr City; Mokattam",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع مجرى العيون",
+            "name:ar": "شارع مجرى العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/935438187",
+          "tags": {
+            "destination": "فم الخليج",
+            "destination:lang:en": "Fum El Khalig",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/1040482893",
+          "tags": {
+            "destination": "مدينة نصر; المقطم",
+            "destination:lang:en": "Nasr City; Mokattam",
+            "highway": "primary",
+            "lit": "yes",
+            "name": "شارع مجرى العيون",
+            "name:ar": "شارع مجرى العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/1565149214",
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/1565149215",
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/1565149216",
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        },
+        {
+          "osm_id": "way/1565149217",
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "lit": "yes",
+            "name": "شارع مجري العيون",
+            "name:ar": "شارع مجري العيون",
+            "name:en": "Magra Al Eyoun Street",
+            "oneway": "yes"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "مجريالعيون"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "LANDMARK-JAPANESE-GARDEN-HELWAN",
+      "candidates": []
+    },
+    {
+      "code": "LANDMARK-ROKN-FAROUK",
+      "candidates": []
+    },
+    {
+      "code": "LANDMARK-WADI-DEGLA",
+      "candidates": [
+        {
+          "osm_id": "way/773773382",
+          "tags": {
+            "boundary": "protected_area",
+            "leisure": "nature_reserve",
+            "name": "محمية وادي دجلة",
+            "name:ar": "محمية وادي دجلة",
+            "name:en": "Wadi Degla Protectorate Area",
+            "name:fr": "Réserve de Wadi Degla",
+            "opening_hours": "07:00-18:00",
+            "protect_class": "3",
+            "protection_title": "Special Protected Area",
+            "tourism": "attraction",
+            "wikidata": "Q12241414",
+            "wikimedia_commons": "Category:Wadi Degla",
+            "wikipedia": "arz:محمية وادى دجله"
+          },
+          "bbox": "outside_or_crosses",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "محميهواديدجله"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "LANDMARK-FAWAKHIR-VILLAGE",
+      "candidates": []
+    },
+    {
+      "code": "LANDMARK-RELIGIOUS-COMPLEX",
+      "candidates": [
+        {
+          "osm_id": "way/28827708",
+          "tags": {
+            "barrier": "wall",
+            "historic": "district",
+            "name": "القاهرة القبطية",
+            "name:ar": "القاهرة القبطية",
+            "name:de": "Koptisch-Kairo",
+            "name:en": "Coptic Cairo",
+            "name:fa": "قاهره قبطی",
+            "name:it": "Cairo Copto",
+            "name:ko": "콥틱 카이로",
+            "name:ml": "കോപ്റ്റിക് കെയ്റോ",
+            "name:pt": "Cairo Copta",
+            "tourism": "attraction",
+            "wikidata": "Q3438824",
+            "wikipedia": "ar:القاهرة القبطية"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-overpass-2026-11-14-extract2.json.gz"
+          ],
+          "matched_names": [
+            "القاهرهالقبطيه"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "LANDMARK-EL-TONSY-MARKET",
+      "candidates": []
+    },
+    {
+      "code": "LANDMARK-15-MAY-SLAUGHTERHOUSE",
+      "candidates": []
+    },
+    {
+      "code": "LANDMARK-HELWAN-IRON-STEEL",
+      "candidates": []
+    },
+    {
+      "code": "DIST-SHAQ-EL-THOABAN",
+      "candidates": []
+    },
+    {
+      "code": "DIST-TEBBIN-INDUSTRIAL",
+      "candidates": [
+        {
+          "osm_id": "way/706681889",
+          "tags": {
+            "boundary": "administrative",
+            "name": "كفر العلو",
+            "name:ar": "كفر العلو",
+            "name:en": "Kafr Al Aalwo",
+            "place": "neighbourhood"
+          },
+          "bbox": "inside",
+          "sources": [
+            "cairo-osm-boundaries-2026-11-14.json.gz"
+          ],
+          "matched_names": [
+            "كفرالعلو"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "DIST-15-MAY-INDUSTRIAL",
+      "candidates": []
+    },
+    {
+      "code": "PROJ-FUSTAT-HILLS",
+      "candidates": []
+    },
+    {
+      "code": "PROJ-MAGRA-EL-OYOUN",
+      "candidates": []
+    },
+    {
+      "code": "PROJ-RAWDAT-EL-SAYEDA",
+      "candidates": []
+    },
+    {
+      "code": "PROJ-ASMARAT",
+      "candidates": []
+    },
+    {
+      "code": "PROJ-EL-KHAYALA",
+      "candidates": []
+    },
+    {
+      "code": "PROJ-ZOHOUR-15-MAY",
+      "candidates": []
+    }
+  ]
+}
