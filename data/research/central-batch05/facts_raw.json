@@ -1,0 +1,1064 @@
+[
+ {
+  "entity_code": "LANDMARK-EGYPTIAN-MUSEUM",
+  "attribute_key": "location",
+  "value": "ميدان التحرير",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-036"
+ },
+ {
+  "entity_code": "LANDMARK-EGYPTIAN-MUSEUM",
+  "attribute_key": "tutankhamun_registration_year",
+  "value": "1934",
+  "unit": "year",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-032"
+ },
+ {
+  "entity_code": "LANDMARK-EGYPTIAN-MUSEUM",
+  "attribute_key": "mummies_transferred_to_nmec",
+  "value": "22",
+  "unit": "mummies",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-033"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-CITADEL",
+  "attribute_key": "ticket_foreigner_adult",
+  "value": "550",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-010"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-CITADEL",
+  "attribute_key": "ticket_foreigner_student",
+  "value": "275",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-011"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-CITADEL",
+  "attribute_key": "ticket_egyptian_adult",
+  "value": "60",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-011"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-CITADEL",
+  "attribute_key": "ticket_egyptian_student",
+  "value": "30",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-011"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-CITADEL",
+  "attribute_key": "included_monuments_and_museums",
+  "value": "جامع محمد علي، جامع الناصر محمد بن قلاوون، جامع سليمان باشا الخادم، متحف قصر الجوهرة، متحف الشرطة القومي، المتحف الحربي",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-011"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-CITADEL",
+  "attribute_key": "towers_public_opening_decade",
+  "value": "ثمانينيات القرن العشرين (بعد التطوير كحديقة متحفية)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-015"
+ },
+ {
+  "entity_code": "LANDMARK-MUHAMMAD-ALI-MOSQUE",
+  "attribute_key": "built_year",
+  "value": "1265هـ / 1848م",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-010"
+ },
+ {
+  "entity_code": "LANDMARK-MUHAMMAD-ALI-MOSQUE",
+  "attribute_key": "location_and_patron",
+  "value": "داخل قلعة صلاح الدين الأيوبي، أمر بإنشائه محمد علي باشا",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-017"
+ },
+ {
+  "entity_code": "LANDMARK-SULTAN-HASAN",
+  "attribute_key": "construction_period",
+  "value": "757هـ/1356م - 764هـ/1362م",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-016"
+ },
+ {
+  "entity_code": "LANDMARK-SULTAN-HASAN",
+  "attribute_key": "location",
+  "value": "نهاية شارع محمد علي أمام جامع الرفاعي بميدان صلاح الدين",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-016"
+ },
+ {
+  "entity_code": "LANDMARK-SULTAN-HASAN",
+  "attribute_key": "architectural_layout",
+  "value": "صحن أوسط مكشوف تتوسطه فوارة ويحيط به أربعة إيوانات",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-020"
+ },
+ {
+  "entity_code": "LANDMARK-SULTAN-HASAN",
+  "attribute_key": "joint_ticket_foreigner_adult",
+  "value": "220",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-018"
+ },
+ {
+  "entity_code": "LANDMARK-AL-RIFAI-MOSQUE",
+  "attribute_key": "built_century",
+  "value": "القرن التاسع عشر الميلادي (مقابل السلطان حسن بميدان صلاح الدين)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-018"
+ },
+ {
+  "entity_code": "LANDMARK-AL-RIFAI-MOSQUE",
+  "attribute_key": "joint_ticket_foreigner_adult",
+  "value": "220",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-018"
+ },
+ {
+  "entity_code": "LANDMARK-AL-RIFAI-MOSQUE",
+  "attribute_key": "joint_ticket_foreigner_student",
+  "value": "110",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-018"
+ },
+ {
+  "entity_code": "LANDMARK-AL-RIFAI-MOSQUE",
+  "attribute_key": "ticket_egyptian",
+  "value": "0",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-018"
+ },
+ {
+  "entity_code": "LANDMARK-SALAH-EL-DIN-SQ",
+  "attribute_key": "surrounding_monuments_and_streets",
+  "value": "باب العزب بقلعة صلاح الدين، مسجد المحمودية، مدرسة السلطان حسن، جامع الرفاعي؛ وتتفرع منه شوارع سوق السلاح وسكة المحجر والإمام الشافعي والأقدام",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-013"
+ },
+ {
+  "entity_code": "LANDMARK-AL-AZHAR-PARK",
+  "attribute_key": "regional_classification",
+  "value": "الأكبر من نوعها في الشرق الأوسط",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-023"
+ },
+ {
+  "entity_code": "LANDMARK-KHAN-EL-KHALILI",
+  "attribute_key": "founded_year",
+  "value": "1382",
+  "unit": "year",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-046"
+ },
+ {
+  "entity_code": "LANDMARK-KHAN-EL-KHALILI",
+  "attribute_key": "founder",
+  "value": "الأمير جركس الخليلي (أمير آخور السلطان برقوق)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-046"
+ },
+ {
+  "entity_code": "LANDMARK-KHAN-EL-KHALILI",
+  "attribute_key": "nearby_landmarks",
+  "value": "مسجد الإمام الحسين والجامع الأزهر (القاهرة القديمة / حي الحسين)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-035"
+ },
+ {
+  "entity_code": "LANDMARK-AL-MUIZZ",
+  "attribute_key": "unesco_world_heritage_listing_year",
+  "value": "1979",
+  "unit": "year",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-014"
+ },
+ {
+  "entity_code": "LANDMARK-AL-MUIZZ",
+  "attribute_key": "monuments_count_conflict_a",
+  "value": "29",
+  "unit": "monuments",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-046"
+ },
+ {
+  "entity_code": "LANDMARK-AL-MUIZZ",
+  "attribute_key": "monuments_count_conflict_b",
+  "value": "34",
+  "unit": "monuments",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-045"
+ },
+ {
+  "entity_code": "LANDMARK-AL-MUIZZ",
+  "attribute_key": "named_year",
+  "value": "1937",
+  "unit": "year",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-046"
+ },
+ {
+  "entity_code": "LANDMARK-BAB-ZUWEILA",
+  "attribute_key": "built_year",
+  "value": "485هـ / 1092م",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-012"
+ },
+ {
+  "entity_code": "LANDMARK-BAB-ZUWEILA",
+  "attribute_key": "restoration_period",
+  "value": "1998 - 2003",
+  "unit": "year_range",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-012"
+ },
+ {
+  "entity_code": "LANDMARK-BAB-ZUWEILA",
+  "attribute_key": "ticket_foreigner_adult",
+  "value": "100",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-012"
+ },
+ {
+  "entity_code": "LANDMARK-BAB-ZUWEILA",
+  "attribute_key": "ticket_egyptian_adult",
+  "value": "10",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-012"
+ },
+ {
+  "entity_code": "LANDMARK-IBN-TULUN-MOSQUE",
+  "attribute_key": "construction_period",
+  "value": "263هـ/876م - 265هـ/879م",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-031"
+ },
+ {
+  "entity_code": "LANDMARK-IBN-TULUN-MOSQUE",
+  "attribute_key": "location",
+  "value": "قمة جبل يشكر، شارع الصليبة بميدان أحمد بن طولون (السيدة زينب)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-031"
+ },
+ {
+  "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+  "attribute_key": "opened_year",
+  "value": "1903",
+  "unit": "year",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-008"
+ },
+ {
+  "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+  "attribute_key": "location",
+  "value": "باب الخلق بجوار مبنى دار الكتب القومية",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-008"
+ },
+ {
+  "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+  "attribute_key": "ticket_foreigner_adult",
+  "value": "340",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-008"
+ },
+ {
+  "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+  "attribute_key": "ticket_egyptian_adult",
+  "value": "20",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-008"
+ },
+ {
+  "entity_code": "LANDMARK-ISLAMIC-ART-MUSEUM",
+  "attribute_key": "last_ticket_time",
+  "value": "16:00 (رمضان 14:00 وساعات العمل 09:00-15:00)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-008"
+ },
+ {
+  "entity_code": "LANDMARK-COPTIC-MUSEUM",
+  "attribute_key": "opened_year",
+  "value": "1910",
+  "unit": "year",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-004"
+ },
+ {
+  "entity_code": "LANDMARK-COPTIC-MUSEUM",
+  "attribute_key": "location_archaeological_area",
+  "value": "الفسطاط (مصر القديمة)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-004"
+ },
+ {
+  "entity_code": "LANDMARK-COPTIC-MUSEUM",
+  "attribute_key": "location_complex",
+  "value": "مجمع الأديان بمصر القديمة",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-021"
+ },
+ {
+  "entity_code": "LANDMARK-COPTIC-MUSEUM",
+  "attribute_key": "ticket_foreigner_adult",
+  "value": "280",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-004"
+ },
+ {
+  "entity_code": "LANDMARK-COPTIC-MUSEUM",
+  "attribute_key": "ticket_egyptian_adult",
+  "value": "20",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-004"
+ },
+ {
+  "entity_code": "LANDMARK-HANGING-CHURCH",
+  "attribute_key": "location",
+  "value": "فوق الحصن الروماني لبابليون بمصر القديمة (الفسطاط) بجوار المتحف القبطي",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-019"
+ },
+ {
+  "entity_code": "LANDMARK-HANGING-CHURCH",
+  "attribute_key": "religious_complex",
+  "value": "ضمن مجمع الأديان بمصر القديمة",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-021"
+ },
+ {
+  "entity_code": "LANDMARK-AMR-IBN-AL-AS",
+  "attribute_key": "historical_significance",
+  "value": "أقدم مسجد أقيم في مصر وإفريقيا بمصر القديمة (تغطية صلاة الجمعة بالعيد القومي للمحافظة)",
+  "unit": "",
+  "status_as_of": "2026-07-11",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-001"
+ },
+ {
+  "entity_code": "LANDMARK-AMR-IBN-AL-AS",
+  "attribute_key": "location_complex",
+  "value": "مجمع الأديان بمصر القديمة",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-021"
+ },
+ {
+  "entity_code": "LANDMARK-MANIAL-PALACE",
+  "attribute_key": "total_area",
+  "value": "61711",
+  "unit": "m2",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-009"
+ },
+ {
+  "entity_code": "LANDMARK-MANIAL-PALACE",
+  "attribute_key": "address",
+  "value": "شارع السراي، المنيل (أمام كلية طب الأسنان)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-006"
+ },
+ {
+  "entity_code": "LANDMARK-MANIAL-PALACE",
+  "attribute_key": "ticket_foreigner_adult_portal_conflict_a",
+  "value": "220",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-007"
+ },
+ {
+  "entity_code": "LANDMARK-MANIAL-PALACE",
+  "attribute_key": "ticket_egyptian_adult_portal_conflict_a",
+  "value": "60",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-005"
+ },
+ {
+  "entity_code": "LANDMARK-MANIAL-PALACE",
+  "attribute_key": "ticket_foreigner_adult_subportal_conflict_b",
+  "value": "100",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-006"
+ },
+ {
+  "entity_code": "LANDMARK-MANIAL-PALACE",
+  "attribute_key": "ticket_egyptian_adult_subportal_conflict_b",
+  "value": "20",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-006"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-TOWER",
+  "attribute_key": "height",
+  "value": "187",
+  "unit": "m",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-022"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-TOWER",
+  "attribute_key": "floors",
+  "value": "16",
+  "unit": "floors",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-022"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-TOWER",
+  "attribute_key": "renovation_2006_cost",
+  "value": "15000000",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-022"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-OPERA",
+  "attribute_key": "location",
+  "value": "جزيرة الزمالك",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-024"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-OPERA",
+  "attribute_key": "predecessor_khedivial_opera_opening_year",
+  "value": "1875 (تاريخ افتتاح دار الأوبرا المصرية الخديوية التاريخية؛ بينما يقع الصرح الحالي بجزيرة الزمالك)",
+  "unit": "year",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-042"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-OPERA",
+  "attribute_key": "facility_and_museum_upgrade_status",
+  "value": "جولات تفقدية ومتابعة لخطط تطوير مرافق الأوبرا وإعداد تصور متحفي جديد لمتحف الأوبرا",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-026"
+ },
+ {
+  "entity_code": "LANDMARK-CAIRO-OPERA",
+  "attribute_key": "readiness_and_services",
+  "value": "توجيهات وزارية برفع كفاءة الخدمات والوقوف على جاهزية المرافق بالمركز الثقافي القومي",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-027"
+ },
+ {
+  "entity_code": "LANDMARK-FISH-GARDEN",
+  "attribute_key": "location_and_type",
+  "value": "حديقة الأسماك أو حديقة جبلاية الأسماك (تصنيف حدائق بالسياحة الترفيهية)",
+  "unit": "",
+  "status_as_of": "2023-11-22",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-025"
+ },
+ {
+  "entity_code": "LANDMARK-FISH-GARDEN",
+  "attribute_key": "tree_conservation_status",
+  "value": "أكدت وزارة الزراعة بعد معاينة ميدانية سلامة جميع أشجار حديقة الأسماك بالزمالك والتزامها بحماية التراث النباتي",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-028"
+ },
+ {
+  "entity_code": "LANDMARK-HORREYA-PARK",
+  "attribute_key": "location_and_district",
+  "value": "الجزيرة - الزمالك بجوار كوبري قصر النيل (نطاق حي غرب)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-030"
+ },
+ {
+  "entity_code": "LANDMARK-ABDEEN-PALACE",
+  "attribute_key": "seat_of_government_period",
+  "value": "1874 - 1952",
+  "unit": "year_range",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-034"
+ },
+ {
+  "entity_code": "LANDMARK-ABDEEN-PALACE",
+  "attribute_key": "architect_and_historical_cost",
+  "value": "تصميم دي كوريل ديل روسو بتكلفة بناء 700 ألف جنيه وفرش 2 مليون جنيه وقت الإنشاء",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-042"
+ },
+ {
+  "entity_code": "LANDMARK-TAHRIR-SQUARE",
+  "attribute_key": "surrounding_landmarks_and_transit",
+  "value": "المتحف المصري، الجامعة الأمريكية، مجمع التحرير، جامعة الدول العربية، مسجد وجراج عمر مكرم، ومحطة مترو السادات (الخطين الأول والثاني)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-036"
+ },
+ {
+  "entity_code": "LANDMARK-TAHRIR-SQUARE",
+  "attribute_key": "urban_scope",
+  "value": "أحد محاور نطاق القاهرة الخديوية ووسط البلد",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-041"
+ },
+ {
+  "entity_code": "LANDMARK-ATABA-SQUARE",
+  "attribute_key": "historical_origin",
+  "value": "أُنشئ ضمن تخطيط القاهرة الخديوية في عهد الخديوي إسماعيل باسم ميدان العتبة الخضراء",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-042"
+ },
+ {
+  "entity_code": "LANDMARK-ATABA-SQUARE",
+  "attribute_key": "surrounding_works_2025",
+  "value": "أعمال تطوير جارية بالمحيط تشمل ميدان وجراج الأوبرا ومجمع المسارح وجراج العتبة وميدان العتبة (خبر منشور بمسار أخبار 2025 دون يوم أو شهر)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-029"
+ },
+ {
+  "entity_code": "LANDMARK-AL-HUSSEIN-MOSQUE",
+  "attribute_key": "location",
+  "value": "حي الحسين بالقاهرة القديمة بجوار خان الخليلي والجامع الأزهر",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-035"
+ },
+ {
+  "entity_code": "LANDMARK-AZBAKEYA-GARDEN",
+  "attribute_key": "historical_origin",
+  "value": "أُنشئت مكان بركة الأزبكية على هيئة حديقة لوكسمبورج الباريسية قبل ردمها وتحويلها إلى دكاكين وجراجات",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-042"
+ },
+ {
+  "entity_code": "LANDMARK-AZBAKEYA-GARDEN",
+  "attribute_key": "revival_status_context",
+  "value": "تنفذ وزارة الإسكان أعمال إعادة إحياء حديقة بنطاق القاهرة الخديوية ضمن مشروعات القاهرة التاريخية (الموقع الموافق للأزبكية دون ورود الاسم صراحة في المقتطف)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-043"
+ },
+ {
+  "entity_code": "LANDMARK-AZBAKEYA-GARDEN",
+  "attribute_key": "surrounding_development_context",
+  "value": "جولة محافظ القاهرة (أخبار 2025) لتفقد أعمال تطوير جارية بميدان وجراج الأوبرا ومجمع المسارح وميدان وجراج العتبة ومحيط الحديقة المجاورة (دون ورود اسم الأزبكية صراحة في المقتطف)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-029"
+ },
+ {
+  "entity_code": "PROJ-MASPERO-TRIANGLE",
+  "attribute_key": "completed_units",
+  "value": "5700",
+  "unit": "units",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-040"
+ },
+ {
+  "entity_code": "PROJ-MASPERO-TRIANGLE",
+  "attribute_key": "under_construction_units",
+  "value": "510",
+  "unit": "units",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-040"
+ },
+ {
+  "entity_code": "PROJ-MASPERO-TRIANGLE",
+  "attribute_key": "latest_ministerial_review",
+  "value": "اجتماع وزيرة الإسكان لمتابعة الموقف التنفيذي لتطوير مثلث ماسبيرو",
+  "unit": "",
+  "status_as_of": "2026-03-24",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-038"
+ },
+ {
+  "entity_code": "PROJ-AHL-MISR-WALKWAY",
+  "attribute_key": "phase_1_scope",
+  "value": "من كوبري 15 مايو حتى كوبري أكتوبر: مسار موازٍ للنيل بمتوسط عرض 6.5م، 19 مبنى (62 محلًا و5 كافتيريات و5 مطاعم)، 3 مدرجات، مسرح، و3 جراجات",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-037"
+ },
+ {
+  "entity_code": "PROJ-AHL-MISR-WALKWAY",
+  "attribute_key": "phase_2_scope",
+  "value": "من كوبري قصر النيل حتى كوبري إمبابة: تطوير كورنيش بطول 3.2 كم وممشى متدرج بطول 4 كم و19 مبنى و9 مدرجات ومسرحين",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-037"
+ },
+ {
+  "entity_code": "PROJ-AHL-MISR-WALKWAY",
+  "attribute_key": "phase_3_scope",
+  "value": "قطاعان: من كوبري تحيا مصر إلى كوبري الساحل، ومن كوبري قصر النيل إلى كوبري قصر العيني",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-037"
+ },
+ {
+  "entity_code": "PROJ-AHL-MISR-WALKWAY",
+  "attribute_key": "executive_follow_up",
+  "value": "استعراض رئيس الوزراء الموقف التنفيذي لممشى أهل مصر بمراحله المتعددة",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-039"
+ },
+ {
+  "entity_code": "PROJ-HISTORIC-CAIRO",
+  "attribute_key": "estimated_program_cost_min",
+  "value": "22000000000",
+  "unit": "EGP",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-044"
+ },
+ {
+  "entity_code": "PROJ-HISTORIC-CAIRO",
+  "attribute_key": "rehousing_and_reuse_strategy",
+  "value": "إنجاز نموذج إعادة تسكين الأسر في منطقة درب اللبانة بالقاهرة التاريخية",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-048"
+ },
+ {
+  "entity_code": "PROJ-HISTORIC-CAIRO",
+  "attribute_key": "monument_adaptive_reuse",
+  "value": "إعادة النبض للمباني الأثرية الصامتة عبر إعادة توظيفها وتحويلها لمقاصد سياحية عالمية",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-067"
+ },
+ {
+  "entity_code": "PROJ-KHEDIVIAL-CAIRO",
+  "attribute_key": "geographic_scope",
+  "value": "يشمل منطقة وسط البلد وميدان التحرير",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-041"
+ },
+ {
+  "entity_code": "PROJ-KHEDIVIAL-CAIRO",
+  "attribute_key": "scope_squares_and_facades",
+  "value": "مشروع تطوير ميداني طلعت حرب ومصطفى كامل ويشمل تطوير واجهات عدد 30 (انقطع التمييز العددي بعد الرقم بالمقتطف)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-047"
+ },
+ {
+  "entity_code": "PROJ-KHEDIVIAL-CAIRO",
+  "attribute_key": "functional_transformation_goal",
+  "value": "تحويل مناطق القاهرة الخديوية إلى مناطق فنادق وجذب سياحي وعمراني",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-044"
+ },
+ {
+  "entity_code": "PROJ-FUSTAT-HILLS-PARK",
+  "attribute_key": "area",
+  "value": "500",
+  "unit": "feddan",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-051"
+ },
+ {
+  "entity_code": "PROJ-FUSTAT-HILLS-PARK",
+  "attribute_key": "pm_inspection_status",
+  "value": "تفقد رئيس مجلس الوزراء معدلات الإنجاز وسير العمل بالمشروع",
+  "unit": "",
+  "status_as_of": "2026-06-21",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-049"
+ },
+ {
+  "entity_code": "PROJ-FUSTAT-HILLS-PARK",
+  "attribute_key": "latest_implementation_status",
+  "value": "اجتماع وزيرة الإسكان لمتابعة مستجدات التنفيذ واللمسات النهائية للأعمال الجارية",
+  "unit": "",
+  "status_as_of": "2026-08-26",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-050"
+ },
+ {
+  "entity_code": "PROJ-AIN-EL-SIRA-LAKE",
+  "attribute_key": "project_type_and_status",
+  "value": "تطوير بحيرة عين الصيرة والمتنزه الحضاري الكبير بجانب مشروعات سور مجرى العيون والمدابغ",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-003"
+ },
+ {
+  "entity_code": "PROJ-AIN-EL-SIRA-LAKE",
+  "attribute_key": "cabinet_follow_up",
+  "value": "ضمن استعراض رئيس الوزراء للموقف التنفيذي للمشروعات مع ممشى أهل مصر وحديقة الفسطاط",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-039"
+ },
+ {
+  "entity_code": "PROJ-MAGRA-EL-OYOUN",
+  "attribute_key": "unit_handover_milestone",
+  "value": "تفقد رئيس الوزراء مشروع أرابيسك بسور مجرى العيون وتسليم عقود عدد من الوحدات",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-002"
+ },
+ {
+  "entity_code": "PROJ-MAGRA-EL-OYOUN",
+  "attribute_key": "tanneries_and_aqueduct_redevelopment",
+  "value": "تطوير سور مجرى العيون ومنطقة المدابغ ضمن مشروعات تطوير القاهرة التاريخية والإسلامية",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-003"
+ },
+ {
+  "entity_code": "PROJ-MAGRA-EL-OYOUN",
+  "attribute_key": "tanneries_conference_reference",
+  "value": "إشارة رئيس الوزراء إلى منطقة المدابغ والإنتاج بها خلال منتدى مصر 2026",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-053"
+ },
+ {
+  "entity_code": "PROJ-MAGRA-EL-OYOUN",
+  "attribute_key": "latest_ministerial_review",
+  "value": "اجتماع وزيرة الإسكان لمتابعة الموقف التنفيذي لمشروع سور مجرى العيون",
+  "unit": "",
+  "status_as_of": "2026-03-24",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-038"
+ },
+ {
+  "entity_code": "PROJ-ATABA-MARKET",
+  "attribute_key": "development_plan",
+  "value": "مدرج بعناوين النشر الرسمية ضمن خطة الحكومة لتحويل الأسواق التاريخية والعشوائية إلى مراكز حضارية وتجارية",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-043"
+ },
+ {
+  "entity_code": "PROJ-MINISTRIES-RELOCATION",
+  "attribute_key": "relocation_status",
+  "value": "بدأت الدولة بالفعل في نقل الوزارات والهيئات الحكومية والسفارات إلى العاصمة الجديدة لتخفيف الضغط عن القاهرة",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-052"
+ },
+ {
+  "entity_code": "PROJ-MINISTRIES-RELOCATION",
+  "attribute_key": "vacated_buildings_reuse",
+  "value": "تحويل نطاق القاهرة الخديوية إلى مناطق فنادق وجذب سياحي وعمراني بالتوازي مع خطة نقل الوزارات",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-044"
+ },
+ {
+  "entity_code": "PROJ-MOGAMMA-REUSE",
+  "attribute_key": "original_architect",
+  "value": "د.م محمد كمال إسماعيل",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-036"
+ },
+ {
+  "entity_code": "PROJ-MOGAMMA-REUSE",
+  "attribute_key": "tendering_and_award_status",
+  "value": "طُرح طرحًا تنافسيًا كأصل غير مستغل وتقدم له تحالف دولي من مجموعة شركات عالمية وتمت الترسية",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "verified",
+  "evidence_ref": "EV-C5-054"
+ },
+ {
+  "entity_code": "TRANSIT-ABDEL-MONEIM-RIAD",
+  "attribute_key": "operational_status",
+  "value": "يعمل الموقف وتفقد محافظ القاهرة تطبيق التعريفة الجديدة للركوب به (مصدر إخباري)",
+  "unit": "",
+  "status_as_of": "2026-03-10",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-C5-058"
+ },
+ {
+  "entity_code": "TRANSIT-ABDEL-MONEIM-RIAD",
+  "attribute_key": "cta_bus_operations",
+  "value": "تشغيل خط جديد لهيئة النقل العام بالقاهرة من موقف عبد المنعم رياض الذي يُعد من المواقف الرئيسية (مصدر إخباري)",
+  "unit": "",
+  "status_as_of": "2023-08-29",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-C5-056"
+ },
+ {
+  "entity_code": "TRANSIT-ABDEL-MONEIM-RIAD",
+  "attribute_key": "management_reform",
+  "value": "إعلان محافظ القاهرة بدء تنفيذ منظومة جديدة لإدارة وتشغيل الموقف بإشراك القطاع الخاص (مصدر إخباري)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-055"
+ },
+ {
+  "entity_code": "TRANSIT-ABDEL-MONEIM-RIAD",
+  "attribute_key": "redevelopment_project",
+  "value": "عمل جارٍ على مشروع تطوير موقف عبد المنعم رياض بوسط البلد (مصدر إخباري)",
+  "unit": "",
+  "status_as_of": "2026-04-19",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-057"
+ },
+ {
+  "entity_code": "TRANSIT-TORGOMAN-TERMINAL",
+  "attribute_key": "area",
+  "value": "52000",
+  "unit": "m2",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-060"
+ },
+ {
+  "entity_code": "TRANSIT-TORGOMAN-TERMINAL",
+  "attribute_key": "capacity_cars",
+  "value": "2700",
+  "unit": "cars",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-060"
+ },
+ {
+  "entity_code": "TRANSIT-TORGOMAN-TERMINAL",
+  "attribute_key": "capacity_public_buses",
+  "value": "60",
+  "unit": "buses",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-060"
+ },
+ {
+  "entity_code": "TRANSIT-TORGOMAN-TERMINAL",
+  "attribute_key": "operator_and_vendor_enforcement",
+  "value": "تعاقد محافظة القاهرة مع الترجمان جروب المنفذة لمشروع الجراج مع حملات لإزالة الباعة الجائلين حول موقف الترجمان (مصدر إخباري)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-059"
+ },
+ {
+  "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+  "attribute_key": "historical_river_bus_operation",
+  "value": "تنظيم إدارة الأتوبيس النهري رحلات وإقبال كثيف على مرسى ماسبيرو في أول أيام عيد الأضحى (مصدر إخباري)",
+  "unit": "",
+  "status_as_of": "2018-08-21",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-064"
+ },
+ {
+  "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+  "attribute_key": "precautionary_closure_inspection",
+  "value": "تفقد محافظ القاهرة إجراءات غلق مرسى ماسبيرو النهري وتطبيق تدابير منع التجمعات بالتزامن مع غلق الحدائق دون مصدر أحدث لتأكيد إعادة التشغيل (مصدر إخباري)",
+  "unit": "",
+  "status_as_of": "2020-07-31",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-063"
+ },
+ {
+  "entity_code": "ROAD-AL-AZHAR-TUNNEL",
+  "attribute_key": "contractor_arab_contractors",
+  "value": "شركة المقاولون العرب (مدرج بصفحة مشروعات الشركة المنفذة)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-C5-066"
+ },
+ {
+  "entity_code": "ROAD-AL-AZHAR-TUNNEL",
+  "attribute_key": "contractor_with_french_firms",
+  "value": "شركة المقاولون العرب بالتعاون مع مجموعة من الشركات الفرنسية المتخصصة (مصدر ثانوي)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-065"
+ },
+ {
+  "entity_code": "ROAD-AL-AZHAR-TUNNEL",
+  "attribute_key": "length_per_bore",
+  "value": "2.7",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-065"
+ },
+ {
+  "entity_code": "ROAD-AL-AZHAR-TUNNEL",
+  "attribute_key": "ventilation_and_safety_infrastructure",
+  "value": "نفقان متوازيان يربطان وسط القاهرة بالمناطق الجنوبية والشمالية مع محطات تهوية في صلاح سالم والحسين وبورسعيد والعتبة ومخارج طوارئ كل 100م ومبنى تحكم بجوهر القائد (مصدر ثانوي)",
+  "unit": "",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-065"
+ },
+ {
+  "entity_code": "TRANSIT-METRO-LINE-4",
+  "attribute_key": "central_sector_interchanges_and_phase_2",
+  "value": "تبادل الخدمة مع الخط الأول بالملك الصالح، وبدء تنفيذ المرحلة الثانية (الفسطاط - القاهرة الجديدة) بطول 26.9 كم و21 محطة وتبادل مع الخط السادس بالسيدة عائشة (مصدر إخباري)",
+  "unit": "",
+  "status_as_of": "2026-11-15",
+  "verification_state": "corroborated",
+  "evidence_ref": "EV-C5-061"
+ },
+ {
+  "entity_code": "TRANSIT-METRO-LINE-4",
+  "attribute_key": "total_line_length",
+  "value": "101",
+  "unit": "km",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-062"
+ },
+ {
+  "entity_code": "TRANSIT-METRO-LINE-4",
+  "attribute_key": "total_stations",
+  "value": "56",
+  "unit": "stations",
+  "status_as_of": "",
+  "verification_state": "single_source",
+  "evidence_ref": "EV-C5-062"
+ }
+]
