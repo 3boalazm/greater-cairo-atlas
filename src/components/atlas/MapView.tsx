@@ -11,7 +11,7 @@ import { getAtlasMapStyleUrl } from "./map-styles";
 import { getMapCameraPadding } from "@/lib/atlas/map-camera";
 import { selectedAreaFilter, selectionBoundaryFilter } from "@/lib/atlas/map-selection-filters";
 import { hasDrawableBoundary, selectionFit } from "@/lib/atlas/map-fit";
-import { TRANSIT_LINE_COLORS, TRANSIT_LINE_LABELS, TRANSIT_MODE_LABELS, type TransitMode } from "@/lib/atlas/transit-modes";
+import { TRANSIT_LINE_COLORS, TRANSIT_LINE_LABELS, TRANSIT_MODE_LABELS, transitModeLabel, type TransitMode } from "@/lib/atlas/transit-modes";
 import { RAIL_REFERENCE_STATION_LAYERS, railReferenceStationFilter, stationLayerVisibility, stationModeFilter, stationRingFilter } from "@/lib/atlas/station-layer-visibility";
 
 maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
@@ -307,6 +307,7 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const transitTooltipRef = useRef<maplibregl.Popup | null>(null);
+  const lastTransitTapRef = useRef<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const dataRef = useRef<AtlasFeatureCollection>(features);
   const showRoadNetworkRef = useRef(showRoadNetwork);
@@ -486,6 +487,14 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
         layout: { "line-cap": "round", "line-join": "round" },
       });
       map.addLayer({
+        id: "atlas-transit-line-labels", type: "symbol", source: sourceId, minzoom: 10,
+        filter: ["all", ["==", ["get", "type"], "transit_line"], ["==", ["geometry-type"], "LineString"]],
+        layout: { "symbol-placement": "line", "symbol-spacing": 500,
+          "text-field": ["match", ["get", "entity_code"], ...Object.entries(TRANSIT_LINE_LABELS).flatMap(([code, label]) => [code, label[language]]), ["get", language === "ar" ? "name_ar" : "name_en"]] as unknown as MapExpression,
+          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"], "text-size": 11, "text-max-angle": 30 },
+        paint: { "text-color": theme === "day" ? "#152a24" : "#f4f8f3", "text-halo-color": theme === "day" ? "#fff" : "#14211c", "text-halo-width": 1.5 },
+      });
+      map.addLayer({
         id: "atlas-lines-geometry-conflict", type: "line", source: sourceId,
         filter: ["==", ["get", "geometry_conflict"], true],
         paint: { "line-color": theme === "day" ? "#493c82" : "#d3a9ff", "line-width": ["interpolate", ["linear"], ["zoom"], 6, 2.8, 14, 5], "line-dasharray": [0.8, 1.5], "line-opacity": 0.96 },
@@ -613,12 +622,26 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
           return;
         }
         const code = properties?.entity_code ?? (Array.isArray(properties?.entity_codes) ? properties.entity_codes.find((value): value is string => typeof value === "string") : undefined);
+        if (typeof code === "string" && properties?.type === "transit_line" && window.matchMedia("(pointer: coarse)").matches) {
+          const content = document.createElement("div");
+          content.className = "transit-line-tooltip-content";
+          content.dir = language === "ar" ? "rtl" : "ltr";
+          const title = document.createElement("strong");
+          title.textContent = TRANSIT_LINE_LABELS[code]?.[language] ?? String(properties[language === "ar" ? "name_ar" : "name_en"] ?? "");
+          const mode = document.createElement("span");
+          mode.textContent = transitModeLabel(code, language) ?? (language === "ar" ? "خط نقل" : "Transit line");
+          content.append(title, mode);
+          transitTooltipRef.current ??= new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 12, className: "transit-line-tooltip" });
+          transitTooltipRef.current.setLngLat(event.lngLat).setDOMContent(content).addTo(map);
+          if (lastTransitTapRef.current !== code) { lastTransitTapRef.current = code; return; }
+        }
+        lastTransitTapRef.current = null;
         if (typeof code === "string") onSelectRef.current(code);
       });
       map.on("mousemove", (event: MapLayerMouseEvent) => {
         const found = map.queryRenderedFeatures(event.point, { layers: lineLayers.filter((layerId) => map.getLayer(layerId)) });
         map.getCanvas().style.cursor = found.length ? "pointer" : "";
-        const target = found.find((feature) => feature.properties?.interchange === true || typeof feature.properties?.timeline_dated === "boolean");
+        const target = found.find((feature) => feature.properties?.type === "transit_line") ?? found.find((feature) => feature.properties?.interchange === true || typeof feature.properties?.timeline_dated === "boolean");
         if (!target) { transitTooltipRef.current?.remove(); return; }
         const properties = target.properties ?? {};
         const codes = Array.isArray(properties.line_codes)
@@ -630,7 +653,11 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
         const title = document.createElement("strong");
         title.textContent = String(properties[language === "ar" ? "name_ar" : "name_en"] ?? properties.name ?? "");
         const lines = document.createElement("span");
-        if (properties.timeline_dated === false) {
+        if (properties.type === "transit_line") {
+          const code = String(properties.entity_code ?? "");
+          title.textContent = TRANSIT_LINE_LABELS[code]?.[language] ?? title.textContent;
+          lines.textContent = transitModeLabel(code, language) ?? (language === "ar" ? "خط نقل" : "Transit line");
+        } else if (properties.timeline_dated === false) {
           lines.textContent = language === "ar" ? "غير مؤرخ" : "Undated";
         } else if (properties.timeline_dated === true) {
           const date = String(properties.timeline_valid_as_of ?? "");
