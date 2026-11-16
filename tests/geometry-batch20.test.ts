@@ -22,7 +22,8 @@ describe("Batch 20 OSM geometry", () => {
       json("tests/fixtures/batch20/baseline.json"), json("data/research/geometry-batch20/geometry_match_report.json"),
       json("data/features/features.geojson"), json("data/derived/entity-map-geometries.json"), json("data/features/manifest.json"),
     ]);
-    const all = collection.features as Feature[];
+    // Preserve the original Batch 20 snapshot checks separately from later additive batches.
+    const all = (collection.features as Feature[]).filter((f) => !f.id.startsWith("BATCH20B-"));
     const old = all.filter((f) => !f.id.startsWith("BATCH20-"));
     const added = all.filter((f) => f.id.startsWith("BATCH20-"));
     const results = report.results as Result[];
@@ -40,11 +41,13 @@ describe("Batch 20 OSM geometry", () => {
     expect(before.size).toBe(baseline.feature_entities);
     expect(matched.every((code) => !before.has(code))).toBe(true);
     expect(after.size - before.size).toBe(matched.length);
-    const oldDerived = Object.fromEntries(Object.entries(derived.geometries).filter(([code]) => !matched.includes(code)));
+    const laterCodes = new Set((collection.features as Feature[]).filter((f) => f.id.startsWith("BATCH20B-")).map((f) => f.properties.entity_code));
+    const batch20Derived = Object.fromEntries(Object.entries(derived.geometries).filter(([code]) => !laterCodes.has(code)));
+    const oldDerived = Object.fromEntries(Object.entries(batch20Derived).filter(([code]) => !matched.includes(code)));
     expect(Object.keys(oldDerived)).toHaveLength(baseline.derived_count);
     expect(hash(oldDerived)).toBe(baseline.derived_hash);
-    expect(Object.keys(derived.geometries).length - baseline.derived_count).toBe(matched.length);
-    expect(manifest.feature_count).toBe(all.length);
+    expect(Object.keys(batch20Derived).length - baseline.derived_count).toBe(matched.length);
+    expect(manifest.feature_count).toBe(collection.features.length);
     expect(manifest.entity_page_map_geometries.entities_with_geometry).toBe(Object.keys(derived.geometries).length);
     for (const result of results.filter((r) => r.status !== "matched")) expect(after.has(result.entity_code)).toBe(false);
   });

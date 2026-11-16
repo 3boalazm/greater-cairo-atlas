@@ -17,7 +17,7 @@ describe("checksummed production dataset gate", () => {
     expect(summary.evidenceCount).toBe(730);
     expect(summary.factsCount).toBe(2685);
     expect(summary.factEvidenceLinksCount).toBe(3038);
-    expect(summary.featuresCount).toBe(3014);
+    expect(summary.featuresCount).toBe(3031);
   });
 
   it("hashes all seed and feature files deterministically and changes when source data changes", async () => {

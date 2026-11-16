@@ -82,12 +82,13 @@ describe("south batch 04 merge", () => {
       results: Array<{ entity_code: string; status: string }>;
     };
     const batch20 = JSON.parse(await readFile(path.join(ROOT, "data/research/geometry-batch20/geometry_match_report.json"), "utf8")) as { results: Array<{ entity_code: string; status: string }> };
+    const batch20b = JSON.parse(await readFile(path.join(ROOT, "data/research/geometry-batch20b/geometry_match_report.json"), "utf8")) as { results: Array<{ entity_code: string; status: string }> };
     const positioned = new Set(features.features.map((feature) => feature.properties.entity_code));
     expect(report.results).toHaveLength(31);
     for (const row of batch) {
       const result = report.results.find((entry) => entry.entity_code === row.code);
       expect(result).toBeDefined();
-      expect(positioned.has(row.code!)).toBe(result!.status === "matched" || batch20.results.some((entry) => entry.entity_code === row.code && entry.status === "matched"));
+      expect(positioned.has(row.code!)).toBe(result!.status === "matched" || batch20.results.some((entry) => entry.entity_code === row.code && entry.status === "matched") || batch20b.results.some((entry) => entry.entity_code === row.code && entry.status === "matched"));
     }
   });
 
