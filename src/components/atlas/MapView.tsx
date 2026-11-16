@@ -766,18 +766,22 @@ export function MapView({ theme, features, onSelect, onSelectAdminUnit, onZoomCh
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !mapReady) return;
-    const onResize = () => map.resize();
-    const observer = new ResizeObserver(onResize);
-    observer.observe(map.getContainer());
-    window.addEventListener("resize", onResize);
-    const panel = selectedCode ? document.querySelector<HTMLElement>(".entity-panel") : null;
-    const onPanelOpen = (event: AnimationEvent) => {
-      if (event.target !== panel || !["panel-in", "sheet-in"].includes(event.animationName)) return;
-      selectionCameraRef.current.panelOpened((code) => fitSelectedEntity(map, code, dataRef.current, boundaryRef.current, compact, 0));
+    // Batch observer notifications into one frame and never fit the camera on layout changes.
+    let frame = 0;
+    const scheduleResize = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => { frame = 0; map.resize(); });
     };
-    panel?.addEventListener("animationend", onPanelOpen);
-    return () => { observer.disconnect(); window.removeEventListener("resize", onResize); panel?.removeEventListener("animationend", onPanelOpen); };
-  }, [mapReady, selectedCode, compact]);
+    const observer = new ResizeObserver(scheduleResize);
+    observer.observe(map.getContainer());
+    const sidebar = document.querySelector<HTMLElement>(".atlas-sidebar");
+    const panel = document.querySelector<HTMLElement>(".entity-panel");
+    if (sidebar) observer.observe(sidebar);
+    if (panel) observer.observe(panel);
+    window.addEventListener("resize", scheduleResize);
+    scheduleResize(); // Also cover panel removal, which cannot be observed after unmount.
+    return () => { observer.disconnect(); window.removeEventListener("resize", scheduleResize); if (frame) cancelAnimationFrame(frame); };
+  }, [mapReady, selectedCode]);
 
   useEffect(() => {
     const map = mapRef.current;

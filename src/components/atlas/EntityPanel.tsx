@@ -82,7 +82,6 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
   timeline?: { year: number; resolution: TimelineStatusResolution | null };
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
-  const panelRef = useRef<HTMLElement>(null);
   const [sheetHeight, setSheetHeight] = useState<number | null>(null);
   const dragStart = useRef<number | null>(null);
   const didDrag = useRef(false);
@@ -104,21 +103,6 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
     return governorateParentLabel(target.name_ar, target.name_en, language);
   }, [entity, language]);
   useEffect(() => { closeRef.current?.focus(); }, []);
-  useEffect(() => {
-    const panel = panelRef.current;
-    if (!panel) return;
-    const trapTab = (event: KeyboardEvent) => {
-      if (event.key !== "Tab") return;
-      const focusable = [...panel.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])')];
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable.at(-1);
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
-    };
-    panel.addEventListener("keydown", trapTab);
-    return () => panel.removeEventListener("keydown", trapTab);
-  }, []);
   const groups = useMemo(() => {
     const map = new Map<string, AtlasEntityFact[]>();
     for (const fact of entity?.facts ?? []) map.set(fact.attribute, [...(map.get(fact.attribute) ?? []), fact]);
@@ -170,8 +154,8 @@ export function EntityPanel({ entity, loading, error, onClose, onShowOnMap, geom
   const entityLineCodes = entity?.facts.filter((fact) => fact.attribute === "line_membership").map((fact) => fact.value) ?? [];
   const entityModeLabel = entity ? transitModeLabel(entity.code, language, entityLineCodes) : null;
   return <>
-    <button className="panel-backdrop" tabIndex={-1} onClick={onClose} aria-label={ar ? "إغلاق تفاصيل الكيان" : "Close entity details"} />
-    <aside ref={panelRef} style={sheetHeight === null ? undefined : { "--sheet-height": `${sheetHeight}px` } as CSSProperties} className={`entity-panel ${researcherMode ? "researcher-panel" : "simple-panel"}`} role="dialog" aria-modal="true" aria-labelledby="entity-panel-title" aria-busy={loading}>
+    <div className="panel-backdrop" aria-hidden="true" />
+    <aside style={sheetHeight === null ? undefined : { "--sheet-height": `${sheetHeight}px` } as CSSProperties} className={`entity-panel ${researcherMode ? "researcher-panel" : "simple-panel"}`} role="dialog" aria-labelledby="entity-panel-title" aria-busy={loading}>
       <button type="button" className="sheet-grab" aria-label={ar ? "توسيع أو تصغير لوحة التفاصيل" : "Expand or collapse details"} onClick={() => { if (!didDrag.current) setSheetHeight((height) => height && height > window.innerHeight * 0.7 ? window.innerHeight * 0.45 : window.innerHeight * 0.85); didDrag.current = false; }} onPointerDown={(event) => { if (window.matchMedia("(max-width:760px)").matches) { dragStart.current = event.clientY; didDrag.current = false; event.currentTarget.setPointerCapture(event.pointerId); } }} onPointerMove={(event) => { if (event.currentTarget.hasPointerCapture(event.pointerId) && event.buttons && dragStart.current !== null && Math.abs(event.clientY - dragStart.current) > 4) { didDrag.current = true; setSheetHeight(Math.max(200, Math.min(window.innerHeight * 0.9, window.innerHeight - event.clientY))); } }} onPointerUp={() => { dragStart.current = null; }}><span /></button>
       <header className="entity-panel-header">
         <div className="entity-overline" title={researcherMode ? `${entity?.entity_type ?? "ATLAS ENTITY"} · ${entity?.sector ?? ""}` : undefined}>{entity ? translateLabel(ENTITY_TYPE_LABELS, entity.entity_type, language) : (ar ? "كيان أطلس" : "ATLAS ENTITY")} {researcherMode && entity && <><span>·</span> {translateLabel(SECTOR_LABELS, entity.sector, language)}</>}</div>
