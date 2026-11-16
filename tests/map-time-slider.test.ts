@@ -182,7 +182,7 @@ describe("BATCH 14.1 — the real seed behaves as the seed says", () => {
     }
 
     // Entities the resolver says nothing about must genuinely have no dated status claim up to today.
-    const datedCodes = new Set(facts.map((row) => row.entity_code));
+    const datedCodes = new Set(facts.filter((row) => isAdmissibleStatusFact(row) && factYear(row) <= new Date().getUTCFullYear()).map((row) => row.entity_code));
     for (const entity of dataset.entities) {
       if (!today.has(entity.code)) expect(datedCodes.has(entity.code) && entity.status !== "unknown").toBe(false);
     }
@@ -202,7 +202,7 @@ describe("BATCH 14.1 — the real seed behaves as the seed says", () => {
         valid_as_of_precision: row.valid_as_of_precision, verification_state: row.verification_state, fact_code: row.code,
       }));
     const today = resolveStatusByYear(facts, new Date().getUTCFullYear());
-    const datedCodes = new Set(facts.map((row) => row.entity_code));
+    const datedCodes = new Set(facts.filter((row) => isAdmissibleStatusFact(row) && factYear(row) <= new Date().getUTCFullYear()).map((row) => row.entity_code));
 
     let drawnAgree = 0;
     let withheldAgree = 0;

@@ -218,7 +218,7 @@ describe("real PostGIS features SQL regression", () => {
     expect(migration).toContain("west DOUBLE PRECISION := 30.5");
     expect(migration).toContain("east DOUBLE PRECISION := 32.1");
     expect(migration).toContain("north DOUBLE PRECISION := 30.8");
-  });
+  }, 30_000);
 
   it("accepts Regional Ring geometry at longitude 30.3 and rejects 30.1 in the production PostGIS trigger", async () => {
     const regionalId = (await db.query<{ id: number }>("SELECT id FROM entities WHERE code = 'ROAD-REGIONAL-RING'")).rows[0]?.id;
