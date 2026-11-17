@@ -1,27 +1,59 @@
 # Data licensing and attribution
 
-## Atlas research data
+**Policy effective date: 2026-11-18.** This file distinguishes the research material already released under an earlier licence from original research material first published after the effective date. It does not relicense third-party material.
 
-Facts, evidence, and all other data not derived from OpenStreetMap are licensed under:
+## Existing Atlas research data — legacy CC BY 4.0
 
-> © Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0
+All original Atlas research data, facts, evidence records, curation, documentation, and compilations that were published in the repository on or before 2026-11-17, including the canonical seed and the existing research batches that state CC BY 4.0, remain available under the licence originally offered:
 
-Contact: `01092500454 · 3boalazm@gmail.com`.
+> © Mustafa Aboalazm (مصطفى أبوالعزم), CC BY 4.0.
 
-CC BY 4.0 permits sharing and adaptation with appropriate credit, a link to the license, and indication of changes. See <https://creativecommons.org/licenses/by/4.0/>.
+The legacy licence is not withdrawn or retroactively replaced by this policy. Recipients who obtained those materials under CC BY 4.0 may continue exercising the rights granted by that licence, subject to its terms. The current checked-in data exports therefore continue to identify the existing research snapshot as CC BY 4.0.
 
-## OpenStreetMap-derived geometry
+See <https://creativecommons.org/licenses/by/4.0/>.
 
-OpenStreetMap-derived geometry remains under:
+## New original research material — CC BY-NC 4.0
 
-> © OpenStreetMap contributors, ODbL 1.0
+Original Atlas research material first published on or after 2026-11-18 by Mustafa Aboalazm, and clearly identified as such in its batch documentation, is licensed under:
 
-Redistributed geometry and derived database exports must retain attribution and comply with the Open Database License. See <https://www.openstreetmap.org/copyright> and <https://opendatacommons.org/licenses/odbl/1-0/>.
+> Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).
 
-## Code
+You may share and adapt that material for non-commercial purposes if you give appropriate credit, link to the licence, and indicate changes. Commercial use is not permitted under this licence; it requires a separate, prior written licence from the rights holder.
 
-No code license has been specified by the owner; code licensing remains for the owner to decide. This data notice does not grant code permissions or apply the CC BY 4.0 data license to code.
+Suggested attribution:
 
-## Export attribution
+> Mustafa Aboalazm, Greater Cairo Atlas, [repository or source-file link], licensed under CC BY-NC 4.0. Changes: [describe changes, or state none].
 
-CSV exports carry the research-data notice and contact in their first comment lines. JSON and GeoJSON exports include license metadata; geometry features also carry source attribution. Please preserve these notices when copying or redistributing data.
+The CC BY-NC 4.0 licence applies only to copyright and database rights that the rights holder is entitled to license. It does not claim ownership of bare facts, public-domain material, third-party source content, or rights held by other contributors. The NonCommercial restriction is defined by the licence itself; see <https://creativecommons.org/licenses/by-nc/4.0/> and its legal code at <https://creativecommons.org/licenses/by-nc/4.0/legalcode>.
+
+**Release gate:** new NC-licensed material must be labelled at the batch/source level. It must not be merged into the current combined public exports until the export pipeline can preserve mixed licences and emit the correct attribution for each included component. A blanket CC BY 4.0 header must never be used to describe new NC material, and a blanket CC BY-NC 4.0 header must never be used to relicense the legacy snapshot.
+
+## Third-party data and geometry
+
+Third-party material is not relicensed by this policy. Keep its original licence and required attribution:
+
+### OpenStreetMap
+
+> © OpenStreetMap contributors, ODbL 1.0.
+
+OpenStreetMap-derived geometry and derived databases remain subject to ODbL 1.0 and its attribution/share-alike requirements. See <https://www.openstreetmap.org/copyright> and <https://opendatacommons.org/licenses/odbl/1-0/>.
+
+### CAPMAS administrative boundaries via OCHA/HDX
+
+> Administrative boundaries © CAPMAS, via OCHA/HDX (CC BY-IGO).
+
+Preserve the source and attribution recorded in `data/research/codab-boundaries/README.md` and the corresponding geometry metadata. See <https://data.humdata.org/dataset/cod-ab-egy>.
+
+### Transport for Cairo and other sources
+
+The geometry manifest records Transport for Cairo GTFS attribution under CC BY 4.0. If TfC material is included in a release, preserve that separate attribution and licence; do not convert it to CC BY-NC 4.0. Any other source dataset, map, text, image, or document remains under its own terms unless the rights holder has expressly granted additional rights.
+
+## Software code
+
+The software source code is licensed separately under the PolyForm Noncommercial License 1.0.0 in the root [LICENSE](LICENSE). This data licence does not grant software rights, and the software licence does not relicense research data.
+
+## Exports and contact
+
+The current CSV, JSON, GeoJSON, and GeoPackage exports contain the legacy research snapshot and retain its CC BY 4.0 attribution alongside the applicable third-party notices. Future releases containing new CC BY-NC research require licence-aware export metadata before publication.
+
+Commercial licensing requests for material whose rights are held by Mustafa Aboalazm: `3boalazm@gmail.com`.

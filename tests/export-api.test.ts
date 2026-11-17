@@ -22,7 +22,8 @@ describe("atlas data exports", () => {
     expect(metadata.licenses.geometry).toContain("© OpenStreetMap contributors, ODbL 1.0");
     expect(metadata.licenses.administrative_boundaries).toContain("CAPMAS");
     expect(metadata.licenses.contact).toBe("01092500454 · 3boalazm@gmail.com");
-    expect(metadata.licenses.code).toContain("No code license has been specified");
+    expect(metadata.licenses.code).toContain("PolyForm Noncommercial License 1.0.0");
+    expect(metadata.licenses.future_research_data).toContain("CC BY-NC 4.0");
     const headers = new Headers(exportResponseHeaders(metadata, "application/json; charset=utf-8"));
     expect(headers.get("X-Atlas-Research-Data-License")).toBe("CC BY 4.0");
     expect(headers.get("X-Atlas-Research-Data-Copyright")).toBe("Mustafa Aboalazm");

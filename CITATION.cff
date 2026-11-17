@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use the Greater Cairo Atlas software or research catalogue, please cite it as follows."
+title: "Greater Cairo Atlas"
+type: software
+authors:
+  - family-names: Aboalazm
+    given-names: Mustafa
+    affiliation: Independent researcher and developer
+version: "0.1.0"
+date-released: "2026-11-18"
+url: "https://github.com/3boalazm/greater-cairo-atlas"
+repository-code: "https://github.com/3boalazm/greater-cairo-atlas"
+license: "PolyForm-Noncommercial-1.0.0"
+abstract: >-
+  A bilingual, source-backed urban and geographic atlas of Greater Cairo,
+  documenting entities, claims, evidence, spatial features, and relationships.
+keywords:
+  - Greater Cairo
+  - urban research
+  - geographic information systems
+  - geospatial data
+  - Egypt

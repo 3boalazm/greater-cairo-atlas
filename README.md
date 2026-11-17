@@ -34,4 +34,9 @@ Migrations `000`–`014` are checksum-verified and serialized. In production, Ve
 
 ## Licences and provenance
 
-Research data: © Mustafa Aboalazm (مصطفى أبوالعزم), CC BY 4.0. OSM geometry: © OpenStreetMap contributors, ODbL 1.0. CAPMAS administrative boundaries via OCHA/HDX: CC BY-IGO, machine identifier `CC-BY-IGO`. Preserve source attributions and applicable terms. The allowed geometry licence identifiers are `ODbL`, `ODbL-1.0`, `CC-BY-4.0`, `CC-BY-IGO`, `CC0-1.0`, `official_gazette`, and `custom_documented`; OSM features additionally require ODbL. No code licence has been designated by the owner. See [DATA_LICENSE.md](DATA_LICENSE.md).
+- **Existing Atlas research data published through 2026-11-17:** remains under CC BY 4.0 as originally released. This includes the current canonical seed and its existing exports; the earlier licence is not being withdrawn.
+- **New original research material first published from 2026-11-18:** CC BY-NC 4.0, with attribution to Mustafa Aboalazm and Greater Cairo Atlas. Commercial use requires separate prior written permission.
+- **Software source code:** PolyForm Noncommercial License 1.0.0, in [LICENSE](LICENSE). This is source-available, noncommercial software, not an OSI-approved Open Source release.
+- **Third-party material:** OpenStreetMap geometry remains ODbL 1.0; CAPMAS administrative boundaries via OCHA/HDX remain CC BY-IGO; any TfC GTFS or other third-party material retains its own licence and attribution.
+
+The root [LICENSE](LICENSE) applies to software code only. [DATA_LICENSE.md](DATA_LICENSE.md) defines the separate research-data policy. Do not treat the repository as one uniformly licensed work. The existing export pipeline describes the legacy CC BY 4.0 snapshot; future NC-licensed research must not be mixed into those exports until per-batch/per-record licence metadata and export attribution are implemented.
