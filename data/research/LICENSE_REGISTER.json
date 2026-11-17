@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "policy_effective_date": "2026-11-18",
+  "purpose": "Inventory of licence claims and provenance coverage. This register is not a substitute for per-record provenance metadata.",
+  "records": [
+    {
+      "id": "legacy-canonical-research",
+      "scope": "Original Atlas research material published in the repository through 2026-11-17, including the current canonical seed and existing exports.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-policy-inherited",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "DATA_LICENSE.md",
+        "README.md"
+      ],
+      "limitation": "The canonical seed does not retain a reliable batch identifier on every entity, fact, evidence row, and relationship. This declaration is a repository policy statement, not a per-record provenance audit."
+    },
+    {
+      "id": "central-batch05",
+      "scope": "Research facts and evidence in data/research/central-batch05.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-explicit",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "data/research/central-batch05/README.md"
+      ],
+      "method": "Gemini Deep Research raw output, curated by project workflow."
+    },
+    {
+      "id": "east-batch07",
+      "scope": "Research facts and evidence in data/research/east-batch07.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-explicit",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "data/research/east-batch07/README.md"
+      ],
+      "method": "ChatGPT web-search output treated as pointers, manually verified and curated."
+    },
+    {
+      "id": "east-batch08",
+      "scope": "Research facts and evidence in data/research/east-batch08.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-explicit",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "data/research/east-batch08/README.md"
+      ],
+      "method": "ChatGPT web-search output plus direct curator research and verification."
+    },
+    {
+      "id": "north-batch07",
+      "scope": "Research facts and evidence in data/research/north-batch07.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-explicit",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "data/research/north-batch07/README.md"
+      ],
+      "method": "Gemini Deep Research raw output, curated."
+    },
+    {
+      "id": "south-batch04",
+      "scope": "Research facts and evidence in data/research/south-batch04.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-explicit",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "data/research/south-batch04/README.md"
+      ],
+      "method": "Gemini Deep Research output; README states curated by Claude. Human authorship and protectability of AI-generated portions require legal review."
+    },
+    {
+      "id": "unknowns-batch06",
+      "scope": "Research facts and evidence in data/research/unknowns-batch06.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-explicit",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "data/research/unknowns-batch06/README.md"
+      ],
+      "method": "Gemini Deep Research raw output, curated."
+    },
+    {
+      "id": "unknowns-batch08",
+      "scope": "Research facts and evidence in data/research/unknowns-batch08.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-explicit",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "data/research/unknowns-batch08/README.md"
+      ],
+      "method": "Gemini Deep Research raw output, curated."
+    },
+    {
+      "id": "revision-research-files",
+      "scope": "Research material in rev5, rev6_1, rev6_2, rev7, rev8-draft, and rev9-status.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-policy-inherited",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "DATA_LICENSE.md"
+      ],
+      "limitation": "No batch README with an explicit per-revision licence statement was located in this pass. Included under the repository's pre-2026-11-18 legacy policy; source-level mapping remains incomplete."
+    },
+    {
+      "id": "batch22-supporting-curation",
+      "scope": "Alias-fix and attribute-label support files under data/research/alias-fix-batch22 and data/research/labels-batch22.",
+      "license": "CC-BY-4.0",
+      "status": "legacy-policy-inherited",
+      "rights_holder_claim": "Mustafa Aboalazm",
+      "evidence": [
+        "DATA_LICENSE.md"
+      ],
+      "limitation": "These are curation/normalization artefacts; their exact creative contribution and mapping to canonical records have not been separately audited."
+    },
+    {
+      "id": "osm-geometry",
+      "scope": "OpenStreetMap-derived features and geometry batches, including geometry-batch20, geometry-batch20b, and geometry-batch26.",
+      "license": "ODbL-1.0",
+      "status": "third-party-explicit",
+      "rights_holder_claim": "OpenStreetMap contributors",
+      "evidence": [
+        "data/research/geometry-batch20/README.md",
+        "data/research/geometry-batch20b/README.md",
+        "data/research/geometry-batch26/README.md"
+      ],
+      "limitation": "OSM geometry and any qualifying derived database remain subject to ODbL obligations."
+    },
+    {
+      "id": "capmas-codab-boundaries",
+      "scope": "CAPMAS COD-AB administrative boundaries supplied through OCHA/HDX.",
+      "license": "CC-BY-IGO",
+      "status": "third-party-explicit",
+      "rights_holder_claim": "CAPMAS; via OCHA/HDX",
+      "evidence": [
+        "data/research/codab-boundaries/README.md"
+      ],
+      "attribution": "Administrative boundaries © CAPMAS, via OCHA/HDX (CC BY-IGO)."
+    },
+    {
+      "id": "future-original-research",
+      "scope": "New original Atlas research material first published on or after 2026-11-18, only where authorship/rights are held by the licensor and the batch is explicitly labelled.",
+      "license": "CC-BY-NC-4.0",
+      "status": "future-only-not-yet-enabled",
+      "rights_holder_claim": "Mustafa Aboalazm only where legally entitled to license the material",
+      "evidence": [
+        "DATA_LICENSE.md"
+      ],
+      "export_eligible": false,
+      "requirements": [
+        "Explicit batch-level licence declaration",
+        "Record-level or source-level lineage into canonical seed",
+        "Third-party and AI-assisted material rights review",
+        "Licence-aware CSV/JSON/GeoJSON/GeoPackage attribution",
+        "Tests proving no mixed licence is described as a single blanket licence"
+      ]
+    },
+    {
+      "id": "software-code",
+      "scope": "Software source code only.",
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "status": "software-explicit",
+      "rights_holder_claim": "Repository rights holders, subject to contribution verification",
+      "evidence": [
+        "LICENSE",
+        "README.md"
+      ],
+      "limitation": "Does not relicense research data, geometry, third-party content, or contributions by others."
+    }
+  ],
+  "unresolved": [
+    "No per-record or per-batch lineage currently connects every canonical seed record to a research batch and its licence.",
+    "The repository's evidence schema records publisher and URL but not source-content licence or permission status.",
+    "The presence and exact scope of Transport for Cairo GTFS material were not verified from a dedicated source file in the current tree; do not assert it is included in an export until located.",
+    "AI-generated research and Claude-curated material require human contribution and legal protectability review; model output is not itself proof of copyright ownership.",
+    "Historical tags were not conclusively enumerated in this pass. GitHub Releases endpoint returned none."
+  ]
+}

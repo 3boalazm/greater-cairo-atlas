@@ -52,6 +52,10 @@ The geometry manifest records Transport for Cairo GTFS attribution under CC BY 4
 
 The software source code is licensed separately under the PolyForm Noncommercial License 1.0.0 in the root [LICENSE](LICENSE). This data licence does not grant software rights, and the software licence does not relicense research data.
 
+## Provenance audit register
+
+The current batch/source inventory and unresolved provenance gaps are recorded in [DATA_PROVENANCE_AUDIT.md](DATA_PROVENANCE_AUDIT.md) and the machine-readable [LICENSE_REGISTER.json](data/research/LICENSE_REGISTER.json). These are audit records, not a per-record licensing implementation. The mixed-licence export release gate remains in force.
+
 ## Exports and contact
 
 The current CSV, JSON, GeoJSON, and GeoPackage exports contain the legacy research snapshot and retain its CC BY 4.0 attribution alongside the applicable third-party notices. Future releases containing new CC BY-NC research require licence-aware export metadata before publication.
