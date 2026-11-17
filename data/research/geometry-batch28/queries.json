@@ -1,0 +1,2616 @@
+[
+{
+"code": "BRIDGE-BENHA-FLYOVER",
+"type": "bridge",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "كوبري بنها العلوي",
+"name_en": "Benha Flyover Bridge",
+"aliases": [],
+"q": [
+"كوبري بنها العلوي",
+"Benha Flyover Bridge"
+]
+},
+{
+"code": "BRIDGE-BENHA-NILE",
+"type": "bridge",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "كوبري بنها على النيل",
+"name_en": "Banha Nile Bridge (Regional Ring Road)",
+"aliases": [
+"كوبري بنها على النيل بالدائري الإقليمي",
+"Banha Nile Bridge"
+],
+"q": [
+"كوبري بنها على النيل",
+"Banha Nile Bridge",
+"كوبري بنها على النيل بالدائري الإقليمي"
+]
+},
+{
+"code": "BRIDGE-GIZA",
+"type": "bridge",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "كوبري الجيزة",
+"name_en": "Giza Bridge",
+"aliases": [],
+"q": [
+"كوبري الجيزة",
+"Giza Bridge"
+]
+},
+{
+"code": "BRIDGE-MIDDLE-RING-ISMAILIA",
+"type": "bridge",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "كوبري تقاطع الدائري الأوسطي مع طريق الإسماعيلية الصحراوي",
+"name_en": "Middle Ring – Ismailia Desert Road Interchange Bridge",
+"aliases": [],
+"q": [
+"كوبري تقاطع الدائري الأوسطي مع طريق الإسماعيلية الصحراوي",
+"Middle Ring – Ismailia Desert Road Interchange Bridge"
+]
+},
+{
+"code": "BRIDGE-MONIB",
+"type": "bridge",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "كوبري المنيب",
+"name_en": "El Monib Bridge",
+"aliases": [
+"الدائري الجنوبي",
+"دائري المنيب"
+],
+"q": [
+"كوبري المنيب",
+"El Monib Bridge",
+"الدائري الجنوبي",
+"دائري المنيب"
+]
+},
+{
+"code": "BRIDGE-QALYUB-FLYOVER",
+"type": "bridge",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "كوبري قليوب العلوي",
+"name_en": "Qalyub Overpass Bridge",
+"aliases": [
+"كوبري قليوب",
+"Qalyub Flyover"
+],
+"q": [
+"كوبري قليوب العلوي",
+"Qalyub Overpass Bridge",
+"كوبري قليوب",
+"Qalyub Flyover"
+]
+},
+{
+"code": "BRIDGE-RING-NORTH-WARRAQ",
+"type": "bridge",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "كوبري الدائري الشمالي (الوراق)",
+"name_en": "Ring Road North Bridge (Warraq)",
+"aliases": [],
+"q": [
+"كوبري الدائري الشمالي",
+"Ring Road North Bridge"
+]
+},
+{
+"code": "BRIDGE-SHUBRA-AXIS",
+"type": "bridge",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "كباري منطقة شبرا (محور روض الفرج)",
+"name_en": "Shubra Area Bridges (Rod El Farag Axis)",
+"aliases": [
+"مطالع ومنازل كوبري تحيا مصر بمنطقة شبرا",
+"كباري شبرا"
+],
+"q": [
+"كباري منطقة شبرا",
+"Shubra Area Bridges",
+"مطالع ومنازل كوبري تحيا مصر بمنطقة شبرا",
+"كباري شبرا"
+]
+},
+{
+"code": "BRIDGE-TAHYA-MISR",
+"type": "bridge",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "كوبري تحيا مصر",
+"name_en": "Tahya Misr Cable-Stayed Bridge",
+"aliases": [
+"كوبري روض الفرج الملجم",
+"كوبري النيل الشرقي",
+"كوبري تحيا مصر بروض الفرج"
+],
+"q": [
+"كوبري تحيا مصر",
+"Tahya Misr Cable-Stayed Bridge",
+"كوبري روض الفرج الملجم",
+"كوبري النيل الشرقي"
+]
+},
+{
+"code": "BRIDGE-TAHYA-MISR-RING",
+"type": "bridge",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "كوبري تقاطع محور تحيا مصر مع الطريق الدائري",
+"name_en": "Tahya Misr Axis – Ring Road Interchange Bridge",
+"aliases": [
+"تقاطع محور تحيا مصر مع الدائري"
+],
+"q": [
+"كوبري تقاطع محور تحيا مصر مع الطريق الدائري",
+"Tahya Misr Axis – Ring Road Interchange Bridge",
+"تقاطع محور تحيا مصر مع الدائري"
+]
+},
+{
+"code": "CITY-ABU-SIMBEL",
+"type": "city",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "أبو سمبل",
+"name_en": "Abu Simbel",
+"aliases": [
+"مدينة أبو سمبل",
+"أبو سمبل السياحية"
+],
+"q": [
+"أبو سمبل",
+"Abu Simbel",
+"أبو سمبل السياحية"
+]
+},
+{
+"code": "CITY-AIN-SOKHNA",
+"type": "city",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "العين السخنة",
+"name_en": "Ain Sokhna",
+"aliases": [
+"السخنة",
+"Al Ain Al Sokhna"
+],
+"q": [
+"العين السخنة",
+"Ain Sokhna",
+"السخنة",
+"Al Ain Al Sokhna"
+]
+},
+{
+"code": "CITY-ALAMEIN",
+"type": "city",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "العلمين",
+"name_en": "El Alamein",
+"aliases": [
+"مدينة العلمين",
+"Al Alamayn"
+],
+"q": [
+"العلمين",
+"El Alamein",
+"Al Alamayn"
+]
+},
+{
+"code": "CITY-ALEXANDRIA",
+"type": "city",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "إسكندرية",
+"name_en": "Alexandria",
+"aliases": [
+"الإسكندرية",
+"الاسكندرية",
+"Al Iskandariyah"
+],
+"q": [
+"إسكندرية",
+"Alexandria",
+"الإسكندرية",
+"Al Iskandariyah"
+]
+},
+{
+"code": "CITY-HURGHADA",
+"type": "city",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "الغردقة",
+"name_en": "Hurghada",
+"aliases": [
+"مدينة الغردقة",
+"Al Ghardaqah"
+],
+"q": [
+"الغردقة",
+"Hurghada",
+"Al Ghardaqah"
+]
+},
+{
+"code": "CITY-KHANKA",
+"type": "city",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "الخانكة",
+"name_en": "El Khanka",
+"aliases": [
+"مركز ومدينة الخانكة",
+"مركز الخانكة",
+"مدينة الخانكة",
+"Khanka",
+"Al Khankah",
+"El-Khanka"
+],
+"q": [
+"الخانكة",
+"El Khanka",
+"Khanka"
+]
+},
+{
+"code": "CITY-MANSOURA",
+"type": "city",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "المنصورة",
+"name_en": "Mansoura",
+"aliases": [
+"مدينة المنصورة",
+"El Mansoura",
+"Al Mansurah"
+],
+"q": [
+"المنصورة",
+"Mansoura",
+"El Mansoura"
+]
+},
+{
+"code": "CITY-MARSA-MATROUH",
+"type": "city",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "مرسى مطروح",
+"name_en": "Marsa Matrouh",
+"aliases": [
+"مطروح",
+"Marsa Matruh",
+"Mersa Matruh"
+],
+"q": [
+"مرسى مطروح",
+"Marsa Matrouh",
+"مطروح",
+"Marsa Matruh"
+]
+},
+{
+"code": "CITY-MOSTAKBAL",
+"type": "city",
+"sector": "EAST",
+"status": "partial",
+"name_ar": "المستقبل سيتي",
+"name_en": "Mostakbal City",
+"aliases": [
+"المستقبل",
+"مستقبل سيتي",
+"Future City"
+],
+"q": [
+"المستقبل سيتي",
+"Mostakbal City",
+"المستقبل",
+"مستقبل سيتي"
+]
+},
+{
+"code": "CITY-NEW-HELIOPOLIS",
+"type": "city",
+"sector": "EAST",
+"status": "partial",
+"name_ar": "هليوبوليس الجديدة",
+"name_en": "New Heliopolis",
+"aliases": [
+"مدينة هليوبوليس الجديدة",
+"هيليوبوليس الجديدة",
+"New Heliopolis City"
+],
+"q": [
+"هليوبوليس الجديدة",
+"New Heliopolis",
+"هيليوبوليس الجديدة",
+"New Heliopolis City"
+]
+},
+{
+"code": "CITY-NEW-OCTOBER",
+"type": "city",
+"sector": "WEST",
+"status": "partial",
+"name_ar": "أكتوبر الجديدة",
+"name_en": "New October",
+"aliases": [
+"مدينة 6 أكتوبر الجديدة",
+"مدينة أكتوبر الجديدة",
+"New 6th of October City",
+"New October City"
+],
+"q": [
+"أكتوبر الجديدة",
+"New October",
+"6 أكتوبر الجديدة",
+"New 6th of October City"
+]
+},
+{
+"code": "CITY-QENA",
+"type": "city",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "قنا",
+"name_en": "Qena",
+"aliases": [
+"مدينة قنا",
+"Qina"
+],
+"q": [
+"قنا",
+"Qena",
+"Qina"
+]
+},
+{
+"code": "CITY-SAFAGA",
+"type": "city",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "سفاجا",
+"name_en": "Safaga",
+"aliases": [
+"مدينة سفاجا",
+"Bur Safaga"
+],
+"q": [
+"سفاجا",
+"Safaga",
+"Bur Safaga"
+]
+},
+{
+"code": "DIST-ABU-RAWASH",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "أبو رواش",
+"name_en": "Abu Rawash",
+"aliases": [
+"Abu Roash"
+],
+"q": [
+"أبو رواش",
+"Abu Rawash",
+"Abu Roash"
+]
+},
+{
+"code": "DIST-ABU-ZAABAL",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "أبو زعبل",
+"name_en": "Abu Zaabal",
+"aliases": [
+"Abu Za'bal"
+],
+"q": [
+"أبو زعبل",
+"Abu Zaabal",
+"Abu Za'bal"
+]
+},
+{
+"code": "DIST-DAQADOS",
+"type": "district",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "دقادوس",
+"name_en": "Daqados",
+"aliases": [
+"Daqadus"
+],
+"q": [
+"دقادوس",
+"Daqados",
+"Daqadus"
+]
+},
+{
+"code": "DIST-DEGLA",
+"type": "district",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "دجلة",
+"name_en": "Degla",
+"aliases": [
+"دجلة المعادي",
+"Degla Maadi"
+],
+"q": [
+"دجلة",
+"Degla",
+"دجلة المعادي",
+"Degla Maadi"
+]
+},
+{
+"code": "DIST-DOWNTOWN",
+"type": "district",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "وسط البلد",
+"name_en": "Downtown Cairo",
+"aliases": [
+"وسط القاهرة",
+"Wust El Balad",
+"Downtown",
+"Wasat al-Balad"
+],
+"q": [
+"وسط البلد",
+"Downtown Cairo",
+"وسط القاهرة",
+"Wust El Balad"
+]
+},
+{
+"code": "DIST-EAST-SHUBRA-ELKHEIMA",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "حي شرق شبرا الخيمة",
+"name_en": "East Shubra El Kheima District",
+"aliases": [
+"قسم ثان شبرا الخيمة",
+"قسم ثاني شبرا الخيمة",
+"حي شرق شبرا الخيمه",
+"Shubra El Kheima 2",
+"Shubra El-Kheima Second"
+],
+"q": [
+"شرق شبرا الخيمة",
+"East Shubra El Kheima District",
+"ثان شبرا الخيمة",
+"ثاني شبرا الخيمة"
+]
+},
+{
+"code": "DIST-FAISAL",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "فيصل",
+"name_en": "Faisal",
+"aliases": [
+"شارع فيصل",
+"King Faisal"
+],
+"q": [
+"فيصل",
+"Faisal",
+"شارع فيصل",
+"King Faisal"
+]
+},
+{
+"code": "DIST-GHARB",
+"type": "district",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "حي غرب",
+"name_en": "Gharb (West) District",
+"aliases": [
+"حى غرب",
+"حي غرب القاهرة",
+"West District",
+"West Cairo District"
+],
+"q": [
+"غرب",
+"Gharb District",
+"غرب القاهرة",
+"West District"
+]
+},
+{
+"code": "DIST-GREEN-SARAYA",
+"type": "district",
+"sector": "EAST",
+"status": "unknown",
+"name_ar": "السرايا الخضرا",
+"name_en": "Green Saraya",
+"aliases": [
+"السروة الخضرا",
+"السرايا الخضراء"
+],
+"q": [
+"السرايا الخضرا",
+"Green Saraya",
+"السروة الخضرا",
+"السرايا الخضراء"
+]
+},
+{
+"code": "DIST-HADAEK-ASHGAR",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "حدائق الأشجار",
+"name_en": "Hadaek El Ashgar",
+"aliases": [
+"حدائق الاشجار"
+],
+"q": [
+"حدائق الأشجار",
+"Hadaek El Ashgar"
+]
+},
+{
+"code": "DIST-HADAEK-OCTOBER",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "حدائق أكتوبر",
+"name_en": "Hadaek October",
+"aliases": [
+"مدينة حدائق أكتوبر",
+"Hadayek October",
+"October Gardens"
+],
+"q": [
+"حدائق أكتوبر",
+"Hadaek October",
+"Hadayek October"
+]
+},
+{
+"code": "DIST-HARAM",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "الهرم",
+"name_en": "Haram",
+"aliases": [
+"حي الهرم",
+"قسم الهرم",
+"El Haram",
+"Al Haram"
+],
+"q": [
+"الهرم",
+"Haram",
+"El Haram"
+]
+},
+{
+"code": "DIST-HELWAN",
+"type": "district",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "حلوان",
+"name_en": "Helwan",
+"aliases": [
+"حي حلوان",
+"قسم حلوان",
+"Helwan District",
+"Hulwan"
+],
+"q": [
+"حلوان",
+"Helwan",
+"Helwan District"
+]
+},
+{
+"code": "DIST-HUSSEIN-AZHAR",
+"type": "district",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "الحسين والأزهر",
+"name_en": "El Hussein and Al Azhar",
+"aliases": [
+"الحسين",
+"الأزهر",
+"El Hussein",
+"Al Azhar",
+"El Gamaleya"
+],
+"q": [
+"الحسين والأزهر",
+"El Hussein and Al Azhar",
+"الحسين",
+"الأزهر"
+]
+},
+{
+"code": "DIST-MAADI",
+"type": "district",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "المعادي",
+"name_en": "Maadi",
+"aliases": [
+"حي المعادي",
+"قسم المعادي",
+"El Maadi",
+"Al Maadi",
+"Maadi District"
+],
+"q": [
+"المعادي",
+"Maadi",
+"El Maadi"
+]
+},
+{
+"code": "DIST-MANSOURIYA",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "المنصورية",
+"name_en": "El Mansouriya",
+"aliases": [
+"Al Mansuriyah"
+],
+"q": [
+"المنصورية",
+"El Mansouriya",
+"Al Mansuriyah"
+]
+},
+{
+"code": "DIST-MARG",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "المرج",
+"name_en": "El Marg",
+"aliases": [
+"حي المرج",
+"حى المرج",
+"قسم المرج",
+"El Marg District",
+"Al Marj"
+],
+"q": [
+"المرج",
+"El Marg",
+"El Marg District"
+]
+},
+{
+"code": "DIST-MATARIYA",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "المطرية",
+"name_en": "El Matariya",
+"aliases": [
+"حي المطرية",
+"قسم المطرية",
+"El Matareya",
+"Matariyya",
+"Al Matariyah"
+],
+"q": [
+"المطرية",
+"El Matariya",
+"El Matareya"
+]
+},
+{
+"code": "DIST-MIT-ELEZZ",
+"type": "district",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "ميت العز",
+"name_en": "Mit El Ezz",
+"aliases": [
+"Mit al-Izz"
+],
+"q": [
+"ميت العز",
+"Mit El Ezz",
+"Mit al-Izz"
+]
+},
+{
+"code": "DIST-NARGES",
+"type": "district",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "النرجس",
+"name_en": "El Narges",
+"aliases": [
+"حي النرجس",
+"Al Narges"
+],
+"q": [
+"النرجس",
+"El Narges",
+"Al Narges"
+]
+},
+{
+"code": "DIST-OM-BAYOUMI",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "أم بيومي",
+"name_en": "Om Bayoumi",
+"aliases": [
+"أم بيومى"
+],
+"q": [
+"أم بيومي",
+"Om Bayoumi"
+]
+},
+{
+"code": "DIST-OMRANIYA",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "العمرانية",
+"name_en": "Omraneya",
+"aliases": [
+"حي العمرانية",
+"قسم العمرانية",
+"El Omraneya",
+"Al Umraniyah"
+],
+"q": [
+"العمرانية",
+"Omraneya",
+"El Omraneya"
+]
+},
+{
+"code": "DIST-REMAYA",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "الرماية",
+"name_en": "El Remaya",
+"aliases": [
+"Remaya Square"
+],
+"q": [
+"الرماية",
+"El Remaya",
+"Remaya Square"
+]
+},
+{
+"code": "DIST-SALAM-1",
+"type": "district",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "حي السلام أول",
+"name_en": "El Salam First District",
+"aliases": [
+"السلام أول",
+"حى السلام اول",
+"قسم السلام أول",
+"Al Salam 1",
+"El Salam 1"
+],
+"q": [
+"السلام أول",
+"El Salam First District",
+"Al Salam 1"
+]
+},
+{
+"code": "DIST-SALAM-2",
+"type": "district",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "حي السلام ثان",
+"name_en": "El Salam Second District",
+"aliases": [
+"السلام ثاني",
+"حى السلام ثانى",
+"قسم السلام ثان",
+"Al Salam 2",
+"El Salam 2"
+],
+"q": [
+"السلام ثان",
+"El Salam Second District",
+"السلام ثاني",
+"Al Salam 2"
+]
+},
+{
+"code": "DIST-SHUBRA",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "شبرا",
+"name_en": "Shubra",
+"aliases": [
+"حي شبرا",
+"حى شبرا",
+"قسم شبرا",
+"Shoubra",
+"Shubra District"
+],
+"q": [
+"شبرا",
+"Shubra",
+"Shoubra"
+]
+},
+{
+"code": "DIST-SMART-VILLAGE",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "القرية الذكية",
+"name_en": "Smart Village",
+"aliases": [
+"Smart Village Egypt"
+],
+"q": [
+"القرية الذكية",
+"Smart Village",
+"Smart Village Egypt"
+]
+},
+{
+"code": "DIST-SOUTH-GIZA",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "جنوب الجيزة",
+"name_en": "South Giza",
+"aliases": [
+"حي جنوب الجيزة",
+"قسم الجيزة",
+"South Giza District",
+"Giza South"
+],
+"q": [
+"جنوب الجيزة",
+"South Giza",
+"الجيزة",
+"South Giza District"
+]
+},
+{
+"code": "DIST-TAHRIR",
+"type": "district",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "التحرير",
+"name_en": "Tahrir",
+"aliases": [
+"ميدان التحرير",
+"Tahrir Square",
+"El Tahrir"
+],
+"q": [
+"التحرير",
+"Tahrir",
+"ميدان التحرير",
+"Tahrir Square"
+]
+},
+{
+"code": "DIST-TEBBIN",
+"type": "district",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "التبين",
+"name_en": "El Tebbin",
+"aliases": [
+"حي التبين",
+"قسم التبين",
+"Tibbin"
+],
+"q": [
+"التبين",
+"El Tebbin",
+"Tibbin"
+]
+},
+{
+"code": "DIST-WARRAQ",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "الوراق",
+"name_en": "El Warraq",
+"aliases": [
+"حي الوراق",
+"قسم الوراق",
+"Al Warraq"
+],
+"q": [
+"الوراق",
+"El Warraq",
+"Al Warraq"
+]
+},
+{
+"code": "DIST-WASAT",
+"type": "district",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "حي وسط",
+"name_en": "Wasat (Central) District",
+"aliases": [
+"حى وسط",
+"حي وسط القاهرة",
+"Wasat District",
+"Central Cairo District"
+],
+"q": [
+"وسط",
+"Wasat District",
+"وسط القاهرة"
+]
+},
+{
+"code": "DIST-WEST-SHUBRA-ELKHEIMA",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "حي غرب شبرا الخيمة",
+"name_en": "West Shubra El Kheima District",
+"aliases": [
+"قسم أول شبرا الخيمة",
+"قسم اول شبرا الخيمة",
+"حي غرب شبرا الخيمه",
+"Shubra El Kheima 1",
+"Shubra El-Kheima First"
+],
+"q": [
+"غرب شبرا الخيمة",
+"West Shubra El Kheima District",
+"أول شبرا الخيمة",
+"Shubra El Kheima 1"
+]
+},
+{
+"code": "DIST-ZAHRAA-MAADI",
+"type": "district",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "زهراء المعادي",
+"name_en": "Zahraa El Maadi",
+"aliases": [
+"زهراء المعادى",
+"Zahraa Al Maadi"
+],
+"q": [
+"زهراء المعادي",
+"Zahraa El Maadi",
+"Zahraa Al Maadi"
+]
+},
+{
+"code": "DIST-ZAWYA-HAMRA",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "الزاوية الحمرا",
+"name_en": "El Zawya El Hamra",
+"aliases": [
+"حي الزاوية الحمراء",
+"حى الزاوية الحمراء",
+"الزاوية الحمراء",
+"قسم الزاوية الحمراء",
+"Al Zawiyah al Hamra"
+],
+"q": [
+"الزاوية الحمرا",
+"El Zawya El Hamra",
+"الزاوية الحمراء",
+"Al Zawiyah al Hamra"
+]
+},
+{
+"code": "RAIL-BASHTIL",
+"type": "rail_station",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "محطة قطارات الصعيد في بشتيل",
+"name_en": "Bashtil Upper Egypt Rail Station",
+"aliases": [
+"بشتيل"
+],
+"q": [
+"محطة قطارات الصعيد في بشتيل",
+"Bashtil Upper Egypt Rail Station",
+"بشتيل"
+]
+},
+{
+"code": "ROAD-CAIRO-ASSIUT-AGRI",
+"type": "road",
+"sector": "WEST",
+"status": "unknown",
+"name_ar": "القاهرة–أسيوط الزراعي",
+"name_en": "Cairo–Assiut Agricultural Road",
+"aliases": [
+"طريق القاهرة أسيوط الزراعي",
+"القاهرة أسيوط الزراعي",
+"Cairo Asyout Agricultural Road"
+],
+"q": [
+"القاهرة–أسيوط الزراعي",
+"Cairo–Assiut Agricultural Road",
+"طريق القاهرة أسيوط الزراعي",
+"القاهرة أسيوط الزراعي"
+]
+},
+{
+"code": "ROAD-EASTERN-DESERT",
+"type": "road",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "الصحراوي الشرقي",
+"name_en": "Eastern Desert Road",
+"aliases": [
+"طريق القاهرة السويس الصحراوي",
+"الطريق الصحراوي الشرقي"
+],
+"q": [
+"الصحراوي الشرقي",
+"Eastern Desert Road",
+"طريق القاهرة السويس الصحراوي",
+"الطريق الصحراوي الشرقي"
+]
+},
+{
+"code": "ROAD-REGIONAL-NW-ARC",
+"type": "road",
+"sector": "REGIONAL",
+"status": "operational",
+"name_ar": "القوس الشمالي الغربي للإقليمي",
+"name_en": "Regional Ring Road North-West Arc",
+"aliases": [
+"القوس الشمالي الغربي للطريق الدائري الإقليمي"
+],
+"q": [
+"القوس الشمالي الغربي للإقليمي",
+"Regional Ring Road North-West Arc",
+"القوس الشمالي الغربي للطريق الدائري الإقليمي"
+]
+},
+{
+"code": "STOP-BRT-AIN-SOKHNA-RD",
+"type": "transit_stop",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "محطة طريق العين السخنة",
+"name_en": "Ain Sokhna Road BRT Station",
+"aliases": [],
+"q": [
+"محطة طريق العين السخنة BRT",
+"BRT Ain Sokhna Road",
+"محطة طريق العين السخنة",
+"Ain Sokhna Road BRT Station"
+]
+},
+{
+"code": "STOP-BRT-ALEX-AGRI",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة الإسكندرية الزراعي (BRT)",
+"name_en": "Alexandria Agricultural Rd BRT Station",
+"aliases": [
+"محطة إسكندرية الزراعي",
+"الإسكندرية الزراعي"
+],
+"q": [
+"محطة الإسكندرية الزراعي BRT",
+"BRT Alexandria Agricultural Rd",
+"محطة الإسكندرية الزراعي",
+"Alexandria Agricultural Rd BRT Station"
+]
+},
+{
+"code": "STOP-BRT-ALGERIA-ST",
+"type": "transit_stop",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "محطة الجزائر (BRT)",
+"name_en": "El Gazayer (Algeria St) BRT Station",
+"aliases": [
+"الجزائر (BRT)",
+"شارع الجزائر"
+],
+"q": [
+"محطة الجزائر BRT",
+"BRT El Gazayer",
+"محطة الجزائر",
+"El Gazayer BRT Station"
+]
+},
+{
+"code": "STOP-BRT-BAHR-AZAM",
+"type": "transit_stop",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "محطة البحر الأعظم (BRT)",
+"name_en": "El Bahr El Aazam BRT Station",
+"aliases": [
+"البحر الأعظم"
+],
+"q": [
+"محطة البحر الأعظم BRT",
+"BRT El Bahr El Aazam",
+"محطة البحر الأعظم",
+"El Bahr El Aazam BRT Station"
+]
+},
+{
+"code": "STOP-BRT-BAHTIM",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة بهتيم (BRT)",
+"name_en": "Bahtim BRT Station",
+"aliases": [
+"بهتيم (BRT)"
+],
+"q": [
+"محطة بهتيم BRT",
+"BRT Bahtim",
+"محطة بهتيم",
+"Bahtim BRT Station"
+]
+},
+{
+"code": "STOP-BRT-EL-MARG",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة المرج (BRT)",
+"name_en": "El Marg BRT Station",
+"aliases": [
+"المرج (BRT)"
+],
+"q": [
+"محطة المرج BRT",
+"BRT El Marg",
+"محطة المرج",
+"El Marg BRT Station"
+]
+},
+{
+"code": "STOP-BRT-GOLF",
+"type": "transit_stop",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "محطة الجولف (BRT)",
+"name_en": "Golf BRT Station",
+"aliases": [
+"الجولف"
+],
+"q": [
+"محطة الجولف BRT",
+"BRT Golf",
+"محطة الجولف",
+"Golf BRT Station"
+]
+},
+{
+"code": "STOP-BRT-IBRAHIM-ORABI",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة الفريق إبراهيم عرابي (BRT)",
+"name_en": "El Fereeq Ibrahim Orabi BRT Station",
+"aliases": [
+"الفريق إبراهيم عرابي"
+],
+"q": [
+"محطة الفريق إبراهيم عرابي BRT",
+"BRT El Fereeq Ibrahim Orabi",
+"محطة الفريق إبراهيم عرابي",
+"El Fereeq Ibrahim Orabi BRT Station"
+]
+},
+{
+"code": "STOP-BRT-IMAMAIN",
+"type": "transit_stop",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "محطة الإمامين (BRT)",
+"name_en": "El Imamain BRT Station",
+"aliases": [
+"الإمامين"
+],
+"q": [
+"محطة الإمامين BRT",
+"BRT El Imamain",
+"محطة الإمامين",
+"El Imamain BRT Station"
+]
+},
+{
+"code": "STOP-BRT-KHOSOUS",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة الخصوص (BRT)",
+"name_en": "El Khosous BRT Station",
+"aliases": [
+"الخصوص (BRT)"
+],
+"q": [
+"محطة الخصوص BRT",
+"BRT El Khosous",
+"محطة الخصوص",
+"El Khosous BRT Station"
+]
+},
+{
+"code": "STOP-BRT-MAADI",
+"type": "transit_stop",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "محطة المعادي",
+"name_en": "Maadi BRT Station",
+"aliases": [],
+"q": [
+"محطة المعادي BRT",
+"BRT Maadi",
+"محطة المعادي",
+"Maadi BRT Station"
+]
+},
+{
+"code": "STOP-BRT-MARYUTEYA",
+"type": "transit_stop",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "المريوطية",
+"name_en": "Maryuteya BRT Station",
+"aliases": [],
+"q": [
+"محطة المريوطية BRT",
+"BRT Maryuteya",
+"محطة المريوطية",
+"Maryuteya BRT Station"
+]
+},
+{
+"code": "STOP-BRT-MOKATTAM",
+"type": "transit_stop",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "محطة المقطم",
+"name_en": "Mokattam BRT Station",
+"aliases": [],
+"q": [
+"محطة المقطم BRT",
+"BRT Mokattam",
+"محطة المقطم",
+"Mokattam BRT Station"
+]
+},
+{
+"code": "STOP-BRT-MOSTOROD",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة مسطرد (BRT)",
+"name_en": "Mostorod BRT Station",
+"aliases": [
+"مسطرد (BRT)"
+],
+"q": [
+"محطة مسطرد BRT",
+"BRT Mostorod",
+"محطة مسطرد",
+"Mostorod BRT Station"
+]
+},
+{
+"code": "STOP-BRT-OMRANIYA",
+"type": "transit_stop",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "العمرانية",
+"name_en": "Omraniya BRT Station",
+"aliases": [],
+"q": [
+"محطة العمرانية BRT",
+"BRT Omraniya",
+"محطة العمرانية",
+"Omraniya BRT Station"
+]
+},
+{
+"code": "STOP-BRT-POLICE-ACADEMY",
+"type": "transit_stop",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "محطة أكاديمية الشرطة (BRT)",
+"name_en": "Police Academy BRT Station",
+"aliases": [
+"أكاديمية الشرطة"
+],
+"q": [
+"محطة أكاديمية الشرطة BRT",
+"BRT Police Academy",
+"محطة أكاديمية الشرطة",
+"Police Academy BRT Station"
+]
+},
+{
+"code": "STOP-BRT-QALG",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة القلج (BRT)",
+"name_en": "El Qalg BRT Station",
+"aliases": [
+"القلج",
+"طريق محمد نجيب (BRT)"
+],
+"q": [
+"محطة القلج BRT",
+"BRT El Qalg",
+"محطة القلج",
+"El Qalg BRT Station"
+]
+},
+{
+"code": "STOP-BRT-SALAM",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة السلام (BRT)",
+"name_en": "El Salam BRT Station",
+"aliases": [
+"السلام (BRT)"
+],
+"q": [
+"محطة السلام BRT",
+"BRT El Salam",
+"محطة السلام",
+"El Salam BRT Station"
+]
+},
+{
+"code": "STOP-BRT-SHARQAWIYA",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة العقيد أحمد عبد الرحيم (الشرقاوية)",
+"name_en": "Col. Ahmed Abdel Rahim (El Sharqawiya) BRT Station",
+"aliases": [
+"الشرقاوية",
+"العقيد أحمد عبدالرحيم"
+],
+"q": [
+"محطة العقيد أحمد عبد الرحيم BRT",
+"BRT Col. Ahmed Abdel Rahim",
+"محطة العقيد أحمد عبد الرحيم",
+"Col. Ahmed Abdel Rahim BRT Station"
+]
+},
+{
+"code": "STOP-BRT-SHUBRA-BENHA",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة شبرا بنها (BRT)",
+"name_en": "Shubra–Banha BRT Station",
+"aliases": [
+"شبرا بنها"
+],
+"q": [
+"محطة شبرا بنها BRT",
+"BRT Shubra–Banha",
+"محطة شبرا بنها",
+"Shubra–Banha BRT Station"
+]
+},
+{
+"code": "STOP-BRT-SUEZ-RD",
+"type": "transit_stop",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "محطة طريق السويس (BRT)",
+"name_en": "Suez Road BRT Station",
+"aliases": [
+"طريق السويس (BRT)"
+],
+"q": [
+"محطة طريق السويس BRT",
+"BRT Suez Road",
+"محطة طريق السويس",
+"Suez Road BRT Station"
+]
+},
+{
+"code": "STOP-BRT-TALBIYA",
+"type": "transit_stop",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "الطالبية",
+"name_en": "Talbiya BRT Station",
+"aliases": [],
+"q": [
+"محطة الطالبية BRT",
+"BRT Talbiya",
+"محطة الطالبية",
+"Talbiya BRT Station"
+]
+},
+{
+"code": "STOP-BRT-ZAHRAA",
+"type": "transit_stop",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "محطة الزهراء (BRT)",
+"name_en": "El Zahraa BRT Station",
+"aliases": [
+"الزهراء (BRT)"
+],
+"q": [
+"محطة الزهراء BRT",
+"BRT El Zahraa",
+"محطة الزهراء",
+"El Zahraa BRT Station"
+]
+},
+{
+"code": "STOP-BRT-ZAKAT",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة مؤسسة الزكاة (BRT)",
+"name_en": "Moassaset El Zakat BRT Station",
+"aliases": [
+"مؤسسة الزكاة"
+],
+"q": [
+"محطة مؤسسة الزكاة BRT",
+"BRT Moassaset El Zakat",
+"محطة مؤسسة الزكاة",
+"Moassaset El Zakat BRT Station"
+]
+},
+{
+"code": "STOP-LRT-10TH-RAMADAN-1",
+"type": "transit_stop",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "العاشر من رمضان 1",
+"name_en": "10th of Ramadan 1 LRT Station",
+"aliases": [
+"العاشر 1"
+],
+"q": [
+"العاشر من رمضان 1",
+"10th of Ramadan 1 LRT Station",
+"العاشر 1"
+]
+},
+{
+"code": "STOP-M2-ST-TERESA",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "سانت تريزا",
+"name_en": "St. Teresa Metro Station (Line 2)",
+"aliases": [
+"محطة سانت تريزا",
+"Saint Teresa"
+],
+"q": [
+"سانت تريزا",
+"St. Teresa Metro Station",
+"محطة سانت تريزا",
+"Saint Teresa"
+]
+},
+{
+"code": "STOP-M3-ROD-ELFARAG-AXIS",
+"type": "transit_stop",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محور روض الفرج (الخط الثالث)",
+"name_en": "Rod El Farag Axis Metro Station (Line 3)",
+"aliases": [
+"محطة محور روض الفرج",
+"Rod El Farag Corridor"
+],
+"q": [
+"محور روض الفرج",
+"Rod El Farag Axis Metro Station",
+"محطة محور روض الفرج",
+"Rod El Farag Corridor"
+]
+},
+{
+"code": "STOP-SUN-CAPITAL",
+"type": "transit_stop",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "صن كابيتال",
+"name_en": "Sun Capital Hub",
+"aliases": [],
+"q": [
+"صن كابيتال",
+"Sun Capital Hub"
+]
+},
+{
+"code": "TRANSIT-SUEZ-TRAIN",
+"type": "transit_line",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "قطار السويس",
+"name_en": "Suez Train",
+"aliases": [],
+"q": [
+"قطار السويس",
+"Suez Train"
+]
+},
+{
+"code": "TRANSIT-SUPERJET",
+"type": "transit_line",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "سوبر جيت",
+"name_en": "Super Jet",
+"aliases": [],
+"q": [
+"سوبر جيت",
+"Super Jet"
+]
+},
+{
+"code": "ROAD-HADARAT-AXIS",
+"type": "road",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "محور الحضارات",
+"name_en": "El Hadarat Axis",
+"aliases": [
+"محور الحضارة"
+],
+"q": [
+"محور الحضارات",
+"El Hadarat Axis",
+"محور الحضارة"
+]
+},
+{
+"code": "ROAD-SALAH-SALEM-ALT",
+"type": "road",
+"sector": "SOUTH",
+"status": "partial",
+"name_ar": "محور صلاح سالم البديل",
+"name_en": "Alternative Salah Salem Axis",
+"aliases": [
+"محور صلاح سالم الجديد"
+],
+"q": [
+"محور صلاح سالم البديل",
+"Alternative Salah Salem Axis",
+"محور صلاح سالم الجديد"
+]
+},
+{
+"code": "ROAD-HELWAN-KORIMAT",
+"type": "road",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "طريق حلوان - الكريمات",
+"name_en": "Helwan-Korimat Road",
+"aliases": [
+"طريق حلوان الكريمات بني سويف الحر",
+"طريق الأوتوستراد القاهرة الصف"
+],
+"q": [
+"طريق حلوان - الكريمات",
+"Helwan-Korimat Road",
+"طريق حلوان الكريمات بني سويف الحر",
+"طريق الأوتوستراد القاهرة الصف"
+]
+},
+{
+"code": "LINE-HELWAN-OLD-RAIL",
+"type": "transit_line",
+"sector": "SOUTH",
+"status": "partial",
+"name_ar": "خط سكة حديد القاهرة - حلوان القديم",
+"name_en": "Old Cairo-Helwan Railway Line",
+"aliases": [
+"سكة حديد حلوان القديم"
+],
+"q": [
+"خط سكة حديد القاهرة - حلوان القديم",
+"Old Cairo-Helwan Railway Line",
+"سكة حديد حلوان القديم"
+]
+},
+{
+"code": "LANDMARK-MAGRA-EL-OYOUN",
+"type": "landmark",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "سور مجرى العيون",
+"name_en": "Magra El Oyoun Aqueduct",
+"aliases": [
+"مجرى العيون"
+],
+"q": [
+"سور مجرى العيون",
+"Magra El Oyoun Aqueduct",
+"مجرى العيون"
+]
+},
+{
+"code": "LANDMARK-FAWAKHIR-VILLAGE",
+"type": "landmark",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "قرية الفواخير",
+"name_en": "El Fawakhir Pottery Village",
+"aliases": [
+"قرية الفخار"
+],
+"q": [
+"قرية الفواخير",
+"El Fawakhir Pottery Village",
+"قرية الفخار"
+]
+},
+{
+"code": "LANDMARK-RELIGIOUS-COMPLEX",
+"type": "landmark",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "مجمع الأديان بمصر القديمة",
+"name_en": "Religious Complex (Old Cairo)",
+"aliases": [
+"القاهرة القبطية"
+],
+"q": [
+"مجمع الأديان بمصر القديمة",
+"Religious Complex",
+"القاهرة القبطية"
+]
+},
+{
+"code": "LANDMARK-EL-TONSY-MARKET",
+"type": "landmark",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "سوق التونسي الحضاري",
+"name_en": "El Tonsy Market",
+"aliases": [
+"سوق التونسي الجديد"
+],
+"q": [
+"سوق التونسي الحضاري",
+"El Tonsy Market",
+"سوق التونسي الجديد"
+]
+},
+{
+"code": "LANDMARK-15-MAY-SLAUGHTERHOUSE",
+"type": "landmark",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "مجزر 15 مايو",
+"name_en": "15 May Slaughterhouse",
+"aliases": [
+"مجزر 15 مايو نصف الآلي"
+],
+"q": [
+"مجزر 15 مايو",
+"15 May Slaughterhouse",
+"مجزر 15 مايو نصف الآلي"
+]
+},
+{
+"code": "LANDMARK-HELWAN-IRON-STEEL",
+"type": "landmark",
+"sector": "SOUTH",
+"status": "unknown",
+"name_ar": "مجمع الحديد والصلب بحلوان",
+"name_en": "Helwan Iron and Steel Complex",
+"aliases": [
+"شركة الحديد والصلب المصرية"
+],
+"q": [
+"مجمع الحديد والصلب بحلوان",
+"Helwan Iron and Steel Complex",
+"شركة الحديد والصلب المصرية"
+]
+},
+{
+"code": "DIST-SHAQ-EL-THOABAN",
+"type": "district",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "المنطقة الصناعية شق الثعبان",
+"name_en": "Shaq El Thoaban Industrial Zone",
+"aliases": [
+"شق الثعبان"
+],
+"q": [
+"المنطقة الصناعية شق الثعبان",
+"Shaq El Thoaban Industrial Zone",
+"شق الثعبان"
+]
+},
+{
+"code": "DIST-TEBBIN-INDUSTRIAL",
+"type": "district",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "المنطقة الصناعية بالتبين",
+"name_en": "El Tebbin Industrial Zone",
+"aliases": [
+"أرض البودرة",
+"كفر العلو"
+],
+"q": [
+"المنطقة الصناعية بالتبين",
+"El Tebbin Industrial Zone",
+"أرض البودرة",
+"كفر العلو"
+]
+},
+{
+"code": "DIST-15-MAY-INDUSTRIAL",
+"type": "district",
+"sector": "SOUTH",
+"status": "operational",
+"name_ar": "المنطقة الصناعية بمدينة 15 مايو",
+"name_en": "15 May City Industrial Zone",
+"aliases": [
+"المنطقة الصناعية الأولى والثانية بـ15 مايو"
+],
+"q": [
+"المنطقة الصناعية بمدينة 15 مايو",
+"15 May City Industrial Zone",
+"المنطقة الصناعية الأولى والثانية بـ15 مايو"
+]
+},
+{
+"code": "LANDMARK-CAIRO-CITADEL",
+"type": "landmark",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "قلعة صلاح الدين الأيوبي",
+"name_en": "Cairo Citadel",
+"aliases": [
+"القلعة",
+"قلعة الجبل"
+],
+"q": [
+"قلعة صلاح الدين الأيوبي",
+"Cairo Citadel",
+"القلعة",
+"قلعة الجبل"
+]
+},
+{
+"code": "LANDMARK-SULTAN-HASAN",
+"type": "landmark",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "مسجد ومدرسة السلطان حسن",
+"name_en": "Mosque and Madrasa of Sultan Hasan",
+"aliases": [
+"جامع السلطان حسن"
+],
+"q": [
+"مسجد ومدرسة السلطان حسن",
+"Mosque and Madrasa of Sultan Hasan",
+"جامع السلطان حسن"
+]
+},
+{
+"code": "LANDMARK-AL-MUIZZ",
+"type": "landmark",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "شارع المعز لدين الله الفاطمي",
+"name_en": "Al-Muizz Street",
+"aliases": [
+"شارع المعز",
+"الشارع الأعظم",
+"قصبة القاهرة"
+],
+"q": [
+"شارع المعز لدين الله الفاطمي",
+"Al-Muizz Street",
+"شارع المعز",
+"الشارع الأعظم"
+]
+},
+{
+"code": "LANDMARK-IBN-TULUN-MOSQUE",
+"type": "landmark",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "جامع أحمد بن طولون",
+"name_en": "Mosque of Ahmad ibn Tulun",
+"aliases": [
+"مسجد ابن طولون"
+],
+"q": [
+"جامع أحمد بن طولون",
+"Mosque of Ahmad ibn Tulun",
+"مسجد ابن طولون"
+]
+},
+{
+"code": "LANDMARK-ATABA-SQUARE",
+"type": "landmark",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "ميدان العتبة",
+"name_en": "Ataba Square",
+"aliases": [
+"ميدان العتبة الخضراء"
+],
+"q": [
+"ميدان العتبة",
+"Ataba Square",
+"ميدان العتبة الخضراء"
+]
+},
+{
+"code": "LANDMARK-AL-HUSSEIN-MOSQUE",
+"type": "landmark",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "مسجد الإمام الحسين",
+"name_en": "Al-Hussein Mosque",
+"aliases": [
+"جامع الحسين",
+"مسجد الإمام الحسين بن علي"
+],
+"q": [
+"مسجد الإمام الحسين",
+"Al-Hussein Mosque",
+"جامع الحسين",
+"مسجد الإمام الحسين بن علي"
+]
+},
+{
+"code": "TRANSIT-MASPERO-RIVER-PIER",
+"type": "transit_stop",
+"sector": "CENTRAL",
+"status": "unknown",
+"name_ar": "مرسى ماسبيرو النهري",
+"name_en": "Maspero River Bus Pier",
+"aliases": [
+"مرسى الأتوبيس النهري بماسبيرو"
+],
+"q": [
+"مرسى ماسبيرو النهري",
+"Maspero River Bus Pier",
+"مرسى الأتوبيس النهري بماسبيرو"
+]
+},
+{
+"code": "ROAD-AL-AZHAR-TUNNEL",
+"type": "road",
+"sector": "CENTRAL",
+"status": "operational",
+"name_ar": "نفق الأزهر",
+"name_en": "Al-Azhar Tunnel",
+"aliases": [
+"نفقا الأزهر"
+],
+"q": [
+"نفق الأزهر",
+"Al-Azhar Tunnel",
+"نفقا الأزهر"
+]
+},
+{
+"code": "CITY-ABU-EL-NOMROS",
+"type": "city",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "مركز ومدينة أبو النمرس",
+"name_en": "Abu El Nomros",
+"aliases": [
+"أبو النمرس",
+"ابو النمرس",
+"Abu Al-Nomros"
+],
+"q": [
+"أبو النمرس",
+"Abu El Nomros",
+"Abu Al-Nomros"
+]
+},
+{
+"code": "CITY-EL-HAWAMDIYA",
+"type": "city",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "مدينة ومركز الحوامدية",
+"name_en": "El Hawamdiya",
+"aliases": [
+"الحوامدية",
+"Al-Hawamdiya",
+"Hawamdeya"
+],
+"q": [
+"الحوامدية",
+"El Hawamdiya",
+"Al-Hawamdiya"
+]
+},
+{
+"code": "CITY-EL-BADRASHEIN",
+"type": "city",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "مركز ومدينة البدرشين",
+"name_en": "El Badrashein",
+"aliases": [
+"البدرشين",
+"Al-Badrashein",
+"Badrashein"
+],
+"q": [
+"البدرشين",
+"El Badrashein",
+"Al-Badrashein"
+]
+},
+{
+"code": "DIST-NAZLET-EL-SEMMAN",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "منطقة نزلة السمان",
+"name_en": "Nazlet El Semman",
+"aliases": [
+"نزلة السمان",
+"Nazlet Al-Samman"
+],
+"q": [
+"منطقة نزلة السمان",
+"Nazlet El Semman",
+"نزلة السمان",
+"Nazlet Al-Samman"
+]
+},
+{
+"code": "DIST-6OCTOBER-IND",
+"type": "district",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "المنطقة الصناعية بالسادس من أكتوبر",
+"name_en": "6th of October Industrial Zone",
+"aliases": [
+"المنطقة الصناعية بـ 6 أكتوبر",
+"المنطقة الصناعية السادسة بـ 6 أكتوبر",
+"6th of October Industrial Area"
+],
+"q": [
+"المنطقة الصناعية بالسادس من أكتوبر",
+"6th of October Industrial Zone",
+"المنطقة الصناعية بـ 6 أكتوبر",
+"المنطقة الصناعية السادسة بـ 6 أكتوبر"
+]
+},
+{
+"code": "LANDMARK-AGRICULTURAL-MUSEUM",
+"type": "landmark",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "المتحف الزراعي بالدقي",
+"name_en": "Agricultural Museum",
+"aliases": [
+"المتحف الزراعي",
+"المتحف الزراعي المصري",
+"Egyptian Agricultural Museum"
+],
+"q": [
+"المتحف الزراعي بالدقي",
+"Agricultural Museum",
+"المتحف الزراعي",
+"المتحف الزراعي المصري"
+]
+},
+{
+"code": "LANDMARK-MEDIA-PROD-CITY",
+"type": "landmark",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "مدينة الإنتاج الإعلامي",
+"name_en": "Egyptian Media Production City",
+"aliases": [
+"EMPC",
+"مدينة الانتاج الاعلامي"
+],
+"q": [
+"مدينة الإنتاج الإعلامي",
+"Egyptian Media Production City",
+"EMPC"
+]
+},
+{
+"code": "LANDMARK-ZEWAIL-CITY",
+"type": "landmark",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "مدينة زويل للعلوم والتكنولوجيا والابتكار",
+"name_en": "Zewail City of Science, Technology and Innovation",
+"aliases": [
+"مدينة زويل",
+"Zewail City"
+],
+"q": [
+"مدينة زويل للعلوم والتكنولوجيا والابتكار",
+"Zewail City of Science, Technology and Innovation",
+"مدينة زويل",
+"Zewail City"
+]
+},
+{
+"code": "LANDMARK-GIZA-SQUARE",
+"type": "landmark",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "ميدان الجيزة",
+"name_en": "Giza Square",
+"aliases": [
+"ميدان الجيزه",
+"Midan El Giza"
+],
+"q": [
+"ميدان الجيزة",
+"Giza Square",
+"Midan El Giza"
+]
+},
+{
+"code": "LANDMARK-EL-HOSARY-MOSQUE",
+"type": "landmark",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "مسجد الحصري",
+"name_en": "El Hosary Mosque",
+"aliases": [
+"جامع الحصري",
+"مسجد الحصرى",
+"Al-Hosary Mosque"
+],
+"q": [
+"مسجد الحصري",
+"El Hosary Mosque",
+"جامع الحصري",
+"Al-Hosary Mosque"
+]
+},
+{
+"code": "ROAD-SAFT-EL-LABAN-AXIS",
+"type": "road",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "محور صفط اللبن",
+"name_en": "Saft El Laban Axis",
+"aliases": [
+"محور صفط",
+"Saft El-Laban Corridor"
+],
+"q": [
+"محور صفط اللبن",
+"Saft El Laban Axis",
+"محور صفط",
+"Saft El-Laban Corridor"
+]
+},
+{
+"code": "ROAD-FAISAL-STREET",
+"type": "road",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "شارع الملك فيصل",
+"name_en": "King Faisal Street",
+"aliases": [
+"شارع فيصل",
+"Faisal Street"
+],
+"q": [
+"شارع الملك فيصل",
+"King Faisal Street",
+"شارع فيصل",
+"Faisal Street"
+]
+},
+{
+"code": "ROAD-TERSA-AXIS",
+"type": "road",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "محور ترسا",
+"name_en": "Tersa Axis",
+"aliases": [
+"شارع ترسا",
+"Tersa Street"
+],
+"q": [
+"محور ترسا",
+"Tersa Axis",
+"شارع ترسا",
+"Tersa Street"
+]
+},
+{
+"code": "RAIL-GIZA-STATION",
+"type": "rail_station",
+"sector": "WEST",
+"status": "operational",
+"name_ar": "محطة سكك حديد الجيزة",
+"name_en": "Giza Railway Station",
+"aliases": [
+"محطة قطار الجيزة",
+"محطة الجيزة للسكك الحديدية"
+],
+"q": [
+"محطة سكك حديد الجيزة",
+"Giza Railway Station",
+"محطة قطار الجيزة",
+"محطة الجيزة للسكك الحديدية"
+]
+},
+{
+"code": "DIST-WARRAQ-ISLAND",
+"type": "district",
+"sector": "NORTH",
+"status": "partial",
+"name_ar": "جزيرة الوراق",
+"name_en": "Warraq Island",
+"aliases": [
+"جزيرة الوراق النيلية",
+"أرض المجتمع العمراني الجديد بجزيرة الوراق"
+],
+"q": [
+"جزيرة الوراق",
+"Warraq Island",
+"جزيرة الوراق النيلية",
+"أرض المجتمع العمراني الجديد بجزيرة الوراق"
+]
+},
+{
+"code": "DIST-SHUBRA-KHEIMA-IND",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "المنطقة الصناعية بشبرا الخيمة",
+"name_en": "Shubra El Kheima Industrial Zone",
+"aliases": [
+"منطقة شبرا الخيمة الصناعية",
+"صناعية غرب وشرق شبرا"
+],
+"q": [
+"المنطقة الصناعية بشبرا الخيمة",
+"Shubra El Kheima Industrial Zone",
+"منطقة شبرا الخيمة الصناعية",
+"صناعية غرب وشرق شبرا"
+]
+},
+{
+"code": "DIST-SAFA-IND-KHANKA",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "منطقة الصفا الصناعية بالخانكة",
+"name_en": "Al-Safa Industrial Zone (El Khanka)",
+"aliases": [
+"منطقة الصفا الصناعية",
+"الصفا عرب العليقات"
+],
+"q": [
+"منطقة الصفا الصناعية بالخانكة",
+"Al-Safa Industrial Zone",
+"منطقة الصفا الصناعية",
+"الصفا عرب العليقات"
+]
+},
+{
+"code": "DIST-AKRASHA-IND",
+"type": "district",
+"sector": "NORTH",
+"status": "partial",
+"name_ar": "منطقة العكرشة الصناعية",
+"name_en": "El Akrasha Industrial Area",
+"aliases": [
+"منطقة العكرشة",
+"العكرشة الصناعية بالقليوبية"
+],
+"q": [
+"منطقة العكرشة الصناعية",
+"El Akrasha Industrial Area",
+"منطقة العكرشة",
+"العكرشة الصناعية بالقليوبية"
+]
+},
+{
+"code": "DIST-QALYUB-IND",
+"type": "district",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "المنطقة الصناعية بقليوب",
+"name_en": "Qalyub Industrial Zone",
+"aliases": [
+"منطقة قليوب الصناعية",
+"صناعية قليوب"
+],
+"q": [
+"المنطقة الصناعية بقليوب",
+"Qalyub Industrial Zone",
+"منطقة قليوب الصناعية",
+"صناعية قليوب"
+]
+},
+{
+"code": "BRIDGE-WARRAQ-TAHYA-MISR",
+"type": "bridge",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "كوبري جزيرة الوراق (محور تحيا مصر)",
+"name_en": "Warraq Island Bridge (Tahya Misr Axis)",
+"aliases": [
+"كوبري محور تحيا مصر أعلى جزيرة الوراق"
+],
+"q": [
+"كوبري جزيرة الوراق",
+"Warraq Island Bridge",
+"كوبري محور تحيا مصر أعلى جزيرة الوراق"
+]
+},
+{
+"code": "ROAD-GESR-EL-SUEZ",
+"type": "road",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "طريق جسر السويس",
+"name_en": "Gesr El Suez Road",
+"aliases": [
+"شارع جسر السويس",
+"جسر السويس"
+],
+"q": [
+"طريق جسر السويس",
+"Gesr El Suez Road",
+"شارع جسر السويس",
+"جسر السويس"
+]
+},
+{
+"code": "ROAD-REGIONAL-RING-NORTH",
+"type": "road",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "القوس الشمالي للطريق الدائري الإقليمي",
+"name_en": "Regional Ring Road (Northern Arc)",
+"aliases": [
+"الدائري الإقليمي الشمالي",
+"القوس الشمالي الشرقي والغربي"
+],
+"q": [
+"القوس الشمالي للطريق الدائري الإقليمي",
+"Regional Ring Road",
+"الدائري الإقليمي الشمالي",
+"القوس الشمالي الشرقي والغربي"
+]
+},
+{
+"code": "RAIL-SHUBRA-EL-KHEIMA",
+"type": "rail_station",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة سكك حديد شبرا الخيمة",
+"name_en": "Shubra El Kheima Railway Station",
+"aliases": [
+"محطة قطار شبرا الخيمة",
+"محطة سكة حديد شبرا الخيمة الفرعية"
+],
+"q": [
+"محطة سكك حديد شبرا الخيمة",
+"Shubra El Kheima Railway Station",
+"محطة قطار شبرا الخيمة",
+"محطة سكة حديد شبرا الخيمة الفرعية"
+]
+},
+{
+"code": "RAIL-QALYUB",
+"type": "rail_station",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "محطة سكك حديد قليوب",
+"name_en": "Qalyub Railway Station",
+"aliases": [
+"محطة قطار قليوب",
+"مفرق سكك حديد قليوب"
+],
+"q": [
+"محطة سكك حديد قليوب",
+"Qalyub Railway Station",
+"محطة قطار قليوب",
+"مفرق سكك حديد قليوب"
+]
+},
+{
+"code": "LANDMARK-DELTA-BARRAGE",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "مجموعة قناطر الدلتا (القناطر الخيرية)",
+"name_en": "Delta Barrage (El Qanater El Khayreya)",
+"aliases": [
+"القناطر الخيرية",
+"قناطر محمد علي",
+"مجموعة قناطر الدلتا"
+],
+"q": [
+"مجموعة قناطر الدلتا",
+"Delta Barrage",
+"القناطر الخيرية",
+"قناطر محمد علي"
+]
+},
+{
+"code": "LANDMARK-MOHAMED-ALI-PALACE-SHUBRA",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "قصر محمد علي باشا بشبرا الخيمة",
+"name_en": "Mohamed Ali Pasha Palace (Shubra El Kheima)",
+"aliases": [
+"قصر محمد علي بشبرا",
+"قصر الفسقية"
+],
+"q": [
+"قصر محمد علي باشا بشبرا الخيمة",
+"Mohamed Ali Pasha Palace",
+"قصر محمد علي بشبرا",
+"قصر الفسقية"
+]
+},
+{
+"code": "LANDMARK-OBELISK-SENUSRET-MATARIYA",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "مسلة سنوسرت الأول بالمطرية (متحف المطرية المفتوح)",
+"name_en": "Obelisk of Senusret I (El Matariya)",
+"aliases": [
+"مسلة المطرية",
+"مسلة سنوسرت الأول",
+"متحف مسلة المطرية المفتوح"
+],
+"q": [
+"مسلة سنوسرت الأول بالمطرية",
+"Obelisk of Senusret I",
+"مسلة المطرية",
+"مسلة سنوسرت الأول"
+]
+},
+{
+"code": "LANDMARK-VIRGIN-MARY-TREE",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "شجرة مريم بالمطرية",
+"name_en": "Virgin Mary's Tree (El Matariya)",
+"aliases": [
+"شجرة السيدة العذراء بالمطرية",
+"شجرة مريم"
+],
+"q": [
+"شجرة مريم بالمطرية",
+"Virgin Mary's Tree",
+"شجرة السيدة العذراء بالمطرية",
+"شجرة مريم"
+]
+},
+{
+"code": "LANDMARK-FENG-SHOUBRA",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "كلية الهندسة بشبرا (جامعة بنها)",
+"name_en": "Faculty of Engineering at Shoubra (Benha University)",
+"aliases": [
+"هندسة شبرا",
+"كلية الهندسة بشبرا"
+],
+"q": [
+"كلية الهندسة بشبرا",
+"Faculty of Engineering at Shoubra",
+"هندسة شبرا"
+]
+},
+{
+"code": "LANDMARK-NASSER-INSTITUTE",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "معهد ناصر للبحوث والعلاج",
+"name_en": "Nasser Institute for Research and Treatment",
+"aliases": [
+"مستشفى معهد ناصر",
+"مدينة معهد ناصر الطبية"
+],
+"q": [
+"معهد ناصر للبحوث والعلاج",
+"Nasser Institute for Research and Treatment",
+"مستشفى معهد ناصر",
+"مدينة معهد ناصر الطبية"
+]
+},
+{
+"code": "LANDMARK-MATARIYA-TEACHING-HOSP",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "مستشفى المطرية التعليمي",
+"name_en": "El Matariya Teaching Hospital",
+"aliases": [
+"المطرية التعليمي",
+"مستشفى المطرية"
+],
+"q": [
+"مستشفى المطرية التعليمي",
+"El Matariya Teaching Hospital",
+"المطرية التعليمي",
+"مستشفى المطرية"
+]
+},
+{
+"code": "LANDMARK-SAHEL-TEACHING-HOSP",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "مستشفى الساحل التعليمي",
+"name_en": "El Sahel Teaching Hospital",
+"aliases": [
+"الساحل التعليمي",
+"مستشفى الساحل"
+],
+"q": [
+"مستشفى الساحل التعليمي",
+"El Sahel Teaching Hospital",
+"الساحل التعليمي",
+"مستشفى الساحل"
+]
+},
+{
+"code": "LANDMARK-QALYUB-SPEC-HOSP",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "مستشفى قليوب التخصصي (المركزي)",
+"name_en": "Qalyub Specialized (Central) Hospital",
+"aliases": [
+"مستشفى قليوب المركزي",
+"مستشفى قليوب التخصصي",
+"مستشفى قليوب الجديدة"
+],
+"q": [
+"مستشفى قليوب التخصصي",
+"Qalyub Specialized Hospital",
+"مستشفى قليوب المركزي"
+]
+},
+{
+"code": "LANDMARK-KHANKA-SPEC-HOSP",
+"type": "landmark",
+"sector": "NORTH",
+"status": "operational",
+"name_ar": "مستشفى الخانكة التخصصي (المركزي)",
+"name_en": "El Khanka Specialized (Central) Hospital",
+"aliases": [
+"مستشفى الخانكة المركزي",
+"مستشفى الخانكة التخصصي"
+],
+"q": [
+"مستشفى الخانكة التخصصي",
+"El Khanka Specialized Hospital",
+"مستشفى الخانكة المركزي"
+]
+},
+{
+"code": "LANDMARK-GERMAN-UNIVERSITY-CAIRO",
+"type": "landmark",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "الجامعة الألمانية بالقاهرة",
+"name_en": "German University in Cairo",
+"aliases": [
+"GUC",
+"Deutsche Universität in Kairo",
+"الجامعة الألمانية"
+],
+"q": [
+"الجامعة الألمانية بالقاهرة",
+"German University in Cairo",
+"الجامعة الألمانية",
+"GUC"
+]
+},
+{
+"code": "LANDMARK-BADR-UNIVERSITY-CAIRO",
+"type": "landmark",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "جامعة بدر بالقاهرة",
+"name_en": "Badr University in Cairo",
+"aliases": [
+"BUC",
+"جامعة بدر"
+],
+"q": [
+"جامعة بدر بالقاهرة",
+"Badr University in Cairo",
+"جامعة بدر",
+"BUC"
+]
+},
+{
+"code": "LANDMARK-CENTRAL-PARK-NEW-CAPITAL",
+"type": "landmark",
+"sector": "EAST",
+"status": "operational",
+"name_ar": "الحديقة المركزية",
+"name_en": "Central Park",
+"aliases": [
+"الحديقة المركزية بالعاصمة الإدارية",
+"Central Park New Administrative Capital",
+"Central Park NAC"
+],
+"q": [
+"الحديقة المركزية",
+"Central Park",
+"الحديقة المركزية بالعاصمة الإدارية",
+"Central Park New Administrative Capital"
+]
+}
+]
