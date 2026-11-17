@@ -12,7 +12,7 @@
 4. OpenStreetMap geometry batches retain ODbL 1.0. CAPMAS COD-AB boundaries via OCHA/HDX retain CC BY-IGO. Neither is relicensed by the Atlas research policy.
 5. The current evidence schema records URL, publisher, source type, and dates, but does not carry the source material's licence or permission status. The canonical seed also lacks complete batch lineage for each fact/evidence record.
 6. South batch 04 states that its Gemini Deep Research output was curated by Claude. The audit records that provenance accurately; it does not assume AI-generated portions are copyrightable or exclusively owned by the project maintainer.
-7. No GitHub Releases were returned by the Releases endpoint. A complete tag inventory and a full-history review were not established in this pass. The most recent 100 commits sampled included project-account commits and bot commits attributed to Claude and Vercel; this sample is not proof of sole authorship across the repository's full history.
+7. GitHub returned no Releases and no `refs/tags/*`. The commits endpoint returned 190 commits across two pages (page 3 was empty). Commit author metadata across those 190 commits: 117 attributed to the `3boalazm` noreply account, 66 to Mustafa Aboalazm, 5 to Claude, 1 to Vercel Bot, and 1 to the Arena AI coding agent bot. The only non-owner GitHub logins in that history were the three bots. This is stronger evidence that no other human GitHub account authored commits in the visible history, but commit metadata does not prove legal ownership, and AI-assisted source content still needs a rights review.
 8. Transport for Cairo GTFS is mentioned in the policy documentation, but a dedicated source file or confirmed inclusion in current exports was not located in the current tree during this pass. Treat its inclusion as unverified until identified.
 
 ## Register
@@ -45,6 +45,6 @@ The recent-commit sample contains a Claude-attributed commit for the South batch
 
 - PR #59 was merged at GitHub on 2026-11-17 23:55:46 UTC. The merge actor recorded by GitHub is the repository account `3boalazm`; the assistant did not invoke a merge operation.
 - The PR head's GitHub Actions run `44202906598` completed successfully, including lint, strict TypeScript, Vitest, offline SQL/seed validation, geometry validation, and Next.js production build.
-- The repository Releases endpoint returned an empty list.
+- The repository Releases endpoint returned an empty list; the Git refs endpoint returned no tag refs. The commits endpoint returned 190 commits, with no third-page results.
 - This audit is on a new branch created from merge commit `63022a36d05fe370a3cf2497347588dc5da6cbca`; it does not modify `main`.
 
