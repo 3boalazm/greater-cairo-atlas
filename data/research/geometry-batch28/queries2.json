@@ -1,0 +1,516 @@
+[
+{
+"code": "LANDMARK-CAIRO-CITADEL",
+"q": [
+"قلعة صلاح الدين",
+"Saladin Citadel",
+"Citadel of Saladin",
+"Cairo Citadel"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-SULTAN-HASAN",
+"q": [
+"مسجد السلطان حسن",
+"Sultan Hassan Mosque",
+"Sultan Hasan Mosque",
+"مدرسة السلطان حسن"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-DELTA-BARRAGE",
+"q": [
+"قناطر الدلتا",
+"Delta Barrage",
+"القناطر الخيرية",
+"Qanater Barrages"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-ZEWAIL-CITY",
+"q": [
+"مدينة زويل",
+"Zewail City",
+"جامعة زويل",
+"Zewail City of Science"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-MATARIYA-TEACHING-HOSP",
+"q": [
+"مستشفى المطرية",
+"Matareya Teaching Hospital",
+"El Matareya Hospital"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-SAHEL-TEACHING-HOSP",
+"q": [
+"مستشفى الساحل",
+"Sahel Teaching Hospital",
+"El Sahel Hospital"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-QALYUB-SPEC-HOSP",
+"q": [
+"مستشفى قليوب",
+"Qalyub Hospital",
+"Qalyoub Hospital",
+"Qalyubia Specialized Hospital"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-KHANKA-SPEC-HOSP",
+"q": [
+"مستشفى الخانكة",
+"Khanka Hospital",
+"Al Khanka Hospital",
+"الخانكة المركزي"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-GERMAN-UNIVERSITY-CAIRO",
+"q": [
+"German University in Cairo",
+"GUC",
+"الجامعة الالمانية بالقاهرة",
+"German University Cairo"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-BADR-UNIVERSITY-CAIRO",
+"q": [
+"Badr University in Cairo",
+"جامعة بدر",
+"Badr University",
+"BUC"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-FAWAKHIR-VILLAGE",
+"q": [
+"قرية الفواخير",
+"Fawakhir Village",
+"الفواخير",
+"Pottery Village"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-EL-TONSY-MARKET",
+"q": [
+"سوق التونسي",
+"Tonsy Market",
+"التونسي",
+"سوق التونسي الحضاري"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-15-MAY-SLAUGHTERHOUSE",
+"q": [
+"مجزر 15 مايو",
+"مجزر مدينة 15 مايو",
+"15 May Slaughterhouse",
+"مجزر"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-HELWAN-IRON-STEEL",
+"q": [
+"الحديد والصلب",
+"Iron and Steel Company",
+"شركة الحديد والصلب",
+"Egyptian Iron and Steel"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-MAGRA-EL-OYOUN",
+"q": [
+"مجرى العيون",
+"Magra El Oyoun",
+"Aqueduct Cairo",
+"قناطر مجرى العيون"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-AL-MUIZZ",
+"q": [
+"المعز لدين الله",
+"Al-Muizz Street",
+"Moez Street"
+],
+"limit": 6
+},
+{
+"code": "LANDMARK-CENTRAL-PARK-NEW-CAPITAL",
+"q": [
+"Central Park New Administrative Capital",
+"الحديقة المركزية العاصمة الادارية",
+"Central Park Capital"
+],
+"limit": 6
+},
+{
+"code": "CITY-KHANKA",
+"q": [
+"مدينة الخانكة",
+"Khanka City",
+"Al Khanka",
+"الخانكة"
+],
+"limit": 6
+},
+{
+"code": "CITY-EL-HAWAMDIYA",
+"q": [
+"مدينة الحوامدية",
+"Hawamdiya City",
+"الحوامدية"
+],
+"limit": 6
+},
+{
+"code": "CITY-MOSTAKBAL",
+"q": [
+"مستقبل سيتي",
+"Mostakbal City",
+"Future City",
+"المستقبل سيتي"
+],
+"limit": 6
+},
+{
+"code": "CITY-NEW-OCTOBER",
+"q": [
+"اكتوبر الجديدة",
+"New October City",
+"6 اكتوبر الجديدة"
+],
+"limit": 6
+},
+{
+"code": "CITY-NEW-HELIOPOLIS",
+"q": [
+"هليوبوليس الجديدة",
+"New Heliopolis City",
+"عين شمس الجديدة"
+],
+"limit": 6
+},
+{
+"code": "BRIDGE-GIZA",
+"q": [
+"كوبرى الجيزة",
+"Giza Bridge",
+"كوبري الجيزة",
+"Al Giza Bridge"
+],
+"limit": 6
+},
+{
+"code": "BRIDGE-MONIB",
+"q": [
+"كوبرى المنيب",
+"Monib Bridge",
+"كوبري المنيب",
+"Al Moneeb Bridge"
+],
+"limit": 6
+},
+{
+"code": "BRIDGE-TAHYA-MISR",
+"q": [
+"كوبرى تحيا مصر",
+"Tahya Misr Bridge",
+"كوبري تحيا مصر",
+"محور تحيا مصر"
+],
+"limit": 6
+},
+{
+"code": "BRIDGE-BENHA-NILE",
+"q": [
+"كوبري بنها",
+"Banha Bridge",
+"Benha Bridge",
+"كوبرى بنها"
+],
+"limit": 6
+},
+{
+"code": "BRIDGE-BENHA-FLYOVER",
+"q": [
+"كوبرى بنها العلوى",
+"Benha Flyover",
+"كوبري بنها العلوي"
+],
+"limit": 6
+},
+{
+"code": "BRIDGE-MIDDLE-RING-ISMAILIA",
+"q": [
+"الدائري الأوسط",
+"Middle Ring Road",
+"الاسماعيلية الصحراوي",
+"Ismailia Desert Road"
+],
+"limit": 6
+},
+{
+"code": "BRIDGE-RING-NORTH-WARRAQ",
+"q": [
+"الدائرى الشمالى الوراق",
+"Ring Road Warraq",
+"كوبري الوراق",
+"Warraq Bridge"
+],
+"limit": 6
+},
+{
+"code": "ROAD-EASTERN-DESERT",
+"q": [
+"طريق القاهرة السويس",
+"Cairo Suez Road",
+"الصحراوي الشرقي",
+"Suez Road"
+],
+"limit": 6
+},
+{
+"code": "ROAD-HADARAT-AXIS",
+"q": [
+"محور الحضارة",
+"Al Hadara Axis",
+"Hadarat Axis",
+"محور الحضارات"
+],
+"limit": 6
+},
+{
+"code": "ROAD-HELWAN-KORIMAT",
+"q": [
+"طريق حلوان الكريمات",
+"Helwan Korimat Road",
+"الكريمات",
+"Korimat Road"
+],
+"limit": 6
+},
+{
+"code": "ROAD-SALAH-SALEM-ALT",
+"q": [
+"محور صلاح سالم",
+"Salah Salem Axis",
+"صلاح سالم البديل"
+],
+"limit": 6
+},
+{
+"code": "ROAD-REGIONAL-NW-ARC",
+"q": [
+"الطريق الدائري الاقليمي",
+"Regional Ring Road",
+"الدائري الإقليمي الجيزة"
+],
+"limit": 6
+},
+{
+"code": "RAIL-BASHTIL",
+"q": [
+"محطة بشتيل",
+"Bashtil Station",
+"Bashteel Railway Station",
+"محطة قطارات الصعيد"
+],
+"limit": 6
+},
+{
+"code": "LINE-HELWAN-OLD-RAIL",
+"q": [
+"سكة حديد حلوان",
+"Helwan Railway",
+"Cairo Helwan Railway",
+"Helwan Line"
+],
+"limit": 6
+},
+{
+"code": "STOP-M2-ST-TERESA",
+"q": [
+"سانت تريزا",
+"Saint Teresa",
+"Sainte Teresa",
+"St Teresa Metro"
+],
+"limit": 6
+},
+{
+"code": "STOP-LRT-10TH-RAMADAN-1",
+"q": [
+"العاشر من رمضان",
+"Tenth of Ramadan LRT",
+"LRT 10th of Ramadan",
+"محطة العاشر من رمضان"
+],
+"limit": 6
+},
+{
+"code": "STOP-SUN-CAPITAL",
+"q": [
+"صن كابيتال",
+"Sun Capital",
+"Sun Capital Hub",
+"Sun Capital Mall"
+],
+"limit": 6
+},
+{
+"code": "TRANSIT-MASPERO-RIVER-PIER",
+"q": [
+"مرسى ماسبيرو",
+"Maspero pier",
+"الاتوبيس النهري",
+"Nile bus Maspero"
+],
+"limit": 6
+},
+{
+"code": "DIST-GREEN-SARAYA",
+"q": [
+"السرايا الخضراء",
+"Green Saraya",
+"Saraya El Khadra"
+],
+"limit": 6
+},
+{
+"code": "DIST-SHUBRA-KHEIMA-IND",
+"q": [
+"المنطقة الصناعية شبرا الخيمة",
+"Shubra El Kheima Industrial Zone",
+"الصناعية شبرا الخيمة"
+],
+"limit": 6
+},
+{
+"code": "DIST-15-MAY-INDUSTRIAL",
+"q": [
+"المنطقة الصناعية 15 مايو",
+"15 May Industrial Zone",
+"المنطقة الصناعية الاولى 15 مايو"
+],
+"limit": 6
+},
+{
+"code": "DIST-QALYUB-IND",
+"q": [
+"المنطقة الصناعية قليوب",
+"Qalyub Industrial Zone",
+"صناعية قليوب"
+],
+"limit": 6
+},
+{
+"code": "DIST-AKRASHA-IND",
+"q": [
+"العكرشة",
+"Akrasha Industrial",
+"منطقة العكرشة"
+],
+"limit": 6
+},
+{
+"code": "DIST-SAFA-IND-KHANKA",
+"q": [
+"منطقة الصفا الصناعية",
+"Safa Industrial Zone",
+"الصفا الصناعية"
+],
+"limit": 6
+},
+{
+"code": "DIST-SHAQ-EL-THOABAN",
+"q": [
+"شق الثعبان",
+"Shaq El Thoban",
+"Shaq El Thoaban"
+],
+"limit": 6
+},
+{
+"code": "DIST-HADAEK-ASHGAR",
+"q": [
+"حدائق الاشجار",
+"Hadayek El Ashgar",
+"حى الاشجار"
+],
+"limit": 6
+},
+{
+"code": "REC3-NAC",
+"q": [
+"العاصمة الإدارية الجديدة",
+"New Administrative Capital",
+"العاصمة الادارية",
+"Administrative Capital of Egypt"
+],
+"limit": 6
+},
+{
+"code": "GEN-BRT",
+"q": [
+"BRT"
+],
+"limit": 40
+},
+{
+"code": "GEN-BRT",
+"q": [
+"BRT Station"
+],
+"limit": 40
+},
+{
+"code": "GEN-BRT",
+"q": [
+"محطة BRT"
+],
+"limit": 40
+},
+{
+"code": "GEN-BRT",
+"q": [
+"الاتوبيس الترددي"
+],
+"limit": 40
+},
+{
+"code": "GEN-BRT",
+"q": [
+"محطة الاتوبيس الترددي"
+],
+"limit": 40
+},
+{
+"code": "GEN-BRT",
+"q": [
+"Bus Rapid Transit"
+],
+"limit": 40
+}
+]
