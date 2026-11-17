@@ -23,9 +23,10 @@ describe("Batch 20 OSM geometry", () => {
       json("data/features/features.geojson"), json("data/derived/entity-map-geometries.json"), json("data/features/manifest.json"),
     ]);
     // Preserve the original Batch 20 snapshot checks separately from later additive batches.
-    const all = (collection.features as Feature[]).filter((f) => !f.id.startsWith("BATCH20B-"));
+    const all = (collection.features as Feature[]).filter((f) => !f.id.startsWith("BATCH20B-") && !f.id.startsWith("BATCH26-"));
     const old = all.filter((f) => !f.id.startsWith("BATCH20-"));
     const added = all.filter((f) => f.id.startsWith("BATCH20-"));
+    const batch26Codes = new Set((collection.features as Feature[]).filter((f) => f.id.startsWith("BATCH26-")).map((f) => f.properties.entity_code));
     const results = report.results as Result[];
     const matched = results.filter((r) => r.status === "matched").map((r) => r.entity_code).sort();
     expect(results).toHaveLength(251);
@@ -42,7 +43,7 @@ describe("Batch 20 OSM geometry", () => {
     expect(matched.every((code) => !before.has(code))).toBe(true);
     expect(after.size - before.size).toBe(matched.length);
     const laterCodes = new Set((collection.features as Feature[]).filter((f) => f.id.startsWith("BATCH20B-")).map((f) => f.properties.entity_code));
-    const batch20Derived = Object.fromEntries(Object.entries(derived.geometries).filter(([code]) => !laterCodes.has(code)));
+    const batch20Derived = Object.fromEntries(Object.entries(derived.geometries).filter(([code]) => !laterCodes.has(code) && !batch26Codes.has(code)));
     const oldDerived = Object.fromEntries(Object.entries(batch20Derived).filter(([code]) => !matched.includes(code)));
     expect(Object.keys(oldDerived)).toHaveLength(baseline.derived_count);
     expect(hash(oldDerived)).toBe(baseline.derived_hash);

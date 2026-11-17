@@ -13,7 +13,7 @@
     32.35,
     30.9
   ],
-  "feature_count": 3031,
+  "feature_count": 3061,
   "sources": [
     {
       "source": "OpenStreetMap",
@@ -18862,7 +18862,7 @@
   },
   "entity_page_map_geometries": {
     "path": "data/derived/entity-map-geometries.json",
-    "entities_with_geometry": 280,
+    "entities_with_geometry": 310,
     "simplification_tolerance_degrees": 0.0002,
     "merge": "shapely.unary_union; no synthetic segments",
     "preserved_metadata": [
@@ -19262,6 +19262,29 @@
       {
         "file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
         "sha256": "2bca42344ffe7a7f0fe9df2909c9c430d10e62517bc1cdd40195de70c917cd2b"
+      }
+    ]
+  },
+  "geometry_batch26": {
+    "report": "data/research/geometry-batch26/geometry_import_report.json",
+    "feature_count": 30,
+    "entities_matched": 30,
+    "source_files": [
+      {
+        "file": "cairo-osm-boundaries-2026-11-14.json.gz",
+        "sha256": "a8ce40dc409c8d5061a3089888f4e134474e4288e66d88a63d14a479095e1a81"
+      },
+      {
+        "file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
+        "sha256": "2bca42344ffe7a7f0fe9df2909c9c430d10e62517bc1cdd40195de70c917cd2b"
+      },
+      {
+        "file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+        "sha256": "e99b9001ffae0d7256e69aa30b47b25192e44649b83e68e658e49adac21ff850"
+      },
+      {
+        "file": "data/raw/cairo-osm-east-batch26-2026-11-17.json",
+        "sha256": "4c6fff0c1c8bc1688843bd68ddd9021aa5c427bf0cbf289b69922fd72191c277"
       }
     ]
   }

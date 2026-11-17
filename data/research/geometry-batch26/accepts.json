@@ -1,0 +1,351 @@
+{
+  "_note": "Explicitly reviewed identities for Batch 26. Each entry names one OSM object per entity. Reviewed entries bypass the name-label and kind gates of the Batch 20b matcher (identity was checked by hand) but must still pass: versioned source, valid geometry, bbox, lifecycle policy. Sector distance is recorded; it is not a gate for these entries (see README).",
+  "retrieved": "2026-11-17",
+  "license": "ODbL-1.0",
+  "attribution": "(c) OpenStreetMap contributors",
+  "new_archive": {
+    "file": "data/raw/cairo-osm-east-batch26-2026-11-17.json",
+    "sha256": "4c6fff0c1c8bc1688843bd68ddd9021aa5c427bf0cbf289b69922fd72191c277",
+    "format": "JSON object with lookup (verbatim Nominatim jsonv2 items including geojson) and meta (OSM API version, timestamp, changeset, tags keyed like way24886453)"
+  },
+  "counts": {
+    "accepts": 30,
+    "from_archived_overpass_extracts": 8,
+    "from_new_nominatim_archive": 22,
+    "points": 6,
+    "polygons": 23,
+    "multipolygons": 1
+  },
+  "accepts": [
+    {
+      "entity_code": "CITY-MANSHAAT-EL-QANATER",
+      "osm_type": "way",
+      "osm_id": 716656988,
+      "osm_version": 11,
+      "geometry_kind": "Polygon",
+      "source_kind": "archived_overpass",
+      "source_file": "cairo-osm-boundaries-2026-11-14.json.gz",
+      "review_note": "Administrative boundary polygon named مدينة منشاه القناطر / Monsha'et Al Qanater City; sole candidate; lies in the WEST sector; differs from the seed spelling only by the common ة/ه variant."
+    },
+    {
+      "entity_code": "DIST-ABBASSIA",
+      "osm_type": "node",
+      "osm_id": 768552341,
+      "osm_version": 3,
+      "geometry_kind": "Point",
+      "source_kind": "archived_overpass",
+      "source_file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
+      "review_note": "Node named العباسية / El Abbasiyah (place=hamlet) inside the CENTRAL sector; used only as a representative place point because no polygon qualifies, as for Mousky and Waily."
+    },
+    {
+      "entity_code": "DIST-KATAMEYA",
+      "osm_type": "node",
+      "osm_id": 2595202115,
+      "osm_version": 5,
+      "geometry_kind": "Point",
+      "source_kind": "archived_overpass",
+      "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+      "review_note": "Node named القطاميه (place=neighbourhood) about 300 m from the SOUTH sector; representative place point only."
+    },
+    {
+      "entity_code": "DIST-TORA",
+      "osm_type": "node",
+      "osm_id": 768769511,
+      "osm_version": 6,
+      "geometry_kind": "Point",
+      "source_kind": "archived_overpass",
+      "source_file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
+      "review_note": "Node named طرة / Tura (place=village, wikidata Q1027627) in the SOUTH sector; representative place point only."
+    },
+    {
+      "entity_code": "LANDMARK-ABDEEN-PALACE",
+      "osm_type": "way",
+      "osm_id": 24942979,
+      "osm_version": 19,
+      "geometry_kind": "Polygon",
+      "source_kind": "archived_overpass",
+      "source_file": "cairo-osm-overpass-2026-11-14-extract2.json.gz",
+      "review_note": "Fenced palace-grounds polygon (historic=castle, castle_type=palace, tourism=attraction, about 9.5 ha). Chosen over the separate building-footprint relation 16734517 (building=yes) because the landmark is the whole palace complex."
+    },
+    {
+      "entity_code": "LANDMARK-LEBANON-SQ",
+      "osm_type": "node",
+      "osm_id": 6799875366,
+      "osm_version": 2,
+      "geometry_kind": "Point",
+      "source_kind": "archived_overpass",
+      "source_file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
+      "review_note": "Node named ميدان لبنان / Lebanon Square (place=square) in Mohandessin; a square is point-like, so used as a representative point."
+    },
+    {
+      "entity_code": "LANDMARK-MALL-OF-EGYPT",
+      "osm_type": "way",
+      "osm_id": 83811548,
+      "osm_version": 17,
+      "geometry_kind": "Polygon",
+      "source_kind": "archived_overpass",
+      "source_file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
+      "review_note": "Polygon (about 36 ha) named مول مصر / Mall of Egypt with operator and address tags in 6th of October City."
+    },
+    {
+      "entity_code": "LANDMARK-SPHINX-SQ",
+      "osm_type": "node",
+      "osm_id": 12995998682,
+      "osm_version": 1,
+      "geometry_kind": "Point",
+      "source_kind": "archived_overpass",
+      "source_file": "cairo-osm-geometry-batch20-2026-11-16.json.gz",
+      "review_note": "Node named ميدان سفنكس / Sphinx Square (place=square) in Mohandessin; representative point. The same node is not used for the planned city CITY-NEW-SPHINX."
+    },
+    {
+      "entity_code": "LANDMARK-BARON-EMPAIN-PALACE",
+      "osm_type": "way",
+      "osm_id": 24886453,
+      "osm_version": 20,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Exact English name Baron Empain Palace (Arabic قصر بارون أمبان); historic=castle in Heliopolis."
+    },
+    {
+      "entity_code": "LANDMARK-CAIRO-INTERNATIONAL-STADIUM",
+      "osm_type": "way",
+      "osm_id": 24959847,
+      "osm_version": 24,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Exact English name (leisure=stadium), Nasr City."
+    },
+    {
+      "entity_code": "LANDMARK-CAIRO-INTERNATIONAL-CONVENTION-CENTER",
+      "osm_type": "relation",
+      "osm_id": 18324326,
+      "osm_version": 1,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Exact Arabic name مركز القاهرة الدولي للمؤتمرات (amenity=conference_centre), Nasr City."
+    },
+    {
+      "entity_code": "LANDMARK-CAIRO-FESTIVAL-CITY",
+      "osm_type": "way",
+      "osm_id": 26753320,
+      "osm_version": 29,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Exact name; the neighbourhood-scale polygon (about 258 ha) matches the seed description of a mixed-use community of more than 3 million m2, not the mall alone."
+    },
+    {
+      "entity_code": "LANDMARK-CITYSTARS-HELIOPOLIS",
+      "osm_type": "way",
+      "osm_id": 284147372,
+      "osm_version": 21,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "shop=mall named City Stars Mall / سيتى ستارز مول; the seed aliases are Citystars Mall and سيتي ستارز مول."
+    },
+    {
+      "entity_code": "LANDMARK-AIN-SHAMS-UNIVERSITY",
+      "osm_type": "relation",
+      "osm_id": 16663142,
+      "osm_version": 6,
+      "geometry_kind": "MultiPolygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Exact name جامعة عين شمس / Ain Shams University (amenity=university), main campus."
+    },
+    {
+      "entity_code": "LANDMARK-AL-ITTIHADIYA-PALACE",
+      "osm_type": "relation",
+      "osm_id": 21866687,
+      "osm_version": 1,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Named Heliopolis Palace / قصر رئاسة الجمهورية بمصر الجديدة; Heliopolis Palace is a seed alias (the palace opened in 1910 under that name). The palace-compound relation is used rather than the building-only way 33727472."
+    },
+    {
+      "entity_code": "LANDMARK-AUC-NEW-CAIRO-CAMPUS",
+      "osm_type": "way",
+      "osm_id": 155881184,
+      "osm_version": 28,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Explicitly named The American University in Cairo (AUC) - New Cairo; the separate Tahrir campus object 28850198 is not used."
+    },
+    {
+      "entity_code": "LANDMARK-FUTURE-UNIVERSITY-EGYPT",
+      "osm_type": "way",
+      "osm_id": 252560395,
+      "osm_version": 21,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Named Future University (amenity=university) on Al Tesein Northern Street in New Cairo; the only university of this name in the search area."
+    },
+    {
+      "entity_code": "LANDMARK-HELIOPOLIS-UNIVERSITY",
+      "osm_type": "node",
+      "osm_id": 6644493535,
+      "osm_version": 4,
+      "geometry_kind": "Point",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Node named Heliopolis University / جامعة هليوبوليس (seed alias); representative point only."
+    },
+    {
+      "entity_code": "LANDMARK-MISR-INTERNATIONAL-UNIVERSITY",
+      "osm_type": "way",
+      "osm_id": 537762248,
+      "osm_version": 5,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Exact name Misr International University (amenity=university)."
+    },
+    {
+      "entity_code": "LANDMARK-AL-AZHAR-UNIVERSITY",
+      "osm_type": "way",
+      "osm_id": 35574865,
+      "osm_version": 37,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Main Nasr City campus polygon named جامعة الأزهر / Al-Azhar University; the seed gives the Al-Nasr Street, Nasr City address. The Girls Branch polygon and the railway station of the same name are not used."
+    },
+    {
+      "entity_code": "LANDMARK-EGYPTIAN-RUSSIAN-UNIVERSITY",
+      "osm_type": "way",
+      "osm_id": 772046957,
+      "osm_version": 11,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Exact name الجامعة المصرية الروسية / Egyptian Russian University (amenity=university), Badr City."
+    },
+    {
+      "entity_code": "LANDMARK-AL-FATTAH-AL-ALIM-MOSQUE",
+      "osm_type": "way",
+      "osm_id": 853062557,
+      "osm_version": 4,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Exact name مسجد الفتاح العليم; the position (about 30.02 N, 31.60 E, on the new Middle Ring Road) and the site extent (about 44 ha) agree with the published location and site area of the mosque in the New Administrative Capital."
+    },
+    {
+      "entity_code": "LANDMARK-NATIVITY-CATHEDRAL",
+      "osm_type": "way",
+      "osm_id": 661386026,
+      "osm_version": 4,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Named Cathedral of the Nativity / كاتدرائية ميلاد المسيح in the New Administrative Capital; the only object with this name."
+    },
+    {
+      "entity_code": "LANDMARK-NEW-PARLIAMENT",
+      "osm_type": "way",
+      "osm_id": 819189942,
+      "osm_version": 7,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Building polygon named Parliament of Egypt / مجلس النواب (office=government) in the New Administrative Capital; the surrounding government landuse polygon 543032591 is not used."
+    },
+    {
+      "entity_code": "LANDMARK-UNKNOWN-SOLDIER-MEMORIAL-NASR-CITY",
+      "osm_type": "way",
+      "osm_id": 25049783,
+      "osm_version": 15,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "tourism=attraction, historic=monument named Unknown Soldier Memorial / الجندي المجهول, Nasr City."
+    },
+    {
+      "entity_code": "LANDMARK-ICONIC-TOWER",
+      "osm_type": "way",
+      "osm_id": 819256088,
+      "osm_version": 5,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Building named The Iconic Tower / البرج الأيقوني in the New Administrative Capital. The seed status stays unknown because it is completed but not yet operating; the shape is the existing building."
+    },
+    {
+      "entity_code": "LANDMARK-OCTOBER-WAR-PANORAMA",
+      "osm_type": "way",
+      "osm_id": 34209128,
+      "osm_version": 8,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Exact name October War Panorama / بانوراما حرب أوكتوبر (tourism=attraction), Nasr City."
+    },
+    {
+      "entity_code": "LANDMARK-AL-MUSHIR-TANTAWI-MOSQUE",
+      "osm_type": "way",
+      "osm_id": 1339212903,
+      "osm_version": 3,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Named El Mosheer Tantawy Mosque / مسجد المشير طنطاوي on the Al-Moshir Tantawy Axis; the only object with this name."
+    },
+    {
+      "entity_code": "LANDMARK-INTERNATIONAL-GARDEN-NASR-CITY",
+      "osm_type": "way",
+      "osm_id": 24784187,
+      "osm_version": 40,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Named International Park / الحديقة الدولية (seed alias), leisure=park, about 21.9 ha against the seed area of 210,000 m2."
+    },
+    {
+      "entity_code": "LANDMARK-BASILICA-HELIOPOLIS",
+      "osm_type": "way",
+      "osm_id": 24783991,
+      "osm_version": 12,
+      "geometry_kind": "Polygon",
+      "source_kind": "nominatim_lookup",
+      "source_file": "cairo-osm-east-batch26-2026-11-17.json",
+      "review_note": "Church named Basilica Church Heliopolis / كنيسة البازليك on Al Ahram Street, Heliopolis; the Chaldean Basilica of Our Lady of Fatima elsewhere in Heliopolis is not used."
+    }
+  ],
+  "not_imported": [
+    {
+      "entity_code": "LANDMARK-GERMAN-UNIVERSITY-CAIRO",
+      "reason": "No OSM object found under this name; the only nearby hit is the different German International University of Applied Sciences."
+    },
+    {
+      "entity_code": "LANDMARK-BADR-UNIVERSITY-CAIRO",
+      "reason": "No OSM object found under this name; the only Badr University hit is a hospital."
+    },
+    {
+      "entity_code": "LANDMARK-CENTRAL-PARK-NEW-CAPITAL",
+      "reason": "The objects named Central Park lie in New Cairo and Shorouk; none is shown to be the New Administrative Capital park."
+    },
+    {
+      "entity_code": "PROJ-GOVERNMENT-DISTRICT",
+      "reason": "Project shapes are excluded by the scope policy."
+    },
+    {
+      "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+      "reason": "Project shapes are excluded by the scope policy."
+    },
+    {
+      "entity_code": "PROJ-GREEN-RIVER",
+      "reason": "Project shapes are excluded by the scope policy."
+    },
+    {
+      "entity_code": "PROJ-EGYPT-INTERNATIONAL-OLYMPIC-CITY",
+      "reason": "Project shapes are excluded by the scope policy."
+    }
+  ]
+}

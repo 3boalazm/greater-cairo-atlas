@@ -119,17 +119,19 @@ describe("Batch 22 additive research", () => {
     expect(metadata.counts.evidence).toBe(dataset.evidence.length); expect(metadata.counts.fact_evidence).toBe(dataset.factEvidence.length);
     const batch20b = JSON.parse(await read("data/research/geometry-batch20b/geometry_match_report.json")) as { results: Array<{ entity_code: string; status: string }> };
     const mapped = new Set(batch20b.results.filter((entry) => entry.status === "matched").map((entry) => entry.entity_code));
+    const batch26 = new Set(JSON.parse(await read("data/research/geometry-batch26/accepts.json")).accepts.map((a: { entity_code: string }) => a.entity_code));
+    const hasGeometry = (code: string) => mapped.has(code) || batch26.has(code);
     for (const [batch, count, , , sector] of batches) {
       const rows = csvRows(await read(`data/research/${batch}/entities.csv`));
       const codes = new Set(rows.map((row) => row.code));
       expect(dataset.entities.filter((e) => codes.has(e.code) && e.sector === sector)).toHaveLength(count);
       for (const row of rows) {
         const entity = dataset.entities.find((e) => e.code === row.code)!;
-        expect(dataset.features.some((f) => f.entity_code === entity.code)).toBe(mapped.has(entity.code));
-        const summary = { ...entity, has_geometry: false };
+        expect(dataset.features.some((f) => f.entity_code === entity.code)).toBe(hasGeometry(entity.code));
+        const summary = { ...entity, has_geometry: hasGeometry(entity.code) };
         expect(searchEntities([summary], entity.name_ar).some((item) => item.code === entity.code)).toBe(true);
         const detail = await getStaticEntityPageData(entity.code);
-        expect(detail?.code).toBe(entity.code); expect(Boolean(detail?.mapGeometry)).toBe(mapped.has(entity.code));
+        expect(detail?.code).toBe(entity.code); expect(Boolean(detail?.mapGeometry)).toBe(hasGeometry(entity.code));
       }
     }
   });

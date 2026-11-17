@@ -102,7 +102,7 @@ describe("Batch 23: second unknown-status pass and North alias repair", () => {
     const human = JSON.parse(await read("data/research/labels/attribute_labels_ar.json")) as Record<string, string>;
     for (const [key, value] of Object.entries(expected)) { expect(FACT_ATTRIBUTE_LABELS[key]).toEqual(value); expect(human[key]).toBe(value.ar); }
     const [dataset, metadata] = await Promise.all([getStaticAtlasDataset(), getExportMetadata()]);
-    expect(dataset.entities).toHaveLength(564); expect(dataset.facts).toHaveLength(2849); expect(dataset.features).toHaveLength(3031);
+    expect(dataset.entities).toHaveLength(564); expect(dataset.facts).toHaveLength(2849); expect(dataset.features).toHaveLength(3061);
     expect(metadata.counts).toMatchObject({ entities: 564, facts: 2849, evidence: 810, fact_evidence: 3202 });
     const width = dataset.facts.find((f) => f.attribute === "widening_target_width")!, length = dataset.facts.find((f) => f.attribute === "upgrade_section_length")!;
     expect(formatFactValue(width.value, width.unit, "ar")).toBe("11.5 م"); expect(formatFactValue(length.value, length.unit, "ar")).toBe("4 كم");
