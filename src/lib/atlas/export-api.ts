@@ -16,7 +16,7 @@ export const CSV_HEADERS: Record<CsvTable, readonly string[]> = {
 
 export function csvForTable(dataset: StaticAtlasDataset, table: CsvTable): string {
   const rows = table === "fact_evidence" ? dataset.factEvidence : dataset[table];
-  return `# ${OWNER_DATA_LICENSE}\r\n# Contact: 01092500454 · 3boalazm@gmail.com\r\n${serializeCsv(CSV_HEADERS[table], rows as unknown as Array<Record<string, unknown>>)}`;
+  return `# ${OWNER_DATA_LICENSE}\r\n# Contact: 3boalazm@gmail.com\r\n${serializeCsv(CSV_HEADERS[table], rows as unknown as Array<Record<string, unknown>>)}`;
 }
 
 export function exportResponseHeaders(metadata: {
@@ -36,7 +36,7 @@ export function exportResponseHeaders(metadata: {
     // HTTP Headers are ByteString-only; keep these metadata headers ASCII/Latin-1 safe.
     "X-Atlas-Research-Data-License": "CC BY 4.0",
     "X-Atlas-Research-Data-Copyright": "Mustafa Aboalazm",
-    "X-Atlas-License-Contact": "01092500454 / 3boalazm@gmail.com",
+    "X-Atlas-License-Contact": "3boalazm@gmail.com",
     ...(filename ? { "Content-Disposition": `attachment; filename=\"${filename}\"` } : {}),
   };
 }

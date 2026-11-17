@@ -21,8 +21,10 @@ describe("atlas data exports", () => {
     expect(metadata.licenses.research_data).toBe("© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0");
     expect(metadata.licenses.geometry).toContain("© OpenStreetMap contributors, ODbL 1.0");
     expect(metadata.licenses.administrative_boundaries).toContain("CAPMAS");
-    expect(metadata.licenses.contact).toBe("01092500454 · 3boalazm@gmail.com");
-    expect(metadata.licenses.code).toContain("No code license has been specified");
+    expect(metadata.licenses.contact).toBe("3boalazm@gmail.com");
+    expect(JSON.stringify(metadata)).not.toContain("01092500454");
+    expect(metadata.licenses.code).toContain("PolyForm Noncommercial License 1.0.0");
+    expect(metadata.licenses.future_research_data).toContain("CC BY-NC 4.0");
     const headers = new Headers(exportResponseHeaders(metadata, "application/json; charset=utf-8"));
     expect(headers.get("X-Atlas-Research-Data-License")).toBe("CC BY 4.0");
     expect(headers.get("X-Atlas-Research-Data-Copyright")).toBe("Mustafa Aboalazm");
@@ -30,7 +32,8 @@ describe("atlas data exports", () => {
     for (const table of ["entities", "facts", "evidence", "fact_evidence"] as const) {
       const lines = csvForTable(dataset, table).split("\r\n");
       expect(lines[0]).toContain("© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0");
-      expect(lines[1]).toContain("Contact: 01092500454 · 3boalazm@gmail.com");
+      expect(lines[1]).toContain("Contact: 3boalazm@gmail.com");
+      expect(lines.slice(0, 2).join("\n")).not.toContain("01092500454");
       expect(lines[2]).toBe(CSV_HEADERS[table].join(","));
     }
   });

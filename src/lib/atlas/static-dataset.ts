@@ -271,6 +271,7 @@ export async function getExportMetadata(root = process.cwd()): Promise<{
     geometry: string;
     administrative_boundaries: string;
     research_data: string;
+    future_research_data: string;
     code: string;
     contact: string;
     basemap: string;
@@ -303,8 +304,9 @@ export async function getExportMetadata(root = process.cwd()): Promise<{
       geometry: "© OpenStreetMap contributors, ODbL 1.0. Derived geometry exports must retain this ODbL attribution notice.",
       administrative_boundaries: "© CAPMAS (الجهاز المركزي للتعبئة العامة والإحصاء) via OCHA/HDX, CC BY-IGO. Source: https://data.humdata.org/dataset/cod-ab-egy",
       research_data: "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0",
-      code: "No code license has been specified by the owner; code licensing remains for the owner to decide.",
-      contact: "01092500454 · 3boalazm@gmail.com",
+      future_research_data: "Original research material first published from 2026-11-18: CC BY-NC 4.0; see DATA_LICENSE.md. Existing published material remains CC BY 4.0.",
+      code: "Software source code: PolyForm Noncommercial License 1.0.0; see LICENSE. Commercial use requires separate written permission.",
+      contact: "3boalazm@gmail.com",
       basemap: "OpenFreeMap basemap; see https://openfreemap.org/ for its terms and attribution.",
     },
   };
