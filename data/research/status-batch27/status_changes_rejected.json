@@ -1,0 +1,44 @@
+[
+  {
+    "entity_code": "LANDMARK-ICONIC-TOWER",
+    "from": "unknown",
+    "to": "completed_not_operating",
+    "reason": "The official Housing Ministry texts (2026-07-08 and 2026-08-23) describe the tower and review handover status but do not state that its works are complete or that it is not operating. Stays unknown."
+  },
+  {
+    "entity_code": "STOP-BRT-AL-HARAM",
+    "from": "approved_planned",
+    "to": "approved_planned",
+    "reason": "Not built: it belongs to the 18 stations still to be implemented (Ministry of Transport source via Masrawy, 2026-09-29) and is not among the 16 Phase 2 stations (SIS, 2026-09-26). Stays approved_planned."
+  },
+  {
+    "entity_code": "STOP-BRT-FAISAL",
+    "from": "approved_planned",
+    "to": "approved_planned",
+    "reason": "Not built: it belongs to the 18 stations still to be implemented (Ministry of Transport source via Masrawy, 2026-09-29) and is not among the 16 Phase 2 stations (SIS, 2026-09-26). Stays approved_planned."
+  },
+  {
+    "entity_code": "STOP-BRT-TERSA",
+    "from": "approved_planned",
+    "to": "approved_planned",
+    "reason": "Not built: it belongs to the 18 stations still to be implemented (Ministry of Transport source via Masrawy, 2026-09-29) and is not among the 16 Phase 2 stations (SIS, 2026-09-26). Stays approved_planned."
+  },
+  {
+    "entity_code": "ROAD-CAIRO-ASSIUT-AGRI",
+    "from": "unknown",
+    "to": "operational",
+    "reason": "Its official sources could not be opened (batch 08). Stays unknown."
+  },
+  {
+    "entity_code": "TRANSIT-MASPERO-RIVER-PIER",
+    "from": "unknown",
+    "to": "unknown",
+    "reason": "The latest dated official evidence of operation is from 2019 and no source says it closed. Stays unknown."
+  },
+  {
+    "entity_code": "DIST-GREEN-SARAYA",
+    "from": "unknown",
+    "to": "unknown",
+    "reason": "No data found. Stays unknown."
+  }
+]

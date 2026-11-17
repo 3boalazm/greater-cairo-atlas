@@ -1,0 +1,99 @@
+[
+  {
+    "entity_code": "STOP-BRT-AUTOSTRAD",
+    "attribute": "passenger_opening_status",
+    "value": "غير مفتوحة للركاب بعد؛ من محطات المرحلة الثانية الـ16 التي يتوالى دخولها الخدمة تباعاً خلال الفترة القادمة بحسب بيان 2026-09-26",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "entity_code": "STOP-BRT-AUTOSTRAD",
+    "attribute": "status_note",
+    "value": "اكتمل تنفيذ المحطة ولم تدخل الخدمة بعد: مصدر بوزارة النقل (لمصراوي 2026-09-29) يذكر تنفيذ 30 محطة من 48 ضمن المرحلتين الأولى والثانية (14 + 16 وتشمل هذه المحطة) وأن تشغيلها يتوالى تباعاً، وجولة رئيس الوزراء في 2026-09-13 مرّت بها ضمن مسار الأتوبيس",
+    "unit": null,
+    "valid_as_of": "2026-09-29",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-V8-026",
+      "EV-S27-001",
+      "EV-S27-002"
+    ],
+    "notes": "لم يُعثر على إعلان بافتتاح المحطة حتى 2026-11-17 (بحث مفتوح عن أخبار التشغيل)."
+  },
+  {
+    "entity_code": "STOP-BRT-MANSOURIYA",
+    "attribute": "passenger_opening_status",
+    "value": "غير مفتوحة للركاب بعد؛ من محطات المرحلة الثانية الـ16 التي يتوالى دخولها الخدمة تباعاً خلال الفترة القادمة بحسب بيان 2026-09-26",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "entity_code": "STOP-BRT-MANSOURIYA",
+    "attribute": "status_note",
+    "value": "اكتمل تنفيذ المحطة ولم تدخل الخدمة بعد: مصدر بوزارة النقل (لمصراوي 2026-09-29) يذكر تنفيذ 30 محطة من 48 ضمن المرحلتين الأولى والثانية (14 + 16 وتشمل هذه المحطة) وأن تشغيلها يتوالى تباعاً، وجولة رئيس الوزراء في 2026-09-13 مرّت بها ضمن مسار الأتوبيس",
+    "unit": null,
+    "valid_as_of": "2026-09-29",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-V8-026",
+      "EV-S27-001",
+      "EV-S27-002"
+    ],
+    "notes": "لم يُعثر على إعلان بافتتاح المحطة حتى 2026-11-17 (بحث مفتوح عن أخبار التشغيل)."
+  },
+  {
+    "entity_code": "STOP-BRT-ZAHRAA-MAADI",
+    "attribute": "passenger_opening_status",
+    "value": "غير مفتوحة للركاب بعد؛ من محطات المرحلة الثانية الـ16 التي يتوالى دخولها الخدمة تباعاً خلال الفترة القادمة بحسب بيان 2026-09-26",
+    "unit": null,
+    "valid_as_of": "2026-09-26",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-026"
+    ],
+    "notes": null
+  },
+  {
+    "entity_code": "STOP-BRT-ZAHRAA-MAADI",
+    "attribute": "status_note",
+    "value": "اكتمل تنفيذ المحطة ولم تدخل الخدمة بعد: مصدر بوزارة النقل (لمصراوي 2026-09-29) يذكر تنفيذ 30 محطة من 48 ضمن المرحلتين الأولى والثانية (14 + 16 وتشمل هذه المحطة) وأن تشغيلها يتوالى تباعاً، وجولة رئيس الوزراء في 2026-09-13 مرّت بها ضمن مسار الأتوبيس",
+    "unit": null,
+    "valid_as_of": "2026-09-29",
+    "valid_as_of_precision": "day",
+    "verification_state": "corroborated",
+    "evidence_codes": [
+      "EV-V8-026",
+      "EV-S27-001",
+      "EV-S27-002"
+    ],
+    "notes": "لم يُعثر على إعلان بافتتاح المحطة حتى 2026-11-17 (بحث مفتوح عن أخبار التشغيل)."
+  },
+  {
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "attribute": "status_note",
+    "value": "صُنِّف «مغلق / تاريخي»: النشرة الإخبارية الرسمية لمركز المعلومات ودعم اتخاذ القرار (العدد 1116، 21 أغسطس 2025) تثبت أن الشركة تحت التصفية وأن المجمع غير منتج مع دراسة إعادة استغلال أصوله صناعياً",
+    "unit": null,
+    "valid_as_of": "2025-08-21",
+    "valid_as_of_precision": "day",
+    "verification_state": "verified",
+    "evidence_codes": [
+      "EV-V8-015"
+    ],
+    "notes": null
+  }
+]

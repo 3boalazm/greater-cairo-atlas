@@ -1,0 +1,54 @@
+[
+  {
+    "entity_code": "STOP-BRT-AUTOSTRAD",
+    "from": "planned",
+    "to": "completed_not_operating",
+    "basis": [
+      "EV-V8-026",
+      "EV-S27-001",
+      "EV-S27-002"
+    ],
+    "note": "Official SIS release of 2026-09-26 lists the station among the 16 Phase 2 stations whose entry into service follows in the coming period. A Ministry of Transport source (via Masrawy, 2026-09-29) says 30 of the 48 stations are implemented across Phases 1-2 (14 + 16, which includes this station) and that it will be operated one after another. The Prime Minister's inspection ride of 2026-09-13 passed through it. Not yet open."
+  },
+  {
+    "entity_code": "STOP-BRT-MANSOURIYA",
+    "from": "planned",
+    "to": "completed_not_operating",
+    "basis": [
+      "EV-V8-026",
+      "EV-S27-001",
+      "EV-S27-002"
+    ],
+    "note": "Same basis as STOP-BRT-AUTOSTRAD: official SIS release of 2026-09-26 (entry into service follows), Ministry of Transport source via Masrawy 2026-09-29 (implemented, to be operated successively), Prime Minister's inspection ride of 2026-09-13. Not yet open."
+  },
+  {
+    "entity_code": "STOP-BRT-ZAHRAA-MAADI",
+    "from": "planned",
+    "to": "completed_not_operating",
+    "basis": [
+      "EV-V8-026",
+      "EV-S27-001",
+      "EV-S27-002"
+    ],
+    "note": "Same basis as STOP-BRT-AUTOSTRAD: official SIS release of 2026-09-26 (entry into service follows), Ministry of Transport source via Masrawy 2026-09-29 (implemented, to be operated successively), Prime Minister's inspection ride of 2026-09-13. Not yet open."
+  },
+  {
+    "entity_code": "PROJ-CENTRAL-BUSINESS-DISTRICT",
+    "from": "unknown",
+    "to": "completed_not_operating",
+    "basis": [
+      "EV-E8-213",
+      "EV-E8-212"
+    ],
+    "note": "Housing Ministry (official blog): all construction work in the Central Business District is completed (2026-08-23); handover status review and preparation of the operation and management phase (2026-07-08). Proposals for managing the district were still under review; no official statement says it is operating."
+  },
+  {
+    "entity_code": "LANDMARK-HELWAN-IRON-STEEL",
+    "from": "unknown",
+    "to": "closed_historic",
+    "basis": [
+      "EV-V8-015"
+    ],
+    "note": "Official IDSC newsletter no. 1116 (2025-08-21): the company is under liquidation and the plant is non-producing, with its assets under study for industrial re-use."
+  }
+]
