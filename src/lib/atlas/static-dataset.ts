@@ -306,7 +306,7 @@ export async function getExportMetadata(root = process.cwd()): Promise<{
       research_data: "© Mustafa Aboalazm (مصطفى أبوالعزم), licensed under CC BY 4.0",
       future_research_data: "Original research material first published from 2026-11-18: CC BY-NC 4.0; see DATA_LICENSE.md. Existing published material remains CC BY 4.0.",
       code: "Software source code: PolyForm Noncommercial License 1.0.0; see LICENSE. Commercial use requires separate written permission.",
-      contact: "01092500454 · 3boalazm@gmail.com",
+      contact: "3boalazm@gmail.com",
       basemap: "OpenFreeMap basemap; see https://openfreemap.org/ for its terms and attribution.",
     },
   };
