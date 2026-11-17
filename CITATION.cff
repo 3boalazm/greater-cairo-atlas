@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use the Greater Cairo Atlas software or research catalogue, please cite it as follows."
+message: "If you use the Greater Cairo Atlas, please cite the software or research catalogue as follows."
 title: "Greater Cairo Atlas"
 type: software
 authors:
@@ -10,10 +10,12 @@ version: "0.1.0"
 date-released: "2026-11-18"
 url: "https://github.com/3boalazm/greater-cairo-atlas"
 repository-code: "https://github.com/3boalazm/greater-cairo-atlas"
-license: "PolyForm-Noncommercial-1.0.0"
 abstract: >-
   A bilingual, source-backed urban and geographic atlas of Greater Cairo,
   documenting entities, claims, evidence, spatial features, and relationships.
+  The repository contains separately licensed software, legacy research data,
+  prospective research material, and third-party datasets. See DATA_LICENSE.md
+  and LICENSE for the applicable terms; no single licence applies to all contents.
 keywords:
   - Greater Cairo
   - urban research
